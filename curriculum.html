@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Primary -->
+<title>Curriculum & Philosophy — Arena School</title>
+<meta name="description" content="The Arena curriculum — eight principles for what school should look like when every student has a tutor smarter than their teacher in their pocket. Agency, taste, craft, courage — the things AI can't teach." />
+<meta name="author" content="Phillip An" />
+<meta name="theme-color" content="#8F3A28" />
+<link rel="canonical" href="https://arenaschool.org/curriculum" />
+
+<!-- Favicons -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="Arena School" />
+<link rel="manifest" href="/manifest.json" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Arena School" />
+<meta property="og:title" content="Curriculum & Philosophy — Arena School" />
+<meta property="og:description" content="Eight principles for what school should look like when every student has a tutor smarter than their teacher in their pocket." />
+<meta property="og:url" content="https://arenaschool.org/curriculum" />
+<meta property="og:image" content="https://arenaschool.org/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Curriculum & Philosophy — Arena School" />
+<meta name="twitter:description" content="Eight principles for what school should look like when every student has a tutor smarter than their teacher in their pocket." />
+<meta name="twitter:image" content="https://arenaschool.org/og-image.png" />
+
+<link rel="stylesheet" href="styles.css" />
+
+<style>
+  /* ============================================================ HERO + THESIS ============================================================ */
+  .curr-hero {
+    padding-block: clamp(72px, 9vw, 120px);
+    border-bottom: 1px solid var(--border-paper);
+  }
+  .curr-hero .eyebrow { margin-bottom: 20px; }
+  .curr-hero .display {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(38px, 5.6vw, 68px);
+    line-height: 1.04;
+    letter-spacing: -0.018em;
+    max-width: 16ch;
+    margin: 0 0 clamp(28px, 3.6vw, 40px);
+  }
+  .curr-hero .display em { color: var(--accent); }
+  .curr-hero .thesis {
+    font-family: var(--font-display);
+    font-size: clamp(18px, 1.9vw, 22px);
+    line-height: 1.55;
+    color: var(--text-ink);
+    max-width: 62ch;
+  }
+  .curr-hero .thesis em { font-style: italic; color: var(--accent); }
+
+  /* ============================================================ AT-A-GLANCE GRID ============================================================ */
+  .glance {
+    background: var(--bg-paper-soft);
+    padding-block: clamp(60px, 7vw, 92px);
+    border-bottom: 1px solid var(--border-paper);
+  }
+  .glance .sec-head { text-align: center; max-width: 56ch; margin-inline: auto; margin-bottom: clamp(40px, 4.5vw, 56px); }
+  .glance .sec-head .eyebrow { display: block; margin-bottom: 14px; }
+  .glance .sec-head h2 {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(26px, 3.2vw, 36px);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--text-ink);
+    margin: 0;
+  }
+  .glance-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border-paper);
+    border: 1px solid var(--border-paper);
+    max-width: 1140px;
+    margin-inline: auto;
+  }
+  .glance-card {
+    background: var(--bg-paper);
+    padding: clamp(22px, 2.4vw, 28px);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: background var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+    text-decoration: none;
+    color: var(--text-ink);
+    min-height: 220px;
+  }
+  .glance-card:hover { background: #FAF6EC; transform: translateY(-1px); }
+  .glance-card .gc-icon {
+    width: 32px; height: 32px;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .glance-card .gc-num {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .glance-card .gc-name {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(18px, 1.7vw, 20px);
+    line-height: 1.2;
+    color: var(--text-ink);
+    margin: 0;
+  }
+  .glance-card .gc-sub {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--text-ink-soft);
+    margin: 0;
+  }
+  @media (max-width: 980px) { .glance-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .glance-grid { grid-template-columns: 1fr; } }
+
+  /* ============================================================ CASCADE — how principles map to school day ============================================================ */
+  .cascade {
+    padding-block: clamp(72px, 9vw, 120px);
+    border-bottom: 1px solid var(--border-paper);
+    background: var(--bg-paper);
+  }
+  .cascade .sec-head { text-align: center; max-width: 60ch; margin-inline: auto; margin-bottom: clamp(40px, 5vw, 64px); }
+  .cascade .sec-head .eyebrow { display: block; margin-bottom: 14px; }
+  .cascade .sec-head h2 {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(26px, 3.2vw, 36px);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--text-ink);
+    margin: 0 0 12px;
+  }
+  .cascade .sec-head p {
+    font-family: var(--font-display);
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--text-ink-soft);
+    margin: 0;
+  }
+  .cascade-list {
+    max-width: 1000px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .cascade-row {
+    display: grid;
+    grid-template-columns: 56px 1.7fr 1fr;
+    gap: clamp(16px, 2vw, 28px);
+    padding: clamp(20px, 2.4vw, 28px) 0;
+    border-top: 1px solid var(--border-paper);
+    align-items: start;
+  }
+  .cascade-row:last-child { border-bottom: 1px solid var(--border-paper); }
+  .cascade-row .cr-icon {
+    width: 36px; height: 36px;
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .cascade-row .cr-text {
+    min-width: 0;
+  }
+  .cascade-row .cr-name {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(19px, 2vw, 23px);
+    line-height: 1.25;
+    color: var(--text-ink);
+    margin: 0 0 4px;
+  }
+  .cascade-row .cr-name em { font-style: italic; color: var(--accent); }
+  .cascade-row .cr-when {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-ink-muted);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .cascade-row .cr-desc {
+    font-family: var(--font-display);
+    font-size: 15.5px;
+    line-height: 1.55;
+    color: var(--text-ink-soft);
+    margin: 0;
+    max-width: 58ch;
+  }
+  .cascade-row .cr-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: flex-start;
+  }
+  .tag-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 11px;
+    border: 1px solid rgba(143, 58, 40,0.32);
+    background: rgba(143, 58, 40,0.06);
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    color: var(--text-ink);
+    text-decoration: none;
+    transition: background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+    white-space: nowrap;
+  }
+  .tag-pill:hover { background: rgba(143, 58, 40,0.14); border-color: var(--accent); }
+  .tag-pill .tp-num { color: var(--accent); font-weight: 600; }
+  @media (max-width: 780px) {
+    .cascade-row { grid-template-columns: 1fr; gap: 12px; }
+    .cascade-row .cr-icon { width: 28px; height: 28px; }
+  }
+
+  /* ============================================================ PRINCIPLES — deep dive ============================================================ */
+  .principles { padding-block: clamp(40px, 5vw, 56px); }
+
+  .principle {
+    padding-block: clamp(56px, 7vw, 88px);
+    border-bottom: 1px solid var(--border-paper);
+  }
+  .principle:nth-child(even) { background: var(--bg-paper-soft); }
+  .principle:last-child { border-bottom: 0; }
+
+  .principle-inner {
+    max-width: 920px;
+    margin-inline: auto;
+  }
+
+  .principle-head {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: clamp(16px, 2.4vw, 28px);
+    align-items: center;
+    margin-bottom: clamp(28px, 3.5vw, 40px);
+  }
+  .p-icon {
+    width: 56px; height: 56px;
+    color: var(--accent);
+  }
+  .p-head-text { min-width: 0; }
+  .p-roman {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .p-name {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(28px, 3.8vw, 44px);
+    line-height: 1.08;
+    letter-spacing: -0.012em;
+    color: var(--text-ink);
+    margin: 0;
+  }
+  .p-name em { font-style: italic; color: var(--accent); }
+
+  /* vs block */
+  .vs-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(14px, 2vw, 24px);
+    margin-bottom: clamp(28px, 3.5vw, 40px);
+  }
+  .vs-side {
+    padding: clamp(18px, 2.2vw, 24px) clamp(18px, 2.4vw, 26px);
+    border-left: 3px solid var(--border-paper);
+    background: var(--bg-paper);
+  }
+  .vs-side.is-arena {
+    border-left-color: var(--accent);
+    background: rgba(143, 58, 40, 0.04);
+  }
+  .principle:nth-child(even) .vs-side { background: var(--bg-paper); }
+  .principle:nth-child(even) .vs-side.is-arena { background: rgba(143, 58, 40, 0.06); }
+  .vs-side .vs-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-ink-muted);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .vs-side.is-arena .vs-label { color: var(--accent); }
+  .vs-side p {
+    font-family: var(--font-display);
+    font-size: clamp(15.5px, 1.5vw, 17.5px);
+    line-height: 1.5;
+    color: var(--text-ink);
+    margin: 0;
+  }
+  .vs-side p em { font-style: italic; color: var(--accent); }
+  .vs-side.is-school p { color: var(--text-ink-soft); font-style: italic; }
+  @media (max-width: 720px) { .vs-block { grid-template-columns: 1fr; } }
+
+  /* pull quote */
+  .p-quote {
+    padding: clamp(22px, 2.8vw, 32px) 0;
+    border-top: 1px solid var(--border-paper);
+    border-bottom: 1px solid var(--border-paper);
+    margin-bottom: clamp(28px, 3.5vw, 40px);
+    text-align: center;
+  }
+  .p-quote blockquote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(20px, 2.3vw, 26px);
+    line-height: 1.35;
+    color: var(--text-ink);
+    margin: 0 auto;
+    max-width: 36ch;
+  }
+  .p-quote blockquote em { color: var(--accent); font-style: italic; }
+
+  /* curriculum + activities */
+  .p-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(24px, 3vw, 40px);
+    align-items: start;
+  }
+  @media (max-width: 720px) { .p-bottom { grid-template-columns: 1fr; gap: 24px; } }
+
+  .p-block .pb-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  .p-block p {
+    font-family: var(--font-display);
+    font-size: 15.5px;
+    line-height: 1.6;
+    color: var(--text-ink);
+    margin: 0;
+  }
+  .p-block p em { font-style: italic; color: var(--accent); }
+  .p-block ul {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column;
+    gap: 10px;
+  }
+  .p-block ul li {
+    position: relative;
+    padding-left: 22px;
+    font-family: var(--font-display);
+    font-size: 15.5px;
+    line-height: 1.5;
+    color: var(--text-ink);
+  }
+  .p-block ul li::before {
+    content: "→";
+    position: absolute; left: 0; top: 0;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .p-block ul li em { font-style: italic; color: var(--accent); }
+  .p-block ul li strong { color: var(--text-ink); font-weight: 500; }
+
+  /* ============================================================ CLOSING ============================================================ */
+  .curr-closing {
+    background: var(--bg-dark);
+    color: var(--text-cream);
+    padding-block: clamp(72px, 9vw, 120px);
+  }
+  .curr-closing .eyebrow { color: var(--accent); margin-bottom: 22px; }
+  .curr-closing .display {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(24px, 2.8vw, 32px);
+    line-height: 1.4;
+    letter-spacing: -0.005em;
+    color: var(--text-cream);
+    max-width: 56ch;
+    margin: 0 0 32px;
+  }
+  .curr-closing .display em { color: var(--accent); }
+  .curr-closing .closing-cta {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+
+  /* Re-usable icon class */
+  .icon-stroke {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* ============================================================ MOBILE RESPONSIVENESS — explicit tightening pass ============================================================ */
+  @media (max-width: 720px) {
+    /* Hero — tighten display size + line breaks */
+    .curr-hero { padding-block: clamp(56px, 14vw, 80px); }
+    .curr-hero .display {
+      font-size: clamp(34px, 9vw, 44px);
+      max-width: 100%;
+    }
+    .curr-hero .thesis {
+      font-size: 17px;
+      line-height: 1.55;
+    }
+
+    /* Glance section */
+    .glance { padding-block: clamp(48px, 11vw, 64px); }
+    .glance .sec-head h2 { font-size: clamp(22px, 6vw, 28px); }
+    .glance-card { min-height: 0; padding: 22px; gap: 8px; }
+    .glance-card .gc-name { font-size: 18px; }
+    .glance-card .gc-sub { font-size: 13px; }
+
+    /* Cascade section */
+    .cascade { padding-block: clamp(48px, 11vw, 72px); }
+    .cascade .sec-head h2 { font-size: clamp(22px, 6vw, 28px); }
+    .cascade .sec-head p { font-size: 15.5px; }
+    .cascade-row .cr-name { font-size: 19px; }
+    .cascade-row .cr-desc { font-size: 14.5px; }
+    .cascade-row .cr-when { font-size: 9.5px; }
+    .tag-pill { font-size: 9.5px; padding: 4px 9px; }
+
+    /* Principles */
+    .principle { padding-block: clamp(48px, 11vw, 72px); }
+    .principle-head { grid-template-columns: 48px 1fr; gap: 14px; }
+    .p-icon { width: 40px; height: 40px; }
+    .p-name { font-size: clamp(24px, 6.4vw, 30px); }
+
+    .vs-block { gap: 12px; }
+    .vs-side { padding: 16px 16px 16px 20px; }
+    .vs-side p { font-size: 14.5px; }
+    .vs-side .vs-label { font-size: 9.5px; }
+
+    .p-quote { padding: 20px 0; }
+    .p-quote blockquote { font-size: 18px; max-width: 26ch; }
+
+    .p-block .pb-label { font-size: 9.5px; }
+    .p-block p, .p-block ul li { font-size: 14.5px; line-height: 1.55; }
+
+    /* Closing band */
+    .curr-closing { padding-block: clamp(56px, 14vw, 80px); }
+    .curr-closing .display { font-size: clamp(19px, 5vw, 24px); line-height: 1.45; }
+    .curr-closing .closing-cta { gap: 10px; }
+    .curr-closing .closing-cta .btn { flex: 1 1 auto; min-width: 0; text-align: center; }
+  }
+
+  @media (max-width: 480px) {
+    .curr-hero .display { font-size: 32px; }
+    .glance .sec-head h2,
+    .cascade .sec-head h2 { font-size: 22px; }
+    .p-name { font-size: 22px; }
+    .p-quote blockquote { font-size: 17px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ STATUS TICKER ============================================================ -->
+<div class="ticker" id="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-live" aria-hidden="true"><span class="ticker-dot"></span>Live</span>
+    <div class="ticker-msg">
+      <a href="/#pilot" style="color:inherit; text-decoration:none;">
+        <span style="color:var(--accent); font-weight:500; letter-spacing:0.14em;">Just completed</span>
+        <span class="ticker-sep">—</span>
+        International School of Beijing · 100% of teams shipped live products
+      </a>
+    </div>
+    <button class="ticker-x" id="tickerX" aria-label="Dismiss">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5l14 14M19 5L5 19"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- ============================================================ NAV ============================================================ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="wordmark nav-brand">
+      <img class="nav-crest" src="photos/crest.png" alt="" aria-hidden="true" />
+      <span>Arena School</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="/curriculum" aria-current="page">Curriculum</a>
+      <a href="/#pilot">Case study</a>
+      <a href="/schools">For schools</a>
+      <a href="/teachers">For teachers</a>
+    </div>
+    <div class="nav-cta">
+      <div class="lang-switch" aria-label="Language">
+        <a href="/curriculum" class="lang-active" aria-current="page">EN</a>
+        <a href="/index-cn">中文</a>
+      </div>
+      <a href="/#partners" class="btn btn-primary">Build it with us <span class="arr">→</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================ INLINE ICON SPRITES ============================================================ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- I. Agency — diverging arrows from a single point -->
+    <symbol id="icon-agency" viewBox="0 0 64 64">
+      <g class="icon-stroke">
+        <circle cx="20" cy="44" r="3"/>
+        <path d="M20 41 L30 22"/>
+        <path d="M20 41 L44 30"/>
+        <path d="M20 41 L48 50"/>
+        <path d="M27 22 L30 22 L29 25"/>
+        <path d="M41 27 L44 30 L41 32"/>
+      </g>
+    </symbol>
+    <!-- II. Make — hammer + spark -->
+    <symbol id="icon-make" viewBox="0 0 64 64">
+      <g class="icon-stroke">
+        <rect x="18" y="14" width="22" height="10" rx="1.5"/>
+        <path d="M29 24 L29 50"/>
+        <path d="M25 50 L33 50"/>
+        <path d="M46 18 L50 14"/>
+        <path d="M48 26 L52 26"/>
+        <path d="M46 30 L50 34"/>
+      </g>
+    </symbol>
+    <!-- III. Practitioners — two arms / handshake -->
+    <symbol id="icon-practitioners" viewBox="0 0 64 64">
+      <g class="icon-stroke">
+        <path d="M8 36 L20 36 L26 30 L34 30"/>
+        <path d="M56 36 L44 36 L38 42 L30 42"/>
+        <path d="M26 30 L30 34 L34 30"/>
+        <path d="M30 42 L34 38 L38 42"/>
+        <circle cx="32" cy="36" r="2"/>
+      </g>
+    </symbol>
+    <!-- IV. AI Leverage — lever with fulcrum -->
+    <symbol id="icon-leverage" viewBox="0 0 64 64">
+      <g class="icon-stroke">
+        <path d="M10 46 L54 22"/>
+        <path d="M26 36 L34 52 L18 52 Z"/>
+        <circle cx="50" cy="24" r="3"/>
+        <path d="M12 16 L8 20 L12 24"/>
+        <path d="M8 20 L18 20"/>
+      </g>
+    </symbol>
+    <!-- V. Examined life — eye in circle -->
+    <symbol id="icon-examined" viewBox="0 0 64 64">
+      <g class="icon-stroke">
+        <circle cx="32" cy="32" r="22"/>
+        <path d="M16 32 C 22 22, 42 22, 48 32 C 42 42, 22 42, 16 32 Z"/>
+        <circle cx="32" cy="32" r="4"/>
+      </g>
+    </symbol>
+    <!-- VI. Risk early — foot stepping over a gap -->
+    <symbol id="icon-risk" viewBox="0 0 64 64">
+      <g class="icon-stroke">
+        <path d="M6 48 L22 48"/>
+        <path d="M42 48 L58 48"/>
+        <path d="M16 48 C 20 32, 44 32, 48 48"/>
+        <path d="M40 22 L48 32 L40 42"/>
+        <path d="M22 32 L48 32"/>
+      </g>
+    </symbol>
+    <!-- VII. Small choices — ascending dots -->
+    <symbol id="icon-systems" viewBox="0 0 64 64">
+      <g class="icon-stroke">
+        <circle cx="12" cy="50" r="2.4"/>
+        <circle cx="22" cy="44" r="2.4"/>
+        <circle cx="32" cy="36" r="2.4"/>
+        <circle cx="42" cy="26" r="2.4"/>
+        <circle cx="52" cy="14" r="2.4"/>
+        <path d="M14 48 L20 46"/>
+        <path d="M24 42 L30 38"/>
+        <path d="M34 34 L40 28"/>
+        <path d="M44 24 L50 16"/>
+      </g>
+    </symbol>
+    <!-- VIII. Be water — ripples / concentric arcs -->
+    <symbol id="icon-water" viewBox="0 0 64 64">
+      <g class="icon-stroke">
+        <circle cx="32" cy="32" r="6"/>
+        <path d="M16 32 A 16 16 0 0 1 48 32"/>
+        <path d="M16 32 A 16 16 0 0 0 48 32" opacity="0.4"/>
+        <path d="M8 32 A 24 24 0 0 1 56 32" opacity="0.5"/>
+        <path d="M8 32 A 24 24 0 0 0 56 32" opacity="0.25"/>
+      </g>
+    </symbol>
+
+    <!-- Cascade icons — for the day-architecture section -->
+    <symbol id="icon-morning" viewBox="0 0 64 64">
+      <g class="icon-stroke">
+        <circle cx="32" cy="40" r="10"/>
+        <path d="M32 22 L32 16"/>
+        <path d="M18 40 L12 40"/>
+        <path d="M46 40 L52 40"/>
+        <path d="M22 30 L17 25"/>
+        <path d="M42 30 L47 25"/>
+        <path d="M8 52 L56 52"/>
+      </g>
+    </symbol>
+    <symbol id="icon-afternoon" viewBox="0 0 64 64">
+      <g class="icon-stroke">
+        <rect x="14" y="22" width="36" height="26" rx="2"/>
+        <path d="M14 30 L50 30"/>
+        <circle cx="20" cy="26" r="1.2" fill="currentColor"/>
+        <circle cx="24" cy="26" r="1.2" fill="currentColor"/>
+        <path d="M22 38 L28 38"/>
+        <path d="M22 42 L32 42"/>
+        <path d="M40 40 L44 36 L40 32"/>
+      </g>
+    </symbol>
+    <symbol id="icon-mentor" viewBox="0 0 64 64">
+      <g class="icon-stroke">
+        <circle cx="22" cy="22" r="6"/>
+        <path d="M12 50 C 12 42, 32 42, 32 50"/>
+        <circle cx="44" cy="26" r="5"/>
+        <path d="M36 50 C 36 44, 52 44, 52 50"/>
+        <path d="M30 28 L38 30" opacity="0.5"/>
+      </g>
+    </symbol>
+    <symbol id="icon-demo" viewBox="0 0 64 64">
+      <g class="icon-stroke">
+        <rect x="10" y="14" width="44" height="28" rx="2"/>
+        <path d="M32 42 L32 50"/>
+        <path d="M22 50 L42 50"/>
+        <path d="M18 22 L18 36"/>
+        <path d="M26 26 L26 36"/>
+        <path d="M34 18 L34 36"/>
+        <path d="M42 24 L42 36"/>
+      </g>
+    </symbol>
+    <symbol id="icon-quiet" viewBox="0 0 64 64">
+      <g class="icon-stroke">
+        <rect x="14" y="12" width="36" height="40" rx="2"/>
+        <path d="M22 22 L42 22"/>
+        <path d="M22 30 L42 30"/>
+        <path d="M22 38 L34 38"/>
+      </g>
+    </symbol>
+    <symbol id="icon-commits" viewBox="0 0 64 64">
+      <g class="icon-stroke">
+        <path d="M14 16 L14 48"/>
+        <circle cx="14" cy="18" r="3" fill="currentColor"/>
+        <circle cx="14" cy="32" r="3" fill="currentColor"/>
+        <circle cx="14" cy="46" r="3" fill="currentColor"/>
+        <path d="M22 18 L48 18"/>
+        <path d="M22 32 L44 32"/>
+        <path d="M22 46 L50 46"/>
+      </g>
+    </symbol>
+    <symbol id="icon-travel" viewBox="0 0 64 64">
+      <g class="icon-stroke">
+        <circle cx="32" cy="32" r="20"/>
+        <path d="M12 32 L52 32"/>
+        <path d="M32 12 C 22 22, 22 42, 32 52"/>
+        <path d="M32 12 C 42 22, 42 42, 32 52"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<main id="top">
+
+<!-- ============================================================ HERO + THESIS ============================================================ -->
+<section class="curr-hero" data-screen-label="Thesis">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">Curriculum & Philosophy</span>
+      <h1 class="display">What we believe. <br/>What we teach. <br/><em>Why.</em></h1>
+      <p class="thesis">
+        This is our curriculum and our philosophy — eight principles for what school should look like when every student has a tutor smarter than their teacher in their pocket. The things AI can't teach a kid — <em>agency, taste, craft, courage, judgment</em> — are what's left, and what we spend the days building. <em>The water, not the container.</em> Less about transmission, more about <em>the things that decide a life</em>. Less résumé, more eulogy. Less waiting room, more arena. <em>The credit belongs to the one who is actually in it.</em>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ AT-A-GLANCE GRID ============================================================ -->
+<section class="glance" data-screen-label="The eight principles">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The eight principles</span>
+      <h2>The whole curriculum, on one screen.</h2>
+    </div>
+    <div class="glance-grid reveal">
+      <a href="#agency" class="glance-card">
+        <svg class="gc-icon" aria-hidden="true"><use href="#icon-agency"/></svg>
+        <span class="gc-num">I</span>
+        <h3 class="gc-name">Agency over compliance</h3>
+        <p class="gc-sub">Students choose what to build on day one. Mentors refuse to hand them a brief.</p>
+      </a>
+      <a href="#make" class="glance-card">
+        <svg class="gc-icon" aria-hidden="true"><use href="#icon-make"/></svg>
+        <span class="gc-num">II</span>
+        <h3 class="gc-name">Make things — in front of people</h3>
+        <p class="gc-sub">Build. Present. Share. Reflect. Repeat. The week is the loop, compressed.</p>
+      </a>
+      <a href="#practitioners" class="glance-card">
+        <svg class="gc-icon" aria-hidden="true"><use href="#icon-practitioners"/></svg>
+        <span class="gc-num">III</span>
+        <h3 class="gc-name">Practitioners, not credentials</h3>
+        <p class="gc-sub">Taught by people who've actually shipped — founders, engineers, designers.</p>
+      </a>
+      <a href="#leverage" class="glance-card">
+        <svg class="gc-icon" aria-hidden="true"><use href="#icon-leverage"/></svg>
+        <span class="gc-num">IV</span>
+        <h3 class="gc-name">AI is leverage, not a crutch</h3>
+        <p class="gc-sub">Tools handle the floor. Students spend the saved time on the part only they can do.</p>
+      </a>
+      <a href="#examined" class="glance-card">
+        <svg class="gc-icon" aria-hidden="true"><use href="#icon-examined"/></svg>
+        <span class="gc-num">V</span>
+        <h3 class="gc-name">The examined life, early</h3>
+        <p class="gc-sub">Thirty minutes a day, no screen, one notebook, one honest question.</p>
+      </a>
+      <a href="#risk" class="glance-card">
+        <svg class="gc-icon" aria-hidden="true"><use href="#icon-risk"/></svg>
+        <span class="gc-num">VI</span>
+        <h3 class="gc-name">Risk early, while it's cheap</h3>
+        <p class="gc-sub">Public demos are non-optional. Courage is a muscle built through micro-reps.</p>
+      </a>
+      <a href="#systems" class="glance-card">
+        <svg class="gc-icon" aria-hidden="true"><use href="#icon-systems"/></svg>
+        <span class="gc-num">VII</span>
+        <h3 class="gc-name">Small choices, real systems</h3>
+        <p class="gc-sub">Small promises kept in public, every day. The system is the artifact.</p>
+      </a>
+      <a href="#water" class="glance-card">
+        <svg class="gc-icon" aria-hidden="true"><use href="#icon-water"/></svg>
+        <span class="gc-num">VIII</span>
+        <h3 class="gc-name">Be water — first principles</h3>
+        <p class="gc-sub">Every project stress-tested with five questions. Graded on whether they asked.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ CASCADE — principles → school architecture ============================================================ -->
+<section class="cascade" data-screen-label="How the day is built">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">How the principles cascade into a day</span>
+      <h2>Eight principles, seven moving parts of a real cohort.</h2>
+      <p>The principles aren't a poster on the wall. They're built into how every cohort we've run actually works: what gets taught, when the build freezes, and who is in the room on demo day.</p>
+    </div>
+
+    <div class="cascade-list">
+      <!-- Just-in-time teaching -->
+      <div class="cascade-row reveal">
+        <svg class="cr-icon" aria-hidden="true"><use href="#icon-morning"/></svg>
+        <div class="cr-text">
+          <span class="cr-when">short bursts · right before they're needed</span>
+          <h3 class="cr-name">Just-in-time teaching · <em>frameworks at the moment of need.</em></h3>
+          <p class="cr-desc">No lectures for their own sake. Interviewing is taught the hour before real user interviews. Pricing the day the product goes on sale. Pitch anatomy the day before the stage. Every framework lands because it is used within the hour.</p>
+        </div>
+        <div class="cr-tags">
+          <a href="#leverage" class="tag-pill"><span class="tp-num">IV</span> Leverage</a>
+          <a href="#agency" class="tag-pill"><span class="tp-num">I</span> Agency</a>
+          <a href="#systems" class="tag-pill"><span class="tp-num">VII</span> Systems</a>
+        </div>
+      </div>
+
+      <!-- Build afternoons -->
+      <div class="cascade-row reveal">
+        <svg class="cr-icon" aria-hidden="true"><use href="#icon-afternoon"/></svg>
+        <div class="cr-text">
+          <span class="cr-when">most of every day</span>
+          <h3 class="cr-name">Build blocks · <em>the workshop.</em></h3>
+          <p class="cr-desc">Teams pick a real problem they care about and ship a real AI product. The whole day's craft work — design, code, user research, iteration — happens here with mentors in the room.</p>
+        </div>
+        <div class="cr-tags">
+          <a href="#make" class="tag-pill"><span class="tp-num">II</span> Make</a>
+          <a href="#leverage" class="tag-pill"><span class="tp-num">IV</span> Leverage</a>
+          <a href="#water" class="tag-pill"><span class="tp-num">VIII</span> Be water</a>
+        </div>
+      </div>
+
+      <!-- Mentor 1:1 -->
+      <div class="cascade-row reveal">
+        <svg class="cr-icon" aria-hidden="true"><use href="#icon-mentor"/></svg>
+        <div class="cr-text">
+          <span class="cr-when">throughout the build block</span>
+          <h3 class="cr-name">Practitioner 1:1s — <em>standing next to you.</em></h3>
+          <p class="cr-desc">Founders, engineers, and designers who've actually shipped sit alongside students while they're stuck. Not office hours — real pair-work, real reviews, the question you couldn't ask yourself.</p>
+        </div>
+        <div class="cr-tags">
+          <a href="#practitioners" class="tag-pill"><span class="tp-num">III</span> Practitioners</a>
+          <a href="#examined" class="tag-pill"><span class="tp-num">V</span> Examined life</a>
+        </div>
+      </div>
+
+      <!-- The freeze -->
+      <div class="cascade-row reveal">
+        <svg class="cr-icon" aria-hidden="true"><use href="#icon-quiet"/></svg>
+        <div class="cr-text">
+          <span class="cr-when">a fixed hour · no extensions</span>
+          <h3 class="cr-name">The freeze · <em>deadlines that teach scope.</em></h3>
+          <p class="cr-desc">At a fixed hour the build freezes. Whatever is live is what demos. Students learn the thing school never teaches: how to cut scope, finish, and stand behind an imperfect real thing instead of a perfect imaginary one.</p>
+        </div>
+        <div class="cr-tags">
+          <a href="#examined" class="tag-pill"><span class="tp-num">V</span> Examined life</a>
+          <a href="#systems" class="tag-pill"><span class="tp-num">VII</span> Systems</a>
+        </div>
+      </div>
+
+      <!-- Daily commits -->
+      <div class="cascade-row reveal">
+        <svg class="cr-icon" aria-hidden="true"><use href="#icon-commits"/></svg>
+        <div class="cr-text">
+          <span class="cr-when">end of every day</span>
+          <h3 class="cr-name">Daily standups · <em>run like a company.</em></h3>
+          <p class="cr-desc">Kanban boards with one name per card. Three-line syncs: shipped, learned, next. Teams manage their own backlog like a real company because, by mid-week, they are one.</p>
+        </div>
+        <div class="cr-tags">
+          <a href="#systems" class="tag-pill"><span class="tp-num">VII</span> Systems</a>
+          <a href="#agency" class="tag-pill"><span class="tp-num">I</span> Agency</a>
+        </div>
+      </div>
+
+      <!-- Demo day -->
+      <div class="cascade-row reveal">
+        <svg class="cr-icon" aria-hidden="true"><use href="#icon-demo"/></svg>
+        <div class="cr-text">
+          <span class="cr-when">at the close of every cohort</span>
+          <h3 class="cr-name">Demo day — <em>the public reckoning.</em></h3>
+          <p class="cr-desc">Live pitch to a real panel — practitioners, investors, parents. Strongest teams win prizes. Every kid ships something they're not sure about, in front of a room, and survives it. That's the callus we're after.</p>
+        </div>
+        <div class="cr-tags">
+          <a href="#make" class="tag-pill"><span class="tp-num">II</span> Make</a>
+          <a href="#risk" class="tag-pill"><span class="tp-num">VI</span> Risk early</a>
+          <a href="#agency" class="tag-pill"><span class="tp-num">I</span> Agency</a>
+        </div>
+      </div>
+
+      <!-- Program formats -->
+      <div class="cascade-row reveal">
+        <svg class="cr-icon" aria-hidden="true"><use href="#icon-travel"/></svg>
+        <div class="cr-text">
+          <span class="cr-when">breaks · weekends · after school</span>
+          <h3 class="cr-name">Formats that fit around school · <em>not a school to switch to.</em></h3>
+          <p class="cr-desc">Five-day intensives over school breaks. School-year programs on weekends and after school, where the companies keep running. Partner cohorts co-run at host schools. Hong Kong and Beijing complete; next cohort Winter 2026.</p>
+        </div>
+        <div class="cr-tags">
+          <a href="#water" class="tag-pill"><span class="tp-num">VIII</span> Be water</a>
+          <a href="#risk" class="tag-pill"><span class="tp-num">VI</span> Risk early</a>
+          <a href="#practitioners" class="tag-pill"><span class="tp-num">III</span> Practitioners</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ PRINCIPLES — DEEP DIVE ============================================================ -->
+<section class="principles">
+
+  <!-- I. Agency over compliance -->
+  <article class="principle" id="agency">
+    <div class="container">
+      <div class="principle-inner">
+        <header class="principle-head reveal">
+          <svg class="p-icon" aria-hidden="true"><use href="#icon-agency"/></svg>
+          <div class="p-head-text">
+            <span class="p-roman">Principle I</span>
+            <h2 class="p-name">Agency <em>over compliance.</em></h2>
+          </div>
+        </header>
+
+        <div class="vs-block reveal">
+          <div class="vs-side is-school">
+            <span class="vs-label">What school does</span>
+            <p>Rewards obedience, grades the rubric — then wonders why graduates can't decide anything without permission.</p>
+          </div>
+          <div class="vs-side is-arena">
+            <span class="vs-label">What Arena does</span>
+            <p>Hands students a blank slate on day one. Mentors refuse to write the brief. The first hour is uncomfortable on purpose.</p>
+          </div>
+        </div>
+
+        <div class="p-quote reveal">
+          <blockquote>The quiet, steady power to <em>decide what story</em> you'll tell about your own life.</blockquote>
+        </div>
+
+        <div class="p-bottom">
+          <div class="p-block reveal">
+            <span class="pb-label">In the curriculum</span>
+            <p>Students choose what to build on day one. The moment a kid moves from <em>tell me what to do</em> to <em>I think I'll try this</em>, the rest of the week unlocks. Every cohort ends with a "promise to self" — one small thing they commit to keeping for ninety days. The shipped product is the artifact. The deeper artifact is the kid who proved to themselves they could <em>cast the small vote anyway</em>.</p>
+          </div>
+          <div class="p-block reveal">
+            <span class="pb-label">What students actually do</span>
+            <ul>
+              <li><strong>On the first morning</strong> — pitch your idea to the cohort. Three minutes. No deck.</li>
+              <li><strong>Early on</strong> — interview three potential users yourself, in person or by cold email.</li>
+              <li><strong>At the close</strong> — write your "promise to self" for the next 90 days. Print it. Sign it.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- II. Make things, in front of people -->
+  <article class="principle" id="make">
+    <div class="container">
+      <div class="principle-inner">
+        <header class="principle-head reveal">
+          <svg class="p-icon" aria-hidden="true"><use href="#icon-make"/></svg>
+          <div class="p-head-text">
+            <span class="p-roman">Principle II</span>
+            <h2 class="p-name">Make things — <em>in front of people.</em></h2>
+          </div>
+        </header>
+
+        <div class="vs-block reveal">
+          <div class="vs-side is-school">
+            <span class="vs-label">What school does</span>
+            <p>Grades a five-paragraph essay no one will ever read and calls that learning.</p>
+          </div>
+          <div class="vs-side is-arena">
+            <span class="vs-label">What Arena does</span>
+            <p>The week is one loop, compressed: <em>build, present, share, reflect, repeat.</em> Every day ends with a demo. Every demo is a small public reckoning.</p>
+          </div>
+        </div>
+
+        <div class="p-quote reveal">
+          <blockquote>Taste, judgment, courage — <em>can't be taught from a textbook. They have to be lived.</em></blockquote>
+        </div>
+
+        <div class="p-bottom">
+          <div class="p-block reveal">
+            <span class="pb-label">In the curriculum</span>
+            <p>First days: pick a problem you actually care about. Last day: present a working product to a room of real adults — practitioners, parents, peers who will not pity-clap. The artifact is a thing on the internet with your name on it, that <em>someone other than your mom can use</em>.</p>
+          </div>
+          <div class="p-block reveal">
+            <span class="pb-label">What students actually do</span>
+            <ul>
+              <li><strong>By midway</strong> — ship a working prototype to a public URL. Anyone can use it.</li>
+              <li><strong>Toward the end</strong> — record a 90-second demo film. Post it.</li>
+              <li><strong>Demo day</strong> — 5-minute live pitch + Q&A to an 8-person panel.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- III. Practitioners, not credentials -->
+  <article class="principle" id="practitioners">
+    <div class="container">
+      <div class="principle-inner">
+        <header class="principle-head reveal">
+          <svg class="p-icon" aria-hidden="true"><use href="#icon-practitioners"/></svg>
+          <div class="p-head-text">
+            <span class="p-roman">Principle III</span>
+            <h2 class="p-name">Practitioners, <em>not credentials.</em></h2>
+          </div>
+        </header>
+
+        <div class="vs-block reveal">
+          <div class="vs-side is-school">
+            <span class="vs-label">What school does</span>
+            <p>Mistakes a teaching certificate for the right to teach a thing. Hires well-intentioned generalists who've never built what they're teaching.</p>
+          </div>
+          <div class="vs-side is-arena">
+            <span class="vs-label">What Arena does</span>
+            <p>Staffs every week with people who've actually shipped — a founder who's raised, an engineer who's deployed, a designer whose work you've used.</p>
+          </div>
+        </div>
+
+        <div class="p-quote reveal">
+          <blockquote>You wouldn't learn investing from someone who's <em>only read about it</em>.</blockquote>
+        </div>
+
+        <div class="p-bottom">
+          <div class="p-block reveal">
+            <span class="pb-label">In the curriculum</span>
+            <p>Mentorship is real — not office hours, but a person standing next to you while you're stuck. Students walk out with a handful of adults who now know their name, and a clearer sense of what <em>good</em> actually looks like in the wild.</p>
+          </div>
+          <div class="p-block reveal">
+            <span class="pb-label">What students actually do</span>
+            <ul>
+              <li><strong>Early on</strong> — pair-code with a YC-backed founder for two hours.</li>
+              <li><strong>Mid-cohort</strong> — design review with a design lead from a company you've heard of.</li>
+              <li><strong>At the close</strong> — get a written, no-holds-barred code review from a senior engineer.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- IV. AI is leverage, not a crutch -->
+  <article class="principle" id="leverage">
+    <div class="container">
+      <div class="principle-inner">
+        <header class="principle-head reveal">
+          <svg class="p-icon" aria-hidden="true"><use href="#icon-leverage"/></svg>
+          <div class="p-head-text">
+            <span class="p-roman">Principle IV</span>
+            <h2 class="p-name">AI is leverage, <em>not a crutch.</em></h2>
+          </div>
+        </header>
+
+        <div class="vs-block reveal">
+          <div class="vs-side is-school">
+            <span class="vs-label">What school does</span>
+            <p>Bans the tool that will define these kids' working lives — and then tests them on what the tool already does better.</p>
+          </div>
+          <div class="vs-side is-arena">
+            <span class="vs-label">What Arena does</span>
+            <p>AI in every seat from minute one. Not as a crutch — as a co-pilot. Students learn to prompt, critique, catch the hallucination.</p>
+          </div>
+        </div>
+
+        <div class="p-quote reveal">
+          <blockquote>A twelve-year-old can now ship what was a college-senior project a few years ago. <em>That's the new floor.</em></blockquote>
+        </div>
+
+        <div class="p-bottom">
+          <div class="p-block reveal">
+            <span class="pb-label">In the curriculum</span>
+            <p>Students spend the time the tool gave them back on the part only they can do — the taste call, the design call, the <em>what should we actually build</em> call. The artifact is a kid who can sit down at a blank screen with an idea and have a working version by dinner.</p>
+          </div>
+          <div class="p-block reveal">
+            <span class="pb-label">What students actually do</span>
+            <ul>
+              <li><strong>Prompt like an operator</strong>: a shared vault of battle-tested prompts, from starter build to launch video.</li>
+              <li><strong>Build with coding agents</strong>: an AI pair-programmer all week; ship products you could not have written a year ago.</li>
+              <li><strong>Every day</strong>: critique the AI output. Catch the hallucination. Learn where it fails.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- V. The examined life, started early -->
+  <article class="principle" id="examined">
+    <div class="container">
+      <div class="principle-inner">
+        <header class="principle-head reveal">
+          <svg class="p-icon" aria-hidden="true"><use href="#icon-examined"/></svg>
+          <div class="p-head-text">
+            <span class="p-roman">Principle V</span>
+            <h2 class="p-name">The examined life, <em>started early.</em></h2>
+          </div>
+        </header>
+
+        <div class="vs-block reveal">
+          <div class="vs-side is-school">
+            <span class="vs-label">What school does</span>
+            <p>Optimizes the résumé column and skips the eulogy column entirely.</p>
+          </div>
+          <div class="vs-side is-arena">
+            <span class="vs-label">What Arena does</span>
+            <p>Thirty minutes a day, no screen, a notebook, one honest question. Mentors model how they answer — badly, honestly.</p>
+          </div>
+        </div>
+
+        <div class="p-quote reveal">
+          <blockquote>Whose life <em>is it?</em></blockquote>
+        </div>
+
+        <div class="p-bottom">
+          <div class="p-block reveal">
+            <span class="pb-label">In the curriculum</span>
+            <p>The artifact is a small private document each student leaves with — not a plan, but a list of questions they now know to keep asking themselves on the Tuesdays no one will ever notice.</p>
+          </div>
+          <div class="p-block reveal">
+            <span class="pb-label">What students actually do</span>
+            <ul>
+              <li><strong>Daily reflection</strong>: three lines at standup, shipped, learned, next.</li>
+              <li><strong>The three questions</strong> — <em>What did I enjoy today? What did I do because someone was watching? What would I work on if no one ever found out?</em></li>
+              <li><strong>At the close</strong> — a letter to your future self. Read it again in a year.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- VI. Risk early -->
+  <article class="principle" id="risk">
+    <div class="container">
+      <div class="principle-inner">
+        <header class="principle-head reveal">
+          <svg class="p-icon" aria-hidden="true"><use href="#icon-risk"/></svg>
+          <div class="p-head-text">
+            <span class="p-roman">Principle VI</span>
+            <h2 class="p-name">Risk early, <em>while it's cheap.</em></h2>
+          </div>
+        </header>
+
+        <div class="vs-block reveal">
+          <div class="vs-side is-school">
+            <span class="vs-label">What school does</span>
+            <p>Penalizes the wrong answer and rewards the safe one — which trains exactly the kid the world will punish hardest.</p>
+          </div>
+          <div class="vs-side is-arena">
+            <span class="vs-label">What Arena does</span>
+            <p>Public demos are non-optional. Cold-emailing the practitioner you want to learn from is a Tuesday assignment.</p>
+          </div>
+        </div>
+
+        <div class="p-quote reveal">
+          <blockquote>Courage isn't a trait you're born with. <em>It's a muscle built through micro-reps.</em></blockquote>
+        </div>
+
+        <div class="p-bottom">
+          <div class="p-block reveal">
+            <span class="pb-label">In the curriculum</span>
+            <p>Every kid ships something they're not sure about, in front of a room, and survives it. The artifact is a callus. A cohort won't make them fearless — they'll just be slightly less afraid of the thing they were most afraid of when they walked in. <em>That's the rep that compounds.</em></p>
+          </div>
+          <div class="p-block reveal">
+            <span class="pb-label">What students actually do</span>
+            <ul>
+              <li><strong>Early on</strong> — cold-email a stranger who's an expert in your problem. Ask for 15 minutes.</li>
+              <li><strong>Mid-cohort</strong> — show your half-broken prototype to real users. Take the feedback live.</li>
+              <li><strong>Demo day</strong> — pitch to investors with real prizes on the line.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- VII. Small choices, real systems -->
+  <article class="principle" id="systems">
+    <div class="container">
+      <div class="principle-inner">
+        <header class="principle-head reveal">
+          <svg class="p-icon" aria-hidden="true"><use href="#icon-systems"/></svg>
+          <div class="p-head-text">
+            <span class="p-roman">Principle VII</span>
+            <h2 class="p-name">Small choices, <em>real systems.</em></h2>
+          </div>
+        </header>
+
+        <div class="vs-block reveal">
+          <div class="vs-side is-school">
+            <span class="vs-label">What school does</span>
+            <p>Optimizes for the test in May and teaches nothing about the Tuesday in November.</p>
+          </div>
+          <div class="vs-side is-arena">
+            <span class="vs-label">What Arena does</span>
+            <p>Every morning is a small promise kept in public. Every kid posts a daily commit: what they built, what they learned, what they'd do differently.</p>
+          </div>
+        </div>
+
+        <div class="p-quote reveal">
+          <blockquote>The person you become at forty is mostly the person who showed up on <em>a few thousand Tuesdays in their twenties.</em></blockquote>
+        </div>
+
+        <div class="p-bottom">
+          <div class="p-block reveal">
+            <span class="pb-label">In the curriculum</span>
+            <p>Kids leave with a one-page personal operating system they wrote themselves — morning ritual, weekly review, the friend who has permission to call them out. <em>The system is the artifact. The project is the proof the system worked once.</em></p>
+          </div>
+          <div class="p-block reveal">
+            <span class="pb-label">What students actually do</span>
+            <ul>
+              <li><strong>End of every day</strong> — post a daily commit to the cohort: built, learned, would-do-differently.</li>
+              <li><strong>At the close</strong> — run a public post-mortem on what shipped. No flinching.</li>
+              <li><strong>Take-home</strong> — write your one-page personal operating system. Pin it above your desk.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- VIII. Be water -->
+  <article class="principle" id="water">
+    <div class="container">
+      <div class="principle-inner">
+        <header class="principle-head reveal">
+          <svg class="p-icon" aria-hidden="true"><use href="#icon-water"/></svg>
+          <div class="p-head-text">
+            <span class="p-roman">Principle VIII</span>
+            <h2 class="p-name">Be water — <em>first principles over inherited form.</em></h2>
+          </div>
+        </header>
+
+        <div class="vs-block reveal">
+          <div class="vs-side is-school">
+            <span class="vs-label">What school does</span>
+            <p>Trains masters of execution and strangers to understanding.</p>
+          </div>
+          <div class="vs-side is-arena">
+            <span class="vs-label">What Arena does</span>
+            <p>Every project stress-tested with five questions: <em>how, why, what principle, when does it fail, how do I adapt.</em></p>
+          </div>
+        </div>
+
+        <div class="p-quote reveal">
+          <blockquote>The most advanced thing in any room will still, always, be <em>a human being who knows who they are.</em></blockquote>
+        </div>
+
+        <div class="p-bottom">
+          <div class="p-block reveal">
+            <span class="pb-label">In the curriculum</span>
+            <p>Students aren't graded on the answer — they're graded on whether they asked. The artifact is a thinking move they now own. The kid who can ask <em>why are we doing it this way</em> in any room, for the rest of their life — that's who Arena is trying to send back into the world.</p>
+          </div>
+          <div class="p-block reveal">
+            <span class="pb-label">What students actually do</span>
+            <ul>
+              <li><strong>Early on</strong> — run the five questions on your project. Defend each level.</li>
+              <li><strong>Mid-cohort</strong> — find a competing approach. Steelman it. Then decide.</li>
+              <li><strong>Toward the end</strong> — pivot something material based on user feedback. Show your work.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+</section>
+
+<!-- ============================================================ CLOSING ============================================================ -->
+<section class="curr-closing dark-band" data-screen-label="The whole thing">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">The whole curriculum, in one paragraph</span>
+      <p class="display">
+        Arena is a school for students ages twelve to twenty-two — built around shipping real AI products alongside practitioners who've actually built things, learning to ask <em>why</em> until they hit principle, and starting — early, before the script of inherited ambition hardens around them — the only project that compounds for the rest of a life: figuring out whose life it is, and <em>casting the small vote anyway</em>. They walk out with a working product, a small system they wrote themselves, a handful of adults who now know their name, and a callus where their fear of public demos used to be.
+      </p>
+      <div class="closing-cta">
+        <a href="/#partners" class="btn btn-primary">Build it with us <span class="arr">→</span></a>
+        <a href="/#pilot" class="btn btn-ghost">See the cohort results</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================ FOOTER (shared) ============================================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="crest crest-img footer-crest" src="photos/crest.png" alt="Arena School crest" />
+        <a href="/" class="wordmark">Arena School</a>
+        <p class="tag">A school for the day school never had time for.</p>
+        <p class="footer-license-line">Next cohort · Winter 2026 · Guangzhou.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Read</h4>
+        <a href="/#manifesto">Manifesto</a>
+        <a href="/curriculum">Curriculum & Philosophy</a>
+        <a href="/#ai-changed">What AI changed</a>
+        <a href="/#why">Why Arena</a>
+        <a href="/#structure">The cohort structure</a>
+      </div>
+      <div class="footer-col">
+        <h4>Cohorts</h4>
+        <a href="/case-study-hong-kong">Bodley Academy · Hong Kong 2025 · Students</a>
+        <a href="/case-study-beijing">Int'l School of Beijing · 2026 · Students</a>
+        <a href="/zero-to-launch">The AI Advantage Bootcamp · Guangzhou · Early career</a>
+        <a href="/#partners">Run one at your school</a>
+      </div>
+      <div class="footer-col">
+        <h4>Build with us</h4>
+        <a href="/#partners">For schools</a>
+        <a href="/teachers">AI training for teachers</a>
+        <a href="/speaking">Speaking and workshops</a>
+        <a href="/#partners">For parents · students</a>
+        <a href="mailto:hello@arena.school">hello@arena.school</a>
+        <a href="https://github.com/arena-school" target="_blank" rel="noopener">Curriculum on GitHub</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Arena School</span>
+      <span>Next cohort · Winter 2026 · Guangzhou</span>
+    </div>
+  </div>
+</footer>
+
+<script src="image-slot.js"></script>
+<script src="motion.js"></script>
+</body>
+</html>

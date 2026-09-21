@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Primary -->
+<title>课程与理念 · Arena School</title>
+<meta name="description" content="Arena的课程与理念：当每个学生口袋里都有一个比老师更聪明的导师时,学校应该是什么样子。八条原则,关于AI教不了的东西：主动性、审美、手艺、勇气。" />
+<meta name="author" content="Phillip An" />
+<meta name="theme-color" content="#8F3A28" />
+<link rel="canonical" href="https://arenaschool.org/curriculum-cn" />
+
+<!-- Favicons -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="Arena School" />
+<link rel="manifest" href="/manifest.json" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Arena School" />
+<meta property="og:title" content="课程与理念 · Arena School" />
+<meta property="og:description" content="当每个学生口袋里都有一个比老师更聪明的导师时,学校应该是什么样子。八条原则。" />
+<meta property="og:url" content="https://arenaschool.org/curriculum-cn" />
+<meta property="og:image" content="https://arenaschool.org/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="zh_CN" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="课程与理念 · Arena School" />
+<meta name="twitter:description" content="当每个学生口袋里都有一个比老师更聪明的导师时,学校应该是什么样子。八条原则。" />
+<meta name="twitter:image" content="https://arenaschool.org/og-image.png" />
+
+<link rel="stylesheet" href="styles.css" />
+
+<style>
+  /* ============================================================ HERO + THESIS ============================================================ */
+  .curr-hero {
+    padding-block: clamp(72px, 9vw, 120px);
+    border-bottom: 1px solid var(--border-paper);
+  }
+  .curr-hero .eyebrow { margin-bottom: 20px; }
+  .curr-hero .display {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(38px, 5.6vw, 68px);
+    line-height: 1.04;
+    letter-spacing: -0.018em;
+    max-width: 16ch;
+    margin: 0 0 clamp(28px, 3.6vw, 40px);
+  }
+  .curr-hero .display em { color: var(--accent); }
+  .curr-hero .thesis {
+    font-family: var(--font-display);
+    font-size: clamp(18px, 1.9vw, 22px);
+    line-height: 1.55;
+    color: var(--text-ink);
+    max-width: 62ch;
+  }
+  .curr-hero .thesis em { font-style: italic; color: var(--accent); }
+
+  /* ============================================================ AT-A-GLANCE GRID ============================================================ */
+  .glance {
+    background: var(--bg-paper-soft);
+    padding-block: clamp(60px, 7vw, 92px);
+    border-bottom: 1px solid var(--border-paper);
+  }
+  .glance .sec-head { text-align: center; max-width: 56ch; margin-inline: auto; margin-bottom: clamp(40px, 4.5vw, 56px); }
+  .glance .sec-head .eyebrow { display: block; margin-bottom: 14px; }
+  .glance .sec-head h2 {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(26px, 3.2vw, 36px);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--text-ink);
+    margin: 0;
+  }
+  .glance-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border-paper);
+    border: 1px solid var(--border-paper);
+    max-width: 1140px;
+    margin-inline: auto;
+  }
+  .glance-card {
+    background: var(--bg-paper);
+    padding: clamp(22px, 2.4vw, 28px);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: background var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+    text-decoration: none;
+    color: var(--text-ink);
+    min-height: 220px;
+  }
+  .glance-card:hover { background: #FAF6EC; transform: translateY(-1px); }
+  .glance-card .gc-icon {
+    width: 32px; height: 32px;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .glance-card .gc-num {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .glance-card .gc-name {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(18px, 1.7vw, 20px);
+    line-height: 1.2;
+    color: var(--text-ink);
+    margin: 0;
+  }
+  .glance-card .gc-sub {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--text-ink-soft);
+    margin: 0;
+  }
+  @media (max-width: 980px) { .glance-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .glance-grid { grid-template-columns: 1fr; } }
+
+  /* ============================================================ CASCADE : how principles map to school day ============================================================ */
+  .cascade {
+    padding-block: clamp(72px, 9vw, 120px);
+    border-bottom: 1px solid var(--border-paper);
+    background: var(--bg-paper);
+  }
+  .cascade .sec-head { text-align: center; max-width: 60ch; margin-inline: auto; margin-bottom: clamp(40px, 5vw, 64px); }
+  .cascade .sec-head .eyebrow { display: block; margin-bottom: 14px; }
+  .cascade .sec-head h2 {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(26px, 3.2vw, 36px);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--text-ink);
+    margin: 0 0 12px;
+  }
+  .cascade .sec-head p {
+    font-family: var(--font-display);
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--text-ink-soft);
+    margin: 0;
+  }
+  .cascade-list {
+    max-width: 1000px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .cascade-row {
+    display: grid;
+    grid-template-columns: 56px 1.7fr 1fr;
+    gap: clamp(16px, 2vw, 28px);
+    padding: clamp(20px, 2.4vw, 28px) 0;
+    border-top: 1px solid var(--border-paper);
+    align-items: start;
+  }
+  .cascade-row:last-child { border-bottom: 1px solid var(--border-paper); }
+  .cascade-row .cr-icon {
+    width: 36px; height: 36px;
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .cascade-row .cr-text {
+    min-width: 0;
+  }
+  .cascade-row .cr-name {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(19px, 2vw, 23px);
+    line-height: 1.25;
+    color: var(--text-ink);
+    margin: 0 0 4px;
+  }
+  .cascade-row .cr-name em { font-style: italic; color: var(--accent); }
+  .cascade-row .cr-when {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-ink-muted);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .cascade-row .cr-desc {
+    font-family: var(--font-display);
+    font-size: 15.5px;
+    line-height: 1.55;
+    color: var(--text-ink-soft);
+    margin: 0;
+    max-width: 58ch;
+  }
+  .cascade-row .cr-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: flex-start;
+  }
+  .tag-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 11px;
+    border: 1px solid rgba(143, 58, 40,0.32);
+    background: rgba(143, 58, 40,0.06);
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    color: var(--text-ink);
+    text-decoration: none;
+    transition: background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+    white-space: nowrap;
+  }
+  .tag-pill:hover { background: rgba(143, 58, 40,0.14); border-color: var(--accent); }
+  .tag-pill .tp-num { color: var(--accent); font-weight: 600; }
+  @media (max-width: 780px) {
+    .cascade-row { grid-template-columns: 1fr; gap: 12px; }
+    .cascade-row .cr-icon { width: 28px; height: 28px; }
+  }
+
+  /* ============================================================ PRINCIPLES : deep dive ============================================================ */
+  .principles { padding-block: clamp(40px, 5vw, 56px); }
+
+  .principle {
+    padding-block: clamp(56px, 7vw, 88px);
+    border-bottom: 1px solid var(--border-paper);
+  }
+  .principle:nth-child(even) { background: var(--bg-paper-soft); }
+  .principle:last-child { border-bottom: 0; }
+
+  .principle-inner {
+    max-width: 920px;
+    margin-inline: auto;
+  }
+
+  .principle-head {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: clamp(16px, 2.4vw, 28px);
+    align-items: center;
+    margin-bottom: clamp(28px, 3.5vw, 40px);
+  }
+  .p-icon {
+    width: 56px; height: 56px;
+    color: var(--accent);
+  }
+  .p-head-text { min-width: 0; }
+  .p-roman {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .p-name {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(28px, 3.8vw, 44px);
+    line-height: 1.08;
+    letter-spacing: -0.012em;
+    color: var(--text-ink);
+    margin: 0;
+  }
+  .p-name em { font-style: italic; color: var(--accent); }
+
+  /* vs block */
+  .vs-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(14px, 2vw, 24px);
+    margin-bottom: clamp(28px, 3.5vw, 40px);
+  }
+  .vs-side {
+    padding: clamp(18px, 2.2vw, 24px) clamp(18px, 2.4vw, 26px);
+    border-left: 3px solid var(--border-paper);
+    background: var(--bg-paper);
+  }
+  .vs-side.is-arena {
+    border-left-color: var(--accent);
+    background: rgba(143, 58, 40, 0.04);
+  }
+  .principle:nth-child(even) .vs-side { background: var(--bg-paper); }
+  .principle:nth-child(even) .vs-side.is-arena { background: rgba(143, 58, 40, 0.06); }
+  .vs-side .vs-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-ink-muted);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .vs-side.is-arena .vs-label { color: var(--accent); }
+  .vs-side p {
+    font-family: var(--font-display);
+    font-size: clamp(15.5px, 1.5vw, 17.5px);
+    line-height: 1.5;
+    color: var(--text-ink);
+    margin: 0;
+  }
+  .vs-side p em { font-style: italic; color: var(--accent); }
+  .vs-side.is-school p { color: var(--text-ink-soft); font-style: italic; }
+  @media (max-width: 720px) { .vs-block { grid-template-columns: 1fr; } }
+
+  /* pull quote */
+  .p-quote {
+    padding: clamp(22px, 2.8vw, 32px) 0;
+    border-top: 1px solid var(--border-paper);
+    border-bottom: 1px solid var(--border-paper);
+    margin-bottom: clamp(28px, 3.5vw, 40px);
+    text-align: center;
+  }
+  .p-quote blockquote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(20px, 2.3vw, 26px);
+    line-height: 1.35;
+    color: var(--text-ink);
+    margin: 0 auto;
+    max-width: 36ch;
+  }
+  .p-quote blockquote em { color: var(--accent); font-style: italic; }
+
+  /* curriculum + activities */
+  .p-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(24px, 3vw, 40px);
+    align-items: start;
+  }
+  @media (max-width: 720px) { .p-bottom { grid-template-columns: 1fr; gap: 24px; } }
+
+  .p-block .pb-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  .p-block p {
+    font-family: var(--font-display);
+    font-size: 15.5px;
+    line-height: 1.6;
+    color: var(--text-ink);
+    margin: 0;
+  }
+  .p-block p em { font-style: italic; color: var(--accent); }
+  .p-block ul {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column;
+    gap: 10px;
+  }
+  .p-block ul li {
+    position: relative;
+    padding-left: 22px;
+    font-family: var(--font-display);
+    font-size: 15.5px;
+    line-height: 1.5;
+    color: var(--text-ink);
+  }
+  .p-block ul li::before {
+    content: "→";
+    position: absolute; left: 0; top: 0;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .p-block ul li em { font-style: italic; color: var(--accent); }
+  .p-block ul li strong { color: var(--text-ink); font-weight: 500; }
+
+  /* ============================================================ CLOSING ============================================================ */
+  .curr-closing {
+    background: var(--bg-dark);
+    color: var(--text-cream);
+    padding-block: clamp(72px, 9vw, 120px);
+  }
+  .curr-closing .eyebrow { color: var(--accent); margin-bottom: 22px; }
+  .curr-closing .display {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(24px, 2.8vw, 32px);
+    line-height: 1.4;
+    letter-spacing: -0.005em;
+    color: var(--text-cream);
+    max-width: 56ch;
+    margin: 0 0 32px;
+  }
+  .curr-closing .display em { color: var(--accent); }
+  .curr-closing .closing-cta {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+
+  /* Re-usable icon class */
+  .icon-stroke {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* ============================================================ MOBILE RESPONSIVENESS : explicit tightening pass ============================================================ */
+  @media (max-width: 720px) {
+    /* Hero : tighten display size + line breaks */
+    .curr-hero { padding-block: clamp(56px, 14vw, 80px); }
+    .curr-hero .display {
+      font-size: clamp(34px, 9vw, 44px);
+      max-width: 100%;
+    }
+    .curr-hero .thesis {
+      font-size: 17px;
+      line-height: 1.55;
+    }
+
+    /* Glance section */
+    .glance { padding-block: clamp(48px, 11vw, 64px); }
+    .glance .sec-head h2 { font-size: clamp(22px, 6vw, 28px); }
+    .glance-card { min-height: 0; padding: 22px; gap: 8px; }
+    .glance-card .gc-name { font-size: 18px; }
+    .glance-card .gc-sub { font-size: 13px; }
+
+    /* Cascade section */
+    .cascade { padding-block: clamp(48px, 11vw, 72px); }
+    .cascade .sec-head h2 { font-size: clamp(22px, 6vw, 28px); }
+    .cascade .sec-head p { font-size: 15.5px; }
+    .cascade-row .cr-name { font-size: 19px; }
+    .cascade-row .cr-desc { font-size: 14.5px; }
+    .cascade-row .cr-when { font-size: 9.5px; }
+    .tag-pill { font-size: 9.5px; padding: 4px 9px; }
+
+    /* Principles */
+    .principle { padding-block: clamp(48px, 11vw, 72px); }
+    .principle-head { grid-template-columns: 48px 1fr; gap: 14px; }
+    .p-icon { width: 40px; height: 40px; }
+    .p-name { font-size: clamp(24px, 6.4vw, 30px); }
+
+    .vs-block { gap: 12px; }
+    .vs-side { padding: 16px 16px 16px 20px; }
+    .vs-side p { font-size: 14.5px; }
+    .vs-side .vs-label { font-size: 9.5px; }
+
+    .p-quote { padding: 20px 0; }
+    .p-quote blockquote { font-size: 18px; max-width: 26ch; }
+
+    .p-block .pb-label { font-size: 9.5px; }
+    .p-block p, .p-block ul li { font-size: 14.5px; line-height: 1.55; }
+
+    /* Closing band */
+    .curr-closing { padding-block: clamp(56px, 14vw, 80px); }
+    .curr-closing .display { font-size: clamp(19px, 5vw, 24px); line-height: 1.45; }
+    .curr-closing .closing-cta { gap: 10px; }
+    .curr-closing .closing-cta .btn { flex: 1 1 auto; min-width: 0; text-align: center; }
+  }
+
+  @media (max-width: 480px) {
+    .curr-hero .display { font-size: 32px; }
+    .glance .sec-head h2,
+    .cascade .sec-head h2 { font-size: 22px; }
+    .p-name { font-size: 22px; }
+    .p-quote blockquote { font-size: 17px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ STATUS TICKER ============================================================ -->
+<div class="ticker" id="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-live" aria-hidden="true"><span class="ticker-dot"></span>Live</span>
+    <div class="ticker-msg">
+      <a href="/index-cn#pilot" style="color:inherit; text-decoration:none;">
+        <span style="color:var(--accent); font-weight:500; letter-spacing:0.14em;">刚刚结营</span>
+        <span class="ticker-sep">·</span>
+        北京顺义国际学校 · 100%的团队上线了真实产品
+      </a>
+    </div>
+    <button class="ticker-x" id="tickerX" aria-label="Dismiss">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5l14 14M19 5L5 19"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- ============================================================ NAV ============================================================ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="wordmark nav-brand">
+      <img class="nav-crest" src="photos/crest.png" alt="" aria-hidden="true" />
+      <span>Arena School</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="/curriculum-cn" aria-current="page">课程</a>
+      <a href="/index-cn#pilot">案例</a>
+      <a href="/schools-cn">合作学校</a>
+      <a href="/teachers-cn">教师培训</a>
+    </div>
+    <div class="nav-cta">
+      <div class="lang-switch" aria-label="Language">
+        <a href="/curriculum">EN</a>
+        <a href="/curriculum-cn" class="lang-active" aria-current="page">中文</a>
+      </div>
+      <a href="/index-cn#partners" class="btn btn-primary">与我们合作 <span class="arr">→</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================ INLINE ICON SPRITES ============================================================ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- I. Agency : diverging arrows from a single point -->
+    <symbol id="icon-agency" viewBox="0 0 64 64">
+      <g class="icon-stroke">
+        <circle cx="20" cy="44" r="3"/>
+        <path d="M20 41 L30 22"/>
+        <path d="M20 41 L44 30"/>
+        <path d="M20 41 L48 50"/>
+        <path d="M27 22 L30 22 L29 25"/>
+        <path d="M41 27 L44 30 L41 32"/>
+      </g>
+    </symbol>
+    <!-- II. Make : hammer + spark -->
+    <symbol id="icon-make" viewBox="0 0 64 64">
+      <g class="icon-stroke">
+        <rect x="18" y="14" width="22" height="10" rx="1.5"/>
+        <path d="M29 24 L29 50"/>
+        <path d="M25 50 L33 50"/>
+        <path d="M46 18 L50 14"/>
+        <path d="M48 26 L52 26"/>
+        <path d="M46 30 L50 34"/>
+      </g>
+    </symbol>
+    <!-- III. Practitioners : two arms / handshake -->
+    <symbol id="icon-practitioners" viewBox="0 0 64 64">
+      <g class="icon-stroke">
+        <path d="M8 36 L20 36 L26 30 L34 30"/>
+        <path d="M56 36 L44 36 L38 42 L30 42"/>
+        <path d="M26 30 L30 34 L34 30"/>
+        <path d="M30 42 L34 38 L38 42"/>
+        <circle cx="32" cy="36" r="2"/>
+      </g>
+    </symbol>
+    <!-- IV. AI Leverage : lever with fulcrum -->
+    <symbol id="icon-leverage" viewBox="0 0 64 64">
+      <g class="icon-stroke">
+        <path d="M10 46 L54 22"/>
+        <path d="M26 36 L34 52 L18 52 Z"/>
+        <circle cx="50" cy="24" r="3"/>
+        <path d="M12 16 L8 20 L12 24"/>
+        <path d="M8 20 L18 20"/>
+      </g>
+    </symbol>
+    <!-- V. Examined life : eye in circle -->
+    <symbol id="icon-examined" viewBox="0 0 64 64">
+      <g class="icon-stroke">
+        <circle cx="32" cy="32" r="22"/>
+        <path d="M16 32 C 22 22, 42 22, 48 32 C 42 42, 22 42, 16 32 Z"/>
+        <circle cx="32" cy="32" r="4"/>
+      </g>
+    </symbol>
+    <!-- VI. Risk early : foot stepping over a gap -->
+    <symbol id="icon-risk" viewBox="0 0 64 64">
+      <g class="icon-stroke">
+        <path d="M6 48 L22 48"/>
+        <path d="M42 48 L58 48"/>
+        <path d="M16 48 C 20 32, 44 32, 48 48"/>
+        <path d="M40 22 L48 32 L40 42"/>
+        <path d="M22 32 L48 32"/>
+      </g>
+    </symbol>
+    <!-- VII. Small choices : ascending dots -->
+    <symbol id="icon-systems" viewBox="0 0 64 64">
+      <g class="icon-stroke">
+        <circle cx="12" cy="50" r="2.4"/>
+        <circle cx="22" cy="44" r="2.4"/>
+        <circle cx="32" cy="36" r="2.4"/>
+        <circle cx="42" cy="26" r="2.4"/>
+        <circle cx="52" cy="14" r="2.4"/>
+        <path d="M14 48 L20 46"/>
+        <path d="M24 42 L30 38"/>
+        <path d="M34 34 L40 28"/>
+        <path d="M44 24 L50 16"/>
+      </g>
+    </symbol>
+    <!-- VIII. Be water : ripples / concentric arcs -->
+    <symbol id="icon-water" viewBox="0 0 64 64">
+      <g class="icon-stroke">
+        <circle cx="32" cy="32" r="6"/>
+        <path d="M16 32 A 16 16 0 0 1 48 32"/>
+        <path d="M16 32 A 16 16 0 0 0 48 32" opacity="0.4"/>
+        <path d="M8 32 A 24 24 0 0 1 56 32" opacity="0.5"/>
+        <path d="M8 32 A 24 24 0 0 0 56 32" opacity="0.25"/>
+      </g>
+    </symbol>
+
+    <!-- Cascade icons : for the day-architecture section -->
+    <symbol id="icon-morning" viewBox="0 0 64 64">
+      <g class="icon-stroke">
+        <circle cx="32" cy="40" r="10"/>
+        <path d="M32 22 L32 16"/>
+        <path d="M18 40 L12 40"/>
+        <path d="M46 40 L52 40"/>
+        <path d="M22 30 L17 25"/>
+        <path d="M42 30 L47 25"/>
+        <path d="M8 52 L56 52"/>
+      </g>
+    </symbol>
+    <symbol id="icon-afternoon" viewBox="0 0 64 64">
+      <g class="icon-stroke">
+        <rect x="14" y="22" width="36" height="26" rx="2"/>
+        <path d="M14 30 L50 30"/>
+        <circle cx="20" cy="26" r="1.2" fill="currentColor"/>
+        <circle cx="24" cy="26" r="1.2" fill="currentColor"/>
+        <path d="M22 38 L28 38"/>
+        <path d="M22 42 L32 42"/>
+        <path d="M40 40 L44 36 L40 32"/>
+      </g>
+    </symbol>
+    <symbol id="icon-mentor" viewBox="0 0 64 64">
+      <g class="icon-stroke">
+        <circle cx="22" cy="22" r="6"/>
+        <path d="M12 50 C 12 42, 32 42, 32 50"/>
+        <circle cx="44" cy="26" r="5"/>
+        <path d="M36 50 C 36 44, 52 44, 52 50"/>
+        <path d="M30 28 L38 30" opacity="0.5"/>
+      </g>
+    </symbol>
+    <symbol id="icon-demo" viewBox="0 0 64 64">
+      <g class="icon-stroke">
+        <rect x="10" y="14" width="44" height="28" rx="2"/>
+        <path d="M32 42 L32 50"/>
+        <path d="M22 50 L42 50"/>
+        <path d="M18 22 L18 36"/>
+        <path d="M26 26 L26 36"/>
+        <path d="M34 18 L34 36"/>
+        <path d="M42 24 L42 36"/>
+      </g>
+    </symbol>
+    <symbol id="icon-quiet" viewBox="0 0 64 64">
+      <g class="icon-stroke">
+        <rect x="14" y="12" width="36" height="40" rx="2"/>
+        <path d="M22 22 L42 22"/>
+        <path d="M22 30 L42 30"/>
+        <path d="M22 38 L34 38"/>
+      </g>
+    </symbol>
+    <symbol id="icon-commits" viewBox="0 0 64 64">
+      <g class="icon-stroke">
+        <path d="M14 16 L14 48"/>
+        <circle cx="14" cy="18" r="3" fill="currentColor"/>
+        <circle cx="14" cy="32" r="3" fill="currentColor"/>
+        <circle cx="14" cy="46" r="3" fill="currentColor"/>
+        <path d="M22 18 L48 18"/>
+        <path d="M22 32 L44 32"/>
+        <path d="M22 46 L50 46"/>
+      </g>
+    </symbol>
+    <symbol id="icon-travel" viewBox="0 0 64 64">
+      <g class="icon-stroke">
+        <circle cx="32" cy="32" r="20"/>
+        <path d="M12 32 L52 32"/>
+        <path d="M32 12 C 22 22, 22 42, 32 52"/>
+        <path d="M32 12 C 42 22, 42 42, 32 52"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<main id="top">
+
+<!-- ============================================================ HERO + THESIS ============================================================ -->
+<section class="curr-hero" data-screen-label="Thesis">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">课程与理念</span>
+      <h1 class="display">我们相信什么。<br/>我们教什么。<br/><em>为什么。</em></h1>
+      <p class="thesis">
+        这是我们的课程，也是我们的理念：当每个学生口袋里都有一个比老师更聪明的导师时，学校应该长成什么样子，这里是我们给出的八条原则。AI教不了一个孩子的东西，<em>主动性、审美、手艺、勇气、判断力</em>，是剩下来的部分，也是我们每天在建的部分。<em>是水的形状，不是容器的形状。</em>少一点知识的传递，多一点<em>真正决定一个人一生的东西</em>。少一点简历，多一点悼词。少一点候诊室，多一点竞技场。<em>荣耀属于真正站在场上的那个人。</em>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ AT-A-GLANCE GRID ============================================================ -->
+<section class="glance" data-screen-label="The eight principles">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">八条原则</span>
+      <h2>整个课程，一屏看完。</h2>
+    </div>
+    <div class="glance-grid reveal">
+      <a href="#agency" class="glance-card">
+        <svg class="gc-icon" aria-hidden="true"><use href="#icon-agency"/></svg>
+        <span class="gc-num">I</span>
+        <h3 class="gc-name">主动性，而非服从</h3>
+        <p class="gc-sub">第一天就由学生自己选题。导师拒绝给出任务说明书。</p>
+      </a>
+      <a href="#make" class="glance-card">
+        <svg class="gc-icon" aria-hidden="true"><use href="#icon-make"/></svg>
+        <span class="gc-num">II</span>
+        <h3 class="gc-name">做出东西，当着人的面</h3>
+        <p class="gc-sub">构建、展示、分享、复盘、再来一遍。一周就是这个循环的压缩版。</p>
+      </a>
+      <a href="#practitioners" class="glance-card">
+        <svg class="gc-icon" aria-hidden="true"><use href="#icon-practitioners"/></svg>
+        <span class="gc-num">III</span>
+        <h3 class="gc-name">从业者，而非文凭</h3>
+        <p class="gc-sub">由真正交付过东西的人来教，创始人、工程师、设计师。</p>
+      </a>
+      <a href="#leverage" class="glance-card">
+        <svg class="gc-icon" aria-hidden="true"><use href="#icon-leverage"/></svg>
+        <span class="gc-num">IV</span>
+        <h3 class="gc-name">AI是杠杆，不是拐杖</h3>
+        <p class="gc-sub">工具负责打地基。省下来的时间，花在只有学生自己能做的部分上。</p>
+      </a>
+      <a href="#examined" class="glance-card">
+        <svg class="gc-icon" aria-hidden="true"><use href="#icon-examined"/></svg>
+        <span class="gc-num">V</span>
+        <h3 class="gc-name">尽早开始的自省</h3>
+        <p class="gc-sub">每天三十分钟，不看屏幕，一本笔记本，一个诚实的问题。</p>
+      </a>
+      <a href="#risk" class="glance-card">
+        <svg class="gc-icon" aria-hidden="true"><use href="#icon-risk"/></svg>
+        <span class="gc-num">VI</span>
+        <h3 class="gc-name">趁便宜的时候冒险</h3>
+        <p class="gc-sub">公开演示没有商量余地。勇气是靠一次次小重复练出来的肌肉。</p>
+      </a>
+      <a href="#systems" class="glance-card">
+        <svg class="gc-icon" aria-hidden="true"><use href="#icon-systems"/></svg>
+        <span class="gc-num">VII</span>
+        <h3 class="gc-name">小选择，真系统</h3>
+        <p class="gc-sub">每天当众兑现一个小承诺。系统本身，就是成果。</p>
+      </a>
+      <a href="#water" class="glance-card">
+        <svg class="gc-icon" aria-hidden="true"><use href="#icon-water"/></svg>
+        <span class="gc-num">VIII</span>
+        <h3 class="gc-name">像水一样，回到第一性原理</h3>
+        <p class="gc-sub">每个项目都要过五个问题的压力测试。评判标准是有没有问，而不是答案对不对。</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ CASCADE : principles → school architecture ============================================================ -->
+<section class="cascade" data-screen-label="How the day is built">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">原则如何落到一天里</span>
+      <h2>八条原则，构成一个真实营期的七个环节。</h2>
+      <p>这些原则不是贴在墙上的海报。它们就写在我们每一期营的实际运作方式里：教什么、什么时候停止开发、demo day那天谁坐在台下。</p>
+    </div>
+
+    <div class="cascade-list">
+      <!-- Just-in-time teaching -->
+      <div class="cascade-row reveal">
+        <svg class="cr-icon" aria-hidden="true"><use href="#icon-morning"/></svg>
+        <div class="cr-text">
+          <span class="cr-when">短促 · 就在需要之前</span>
+          <h3 class="cr-name">即时教学 · <em>框架在需要的那一刻出现。</em></h3>
+          <p class="cr-desc">不为了讲课而讲课。访谈技巧，在真正采访用户前一个小时教。定价方法，在产品准备上线那天教。路演结构，在上台前一天教。每个框架能落地，是因为学生一小时内就会用上它。</p>
+        </div>
+        <div class="cr-tags">
+          <a href="#leverage" class="tag-pill"><span class="tp-num">IV</span> 杠杆</a>
+          <a href="#agency" class="tag-pill"><span class="tp-num">I</span> 主动性</a>
+          <a href="#systems" class="tag-pill"><span class="tp-num">VII</span> 系统</a>
+        </div>
+      </div>
+
+      <!-- Build afternoons -->
+      <div class="cascade-row reveal">
+        <svg class="cr-icon" aria-hidden="true"><use href="#icon-afternoon"/></svg>
+        <div class="cr-text">
+          <span class="cr-when">每天的大部分时间</span>
+          <h3 class="cr-name">构建时段 · <em>工坊本身。</em></h3>
+          <p class="cr-desc">团队选一个自己真正在意的真实问题，开发出一个真实的AI产品。这一整天的手艺活，设计、写代码、用户调研、迭代，都在这里发生，导师就在现场。</p>
+        </div>
+        <div class="cr-tags">
+          <a href="#make" class="tag-pill"><span class="tp-num">II</span> 做出东西</a>
+          <a href="#leverage" class="tag-pill"><span class="tp-num">IV</span> 杠杆</a>
+          <a href="#water" class="tag-pill"><span class="tp-num">VIII</span> 像水一样</a>
+        </div>
+      </div>
+
+      <!-- Mentor 1:1 -->
+      <div class="cascade-row reveal">
+        <svg class="cr-icon" aria-hidden="true"><use href="#icon-mentor"/></svg>
+        <div class="cr-text">
+          <span class="cr-when">贯穿整个构建时段</span>
+          <h3 class="cr-name">从业者一对一 · <em>就站在你旁边。</em></h3>
+          <p class="cr-desc">真正交付过产品的创始人、工程师、设计师，在学生卡住的时候坐在他们身边。不是答疑时间，而是真实的并肩工作、真实的复盘、那个自己一个人问不出口的问题。</p>
+        </div>
+        <div class="cr-tags">
+          <a href="#practitioners" class="tag-pill"><span class="tp-num">III</span> 从业者</a>
+          <a href="#examined" class="tag-pill"><span class="tp-num">V</span> 自省</a>
+        </div>
+      </div>
+
+      <!-- The freeze -->
+      <div class="cascade-row reveal">
+        <svg class="cr-icon" aria-hidden="true"><use href="#icon-quiet"/></svg>
+        <div class="cr-text">
+          <span class="cr-when">固定的一小时 · 没有延期</span>
+          <h3 class="cr-name">封版 · <em>教人认清边界的截止时间。</em></h3>
+          <p class="cr-desc">到了固定的时间，开发就停止。当时上线的是什么，demo的就是什么。学生学到了学校从不教的东西：如何砍掉多余的范围，把事情做完，站在一个不完美但真实的东西背后，而不是一个完美但只存在于想象里的东西。</p>
+        </div>
+        <div class="cr-tags">
+          <a href="#examined" class="tag-pill"><span class="tp-num">V</span> 自省</a>
+          <a href="#systems" class="tag-pill"><span class="tp-num">VII</span> 系统</a>
+        </div>
+      </div>
+
+      <!-- Daily commits -->
+      <div class="cascade-row reveal">
+        <svg class="cr-icon" aria-hidden="true"><use href="#icon-commits"/></svg>
+        <div class="cr-text">
+          <span class="cr-when">每天结束时</span>
+          <h3 class="cr-name">每日站会 · <em>像一家公司一样运作。</em></h3>
+          <p class="cr-desc">看板上每张卡片对应一个人的名字。三句话同步：做了什么、学到了什么、接下来做什么。团队自己管理待办事项，像一家真正的公司，因为到了周中，他们本来就已经是了。</p>
+        </div>
+        <div class="cr-tags">
+          <a href="#systems" class="tag-pill"><span class="tp-num">VII</span> 系统</a>
+          <a href="#agency" class="tag-pill"><span class="tp-num">I</span> 主动性</a>
+        </div>
+      </div>
+
+      <!-- Demo day -->
+      <div class="cascade-row reveal">
+        <svg class="cr-icon" aria-hidden="true"><use href="#icon-demo"/></svg>
+        <div class="cr-text">
+          <span class="cr-when">每一期营的结尾</span>
+          <h3 class="cr-name">Demo Day · <em>公开的检验。</em></h3>
+          <p class="cr-desc">对着真正的评委团，从业者、投资人、家长，做现场路演。最强的团队赢得奖金。每个孩子都要当众展示一个自己也没完全把握的东西，然后扛过去。这就是我们想练出来的那层茧。</p>
+        </div>
+        <div class="cr-tags">
+          <a href="#make" class="tag-pill"><span class="tp-num">II</span> 做出东西</a>
+          <a href="#risk" class="tag-pill"><span class="tp-num">VI</span> 趁早冒险</a>
+          <a href="#agency" class="tag-pill"><span class="tp-num">I</span> 主动性</a>
+        </div>
+      </div>
+
+      <!-- Program formats -->
+      <div class="cascade-row reveal">
+        <svg class="cr-icon" aria-hidden="true"><use href="#icon-travel"/></svg>
+        <div class="cr-text">
+          <span class="cr-when">假期 · 周末 · 放学后</span>
+          <h3 class="cr-name">围绕学校日程设计的项目形式 · <em>不是要你转去另一所学校。</em></h3>
+          <p class="cr-desc">五天密集营，安排在学校假期。学年项目安排在周末和放学后，公司在这期间持续运营。合作营期在合作学校现场共同开展。香港和北京两期已经完成，下一期在2026年冬季。</p>
+        </div>
+        <div class="cr-tags">
+          <a href="#water" class="tag-pill"><span class="tp-num">VIII</span> 像水一样</a>
+          <a href="#risk" class="tag-pill"><span class="tp-num">VI</span> 趁早冒险</a>
+          <a href="#practitioners" class="tag-pill"><span class="tp-num">III</span> 从业者</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ PRINCIPLES : DEEP DIVE ============================================================ -->
+<section class="principles">
+
+  <!-- I. Agency over compliance -->
+  <article class="principle" id="agency">
+    <div class="container">
+      <div class="principle-inner">
+        <header class="principle-head reveal">
+          <svg class="p-icon" aria-hidden="true"><use href="#icon-agency"/></svg>
+          <div class="p-head-text">
+            <span class="p-roman">原则一</span>
+            <h2 class="p-name">主动性，<em>而非服从。</em></h2>
+          </div>
+        </header>
+
+        <div class="vs-block reveal">
+          <div class="vs-side is-school">
+            <span class="vs-label">学校怎么做</span>
+            <p>奖励听话，按评分标准打分，然后奇怪为什么毕业生离开许可就什么都决定不了。</p>
+          </div>
+          <div class="vs-side is-arena">
+            <span class="vs-label">Arena怎么做</span>
+            <p>第一天就给学生一张白纸。导师拒绝写任务说明书。第一个小时的不适感，是故意的。</p>
+          </div>
+        </div>
+
+        <div class="p-quote reveal">
+          <blockquote>那种安静而持续的力量：<em>自己决定</em>要讲一个关于自己人生的什么故事。</blockquote>
+        </div>
+
+        <div class="p-bottom">
+          <div class="p-block reveal">
+            <span class="pb-label">在课程里</span>
+            <p>第一天，学生自己选题要做什么。当一个孩子从<em>告诉我要做什么</em>变成<em>我想试试这个</em>的那一刻，这一周剩下的部分才真正打开。每一期营都以一份"给自己的承诺"收尾，一件他们承诺未来九十天要坚持做的小事。上线的产品是一个成果。更深一层的成果，是这个孩子向自己证明了，即使别人不在意，他依然会<em>投出那一小票</em>。</p>
+          </div>
+          <div class="p-block reveal">
+            <span class="pb-label">学生实际会做什么</span>
+            <ul>
+              <li><strong>第一天早上</strong>，向全营路演你的想法。三分钟，不用PPT。</li>
+              <li><strong>营期早段</strong>，自己去采访三个潜在用户，当面或者冷邮件都可以。</li>
+              <li><strong>营期结束时</strong>，写下未来90天"给自己的承诺"。打印出来，签上名字。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- II. Make things, in front of people -->
+  <article class="principle" id="make">
+    <div class="container">
+      <div class="principle-inner">
+        <header class="principle-head reveal">
+          <svg class="p-icon" aria-hidden="true"><use href="#icon-make"/></svg>
+          <div class="p-head-text">
+            <span class="p-roman">原则二</span>
+            <h2 class="p-name">做出东西，<em>当着人的面。</em></h2>
+          </div>
+        </header>
+
+        <div class="vs-block reveal">
+          <div class="vs-side is-school">
+            <span class="vs-label">学校怎么做</span>
+            <p>给一篇永远不会有人读的五段式作文打分，然后把这叫做学习。</p>
+          </div>
+          <div class="vs-side is-arena">
+            <span class="vs-label">Arena怎么做</span>
+            <p>一周就是一个循环的压缩版：<em>构建、展示、分享、复盘、再来一遍。</em>每天以一次demo收尾。每次demo都是一次小小的公开检验。</p>
+          </div>
+        </div>
+
+        <div class="p-quote reveal">
+          <blockquote>审美、判断力、勇气，<em>课本教不会。只能靠亲身经历。</em></blockquote>
+        </div>
+
+        <div class="p-bottom">
+          <div class="p-block reveal">
+            <span class="pb-label">在课程里</span>
+            <p>营期最初几天：选一个自己真正在意的问题。最后一天：向一屋子真实的成年人展示一个能用的产品，从业者、家长、不会出于同情鼓掌的同伴。成果是网上一个挂着你名字的东西，而且<em>除了你妈妈之外真的有人会用</em>。</p>
+          </div>
+          <div class="p-block reveal">
+            <span class="pb-label">学生实际会做什么</span>
+            <ul>
+              <li><strong>营期过半时</strong>，把能用的原型上线到一个公开网址，任何人都能用。</li>
+              <li><strong>接近尾声时</strong>，录制一段90秒的demo视频，发布出去。</li>
+              <li><strong>Demo day</strong>，5分钟现场路演，面对8人评委团问答。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- III. Practitioners, not credentials -->
+  <article class="principle" id="practitioners">
+    <div class="container">
+      <div class="principle-inner">
+        <header class="principle-head reveal">
+          <svg class="p-icon" aria-hidden="true"><use href="#icon-practitioners"/></svg>
+          <div class="p-head-text">
+            <span class="p-roman">原则三</span>
+            <h2 class="p-name">从业者，<em>而非文凭。</em></h2>
+          </div>
+        </header>
+
+        <div class="vs-block reveal">
+          <div class="vs-side is-school">
+            <span class="vs-label">学校怎么做</span>
+            <p>把教师资格证误当成教一件事的资格。雇佣一群出发点很好、但从没做过自己教的那件事的通才。</p>
+          </div>
+          <div class="vs-side is-arena">
+            <span class="vs-label">Arena怎么做</span>
+            <p>每一期都配备真正交付过东西的人：融过资的创始人、上线过产品的工程师、你用过其作品的设计师。</p>
+          </div>
+        </div>
+
+        <div class="p-quote reveal">
+          <blockquote>你不会想跟一个<em>只是读过投资书</em>的人学投资。</blockquote>
+        </div>
+
+        <div class="p-bottom">
+          <div class="p-block reveal">
+            <span class="pb-label">在课程里</span>
+            <p>导师陪伴是真实的，不是答疑时间，而是在你卡住的时候有一个人站在你旁边。学生离开时，身边多了几个记住他们名字的成年人，也更清楚"好"在真实世界里到底长什么样。</p>
+          </div>
+          <div class="p-block reveal">
+            <span class="pb-label">学生实际会做什么</span>
+            <ul>
+              <li><strong>营期早段</strong>，和一位YC投资的创始人结对编程两小时。</li>
+              <li><strong>营期中段</strong>，和一位你听说过的公司的设计负责人做设计评审。</li>
+              <li><strong>营期结束时</strong>，拿到一位资深工程师毫不留情的书面代码评审。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- IV. AI is leverage, not a crutch -->
+  <article class="principle" id="leverage">
+    <div class="container">
+      <div class="principle-inner">
+        <header class="principle-head reveal">
+          <svg class="p-icon" aria-hidden="true"><use href="#icon-leverage"/></svg>
+          <div class="p-head-text">
+            <span class="p-roman">原则四</span>
+            <h2 class="p-name">AI是杠杆，<em>不是拐杖。</em></h2>
+          </div>
+        </header>
+
+        <div class="vs-block reveal">
+          <div class="vs-side is-school">
+            <span class="vs-label">学校怎么做</span>
+            <p>禁掉那个将定义这代孩子职业生涯的工具，然后还在考他们那个工具已经做得比人好的东西。</p>
+          </div>
+          <div class="vs-side is-arena">
+            <span class="vs-label">Arena怎么做</span>
+            <p>从第一分钟起，每个座位上都有AI。不是当拐杖，而是当副驾驶。学生学着提示、审视、抓住幻觉。</p>
+          </div>
+        </div>
+
+        <div class="p-quote reveal">
+          <blockquote>今天一个十二岁的孩子，能做出几年前一个大四学生做的毕业项目才能做到的东西。<em>这就是新的地板。</em></blockquote>
+        </div>
+
+        <div class="p-bottom">
+          <div class="p-block reveal">
+            <span class="pb-label">在课程里</span>
+            <p>工具帮学生省下来的时间，花在只有他们自己能做的部分上：审美判断、设计判断、<em>到底应该做什么</em>的判断。成果是一个孩子能坐在一块空白屏幕前，带着一个想法，到晚饭前就做出一个能跑起来的版本。</p>
+          </div>
+          <div class="p-block reveal">
+            <span class="pb-label">学生实际会做什么</span>
+            <ul>
+              <li><strong>像一个操盘手一样提示</strong>：一个共用的实战提示词库，从启动开发到发布视频全都覆盖。</li>
+              <li><strong>用AI编程助手构建</strong>：一整周有一个AI结对程序员；做出一年前你还写不出来的产品。</li>
+              <li><strong>每一天</strong>：审视AI给出的结果，抓住幻觉，搞清楚它在哪里会出错。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- V. The examined life, started early -->
+  <article class="principle" id="examined">
+    <div class="container">
+      <div class="principle-inner">
+        <header class="principle-head reveal">
+          <svg class="p-icon" aria-hidden="true"><use href="#icon-examined"/></svg>
+          <div class="p-head-text">
+            <span class="p-roman">原则五</span>
+            <h2 class="p-name">尽早开始的<em>自省。</em></h2>
+          </div>
+        </header>
+
+        <div class="vs-block reveal">
+          <div class="vs-side is-school">
+            <span class="vs-label">学校怎么做</span>
+            <p>拼命优化简历那一栏，彻底跳过悼词那一栏。</p>
+          </div>
+          <div class="vs-side is-arena">
+            <span class="vs-label">Arena怎么做</span>
+            <p>每天三十分钟，不看屏幕，一本笔记本，一个诚实的问题。导师示范自己怎么回答，笨拙但诚实。</p>
+          </div>
+        </div>
+
+        <div class="p-quote reveal">
+          <blockquote>这<em>到底是谁的人生？</em></blockquote>
+        </div>
+
+        <div class="p-bottom">
+          <div class="p-block reveal">
+            <span class="pb-label">在课程里</span>
+            <p>成果是每个学生带走的一份私密的小文档，不是一份计划，而是一份他们现在知道要在没人注意的那些普通日子里持续问自己的问题清单。</p>
+          </div>
+          <div class="p-block reveal">
+            <span class="pb-label">学生实际会做什么</span>
+            <ul>
+              <li><strong>每日复盘</strong>：站会上三句话，做了什么、学到了什么、接下来做什么。</li>
+              <li><strong>三个问题</strong>:<em>今天我真正喜欢做的是什么？我做了哪些事只是因为有人在看？如果永远没人知道，我会去做什么？</em></li>
+              <li><strong>营期结束时</strong>，写一封给未来自己的信，一年后再打开看。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- VI. Risk early -->
+  <article class="principle" id="risk">
+    <div class="container">
+      <div class="principle-inner">
+        <header class="principle-head reveal">
+          <svg class="p-icon" aria-hidden="true"><use href="#icon-risk"/></svg>
+          <div class="p-head-text">
+            <span class="p-roman">原则六</span>
+            <h2 class="p-name">趁便宜的时候<em>冒险。</em></h2>
+          </div>
+        </header>
+
+        <div class="vs-block reveal">
+          <div class="vs-side is-school">
+            <span class="vs-label">学校怎么做</span>
+            <p>惩罚答错的人，奖励求稳的人，而这训练出来的，恰恰是这个世界日后惩罚最狠的那种孩子。</p>
+          </div>
+          <div class="vs-side is-arena">
+            <span class="vs-label">Arena怎么做</span>
+            <p>公开演示没有商量余地。给你想请教的从业者发一封冷邮件，是稀松平常的一项作业。</p>
+          </div>
+        </div>
+
+        <div class="p-quote reveal">
+          <blockquote>勇气不是天生的性格。<em>它是靠一次次小重复练出来的肌肉。</em></blockquote>
+        </div>
+
+        <div class="p-bottom">
+          <div class="p-block reveal">
+            <span class="pb-label">在课程里</span>
+            <p>每个孩子都要当众展示一个自己也没完全把握的东西，然后扛过去。成果是一层茧。一期营不会让他们从此无所畏惧，只会让他们对走进来那天最害怕的那件事，稍微没那么怕了一点。<em>这种重复，才是会复利的那种。</em></p>
+          </div>
+          <div class="p-block reveal">
+            <span class="pb-label">学生实际会做什么</span>
+            <ul>
+              <li><strong>营期早段</strong>，给一个你所研究领域的陌生专家发冷邮件，请求15分钟时间。</li>
+              <li><strong>营期中段</strong>，把还不成熟的原型拿给真实用户看，当场接受反馈。</li>
+              <li><strong>Demo day</strong>，向投资人路演，台上是真正的奖金。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- VII. Small choices, real systems -->
+  <article class="principle" id="systems">
+    <div class="container">
+      <div class="principle-inner">
+        <header class="principle-head reveal">
+          <svg class="p-icon" aria-hidden="true"><use href="#icon-systems"/></svg>
+          <div class="p-head-text">
+            <span class="p-roman">原则七</span>
+            <h2 class="p-name">小选择，<em>真系统。</em></h2>
+          </div>
+        </header>
+
+        <div class="vs-block reveal">
+          <div class="vs-side is-school">
+            <span class="vs-label">学校怎么做</span>
+            <p>一切都为了五月的考试优化，对十一月一个普通周二该怎么过，什么都没教。</p>
+          </div>
+          <div class="vs-side is-arena">
+            <span class="vs-label">Arena怎么做</span>
+            <p>每天早上都是一个当众兑现的小承诺。每个孩子都要发一条每日进展：做了什么、学到了什么、下次会怎么做得不一样。</p>
+          </div>
+        </div>
+
+        <div class="p-quote reveal">
+          <blockquote>一个人四十岁时会成为什么样子，很大程度上取决于他二十几岁时<em>那几千个普通周二是怎么过的。</em></blockquote>
+        </div>
+
+        <div class="p-bottom">
+          <div class="p-block reveal">
+            <span class="pb-label">在课程里</span>
+            <p>孩子们离开时，带走一页自己写的个人操作系统：早晨仪式、每周复盘、一个有权利直接指出问题的朋友。<em>系统本身就是成果。这个项目只是证明这套系统真的运转过一次。</em></p>
+          </div>
+          <div class="p-block reveal">
+            <span class="pb-label">学生实际会做什么</span>
+            <ul>
+              <li><strong>每天结束时</strong>，向全营发一条每日进展：做了什么、学到了什么、下次会怎么不一样。</li>
+              <li><strong>营期结束时</strong>，对已经上线的东西做一次公开复盘，不回避问题。</li>
+              <li><strong>带回家的作业</strong>，写下自己的一页个人操作系统，贴在书桌上方。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- VIII. Be water -->
+  <article class="principle" id="water">
+    <div class="container">
+      <div class="principle-inner">
+        <header class="principle-head reveal">
+          <svg class="p-icon" aria-hidden="true"><use href="#icon-water"/></svg>
+          <div class="p-head-text">
+            <span class="p-roman">原则八</span>
+            <h2 class="p-name">像水一样，<em>回到第一性原理，而非照搬继承下来的形式。</em></h2>
+          </div>
+        </header>
+
+        <div class="vs-block reveal">
+          <div class="vs-side is-school">
+            <span class="vs-label">学校怎么做</span>
+            <p>训练出一群精通执行、却陌生于理解本身的人。</p>
+          </div>
+          <div class="vs-side is-arena">
+            <span class="vs-label">Arena怎么做</span>
+            <p>每个项目都要过五个问题的压力测试：<em>怎么做的、为什么这样做、背后是什么原理、什么情况下会失效、我该怎么调整。</em></p>
+          </div>
+        </div>
+
+        <div class="p-quote reveal">
+          <blockquote>任何一间屋子里最先进的东西，始终都会是<em>一个清楚自己是谁的人。</em></blockquote>
+        </div>
+
+        <div class="p-bottom">
+          <div class="p-block reveal">
+            <span class="pb-label">在课程里</span>
+            <p>学生不是因为答对了才得分，而是因为问了才得分。成果是一种他们从此拥有的思考方式。那个能在任何一间屋子里问出<em>为什么我们要这样做</em>的孩子，能这样问一辈子，这才是Arena想要送回这个世界的人。</p>
+          </div>
+          <div class="p-block reveal">
+            <span class="pb-label">学生实际会做什么</span>
+            <ul>
+              <li><strong>营期早段</strong>，用五个问题拷问自己的项目，逐层为自己的答案辩护。</li>
+              <li><strong>营期中段</strong>，找到一个竞争性的方案，先尽力为它辩护，再做决定。</li>
+              <li><strong>接近尾声时</strong>，根据用户反馈对项目做出实质性调整，展示自己的思考过程。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+</section>
+
+<!-- ============================================================ CLOSING ============================================================ -->
+<section class="curr-closing dark-band" data-screen-label="The whole thing">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">整个课程，一段话说完</span>
+      <p class="display">
+        Arena是一所面向12到22岁学生的学校，核心是和真正做过东西的从业者一起，交付真实的AI产品，学会不断追问<em>为什么</em>直到触到原理本身，并且尽早开始，趁着别人给你安排好的那套野心剧本还没在你身上定型，去做那个唯一会在一生中持续复利的项目：搞清楚这到底是谁的人生，然后<em>依然投出那一小票</em>。他们离开时带走的，是一个能用的产品、一套自己写的小系统、几个如今记得他们名字的成年人，以及一层曾经害怕公开演示、如今已经磨出来的茧。
+      </p>
+      <div class="closing-cta">
+        <a href="/index-cn#partners" class="btn btn-primary">与我们合作 <span class="arr">→</span></a>
+        <a href="/index-cn#pilot" class="btn btn-ghost">查看营期成果</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================ FOOTER (shared) ============================================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="crest crest-img footer-crest" src="photos/crest.png" alt="Arena School crest" />
+        <a href="/" class="wordmark">Arena School</a>
+        <p class="tag">这里是学校一直没时间教的那些课。</p>
+        <p class="footer-license-line">下一期 · 2026年冬季 · 广州。</p>
+      </div>
+      <div class="footer-col">
+        <h4>阅读</h4>
+        <a href="/index-cn#manifesto">宣言</a>
+        <a href="/curriculum-cn">课程与理念</a>
+        <a href="/index-cn#ai-changed">AI改变了什么</a>
+        <a href="/index-cn#why">为什么是Arena</a>
+        <a href="/index-cn#structure">项目结构</a>
+      </div>
+      <div class="footer-col">
+        <h4>历届营期</h4>
+        <a href="/case-study-hong-kong-cn">Bodley Academy · 香港2025 · 学生方向</a>
+        <a href="/case-study-beijing-cn">北京顺义国际学校 · 2026 · 学生方向</a>
+        <a href="/zero-to-launch-cn">AI职场先发营 · 广州 · 职场方向</a>
+        <a href="/index-cn#partners">在你的学校开一期</a>
+      </div>
+      <div class="footer-col">
+        <h4>与我们合作</h4>
+        <a href="/index-cn#partners">学校合作</a>
+        <a href="/teachers-cn">面向教师的AI培训</a>
+        <a href="/speaking-cn">演讲与工作坊</a>
+        <a href="/index-cn#partners">家长与学生</a>
+        <a href="mailto:hello@arena.school">hello@arena.school</a>
+        <a href="https://github.com/arena-school" target="_blank" rel="noopener">课程资料在GitHub</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Arena School</span>
+      <span>下一期 · 2026年冬季 · 广州</span>
+    </div>
+  </div>
+</footer>
+
+<script src="image-slot.js"></script>
+<script src="motion.js"></script>
+</body>
+</html>

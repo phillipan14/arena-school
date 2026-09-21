@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>报名 · 学年导师陪跑计划 · Arena School</title>
+<meta name="robots" content="noindex,nofollow" />
+<meta name="theme-color" content="#8F3A28" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+ .ef-step {display:inline-flex;align-items:center;gap:8px;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#8F3A28;}
+ .ef-step .dot {width:22px;height:22px;border-radius:50%;background:#8F3A28;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:12px;}
+ .ef-step .dot.off {background:transparent;border:1.5px solid rgba(23,21,17,.25);color:rgba(23,21,17,.4);}
+ .ef-sec {background:#fff;border:1.5px solid rgba(23,21,17,.1);border-radius:18px;padding:24px 26px;margin-top:18px;box-shadow:0 6px 20px rgba(23,21,17,.04);}
+ .ef-sec h3 {margin:0 0 4px;font-size:16px;font-weight:700;}
+ .ef-sec .hint {font-size:12.5px;color:rgba(23,21,17,.5);margin:0 0 14px;}
+ .ef-grid2 {display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+ @media(max-width:640px){.ef-grid2{grid-template-columns:1fr;}}
+ .en-form input[type=text], .en-form textarea {width:100%;font-size:15.5px;font-family:inherit;padding:12px 14px;border:1.5px solid rgba(23,21,17,.18);border-radius:10px;background:#FCFBF8;color:inherit;}
+ .en-form input:focus, .en-form textarea:focus {outline:none;border-color:#8F3A28;box-shadow:0 0 0 3px rgba(143,58,40,.12);}
+ .en-form label.f {display:block;font-size:13px;font-weight:700;margin:0 0 6px;}
+ .en-form .fld {margin-top:14px;}
+ .en-form .chk {display:flex;gap:10px;align-items:flex-start;padding:10px 12px;margin:6px 0;font-size:14px;line-height:1.5;border:1.5px solid rgba(23,21,17,.12);border-radius:10px;cursor:pointer;transition:border-color .12s,background .12s;}
+ .en-form .chk:hover {border-color:rgba(143,58,40,.4);}
+ .en-form .chk:has(input:checked) {border-color:#8F3A28;background:rgba(143,58,40,.05);}
+ .en-form .chk input {width:17px;height:17px;margin-top:2px;accent-color:#8F3A28;flex:none;}
+ .en-form .opts2 {display:grid;grid-template-columns:1fr 1fr;gap:0 12px;}
+ @media(max-width:640px){.en-form .opts2{grid-template-columns:1fr;}}
+ .en-btn {width:100%;margin-top:24px;font-size:16.5px;font-weight:700;color:#fff;background:#8F3A28;border:none;border-radius:12px;padding:16px;cursor:pointer;box-shadow:0 10px 26px rgba(143,58,40,.28);}
+ .en-btn:hover {transform:translateY(-1px);}
+ .en-btn:disabled {opacity:.6;transform:none;}
+</style>
+</head>
+<body class="no-ticker">
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="wordmark nav-brand">
+      <img class="nav-crest" src="photos/crest.png" alt="" aria-hidden="true" />
+      <span>Arena School</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="/curriculum-cn">课程</a>
+      <a href="/index-cn#pilot">案例</a>
+      <a href="/schools-cn">合作学校</a>
+      <a href="/teachers-cn">教师培训</a>
+      <a href="/mentorship-cn" aria-current="page">学年导师陪跑计划</a>
+    </div>
+    <div class="nav-cta">
+      <div class="lang-switch" aria-label="Language">
+        <a href="/enroll">EN</a>
+        <a href="/enroll-cn" class="lang-active" aria-current="page">中文</a>
+      </div>
+      <a href="/enroll-cn" class="btn btn-primary">预留名额 <span class="arr">→</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+<main id="top">
+<section style="padding-block: clamp(44px,5vw,72px); background:var(--bg-alt,#E9E3D5);">
+  <div class="container" style="max-width:720px;">
+    <div class="ef-step"><span class="dot">1</span>填写报名表<span style="opacity:.35;margin:0 2px;">→</span><span class="dot off">2</span><span style="color:rgba(23,21,17,.4);">支付</span></div>
+    <h1 class="h2" style="margin-top:14px;">报名表。</h1>
+    <p class="lede" style="margin-top:8px;font-size:15px;">两分钟填完。提交后将直接进入支付页面。</p>
+
+    <form id="ef" class="en-form" onsubmit="return go(event)">
+      <div class="ef-sec">
+        <h3>学生信息</h3>
+        <p class="hint">便于导师了解学生情况。</p>
+        <div class="ef-grid2">
+          <div><label class="f">学生姓名</label><input type="text" name="Student name" required placeholder="例如：王小明"></div>
+          <div><label class="f">年级与学校</label><input type="text" name="Grade and school" required placeholder="例如：10年级"></div>
+        </div>
+        <div class="ef-grid2 fld">
+          <div><label class="f">家长姓名</label><input type="text" name="Parent name" required></div>
+          <div><label class="f">家长微信号或电话</label><input type="text" name="Parent WeChat or phone" required></div>
+        </div>
+      </div>
+
+      <div class="ef-sec">
+        <h3>项目安排</h3>
+        <p class="hint">组队方式与项目方向。</p>
+        <label class="chk"><input type="radio" name="Team or individual" value="组队" required><span>组队（请在下方写出队友姓名）</span></label>
+        <label class="chk"><input type="radio" name="Team or individual" value="单独进行"><span>单独进行</span></label>
+        <label class="chk"><input type="radio" name="Team or individual" value="希望老师帮忙安排"><span>还不确定，希望老师帮忙安排</span></label>
+        <div class="fld"><input type="text" name="Teammates" placeholder="队友姓名（如有）"></div>
+        <div class="fld"><label class="f">项目想法（选填）</label><textarea name="Project idea" rows="2" placeholder="一两句话即可。"></textarea></div>
+      </div>
+
+      <div class="ef-sec">
+        <h3>目标</h3>
+        <p class="hint">可多选。</p>
+        <div class="opts2">
+          <label class="chk"><input type="checkbox" name="Goal: AI skills" value="yes"><span>掌握真正的AI能力</span></label>
+          <label class="chk"><input type="checkbox" name="Goal: college project" value="yes"><span>为大学申请做出亮眼作品</span></label>
+          <label class="chk"><input type="checkbox" name="Goal: competitions" value="yes"><span>参加并赢得比赛</span></label>
+          <label class="chk"><input type="checkbox" name="Goal: passion project" value="yes"><span>把兴趣发展成真实成果</span></label>
+        </div>
+      </div>
+
+      <div class="ef-sec">
+        <h3>每周例会</h3>
+        <p class="hint">选出所有可行时间，我们会据此安排。</p>
+        <div class="opts2">
+          <label class="chk"><input type="checkbox" name="Time: Saturday morning" value="yes"><span>周六上午</span></label>
+          <label class="chk"><input type="checkbox" name="Time: Saturday afternoon" value="yes"><span>周六下午</span></label>
+          <label class="chk"><input type="checkbox" name="Time: Sunday morning" value="yes"><span>周日上午</span></label>
+          <label class="chk"><input type="checkbox" name="Time: Sunday afternoon" value="yes"><span>周日下午</span></label>
+          <label class="chk"><input type="checkbox" name="Time: weekday evening" value="yes"><span>平日晚间</span></label>
+        </div>
+        <div class="fld">
+          <label class="f">线下还是线上？</label>
+          <div class="opts2">
+            <label class="chk"><input type="radio" name="Format" value="线下" required><span>线下</span></label>
+            <label class="chk"><input type="radio" name="Format" value="线上"><span>线上</span></label>
+            <label class="chk"><input type="radio" name="Format" value="线上线下结合"><span>线上线下都可以</span></label>
+          </div>
+        </div>
+      </div>
+
+      <div class="ef-sec" style="border-left:4px solid #8F3A28;">
+        <h3>确认</h3>
+        <label class="chk" style="border:none;padding:4px 0;"><input type="checkbox" name="Six-month commitment" value="confirmed" required><span><strong>我确认报名为期六个月的项目</strong> （十月至次年三月，总费用20,000元）。</span></label>
+      </div>
+
+      <button class="en-btn" type="submit" id="sb">提交并前往支付 →</button>
+      <p style="font-size:12.5px;color:rgba(23,21,17,.5);margin-top:10px;text-align:center;">如有问题，微信联系 phgan14。</p>
+    </form>
+  </div>
+</section>
+</main>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="crest crest-img footer-crest" src="photos/crest.png" alt="Arena School crest" />
+        <a href="/" class="wordmark">Arena School</a>
+        <p class="tag">A school for the day school never had time for.</p>
+        <p class="footer-license-line">Next cohort · Winter 2026 · Guangzhou.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Read</h4>
+        <a href="/#manifesto">Manifesto</a>
+        <a href="/curriculum">Curriculum & Philosophy</a>
+        <a href="/#ai-changed">What AI changed</a>
+        <a href="/#why">Why Arena</a>
+        <a href="/#structure">The cohort structure</a>
+      </div>
+      <div class="footer-col">
+        <h4>Cohorts</h4>
+        <a href="/case-study-hong-kong">Bodley Academy · Hong Kong 2025 · Students</a>
+        <a href="/case-study-beijing">Int'l School of Beijing · 2026 · Students</a>
+        <a href="/mentorship">The School-Year Mentorship Program · School year · Students</a>
+        <a href="/zero-to-launch">The AI Advantage Bootcamp · Guangzhou · Early career</a>
+        <a href="/#partners">Run one at your school</a>
+      </div>
+      <div class="footer-col">
+        <h4>Build with us</h4>
+        <a href="/#partners">For schools</a>
+        <a href="/teachers-cn">面向教师的AI培训</a>
+        <a href="/speaking-cn">演讲与工作坊</a>
+        <a href="/#partners">For parents · students</a>
+        <a href="mailto:hello@arena.school">hello@arena.school</a>
+        <a href="https://github.com/arena-school" target="_blank" rel="noopener">Curriculum on GitHub</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Arena School</span>
+      <span>Next cohort · Winter 2026 · Guangzhou</span>
+    </div>
+  </div>
+</footer>
+<script src="motion.js"></script>
+<script>
+async function go(e){
+  e.preventDefault();
+  var b=document.getElementById('sb'); b.disabled=true; b.textContent='提交中...';
+  var fd=new FormData(document.getElementById('ef'));
+  var data={}; fd.forEach(function(v,k){ data[k]=v; });
+  data['_subject']='Mentorship enrollment: '+(data['Student name']||'');
+  data['_template']='box';
+  try{
+    await fetch('https://formsubmit.co/ajax/phillipan14@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});
+  }catch(err){}
+  window.location.href='/pay-mentorship';
+  return false;
+}
+</script>
+</body>
+</html>

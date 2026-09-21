@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Primary -->
+<title>Arena School · 为AI时代而生的青年创造者项目</title>
+<meta name="description" content="每个学生很快都会拥有一位比老师更聪明的导师。Arena 为学生留下的空间而生：主动性、创造力、审美、匠心。学生用AI构建真实的产品和真实的公司，通过五天集训营与学年项目完成这一切。" />
+<meta name="author" content="Phillip An" />
+<meta name="theme-color" content="#8F3A28" />
+<link rel="canonical" href="https://arenaschool.org/index-cn" />
+
+<!-- Favicons -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="Arena School" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<link rel="manifest" href="/manifest.json" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Arena School" />
+<meta property="og:title" content="Arena School · 为AI时代而生的青年创造者项目" />
+<meta property="og:description" content="每个学生很快都会拥有一位比老师更聪明的导师。Arena 教AI教不了的东西:主动性、创造力、审美、匠心。两期学员已结营,香港与北京。下一期:2026年冬季营。" />
+<meta property="og:url" content="https://arenaschool.org/index-cn" />
+<meta property="og:image" content="https://arenaschool.org/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Arena School：每个学生很快都会拥有一位比老师更聪明的导师。" />
+<meta property="og:locale" content="zh_CN" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Arena School · 为AI时代而生的青年创造者项目" />
+<meta name="twitter:description" content="每个学生很快都会拥有一位比老师更聪明的导师。Arena 教AI教不了的东西:主动性、创造力、审美、匠心。" />
+<meta name="twitter:image" content="https://arenaschool.org/og-image.png" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "Arena School",
+  "alternateName": "Arena",
+  "url": "https://arenaschool.org",
+  "logo": "https://arenaschool.org/icons/icon-512.png",
+  "image": "https://arenaschool.org/og-image.png",
+  "description": "面向AI时代的教育项目，学生构建真实的产品和真实的公司。五天集训营与学年项目。已在香港与北京结营。下一期：2026年冬季营。",
+  "founder": { "@type": "Person", "name": "Phillip An" },
+  "foundingDate": "2026"
+}
+</script>
+
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ============================================================ STATUS TICKER ============================================================ -->
+<div class="ticker" id="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-live" aria-hidden="true"><span class="ticker-dot"></span>直播中</span>
+
+    <div class="ticker-carousel" role="region" aria-label="Arena School 公告" aria-live="polite">
+      <a class="ticker-slide is-active" href="/zero-to-launch-cn">
+        <span class="ticker-eyebrow">下一期</span>
+        <span class="ticker-body">AI职场先发营 · 广州 · 12月27日至1月2日 · 10月开放报名</span>
+      </a>
+      <a class="ticker-slide" href="#pilot">
+        <span class="ticker-eyebrow">刚刚结营</span>
+        <span class="ticker-body">北京顺义国际学校 · 100%的团队上线了真实产品</span>
+      </a>
+      <a class="ticker-slide" href="#manifesto">
+        <span class="ticker-eyebrow">阅读</span>
+        <span class="ticker-body">宣言：为什么我们叫 Arena</span>
+      </a>
+      <a class="ticker-slide" href="#pilot">
+        <span class="ticker-eyebrow">案例</span>
+        <span class="ticker-body">9.5/10 满意度 · Bodley Academy · 香港 2025</span>
+      </a>
+      <a class="ticker-slide" href="#ai-changed">
+        <span class="ticker-eyebrow">AI改变了什么</span>
+        <span class="ticker-body">一位比老师更耐心的导师，装进每个人的口袋，几乎免费</span>
+      </a>
+      <a class="ticker-slide" href="#partners">
+        <span class="ticker-eyebrow">与我们同行</span>
+        <span class="ticker-body">学校 · 家长 · 教育者 · 学生 · 我们会认真回复</span>
+      </a>
+    </div>
+
+    <button class="ticker-x" id="tickerX" aria-label="关闭">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5l14 14M19 5L5 19"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- ============================================================ NAV ============================================================ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="wordmark nav-brand">
+      <img class="nav-crest" src="photos/crest.png" alt="" aria-hidden="true" />
+      <span>Arena School</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="/curriculum-cn">课程</a>
+      <a href="#pilot">案例</a>
+      <a href="/schools-cn">合作学校</a>
+      <a href="/teachers-cn">教师培训</a>
+    </div>
+    <div class="nav-cta">
+      <div class="lang-switch" aria-label="Language">
+        <a href="/">EN</a>
+        <a href="/index-cn" class="lang-active" aria-current="page">中文</a>
+      </div>
+      <a href="#partners" class="btn btn-primary">与我们同行 <span class="arr">→</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+
+<!-- ============================================================ HERO ============================================================ -->
+<section class="hero" data-screen-label="Hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="hero-eyebrow-row reveal"><span class="eyebrow">为AI时代而生的青年创造者项目</span></div>
+        <h1 class="display reveal">每个学生很快都会拥有一位<em>比老师更聪明</em>的导师。</h1>
+        <p class="lede sub reveal">AI已经清空了学校用十二年打磨的那块地基。Arena 教剩下的东西：<em>主动性、创造力、审美、匠心</em>。学生用AI构建真实的产品和真实的公司，学到那些真正决定一生的能力。</p>
+        <div class="hero-cta reveal">
+          <a href="#manifesto" class="btn btn-primary">阅读宣言 <span class="arr">→</span></a>
+          <a href="#partners" class="btn btn-ghost">与我们同行</a>
+        </div>
+        <p class="hero-meta reveal">两期学员已结营 · <a href="#pilot" class="hero-meta-link">香港与北京</a> · 下一期 <a href="/zero-to-launch-cn">2026年冬季营 · 广州</a></p>
+      </div>
+      <div class="monogram-wrap reveal">
+        <img class="crest crest-img" src="photos/crest.png" alt="Arena School 校徽 · A · R · E · N · A · 为AI时代而生的学校 · 建校于2026年" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ MANIFESTO (dark) ============================================================ -->
+<section class="manifesto dark-band" id="manifesto" data-screen-label="Manifesto">
+  <div class="container">
+    <div class="manifesto-grid">
+      <aside class="manifesto-side reveal" aria-hidden="true">
+        <img class="crest crest-img manifesto-crest" src="photos/crest.png" alt="Arena School 校徽" />
+      </aside>
+
+      <div class="manifesto-body">
+
+        <article class="man-block reveal">
+          <span class="eyebrow">为什么叫 Arena</span>
+          <h3 class="man-h">这个名字来自西奥多·罗斯福。</h3>
+          <p>1910年4月23日，卸任总统一年后，罗斯福在巴黎索邦大学向法国听众发表了一场演讲。一个多世纪以来，人们记住的始终是其中一段话。那是每一位创业者迟早都会读到的段落，也是每一个把难事做成的孩子迟早都需要的段落。</p>
+          <blockquote class="roosevelt">"It is not the critic who counts; not the man who points out how the strong man stumbles, or where the doer of deeds could have done them better. <em>The credit belongs to the man who is actually in the arena</em>, whose face is marred by dust and sweat and blood; who strives valiantly; who errs, who comes short again and again, because there is no effort without error and shortcoming; but who does actually strive to do the deeds; who knows great enthusiasms, the great devotions; who spends himself in a worthy cause; who at the best knows in the end the triumph of high achievement, and who at the worst, if he fails, at least fails while daring greatly."</blockquote>
+          <p class="roosevelt-attr">西奥多·罗斯福 · 《共和国的公民》 · 巴黎索邦大学 · 1910年4月23日</p>
+          <p>今天的学校奖励的是评论者：那个指出答案本可以更好的孩子，那个读完布置的内容、交出预期答案的孩子。Arena 是为另一种孩子而生的：身在竞技场里，满身尘土与汗水，交出的第一稿并不完美的那个孩子。当学校说"这周不学这个"的时候，他还是把它做了出来。</p>
+        </article>
+
+        <article class="man-block reveal">
+          <span class="eyebrow">为什么我要做这件事</span>
+          <h3 class="man-h">我的父母把一生押在了教育上。它成功了。但这条路不会再对下一代管用。</h3>
+          <p>我的父母是华人移民，曾在南非打扫房屋、刷厕所度日，因为他们不会说英语。他们把我们全家搬到美国，只为让我能上好学校。他们的一生就是一场赌注：只要教育走通了，其他一切都会跟着来。这场赌注赢了。我读了加州理工，进了麦肯锡、高盛，读完哈佛商学院，在Y Combinator孵化联合创办了一家公司。写下这段话时，我正在北京，完成清华大学的施瓦茨曼学者项目。</p>
+          <p>但当我身处那些培养出我的机构内部时，我很确定，那条对我管用的路，不会再对下一代管用。培养出我的这套系统训练的是顺从的高分选手，服务的是一个为顺从付费的世界。<em>那个世界已经不存在了。</em></p>
+          <p>这是我欠父母的债。也是我对未来的孩子们唯一诚实的交代。</p>
+        </article>
+
+        <div class="attr reveal">
+          <a href="https://tomyfuture.kids" class="essay-link" target="_blank" rel="noopener">
+            <span class="by">Phillip An，创始人</span>
+            <span class="essay-read">阅读完整文章，tomyfuture.kids <span class="arr">→</span></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ FOUNDER CREDENTIALS STRIP ============================================================ -->
+<section class="founder-strip" data-screen-label="Founder credentials">
+  <div class="container">
+    <div class="fs-head reveal">
+      <span class="eyebrow">团队背景</span>
+      <h2 class="fs-h"><em>我们试图重建的这些机构，我们都曾身在其中。</em></h2>
+    </div>
+    <ul class="fs-logos reveal">
+      <li class="fs-wordmark"><img src="logos/caltech.svg"        alt="Caltech 加州理工" loading="lazy"></li>
+      <li class="fs-wordmark"><img src="logos/mckinsey.svg"       alt="McKinsey &amp; Company 麦肯锡" loading="lazy"></li>
+      <li class="fs-wordmark"><img src="logos/goldman.svg"        alt="Goldman Sachs 高盛" loading="lazy"></li>
+      <li class="fs-mark">    <img src="logos/harvard-crest.svg"  alt="Harvard University 哈佛大学" loading="lazy"></li>
+      <li class="fs-mark">    <img src="logos/yc.svg"             alt="Y Combinator" loading="lazy"></li>
+      <li class="fs-mark">    <img src="logos/tsinghua-crest.svg" alt="Tsinghua University 清华大学" loading="lazy"></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================ WHY SCHOOL EXISTS ============================================================ -->
+<section class="why" id="why" data-screen-label="Why school exists">
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-head reveal">
+        <span class="eyebrow">学校为什么长这个样子</span>
+        <h2 class="h2"><em>这套架构是为一个已经不存在的世界设计的。</em></h2>
+      </div>
+      <div class="why-body">
+        <div class="factoid reveal"><span class="f-num">200年</span><span class="f-cap">架构未曾改变</span></div>
+        <p class="prose reveal">学校从来不是为了培养伟大的思考者而设计的。两百年前，它是为了培养顺从的工业化劳动力而设计的。它的每一处架构都在强化这一点：上下课的铃声、固定的课时、规整的日程，连上厕所都要先举手。铃声是工厂的哨声，一排排的课桌是流水线，考试是质量检验。</p>
+        <p class="prose reveal">它训练孩子把"渺小"内化成规则：不要出挑，不要质疑，不要太有热情、太好奇、太吵、太不一样。照剧本走，达标，低调。</p>
+        <p class="prose reveal">而真实世界从不奖励守规则的人。它奖励的是建造者、敢冒险的人、能决定下一步做什么的人。学校教的恰恰相反。然后我们又疑惑，为什么有野心的孩子要花整个二十岁的十年去拆掉学校教给他们的东西。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ WHAT AI CHANGED ============================================================ -->
+<section class="ai-changed" id="ai-changed" data-screen-label="What AI changed">
+  <div class="container narrow ai-changed-inner">
+    <div class="reveal ac-eyebrow"><span class="eyebrow">AI改变了什么</span></div>
+    <h2 class="h2 ac-head reveal"><em>一位有无限耐心的导师，几乎变得免费了。</em></h2>
+    <p class="prose reveal">今天的孩子可以向AI提出任何问题，得到一个耐心、准确、为他量身定制的答案。凌晨两点，用他的母语，不会被人当成笨蛋。教育里最稀缺的那种资源，一位对你有无限时间的导师，不再稀缺了。学校花了十二年反复训练的那件事，AI现在做得比任何老师都好。而那些真正决定一生的东西，学校几乎没花时间去教。</p>
+        <p class="prose reveal">很容易把这当成一个功能来对待：给现有课程加一个AI侧栏，让学生用AI写作业。这是大多数学校在讨论的那种缝补方案。但在错误的架构上打补丁，架构依然是错的。问题不是学生该不该在学校里用AI，而是：当每个学生口袋里都装着一位比老师更聪明的导师时，学校本该是什么样子？</p>
+    <div class="inset-stat reveal">
+      <span class="is-num">2.6倍</span>
+      <span class="is-cap"><em>更快的学习速度，Alpha School，每天两小时AI自适应学习。</em></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ WHAT'S LEFT FOR HUMANS ============================================================ -->
+<section class="humans" id="humans" data-screen-label="What's left for humans">
+  <div class="container">
+    <div class="sec-head humans-head reveal">
+      <span class="eyebrow">留给人的部分</span>
+      <h2 class="h2"><em>学校从来没有时间教的那一天。</em></h2>
+    </div>
+    <div class="humans-grid">
+      <div class="human-col reveal">
+        <div class="hc-name">主动性</div>
+        <p class="hc-def">决定下一步做什么的自律。</p>
+        <p class="hc-tex">不是"完成布置的作业"，也不是"选出正确答案"，而是看着这个世界，自己选一件事去做。</p>
+        <p class="hc-example"><em>在试点营里，一个十岁的孩子选择做手语转语音，因为他的表亲是听障人士。没有人布置这个题目。</em></p>
+      </div>
+      <div class="human-col reveal">
+        <div class="hc-name">审美</div>
+        <p class="hc-def">知道自己做出来的东西是不是真的好。</p>
+        <p class="hc-tex">评分标准能告诉你有没有达标，审美告诉你这个目标本身值不值得达成。</p>
+        <p class="hc-example"><em>他在演示结束后还在继续打磨，因为第一版还不足以让他的奶奶真正用起来。</em></p>
+      </div>
+      <div class="human-col reveal">
+        <div class="hc-name">匠心</div>
+        <p class="hc-def">把一件事做完、做好的耐心。</p>
+        <p class="hc-tex">这是最难补上的差距。AI能立刻给你第一稿，匠心是你拿到第一稿之后，再打磨二十遍的那种功夫。</p>
+        <p class="hc-example"><em>他花了五天时间反复打磨才上线。最难的不是模型本身，而是把音频做得足够清晰，让一位老人愿意相信它。</em></p>
+      </div>
+    </div>
+    <p class="humans-close reveal"><em>这些能力，我所知道的任何学校都没有教。</em></p>
+  </div>
+</section>
+
+<!-- ============================================================ THE STRUCTURE ============================================================ -->
+<section class="structure" id="structure" data-screen-label="The programs">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">我们在做什么</span>
+      <h2 class="h2">学校用十二年打磨AI现在做得最好的那件事。Arena 把每一节课都用在AI做不到的事情上。</h2>
+      <p class="lede">同一套方法论，服务三类人群：学生、职场新人、企业与团队。这不是一所要报名入学的新学校，而是能嵌入你原本日程的项目。每一种形式都以同样的方式收尾：真实的成果，已经上线，展示给真正在意结果的人看。</p>
+    </div>
+
+    <div class="structure-row track-row reveal">
+      <svg class="structure-glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4">
+        <path d="M14 30l-6 6 4 4 6-6M30 14l8-8 4 4-8 8"/>
+        <path d="M14 30l16-16 4 4-16 16zM34 6l2-2M40 12l2-2"/>
+      </svg>
+      <div class="rtitle">学生：<em>七至十二年级。</em></div>
+      <div>
+        <p class="rbody">在一个学校假期里，学生从一张白纸出发，做出<span class="hl">一个有真实用户、有品牌、有广告、有定价、有第一笔收入的真实产品。</span>那一周以一场舞台上的路演收尾：由真正的创始人和从业者担任评委，设有真实的奖金。</p>
+        <ul class="track-formats">
+          <li><strong>五天集训营与入门集训营：</strong>利用学校假期，从想法到公司，一周搞定。</li>
+          <li><strong><a href="/mentorship-cn" class="tlink">学年导师陪跑计划：</a></strong>每两周一次董事会，一份里程碑阶梯，集训营结束后公司继续运营。</li>
+        </ul>
+        <p class="rmeta">香港 2025 · 北京 2026 · <a href="/schools-cn" class="tlink">查看学生项目 →</a></p>
+      </div>
+    </div>
+
+    <div class="structure-row track-row reveal">
+      <svg class="structure-glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4">
+        <path d="M10 38h28M14 30l10-18 10 18"/>
+      </svg>
+      <div class="rtitle">职场新人：<em>本科与硕士在读生。</em></div>
+      <div>
+        <p class="rbody">高强度集训营，只为一个结果：<span class="hl">上线一个真实产品，把它转化成实习和工作机会。</span>不是一张证书，而是一个真实上线的产品、一份作品集，和一段在面试间里能讲清楚的经历。</p>
+        <ul class="track-formats">
+          <li><strong>AI职场先发营：</strong>2026年冬季，广州。七天，上线一个产品，完成一次目标岗位构建。</li>
+        </ul>
+        <p class="rmeta">2026年冬季 · 广州 · <a href="/zero-to-launch-cn" class="tlink">查看AI职场先发营 →</a></p>
+      </div>
+    </div>
+
+    <div class="structure-row track-row reveal">
+      <svg class="structure-glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4">
+        <circle cx="24" cy="24" r="18"/>
+        <path d="M6 24h36M24 6c5 5 5 31 0 36M24 6c-5 5-5 31 0 36"/>
+        <circle cx="14" cy="16" r="2.4" fill="currentColor" stroke="none"/>
+        <circle cx="36" cy="22" r="2.4" fill="currentColor" stroke="none"/>
+        <circle cx="22" cy="38" r="2.4" fill="currentColor" stroke="none"/>
+      </svg>
+      <div class="rtitle">教育者与团队：<em>学校、教师团队、企业。</em></div>
+      <div>
+        <p class="rbody">面向在职团队的实战AI培训，遵循与学生和职场新人项目相同的方法论：<span class="hl">通过做出真实的东西来学习，</span>而不是坐着听完一份幻灯片。</p>
+        <ul class="track-formats">
+          <li><strong>已交付：</strong>为清华大学苏世民学院全体员工提供的AI培训。</li>
+          <li><strong>洽谈中：</strong>与更多学校和合作方的教师培训项目。</li>
+        </ul>
+        <p class="rmeta">已在清华交付 · <a href="/#partners" class="tlink">聊聊你的团队 →</a> · <a href="/teachers-cn" class="tlink">查看教师培训 →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ OPEN-SOURCE ============================================================ -->
+<section class="opensource" id="opensource" data-screen-label="Open-source">
+  <div class="container essay">
+    <p class="opensource-line reveal"><em>课程和教学手册将会开源，这样底特律的一所特许学校或比哈尔邦的一个村庄也能开一期营。这不是Arena的目的，而是它的一个结果。</em></p>
+  </div>
+</section>
+
+<!-- ============================================================ PILOT CASE STUDY ============================================================ -->
+<section class="proof" id="pilot" data-screen-label="Pilot case study">
+  <div class="container">
+    <div class="reveal" style="margin-bottom: clamp(28px,4vw,44px)">
+      <span class="eyebrow">案例 · 三条项目线 · 两个国家</span>
+      <h2 class="h2" style="margin-top:18px;max-width:26ch;">这不是纸上谈兵，它已经在真实运行。</h2>
+      <p class="lede" style="margin-top:20px;max-width:58ch;color:var(--text-ink-soft);">两期学生营已经在香港和北京结营。一次企业培训在清华交付。一期职场新人营即将于今年冬季在广州开营。每条线都是同一个标准：真实的路演日、真实上线的产品、有奖金就一定是真实奖金的路演比赛。以下是发生过的事。</p>
+    </div>
+    <!-- Case study 1: Bodley Academy, Hong Kong -->
+    <div class="case-study reveal">
+      <div class="case-study-head">
+        <span class="cs-inst">Bodley Academy</span>
+        <span class="cs-meta">香港 · 2025年夏 · 学生项目</span>
+      </div>
+      <div class="stat-bar" style="border-bottom:none; padding-bottom:0;">
+        <div class="stat reveal">
+          <div class="num"><span class="countup" data-to="9.5" data-decimals="1">0</span><span class="unit">/10 满意度</span></div>
+          <p class="label"><strong>试点营净推荐值</strong>，20名学生，与Bodley Academy · 牛津大学罗德楼合作举办。</p>
+        </div>
+        <div class="stat reveal">
+          <div class="num"><span class="countup" data-to="5">0</span><span class="unit">天</span></div>
+          <p class="label">一名<strong>十岁的学生上线了一个真实的AI产品</strong>，手语转语音，只用了五天。</p>
+        </div>
+        <div class="stat reveal">
+          <div class="num"><span class="countup" data-to="2">0</span><span class="unit">名学生</span></div>
+          <p class="label">后来考入了<strong>斯坦福</strong>和<strong>英国顶尖寄宿学校</strong>。</p>
+        </div>
+      </div>
+
+      <div class="proof-gallery reveal">
+        <figure class="pg-tile pg-classroom">
+          <img src="photos/pilot-classroom.jpg" alt="香港试点营现场,二十名学生在Bodley Academy,2025年夏" loading="lazy" />
+          <figcaption>课堂现场 · Bodley Academy · 香港 · 2025</figcaption>
+        </figure>
+        <figure class="pg-tile pg-hands">
+          <video src="photos/pilot-hands.mp4" autoplay muted loop playsinline preload="metadata" aria-label="一名学生在试点营中用电脑编程"></video>
+          <figcaption>第三天 · 上线原型</figcaption>
+        </figure>
+        <figure class="pg-tile pg-collab">
+          <video src="photos/pilot-collab.mp4" autoplay muted loop playsinline preload="metadata" aria-label="学生在工作台前协作"></video>
+          <figcaption>学员们，工作坊进行中</figcaption>
+        </figure>
+        <figure class="pg-tile pg-sticky">
+          <img src="photos/pilot-sticky.jpg" alt="学生在玻璃上排列便利贴,设计思维环节" loading="lazy" />
+          <figcaption>第一天 · 确定要做什么</figcaption>
+        </figure>
+        <figure class="pg-tile pg-check">
+          <img src="photos/pilot-check.jpg" alt="Phillip将路演获奖支票交给学生团队" loading="lazy" />
+          <figcaption>路演获胜团队 · 1980美元真实种子基金</figcaption>
+        </figure>
+        <figure class="pg-tile pg-cohort">
+          <img src="photos/pilot-cohort.jpg" alt="项目结束时的学员合影" loading="lazy" />
+          <figcaption>二十名学员，第五天</figcaption>
+        </figure>
+      </div>
+
+      <div class="proof-story">
+        <div class="proof-prose reveal">
+          <p class="pull">一个十岁的孩子走进教室时，连API是什么都不知道。</p>
+          <p>五天后，他演示了一个真正能用的应用，能把手语转换成语音。他做这个，是因为他的表亲是听障人士。没有人布置这个题目。上午的AI导师已经清空了足够多的空间，让他的下午可以自由追一个真实的问题，而一位记得他名字的导师一直留在教室里，直到它真正跑起来。</p>
+          <p>同一期的两名学生带着项目的推荐信走出了这一周：一位现在在斯坦福，另一位在英国一所顶尖寄宿学校。第三支团队从路演之夜回来时，已经把获奖支票花在了一个真实的域名上，因为他们真的打算把公司继续开下去。</p>
+          <p class="proof-attr">来自香港试点营，20名学生，2025年夏</p>
+          <p style="margin-top:14px;"><a href="/case-study-hong-kong-cn" class="tlink">阅读完整案例 →</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case study 2: 北京顺义国际学校 -->
+    <div class="case-study reveal">
+      <div class="case-study-head">
+        <span class="cs-inst">北京顺义国际学校</span>
+        <span class="cs-meta">北京 · 2026年夏 · 学生项目</span>
+      </div>
+      <div class="stat-bar" style="border-bottom:none; padding-bottom:0;">
+        <div class="stat reveal">
+          <div class="num"><span class="countup" data-to="100">0</span><span class="unit">%</span></div>
+          <p class="label"><strong>每一支团队都上线了真实产品</strong>，有真实用户，覆盖七至十二年级。</p>
+        </div>
+        <div class="stat reveal">
+          <div class="num">¥<span class="countup" data-to="8888">0</span><span class="unit">奖金</span></div>
+          <p class="label">训练营期间就赚到了第一笔真实收入。最终路演由<strong>来自哈佛、Y Combinator及顶尖AI公司的创始人和从业者</strong>担任评委。</p>
+        </div>
+        <div class="stat reveal">
+          <div class="num"><span class="countup" data-to="6">0</span><span class="unit">/6</span></div>
+          <p class="label">六名学生参与了营后调查。<strong>全部六人都希望继续。</strong>一个面向校友的学年创始人项目现已开始运行。</p>
+        </div>
+      </div>
+      <p style="margin-top:18px;"><a href="/case-study-beijing-cn" class="tlink">阅读完整案例 →</a></p>
+    </div>
+
+    <!-- Case study 3: Schwarzman College at Tsinghua -->
+    <div class="case-study case-study-quiet reveal">
+      <div class="case-study-head">
+        <span class="cs-inst">清华大学苏世民学院</span>
+        <span class="cs-meta">北京 · 企业项目</span>
+      </div>
+      <p class="proof-track-line">为清华大学苏世民学院全体员工交付的AI培训。</p>
+    </div>
+
+    <!-- Next cohort -->
+    <aside class="next-pilot reveal" aria-label="Next cohort">
+      <div class="np-left">
+        <span class="eyebrow np-eyebrow"><span class="np-dot" aria-hidden="true"></span>接下来</span>
+        <h3 class="np-h">下一期：AI职场先发营。广州，12月27日至1月2日。</h3>
+        <p class="np-body">冬季假期的七天：打造一个真实的AI产品并上线，在真正的评委面前完成路演。与广州的合作方共同举办。<a href="/zero-to-launch-cn" class="tlink">查看AI职场先发营</a>。</p>
+      </div>
+      <a href="#partners" class="np-cta">
+        <span>与我们同行</span>
+        <span class="np-cta-arr" aria-hidden="true">→</span>
+      </a>
+    </aside>
+
+  </div>
+</section>
+
+<!-- ============================================================ BUILD IT WITH US ============================================================ -->
+<section class="partners" id="partners" data-screen-label="Build it with us">
+  <div class="container">
+    <div class="partners-grid">
+      <div class="reveal partners-lede">
+        <span class="eyebrow">与我们同行</span>
+        <h2 class="h2 partners-h">如果你读到了这里，<em>我们很想听听你的想法。</em></h2>
+        <p class="lede partners-sub">有四种方式可以和我们一起做这件事，选一个适合你的：我们会读每一条消息，并在三个工作日内回复。</p>
+
+        <ul class="partner-audiences">
+          <li>
+            <span class="pa-tag">学校</span>
+            <div class="pa-body"><strong>在你的校园开一期五天集训营。</strong>真实的路演日，真实的产品。我们离开后，课程留在你的团队里。</div>
+          </li>
+          <li>
+            <span class="pa-tag">家长</span>
+            <div class="pa-body"><strong>孩子在12到22岁之间，喜欢动手创造。</strong>我们会告诉你下一期公开营的信息，以及怎样让孩子进入这个课堂。</div>
+          </li>
+          <li>
+            <span class="pa-tag">教育者</span>
+            <div class="pa-body"><strong>想把这套方法带到你自己的项目里。</strong>一杯咖啡、一通长电话、一次到你学校的实地拜访，怎么帮得上忙都可以。</div>
+          </li>
+          <li>
+            <span class="pa-tag">学生</span>
+            <div class="pa-body"><strong>你喜欢做东西。</strong>告诉我们你卡在了哪里。我们教过的最有意思的孩子，大多是这样开始的。</div>
+          </li>
+        </ul>
+
+        <div class="partners-trust">
+          <span class="pt-line">一对一沟通 · 不共享名单 · 不发邮件订阅</span>
+        </div>
+      </div>
+
+      <div class="partner-cta reveal">
+        <form class="cohort-form partners-form"
+              id="partnerForm"
+              action="https://formsubmit.co/ajax/phillipan14@gmail.com"
+              method="POST"
+              data-fallback-email="phillipan14@gmail.com">
+          <input type="hidden" name="_subject" value="Arena School - new inquiry (CN)" />
+          <input type="hidden" name="_template" value="box" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+          <div class="big">告诉我们一些关于你的信息。</div>
+          <p class="seats">两分钟。三个工作日内认真回复。</p>
+
+          <div class="form-row">
+            <label for="pf-role">我的身份是……</label>
+            <select id="pf-role" name="role" required>
+              <option value="" disabled selected>请选择</option>
+              <option value="school">学校负责人或老师</option>
+              <option value="parent">家长</option>
+              <option value="educator">教育者 / 项目建设者</option>
+              <option value="student">学生(12至22岁)</option>
+              <option value="other">其他</option>
+            </select>
+          </div>
+
+          <div class="form-row form-row-split">
+            <div>
+              <label for="pf-name">姓名</label>
+              <input id="pf-name" name="name" type="text" required autocomplete="name" placeholder="姓和名" />
+            </div>
+            <div>
+              <label for="pf-email">邮箱</label>
+              <input id="pf-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label for="pf-context">你想聊聊什么？</label>
+            <textarea id="pf-context" name="context" rows="4" required placeholder="几句话就够了。学校合作?给孩子报名?想了解具体怎么运作?还是有一个想做的项目?"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary cf-submit">
+            <span class="cf-submit-label">发送 <span class="arr">→</span></span>
+            <span class="cf-submit-loading" aria-hidden="true">发送中…</span>
+          </button>
+
+          <p class="cf-status" id="pfStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ CLOSING CTA (dark) ============================================================ -->
+<section class="closing dark-band" data-screen-label="Closing">
+  <div class="container">
+    <p class="big display reveal"><em>那些将要建造下一个百年的孩子，此刻就活在我们身边。</em></p>
+    <p class="sub reveal">AI负责知识的传递，人负责判断力、审美、勇气，以及被真正相信的那种真实体验。Arena 就是让这一切发生的地方。</p>
+    <div class="closing-cta reveal">
+      <a href="#partners" class="btn btn-primary">与我们同行 <span class="arr">→</span></a>
+      <a href="#manifesto" class="btn btn-ghost">阅读宣言</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================ FOOTER ============================================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="crest crest-img footer-crest" src="photos/crest.png" alt="Arena School 校徽" />
+        <a href="#top" class="wordmark">Arena School</a>
+        <p class="tag">一所专门教学校从来没有时间教的那一天的学校。</p>
+        <p class="footer-license-line">下一期 · 2026年冬季营 · 广州。</p>
+      </div>
+      <div class="footer-col">
+        <h4>阅读</h4>
+        <a href="#manifesto">宣言</a>
+        <a href="/curriculum-cn">课程与理念</a>
+        <a href="#ai-changed">AI改变了什么</a>
+        <a href="#why">为什么是Arena</a>
+        <a href="#structure">五天集训营结构</a>
+      </div>
+      <div class="footer-col">
+        <h4>历期学员</h4>
+        <a href="/case-study-hong-kong-cn">Bodley Academy · 香港 2025 · 学生项目</a>
+        <a href="/case-study-beijing-cn">北京顺义国际学校 · 2026 · 学生项目</a>
+        <a href="/mentorship-cn">学年导师陪跑计划 · 学年项目 · 学生项目</a>
+        <a href="/zero-to-launch-cn">AI职场先发营 · 广州 · 职场新人</a>
+        <a href="#partners">在你的学校开一期</a>
+      </div>
+      <div class="footer-col">
+        <h4>与我们同行</h4>
+        <a href="#partners">学校合作</a>
+        <a href="/teachers-cn">面向教师的AI培训</a>
+        <a href="/speaking-cn">演讲与工作坊</a>
+        <a href="#partners">家长与学生</a>
+        <a href="mailto:hello@arena.school">hello@arena.school</a>
+        <a href="https://github.com/arena-school" target="_blank" rel="noopener">课程开源于 GitHub</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Arena School</span>
+      <span>下一期 · 2026年冬季营 · 广州</span>
+    </div>
+  </div>
+</footer>
+
+<script src="image-slot.js"></script>
+<script src="motion.js"></script>
+</body>
+</html>

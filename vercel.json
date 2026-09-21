@@ -1,0 +1,42 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/isb",
+      "destination": "https://isb.arenaschool.org",
+      "permanent": true
+    },
+    {
+      "source": "/isb/:path*",
+      "destination": "https://isb.arenaschool.org/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/founders-program",
+      "destination": "/mentorship",
+      "permanent": true
+    },
+    {
+      "source": "/founders-program-cn",
+      "destination": "/mentorship-cn",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    }
+  ]
+}
