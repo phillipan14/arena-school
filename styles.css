@@ -2798,3 +2798,29 @@ body.zl-page .nav.scrolled .nav-lockup { filter: none; }
 }
 .cred-row + .cred-row { margin-top: clamp(28px, 3.4vw, 44px); }
 .founder-strip .cred-more { margin-top: clamp(52px, 6vw, 76px); }
+
+/* ---- Round 4: printed knot panel in the hero ---- */
+.hero-riso { background: var(--bg-paper); }
+.hero-riso-grid { grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: clamp(32px, 4vw, 64px); }
+.hero-art { position: relative; padding-left: clamp(70px, 8vw, 130px); }
+.hero-panel { position: relative; height: min(58vh, 500px); min-height: 340px; overflow: hidden; background-size: cover; background-position: center; background-color: #F4EEE3; }
+.hero-seal {
+  position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+  width: clamp(200px, 22vw, 330px); height: auto; z-index: 2;
+  filter: drop-shadow(0 6px 18px rgba(14,23,41,0.12));
+}
+.hero-riso-copy::before { display: none; }
+@media (max-width: 900px) {
+  .hero-art { padding-left: 0; }
+  .hero-panel { height: 300px; min-height: 0; }
+  .hero-seal { left: 50%; top: auto; bottom: -34px; transform: translateX(-50%); width: 150px; }
+  .hero-riso-copy { margin-top: 44px; }
+}
+
+.tm-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.tm-card blockquote { font-size: clamp(18px, 1.5vw, 21px); }
+.testimonials { padding-block: clamp(64px, 8vw, 104px); }
+@media (max-width: 900px) {
+  .hero-riso-grid { grid-template-columns: 1fr; gap: 28px; padding-top: 104px; }
+  .hero-riso-copy { margin-top: 36px; }
+}

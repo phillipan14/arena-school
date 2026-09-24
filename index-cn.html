@@ -99,10 +99,10 @@
 </nav>
 <main id="top">
 <section class="hero-riso" data-screen-label="Hero">
-  <div class="hero-dots" data-dots="blob" data-dots-seed="0" data-dots-center="0.27,0.58" data-dots-scale="0.52" data-dots-center-sm="0.5,0.24" data-dots-scale-sm="0.2" data-dots-bg="0.05" data-dots-ink="#16226A" data-dots-cell="2.4" style="background-image:url('/art/beijing.webp')" aria-hidden="true"></div>
   <div class="container hero-riso-grid">
-    <div class="hero-riso-mark reveal">
-      <img src="/logos/arena/seal-halo-720.png" alt="Arena School" width="720" height="720" />
+    <div class="hero-art reveal">
+      <div class="hero-panel" data-knot data-knot-pq="2,3" data-knot-tube="0.56" data-knot-zoom="1.05" data-knot-shift="0.35,0.05" data-knot-tilt="0.95,0.55" style="background-image:url('/art/beijing.webp')" aria-hidden="true"></div>
+      <img class="hero-seal" src="/logos/arena/seal-halo-720.png" alt="Arena School" width="720" height="720" />
     </div>
     <div class="hero-riso-copy">
       <div class="hero-eyebrow-row reveal"><span class="eyebrow">为AI时代而生的青年创造者项目</span></div>
@@ -116,13 +116,11 @@
   </div>
   
 </section>
-<!-- TESTIMONIALS: paste three quotes, then delete the hidden attribute below.
-     House rule: minors are never named. Attribute by role, grade, city and year. -->
-<section class="testimonials" id="testimonials" data-screen-label="Testimonials" hidden>
+<section class="testimonials" id="testimonials" data-screen-label="Testimonials">
   <div class="container">
     <div class="sec-head reveal"><span class="eyebrow">他们怎么说</span>
-      <h2 class="h2 h2-md">学生和家长怎么说。</h2></div>
-    <div class="tm-grid reveal"><figure class="tm-card"><blockquote>在这里填写评价。</blockquote><figcaption>十年级学生 · 北京，2026</figcaption></figure><figure class="tm-card"><blockquote>在这里填写评价。</blockquote><figcaption>十年级学生 · 北京，2026</figcaption></figure><figure class="tm-card"><blockquote>在这里填写评价。</blockquote><figcaption>十年级学生 · 北京，2026</figcaption></figure></div>
+      <h2 class="h2 h2-md">学生怎么说。</h2></div>
+    <div class="tm-grid reveal"><figure class="tm-card"><blockquote>“当然，在这里能学到的比在学校多得多。”</blockquote><figcaption>中四学生 · 香港，2025</figcaption></figure><figure class="tm-card"><blockquote>“重要的不是怎么做，而是做什么。我的创造力被点燃了，现在我知道可以用AI工具把想法变成现实。”</blockquote><figcaption>学生 · 香港，2025</figcaption></figure><figure class="tm-card"><blockquote>“用 Vercel 这样的AI工具做全栈开发，再用视频和音频生成工具做广告。以前需要一整个团队才能完成的事，现在AI就能做到，这让我非常震撼。”</blockquote><figcaption>学生 · 香港，2025</figcaption></figure></div>
   </div>
 </section>
 <section class="founder-strip" data-screen-label="Founding team">
@@ -204,6 +202,7 @@
     </div>
   </div>
 </footer>
+<script src="/riso-knot.js" defer></script>
 <script src="/riso-dots.js" defer></script>
 <script src="/motion.js"></script>
 </body>

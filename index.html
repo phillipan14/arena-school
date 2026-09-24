@@ -105,10 +105,10 @@
 </nav>
 <main id="top">
 <section class="hero-riso" data-screen-label="Hero">
-  <div class="hero-dots" data-dots="blob" data-dots-seed="0" data-dots-center="0.27,0.58" data-dots-scale="0.52" data-dots-center-sm="0.5,0.24" data-dots-scale-sm="0.2" data-dots-bg="0.05" data-dots-ink="#16226A" data-dots-cell="2.4" style="background-image:url('/art/beijing.webp')" aria-hidden="true"></div>
   <div class="container hero-riso-grid">
-    <div class="hero-riso-mark reveal">
-      <img src="/logos/arena/seal-halo-720.png" alt="Arena School" width="720" height="720" />
+    <div class="hero-art reveal">
+      <div class="hero-panel" data-knot data-knot-pq="2,3" data-knot-tube="0.56" data-knot-zoom="1.05" data-knot-shift="0.35,0.05" data-knot-tilt="0.95,0.55" style="background-image:url('/art/beijing.webp')" aria-hidden="true"></div>
+      <img class="hero-seal" src="/logos/arena/seal-halo-720.png" alt="Arena School" width="720" height="720" />
     </div>
     <div class="hero-riso-copy">
       <div class="hero-eyebrow-row reveal"><span class="eyebrow">AI-native programs for young builders</span></div>
@@ -122,13 +122,11 @@
   </div>
   
 </section>
-<!-- TESTIMONIALS: paste three quotes, then delete the hidden attribute below.
-     House rule: minors are never named. Attribute by role, grade, city and year. -->
-<section class="testimonials" id="testimonials" data-screen-label="Testimonials" hidden>
+<section class="testimonials" id="testimonials" data-screen-label="Testimonials">
   <div class="container">
     <div class="sec-head reveal"><span class="eyebrow">In their words</span>
-      <h2 class="h2 h2-md">What students and parents say.</h2></div>
-    <div class="tm-grid reveal"><figure class="tm-card"><blockquote>Quote goes here.</blockquote><figcaption>Grade 10 student · Beijing, 2026</figcaption></figure><figure class="tm-card"><blockquote>Quote goes here.</blockquote><figcaption>Grade 10 student · Beijing, 2026</figcaption></figure><figure class="tm-card"><blockquote>Quote goes here.</blockquote><figcaption>Grade 10 student · Beijing, 2026</figcaption></figure></div>
+      <h2 class="h2 h2-md">What students say.</h2></div>
+    <div class="tm-grid reveal"><figure class="tm-card"><blockquote>“Of course, you can learn a lot more compared to school.”</blockquote><figcaption>Form 4 student · Hong Kong, 2025</figcaption></figure><figure class="tm-card"><blockquote>“It's not how you do it but what you do. I have my creativity sparked, and now I know to use AI tools to help me implement my ideas.”</blockquote><figcaption>Student · Hong Kong, 2025</figcaption></figure><figure class="tm-card"><blockquote>“Getting to use AI like Vercel to do full-stack development, and then video and audio generators to make ads. It's impressive how AI can do something that used to take a whole team of people to do.”</blockquote><figcaption>Student · Hong Kong, 2025</figcaption></figure></div>
   </div>
 </section>
 <section class="founder-strip" data-screen-label="Founding team">
@@ -210,6 +208,7 @@
     </div>
   </div>
 </footer>
+<script src="/riso-knot.js" defer></script>
 <script src="/riso-dots.js" defer></script>
 <script src="/motion.js"></script>
 </body>
