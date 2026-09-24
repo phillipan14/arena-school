@@ -9,6 +9,7 @@
         data-dist="1.1" data-speed="0.9" data-group="3"
         data-twinkle="0.15" data-flow="15" data-flow-speed="1.3">
      <img src="/art/x.webp" alt="">   still image, also the fallback
+        data-focus="0.4,0.5" crops like background-position when the box and image differ in shape
    </div>
    Reduced motion or no WebGL: the still image stays.
    ============================================================ */
@@ -18,11 +19,11 @@
   var VS = 'attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
   var FS = [
     'precision highp float;',
-    'uniform sampler2D I,M;uniform vec2 R,IR;uniform float t,D,SP,CS,TW,FL,FS;',
+    'uniform sampler2D I,M;uniform vec2 R,IR,O;uniform float SC,t,D,SP,CS,TW,FL,FS;',
     'vec2 h2(vec2 p){p=vec2(dot(p,vec2(127.1,311.7)),dot(p,vec2(269.5,183.3)));return fract(sin(p)*43758.5453);}',
     'void main(){',
-    '  vec2 uv=vec2(gl_FragCoord.x,R.y-gl_FragCoord.y)/R; vec2 ip=uv*IR;',
-    '  float m0=texture2D(M,uv).r; vec2 q=uv*vec2(IR.x/IR.y,1.0); float ft=t*FS;',
+    '  vec2 ip=vec2(gl_FragCoord.x,R.y-gl_FragCoord.y)/SC+O; vec2 uv=ip/IR;',
+    '  float m0=smoothstep(0.55,1.0,texture2D(M,uv).r); vec2 q=uv*vec2(IR.x/IR.y,1.0); float ft=t*FS;',
     '  vec2 flow=FL*m0*vec2(sin(q.y*5.0+ft*0.9)+0.5*sin(q.x*3.1-ft*0.7+1.3),cos(q.x*4.2+ft*0.8)+0.5*cos(q.y*6.3+ft*0.6+2.1))/1.5;',
     '  vec2 e=min(ip,IR-ip); float edge=smoothstep(2.0,40.0,min(e.x,e.y)); ip+=flow*edge; float m=m0*edge;',
     '  vec2 cell=floor(ip/CS); vec2 h=h2(cell),g=h2(cell+17.3); vec2 f=(0.7+0.9*g)*SP*2.0; vec2 ph=h*6.2832;',
@@ -46,19 +47,21 @@
     gl.useProgram(prog);
     var b = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, b); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
     gl.enableVertexAttribArray(0); gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
-    var u = {}; ['I', 'M', 'R', 'IR', 't', 'D', 'SP', 'CS', 'TW', 'FL', 'FS'].forEach(function (n) { u[n] = gl.getUniformLocation(prog, n); });
+    var u = {}; ['I', 'M', 'R', 'IR', 'O', 'SC', 't', 'D', 'SP', 'CS', 'TW', 'FL', 'FS'].forEach(function (n) { u[n] = gl.getUniformLocation(prog, n); });
     function tex(img, unit) { var x = gl.createTexture(); gl.activeTexture(gl.TEXTURE0 + unit); gl.bindTexture(gl.TEXTURE_2D, x); gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img);
       [gl.TEXTURE_MIN_FILTER, gl.TEXTURE_MAG_FILTER].forEach(function (k) { gl.texParameteri(gl.TEXTURE_2D, k, gl.LINEAR); });
       gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE); }
-    var raf = 0, visible = true, t0 = performance.now(), ready = false;
+    var raf = 0, visible = true, t0 = performance.now(), ready = false, iw = 1, ih = 1;
+    var focus = (d.focus || '0.5,0.5').split(',').map(parseFloat);
     function resize() { var r = el.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, 2);
       var w = Math.max(2, Math.round(r.width * dpr)), h = Math.max(2, Math.round(r.height * dpr));
-      if (c.width !== w || c.height !== h) { c.width = w; c.height = h; gl.viewport(0, 0, w, h); gl.uniform2f(u.R, w, h); } }
+      if (c.width !== w || c.height !== h) { c.width = w; c.height = h; gl.viewport(0, 0, w, h); gl.uniform2f(u.R, w, h); }
+      var sc = Math.max(w / iw, h / ih); gl.uniform1f(u.SC, sc); gl.uniform2f(u.O, (iw - w / sc) * focus[0], (ih - h / sc) * focus[1]); }
     function frame(now) { raf = 0; if (!visible || document.hidden) return; gl.uniform1f(u.t, (now - t0) / 1000); gl.drawArrays(gl.TRIANGLES, 0, 3); raf = requestAnimationFrame(frame); }
     function start() { if (ready && !raf) raf = requestAnimationFrame(frame); }
     Promise.all([load(d.shimmer), load(d.shimmerMask)]).then(function (imgs) {
       tex(imgs[0], 0); tex(imgs[1], 1); gl.uniform1i(u.I, 0); gl.uniform1i(u.M, 1);
-      gl.uniform2f(u.IR, imgs[0].naturalWidth, imgs[0].naturalHeight);
+      iw = imgs[0].naturalWidth; ih = imgs[0].naturalHeight; gl.uniform2f(u.IR, iw, ih);
       Object.keys(P).forEach(function (k) { gl.uniform1f(u[k], P[k]); });
       el.appendChild(c); resize(); ready = true; start();
       requestAnimationFrame(function () { el.classList.add('shimmer-live'); });
