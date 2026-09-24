@@ -8,20 +8,27 @@ Bilingual (EN/中文) site for Arena School: AI-native programs for students, ea
 3. Check the live page after a minute. Hard-refresh (Cmd+Shift+R) if it looks stale.
 
 ## Page map
+Nav: Programs ▾ · Case studies ▾ · Curriculum · About · EN/中文 toggle · Contact us button. Shared nav and footer markup lives in every page; keep them identical across pages.
+
 | Page | File | 中文版 |
 |---|---|---|
-| Homepage | `index.html` | `index-cn.html` |
-| For schools | `schools.html` | `schools-cn.html` |
-| AI training for teachers | `teachers.html` | `teachers-cn.html` |
-| Speaking & workshops | `speaking.html` | `speaking-cn.html` |
-| Mentorship program | `mentorship.html` | `mentorship-cn.html` |
-| Enrollment form | `enroll.html` | `enroll-cn.html` |
-| Payment (WeChat QR) | `pay-mentorship.html` | (bilingual, single page) |
-| Guangzhou bootcamp | `zero-to-launch.html` | `zero-to-launch-cn.html` |
-| Case study · Hong Kong | `case-study-hong-kong.html` | `case-study-hong-kong-cn.html` |
-| Case study · Beijing | `case-study-beijing.html` | `case-study-beijing-cn.html` |
+| Homepage (hero, testimonials, founding team, programs, proof, contact) | `index.html` | `index-cn.html` |
+| About (co-founder bios, why builders, agency · taste · craft) | `about.html` | `about-cn.html` |
+| Contact form | `contact.html` | `contact-cn.html` |
+| For schools (links to the four case-study categories) | `schools.html` | `schools-cn.html` |
+| Case studies · Student programs | `case-studies/student-programs.html` | `case-studies/student-programs-cn.html` |
+| Case studies · Skill workshops (portfolio) | `case-studies/skill-workshops.html` | `case-studies/skill-workshops-cn.html` |
+| Case studies · Parent talks | `case-studies/parent-talks.html` | `case-studies/parent-talks-cn.html` |
+| Case studies · Teacher training (was `/teachers`) | `case-studies/teacher-training.html` | `case-studies/teacher-training-cn.html` |
+| Case study deep dives · Hong Kong, Beijing | `case-study-hong-kong.html`, `case-study-beijing.html` | `-cn` versions |
+| School-Year Mentorship · enrollment · payment | `mentorship.html`, `enroll.html`, `pay-mentorship.html` | `-cn` versions (payment is bilingual) |
+| AI Advantage Bootcamp (Guangzhou) | `zero-to-launch.html` | `zero-to-launch-cn.html` |
 | Curriculum & philosophy | `curriculum.html` | `curriculum-cn.html` |
-| Partnerships (operators) | `partnerships.html` | `partnerships-cn.html` |
+| Footer only: partnerships, speaking menu | `partnerships.html`, `speaking.html` | `-cn` versions |
+
+Pages under `case-studies/` must use absolute paths (`/styles.css`, `/photos/...`). Old URLs such as `/teachers` and `/case-studies` redirect in `vercel.json`.
+
+Testimonials: the homepage and the Student programs page each contain a hidden testimonials section. Fill in the quotes and delete the `hidden` attribute. Never name minors; attribute by role, grade, city and year.
 
 Shared: `styles.css` (all styling), `motion.js` (animations), `photos/`, `logos/`, `fonts/` (self-hosted — do not replace with Google Fonts links; they are blocked in mainland China).
 
@@ -41,7 +48,7 @@ Shared: `styles.css` (all styling), `motion.js` (animations), `photos/`, `logos/
 - Winter camp partner (Lux Scholar) appears ONLY on the zero-to-launch pages.
 
 ## Forms & payments
-- Contact + enrollment forms submit via formsubmit.co → phillipan14@gmail.com. Do not change form field `name=` attributes.
+- Contact (homepage and `/contact`) and enrollment forms submit via formsubmit.co → phillipan14@gmail.com. Do not change form field `name=` attributes.
 - `pay-mentorship.html` holds the WeChat Pay QR (`pay/wechat-qr.png`).
 
 ## Deploys

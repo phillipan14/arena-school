@@ -45,7 +45,7 @@
 <meta name="twitter:image" content="https://arenaschool.org/og-image.png" />
 <meta name="twitter:image:alt" content="Arena School seal and wordmark on ivory." />
 
-<!-- Schema.org structured data — School entity for SEO -->
+<!-- Schema.org structured data: School entity for SEO -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -61,77 +61,50 @@
 }
 </script>
 
-<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
-
-<!-- ============================================================ STATUS TICKER — rotating carousel ============================================================ -->
 <div class="ticker" id="ticker">
   <div class="ticker-inner">
     <span class="ticker-live" aria-hidden="true"><span class="ticker-dot"></span>Live</span>
-
     <div class="ticker-carousel" role="region" aria-label="Arena School announcements" aria-live="polite">
       <a class="ticker-slide is-active" href="/zero-to-launch">
         <span class="ticker-eyebrow">Next cohort</span>
         <span class="ticker-body">The AI Advantage Bootcamp · Guangzhou · Dec 27 to Jan 2 · enrollment opens October</span>
       </a>
-      <a class="ticker-slide" href="#pilot">
-        <span class="ticker-eyebrow">Just completed</span>
-        <span class="ticker-body">International School of Beijing · 100% of teams shipped live products</span>
-      </a>
-      <a class="ticker-slide" href="#manifesto">
-        <span class="ticker-eyebrow">Read</span>
-        <span class="ticker-body">The manifesto — why we're called Arena</span>
-      </a>
-      <a class="ticker-slide" href="#pilot">
-        <span class="ticker-eyebrow">Case study</span>
-        <span class="ticker-body">9.5/10 NPS · Bodley Academy · Hong Kong 2025</span>
-      </a>
-      <a class="ticker-slide" href="#ai-changed">
-        <span class="ticker-eyebrow">What AI changed</span>
-        <span class="ticker-body">A tutor smarter than the teacher — in every pocket, free</span>
-      </a>
-      <a class="ticker-slide" href="#partners">
-        <span class="ticker-eyebrow">Build with us</span>
-        <span class="ticker-body">Schools · parents · educators · students · we write back</span>
-      </a>
     </div>
-
     <button class="ticker-x" id="tickerX" aria-label="Dismiss">
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5l14 14M19 5L5 19"/></svg>
     </button>
   </div>
 </div>
-
-<!-- ============================================================ NAV ============================================================ -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
-    <a href="#top" class="wordmark nav-brand">
-      <img class="nav-crest" src="logos/arena/seal-navy-256.png" alt="" aria-hidden="true" />
+    <a href="/" class="wordmark nav-brand">
+      <img class="nav-crest" src="/logos/arena/seal-navy-256.png" alt="" aria-hidden="true" />
       <span>Arena School</span>
     </a>
     <div class="nav-links" id="navLinks">
+      <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">Programs<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu"><a href="/mentorship"><b>School-Year Mentorship</b><span>Grades 7 to 12 · one real project, all year</span></a><a href="/zero-to-launch"><b>AI Advantage Bootcamp</b><span>College and early career · Guangzhou</span></a><a href="/schools"><b>For schools</b><span>Every way to bring Arena to your school</span></a></div></div>
+      <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">Case studies<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu"><a href="/case-studies/student-programs"><b>Student programs</b><span>Five-day intensives where students ship real products</span></a><a href="/case-studies/skill-workshops"><b>Skill workshops</b><span>Build your own portfolio website in one or two days</span></a><a href="/case-studies/parent-talks"><b>Parent talks</b><span>The future of education, for parent communities</span></a><a href="/case-studies/teacher-training"><b>Teacher training</b><span>Hands-on AI training for faculty</span></a></div></div>
       <a href="/curriculum">Curriculum</a>
-      <a href="#pilot">Case study</a>
-      <a href="/schools">For schools</a>
-      <a href="/teachers">For teachers</a>
+      <a href="/about">About</a>
+      <a class="nav-mobile-only" href="/contact">Contact us</a>
     </div>
     <div class="nav-cta">
-      <div class="lang-switch" aria-label="Language">
-        <a href="/" class="lang-active" aria-current="page">EN</a>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <a href="/" class="lang-active" aria-current="true">EN</a>
         <a href="/index-cn">中文</a>
       </div>
-      <a href="#partners" class="btn btn-primary">Build it with us <span class="arr">→</span></a>
+      <span class="nav-divider" aria-hidden="true"></span>
+      <a href="/contact" class="btn btn-primary">Contact us <span class="arr">→</span></a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
     </div>
   </div>
 </nav>
-
 <main id="top">
-
-<!-- ============================================================ HERO ============================================================ -->
 <section class="hero" data-screen-label="Hero">
   <div class="container">
     <div class="hero-grid">
@@ -140,10 +113,10 @@
         <h1 class="display reveal">Every student is about to have a tutor <em>smarter</em> than their teacher.</h1>
         <p class="lede sub reveal">AI just cleared the floor school spent twelve years on. Arena runs programs for what's left: <em>agency, creativity, taste, craft</em>. Students use AI to build real products and real companies, and learn the skills that decide a life.</p>
         <div class="hero-cta reveal">
-          <a href="#manifesto" class="btn btn-primary">Read the Manifesto <span class="arr">→</span></a>
-          <a href="#partners" class="btn btn-ghost">Build it with us</a>
+          <a href="#programs" class="btn btn-primary">See our programs <span class="arr">→</span></a>
+          <a href="/contact" class="btn btn-ghost">Contact us</a>
         </div>
-        <p class="hero-meta reveal">Two cohorts complete · <a href="#pilot" class="hero-meta-link">Hong Kong and Beijing</a> · next cohort <a href="/zero-to-launch">Winter 2026 · Guangzhou</a></p>
+        <p class="hero-meta reveal">Programs run in <a href="/case-studies/student-programs" class="hero-meta-link">Hong Kong and Beijing</a> · next cohort <a href="/zero-to-launch">Winter 2026 · Guangzhou</a></p>
       </div>
       <div class="monogram-wrap reveal">
         <img class="crest crest-img" src="logos/arena/seal-navy-1024.png" alt="Arena School seal: a classical temple inside a laurel wreath, Est. 2026." />
@@ -151,444 +124,87 @@
     </div>
   </div>
 </section>
-
-<!-- ============================================================ MANIFESTO (dark) — now placed right after hero so the reader gets the "why" before the "what" ============================================================ -->
-<section class="manifesto dark-band" id="manifesto" data-screen-label="Manifesto">
+<!-- TESTIMONIALS: paste three quotes, then delete the hidden attribute below.
+     House rule: minors are never named. Attribute by role, grade, city and year. -->
+<section class="testimonials" id="testimonials" data-screen-label="Testimonials" hidden>
   <div class="container">
-    <div class="manifesto-grid">
-      <aside class="manifesto-side reveal" aria-hidden="true">
-        <img class="crest crest-img manifesto-crest" src="logos/arena/seal-ivory-512.png" alt="Arena School seal" />
-      </aside>
-
-      <div class="manifesto-body">
-
-        <article class="man-block reveal">
-          <span class="eyebrow">Why we're called Arena</span>
-          <h3 class="man-h">The name is from Theodore Roosevelt.</h3>
-          <p>On April 23, 1910, the year after his presidency ended, Roosevelt stood at the Sorbonne in Paris and gave a speech to a French audience that has been remembered, for over a century, by exactly one passage. It is the passage every founder eventually finds. It is the passage every kid who builds something hard eventually needs.</p>
-          <blockquote class="roosevelt">"It is not the critic who counts; not the man who points out how the strong man stumbles, or where the doer of deeds could have done them better. <em>The credit belongs to the man who is actually in the arena</em>, whose face is marred by dust and sweat and blood; who strives valiantly; who errs, who comes short again and again, because there is no effort without error and shortcoming; but who does actually strive to do the deeds; who knows great enthusiasms, the great devotions; who spends himself in a worthy cause; who at the best knows in the end the triumph of high achievement, and who at the worst, if he fails, at least fails while daring greatly."</blockquote>
-          <p class="roosevelt-attr">Theodore Roosevelt · "Citizenship in a Republic" · Sorbonne, Paris · April 23, 1910</p>
-          <p>School today rewards the critic. The kid who points out how the answer could have been better. The kid who reads what was assigned and returns what was expected. Arena exists for the other kid. The one in the arena, with the dust and the sweat and the wrong first draft. The one who, when school says <em>that's not what we're learning this week</em>, builds it anyway.</p>
-        </article>
-
-        <article class="man-block reveal">
-          <span class="eyebrow">Why I'm building it</span>
-          <h3 class="man-h">My parents bet their lives on education. It worked. The path won't work again.</h3>
-          <p>My parents were Chinese immigrants who spent years in South Africa, cleaning houses and scrubbing toilets, because they could not speak English. They moved us to America so I could go to the right schools. Their whole life was a bet that if education worked out, the rest would follow. It worked. I went to Caltech. McKinsey. Goldman. Harvard Business School. I co-founded a company out of Y Combinator. I am writing this from Beijing, finishing a Schwarzman year at Tsinghua.</p>
-          <p>But I am sitting inside the very institutions that produced me, and I am certain the path that worked for me will not work for the generation behind me. The system that made me trained compliant high-scorers for a world that paid for compliance. <em>That world is gone.</em></p>
-          <p>This is the debt I owe my parents. And the only honest answer I have for the kids I'll one day have.</p>
-        </article>
-
-        <div class="attr reveal">
-          <a href="https://tomyfuture.kids" class="essay-link" target="_blank" rel="noopener">
-            <span class="by">Phillip An, founder</span>
-            <span class="essay-read">Read the full essay at tomyfuture.kids <span class="arr">→</span></span>
-          </a>
-        </div>
-      </div>
-    </div>
+    <div class="sec-head reveal"><span class="eyebrow">In their words</span>
+      <h2 class="h2 h2-md">What students and parents say.</h2></div>
+    <div class="tm-grid reveal"><figure class="tm-card"><blockquote>Quote goes here.</blockquote><figcaption>Grade 10 student · Beijing, 2026</figcaption></figure><figure class="tm-card"><blockquote>Quote goes here.</blockquote><figcaption>Grade 10 student · Beijing, 2026</figcaption></figure><figure class="tm-card"><blockquote>Quote goes here.</blockquote><figcaption>Grade 10 student · Beijing, 2026</figcaption></figure></div>
   </div>
 </section>
-
-<!-- ============================================================ FOUNDER CREDENTIALS STRIP ============================================================ -->
-<section class="founder-strip" data-screen-label="Founder credentials">
+<section class="founder-strip" data-screen-label="Founding team">
   <div class="container">
     <div class="fs-head reveal">
-      <span class="eyebrow">Built by</span>
+      <span class="eyebrow">Founding team</span>
       <h2 class="fs-h"><em>The team has been in the rooms it's trying to rebuild.</em></h2>
     </div>
-    <ul class="fs-logos reveal">
-      <li class="fs-wordmark"><img src="logos/caltech.svg"        alt="Caltech" loading="lazy"></li>
-      <li class="fs-wordmark"><img src="logos/mckinsey.svg"       alt="McKinsey &amp; Company" loading="lazy"></li>
-      <li class="fs-wordmark"><img src="logos/goldman.svg"        alt="Goldman Sachs" loading="lazy"></li>
-      <li class="fs-mark">    <img src="logos/harvard-crest.svg"  alt="Harvard University" loading="lazy"></li>
-      <li class="fs-mark">    <img src="logos/yc.svg"             alt="Y Combinator" loading="lazy"></li>
-      <li class="fs-mark">    <img src="logos/tsinghua-crest.svg" alt="Tsinghua University" loading="lazy"></li>
-    </ul>
+    <ul class="cred-grid reveal" aria-label="Where the founding team studied and worked"><li><span class="cred-tile"><img src="/logos/orgs/caltech.png" alt="" loading="lazy" /></span><span class="cred-name">Caltech</span></li><li><span class="cred-tile"><img src="/logos/orgs/harvard.png" alt="" loading="lazy" /></span><span class="cred-name">Harvard</span></li><li><span class="cred-tile"><img src="/logos/orgs/brown.png" alt="" loading="lazy" /></span><span class="cred-name">Brown</span></li><li><span class="cred-tile"><img src="/logos/orgs/tsinghua.png" alt="" loading="lazy" /></span><span class="cred-name">Tsinghua</span></li><li><span class="cred-tile"><img src="/logos/orgs/goldman.png" alt="" loading="lazy" /></span><span class="cred-name">Goldman Sachs</span></li><li><span class="cred-tile"><img src="/logos/orgs/mckinsey.png" alt="" loading="lazy" /></span><span class="cred-name">McKinsey</span></li><li><span class="cred-tile"><img src="/logos/orgs/cicc.png" alt="" loading="lazy" /></span><span class="cred-name">CICC</span></li><li><span class="cred-tile"><img src="/logos/orgs/apple.png" alt="" loading="lazy" /></span><span class="cred-name">Apple</span></li><li><span class="cred-tile"><img src="/logos/orgs/yc.png" alt="" loading="lazy" /></span><span class="cred-name">Y Combinator</span></li><li><span class="cred-tile"><img src="/logos/orgs/kimi.png" alt="" loading="lazy" /></span><span class="cred-name">Kimi</span></li></ul>
+    <p class="cred-more reveal"><a href="/about" class="tlink">Meet the founders →</a></p>
   </div>
 </section>
-
-<!-- ============================================================ WHY SCHOOL EXISTS ============================================================ -->
-<section class="why" id="why" data-screen-label="Why school exists">
+<section class="programs" id="programs" data-screen-label="Programs">
   <div class="container">
-    <div class="why-grid">
-      <div class="why-head reveal">
-        <span class="eyebrow">Why school exists the way it does</span>
-        <h2 class="h2"><em>The architecture was built for a world that no longer exists.</em></h2>
-      </div>
-      <div class="why-body">
-        <div class="factoid reveal"><span class="f-num">200 years</span><span class="f-cap">architecture unchanged</span></div>
-        <p class="prose reveal">School wasn't designed to produce great thinkers. It was designed, two hundred years ago, to produce compliant industrial workers. Everything about its architecture reinforces this. The ringing bells signaling shifts. The fixed class periods. The regimented schedules. The requirement to raise your hand just to use the bathroom. Bells were factory whistles. Rows of desks were assembly lines. Tests were quality control.</p>
-        <p class="prose reveal">It conditions kids to internalize the rules of smallness. Don't stand out. Don't question. Don't be too passionate, too curious, too loud, too different. Just follow the script, hit the rubric, and keep your head down.</p>
-        <p class="prose reveal">The real world doesn't reward rule-followers. It rewards builders, risk-takers, people who can decide what to make next. School teaches the opposite. And then we wonder why ambitious kids spend their twenties undoing it.</p>
-      </div>
-    </div>
+    <div class="sec-head reveal"><span class="eyebrow">Programs</span><h2 class="h2 h2-md">Three ways in. Every one ends with something real, shipped.</h2></div>
+    <div class="prog-grid"><article class="prog-card reveal"><span class="eyebrow">Students · grades 7 to 12</span><h3 class="prog-h">Build a real product, then keep it running all year.</h3><p class="prog-p">Over a school break, students go from a blank page to a live product with real users. The School-Year Mentorship keeps the company going with weekly check-ins.</p><p class="prog-links"><a href="/mentorship" class="tlink">School-Year Mentorship →</a> <a href="/case-studies/student-programs" class="tlink">Past intensives →</a></p></article><article class="prog-card reveal"><span class="eyebrow">College and early career</span><h3 class="prog-h">Ship a product that gets you hired.</h3><p class="prog-p">The AI Advantage Bootcamp: seven days in Guangzhou to build and launch a real AI product, then turn it into internship and job offers.</p><p class="prog-links"><a href="/zero-to-launch" class="tlink">AI Advantage Bootcamp →</a></p></article><article class="prog-card reveal"><span class="eyebrow">Schools and educators</span><h3 class="prog-h">Bring Arena to your school.</h3><p class="prog-p">Student intensives on campus, portfolio workshops, parent talks and hands-on AI training for faculty.</p><p class="prog-links"><a href="/schools" class="tlink">For schools →</a></p></article></div>
   </div>
 </section>
-
-<!-- ============================================================ WHAT AI CHANGED ============================================================ -->
-<section class="ai-changed" id="ai-changed" data-screen-label="What AI changed">
-  <div class="container narrow ai-changed-inner">
-    <div class="reveal ac-eyebrow"><span class="eyebrow">What AI changed</span></div>
-    <h2 class="h2 ac-head reveal"><em>A tutor with infinite patience just went to roughly free.</em></h2>
-    <p class="prose reveal">A kid today can ask an AI any question and get a patient, correct, personalized answer. At 2am, in their language, without being made to feel stupid. The single scarcest resource in all of education — a tutor who has infinite time for you — just stopped being scarce. School has spent twelve years drilling the one thing AI now does better than any teacher. And it has spent almost no time on the things that actually decide a life.</p>
-    <p class="prose reveal">The temptation is to treat this as a feature. Add an AI sidebar to the existing curriculum. Let students use ChatGPT for homework. That's the patch most schools are debating. But a patch on the wrong architecture is still the wrong architecture. The question isn't whether students should use AI in school. It is: what should school look like when every student already has a tutor smarter than their teacher in their pocket?</p>
-    <div class="inset-stat reveal">
-      <span class="is-num">2.6×</span>
-      <span class="is-cap"><em>faster learning — Alpha School, two hours a day on AI-adaptive tools.</em></span>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================ WHAT'S LEFT FOR HUMANS ============================================================ -->
-<section class="humans" id="humans" data-screen-label="What's left for humans">
+<section class="proof-strip" data-screen-label="Proof">
   <div class="container">
-    <div class="sec-head humans-head reveal">
-      <span class="eyebrow">What's left for humans</span>
-      <h2 class="h2"><em>The day school never had time for.</em></h2>
-    </div>
-    <div class="humans-grid">
-      <div class="human-col reveal">
-        <div class="hc-name">Agency</div>
-        <p class="hc-def">The discipline to decide what to build next.</p>
-        <p class="hc-tex">Not "follow the assignment." Not "pick the right answer." Look at the world and pick what to make.</p>
-        <p class="hc-example"><em>In the pilot, a ten-year-old picked sign language to speech — because his cousin is deaf. Nobody assigned it.</em></p>
-      </div>
-      <div class="human-col reveal">
-        <div class="hc-name">Taste</div>
-        <p class="hc-def">Knowing when the thing you made is good.</p>
-        <p class="hc-tex">A rubric can tell you if you hit a target. Taste tells you if the target was worth hitting.</p>
-        <p class="hc-example"><em>He kept iterating after the demo was over, because the first version wasn't good enough for his grandmother to actually use it.</em></p>
-      </div>
-      <div class="human-col reveal">
-        <div class="hc-name">Craft</div>
-        <p class="hc-def">The patience to finish, and to make it good.</p>
-        <p class="hc-tex">The hardest gap to close. AI gives you a first draft instantly. Craft is what you do with the next twenty drafts.</p>
-        <p class="hc-example"><em>Five days of drafts before he shipped. The hardest part wasn't the model. It was getting the audio clean enough for an elderly woman to trust it.</em></p>
-      </div>
-    </div>
-    <p class="humans-close reveal"><em>None of these are taught in any school I know.</em></p>
+    <div class="sec-head reveal"><span class="eyebrow">Case studies</span><h2 class="h2 h2-md">Already running, in two cities.</h2></div>
+    <div class="proof-links"><a class="proof-link reveal" href="/case-studies/student-programs"><span class="pl-num">9.5/10</span><span class="pl-cap">Student satisfaction, Hong Kong 2025</span><span class="arr" aria-hidden="true">→</span></a><a class="proof-link reveal" href="/case-studies/student-programs"><span class="pl-num">100%</span><span class="pl-cap">Of teams shipped a live product, Beijing 2026</span><span class="arr" aria-hidden="true">→</span></a><a class="proof-link reveal" href="/case-studies/teacher-training"><span class="pl-num">Full staff</span><span class="pl-cap">Trained in AI at Schwarzman College, Tsinghua</span><span class="arr" aria-hidden="true">→</span></a></div>
   </div>
 </section>
-
-<!-- ============================================================ THE STRUCTURE — three tracks, one doctrine ============================================================ -->
-<section class="structure" id="structure" data-screen-label="The programs">
-  <div class="container">
-    <div class="sec-head reveal">
-      <span class="eyebrow">What we run</span>
-      <h2 class="h2">School has twelve years for the one thing AI now does best. Arena spends every session on everything it can't.</h2>
-      <p class="lede">The same doctrine runs across three audiences: students, early career, and executives and teams. Not a new school to enroll in. Programs that fit around the calendar you already have. Every format ends the same way, with something real, shipped, in front of people who matter.</p>
-    </div>
-
-    <div class="structure-row track-row reveal">
-      <svg class="structure-glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4">
-        <path d="M14 30l-6 6 4 4 6-6M30 14l8-8 4 4-8 8"/>
-        <path d="M14 30l16-16 4 4-16 16zM34 6l2-2M40 12l2-2"/>
-      </svg>
-      <div class="rtitle">Students: <em>grades 7 to 12.</em></div>
-      <div>
-        <p class="rbody">Over a school break, students go from a blank page to <span class="hl">a live product with real users, a brand, an advertisement, a price, and first revenue.</span> The week ends on a stage: a pitch competition judged by real founders and operators, with a real prize.</p>
-        <ul class="track-formats">
-          <li><strong>Five-day and starter intensives:</strong> over school breaks, idea to company in a week.</li>
-          <li><strong><a href="/mentorship" class="tlink">The School-Year Mentorship Program:</a></strong> biweekly board meetings, a milestone ladder, the company keeps running after the intensive ends.</li>
-        </ul>
-        <p class="rmeta">Hong Kong 2025 · Beijing 2026 · <a href="/schools" class="tlink">See the Students track →</a></p>
-      </div>
-    </div>
-
-    <div class="structure-row track-row reveal">
-      <svg class="structure-glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4">
-        <path d="M10 38h28M14 30l10-18 10 18"/>
-      </svg>
-      <div class="rtitle">Early career: <em>college and masters students.</em></div>
-      <div>
-        <p class="rbody">Intensive bootcamps built around one outcome: <span class="hl">ship a real product, then convert it into internship and job offers.</span> Not a certificate. A live product, a portfolio, and a rehearsed story for the interview room.</p>
-        <ul class="track-formats">
-          <li><strong>The AI Advantage Bootcamp:</strong> Winter 2026, Guangzhou. Seven days, one shipped product, one target-job build.</li>
-        </ul>
-        <p class="rmeta">Winter 2026 · Guangzhou · <a href="/zero-to-launch" class="tlink">See the AI Advantage Bootcamp →</a></p>
-      </div>
-    </div>
-
-    <div class="structure-row track-row reveal">
-      <svg class="structure-glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4">
-        <circle cx="24" cy="24" r="18"/>
-        <path d="M6 24h36M24 6c5 5 5 31 0 36M24 6c-5 5-5 31 0 36"/>
-        <circle cx="14" cy="16" r="2.4" fill="currentColor" stroke="none"/>
-        <circle cx="36" cy="22" r="2.4" fill="currentColor" stroke="none"/>
-        <circle cx="22" cy="38" r="2.4" fill="currentColor" stroke="none"/>
-      </svg>
-      <div class="rtitle">Educators and teams: <em>schools, faculties, companies.</em></div>
-      <div>
-        <p class="rbody">Hands-on AI training for working teams, built on the same doctrine as the student and early-career tracks: <span class="hl">learn by shipping something real,</span> not by sitting through a slide deck.</p>
-        <ul class="track-formats">
-          <li><strong>Delivered:</strong> AI training for the full staff of Schwarzman College at Tsinghua.</li>
-          <li><strong>In discussion:</strong> faculty programs with additional schools and partners.</li>
-        </ul>
-        <p class="rmeta">Delivered at Tsinghua · <a href="/#partners" class="tlink">Talk to us about your team →</a> · <a href="/teachers" class="tlink">See the teacher training →</a></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================ OPEN-SOURCE (one quiet line, footnote-scale) ============================================================ -->
-<section class="opensource" id="opensource" data-screen-label="Open-source">
-  <div class="container essay">
-    <p class="opensource-line reveal"><em>The curriculum and playbooks will be open-sourced — so a charter in Detroit or a village in Bihar can run a cohort too. Not the point of Arena. A consequence.</em></p>
-  </div>
-</section>
-
-<!-- ============================================================ PILOT CASE STUDY — moved here, sits right before the form, as proof we've done this before ============================================================ -->
-<section class="proof" id="pilot" data-screen-label="Pilot case study">
-  <div class="container">
-    <div class="reveal" style="margin-bottom: clamp(28px,4vw,44px)">
-      <span class="eyebrow">Case study · Three tracks · Two countries</span>
-      <h2 class="h2" style="margin-top:18px;max-width:26ch;">This isn't in theory. It's already running.</h2>
-      <p class="lede" style="margin-top:20px;max-width:58ch;color:var(--text-ink-soft);">Two student cohorts shipped, in Hong Kong and Beijing. An executive training delivered at Tsinghua. An early-career cohort opening this winter in Guangzhou. Same standard across every track: a real demo day, a real product shipped, a real pitch prize where there's a prize to give. Here's what happened.</p>
-    </div>
-    <!-- Case study 1 — Bodley Academy, Hong Kong (first completed cohort) -->
-    <div class="case-study reveal">
-      <div class="case-study-head">
-        <span class="cs-inst">Bodley Academy</span>
-        <span class="cs-meta">Hong Kong · Summer 2025 · Students track</span>
-      </div>
-      <div class="stat-bar" style="border-bottom:none; padding-bottom:0;">
-        <div class="stat reveal">
-          <div class="num"><span class="countup" data-to="9.5" data-decimals="1">0</span><span class="unit">/10 NPS</span></div>
-          <p class="label"><strong>Pilot Net Promoter Score</strong> across 20 students, run with Bodley Academy · Rhodes House at Oxford.</p>
-        </div>
-        <div class="stat reveal">
-          <div class="num"><span class="countup" data-to="5">0</span><span class="unit">days</span></div>
-          <p class="label">A <strong>10-year-old shipped a real AI product,</strong> sign-language-to-speech, in five days.</p>
-        </div>
-        <div class="stat reveal">
-          <div class="num"><span class="countup" data-to="2">0</span><span class="unit">students</span></div>
-          <p class="label">went on to <strong>Stanford</strong> and to <strong>elite UK boarding schools</strong>.</p>
-        </div>
-      </div>
-
-      <!-- Editorial gallery: 4 photos + 2 b-roll videos, all from this cohort -->
-      <div class="proof-gallery reveal">
-        <figure class="pg-tile pg-classroom">
-          <img src="photos/pilot-classroom.jpg" alt="The Hong Kong pilot in session, twenty students at Bodley Academy, summer 2025" loading="lazy" />
-          <figcaption>The classroom · Bodley Academy · Hong Kong · 2025</figcaption>
-        </figure>
-        <figure class="pg-tile pg-hands">
-          <video src="photos/pilot-hands.mp4" autoplay muted loop playsinline preload="metadata" aria-label="A student typing on a laptop during the pilot"></video>
-          <figcaption>Day three · shipping the prototype</figcaption>
-        </figure>
-        <figure class="pg-tile pg-collab">
-          <video src="photos/pilot-collab.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Students collaborating at a workshop table"></video>
-          <figcaption>The cohort, mid-workshop</figcaption>
-        </figure>
-        <figure class="pg-tile pg-sticky">
-          <img src="photos/pilot-sticky.jpg" alt="Students arranging sticky notes on glass, design-thinking moment" loading="lazy" />
-          <figcaption>Day one · picking what to build</figcaption>
-        </figure>
-        <figure class="pg-tile pg-check">
-          <img src="photos/pilot-check.jpg" alt="Phillip handing the pitch-winner check to the student team" loading="lazy" />
-          <figcaption>The pitch winners · US$1,980 in real seed</figcaption>
-        </figure>
-        <figure class="pg-tile pg-cohort">
-          <img src="photos/pilot-cohort.jpg" alt="Cohort group selfie at the end of the program" loading="lazy" />
-          <figcaption>The twenty, on day five</figcaption>
-        </figure>
-      </div>
-
-      <div class="proof-story">
-        <div class="proof-prose reveal">
-          <p class="pull">A ten-year-old walked in not knowing what an API was.</p>
-          <p>Five days later he demoed a working app that turned sign language into spoken words, something he built because his cousin is deaf. No one assigned it. The morning tutor had cleared enough of the floor that his afternoon was free to chase a real problem, and a mentor who knew his name stayed in the room until it worked.</p>
-          <p>Two students walked out of the same week with letters from the program: one is now at Stanford, the other at a top UK boarding school. A third team came back from the demo evening having spent the prize check on a real domain name, because they had every intention of keeping the company running.</p>
-          <p class="proof-attr">From the Hong Kong pilot, 20 students, Summer 2025</p>
-          <p style="margin-top:14px;"><a href="/case-study-hong-kong" class="tlink">Read the full case study →</a></p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Case study 2 — International School of Beijing (second completed cohort) -->
-    <div class="case-study reveal">
-      <div class="case-study-head">
-        <span class="cs-inst">International School of Beijing</span>
-        <span class="cs-meta">Beijing · Summer 2026 · Students track</span>
-      </div>
-      <div class="stat-bar" style="border-bottom:none; padding-bottom:0;">
-        <div class="stat reveal">
-          <div class="num"><span class="countup" data-to="100">0</span><span class="unit">%</span></div>
-          <p class="label"><strong>Every team shipped a live product</strong> with real users, across every team, grades 7–12.</p>
-        </div>
-        <div class="stat reveal">
-          <div class="num">¥<span class="countup" data-to="8888">0</span><span class="unit">prize</span></div>
-          <p class="label">First real revenue earned during camp week. Final pitch judged by founders and operators from <strong>Harvard, Y Combinator, and leading AI companies</strong>.</p>
-        </div>
-        <div class="stat reveal">
-          <div class="num"><span class="countup" data-to="6">0</span><span class="unit">of 6</span></div>
-          <p class="label">Six students answered the post-camp survey. <strong>All six asked to continue.</strong> The School-Year Mentorship Program is now running for alumni.</p>
-        </div>
-      </div>
-      <p style="margin-top:18px;"><a href="/case-study-beijing" class="tlink">Read the full case study →</a></p>
-    </div>
-
-    <!-- Case study 3 — Schwarzman College at Tsinghua (quiet, no invented numbers) -->
-    <div class="case-study case-study-quiet reveal">
-      <div class="case-study-head">
-        <span class="cs-inst">Schwarzman College at Tsinghua</span>
-        <span class="cs-meta">Beijing · Executives track</span>
-      </div>
-      <p class="proof-track-line">AI training delivered for the full staff of Schwarzman College at Tsinghua.</p>
-    </div>
-
-    <!-- Next cohort — quiet forward line, partner not yet announced -->
-    <aside class="next-pilot reveal" aria-label="Next cohort">
-      <div class="np-left">
-        <span class="eyebrow np-eyebrow"><span class="np-dot" aria-hidden="true"></span>What's next</span>
-        <h3 class="np-h">Next cohort: The AI Advantage Bootcamp. Guangzhou, Dec 27 to Jan 2.</h3>
-        <p class="np-body">Seven days over winter break: a real AI product, launched, with a demo day in front of real judges. Run with a program partner in Guangzhou. <a href="/zero-to-launch" class="tlink">See the AI Advantage Bootcamp</a>.</p>
-      </div>
-      <a href="#partners" class="np-cta">
-        <span>Build it with us</span>
-        <span class="np-cta-arr" aria-hidden="true">→</span>
-      </a>
-    </aside>
-
-  </div>
-</section>
-
-<!-- ============================================================ BUILD IT WITH US — the converting moment. School / parent / educator / student. ============================================================ -->
-<section class="partners" id="partners" data-screen-label="Build it with us">
+<section class="partners" id="contact" data-screen-label="Contact">
   <div class="container">
     <div class="partners-grid">
       <div class="reveal partners-lede">
-        <span class="eyebrow">Build it with us</span>
-        <h2 class="h2 partners-h">If you've read this far, <em>we want to hear from you.</em></h2>
-        <p class="lede partners-sub">There are four ways to be in this with us. Pick the one that fits: we read every message and reply within three working days.</p>
-
-        <ul class="partner-audiences">
-          <li>
-            <span class="pa-tag">Schools</span>
-            <div class="pa-body"><strong>Run a five-day cohort at your campus.</strong> Real demo day, real product. Curriculum stays with your team after we leave.</div>
-          </li>
-          <li>
-            <span class="pa-tag">Parents</span>
-            <div class="pa-body"><strong>Of a 12–22-year-old who likes to build things.</strong> We'll write back about the next public cohort and how to put your kid in the room.</div>
-          </li>
-          <li>
-            <span class="pa-tag">Educators</span>
-            <div class="pa-body"><strong>Adapt the model for your own program.</strong> Coffee, a long call, a visit to your school — whatever helps.</div>
-          </li>
-          <li>
-            <span class="pa-tag">Students</span>
-            <div class="pa-body"><strong>You like making things.</strong> Tell us what you're stuck on. The most interesting kids we've taught all started this way.</div>
-          </li>
-        </ul>
-
-        <div class="partners-trust">
-          <span class="pt-line">Personal · no list-share · no newsletter</span>
-        </div>
+        <span class="eyebrow">Contact</span>
+        <h2 class="h2 partners-h">Tell us what you’re looking for.</h2>
+        <p class="lede partners-sub">Schools, parents, educators and students: we read every message and reply within three working days.</p>
+        <div class="partners-trust"><span class="pt-line">Personal · no list-share · no newsletter</span></div>
       </div>
-
-      <div class="partner-cta reveal">
-        <form class="cohort-form partners-form"
-              id="partnerForm"
-              action="https://formsubmit.co/ajax/phillipan14@gmail.com"
-              method="POST"
-              data-fallback-email="phillipan14@gmail.com">
-          <input type="hidden" name="_subject" value="Arena School — new inquiry" />
-          <input type="hidden" name="_template" value="box" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
-          <div class="big">Tell us about you.</div>
-          <p class="seats">Two minutes. A real reply within three working days.</p>
-
-          <div class="form-row">
-            <label for="pf-role">I'm reaching out as a…</label>
-            <select id="pf-role" name="role" required>
-              <option value="" disabled selected>Pick one</option>
-              <option value="school">School leader or teacher</option>
-              <option value="parent">Parent</option>
-              <option value="educator">Educator / program builder</option>
-              <option value="student">Student (12–22)</option>
-              <option value="other">Something else</option>
-            </select>
-          </div>
-
-          <div class="form-row form-row-split">
-            <div>
-              <label for="pf-name">Your name</label>
-              <input id="pf-name" name="name" type="text" required autocomplete="name" placeholder="First and last" />
-            </div>
-            <div>
-              <label for="pf-email">Email</label>
-              <input id="pf-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" />
-            </div>
-          </div>
-
-          <div class="form-row">
-            <label for="pf-context">What would you like to talk about?</label>
-            <textarea id="pf-context" name="context" rows="4" required placeholder="A few sentences is plenty. School? Cohort for your kid? Curious how it works? A problem you want to build around?"></textarea>
-          </div>
-
-          <button type="submit" class="btn btn-primary cf-submit">
-            <span class="cf-submit-label">Send <span class="arr">→</span></span>
-            <span class="cf-submit-loading" aria-hidden="true">Sending…</span>
-          </button>
-
-          <p class="cf-status" id="pfStatus" role="status" aria-live="polite"></p>
-        </form>
-      </div>
+      <div class="partner-cta reveal"><form class="cohort-form partners-form" id="partnerForm" action="https://formsubmit.co/ajax/phillipan14@gmail.com" method="POST" data-fallback-email="phillipan14@gmail.com">
+  <input type="hidden" name="_subject" value="Arena School · new inquiry" />
+  <input type="hidden" name="_template" value="box" />
+  <input type="hidden" name="_captcha" value="false" />
+  <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+  <div class="big">Tell us about you.</div>
+  <p class="seats">Two minutes. A real reply within three working days.</p>
+  <div class="form-row">
+    <label for="pf-role">I'm reaching out as a…</label>
+    <select id="pf-role" name="role" required>
+      <option value="" disabled selected>Pick one</option><option value="school">School leader or teacher</option><option value="parent">Parent</option><option value="educator">Educator / program builder</option><option value="student">Student (12–22)</option><option value="organizer">Conference or event organizer</option><option value="other">Something else</option>
+    </select>
+  </div>
+  <div class="form-row form-row-split">
+    <div><label for="pf-name">Your name</label><input id="pf-name" name="name" type="text" required autocomplete="name" placeholder="First and last" /></div>
+    <div><label for="pf-email">Email</label><input id="pf-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" /></div>
+  </div>
+  <div class="form-row">
+    <label for="pf-context">What would you like to talk about?</label>
+    <textarea id="pf-context" name="context" rows="4" required placeholder="A few sentences is plenty. A program for your school? Your child? A talk or workshop?"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary cf-submit">
+    <span class="cf-submit-label">Send <span class="arr">→</span></span>
+    <span class="cf-submit-loading" aria-hidden="true">Sending…</span>
+  </button>
+  <p class="cf-status" id="pfStatus" role="status" aria-live="polite"></p>
+</form></div>
     </div>
   </div>
 </section>
-
-<!-- ============================================================ CLOSING CTA (dark) ============================================================ -->
-<section class="closing dark-band" data-screen-label="Closing">
-  <div class="container">
-    <p class="big display reveal"><em>The kids who are going to build the next century are alive right now.</em></p>
-    <p class="sub reveal">AI handles knowledge transfer; humans handle judgment, taste, courage, and the felt experience of being believed in. Arena is the room where that happens.</p>
-    <div class="closing-cta reveal">
-      <a href="#partners" class="btn btn-primary">Build it with us <span class="arr">→</span></a>
-      <a href="#manifesto" class="btn btn-ghost">Read the Manifesto</a>
-    </div>
-  </div>
-</section>
-
 </main>
-
-<!-- ============================================================ FOOTER ============================================================ -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img class="crest crest-img footer-crest" src="logos/arena/seal-ivory-256.png" alt="Arena School seal" />
-        <a href="#top" class="wordmark">Arena School</a>
+        <img class="crest crest-img footer-crest" src="/logos/arena/seal-ivory-256.png" alt="Arena School seal" />
+        <a href="/" class="wordmark">Arena School</a>
         <p class="tag">A school for the day school never had time for.</p>
         <p class="footer-license-line">Next cohort · Winter 2026 · Guangzhou.</p>
       </div>
-      <div class="footer-col">
-        <h4>Read</h4>
-        <a href="#manifesto">Manifesto</a>
-        <a href="/curriculum">Curriculum & Philosophy</a>
-        <a href="#ai-changed">What AI changed</a>
-        <a href="#why">Why Arena</a>
-        <a href="#structure">The five-day structure</a>
-      </div>
-      <div class="footer-col">
-        <h4>Cohorts</h4>
-        <a href="/case-study-hong-kong">Bodley Academy · Hong Kong 2025 · Students</a>
-        <a href="/case-study-beijing">Int'l School of Beijing · 2026 · Students</a>
-        <a href="/mentorship">The School-Year Mentorship Program · School year · Students</a>
-        <a href="/zero-to-launch">The AI Advantage Bootcamp · Guangzhou · Early career</a>
-        <a href="#partners">Run one at your school</a>
-      </div>
-      <div class="footer-col">
-        <h4>Build with us</h4>
-        <a href="#partners">For schools</a>
-        <a href="/teachers">AI training for teachers</a>
-        <a href="/speaking">Speaking and workshops</a>
-        <a href="#partners">For parents · students</a>
-        <a href="mailto:hello@arena.school">hello@arena.school</a>
-        <a href="https://github.com/arena-school" target="_blank" rel="noopener">Curriculum on GitHub</a>
-      </div>
+      <div class="footer-col"><h4>Programs</h4><a href="/mentorship">School-Year Mentorship</a><a href="/zero-to-launch">AI Advantage Bootcamp</a><a href="/schools">For schools</a><a href="/partnerships">For education companies</a></div><div class="footer-col"><h4>Case studies</h4><a href="/case-studies/student-programs">Student programs</a><a href="/case-studies/skill-workshops">Skill workshops</a><a href="/case-studies/parent-talks">Parent talks</a><a href="/case-studies/teacher-training">Teacher training</a></div><div class="footer-col"><h4>Arena</h4><a href="/about">About</a><a href="/curriculum">Curriculum</a><a href="/speaking">Speaking and workshops</a><a href="/contact">Contact us</a></div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 Arena School</span>
@@ -596,8 +212,6 @@
     </div>
   </div>
 </footer>
-
-<script src="image-slot.js"></script>
-<script src="motion.js"></script>
+<script src="/motion.js"></script>
 </body>
 </html>

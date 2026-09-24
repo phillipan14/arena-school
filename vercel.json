@@ -22,6 +22,31 @@
       "source": "/founders-program-cn",
       "destination": "/mentorship-cn",
       "permanent": true
+    },
+    {
+      "source": "/teachers",
+      "destination": "/case-studies/teacher-training",
+      "permanent": true
+    },
+    {
+      "source": "/teachers-cn",
+      "destination": "/case-studies/teacher-training-cn",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies",
+      "destination": "/case-studies/student-programs",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies-cn",
+      "destination": "/case-studies/student-programs-cn",
+      "permanent": true
+    },
+    {
+      "source": "/case-study",
+      "destination": "/case-studies/student-programs",
+      "permanent": true
     }
   ],
   "headers": [

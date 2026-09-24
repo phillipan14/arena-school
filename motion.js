@@ -53,6 +53,29 @@
     });
   }
 
+  /* ---------- Nav dropdowns: hover on desktop, click/tap everywhere ---------- */
+  var dds = [].slice.call(document.querySelectorAll('.nav-dd'));
+  function closeDDs(except) {
+    dds.forEach(function (d) {
+      if (d === except) return;
+      d.classList.remove('open');
+      var b = d.querySelector('.nav-dd-btn'); if (b) b.setAttribute('aria-expanded', 'false');
+    });
+  }
+  dds.forEach(function (d) {
+    var b = d.querySelector('.nav-dd-btn');
+    if (!b) return;
+    b.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = !d.classList.contains('open');
+      closeDDs(d);
+      d.classList.toggle('open', open);
+      b.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+  document.addEventListener('click', function () { closeDDs(null); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeDDs(null); });
+
   /* ---------- Count-up ---------- */
   function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
   function runCount(el) {
@@ -93,6 +116,8 @@
   if (reduce) {
     revealEls.forEach(function (el) { el.classList.add('in'); revealNow(el); });
     drawAll();
+    wireForm('cohortForm',  'cfStatus', 'Cohort Zero interest');
+    wireForm('partnerForm', 'pfStatus', 'Arena School partnership inquiry');
     return;
   }
 

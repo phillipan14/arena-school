@@ -25,23 +25,25 @@
 <body>
 <nav class="nav" id="nav">
   <div class="nav-inner">
-    <a href="/" class="wordmark nav-brand">
-      <img class="nav-crest" src="logos/arena/seal-navy-256.png" alt="" aria-hidden="true" />
+    <a href="/index-cn" class="wordmark nav-brand">
+      <img class="nav-crest" src="/logos/arena/seal-navy-256.png" alt="" aria-hidden="true" />
       <span>Arena School</span>
     </a>
     <div class="nav-links" id="navLinks">
+      <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">项目<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu"><a href="/mentorship-cn"><b>学年导师陪跑计划</b><span>七至十二年级 · 一个真实项目，做满一学年</span></a><a href="/zero-to-launch-cn"><b>AI职场先发营</b><span>本科与职场新人 · 广州</span></a><a href="/schools-cn"><b>学校合作</b><span>把 Arena 带进你的学校的所有方式</span></a></div></div>
+      <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">案例<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu"><a href="/case-studies/student-programs-cn"><b>学生项目</b><span>五天集训营，学生上线真实产品</span></a><a href="/case-studies/skill-workshops-cn"><b>技能工作坊</b><span>一到两天，做出属于自己的作品集网站</span></a><a href="/case-studies/parent-talks-cn"><b>家长讲座</b><span>面向家长社群，谈教育的未来</span></a><a href="/case-studies/teacher-training-cn"><b>教师培训</b><span>面向教师团队的实战AI培训</span></a></div></div>
       <a href="/curriculum-cn">课程</a>
-      <a href="/index-cn#pilot">案例</a>
-      <a href="/schools-cn">合作学校</a>
-      <a href="/teachers-cn">教师培训</a>
+      <a href="/about-cn">关于我们</a>
+      <a class="nav-mobile-only" href="/contact-cn">联系我们</a>
     </div>
     <div class="nav-cta">
-      <div class="lang-switch" aria-label="Language">
+      <div class="lang-switch" role="group" aria-label="语言">
         <a href="/partnerships">EN</a>
-        <a href="/partnerships-cn" class="lang-active" aria-current="page">中文</a>
+        <a href="/partnerships-cn" class="lang-active" aria-current="true">中文</a>
       </div>
-      <a href="/index-cn#partners" class="btn btn-primary">与我们合作 <span class="arr">→</span></a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span class="nav-divider" aria-hidden="true"></span>
+      <a href="/contact-cn" class="btn btn-primary">联系我们 <span class="arr">→</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="打开菜单">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
     </div>
@@ -56,7 +58,7 @@
       <h1 class="display reveal" style="max-width:20ch;">为<em>你的</em>项目加入一个产品实战模块。</h1>
       <p class="lede sub reveal" style="max-width:58ch;">你有学生、品牌和运营能力。我们带来几乎没有人能交付的那一块：一个AI产品实战模块，学生在这里从零设计、开发并上线一个真实产品，全程由真正靠这些工具吃饭的人来教。你的项目，我们的引擎。</p>
       <div class="hero-cta reveal">
-        <a href="/index-cn#partners" class="btn btn-primary">开始对话 <span class="arr">→</span></a>
+        <a href="/contact-cn" class="btn btn-primary">开始对话 <span class="arr">→</span></a>
         <a href="/schools-cn" class="btn btn-ghost">运营一所学校？从这里开始</a>
       </div>
       <p class="hero-note reveal" style="margin-top:18px;">已与学校及教育合作伙伴在<strong>香港</strong>和<strong>北京</strong>落地 · Arena的三条项目线，学生、职场新人、企业与团队，均可供合作伙伴使用 · 冬季项目正在规划中</p>
@@ -144,7 +146,7 @@
   <div class="container essay" style="text-align:center;">
     <h2 class="h2 reveal" style="margin-inline:auto;max-width:24ch;"><em>你的学生来找你，是为了改变自己的未来。让他们带着一家公司回家。</em></h2>
     <div class="closing-cta reveal" style="justify-content:center;">
-      <a href="/index-cn#partners" class="btn btn-primary">开始对话 <span class="arr">→</span></a>
+      <a href="/contact-cn" class="btn btn-primary">开始对话 <span class="arr">→</span></a>
       <a href="mailto:phillip@allstonlabs.com" class="btn btn-ghost">联系我们</a>
     </div>
   </div>
@@ -156,39 +158,16 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img class="crest crest-img footer-crest" src="logos/arena/seal-ivory-256.png" alt="Arena School seal" />
-        <a href="/" class="wordmark">Arena School</a>
-        <p class="tag">这里是学校一直没时间教的那些课。</p>
-        <p class="footer-license-line">下一期 · 2026年冬季 · 广州。</p>
+        <img class="crest crest-img footer-crest" src="/logos/arena/seal-ivory-256.png" alt="Arena School 校徽" />
+        <a href="/index-cn" class="wordmark">Arena School</a>
+        <p class="tag">一所专门教学校从来没有时间教的那一天的学校。</p>
+        <p class="footer-license-line">下一期 · 2026年冬季营 · 广州。</p>
       </div>
-      <div class="footer-col">
-        <h4>阅读</h4>
-        <a href="/index-cn#manifesto">宣言</a>
-        <a href="/curriculum-cn">课程与理念</a>
-        <a href="/index-cn#ai-changed">AI改变了什么</a>
-        <a href="/index-cn#why">为什么是Arena</a>
-        <a href="/index-cn#structure">项目结构</a>
-      </div>
-      <div class="footer-col">
-        <h4>历届营期</h4>
-        <a href="/case-study-hong-kong-cn">Bodley Academy · 香港2025 · 学生方向</a>
-        <a href="/case-study-beijing-cn">北京顺义国际学校 · 2026 · 学生方向</a>
-        <a href="/zero-to-launch-cn">AI职场先发营 · 广州 · 职场方向</a>
-        <a href="/index-cn#partners">在你的学校开一期</a>
-      </div>
-      <div class="footer-col">
-        <h4>与我们合作</h4>
-        <a href="/index-cn#partners">学校合作</a>
-        <a href="/teachers-cn">面向教师的AI培训</a>
-        <a href="/speaking-cn">演讲与工作坊</a>
-        <a href="/index-cn#partners">家长与学生</a>
-        <a href="mailto:hello@arena.school">hello@arena.school</a>
-        <a href="https://github.com/arena-school" target="_blank" rel="noopener">课程资料在GitHub</a>
-      </div>
+      <div class="footer-col"><h4>项目</h4><a href="/mentorship-cn">学年导师陪跑计划</a><a href="/zero-to-launch-cn">AI职场先发营</a><a href="/schools-cn">学校合作</a><a href="/partnerships-cn">教育机构合作</a></div><div class="footer-col"><h4>案例</h4><a href="/case-studies/student-programs-cn">学生项目</a><a href="/case-studies/skill-workshops-cn">技能工作坊</a><a href="/case-studies/parent-talks-cn">家长讲座</a><a href="/case-studies/teacher-training-cn">教师培训</a></div><div class="footer-col"><h4>Arena</h4><a href="/about-cn">关于我们</a><a href="/curriculum-cn">课程与理念</a><a href="/speaking-cn">演讲与工作坊</a><a href="/contact-cn">联系我们</a></div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 Arena School</span>
-      <span>下一期 · 2026年冬季 · 广州</span>
+      <span>下一期 · 2026年冬季营 · 广州</span>
     </div>
   </div>
 </footer>
