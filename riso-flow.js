@@ -28,10 +28,10 @@
     '  vec2 shown=u_res/s; vec2 off=(u_imgRes-shown)*u_focus;',
     '  vec2 uv=(off+frag/s)/u_imgRes; float t=u_t; vec2 d;',
     '  if(u_mode<0.5){',
-    '    float w1=sin(uv.x*7.0+t*0.55+sin(uv.y*3.1+t*0.23)*1.2);',
-    '    float w2=sin(uv.x*3.3-t*0.37+uv.y*2.4);',
-    '    float w3=sin((uv.x+uv.y)*11.0+t*0.8);',
-    '    d=vec2(0.0035*sin(uv.y*8.0+t*0.45)+0.0015*w3, 0.011*w1+0.007*w2+0.002*w3);',
+    '    float w1=sin(uv.x*7.0+t*0.8+sin(uv.y*3.1+t*0.33)*1.4);',
+    '    float w2=sin(uv.x*3.3-t*0.55+uv.y*2.4);',
+    '    float w3=sin((uv.x+uv.y)*11.0+t*1.1);',
+    '    d=vec2(0.007*sin(uv.y*8.0+t*0.6)+0.004*sin(uv.x*2.0-t*0.5)+0.002*w3, 0.02*w1+0.013*w2+0.003*w3);',
     '    float base=lum(texture2D(u_img,uv).rgb);',
     '    d*=mix(0.25,1.0,smoothstep(0.85,0.35,base));',
     '  } else {',
@@ -41,10 +41,10 @@
     '  vec3 col=texture2D(u_img,q).rgb;',
     '  float l=lum(col);',
     '  float mid=smoothstep(0.08,0.45,l)*(1.0-smoothstep(0.72,0.95,l));',
-    '  float band=0.5+0.5*sin((uv.x*0.8-uv.y*0.5)*6.2831-t*0.22);',
+    '  float band=0.5+0.5*sin((uv.x*0.8-uv.y*0.5)*6.2831-t*0.42);',
     '  vec3 coral=vec3(0.898,0.576,0.459);',
-    '  col=mix(col,col*0.55+coral*0.55,band*mid*0.28);',
-    '  col*=0.97+0.03*sin(t*0.4+uv.x*2.0);',
+    '  col=mix(col,col*0.5+coral*0.6,band*mid*0.46);',
+    '  col*=0.95+0.05*sin(t*0.6+uv.x*2.0);',
     '  float n=hash(floor(frag)+floor(t*12.0)*vec2(17.0,31.0));',
     '  col+=(n-0.5)*u_grain;',
     '  gl_FragColor=vec4(col,1.0);',
@@ -97,7 +97,7 @@
       gl.uniform2f(loc.u_imgRes, img.naturalWidth, img.naturalHeight);
       gl.uniform2f(loc.u_focus, focus[0] || 0.5, isNaN(focus[1]) ? 0.5 : focus[1]);
       gl.uniform1f(loc.u_amp, amp); gl.uniform1f(loc.u_mode, mode);
-      gl.uniform1f(loc.u_grain, 0.045); gl.uniform1f(loc.u_zoom, 1.035);
+      gl.uniform1f(loc.u_grain, 0.05); gl.uniform1f(loc.u_zoom, 1.06);
       el.appendChild(canvas); ready = true; resize();
       requestAnimationFrame(function () { el.classList.add('riso-live'); });
       if (reduce) draw(6); else start();
