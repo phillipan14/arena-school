@@ -1,14 +1,29 @@
 {
   "name": "Arena School",
   "short_name": "Arena",
-  "description": "The world's first AI-native school. Open-source from day one. Cohort Zero, Fall 2026.",
+  "description": "AI-native programs for young builders. Students use AI to build real products and real companies, in five-day intensives and school-year programs.",
   "start_url": "/",
   "display": "standalone",
   "theme_color": "#8F3A28",
-  "background_color": "#F4EFE3",
+  "background_color": "#F1EEE4",
   "icons": [
-    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
   ]
 }

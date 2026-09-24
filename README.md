@@ -25,6 +25,12 @@ Bilingual (EN/中文) site for Arena School: AI-native programs for students, ea
 
 Shared: `styles.css` (all styling), `motion.js` (animations), `photos/`, `logos/`, `fonts/` (self-hosted — do not replace with Google Fonts links; they are blocked in mainland China).
 
+## Brand assets
+- The Arena seal and wordmark live in `logos/arena/` (source: the September 2026 brand package; master files are in the Drive folder `04 Marketing, Brand & Media`).
+- Use `seal-navy-*.png` on paper backgrounds and `seal-ivory-*.png` on dark bands (footer, manifesto). Nav uses 256, footer 256, manifesto 512, homepage hero 1024.
+- Favicons, app icons (`icons/`), `favicon.ico`, `favicon.svg` and `og-image.png` are all generated from the same seal. Keep them in sync if the seal changes.
+- Partner and credential logos stay in `logos/` (`orgs/`, `tools/`, `lux/`, institution SVGs).
+
 ## House rules (please keep)
 - **Edit EN and CN together** — every content change should land in both versions of a page.
 - **No em dashes** anywhere, English or Chinese. Use commas, colons, or 、·。

@@ -1697,7 +1697,7 @@ details.hub-cap[open] {
    rules + 860px / 520px breakpoints now cover all viewports cleanly */
 
 /* ============================================================
-   ARENA CREST — circular seal used in hero + footer
+   ARENA SEAL — logos/arena/seal-*.png: navy on paper, ivory on dark bands
    ============================================================ */
 .crest { width: 100%; max-width: 440px; height: auto; display: block; }
 .crest-img { width: 100%; max-width: 380px; height: auto; display: block; }
@@ -2177,7 +2177,9 @@ body.zl-page .nav.scrolled .lang-switch a { color: var(--text-ink-muted); }
 body.zl-page .nav.scrolled .lang-switch a.lang-active { color: var(--text-ink); }
 body.zl-page .nav .btn-ghost { color: var(--text-cream); border-color: rgba(239, 235, 225, 0.35); }
 body.zl-page .nav.scrolled .btn-ghost { color: var(--text-ink); border-color: var(--border-paper); }
-body.zl-page .nav-crest { filter: drop-shadow(0 1px 3px rgba(0,0,0,.4)); }
+/* Seal over the photo hero: render the navy seal as white until the nav goes solid. */
+body.zl-page .nav-crest { filter: brightness(0) invert(1) drop-shadow(0 1px 3px rgba(0,0,0,.4)); transition: filter var(--dur-fast) var(--ease); }
+body.zl-page .nav.scrolled .nav-crest { filter: none; }
 
 /* Co-brand lockup: Arena wordmark + hairline divider + Lux mark, one
    deliberate unit. The Lux mark crossfades navy↔white with the nav state. */
