@@ -8,7 +8,7 @@
 <title>课程与理念 · Arena School</title>
 <meta name="description" content="Arena的课程与理念：当每个学生口袋里都有一个比老师更聪明的导师时,学校应该是什么样子。八条原则,关于AI教不了的东西：主动性、审美、手艺、勇气。" />
 <meta name="author" content="Phillip An" />
-<meta name="theme-color" content="#8F3A28" />
+<meta name="theme-color" content="#152636" />
 <link rel="canonical" href="https://arenaschool.org/curriculum-cn" />
 
 <!-- Favicons -->
@@ -223,8 +223,8 @@
     align-items: center;
     gap: 5px;
     padding: 5px 11px;
-    border: 1px solid rgba(143, 58, 40,0.32);
-    background: rgba(143, 58, 40,0.06);
+    border: 1px solid rgba(34, 69, 138,0.32);
+    background: rgba(34, 69, 138,0.06);
     border-radius: 999px;
     font-family: var(--font-mono);
     font-size: 10.5px;
@@ -234,7 +234,7 @@
     transition: background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
     white-space: nowrap;
   }
-  .tag-pill:hover { background: rgba(143, 58, 40,0.14); border-color: var(--accent); }
+  .tag-pill:hover { background: rgba(34, 69, 138,0.14); border-color: var(--accent); }
   .tag-pill .tp-num { color: var(--accent); font-weight: 600; }
   @media (max-width: 780px) {
     .cascade-row { grid-template-columns: 1fr; gap: 12px; }
@@ -303,10 +303,10 @@
   }
   .vs-side.is-arena {
     border-left-color: var(--accent);
-    background: rgba(143, 58, 40, 0.04);
+    background: rgba(34, 69, 138, 0.04);
   }
   .principle:nth-child(even) .vs-side { background: var(--bg-paper); }
-  .principle:nth-child(even) .vs-side.is-arena { background: rgba(143, 58, 40, 0.06); }
+  .principle:nth-child(even) .vs-side.is-arena { background: rgba(34, 69, 138, 0.06); }
   .vs-side .vs-label {
     display: block;
     font-family: var(--font-mono);
@@ -706,7 +706,8 @@
 <main id="top">
 
 <!-- ============================================================ HERO + THESIS ============================================================ -->
-<section class="curr-hero" data-screen-label="Thesis">
+<section class="curr-hero has-art" data-screen-label="Thesis">
+  <div class="page-art" data-riso="/art/curriculum.webp" data-riso-focus="0.5,0.45" style="background-image:url('/art/curriculum.webp');background-position:50% 45%" aria-hidden="true"></div>
   <div class="container">
     <div class="reveal">
       <span class="eyebrow">课程与理念</span>
@@ -1296,6 +1297,7 @@
 </footer>
 
 <script src="image-slot.js"></script>
+<script src="/riso-flow.js" defer></script>
 <script src="motion.js"></script>
 </body>
 </html>

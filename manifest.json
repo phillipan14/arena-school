@@ -4,8 +4,8 @@
   "description": "AI-native programs for young builders. Students use AI to build real products and real companies, in five-day intensives and school-year programs.",
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#8F3A28",
-  "background_color": "#F1EEE4",
+  "theme_color": "#152636",
+  "background_color": "#EFE3D4",
   "icons": [
     {
       "src": "/icons/icon-192.png",
