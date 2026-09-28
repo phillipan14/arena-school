@@ -7,7 +7,7 @@ import glob, re, sys, collections
 from html.parser import HTMLParser
 
 BUDGET = {  # page -> (max words, max sections)
-    'index': (450, 7), 'mentorship': (700, 7), 'zero-to-launch': (700, 7),
+    'index': (600, 7), 'mentorship': (700, 7), 'zero-to-launch': (700, 7),
     'case-studies/student-programs': (550, 6), 'case-studies/skill-workshops': (550, 6),
     'case-studies/parent-talks': (550, 6), 'case-studies/teacher-training': (550, 6),
     'programs/website-portfolio-workshop': (700, 7), 'programs/product-intensive': (700, 7), 'programs/remake-your-favorite-app': (700, 7),

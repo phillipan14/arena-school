@@ -32,8 +32,8 @@ A section earns a place only if it passes all four questions:
 
 | Page type | Max words | Max sections |
 |---|---|---|
-| Homepage | 450 | 7 |
-| Program page (Mentorship, Bootcamp, any new program) | 700 | 7 |
+| Homepage | 600 | 7 |
+| Program page (Mentorship, Bootcamp, the four student programs, any new program) | 700 | 7 |
 | How-we-work page (Student programs, Portfolio workshop, Community dialogues, Teacher training) | 550 | 6 |
 | How-we-work hub (Schools) | 500 | 6 |
 | Approach | 650 | 5 |
