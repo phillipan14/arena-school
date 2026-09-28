@@ -18,7 +18,7 @@ BUDGET = {  # page -> (max words, max sections)
 BLOCK = {'lede': 30, 'card': 25, 'detail': 30, 'faq': 45}
 BANNED = [r'instead of writ', r'you (just )?review', r'type less', r'does (it|the work) for you', r'replace (you|teachers|your)', r'in minutes, not', r'never (mark|grade|write) again', r'\bweekend of marking', r'AI (builds|writes|grades|marks) (it|the|your)', r'替您完成', r'不再负责写', r'取代(老师|您|教师)', r'\bunlike school', r'school never', r'career teacher', r'\bNot [A-Z][^.]{0,40}\. Not ', r'waiting room', r'eulogy',
           r'creativity, taste', r'\bcourage\b.*\bjudgment\b', r'学校从不']
-SKIP_TAGS = {'script', 'style', 'svg', 'nav', 'footer', 'head', 'noscript'}
+SKIP_TAGS = {'script', 'style', 'svg', 'nav', 'footer', 'head', 'noscript', 'form'}
 
 class Page(HTMLParser):
     def __init__(s):
