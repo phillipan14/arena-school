@@ -25,27 +25,27 @@
     },
     {
       "source": "/teachers",
-      "destination": "/case-studies/teacher-training",
+      "destination": "/programs/teacher-training",
       "permanent": true
     },
     {
       "source": "/teachers-cn",
-      "destination": "/case-studies/teacher-training-cn",
+      "destination": "/programs/teacher-training-cn",
       "permanent": true
     },
     {
       "source": "/case-studies",
-      "destination": "/case-studies/student-programs",
+      "destination": "/programs/product-intensive",
       "permanent": true
     },
     {
       "source": "/case-studies-cn",
-      "destination": "/case-studies/student-programs-cn",
+      "destination": "/programs/product-intensive-cn",
       "permanent": true
     },
     {
       "source": "/case-study",
-      "destination": "/case-studies/student-programs",
+      "destination": "/programs/product-intensive",
       "permanent": true
     },
     {
@@ -80,12 +80,72 @@
     },
     {
       "source": "/speaking",
-      "destination": "/case-studies/teacher-training#formats",
+      "destination": "/programs/teacher-training#formats",
       "permanent": true
     },
     {
       "source": "/speaking-cn",
-      "destination": "/case-studies/teacher-training-cn#formats",
+      "destination": "/programs/teacher-training-cn#formats",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/student-programs",
+      "destination": "/programs/product-intensive",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/student-programs-cn",
+      "destination": "/programs/product-intensive-cn",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/skill-workshops",
+      "destination": "/programs/website-portfolio-workshop",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/skill-workshops-cn",
+      "destination": "/programs/website-portfolio-workshop-cn",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/teacher-training",
+      "destination": "/programs/teacher-training",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/teacher-training-cn",
+      "destination": "/programs/teacher-training-cn",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/parent-talks",
+      "destination": "/programs/community-dialogues",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/parent-talks-cn",
+      "destination": "/programs/community-dialogues-cn",
+      "permanent": true
+    },
+    {
+      "source": "/programs/website-workshop",
+      "destination": "/programs/website-portfolio-workshop",
+      "permanent": true
+    },
+    {
+      "source": "/programs/website-workshop-cn",
+      "destination": "/programs/website-portfolio-workshop-cn",
+      "permanent": true
+    },
+    {
+      "source": "/programs/portfolio-workshop",
+      "destination": "/programs/website-portfolio-workshop",
+      "permanent": true
+    },
+    {
+      "source": "/programs/portfolio-workshop-cn",
+      "destination": "/programs/website-portfolio-workshop-cn",
       "permanent": true
     }
   ],

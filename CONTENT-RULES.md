@@ -67,7 +67,7 @@ A section earns a place only if it passes all four questions:
 
 ## 5. Voice (see TONE-BRIEF.md)
 - **Stance:** we work alongside educators. Never "unlike school" or "school never".
-- **Writing:** plain, specific, American English. No em dashes, no slogans, no "Not X. Not Y.".
+- **Writing:** plain, specific, American English. **Always use the Oxford comma** ("students, families, and educators"). No em dashes, no slogans, no "Not X. Not Y.".
 - **The core message is used identically everywhere.**
   - Core idea: "When AI can make almost anything, students need to know what's worth making, whether it's good, and how to finish it."
   - Pillars: **Agency** (choosing what's worth solving), **Taste** (telling which version actually works), **Craft** (finishing it well).

@@ -10,6 +10,8 @@ BUDGET = {  # page -> (max words, max sections)
     'index': (450, 7), 'mentorship': (700, 7), 'zero-to-launch': (700, 7),
     'case-studies/student-programs': (550, 6), 'case-studies/skill-workshops': (550, 6),
     'case-studies/parent-talks': (550, 6), 'case-studies/teacher-training': (550, 6),
+    'programs/website-portfolio-workshop': (550, 6), 'programs/product-intensive': (550, 6),
+    'programs/community-dialogues': (550, 6), 'programs/teacher-training': (550, 6),
     'schools': (500, 6), 'curriculum': (650, 5), 'approach': (650, 5), 'about': (650, 5),
     'results': (750, 6), 'partnerships': (450, 5), 'contact': (100, 2),
 }

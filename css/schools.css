@@ -1,9 +1,10 @@
 /* schools hub: the four offers as linked cards in one row */
-.hub-offers { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 26px; }
+.hub-offers { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 26px; }
+.hub-offers .hub-offer { padding: 24px 20px; }
 .hub-offer { display: flex; flex-direction: column; gap: 4px; color: inherit; }
 .hub-offer .card-p { flex: 1; }
 .hub-offer .arr { margin-top: 12px; color: var(--ink-2); }
-@media (max-width: 1000px) { .hub-offers { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 1100px) { .hub-offers { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 560px) { .hub-offers { grid-template-columns: 1fr; } }
 /* partnership track stays horizontal on phones: a swipeable row */
 @media (max-width: 900px) {

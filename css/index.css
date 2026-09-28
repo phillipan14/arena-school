@@ -18,3 +18,6 @@
 .gal-tile img, .gal-tile video { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(.9); }
 @keyframes gal-scroll { to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) { .gal-track { animation: none; overflow-x: auto; width: auto; } .gal-set[aria-hidden] { display: none; } }
+/* low-key partner line under the student program links */
+.prog-aside { font-size: 13.5px; line-height: 1.5; color: var(--text-ink-soft); padding-top: 12px; border-top: 1px solid var(--border-paper); }
+.prog-aside .tlink { font-size: inherit; }

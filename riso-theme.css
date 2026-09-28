@@ -359,3 +359,17 @@ section.hero-opt { background-color: #F3E9DD !important; }
 .hw-m.hw-on::after { transform: scaleX(1) !important; }
 .hw-m + .hw-m::after, .hw-m::after { left: -.02em; right: -.3em; }
 @media (prefers-reduced-motion: reduce) { .hw-m::after { transition: none !important; } }
+
+/* ---------- 21. Grouped Programs menu ---------- */
+.nav-dd-menu.nav-dd-wide { display: grid; grid-template-columns: 300px 250px; gap: 4px 14px; min-width: 0; padding: 12px; }
+.nav-dd-wide .nav-dd-group:first-child { grid-row: span 2; }
+.nav-dd-group { display: flex; flex-direction: column; gap: 2px; }
+.nav-dd-label { font: 600 10.5px/1.2 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2); padding: 8px 12px 4px; }
+@media (max-width: 980px) { .nav-dd-menu.nav-dd-wide { display: flex; } }
+
+/* ---------- 21. Grouped Programs menu ---------- */
+.nav-dd-menu.nav-dd-wide { display: grid; grid-template-columns: 300px 260px; gap: 4px 14px; min-width: 0; padding: 12px; }
+.nav-dd-wide .nav-dd-group:first-child { grid-row: span 2; }
+.nav-dd-group { display: flex; flex-direction: column; gap: 2px; }
+.nav-dd-label { font: 600 10.5px/1.2 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2); padding: 8px 12px 4px; }
+@media (max-width: 980px) { .nav-dd-menu.nav-dd-wide { display: flex; } }
