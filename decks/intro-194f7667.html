@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Arena School</title>
+<link rel="icon" href="/favicon.svg">
+<style>
+@import url('/fonts/fonts.css');
+:root{--ink:#0B1A4A;--ink2:#2F55A8;--paper:#F3E9DD;--paper-hi:#FCF3ED;--beige:#EFE3D4;--muted:#5B5B6B;--line:#D4C0AA;
+ --disp:'Newsreader',Georgia,serif;--body:'Geist',system-ui,sans-serif;--mono:'Geist Mono',ui-monospace,monospace}
+*{box-sizing:border-box}html,body{margin:0;height:100%}
+body{font-family:var(--body);color:var(--ink);background:var(--paper);overflow:hidden}
+.deck{height:100vh;overflow-y:auto;scroll-snap-type:y mandatory;scroll-behavior:smooth}
+.s{position:relative;min-height:100vh;scroll-snap-align:start;display:flex;align-items:center;overflow:hidden;
+ background:var(--paper) radial-gradient(rgba(11,26,74,.22) 1.1px,transparent 1.4px) 12px 12px/24px 24px}
+.s.alt{background-color:var(--beige);background-image:none}
+.s .seal{position:absolute;right:-140px;top:120px;width:min(640px,55vw);aspect-ratio:1;background:url(/art/seal-watermark.png) center/contain no-repeat;opacity:.08;animation:turn 240s linear infinite}
+@keyframes turn{to{transform:rotate(360deg)}}
+.w{position:relative;z-index:2;width:min(1160px,88vw);margin:0 auto;padding:9vh 0}
+.chip{display:inline-flex;align-items:center;gap:8px;font:600 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--paper-hi);background:var(--ink);padding:.6em .85em;border-radius:2px;box-shadow:2px 2px 0 var(--ink2);margin-bottom:22px}
+.chip::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ink2);box-shadow:0 0 0 1.5px var(--paper-hi)}
+h1,h2{font-family:var(--disp);font-weight:500;letter-spacing:-.025em;margin:0;line-height:1.05;text-wrap:balance}
+h1{font-size:clamp(46px,6.2vw,88px)} h2{font-size:clamp(34px,4.2vw,58px)}
+em{font-style:italic;color:var(--ink2)}
+.lede{font-size:clamp(18px,1.55vw,22px);line-height:1.55;color:#26304F;max-width:62ch;margin:22px 0 0;text-wrap:pretty}
+.small{font-size:14px;color:var(--muted)}
+/* riso marker */
+.m{position:relative;z-index:0;white-space:nowrap}
+.m::after{content:"";position:absolute;left:-.03em;right:-.03em;bottom:.06em;height:.3em;z-index:-1;background:url(/art/riso-hl.png) 0 0/6px 6px repeat;transform:scaleX(0);transform-origin:left;transition:transform .7s cubic-bezier(.65,.05,.25,1) var(--d,.3s)}
+.in .m::after{transform:scaleX(1)}
+/* reveal */
+.r{opacity:0;transform:translateY(14px);transition:opacity .6s ease var(--d,0s),transform .6s ease var(--d,0s)}.in .r{opacity:1;transform:none}
+/* cards */
+.grid{display:grid;gap:16px;margin-top:34px}.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--paper-hi);border:1.5px solid var(--ink);border-radius:10px;padding:22px 22px 20px;box-shadow:4px 4px 0 var(--ink2)}
+.card .k{font:600 11.5px/1.3 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--ink2);margin-bottom:10px}
+.card h3{font-family:var(--disp);font-weight:500;font-size:clamp(22px,1.9vw,27px);margin:0 0 8px;line-height:1.15}
+.card p{margin:0;font-size:15.5px;line-height:1.55;color:#26304F}
+.card ul{margin:10px 0 0;padding-left:18px;font-size:15px;line-height:1.55;color:#26304F}
+.plain{background:transparent;border:0;box-shadow:none;padding:0}
+.subs{margin-top:0;gap:16px}
+.sub{margin:0 18px 0 18px;padding:16px 20px 16px 22px;background:var(--beige);border:1.5px solid var(--line);border-top:0;border-radius:0 0 10px 10px;position:relative}
+.sub::before{content:"";position:absolute;left:22px;top:0;width:28px;height:3px;background:url(/art/riso-hl.png) 0 0/6px 6px repeat}
+.sub .k{font:600 11px/1.3 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--ink2);margin:6px 0 6px}
+.sub h3{font-family:var(--disp);font-weight:500;font-size:20px;margin:0 0 6px}.sub p{margin:0;font-size:14.5px;line-height:1.55;color:#26304F}
+/* MYP cycle */
+.cycle{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:40px;position:relative}
+.cycle::before{content:"";position:absolute;left:12.5%;right:12.5%;top:27px;height:2px;background:var(--ink2)}
+.cyc{text-align:center;padding:0 10px}
+.cyc .dot{width:56px;height:56px;border-radius:50%;margin:0 auto 14px;background:var(--paper-hi);border:2px solid var(--ink);display:grid;place-items:center;font:600 18px var(--mono);position:relative;box-shadow:3px 3px 0 var(--ink2)}
+.cyc b{display:block;font-family:var(--disp);font-weight:500;font-size:21px;margin-bottom:6px}
+.cyc .pill{display:inline-block;font:600 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--paper-hi);background:var(--ink2);padding:4px 8px;border-radius:3px;margin-bottom:8px}
+.cyc p{margin:0;font-size:14.5px;line-height:1.5;color:#26304F}
+/* logos, founders */
+.logos{display:flex;flex-wrap:wrap;align-items:center;gap:18px 34px;margin-top:26px}.logos img{height:26px;opacity:.85}
+.founders{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+.f{display:flex;gap:18px;align-items:flex-start}.f img{width:88px;height:88px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 3px #fff}
+.f h3{margin:0 0 4px;font-family:var(--disp);font-weight:500;font-size:26px}.f p{margin:0;font-size:15px;line-height:1.5;color:#26304F}
+/* timeline */
+.tl{display:grid;grid-template-columns:repeat(5,1fr);margin-top:40px;position:relative}
+.tl::before{content:"";position:absolute;left:10%;right:10%;top:9px;height:2px;background:var(--line)}
+.tl div{text-align:center;padding:0 8px;position:relative}
+.tl div::before{content:"";display:block;width:18px;height:18px;border-radius:50%;margin:0 auto 14px;background:var(--ink2);border:3px solid var(--paper-hi);box-shadow:0 0 0 2px var(--ink2)}
+.tl b{display:block;font-family:var(--disp);font-weight:500;font-size:20px;margin-bottom:4px}.tl span{font-size:14px;color:#26304F;line-height:1.45}
+.quote{font-family:var(--disp);font-size:clamp(24px,2.4vw,34px);line-height:1.3;max-width:34ch;margin-top:26px}
+.num{font-family:var(--disp);font-size:clamp(40px,4vw,56px);line-height:1;color:var(--ink2)}
+/* nav */
+.nav{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:9;display:flex;flex-direction:column;gap:9px}
+.nav a{width:9px;height:9px;border-radius:50%;background:rgba(11,26,74,.25)}.nav a.on{background:var(--ink2);box-shadow:0 0 0 3px rgba(47,85,168,.25)}
+.hint{position:fixed;left:22px;bottom:18px;z-index:9;font:12px var(--mono);color:var(--muted)}
+.brand{position:fixed;left:26px;top:20px;z-index:9}
+.brand img{height:30px;width:auto;display:block}
+@media(max-width:900px){.g3,.g4,.g2,.founders,.cycle,.tl{grid-template-columns:1fr}.cycle::before,.tl::before{display:none}}
+@media(prefers-reduced-motion:reduce){.r,.m::after{transition:none}.s .seal{animation:none}}
+</style></head><body>
+<div class="brand"><img src="/logos/arena/wordmark-navy-1600.png" alt="Arena School"></div>
+<nav class="nav" id="nav"></nav><div class="hint">↓ / → next · ↑ / ← back</div>
+<main class="deck" id="deck">
+
+<!-- 1 -->
+<section class="s"><div class="seal"></div><div class="w">
+ <div class="chip r">Arena School</div>
+ <h1 class="r" style="--d:.1s">Helping students <span class="m" style="--d:.6s"><em>build</em></span> with AI, alongside their schools.</h1>
+ <p class="lede r" style="--d:.25s">Hands-on AI programs for students, training for teachers, and conversations with school communities, led by a founding team that works closely with schools and families.</p>
+</div></section>
+
+<!-- 2 -->
+<section class="s alt"><div class="w">
+ <div class="chip r">Our founding team</div>
+ <h2 class="r" style="--d:.1s">Our founding team, <em>working alongside educators.</em></h2>
+ <p class="lede r" style="--d:.2s">We bring experience from industry and from using AI in our own work. Teachers bring what they know about their students. We work best together.</p>
+ <div class="founders r" style="--d:.3s">
+  <div class="f"><img src="/photos/phillip-an.jpg" alt=""><div><h3>Phillip An</h3><p>Computer Science at Caltech, McKinsey, Goldman Sachs, Harvard MBA. Co-founded a Y Combinator company; Forbes 30 Under 30; Schwarzman Scholar. Designs and teaches every Arena program.</p></div></div>
+  <div class="f"><img src="/photos/jing-jing-yang.jpg" alt=""><div><h3>Jing Jing Yang</h3><p>WAB and ISB alumna (K–12). Economics and Behavioral Decision Sciences at Brown; Apple, Deloitte; research with Microsoft AI / MSRA; Schwarzman Scholar; Kimi (Moonshot AI).</p></div></div>
+ </div>
+ <div class="logos r" style="--d:.4s"><img src="/logos/cred/caltech.png" alt="Caltech"><img src="/logos/cred/harvard.png" alt="Harvard" style="height:30px"><img src="/logos/cred/brown.png" alt="Brown" style="height:32px"><img src="/logos/cred/tsinghua-lockup.png" alt="Tsinghua" style="height:32px"><img src="/logos/cred/apple.png" alt="Apple" style="height:30px"><img src="/logos/cred/microsoft-ai.png" alt="Microsoft AI"><img src="/logos/cred/yc.png" alt="Y Combinator" style="height:28px"><img src="/logos/cred/kimi.png" alt="Kimi" style="height:20px"></div>
+</div></section>
+
+<!-- 2b -->
+<section class="s"><div class="seal"></div><div class="w">
+ <div class="chip r">What we've run</div>
+ <h2 class="r" style="--d:.1s">From a five-day course to <em>a whole school community.</em></h2>
+ <div class="grid g2" style="margin-bottom:0">
+  <div class="card r" style="--d:.2s"><div class="k">Hong Kong · summer 2025 · five days</div><h3>Idea to launched product in a week</h3>
+   <ul><li><b>Day 1:</b> pick a real problem and a real user</li><li><b>Day 2:</b> research and interviews</li><li><b>Days 3–4:</b> build with AI tools, test, iterate</li><li><b>Day 5:</b> launch it and pitch on demo day</li></ul></div>
+  <div class="card r" style="--d:.3s"><div class="k">International School of Beijing · 2026</div><h3>Students, parents, and leadership</h3>
+   <ul><li><b>Student program:</b> every team launched a live product and pitched to founders and operators from Harvard, Y Combinator and AI labs</li>
+   <li><b>Parent coffee talk:</b> what AI looks like in education and innovation, in the workplace, and in how entry-level candidates now interview for jobs</li>
+   <li><b>Consulting:</b> with the board of directors and the college counseling office on expanding AI use productively within the curriculum</li></ul></div>
+ </div>
+
+  <div class="grid g2 subs">
+  <div class="sub r" style="--d:.4s"><div class="k">Case · Hong Kong</div><h3>A voice for his cousin</h3><p>A ten-year-old who didn't know what an API was built a sign-language-to-speech app for his deaf cousin, then kept improving it until the audio was clear enough for his grandmother to trust.</p></div>
+  <div class="sub r" style="--d:.5s"><div class="k">Products launched · ISB</div><h3>From productivity tools to games</h3><p>One team made an all-in-one productivity tool. One student made five games that he plans to publish on Steam.</p></div>
+ </div>
+</div></section>
+
+<!-- 7 -->
+<section class="s"><div class="seal"></div><div class="w">
+ <div class="chip r">Inside the programs</div>
+ <h2 class="r" style="--d:.1s">Four moments from <em>our programs.</em></h2>
+ <div class="grid g4" style="margin-top:18px">
+  <div class="r" style="--d:.4s;border-radius:10px;overflow:hidden;aspect-ratio:4/3"><img src="/photos/pilot-classroom.jpg" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+  <div class="r" style="--d:.45s;border-radius:10px;overflow:hidden;aspect-ratio:4/3"><img src="/photos/pilot-sticky.jpg" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+  <div class="r" style="--d:.5s;border-radius:10px;overflow:hidden;aspect-ratio:4/3"><img src="/photos/pilot-check.jpg" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+  <div class="r" style="--d:.55s;border-radius:10px;overflow:hidden;aspect-ratio:4/3"><img src="/photos/pilot-cohort.jpg" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+ </div>
+</div></section>
+
+
+<!-- 3 -->
+<section class="s"><div class="seal"></div><div class="w">
+ <div class="chip r">Our philosophy</div>
+ <h2 class="r" style="--d:.1s">When AI can make almost anything, students need to know what's worth making, whether it's good, and how to finish it.</h2>
+ <div class="grid g3">
+  <div class="card r" style="--d:.25s"><div class="k">Agency</div><h3><span class="m" style="--d:.7s">Choosing</span> what's worth solving.</h3><p>AI can help make almost anything. Deciding what is worth making, and why, is where students' own thinking matters most.</p></div>
+  <div class="card r" style="--d:.35s"><div class="k">Taste</div><h3><span class="m" style="--d:.9s">Telling</span> which version works.</h3><p>AI helps students try many versions quickly. They learn to judge which one works for the people using it.</p></div>
+  <div class="card r" style="--d:.45s"><div class="k">Craft</div><h3><span class="m" style="--d:1.1s">Finishing</span> it well.</h3><p>A first draft comes sooner. Turning it into something people can rely on is the student's work, and it takes care.</p></div>
+ </div>
+</div></section>
+
+<!-- 4 -->
+<section class="s alt"><div class="w">
+ <div class="chip r">Design thinking, with AI</div>
+ <h2 class="r" style="--d:.1s">The design cycle is the <em>right frame for AI.</em></h2>
+ <p class="lede r" style="--d:.2s">AI speeds up the middle of the cycle. The parts that make a designer (framing the problem, judging options, evaluating honestly) matter more, not less.</p>
+ <div class="cycle r" style="--d:.3s">
+  <div class="cyc"><div class="dot">A</div><span class="pill">Agency</span><b>Inquiring &amp; analysing</b><p>Students pick a real problem and a real user, not a brief. AI helps research; the student decides what matters.</p></div>
+  <div class="cyc"><div class="dot">B</div><span class="pill">Taste</span><b>Developing ideas</b><p>AI makes it cheap to prototype many options. The skill is choosing and justifying one.</p></div>
+  <div class="cyc"><div class="dot">C</div><span class="pill">Craft</span><b>Creating the solution</b><p>Students build with AI coding tools and make every call; a fixed build freeze teaches scope.</p></div>
+  <div class="cyc"><div class="dot">D</div><span class="pill">Taste</span><b>Evaluating</b><p>Demo to real users, test against the success criteria, and document what the AI did and didn't do.</p></div>
+ </div>
+</div></section>
+
+<!-- 5 -->
+<section class="s"><div class="seal"></div><div class="w">
+ <div class="chip r">How we teach with AI</div>
+ <h2 class="r" style="--d:.1s">AI as a partner students <em>direct</em>, never a shortcut.</h2>
+ <div class="grid g4">
+  <div class="card r" style="--d:.2s"><div class="k">Prompt &amp; critique</div><p>Students write the prompts, question the output, and check it for mistakes.</p></div>
+  <div class="card r" style="--d:.28s"><div class="k">Just in time</div><p>Each method is taught the hour before it's used: interviews before user research, pricing the day it goes live.</p></div>
+  <div class="card r" style="--d:.36s"><div class="k">Real audiences</div><p>Work is shown to users and practitioners every day, not only to the teacher.</p></div>
+  <div class="card r" style="--d:.44s"><div class="k">Honest process</div><p>Students credit AI and can explain every decision, in line with the IB's approach of acknowledging AI use.</p></div>
+ </div>
+ <p class="lede r" style="--d:.5s">The same stance guides our teacher work: AI supports your planning and materials, and <span class="m" style="--d:1s">your judgment stays in charge.</span></p>
+</div></section>
+
+<!-- 6 -->
+<section class="s alt"><div class="w">
+ <div class="chip r">Robotics and making</div>
+ <h2 class="r" style="--d:.1s">Where AI can <em>extend</em> robotics and making.</h2>
+ <p class="lede r" style="--d:.2s">Ideas we shape around each club's platform, students and season.</p>
+ <div class="grid g3">
+  <div class="card r" style="--d:.25s"><div class="k">Simulate before you build</div><h3>A web simulator of their robot</h3><p>Students build an interactive simulation of their design with AI coding tools, to test ideas before touching hardware.</p></div>
+  <div class="card r" style="--d:.33s"><div class="k">Document like engineers</div><h3>A portfolio of the build</h3><p>Each student publishes a portfolio site showing the problem, iterations and results, useful for competitions and applications.</p></div>
+  <div class="card r" style="--d:.41s"><div class="k">Real users</div><h3>Robots that solve a real problem</h3><p>Pick a problem someone at school actually has, interview them, and demo to them at the end.</p></div>
+ </div>
+</div></section>
+
+<!-- 8 -->
+<section class="s alt"><div class="w">
+ <div class="chip r">Where the field is heading</div>
+ <h2 class="r" style="--d:.1s">Patterns we see in <em>higher education and boarding schools.</em></h2>
+ <div class="grid g3">
+  <div class="card r" style="--d:.2s"><div class="k">Universities</div><p>Cornell's 2026 faculty report says the human skill that matters is deciding "what to do and why". MIT admissions: "more interested in your build process than your end results."</p></div>
+  <div class="card r" style="--d:.3s"><div class="k">Boarding schools</div><p>Choate chose "engagement, not prohibition", with 80% of eligible faculty trained. Lawrenceville runs an AI Capstone where students build tools for campus.</p></div>
+  <div class="card r" style="--d:.4s"><div class="k">The IB</div><p>The IB has chosen not to ban AI and asks students to acknowledge its use: a design and CS classroom is the natural place to teach that well.</p></div>
+ </div>
+</div></section>
+
+<!-- 9 -->
+<section class="s"><div class="seal"></div><div class="w">
+ <div class="chip r">How we work with schools and teachers</div>
+ <h2 class="r" style="--d:.1s">Start small. <em>Grow what works.</em></h2>
+ <div class="grid g4">
+  <div class="card r" style="--d:.2s"><div class="k">01 · Teachers</div><h3>Hands-on workshop</h3><p>Teachers build tools for their own classes, ready to use the next week.</p></div>
+  <div class="card r" style="--d:.28s"><div class="k">02 · Clubs &amp; electives</div><h3>A build sprint</h3><p>A short sprint inside a club or elective: simulate, build, and publish a portfolio of the work.</p></div>
+  <div class="card r" style="--d:.36s"><div class="k">03 · Curriculum</div><h3>A co-designed pilot</h3><p>We co-plan and co-teach one unit alongside the school's teachers, mapped to its criteria.</p></div>
+  <div class="card r" style="--d:.44s"><div class="k">04 · Whole school</div><h3>Intensive or dialogue</h3><p>A five-day program over a break, or a community dialogue for parents.</p></div>
+ </div>
+</div></section>
+
+<!-- 10 -->
+<section class="s alt"><div class="w">
+ <div class="chip r">A hypothetical pilot</div>
+ <h2 class="r" style="--d:.1s">One unit, <em>built with AI, end to end.</em></h2>
+ <div class="tl r" style="--d:.25s">
+  <div><b>Plan together</b><span>Choose the unit, the success criteria and the tools the school allows.</span></div>
+  <div><b>Kickoff</b><span>A hands-on session; each student picks a real problem and a real user.</span></div>
+  <div><b>Build</b><span>Students prototype with AI tools; teachers and mentors coach, students decide.</span></div>
+  <div><b>Demo</b><span>Students present to real users and explain what AI did and didn't do.</span></div>
+  <div><b>Review</b><span>What worked, samples of student work, and a template the school keeps.</span></div>
+ </div>
+ <p class="lede r" style="--d:.4s">The school keeps the plans, prompts and rubrics. Format, length and timing are set together.</p>
+</div></section>
+
+<!-- 12 -->
+<section class="s alt"><div class="w">
+ <div class="chip r">Contact</div>
+ <img class="r" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School" style="--d:.1s;display:block;width:min(560px,70vw);height:auto;margin:6px 0 4px">
+ <p class="lede r" style="--d:.2s"><a href="https://arenaschool.org" target="_blank" rel="noopener" style="color:var(--ink2)">arenaschool.org</a><br><a href="mailto:contact@arenaschool.org" style="color:var(--ink2)">contact@arenaschool.org</a></p>
+</div></section>
+
+</main>
+<script>
+var deck=document.getElementById('deck'),S=[].slice.call(document.querySelectorAll('.s')),nav=document.getElementById('nav');
+S.forEach(function(s,i){var a=document.createElement('a');a.href='#';a.onclick=function(e){e.preventDefault();go(i)};nav.appendChild(a)});
+function cur(){var y=deck.scrollTop+innerHeight/2;for(var i=0;i<S.length;i++){if(S[i].offsetTop+S[i].offsetHeight>y)return i}return S.length-1}
+function go(i){i=Math.max(0,Math.min(S.length-1,i));deck.scrollTo({top:S[i].offsetTop,behavior:'smooth'})}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('in')})},{threshold:.35});
+S.forEach(function(s){io.observe(s)});
+deck.addEventListener('scroll',function(){var c=cur();[].forEach.call(nav.children,function(a,i){a.classList.toggle('on',i===c)})});
+addEventListener('keydown',function(e){if(['ArrowDown','ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();go(cur()+1)}if(['ArrowUp','ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();go(cur()-1)}});
+nav.children[0].classList.add('on');
+</script>
+</body></html>
