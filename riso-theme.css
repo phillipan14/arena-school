@@ -490,3 +490,15 @@ html[lang="zh-CN"] .hero .cs-h1 { max-width: 12em; }
   .nav-dd-stu > .nav-dd-sub:nth-of-type(3) { display: none !important; }
   .nav-dd-stu > a:nth-of-type(4) { grid-column: 2; grid-row: 3; }
 }
+
+@media (min-width: 981px) {
+  .nav-dd-stu > .nav-dd-sub:nth-of-type(4) { grid-column: 1; grid-row: 4; }
+  .nav-dd-stu > a:nth-of-type(5) { grid-column: 1; grid-row: 5; }
+  .nav-dd-menu.nav-dd-stu { grid-template-rows: auto auto auto auto auto; }
+}
+
+@media (min-width: 981px) {
+  .nav-dd-stu > .nav-dd-sub:nth-of-type(4) { grid-column: 2; grid-row: 4; }
+  .nav-dd-stu > a:nth-of-type(5) { grid-column: 2; grid-row: 5; }
+  .nav-dd-stu > .nav-dd-sub:nth-of-type(4) { border-top: 1px solid #ECE4D8 !important; padding-top: 8px !important; margin-top: 8px !important; }
+}

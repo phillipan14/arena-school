@@ -359,3 +359,36 @@ body.home .btn-primary { box-shadow: none !important; }
 .prog-links a[data-prog].on { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 .hp-cred-cta { margin: 26px 0 0; text-align: center; }
 @media (max-width: 760px) { .tl2 { padding: 16px 14px 8px; } .tl2-head, .tl2-row { grid-template-columns: 1fr; gap: 6px; } .tl2-head .tl2-name { display: none; } }
+/* carousel v8: mixed shapes, offset heights, videos */
+.gal2 .gal-track2 { align-items: center; }
+.gal2 .gal-row { height: clamp(190px, 19vw, 270px); display: flex; align-items: center; }
+.gal2 .gal-tile { height: 100%; aspect-ratio: 4 / 3; }
+.gal2 .sh-w { aspect-ratio: 16 / 10; height: 100%; }
+.gal2 .sh-t { aspect-ratio: 3 / 4; height: 86%; }
+.gal2 .sh-s { aspect-ratio: 1 / 1; height: 74%; }
+.gal2 .sh-v { aspect-ratio: 9 / 13; height: 100%; }
+.gal2 .gal-tile video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.gal2 .gal-r .sh-t { align-self: flex-end; } .gal2 .gal-l .sh-s { align-self: flex-start; }
+.gal2 .gal-track2 { height: 100%; }
+.prog-grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+@media (max-width: 760px) { .prog-grid-4 { grid-template-columns: 1fr !important; } }
+/* programs: cards + timeline in one view */
+#programs { padding-block: clamp(48px, 6vw, 72px) !important; }
+#programs .sec-head { margin-bottom: 22px !important; }
+#programs .prog-grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; gap: 12px !important; margin-top: 0 !important; }
+#programs .prog-card { padding: 18px 20px !important; }
+#programs .prog-card .prog-h { font-size: 20px !important; margin: 10px 0 6px !important; }
+#programs .prog-card .prog-p { font-size: 13.5px !important; line-height: 1.5 !important; margin-bottom: 10px !important; }
+#programs .prog-links { gap: 4px !important; font-size: 14px; }
+#programs .prog-links-stack a { font-size: 14px; }
+#programs .prog-more, #programs > .container > p { margin-top: 14px !important; }
+.tl2 { margin-top: 16px !important; padding: 12px 20px 6px !important; }
+.tl2-axis { grid-template-columns: repeat(8, 1fr) !important; padding-top: 16px !important; }
+.tl2-axis .ms { width: 37.5% !important; } .tl2-axis .hs { width: 50% !important; right: 12.5% !important; }
+.tl2-axis .tl2-col { font: 500 10px/1.3 var(--font-mono) !important; letter-spacing: .08em; text-transform: uppercase; color: var(--text-ink-muted) !important; }
+.tl2-row { padding: 6px 0 !important; }
+.tl2-name { font-size: 13.5px !important; }
+.tl2-track { height: 8px !important; background: repeating-linear-gradient(90deg, transparent 0 calc(100%/8 - 1px), #E6DCCF calc(100%/8 - 1px) calc(100%/8)) !important; }
+.tl2-track i { left: calc(100% / 8 * var(--a) + 4px) !important; right: calc(100% / 8 * (8 - var(--b)) + 4px) !important; }
+@media (max-width: 1100px) { #programs .prog-grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } }
+@media (max-width: 760px) { #programs .prog-grid-4 { grid-template-columns: 1fr !important; } }
