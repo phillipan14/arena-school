@@ -431,3 +431,7 @@ html[lang="zh-CN"] .eyebrow, html[lang="zh-CN"] .hp-cred-lab, html[lang="zh-CN"]
 html[lang="zh-CN"] body { line-break: strict; word-break: normal; }
 html[lang="zh-CN"] :is(.h2, .cs-h1, .display, .pp-sc-beat h2, .hero-riso-h1) { word-break: keep-all; overflow-wrap: anywhere; line-height: 1.16; }
 html[lang="zh-CN"] :is(.card-p, .pp-notes span, .pp-source, .lede) { text-wrap: pretty; }
+html[lang="zh-CN"] em, html[lang="zh-CN"] .pg-case-story, html[lang="zh-CN"] .pg-team-sub { font-style: normal; }
+html[lang="zh-CN"] .pg .pg-head .h2 { max-width: 11em; }
+html[lang="zh-CN"] .hero .cs-h1 { max-width: 12em; }
+.kp { display: inline-block; }
