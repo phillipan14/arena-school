@@ -1107,3 +1107,4 @@ html:has(.pp-sc), html:has(.pp-sc) body { overflow-x: clip !important; overflow-
 .pp-idea-app li em { font-style: normal; font-weight: 700; color: #2E6E40; font-size: 12px; } .pp-idea-app span { font-size: 11px; color: #6B6B78; }
 .pp-cal-5 { grid-template-columns: repeat(5, 1fr); gap: 5px; } .pp-cal-5 .pp-cal-col { padding: 6px 4px; } .pp-cal-5 .pp-cal-col i { padding: 6px 4px; font-size: 9.5px; text-align: center; }
 @media (max-width: 700px) { .pp-levels, .pp-idea { grid-template-columns: 1fr; } .pp-lv-arrow, .pp-idea-arrow { transform: rotate(90deg); } .pv2-hero { grid-template-columns: 1fr; } .pp-stk ul { grid-template-columns: repeat(2, 1fr); } }
+.pp-sc { height: 270vh; } @media (max-width: 900px), (prefers-reduced-motion: reduce) { .pp-sc { height: auto; } }
