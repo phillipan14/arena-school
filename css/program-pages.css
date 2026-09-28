@@ -1434,3 +1434,15 @@ main > section[data-screen-label="FAQ"] .faq-item { background: #fff; }
 .pp-step-img img[src*="parents-audience"], .pp-close-photo img[src*="parents-audience"] { object-position: 50% 12%; }
 .pp-dv-k em, .pp-board-head em { white-space: nowrap; }
 @media (max-width: 700px) { .pp-example .pp-phone-wrap { justify-content: center; } .pp-board-head em { display: none; } }
+/* Formal launch card (replaces the mini phone) */
+.lcard { width: 78%; padding: 14px 16px; border-radius: 12px; background: #fff; border: 1px solid #D9D0C4; box-shadow: 0 18px 40px -22px rgba(11,26,74,.38); font-family: var(--font-body); transition: transform .4s var(--pp-ease); }
+.zl-card:hover .lcard { transform: translateY(-3px); }
+.lcard-top { display: flex; align-items: center; gap: 6px; font: 11px/1 var(--font-mono); color: #6B6B78; margin-bottom: 10px; }
+.lcard-dot { width: 7px; height: 7px; border-radius: 50%; background: #2E8A4A; }
+.lcard small { display: block; font: 500 9.5px/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: #8A7A70; }
+.lcard b { display: block; margin: 4px 0 10px; font: 500 20px/1 var(--font-display); color: var(--ink); }
+.lcard-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.lcard-kpis div { padding: 6px 8px; border-radius: 6px; background: #F5F1EB; font-size: 10.5px; color: #6B6B78; }
+.lcard-kpis i { display: block; font: normal 500 16px/1.1 var(--font-display); color: var(--ink); }
+.lcard em { display: block; margin-top: 8px; font-size: 10.5px; font-style: normal; color: #8A8A8A; }
+.lcard { padding: 10px 14px; } .lcard b { margin: 3px 0 8px; font-size: 18px; } .lcard-top { margin-bottom: 7px; } .lcard em { margin-top: 6px; }
