@@ -412,3 +412,17 @@ body.home .btn-primary { box-shadow: none !important; }
 .gm-t figcaption span { display: block; margin-bottom: 2px; font: 500 9px/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; opacity: .8; }
 @media (prefers-reduced-motion: reduce) { .gm-track { animation: none; } .gm { overflow-x: auto; } }
 @media (max-width: 760px) { .gm-track { --h: 280px; } }
+/* loop round 1 fixes */
+.hero-full { min-height: 0 !important; }
+.hero-full .hero-riso-grid { padding-block: clamp(96px, 11vw, 150px) clamp(64px, 7vw, 100px) !important; }
+.gm { padding-top: 0 !important; }
+.prog-p, .prog-card .prog-p { text-wrap: pretty; }
+.footer-col h4 + a, .footer-col a + h4 { }
+.footer-col a + h4 { margin-top: 22px !important; }
+@media (max-width: 900px) {
+  .hp2-frame figcaption { padding-left: 110px; font-size: 9.5px; }
+  .hero-full .hero-riso-grid { padding-block: 96px 48px !important; gap: 44px !important; }
+}
+.hero-full .hero-riso-grid { padding-block: clamp(130px, 12vw, 170px) clamp(64px, 7vw, 96px) !important; }
+@media (max-width: 900px) { .hero-full .hero-riso-grid { padding-block: 110px 48px !important; } }
+.hp-next .cf-ev p .tlink { display: inline-block; margin-left: 0; }
