@@ -110,5 +110,19 @@
 <script src="/riso-field.js?v=1790581002" defer></script>
 <script src="/motion.js?v=1790581002"></script>
 <script src="/riso-interact.js?v=1790581002" defer></script>
+<script>
+/* Prefill the inquiry when arriving from a program page (?program=…&role=parent). */
+(function () {
+  var q = new URLSearchParams(location.search);
+  var names = { 'admissions-portfolio': 'Admissions Portfolio Workshop', 'remake-your-favorite-app': 'Remake Your Favorite App' };
+  var name = names[q.get('program')]; if (!name) return;
+  var parent = q.get('role') === 'parent';
+  var role = document.getElementById('pf-role'); var ctx = document.getElementById('pf-context');
+  if (role) role.value = parent ? 'parent' : 'school';
+  if (ctx && !ctx.value) ctx.value = parent
+    ? 'I would love my child\u2019s school to run the ' + name + '. The school is: '
+    : 'I\u2019d like to bring the ' + name + ' to our school. Grades and timing we have in mind: ';
+})();
+</script>
 </body>
 </html>
