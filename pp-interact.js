@@ -54,3 +54,49 @@
     });
   });
 })();
+
+/* Live sample portfolio: tabs, video player, depth explorer */
+(function () {
+  document.querySelectorAll('[data-live]').forEach(function (root) {
+    var tabs = [].slice.call(root.querySelectorAll('.pp-tabs button'));
+    var panels = [].slice.call(root.querySelectorAll('.pp-panel'));
+    var path = root.querySelector('.pp-url-path');
+    function show(name) {
+      tabs.forEach(function (t) { t.setAttribute('aria-selected', String(t.dataset.tab === name)); });
+      panels.forEach(function (p) { var on = p.dataset.panel === name; p.hidden = !on; if (on) { p.style.animation = 'none'; p.offsetHeight; p.style.animation = ''; } });
+      if (path) path.textContent = name === 'projects' ? '' : '/' + name;
+    }
+    tabs.forEach(function (t) { t.addEventListener('click', function () { show(t.dataset.tab); }); });
+    root.querySelectorAll('[data-tab-go]').forEach(function (b) { b.addEventListener('click', function () { show(b.dataset.tabGo); }); });
+
+    // Video: a simulated player over the field survey still
+    var video = root.querySelector('.pp-video'); var raf = null; var t0 = 0; var elapsed = 0; var DUR = 135;
+    var track = video && video.querySelector('.pp-video-track i'); var time = video && video.querySelector('.pp-video-t'); var pp = video && video.querySelector('.pp-video-pp');
+    function fmt(s) { s = Math.floor(s); return Math.floor(s / 60) + ':' + ('0' + (s % 60)).slice(-2); }
+    function tick(now) { var e = elapsed + (now - t0) / 1000 * 6; if (e >= DUR) e = 0; track.style.width = (e / DUR * 100) + '%'; time.textContent = fmt(e) + ' / 2:15'; raf = requestAnimationFrame(tick); video._e = e; }
+    function play() { video.classList.add('is-playing'); t0 = performance.now(); raf = requestAnimationFrame(tick); pp.textContent = '❚❚'; pp.setAttribute('aria-label', 'Pause'); }
+    function pause() { video.classList.remove('is-playing'); cancelAnimationFrame(raf); elapsed = video._e || 0; pp.textContent = '▶'; pp.setAttribute('aria-label', 'Play'); }
+    if (video) {
+      root.querySelector('[data-open="video"]').addEventListener('click', function () { video.hidden = false; elapsed = 0; play(); });
+      video.querySelector('.pp-video-x').addEventListener('click', function () { pause(); video.hidden = true; });
+      pp.addEventListener('click', function () { video.classList.contains('is-playing') ? pause() : play(); });
+      root.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !video.hidden) { pause(); video.hidden = true; } });
+    }
+
+    // Depth explorer: slider moves the marker along the curve
+    var range = root.querySelector('.pp-dx input'); var out = root.querySelector('.pp-dx output');
+    var line = root.querySelector('.dx-line'); var dot = root.querySelector('.dx-dot'); var guide = root.querySelector('.dx-guide');
+    var readD = root.querySelector('.pp-dx-read b'); var readN = root.querySelector('.pp-dx-read span');
+    if (range && line) {
+      var L = line.getTotalLength();
+      function yAt(x) { var lo = 0, hi = L; for (var i = 0; i < 24; i++) { var mid = (lo + hi) / 2; if (line.getPointAtLength(mid).x < x) lo = mid; else hi = mid; } return line.getPointAtLength(lo).y; }
+      function update() {
+        var d = +range.value; var x = d / 30 * 300; var y = yAt(x);
+        dot.setAttribute('cx', x); dot.setAttribute('cy', y); guide.setAttribute('x1', x); guide.setAttribute('x2', x);
+        var n = Math.round((150 - y) / 150 * 60);
+        out.textContent = d + ' m'; readD.textContent = d + ' m'; readN.textContent = n;
+      }
+      range.addEventListener('input', update); update();
+    }
+  });
+})();
