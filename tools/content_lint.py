@@ -22,9 +22,12 @@ SKIP_TAGS = {'script', 'style', 'svg', 'nav', 'footer', 'head', 'noscript'}
 
 class Page(HTMLParser):
     def __init__(s):
-        super().__init__(); s.skip = 0; s.sections = 0; s.text = []; s.blocks = []; s.cur = None; s.details = []
+        super().__init__(); s.skip = 0; s.mock = None; s.sections = 0; s.text = []; s.blocks = []; s.cur = None; s.details = []
     def handle_starttag(s, t, a):
         a = dict(a); cls = a.get('class') or ''
+        # Illustrative mockups (data-lint-skip) are visuals, not copy: skip their text.
+        if s.mock: s.mock[1] += (t == s.mock[0])
+        elif 'data-lint-skip' in a: s.mock = [t, 1]
         if t in SKIP_TAGS: s.skip += 1
         if s.skip: return
         if t == 'section': s.sections += 1
@@ -34,10 +37,13 @@ class Page(HTMLParser):
         if kind and t in ('p', 'div'): s.cur = [kind, t, []]; s.blocks.append(s.cur)
         s.text.append(' ')
     def handle_endtag(s, t):
+        if s.mock and t == s.mock[0]:
+            s.mock[1] -= 1
+            if s.mock[1] == 0: s.mock = None
         if t in SKIP_TAGS and s.skip: s.skip -= 1
         if s.cur and t == s.cur[1]: s.cur = None
     def handle_data(s, d):
-        if s.skip: return
+        if s.skip or s.mock: return
         s.text.append(d)
         if s.cur: s.cur[2].append(d)
 
