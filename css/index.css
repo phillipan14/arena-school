@@ -97,3 +97,6 @@
 .gal2 .gal-cap { padding: 30px 12px 10px; }
 .gal2 .gal-cap b { font-size: 17px; }
 @media (prefers-reduced-motion: reduce) { .gal-track2 { animation: none; } .gal2 { overflow-x: auto; } }
+.hp-lead .hp-cred-k { margin-top: 8px; }
+.hp-lead-k { margin: clamp(40px, 5vw, 60px) 0 16px; display: flex; align-items: center; gap: 14px; font: 500 10.5px/1 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--text-ink-muted); }
+.hp-lead-k::after { content: ""; flex: 1; height: 1px; background: var(--border-paper); }
