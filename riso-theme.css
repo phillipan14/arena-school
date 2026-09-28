@@ -360,16 +360,27 @@ section.hero-opt { background-color: #F3E9DD !important; }
 .hw-m + .hw-m::after, .hw-m::after { left: -.02em; right: -.3em; }
 @media (prefers-reduced-motion: reduce) { .hw-m::after { transition: none !important; } }
 
-/* ---------- 21. Grouped Programs menu ---------- */
-.nav-dd-menu.nav-dd-wide { display: grid; grid-template-columns: 300px 250px; gap: 4px 14px; min-width: 0; padding: 12px; }
-.nav-dd-wide .nav-dd-group:first-child { grid-row: span 2; }
-.nav-dd-group { display: flex; flex-direction: column; gap: 2px; }
-.nav-dd-label { font: 600 10.5px/1.2 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2); padding: 8px 12px 4px; }
-@media (max-width: 980px) { .nav-dd-menu.nav-dd-wide { display: flex; } }
+/* ---------- 21. Nav menus (Sept 2026): two single-column dropdowns + a plain link ---------- */
+.nav-dd-sep { display: block; height: 1px; margin: 6px 12px; background: var(--border-paper); }
+/* For educators sits mid-nav: keep its menu on screen */
+.nav-dd-menu { width: max-content; min-width: 280px; max-width: 390px; }
 
-/* ---------- 21. Grouped Programs menu ---------- */
-.nav-dd-menu.nav-dd-wide { display: grid; grid-template-columns: 300px 260px; gap: 4px 14px; min-width: 0; padding: 12px; }
-.nav-dd-wide .nav-dd-group:first-child { grid-row: span 2; }
-.nav-dd-group { display: flex; flex-direction: column; gap: 2px; }
-.nav-dd-label { font: 600 10.5px/1.2 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2); padding: 8px 12px 4px; }
-@media (max-width: 980px) { .nav-dd-menu.nav-dd-wide { display: flex; } }
+/* Contact pill: same scale as the EN/中文 toggle beside it (31px tall, small type, no bloom) */
+.nav-cta .btn-primary {
+  padding: 8px 14px; font-size: 13px; line-height: 1; font-weight: 500; gap: 6px;
+  box-shadow: none;
+}
+.nav-cta .btn-primary:hover { background: var(--riso-blue-dk); box-shadow: none; }
+.nav-cta .btn-primary .arr { font-size: 12px; }
+
+/* footer: a second heading inside one column (For students + For families) */
+.footer-col a + h4 { margin-top: 26px; }
+
+@media (max-width: 1080px) {
+  /* mobile drawer: the plain For families link reads as its own group */
+  .nav-links.open > a.nav-top-link { padding: 16px 0 6px; font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: var(--tr-eyebrow); text-transform: uppercase; color: var(--text-ink); }
+  .nav-links.open > a.nav-top-link::after { content: " →"; }
+  .nav-links.open .nav-dd-menu { width: auto; max-width: none; }
+  .nav-links.open .nav-dd-sep { margin: 6px 0; }
+}
