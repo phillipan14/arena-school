@@ -188,3 +188,9 @@
   .arch-chip.c1 { right: 0; top: 10%; } .arch-chip.c2 { right: 2%; bottom: 8%; }
   .arch-seal { width: 78px; left: 2%; bottom: -14px; }
 }
+/* About page additions */
+.about-creds { padding-block: clamp(36px, 5vw, 60px) !important; border-bottom: 1px solid var(--border-paper); }
+.about-creds .hp-cred-k { margin-top: 0; }
+.team-photo { width: 120px !important; height: 120px !important; border-radius: 16px !important; object-fit: cover; border: 1.5px solid var(--ink); box-shadow: 4px 4px 0 var(--ink-2, #2F55A8); }
+.team-card { transition: transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s; }
+.team-card:hover { transform: translateY(-4px); box-shadow: 6px 6px 0 var(--ink-2, #2F55A8); }
