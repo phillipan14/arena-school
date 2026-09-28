@@ -7,33 +7,12 @@
 <meta name="robots" content="noindex,nofollow" />
 <meta name="theme-color" content="#152636" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3" />
-<link rel="stylesheet" href="styles.css?v=1790581002" />
+<link rel="stylesheet" href="/styles.css?v=1790581002" />
 <link rel="stylesheet" href="/riso-theme.css?v=1790581002" />
-<style>
- .ef-step {display:inline-flex;align-items:center;gap:8px;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#22458A;}
- .ef-step .dot {width:22px;height:22px;border-radius:50%;background:#22458A;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:12px;}
- .ef-step .dot.off {background:transparent;border:1.5px solid rgba(16,26,46,.25);color:rgba(16,26,46,.4);}
- .ef-sec {background:#fff;border:1.5px solid rgba(16,26,46,.1);border-radius:18px;padding:24px 26px;margin-top:18px;box-shadow:0 6px 20px rgba(16,26,46,.04);}
- .ef-sec h3 {margin:0 0 4px;font-size:16px;font-weight:700;}
- .ef-sec .hint {font-size:12.5px;color:rgba(16,26,46,.5);margin:0 0 14px;}
- .ef-grid2 {display:grid;grid-template-columns:1fr 1fr;gap:14px;}
- @media(max-width:640px){.ef-grid2{grid-template-columns:1fr;}}
- .en-form input[type=text], .en-form textarea {width:100%;font-size:15.5px;font-family:inherit;padding:12px 14px;border:1.5px solid rgba(16,26,46,.18);border-radius:10px;background:#FCFBF8;color:inherit;}
- .en-form input:focus, .en-form textarea:focus {outline:none;border-color:#22458A;box-shadow:0 0 0 3px rgba(34,69,138,.12);}
- .en-form label.f {display:block;font-size:13px;font-weight:700;margin:0 0 6px;}
- .en-form .fld {margin-top:14px;}
- .en-form .chk {display:flex;gap:10px;align-items:flex-start;padding:10px 12px;margin:6px 0;font-size:14px;line-height:1.5;border:1.5px solid rgba(16,26,46,.12);border-radius:10px;cursor:pointer;transition:border-color .12s,background .12s;}
- .en-form .chk:hover {border-color:rgba(34,69,138,.4);}
- .en-form .chk:has(input:checked) {border-color:#22458A;background:rgba(34,69,138,.05);}
- .en-form .chk input {width:17px;height:17px;margin-top:2px;accent-color:#22458A;flex:none;}
- .en-form .opts2 {display:grid;grid-template-columns:1fr 1fr;gap:0 12px;}
- @media(max-width:640px){.en-form .opts2{grid-template-columns:1fr;}}
- .en-btn {width:100%;margin-top:24px;font-size:16.5px;font-weight:700;color:#fff;background:#22458A;border:none;border-radius:12px;padding:16px;cursor:pointer;box-shadow:0 10px 26px rgba(34,69,138,.28);}
- .en-btn:hover {transform:translateY(-1px);}
- .en-btn:disabled {opacity:.6;transform:none;}
-</style>
+<link rel="stylesheet" href="/css/program-pages.css?v=1790581002" />
+<link rel="stylesheet" href="/css/pages.css?v=1790581002" />
 </head>
-<body class="no-ticker">
+<body class="no-ticker zl-page pg pg-enroll-page">
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <a href="/" class="wordmark nav-brand">
@@ -59,38 +38,47 @@
   </div>
 </nav>
 <main id="top">
-<section style="padding-block: clamp(44px,5vw,72px); background:var(--bg-paper-soft);">
-  <div class="container" style="max-width:720px;">
-    <div class="ef-step"><span class="dot">1</span>Enrollment<span style="opacity:.35;margin:0 2px;">→</span><span class="dot off">2</span><span style="color:rgba(16,26,46,.4);">Payment</span></div>
-    <h1 class="h2" style="margin-top:14px;">Enrollment form.</h1>
-    <p class="lede" style="margin-top:8px;font-size:15px;">Two minutes. After you submit, you will go straight to the payment page.</p>
-
+<section class="hero hero-pad-md hero-inv pg-enroll-hero" data-screen-label="Hero">
+  <div class="hero-bg" data-riso-field="static" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-copy hero-copy-wide">
+      <div class="hero-eyebrow-row reveal"><span class="eyebrow">School-Year Mentorship · Enrollment</span></div>
+      <h1 class="display reveal cs-h1">Reserve a spot in <em>the founding cohort.</em></h1>
+      <p class="lede sub reveal lede-56">Two minutes. After you submit, you will go straight to the payment page.</p>
+      <ol class="pg-ef-steps reveal" aria-label="Enrollment steps"><li class="is-on" aria-current="step"><span>1</span>Enrollment</li><li><span>2</span>Payment</li></ol>
+    </div>
+  </div>
+</section>
+<section class="zl-section-md pg-enroll" data-screen-label="Enrollment form">
+  <div class="container pg-ef-wrap">
     <form id="ef" class="en-form" onsubmit="return go(event)">
-      <div class="ef-sec">
-        <h3>About the student</h3>
+      <fieldset class="ef-sec reveal">
+        <legend><small>01</small>About the student</legend>
         <p class="hint">So mentors know who they are working with.</p>
         <div class="ef-grid2">
-          <div><label class="f">Student name</label><input type="text" name="Student name" required placeholder="e.g. Alex Wang"></div>
-          <div><label class="f">Grade and school</label><input type="text" name="Grade and school" required placeholder="e.g. Grade 10"></div>
+          <div><label class="f" for="ef-student">Student name</label><input id="ef-student" type="text" name="Student name" required autocomplete="off" placeholder="e.g. Alex Wang"></div>
+          <div><label class="f" for="ef-grade">Grade and school</label><input id="ef-grade" type="text" name="Grade and school" required placeholder="e.g. Grade 10"></div>
         </div>
         <div class="ef-grid2 fld">
-          <div><label class="f">Parent name</label><input type="text" name="Parent name" required></div>
-          <div><label class="f">Parent WeChat or phone</label><input type="text" name="Parent WeChat or phone" required></div>
+          <div><label class="f" for="ef-parent">Parent name</label><input id="ef-parent" type="text" name="Parent name" required autocomplete="name"></div>
+          <div><label class="f" for="ef-contact">Parent WeChat or phone</label><input id="ef-contact" type="text" name="Parent WeChat or phone" required autocomplete="tel"></div>
         </div>
-      </div>
+      </fieldset>
 
-      <div class="ef-sec">
-        <h3>The project</h3>
+      <fieldset class="ef-sec reveal">
+        <legend><small>02</small>The project</legend>
         <p class="hint">Team or solo, and what they want to build.</p>
-        <label class="chk"><input type="radio" name="Team or individual" value="Team" required><span>As a team (list teammates below)</span></label>
-        <label class="chk"><input type="radio" name="Team or individual" value="Individual"><span>Individually</span></label>
-        <label class="chk"><input type="radio" name="Team or individual" value="Help us decide"><span>Not sure yet, help us decide</span></label>
-        <div class="fld"><input type="text" name="Teammates" placeholder="Teammate names, if any"></div>
-        <div class="fld"><label class="f">Project idea, if any (optional)</label><textarea name="Project idea" rows="2" placeholder="One or two sentences is plenty."></textarea></div>
-      </div>
+        <div class="opts3">
+          <label class="chk"><input type="radio" name="Team or individual" value="Team" required><span>As a team</span></label>
+          <label class="chk"><input type="radio" name="Team or individual" value="Individual"><span>Individually</span></label>
+          <label class="chk"><input type="radio" name="Team or individual" value="Help us decide"><span>Not sure yet, help us decide</span></label>
+        </div>
+        <div class="fld"><label class="f" for="ef-team">Teammates, if any</label><input id="ef-team" type="text" name="Teammates" placeholder="Names of teammates"></div>
+        <div class="fld"><label class="f" for="ef-idea">Project idea (optional)</label><textarea id="ef-idea" name="Project idea" rows="3" placeholder="One or two sentences is plenty."></textarea></div>
+      </fieldset>
 
-      <div class="ef-sec">
-        <h3>Goals</h3>
+      <fieldset class="ef-sec reveal">
+        <legend><small>03</small>Goals</legend>
         <p class="hint">Choose all that apply.</p>
         <div class="opts2">
           <label class="chk"><input type="checkbox" name="Goal: AI skills" value="yes"><span>Develop real AI skills</span></label>
@@ -98,10 +86,10 @@
           <label class="chk"><input type="checkbox" name="Goal: competitions" value="yes"><span>Enter and win competitions</span></label>
           <label class="chk"><input type="checkbox" name="Goal: passion project" value="yes"><span>Turn a passion into something real</span></label>
         </div>
-      </div>
+      </fieldset>
 
-      <div class="ef-sec">
-        <h3>Weekly session</h3>
+      <fieldset class="ef-sec reveal">
+        <legend><small>04</small>Weekly session</legend>
         <p class="hint">Pick every time that works; we will set the schedule around the cohort.</p>
         <div class="opts2">
           <label class="chk"><input type="checkbox" name="Time: Saturday morning" value="yes"><span>Saturday morning</span></label>
@@ -110,23 +98,21 @@
           <label class="chk"><input type="checkbox" name="Time: Sunday afternoon" value="yes"><span>Sunday afternoon</span></label>
           <label class="chk"><input type="checkbox" name="Time: weekday evening" value="yes"><span>Weekday evening</span></label>
         </div>
-        <div class="fld">
-          <label class="f">In person or online?</label>
-          <div class="opts2">
-            <label class="chk"><input type="radio" name="Format" value="In person" required><span>In person</span></label>
-            <label class="chk"><input type="radio" name="Format" value="Online"><span>Online</span></label>
-            <label class="chk"><input type="radio" name="Format" value="Hybrid"><span>Hybrid: both work</span></label>
-          </div>
+        <p class="f fld" id="ef-format-l">In person or online?</p>
+        <div class="opts3" role="radiogroup" aria-labelledby="ef-format-l">
+          <label class="chk"><input type="radio" name="Format" value="In person" required><span>In person</span></label>
+          <label class="chk"><input type="radio" name="Format" value="Online"><span>Online</span></label>
+          <label class="chk"><input type="radio" name="Format" value="Hybrid"><span>Hybrid: both work</span></label>
         </div>
-      </div>
+      </fieldset>
 
-      <div class="ef-sec" style="border-left:4px solid #22458A;">
-        <h3>Confirmation</h3>
-        <label class="chk" style="border:none;padding:4px 0;"><input type="checkbox" name="Six-month commitment" value="confirmed" required><span><strong>I confirm enrollment in the six-month program</strong> (October to March).</span></label>
-      </div>
+      <fieldset class="ef-sec ef-confirm reveal">
+        <legend><small>05</small>Confirmation</legend>
+        <label class="chk"><input type="checkbox" name="Six-month commitment" value="confirmed" required><span><strong>I confirm enrollment in the six-month program</strong> (October to March).</span></label>
+      </fieldset>
 
-      <button class="en-btn" type="submit" id="sb">Submit and continue to payment →</button>
-      <p style="font-size:12.5px;color:rgba(16,26,46,.5);margin-top:10px;text-align:center;">Questions? WeChat phgan14.</p>
+      <button class="btn btn-primary en-btn" type="submit" id="sb">Submit and continue to payment <span class="arr">→</span></button>
+      <p class="ef-help">Questions? WeChat phgan14, or email <a href="mailto:contact@arenaschool.org">contact@arenaschool.org</a>.</p>
     </form>
   </div>
 </section>
@@ -145,11 +131,13 @@
     </div>
   </div>
 </footer>
-<script src="motion.js?v=1790581002"></script>
+<script src="/hero-options.js?v=1790581002" defer></script>
+<script src="/riso-field.js?v=1790581002" defer></script>
+<script src="/motion.js?v=1790581002"></script>
 <script>
 async function go(e){
   e.preventDefault();
-  var b=document.getElementById('sb'); b.disabled=true; b.textContent='Submitting...';
+  var b=document.getElementById('sb'); b.disabled=true; b.textContent='Submitting…';
   var fd=new FormData(document.getElementById('ef'));
   var data={}; fd.forEach(function(v,k){ data[k]=v; });
   data['_subject']='Mentorship enrollment: '+(data['Student name']||'');
