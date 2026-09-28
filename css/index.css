@@ -125,3 +125,24 @@
 }
 .g3-center { left: 0 !important; right: 0; margin: 0 auto; transform: none !important; z-index: 6 !important; padding: 22px 26px; border-radius: 16px; background: rgba(239,227,212,.92); backdrop-filter: blur(4px); }
 @media (max-width: 980px) { .g3-center { padding: 0; background: none; backdrop-filter: none; } }
+
+/* Bento photo grid (replaces the collage) */
+.bento { padding: clamp(56px, 7vw, 96px) 0 !important; overflow: visible; }
+.bento-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px 40px; margin-bottom: 26px; }
+.bento-head .h2 { margin-top: 14px; }
+.bento-head p { margin: 0; max-width: 40ch; font-size: 16px; line-height: 1.5; color: var(--text-ink-soft); }
+.bento-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: clamp(150px, 15vw, 210px); gap: 12px; grid-template-areas: "a a b c" "a a d c" "e f f g"; }
+.bt { position: relative; margin: 0; border-radius: 14px; overflow: hidden; background: #ddd; transition: transform .45s cubic-bezier(.2,.7,.2,1), box-shadow .45s; }
+.bt-a { grid-area: a; } .bt-b { grid-area: b; } .bt-c { grid-area: c; } .bt-d { grid-area: d; } .bt-e { grid-area: e; } .bt-f { grid-area: f; } .bt-g { grid-area: g; }
+.bt img, .bt video { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1s cubic-bezier(.2,.7,.2,1), filter .4s; }
+.bt::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(11,26,74,.7)); pointer-events: none; }
+.bt figcaption { position: absolute; left: 14px; bottom: 12px; z-index: 1; color: #FCF3ED; font: 500 17px/1.2 var(--font-display); }
+.bt-a figcaption { font-size: 24px; left: 20px; bottom: 18px; }
+.bt figcaption span { display: block; margin-bottom: 3px; font: 500 9.5px/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; opacity: .8; }
+.bt:hover { transform: translateY(-4px); box-shadow: 6px 6px 0 var(--ink-2, #2F55A8); }
+.bt:hover img, .bt:hover video { transform: scale(1.05); }
+.bento-grid:hover .bt:not(:hover) img, .bento-grid:hover .bt:not(:hover) video { filter: saturate(.7); }
+@media (max-width: 860px) {
+  .bento-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 150px; grid-template-areas: "a a" "a a" "b c" "d c" "e g" "f f"; }
+}
+.bt-f img { object-position: 50% 15%; } .bt-g img { object-position: 50% 30%; }
