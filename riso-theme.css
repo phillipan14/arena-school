@@ -429,3 +429,5 @@ html[lang="zh-CN"] :is(h1, h2, h3, h4, .big, .pp-sc-big, .pp-jr-txt > span, .cs-
 html[lang="zh-CN"] .partners-form .big, html[lang="zh-CN"] .pp-jr-txt span { font-style: normal; }
 html[lang="zh-CN"] .eyebrow, html[lang="zh-CN"] .hp-cred-lab, html[lang="zh-CN"] .hp-adults-k, html[lang="zh-CN"] .nav-dd-label { letter-spacing: .06em; }
 html[lang="zh-CN"] body { line-break: strict; word-break: normal; }
+html[lang="zh-CN"] :is(.h2, .cs-h1, .display, .pp-sc-beat h2, .hero-riso-h1) { word-break: keep-all; overflow-wrap: anywhere; line-height: 1.16; }
+html[lang="zh-CN"] :is(.card-p, .pp-notes span, .pp-source, .lede) { text-wrap: pretty; }

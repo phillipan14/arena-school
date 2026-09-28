@@ -37,7 +37,7 @@
         var anyOk = res.some(function (r) { return r.status === 'fulfilled'; });
         res.forEach(function (r) { if (r.status === 'rejected') console.warn('[onepager]', r.reason && r.reason.message); });
         if (!anyOk) {
-          setStatus('Something went wrong. Please email contact@arenaschool.org and we will send it right away.', 'error');
+          setStatus((document.documentElement.lang || '').indexOf('zh') === 0 ? '提交失败。请发送邮件至 contact@arenaschool.org，我们会立即将资料发给您。' : 'Something went wrong. Please email contact@arenaschool.org and we will send it right away.', 'error');
           return;
         }
         // Downloads are the links in the success panel; a data-download on the form overrides the first.

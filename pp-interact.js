@@ -1,3 +1,4 @@
+var ZHL = (document.documentElement.lang || '').toLowerCase().indexOf('zh') === 0;
 /* Program pages: interaction layer. Scroll progress, notes<->pins highlighting,
    pathway bars that grow in, and smooth FAQ open/close. Reduced motion is respected. */
 (function () {
@@ -74,8 +75,8 @@
     var track = video && video.querySelector('.pp-video-track i'); var time = video && video.querySelector('.pp-video-t'); var pp = video && video.querySelector('.pp-video-pp');
     function fmt(s) { s = Math.floor(s); return Math.floor(s / 60) + ':' + ('0' + (s % 60)).slice(-2); }
     function tick(now) { var e = elapsed + (now - t0) / 1000 * 6; if (e >= DUR) e = 0; track.style.width = (e / DUR * 100) + '%'; time.textContent = fmt(e) + ' / 2:15'; raf = requestAnimationFrame(tick); video._e = e; }
-    function play() { video.classList.add('is-playing'); t0 = performance.now(); raf = requestAnimationFrame(tick); pp.textContent = '❚❚'; pp.setAttribute('aria-label', 'Pause'); }
-    function pause() { video.classList.remove('is-playing'); cancelAnimationFrame(raf); elapsed = video._e || 0; pp.textContent = '▶'; pp.setAttribute('aria-label', 'Play'); }
+    function play() { video.classList.add('is-playing'); t0 = performance.now(); raf = requestAnimationFrame(tick); pp.textContent = '❚❚'; pp.setAttribute('aria-label', ZHL ? '暂停' : 'Pause'); }
+    function pause() { video.classList.remove('is-playing'); cancelAnimationFrame(raf); elapsed = video._e || 0; pp.textContent = '▶'; pp.setAttribute('aria-label', ZHL ? '播放' : 'Play'); }
     if (video) {
       root.querySelector('[data-open="video"]').addEventListener('click', function () { video.hidden = false; elapsed = 0; play(); });
       video.querySelector('.pp-video-x').addEventListener('click', function () { pause(); video.hidden = true; });
