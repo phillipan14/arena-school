@@ -324,3 +324,38 @@ body.home .btn-primary { box-shadow: none !important; }
 .hero-photo-cap b { color: var(--ink); font-weight: 500; }
 .hero-photo-cap .arch-cap { position: static; transform: none; margin-left: auto; padding: 0; background: none; color: var(--text-ink-muted); font: 500 10.5px/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; }
 @media (max-width: 900px) { .arch-frame.hero-photo, .hero-photo-cap { width: 100%; } .hero-photo-cap .arch-cap { display: none; } }
+
+/* ===== Homepage v7 (Sept 29): two-row labeled carousel, program list + linked timeline ===== */
+.gal2 { display: grid; gap: 12px; padding: clamp(28px, 4vw, 48px) 0 0 !important; overflow: hidden; }
+.gal2 .gal-row { overflow: hidden; }
+.gal2 .gal-track2 { display: flex; gap: 12px; width: max-content; animation: gal2-l 120s linear infinite; }
+.gal2 .gal-r .gal-track2 { animation-name: gal2-r; animation-duration: 140s; }
+.gal2:hover .gal-track2 { animation-play-state: paused; }
+@keyframes gal2-l { to { transform: translateX(-50%); } }
+@keyframes gal2-r { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+.gal2 .gal-tile { position: relative; flex: none; height: clamp(150px, 15vw, 210px); aspect-ratio: 4 / 3; margin: 0; border-radius: 10px; overflow: hidden; }
+.gal2 .gal-tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.gal2 .gal-tile figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 22px 12px 9px; background: linear-gradient(180deg, transparent, rgba(11,26,74,.72)); color: #FCF3ED; font: 500 14px/1.2 var(--font-display); }
+.gal2 .gal-tile figcaption span { display: block; margin-bottom: 2px; font: 500 9px/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; opacity: .8; }
+@media (prefers-reduced-motion: reduce) { .gal2 .gal-track2 { animation: none; } .gal2 .gal-row { overflow-x: auto; } }
+
+.tl2 { margin-top: 28px; padding: 20px 24px 12px; border: 1px solid var(--border-paper); border-radius: 12px; background: var(--paper-hi, #FCF3ED); }
+.tl2-head, .tl2-row { display: grid; grid-template-columns: 240px 1fr; gap: 16px; align-items: center; }
+.tl2-head { padding-bottom: 8px; border-bottom: 1px solid var(--border-paper); }
+.tl2-head .tl2-name { font: 500 10px/1 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--text-ink-muted); }
+.tl2-axis { position: relative; display: grid; grid-template-columns: repeat(7, 1fr); padding-top: 18px; }
+.tl2-axis span { text-align: center; font: 500 13px/1 var(--font-display); color: var(--ink); }
+.tl2-axis em { position: absolute; top: 0; font: normal 500 9.5px/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; }
+.tl2-axis .ms { left: 0; width: 42.857%; color: var(--ink-2, #2F55A8); border-top: 2px solid rgba(47,85,168,.35); padding-top: 4px; top: -2px; }
+.tl2-axis .hs { right: 0; width: 57.143%; color: var(--coral-deep); border-top: 2px solid rgba(229,147,117,.55); padding-top: 4px; top: -2px; }
+.tl2-row { padding: 9px 0; border-bottom: 1px solid #EDE4D8; text-decoration: none; color: inherit; transition: background .2s; border-radius: 6px; }
+.tl2-row:last-child { border-bottom: 0; }
+.tl2-name { font-size: 14.5px; color: var(--ink); }
+.tl2-track { position: relative; height: 10px; border-radius: 10px; background: repeating-linear-gradient(90deg, transparent 0 calc(100%/7 - 1px), #E6DCCF calc(100%/7 - 1px) calc(100%/7)); }
+.tl2-track i { position: absolute; top: 0; bottom: 0; left: calc(100% / 7 * var(--a) + 4px); right: calc(100% / 7 * (7 - var(--b)) + 4px); border-radius: 10px; background: #B9C4DD; transition: background .25s, transform .25s; }
+.tl2-row.on, .tl2-row:hover { background: rgba(47,85,168,.06); }
+.tl2-row.on .tl2-track i, .tl2-row:hover .tl2-track i { background: var(--ink); }
+.tl2-row.on .tl2-name, .tl2-row:hover .tl2-name { color: var(--ink-2, #2F55A8); }
+.prog-links a[data-prog].on { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.hp-cred-cta { margin: 26px 0 0; text-align: center; }
+@media (max-width: 760px) { .tl2 { padding: 16px 14px 8px; } .tl2-head, .tl2-row { grid-template-columns: 1fr; gap: 6px; } .tl2-head .tl2-name { display: none; } }
