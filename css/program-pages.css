@@ -196,3 +196,80 @@
 .pp-lead-note { margin: 12px 0 0; font-size: 13px; color: var(--text-ink-muted); }
 @media (max-width: 980px) { .pp-fit { grid-template-columns: 1fr; } }
 @media (max-width: 520px) { .pp-flex { grid-template-columns: 1fr; } .pp-lead .form-row-split { grid-template-columns: 1fr; } }
+
+/* ================= Design pass (Sept 28): calmer, aligned, consistent ================= */
+/* Hero facts: one strip instead of five shadowed chips */
+.pp-glance {
+  display: inline-flex; flex-wrap: wrap; gap: 0; margin-top: 28px; max-width: 100%;
+  border: 1.5px solid var(--ink); border-radius: 12px; background: var(--paper-hi, #FCF3ED);
+  box-shadow: 4px 4px 0 var(--ink-2, #2F55A8); overflow: hidden;
+}
+.pp-glance li { border: 0; border-radius: 0; box-shadow: none; background: none; padding: 12px 20px 13px; border-right: 1px solid var(--border-paper); }
+.pp-glance li:last-child { border-right: 0; }
+.pp-hero-cta { margin-top: 28px; }
+.pp-hero-foot { margin-top: 14px; font-size: 14px; }
+
+/* Consistent section rhythm: heads sit closer to their content */
+main .sec-head { margin-bottom: clamp(32px, 4vw, 48px); }
+main .sec-head + .card-grid-290, main .sec-head + .reveal.card-grid-290 { margin-top: 0; }
+.pp-why .zl-card { padding: 26px 26px 28px; }
+
+/* Examples: one quiet label, even spacing */
+.pp-example-head { margin-bottom: 4px; }
+.pp-example-head h3 { font-size: clamp(22px, 2vw, 26px); }
+.pp-example { align-items: center; }
+
+/* Roadmap: equal cards, arrows centered in the gap, one highlighted step */
+.pp-path-row { gap: 28px; }
+.pp-path-row a, .pp-path-row .pp-step, .pp-path-row .pp-here {
+  background: var(--card, #F6EDE2); border: 1px solid var(--border-paper); box-shadow: none; padding: 18px 20px 20px;
+}
+.pp-path-row .pp-here, .pp-path-row .pp-now { background: var(--paper-hi, #FCF3ED); border: 1.5px solid var(--ink); box-shadow: 4px 4px 0 var(--ink-2, #2F55A8); }
+.pp-path-row li:not(:last-child)::after { right: -21px; width: 14px; background: none; font-size: 15px; color: var(--text-ink-muted); }
+.pp-now-tag { display: inline-block; margin-top: 12px; font: 500 10px/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--paper-hi, #FCF3ED); background: var(--ink); padding: 5px 7px; border-radius: 4px; }
+
+/* Built around your school: heading full width, tiles and form side by side at equal height */
+.pp-fit { align-items: stretch; row-gap: 0; }
+.pp-fit > div:first-child { display: contents; }
+.pp-fit .sec-head { grid-column: 1 / -1; }
+.pp-fit .pp-flex { margin-top: 0; align-content: start; }
+.pp-flex li { display: flex; flex-direction: column; }
+.pp-lead { align-self: stretch; display: flex; flex-direction: column; justify-content: center; }
+
+/* Photos: less tall */
+.pp-photo img, .pp-photo .pp-ph { aspect-ratio: 4 / 3; }
+
+/* FAQ: heading left, questions right */
+.pp-faq-wrap { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.6fr); gap: clamp(28px, 5vw, 72px); align-items: start; }
+.pp-faq-wrap .sec-head { margin-bottom: 0; position: sticky; top: 110px; }
+.pp-faq { max-width: none; }
+
+/* Closing: readable parent link on the dark band */
+.closing .sp-next { margin: 22px auto 0; max-width: 60ch; color: rgba(252,243,237,.72); font-size: 15px; }
+.closing .sp-next .tlink { color: #EFE3D4; text-decoration: underline; text-underline-offset: 3px; }
+
+@media (max-width: 980px) {
+  .pp-faq-wrap { grid-template-columns: 1fr; }
+  .pp-faq-wrap .sec-head { position: static; }
+  .pp-fit > div:first-child { display: block; }
+  .pp-fit .pp-flex { margin-top: 28px; }
+}
+@media (max-width: 640px) {
+  .pp-glance { display: grid; grid-template-columns: 1fr 1fr; }
+  .pp-glance li { border-right: 1px solid var(--border-paper); border-bottom: 1px solid var(--border-paper); padding: 10px 14px 11px; }
+  .pp-glance li:nth-child(2n) { border-right: 0; }
+  .pp-glance li:last-child { grid-column: 1 / -1; border-bottom: 0; }
+  .pp-path-row { gap: 22px; }
+  .pp-path-row li:not(:last-child)::after { right: auto; left: 24px; bottom: -19px; }
+}
+.pp-path-row li { display: flex; }
+.pp-path-row li > a, .pp-path-row li > div { display: flex; flex-direction: column; width: 100%; height: auto; border-radius: 12px; padding: 18px 20px 20px; }
+.pp-path-row .pp-now-tag { align-self: flex-start; margin-top: auto; transform: translateY(8px); color: #FCF3ED; }
+.pp-fit .sec-head { margin-bottom: 36px; }
+main .zl-section { padding-block: clamp(56px, 6.5vw, 92px); }
+.pp-fit .pp-flex { align-content: stretch; grid-auto-rows: 1fr; }
+.pp-now-tag { font-size: 9.5px; padding: 4px 6px; }
+@media (max-width: 980px) { .pp-fit .pp-flex { grid-auto-rows: auto; } }
+.pp-path-row .pp-now-tag { transform: none; margin-top: 14px; }
+@media (max-width: 980px) { .pp-lead { margin-top: 28px; } }
+@media (max-width: 520px) { .pp-flex { grid-template-columns: 1fr 1fr; gap: 10px; } .pp-flex li { padding: 12px 13px; } .pp-flex span { font-size: 14px; } }
