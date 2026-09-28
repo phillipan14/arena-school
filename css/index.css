@@ -9,7 +9,7 @@
 .prog-links-stack { flex-direction: column; gap: 6px; }
 /* moving gallery of program photos (between the hero and the programs) */
 .gallery-strip { padding: clamp(28px, 4vw, 48px) 0 0; overflow: hidden; }
-.gal-track { display: flex; width: max-content; animation: gal-scroll 60s linear infinite; }
+.gal-track { display: flex; width: max-content; animation: gal-scroll 160s linear infinite; }
 .gallery-strip:hover .gal-track { animation-play-state: paused; }
 .gal-set { display: flex; gap: 16px; padding-right: 16px; }
 .gal-tile { margin: 0; height: clamp(190px, 22vw, 290px); aspect-ratio: 4 / 3; overflow: hidden; border-radius: 10px;
