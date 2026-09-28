@@ -15,7 +15,7 @@
   --coral-light:  #F2A98E;   /* coral text on navy */
   --coral-deep:   #A6482A;   /* coral text on paper (AA) */
   --seal-navy:    #152636;
-  --sand:         #EBCDA4;
+  --sand:         #EFE3D4;
   --paper-art:    #E8D2C1;   /* paper color of the artwork itself */
   --card:         #F6EDE2;
   /* ---------- Riso paper and ink ---------- */
@@ -2224,7 +2224,7 @@ body.zl-page .nav.scrolled .zl-cobrand-mark .zl-mark-navy { opacity: 1; }
 }
 .zl-hero .container { position: relative; z-index: 1; }
 .zl-hero .display { color: #F3F1EA; text-shadow: 0 2px 24px rgba(0,0,0,.4); }
-.zl-hero .display em { color: #EBCDA4; font-style: italic; }
+.zl-hero .display em { color: var(--sand); font-style: italic; }
 .zl-hero .eyebrow { color: #E2A491; }
 .zl-hero .eyebrow::before { background: #E2A491; }
 .zl-hero .lede { color: rgba(243,241,234,.94); text-shadow: 0 1px 12px rgba(0,0,0,.4); }
@@ -2236,7 +2236,7 @@ body.zl-page .nav.scrolled .zl-cobrand-mark .zl-mark-navy { opacity: 1; }
 .zl-hero-eyebrow { margin-bottom: clamp(20px, 3vw, 28px); }
 .zl-hero h1 { max-width: 16ch; margin-bottom: 22px; }
 .zl-hero-en-name { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; color: rgba(243,241,234,.5); margin: -12px 0 20px; }
-.zl-hero-tagline { font-family: var(--font-display); font-style: italic; font-weight: 300; font-size: clamp(17px, 1.5vw, 20px); color: #EBCDA4; max-width: 46ch; margin: 0 0 20px; }
+.zl-hero-tagline { font-family: var(--font-display); font-style: italic; font-weight: 300; font-size: clamp(17px, 1.5vw, 20px); color: var(--sand); max-width: 46ch; margin: 0 0 20px; }
 .zl-hero-lede { max-width: 56ch; margin-bottom: 8px; }
 .zl-hero-cn { display: block; max-width: 56ch; font-size: 15px; line-height: 1.6; margin: 6px 0 28px; }
 .zl-hero-cta { margin-bottom: 20px; }
@@ -2643,7 +2643,7 @@ body.zl-page .nav.scrolled .nav-dd.is-current .nav-dd-btn { color: var(--text-in
    inks on peach paper, anchored by the seal's navy.
      Paper #EFE3D4 · Soft paper #E6D4C1 · Card #F6EDE2
      Ink #101A2E · Riso blue #22458A (actions) · Coral #E59375 (highlights)
-     Night #0E1729 (dark bands) · Seal navy #152636 · Sand #EBCDA4
+     Night #0E1729 (dark bands) · Seal navy #152636 · Sand #EFE3D4 (site paper; darker #EBCDA4 retired 2026-09-28)
    Motion: riso-dots.js draws every dot live (data-dots), including the
    halftone glow in dark bands. All motion stops under
    prefers-reduced-motion.
