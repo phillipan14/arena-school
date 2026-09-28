@@ -369,3 +369,28 @@ main .zl-section { padding-block: clamp(56px, 6.5vw, 92px); }
 .pp-stats b span { display: inline; margin: 0; font: inherit; color: inherit; max-width: none; }
 .pp-activity { display: flex; flex-direction: column; }
 .pp-act-desc { margin-top: auto; }
+
+/* High-fidelity mockup art (inline SVG) */
+.ms-real { background: none !important; }
+.ms-img svg, .pp-mini-real svg, .pv-real > svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.ms-img .ms-play { z-index: 1; }
+.pp-mini-art.pp-mini-real { position: relative; height: 108px; padding: 0; background: none; }
+.pp-mini-real em { position: absolute; left: 8px; bottom: 8px; z-index: 1; padding: 4px 8px; border-radius: 5px; background: rgba(255,255,255,.92); font-size: 13px; }
+.pv-real::after { display: none; }
+.pv-real > svg { z-index: 0; }
+.pv-real .pv-top, .pv-real .pv-side, .pv-real .pv-cap, .pv-real .pv-nav { z-index: 2; }
+.pv-real .pv-play { z-index: 2; background: rgba(0,0,0,.28); }
+.pv-real .pv-cap { text-shadow: 0 1px 3px rgba(0,0,0,.6); }
+
+/* Photos placed in context (pass 4) */
+.pp-card-photo { position: relative; margin: -20px -22px 14px; aspect-ratio: 16 / 10; overflow: hidden; border-radius: 11px 11px 0 0; border-bottom: 1px solid var(--border-paper); }
+.pp-card-photo img, .pp-step-photos img, .pp-closing-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pp-ptag { position: absolute; right: 8px; top: 8px; padding: 3px 6px; border-radius: 4px; background: rgba(11,26,74,.8); color: #FCF3ED; font: 500 9.5px/1 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; }
+.pp-step-photos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 22px 0 0; padding: 0; list-style: none; }
+.pp-step-photos figure { margin: 0; }
+.pp-step-photos .pp-frame { position: relative; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 12px; border: 1px solid var(--ink); }
+.pp-step-photos figcaption { margin-top: 8px; font-size: 14px; color: var(--text-ink-soft); }
+.pp-step-photos figcaption b { color: var(--ink); font-weight: 500; }
+.pp-closing-photo { position: relative; max-width: 760px; margin: 0 auto 36px; aspect-ratio: 16 / 7; overflow: hidden; border-radius: 14px; border: 1px solid rgba(252,243,237,.25); }
+.pp-closing-photo figcaption { position: absolute; left: 12px; bottom: 12px; padding: 5px 9px; border-radius: 5px; background: rgba(11,26,74,.85); color: #FCF3ED; font-size: 12.5px; }
+@media (max-width: 760px) { .pp-step-photos { grid-template-columns: 1fr; } .pp-closing-photo { aspect-ratio: 4 / 3; } }
