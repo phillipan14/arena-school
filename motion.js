@@ -67,7 +67,9 @@
     if (!b) return;
     b.addEventListener('click', function (e) {
       e.stopPropagation();
-      var open = !d.classList.contains('open');
+      // On hover devices the menu is already open from hover; a click keeps it open.
+      var hoverDevice = window.matchMedia('(hover: hover) and (min-width: 981px)').matches;
+      var open = hoverDevice ? true : !d.classList.contains('open');
       closeDDs(d);
       d.classList.toggle('open', open);
       b.setAttribute('aria-expanded', open ? 'true' : 'false');
