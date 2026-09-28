@@ -272,3 +272,43 @@
   .arch-seal { width: 64px; left: 0; bottom: -10px; }
 }
 @media (max-width: 760px) { #programs .pp-jr-txt small { display: none; } }
+
+/* ===== Homepage formality pass (body.home) ===== */
+body.home .eyebrow { box-shadow: none !important; }
+body.home .arch-seal { animation: none !important; }
+body.home .arch-chip { box-shadow: 0 12px 28px -16px rgba(11,26,74,.45) !important; border: 1px solid #D9D0C4 !important; animation: none !important; background: #fff !important; }
+body.home .arch-frame { box-shadow: 0 30px 60px -30px rgba(11,26,74,.5) !important; border: 1px solid rgba(11,26,74,.25) !important; }
+body.home .bt:hover { box-shadow: 0 18px 36px -18px rgba(11,26,74,.45) !important; }
+body.home .hp-proof { box-shadow: none; }
+body.home .pp-jr-card[data-from] { border-left: 1px solid var(--border-paper) !important; background: #fff !important; }
+body.home .pp-jr-card[data-from]:hover { box-shadow: 0 16px 32px -18px rgba(11,26,74,.4) !important; border-color: var(--ink) !important; }
+body.home .pp-jr-txt span, body.home .pp-jr-gr { color: var(--ink-2, #2F55A8) !important; filter: none !important; }
+body.home .pp-jr-line li.on span { box-shadow: none !important; }
+body.home .hp-side-card:hover { box-shadow: 0 16px 32px -18px rgba(11,26,74,.4) !important; }
+body.home .pp-sc-big { color: var(--ink) !important; font-size: clamp(52px, 5.6vw, 84px); }
+body.home .pp-sc-big em { color: var(--ink) !important; }
+body.home .btn-primary { box-shadow: none !important; }
+/* academic research site (Craft) */
+.rs { border-radius: 14px; background: #fff; border: 1px solid #D9D0C4; box-shadow: 0 30px 60px -30px rgba(11,26,74,.45); overflow: hidden; font-family: var(--font-body); color: #0E1729; }
+.rs-bar { display: flex; align-items: center; gap: 10px; padding: 9px 12px; background: #F7F3EE; border-bottom: 1px solid #E8E1D6; }
+.rs-url { flex: 1; font: 12px/1 var(--font-mono); color: #6B6B78; background: #fff; border: 1px solid #E8E1D6; border-radius: 999px; padding: 6px 12px; }
+.rs-live { display: inline-flex; align-items: center; gap: 6px; font: 600 11px/1 var(--font-body); color: #2E6E40; } .rs-live i { width: 7px; height: 7px; border-radius: 50%; background: #2E8A4A; }
+.rs-body { padding: 22px 24px 20px; }
+.rs-kick { font: 500 10px/1 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: #8A7A70; }
+.rs-body h4 { margin: 8px 0 4px; font: 500 26px/1.15 var(--font-display); color: #0B1A4A; }
+.rs-auth { margin: 0 0 16px; font-size: 12.5px; color: #6B6B78; }
+.rs-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 12px; }
+.rs-grid figure { margin: 0; } .rs-grid img { width: 100%; height: 130px; object-fit: cover; border-radius: 8px; display: block; } .rs-grid figcaption { font-size: 10.5px; color: #8A8A8A; margin-top: 4px; }
+.rs-chart { position: relative; padding: 10px 12px; border: 1px solid #E8E1D6; border-radius: 8px; } .rs-chart > span { font-size: 10.5px; color: #6B6B78; } .rs-chart svg { width: 100%; height: 76px; display: block; margin-top: 4px; }
+.rs-kpi { position: absolute; right: 12px; top: 8px; text-align: right; } .rs-kpi b { font: 500 18px/1 var(--font-display); } .rs-kpi span { display: block; font-size: 9.5px; color: #8A8A8A; }
+.rs-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 16px; padding-top: 14px; border-top: 1px solid #EEE7DE; }
+.rs-tag { padding: 5px 10px; border-radius: 6px; border: 1px solid #E0D8CC; font-size: 11.5px; color: #0E1729; }
+.rs-award { margin-left: auto; font: 500 12px/1 var(--font-display); font-style: italic; color: #7A5A08; }
+@media (max-width: 640px) { .rs-grid { grid-template-columns: 1fr; } .rs-award { margin-left: 0; } }
+/* Bento crossfade */
+.bt > img, .bt > video { position: absolute; inset: 0; transition: opacity 1.4s ease, transform 1s cubic-bezier(.2,.7,.2,1), filter .4s; }
+.bt .bt-alt { opacity: 0; }
+.bt.swap > img:not(.bt-alt), .bt.swap > video { opacity: 0; }
+.bt.swap .bt-alt { opacity: 1; }
+.bt figcaption { transition: opacity .5s; }
+.bt.cap-fade figcaption { opacity: 0; }
