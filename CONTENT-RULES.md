@@ -72,6 +72,8 @@ A section earns a place only if it passes all four questions:
   - Core idea: "When AI can make almost anything, students need to know what's worth making, whether it's good, and how to finish it."
   - Pillars: **Agency** (choosing what's worth solving), **Taste** (telling which version actually works), **Craft** (finishing it well).
   - Never add "creativity", "courage" or "judgment" as extra headline skills.
+- **The founders:** "the founding team", "our two co-founders", "two leaders" (CN 创始团队、两位联合创始人). Never "builders" (CN 创造者、建造者、动手派、做产品的人), "practitioners who build/ship", "we build with AI every day" or startup/hustle vocabulary about the founders or the company. Arena is a warm partner to schools, parents, families and administrators.
+- **Students making things:** students may build and make; that is the program. Don't stack several "build" words in one line, don't label students "builders", and use "launch" or "publish" rather than "ship" slang.
 - **Terminology:** "How we work" / 工作方式 · "Community dialogues" / 社区对话 · "Portfolio workshop" · "AI Advantage Bootcamp".
 - **Chinese:** every edit is made to the EN and CN pages together.
 

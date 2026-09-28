@@ -69,3 +69,6 @@ Every style rule below applies to **every page**. The code lives in `riso-theme.
 
 ## Visibility audit
 Run `python3 audit.py` with the preview server on port 8780. For every page, it measures how much ink sits behind each title, lede and eyebrow. It flags any block with more than 10% ink behind it, and writes `audit/sheet.png` so you can review every page by eye.
+
+## Logo rule (founder direction, Sept 28)
+Always use the **official lockup PNG** (seal plus wordmark as one image): `logos/arena/wordmark-navy-1600.png` on light backgrounds, `wordmark-ivory-1600.png` on dark ones. The source files are `arena-wordmark-*-transparent*.png` in the brand kit. **Never** place the seal next to typed-out "ARENA SCHOOL" text. That applies to the website, decks, social posts and every other asset.
