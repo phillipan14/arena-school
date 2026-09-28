@@ -42,3 +42,20 @@ founder can supply (say so). Verify: no console errors, no horizontal overflow a
 
 ## Deliver
 Do NOT git commit (the lead commits). Return: files changed, final score table per page, and anything blocked.
+
+## DIRECTION CHANGE (Sept 29, founder) — overrides anything above
+The founder compared our redesign to the currently deployed arenaschool.org (see `git show origin/main:index.html`,
+`origin/main:programs/website-portfolio-workshop.html`) and judged the LIVE site **more professional and trustworthy**.
+Ours is "too playful" and "too salesy/pitchy". Goal: **build trust** with school leaders, counselors, and parents.
+- Visual reference = the live site and the new `index.html` (rebuilt on the live layout): calm riso hero, plain cards with
+  thin borders, generous whitespace, real photos, logo wall. Restraint over spectacle.
+- **Remove:** pinned scroll stories (`.pp-sc` / data-scrolly), fake product mockups (LunchLine, phones, browser sites,
+  pitch slides, osmosis sims, chat/invite cards), numbered pins, animated counters, gradients, badges. Replace with real
+  photos from `photos/isb-hq/*-800.webp|*-1400.webp`, `photos/isb-*.jpg`, `photos/mix/*`, or with nothing.
+- **Copy tone: neutral, factual, informative**, like a school program catalogue: what it is, who it's for, what students
+  do each day, what the school provides, logistics. Persuasive through clarity and facts, never marketing hype. No
+  "Show their dream school who they really are", no "stand out", no exclamation, no second-person selling. Headlines
+  plain (e.g. "Admissions Portfolio Workshop" + one factual sentence).
+- "Who teaches it": **no founder photo/profile cards**. At most one line "Designed and taught by Arena's founding team"
+  plus the institution logo row.
+- Keep: facts strip, how-it-runs steps (as simple numbered text + real photos), FAQ, one-pager form, contact CTA.

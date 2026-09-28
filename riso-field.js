@@ -203,7 +203,8 @@
 
   function boot() {
     [].forEach.call(document.querySelectorAll('[data-riso-field]'), function (el) {
-      var st = el.getAttribute('data-riso-field') === 'static', hv = document.body.getAttribute('data-hero');
+      var mode = el.getAttribute('data-riso-field'), st = mode === 'static', hv = document.body.getAttribute('data-hero');
+      if (mode === 'still') { var sInst = window.RisoField(el, { interactive: false }); if (sInst) el.classList.add('is-live'); return; }   // homepage: the light print, drawn still (no cursor, no drift)
       if (st && hv && hv !== 'B') return;   // header options A, C, D draw no print
       var inst = window.RisoField(el, st && hv === 'B' ? { interactive: false, animate: true, jig: 0.2, ambient: 0.30, fadeB: 0.35, flip: true, calm: 1, top: 1,
         paper: '#FCF3ED', paper2: '#EFE3D4', ink: '#0B1A4A', ink2: '#2F55A8', mix: 0.45, floor: 0.012, grainA: 0 } : st ? { interactive: false, animate: true, jig: 0.24, ambient: 0.36, fadeB: 0, flip: true, calm: 1, top: 0.6,
