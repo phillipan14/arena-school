@@ -100,3 +100,10 @@
     }
   });
 })();
+
+/* Osmosis demo: more salt outside, the cell shrinks */
+document.querySelectorAll('[data-osmo]').forEach(function (el) {
+  var r = el.querySelector('input'), o = el.querySelector('output'), c = el.querySelector('.pp-osmo-cell');
+  function u() { var v = +r.value; o.textContent = v + '%'; c.style.setProperty('--k', (1.25 - v / 100 * 0.75).toFixed(3)); }
+  r.addEventListener('input', u); u();
+});
