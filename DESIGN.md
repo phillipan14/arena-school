@@ -72,3 +72,9 @@ Run `python3 audit.py` with the preview server on port 8780. For every page, it 
 
 ## Logo rule (founder direction, Sept 28)
 Always use the **official lockup PNG** (seal plus wordmark as one image): `logos/arena/wordmark-navy-1600.png` on light backgrounds, `wordmark-ivory-1600.png` on dark ones. The source files are `arena-wordmark-*-transparent*.png` in the brand kit. **Never** place the seal next to typed-out "ARENA SCHOOL" text. That applies to the website, decks, social posts and every other asset.
+
+## Formal tone (founder direction, Sept 28)
+The site speaks to parents, heads of school, and educators, so it must read as official and trustworthy.
+- **No solid offset shadows** (the old blue/coral "misregistration" blocks behind cards, buttons, eyebrows, and pins). Cards lift with a soft shadow: `0 18px 40px -22px rgba(11,26,74,.38)`. Small elements get no shadow.
+- No handwriting fonts, sticky-note walls, emoji, chat bubbles, spinning seals, or floating stat chips.
+- Prefer real program photos and official institution lockups over illustrations.
