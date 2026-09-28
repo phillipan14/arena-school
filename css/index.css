@@ -256,8 +256,6 @@
 .pp-live2 i { width: 7px; height: 7px; border-radius: 50%; background: #2E8A4A; animation: pp-ping 2s ease-out infinite; }
 .hp-yc { font: 600 18px/1 var(--font-body) !important; letter-spacing: -.01em; opacity: 1 !important; }
 .hp-proof-logos { flex-wrap: wrap; row-gap: 8px; }
-.hero-full .hero-riso-grid { padding-bottom: 0; }
-.hero-full { min-height: 0 !important; padding-bottom: clamp(40px, 6vw, 80px) !important; }
 .pp-jr-gr { display: none; }
 @media (max-width: 760px) {
   #programs .pp-jr-scroll { overflow: visible; margin: 0; padding: 0; }
