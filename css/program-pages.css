@@ -295,3 +295,4 @@ main .zl-section { padding-block: clamp(56px, 6.5vw, 92px); }
 .pp-mini-body small { display: block; font: 500 10px/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--coral-deep); margin-bottom: 6px; }
 .pp-mini-body span { font-size: 13.5px; line-height: 1.4; color: var(--text-ink-soft); }
 @media (max-width: 760px) { .pp-mini-row { grid-template-columns: 1fr; } .pp-mini-art { height: 64px; } }
+.pp-proof { max-width: 960px; gap: 8px 16px; }
