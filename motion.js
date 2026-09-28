@@ -74,6 +74,20 @@
     });
   });
   document.addEventListener('click', function () { closeDDs(null); });
+
+  /* Hover intent on desktop: open after a short pause, close after a grace period, so the
+     menu doesn't flicker or snap shut when the cursor crosses the gap. */
+  document.documentElement.classList.add('nav-js');
+  var fine = window.matchMedia('(hover: hover) and (min-width: 981px)');
+  dds.forEach(function (d) {
+    var b = d.querySelector('.nav-dd-btn'); var tOpen = null, tClose = null;
+    function open() { clearTimeout(tClose); closeDDs(d); d.classList.add('open'); if (b) b.setAttribute('aria-expanded', 'true'); }
+    function close() { clearTimeout(tOpen); d.classList.remove('open'); if (b) b.setAttribute('aria-expanded', 'false'); }
+    d.addEventListener('mouseenter', function () { if (!fine.matches) return; clearTimeout(tClose); tOpen = setTimeout(open, 70); });
+    d.addEventListener('mouseleave', function () { if (!fine.matches) return; clearTimeout(tOpen); tClose = setTimeout(close, 220); });
+    d.addEventListener('focusin', function (e) { if (e.target.matches(':focus-visible')) open(); });
+    d.addEventListener('focusout', function (e) { if (!d.contains(e.relatedTarget)) close(); });
+  });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeDDs(null); });
 
   /* ---------- Count-up ---------- */

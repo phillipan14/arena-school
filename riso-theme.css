@@ -373,3 +373,29 @@ section.hero-opt { background-color: #F3E9DD !important; }
 .nav-dd-group { display: flex; flex-direction: column; gap: 2px; }
 .nav-dd-label { font: 600 10.5px/1.2 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2); padding: 8px 12px 4px; }
 @media (max-width: 980px) { .nav-dd-menu.nav-dd-wide { display: flex; } }
+
+/* ---------- Nav dropdowns v2 (Sept 28): hover intent, motion, highlighted items ----------
+   With JS (html.nav-js), menus open on hover after a short intent delay and close after a grace
+   period, driven by .open; without JS the base :hover rule still works. */
+html.nav-js .nav-dd:not(.open) .nav-dd-menu { opacity: 0; visibility: hidden; transform: translateY(-6px) scale(.98); pointer-events: none; }
+html.nav-js .nav-dd:not(.open) .nav-dd-chev { transform: none; }
+html.nav-js .nav-dd.open .nav-dd-chev { transform: rotate(180deg); }
+.nav-dd-menu { transform-origin: 24px 0; transition: opacity .22s cubic-bezier(.2,.7,.2,1), transform .28s cubic-bezier(.2,.7,.2,1), visibility 0s linear .28s !important; }
+.nav-dd.open .nav-dd-menu { transition-delay: 0s !important; }
+.nav-dd-btn { position: relative; }
+.nav-dd-btn::after { content: ""; position: absolute; left: 0; right: 16px; bottom: 0; height: 1.5px; background: currentColor; transform: scaleX(0); transform-origin: 0 50%; transition: transform .25s cubic-bezier(.2,.7,.2,1); }
+.nav-dd.open .nav-dd-btn::after { transform: scaleX(1); }
+.nav-links .nav-dd-menu a { position: relative; padding-right: 34px; transition: background .18s, transform .22s cubic-bezier(.2,.7,.2,1); }
+.nav-links .nav-dd-menu a::before { content: ""; position: absolute; left: 0; top: 10px; bottom: 10px; width: 3px; border-radius: 3px; background: var(--ink-2, #2F55A8); transform: scaleY(0); transition: transform .22s cubic-bezier(.2,.7,.2,1); }
+.nav-links .nav-dd-menu a::after { content: "→"; position: absolute; right: 12px; top: 50%; transform: translate(-6px, -50%); opacity: 0; color: var(--ink-2, #2F55A8); transition: opacity .18s, transform .22s cubic-bezier(.2,.7,.2,1); }
+.nav-links .nav-dd-menu a:hover, .nav-links .nav-dd-menu a:focus-visible { background: var(--bg-paper-soft); transform: translateX(3px); outline: none; }
+.nav-links .nav-dd-menu a:hover::before, .nav-links .nav-dd-menu a:focus-visible::before, .nav-links .nav-dd-menu a[aria-current="page"]::before { transform: scaleY(1); }
+.nav-links .nav-dd-menu a:hover::after, .nav-links .nav-dd-menu a:focus-visible::after { opacity: 1; transform: translate(0, -50%); }
+.nav-links .nav-dd-menu a:hover b { color: var(--ink-2, #2F55A8); }
+@media (prefers-reduced-motion: no-preference) {
+  .nav-dd.open .nav-dd-menu a { animation: nav-item-in .32s cubic-bezier(.2,.7,.2,1) both; }
+  .nav-dd.open .nav-dd-menu a:nth-of-type(2) { animation-delay: .04s; } .nav-dd.open .nav-dd-menu a:nth-of-type(3) { animation-delay: .08s; } .nav-dd.open .nav-dd-menu a:nth-of-type(4) { animation-delay: .12s; }
+  .nav-dd.open .nav-dd-group:nth-child(2) a { animation-delay: .1s; } .nav-dd.open .nav-dd-group:nth-child(3) a { animation-delay: .14s; }
+}
+@keyframes nav-item-in { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+@media (max-width: 980px) { html.nav-js .nav-links.open .nav-dd .nav-dd-menu { opacity: 1; visibility: visible; transform: none; pointer-events: auto; } .nav-links .nav-dd-menu a::after, .nav-dd-btn::after { display: none; } }
