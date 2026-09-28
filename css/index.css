@@ -312,3 +312,17 @@ body.home .btn-primary { box-shadow: none !important; }
 .bt.swap .bt-alt { opacity: 1; }
 .bt figcaption { transition: opacity .5s; }
 .bt.cap-fade figcaption { opacity: 0; }
+
+/* ===== Hero v5: formal photo panel (replaces the arch) ===== */
+.hero-arch { flex-direction: column; align-items: center; }
+.arch-frame.hero-photo { width: clamp(300px, 34vw, 520px); aspect-ratio: 4 / 3; border-radius: 14px !important; border: 1px solid rgba(11,26,74,.18) !important; background: #0B1A4A; box-shadow: 0 40px 80px -40px rgba(11,26,74,.55) !important; }
+.hero-photo::after { display: none; }
+.hero-photo .arch-slide img { object-fit: cover; }
+.hero-photo .arch-slide.is-on img { animation: arch-kb 9s ease-out both; }
+@keyframes arch-kb { from { transform: scale(1.06); } to { transform: scale(1); } }
+.hero-photo .arch-dots { bottom: 14px; justify-content: flex-end; padding-right: 16px; }
+.hero-photo-cap { display: flex; align-items: center; gap: 10px; width: clamp(300px, 34vw, 520px); margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(11,26,74,.18); font-size: 13px; color: var(--text-ink-soft); }
+.hero-photo-cap img { width: 28px; height: 28px; border-radius: 50%; }
+.hero-photo-cap b { color: var(--ink); font-weight: 500; }
+.hero-photo-cap .arch-cap { position: static; transform: none; margin-left: auto; padding: 0; background: none; color: var(--text-ink-muted); font: 500 10.5px/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; }
+@media (max-width: 900px) { .arch-frame.hero-photo, .hero-photo-cap { width: 100%; } .hero-photo-cap .arch-cap { display: none; } }

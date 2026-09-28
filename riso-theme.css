@@ -435,3 +435,29 @@ html[lang="zh-CN"] em, html[lang="zh-CN"] .pg-case-story, html[lang="zh-CN"] .pg
 html[lang="zh-CN"] .pg .pg-head .h2 { max-width: 11em; }
 html[lang="zh-CN"] .hero .cs-h1 { max-width: 12em; }
 .kp { display: inline-block; }
+
+/* ---------- Programs menu v4 (Sept 29): grouped by length, thumbnails, compact ---------- */
+.nav-dd-btn:focus { outline: none; }
+.nav-dd-btn:focus-visible { outline: 2px solid var(--ink-2, #2F55A8); outline-offset: 4px; border-radius: 4px; }
+@media (min-width: 981px) {
+  .nav-dd-menu.nav-dd-wide { grid-template-columns: 330px 250px !important; gap: 0 10px !important; padding: 14px !important; }
+  .nav-dd-menu { transform-origin: 30px -6px; }
+  .nav-dd-label { padding: 6px 10px 6px !important; font-size: 10px !important; letter-spacing: .14em !important; }
+  .nav-dd-sub { display: block; margin: 8px 10px 2px; padding-top: 8px; border-top: 1px solid #ECE4D8; font: 500 9.5px/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--text-ink-muted); }
+  .nav-dd-label + .nav-dd-sub { border-top: 0; padding-top: 0; margin-top: 2px; }
+  .nav-links .nav-dd-menu a { padding: 7px 30px 7px 10px !important; gap: 1px !important; border-radius: 9px !important; }
+  .nav-dd-menu a b { font-size: 13.5px !important; }
+  .nav-dd-menu a span { font-size: 11.5px !important; line-height: 1.35 !important; }
+  .nav-links .nav-dd-menu a:hover { transform: none !important; background: #F1E9DD !important; }
+  .nav-dd-wide .nav-dd-group:first-child a { padding-left: 64px !important; position: relative; min-height: 46px; justify-content: center; }
+  .nav-dd-wide .nav-dd-group:first-child a::before { transform: none !important; left: 10px !important; top: 50% !important; bottom: auto !important; width: 44px !important; height: 34px !important; margin-top: -17px; border-radius: 6px !important; background: #ddd center / cover no-repeat !important; box-shadow: inset 0 0 0 1px rgba(11,26,74,.12); transition: filter .2s; filter: saturate(.85); }
+  .nav-dd-wide .nav-dd-group:first-child a:hover::before { filter: none; }
+  .nav-dd-wide .nav-dd-group:first-child a[href^="/programs/remake"]::before { background-image: url(/photos/mix/pilot-classroom-800.webp) !important; }
+  .nav-dd-wide .nav-dd-group:first-child a[href^="/programs/website-portfolio"]::before { background-image: url(/photos/isb-hq/isb-podium-duo-800.webp) !important; }
+  .nav-dd-wide .nav-dd-group:first-child a[href^="/programs/product-intensive"]::before { background-image: url(/photos/isb-hq/isb-pitch-gesture-800.webp) !important; }
+  .nav-dd-wide .nav-dd-group:first-child a[href^="/mentorship"]::before { background-image: url(/photos/isb-hq/isb-judges-test-800.webp) !important; }
+  .nav-dd-wide .nav-dd-group:not(:first-child) { border-left: 1px solid #ECE4D8; padding-left: 10px; }
+}
+@media (max-width: 980px) { .nav-links.open .nav-dd-sub { display: block; margin: 10px 0 2px; font: 500 9.5px/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--text-ink-muted); } }
+.nav-dd-sub { display: none; }
+@media (min-width: 981px) { .nav-dd-sub { display: block; } }
