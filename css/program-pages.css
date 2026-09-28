@@ -394,3 +394,46 @@ main .zl-section { padding-block: clamp(56px, 6.5vw, 92px); }
 .pp-closing-photo { position: relative; max-width: 760px; margin: 0 auto 36px; aspect-ratio: 16 / 7; overflow: hidden; border-radius: 14px; border: 1px solid rgba(252,243,237,.25); }
 .pp-closing-photo figcaption { position: absolute; left: 12px; bottom: 12px; padding: 5px 9px; border-radius: 5px; background: rgba(11,26,74,.85); color: #FCF3ED; font-size: 12.5px; }
 @media (max-width: 760px) { .pp-step-photos { grid-template-columns: 1fr; } .pp-closing-photo { aspect-ratio: 4 / 3; } }
+
+/* ================= Pass 5: CTA band, formats, one-pager, watermarks ================= */
+.pp-cta-band {
+  position: relative; background-color: var(--ink, #0B1A4A); color: #FCF3ED;
+  background-image: radial-gradient(rgba(252,243,237,.06) 1px, transparent 1.4px); background-size: 10px 10px;
+  padding-block: clamp(64px, 8vw, 112px);
+}
+.pp-cta-band .eyebrow { background: #FCF3ED; color: var(--ink, #0B1A4A); box-shadow: 2px 2px 0 var(--coral, #E59375); }
+.pp-cta-band .eyebrow::before { background: var(--ink, #0B1A4A); }
+.pp-cta-band h2 { color: #FCF3ED; }
+.pp-cta-band h2 em { color: #9DB4F0; }
+.pp-cta-head { margin-bottom: clamp(32px, 4vw, 48px); max-width: 60ch; }
+.pp-cta-head .h2 { margin-top: 18px; }
+.pp-cta-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 56px); align-items: start; }
+.pp-formats { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.pp-formats li { display: grid; grid-template-columns: 44px 1fr; gap: 14px; padding: 18px 20px; border-radius: 12px; border: 1px solid rgba(252,243,237,.18); background: rgba(252,243,237,.05); transition: background .2s, border-color .2s; }
+.pp-formats li:hover { background: rgba(252,243,237,.09); border-color: rgba(252,243,237,.4); }
+.pp-fnum { font: 500 13px/1 var(--font-mono); color: var(--coral, #E59375); padding-top: 6px; }
+.pp-formats b { display: block; font: 500 22px/1.2 var(--font-display); color: #FCF3ED; }
+.pp-formats small { display: block; margin-top: 6px; font: 500 11px/1.3 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: #F2A98E; }
+.pp-formats p { margin: 8px 0 0; font-size: 15px; line-height: 1.45; color: rgba(252,243,237,.75); }
+.pp-cta-facts { margin: 16px 0 0; font-size: 14px; color: rgba(252,243,237,.7); }
+.pp-cta-facts span + span::before { content: "·"; margin: 0 8px; color: var(--coral, #E59375); }
+.pp-cta-band .pp-lead { color: var(--ink); box-shadow: 6px 6px 0 var(--coral, #E59375); justify-content: flex-start; }
+.pp-lead-top { display: grid; grid-template-columns: 96px 1fr; gap: 18px; align-items: center; margin-bottom: 20px; }
+.pp-lead-thumb { width: 96px; height: auto; border-radius: 4px; border: 1px solid var(--border-paper); box-shadow: 0 6px 18px rgba(11,26,74,.18); transform: rotate(-3deg); background: #fff; }
+.pp-lead-top h3 { margin: 0 0 6px; }
+.pp-lead-top p { margin: 0; font-size: 14.5px; color: var(--text-ink-soft); }
+.pp-lead-done .pp-dl-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 6px 0 14px; }
+@media (max-width: 980px) { .pp-cta-grid { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .pp-lead-top { grid-template-columns: 72px 1fr; } .pp-lead-thumb { width: 72px; } }
+
+/* Photo watermark: Arena seal + program tag */
+.pp-ptag { display: inline-flex; align-items: center; gap: 6px; padding: 4px 8px 4px 5px; }
+.pp-ptag img { width: 16px; height: 16px; }
+.pp-closing-photo figcaption { display: inline-flex; align-items: center; gap: 8px; }
+.pp-closing-photo figcaption img { width: 18px; height: 18px; }
+/* Stock photos in the range row */
+.pp-mini-real img.pp-stock { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+/* riso-theme forces paper behind any section holding a form; this band is the deliberate exception */
+section.pp-cta-band { background-color: var(--ink, #0B1A4A) !important; isolation: isolate; }
+section.pp-cta-band::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background-image: radial-gradient(rgba(252,243,237,.07) 1px, transparent 1.4px); background-size: 10px 10px; }

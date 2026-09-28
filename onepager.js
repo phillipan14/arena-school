@@ -1,7 +1,7 @@
 /* One-page overview form (program pages).
    On submit: email the team (FormSubmit) and alert Slack (/api/interest) in parallel.
-   Either one succeeding counts; then the download unlocks. Set the PDF link on the
-   form's data-download attribute; while it's empty, visitors are told it's emailed. */
+   Either one succeeding counts; then the download unlocks. Download links live in the
+   success panel (.pp-lead-dl); with none, visitors are told it's emailed. */
 (function () {
   function collect(form) {
     var data = {};
@@ -40,11 +40,14 @@
           setStatus('Something went wrong. Please email contact@arenaschool.org and we will send it right away.', 'error');
           return;
         }
+        // Downloads are the links in the success panel; a data-download on the form overrides the first.
         var url = form.getAttribute('data-download') || '';
-        var link = done && done.querySelector('.pp-lead-dl');
+        var links = done ? [].slice.call(done.querySelectorAll('.pp-lead-dl')) : [];
+        if (url && links[0]) links[0].href = url;
+        var ready = links.filter(function (l) { var h = l.getAttribute('href') || ''; return h && h !== '#'; });
+        links.forEach(function (l) { l.hidden = ready.indexOf(l) < 0; });
         var later = done && done.querySelector('.pp-lead-later');
-        if (link) { link.hidden = !url; if (url) link.href = url; }
-        if (later) later.hidden = !!url;
+        if (later) later.hidden = ready.length > 0;
         form.hidden = true; if (done) { done.hidden = false; done.focus(); }
       });
     });
