@@ -988,3 +988,20 @@ html:has(.pp-sc), html:has(.pp-sc) body { overflow-x: clip !important; overflow-
 .pp-pop.p2 { right: -18px; top: 12%; }
 .pp-pop.p3 { right: -22px; top: auto; bottom: 36%; }
 .pp-person i { white-space: nowrap; }
+
+/* How it runs v2: three matching step cards */
+.pp-steps { position: relative; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 2.4vw, 28px); }
+.pp-steps::before { content: ""; position: absolute; left: 16%; right: 16%; top: calc(clamp(180px, 17vw, 240px) - 1px); height: 2px; background: var(--ink); z-index: 0; }
+.pp-step { position: relative; z-index: 1; display: flex; flex-direction: column; border-radius: 16px; background: var(--paper-hi, #FCF3ED); border: 1.5px solid var(--ink); overflow: visible; transition: transform .35s var(--pp-ease), box-shadow .35s; }
+.pp-step:hover { transform: translateY(-6px); box-shadow: 6px 6px 0 var(--ink-2, #2F55A8); }
+.pp-step-img { position: relative; margin: 0; height: clamp(180px, 17vw, 240px); border-radius: 15px 15px 0 0; overflow: hidden; }
+.pp-step-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .8s var(--pp-ease); }
+.pp-step:hover .pp-step-img img { transform: scale(1.05); }
+.pp-step-n { position: absolute; left: 18px; bottom: -22px; z-index: 2; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--ink); color: #FCF3ED; font: 500 20px/1 var(--font-display); border: 3px solid var(--paper-hi, #FCF3ED); box-shadow: 3px 3px 0 var(--coral, #E59375); }
+.pp-step-img { overflow: visible; } .pp-step-img img { border-radius: 15px 15px 0 0; }
+.pp-step-body { padding: 32px 22px 24px; }
+.pp-step-body small { font: 500 10.5px/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--text-ink-muted); }
+.pp-step-body small b { color: var(--coral-deep); font-weight: 500; }
+.pp-step-body h3 { margin: 10px 0 6px; font: 500 24px/1.15 var(--font-display); color: var(--ink); }
+.pp-step-body p { margin: 0; font-size: 15.5px; line-height: 1.45; color: var(--text-ink-soft); }
+@media (max-width: 860px) { .pp-steps { grid-template-columns: 1fr; } .pp-steps::before { display: none; } }
