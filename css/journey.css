@@ -48,3 +48,24 @@
 .pp-pw-adults > span { font: 500 10.5px/1 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--text-ink-muted); margin-right: 6px; }
 .pp-pw-adults a { padding: 8px 14px; border-radius: 999px; border: 1px solid var(--border-paper); background: var(--card, #F6EDE2); color: var(--ink); font-size: 14px; text-decoration: none; transition: transform .25s var(--pp-ease), border-color .2s, box-shadow .25s; }
 .pp-pw-adults a:hover { transform: translateY(-2px); border-color: var(--ink); box-shadow: 3px 3px 0 var(--ink-2, #2F55A8); }
+
+/* ===== Journey v3: slim axis, photo bars, hover links range ===== */
+.pp-jr-zones { margin-bottom: 10px; }
+.pp-jr-line { margin-bottom: 18px; }
+.pp-jr-line::before { height: 2px; background: var(--border-paper); }
+.pp-jr-line li span { width: 38px; height: 38px; font-size: 17px; background: var(--paper-hi, #FCF3ED) !important; color: var(--ink) !important; border: 1.5px solid var(--ink); box-shadow: none !important; transition: background .25s, color .25s, transform .25s; }
+.pp-jr-line li.on span { background: var(--ink) !important; color: #FCF3ED !important; transform: scale(1.12); box-shadow: 3px 3px 0 var(--coral, #E59375) !important; }
+.pp-jr-lanes { gap: 10px 8px; }
+.pp-jr-card { margin-top: 0; padding: 10px 14px 10px 10px; grid-template-columns: 64px 1fr auto; border-width: 1px; border-color: var(--border-paper); background: var(--paper-hi, #FCF3ED); position: relative; overflow: hidden; }
+.pp-jr-card::before, .pp-jr-card::after { display: none; }
+.pp-jr-card { border-left: 5px solid var(--acc); }
+.acc-blue { --acc: #2F55A8; } .acc-coral { --acc: #E59375; } .acc-green { --acc: #2E6E40; } .acc-gold { --acc: #C9A86A; }
+.pp-jr-card.is-family { border-style: dashed; border-left-style: solid; background: transparent; }
+.pp-jr-ph { width: 64px; height: 52px; border-radius: 8px; overflow: hidden; }
+.pp-jr-ph img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.pp-jr-card:hover .pp-jr-ph img { transform: scale(1.1); }
+.pp-jr-txt b { font-size: 15.5px; } .pp-jr-txt small { margin-top: 2px; }
+.pp-jr-txt span { margin-top: 3px; font-size: 14.5px; color: var(--acc) !important; filter: brightness(.8); }
+.pp-jr-card:hover, .pp-jr-card:focus-visible { border-color: var(--ink); border-left-color: var(--acc); box-shadow: 4px 4px 0 var(--acc); transform: translateY(-3px); }
+.pp-jr.dim .pp-jr-card:not(.hot) { opacity: .45; }
+.pp-jr-card { transition: transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s, opacity .3s, border-color .2s; }

@@ -1108,3 +1108,21 @@ html:has(.pp-sc), html:has(.pp-sc) body { overflow-x: clip !important; overflow-
 .pp-cal-5 { grid-template-columns: repeat(5, 1fr); gap: 5px; } .pp-cal-5 .pp-cal-col { padding: 6px 4px; } .pp-cal-5 .pp-cal-col i { padding: 6px 4px; font-size: 9.5px; text-align: center; }
 @media (max-width: 700px) { .pp-levels, .pp-idea { grid-template-columns: 1fr; } .pp-lv-arrow, .pp-idea-arrow { transform: rotate(90deg); } .pv2-hero { grid-template-columns: 1fr; } .pp-stk ul { grid-template-columns: repeat(2, 1fr); } }
 .pp-sc { height: 270vh; } @media (max-width: 900px), (prefers-reduced-motion: reduce) { .pp-sc { height: auto; } }
+/* journey v3 wins over the original rules */
+.pp-jr .pp-jr-card { grid-template-columns: 64px 1fr auto; margin-top: 0; }
+.pp-jr .pp-jr-card::before, .pp-jr .pp-jr-card::after { display: none; }
+
+/* ===== What we teach v2 ===== */
+.pp-sc-big { font-size: clamp(56px, 6.4vw, 96px); }
+.pp-sc-big .pp-num { display: block; margin-bottom: 6px; font: 500 12px/1 var(--font-mono); letter-spacing: .16em; color: var(--coral-deep); font-style: normal; }
+.pp-stk ul { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.pp-stk li { aspect-ratio: auto; min-height: 78px; padding: 10px 12px; font-size: 16px; }
+.pp-stk li.is-pick { position: relative; z-index: 2; }
+.pp-stk li.is-pick::after { content: "✓ Our pick"; position: absolute; right: -8px; top: -10px; padding: 4px 8px; border-radius: 999px; background: var(--ink); color: #FCF3ED; font: 600 10px/1 var(--font-mono); letter-spacing: .06em; box-shadow: 2px 2px 0 var(--coral, #E59375); opacity: 0; transform: scale(.6); transition: opacity .4s 1.1s, transform .5s 1.1s cubic-bezier(.3,1.6,.5,1); }
+.pp-sc-v.is-on .pp-stk li.is-pick { outline: 3px solid var(--ink); outline-offset: 3px; transition: outline-color .3s 1s; }
+.pp-sc-v.is-on .pp-stk li.is-pick::after { opacity: 1; transform: none; }
+.pp-sc-v.is-on .pp-stk.picking li:not(.is-pick) { opacity: .38; filter: saturate(.5); transition: opacity .6s 1s, filter .6s 1s; }
+.pp-sc-v1.is-on .tv.ok { animation: pp-pop-in .5s cubic-bezier(.2,.7,.2,1) .6s both; }
+.pp-jr .pp-jr-card[data-from] { border: 1px solid var(--border-paper); border-left: 5px solid var(--acc); background: var(--paper-hi, #FCF3ED); }
+.pp-jr .pp-jr-card[data-from].is-family { border-style: dashed; border-left-style: solid; }
+.pp-jr .pp-jr-card[data-from]:hover, .pp-jr .pp-jr-card[data-from]:focus-visible { border-color: var(--ink); border-left-color: var(--acc); box-shadow: 5px 5px 0 var(--acc); }
