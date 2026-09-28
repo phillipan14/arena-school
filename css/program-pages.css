@@ -273,3 +273,25 @@ main .zl-section { padding-block: clamp(56px, 6.5vw, 92px); }
 .pp-path-row .pp-now-tag { transform: none; margin-top: 14px; }
 @media (max-width: 980px) { .pp-lead { margin-top: 28px; } }
 @media (max-width: 520px) { .pp-flex { grid-template-columns: 1fr 1fr; gap: 10px; } .pp-flex li { padding: 12px 13px; } .pp-flex span { font-size: 14px; } }
+
+/* Proof, moved up under the hero */
+.pp-proof { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--border-paper); font-size: 14.5px; color: var(--text-ink-soft); max-width: 720px; }
+.pp-proof b { font: 500 10.5px/1 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink); }
+.pp-proof span { display: inline-flex; align-items: center; gap: 8px; }
+.pp-proof span + span::before { content: ""; width: 4px; height: 4px; border-radius: 50%; background: var(--coral, #E59375); }
+
+/* Range: several small samples under the main one */
+.pp-range { margin-top: clamp(40px, 5vw, 64px); }
+.pp-range-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+.pp-range-head h3 { margin: 0; font: 500 20px/1.2 var(--font-display); color: var(--ink); }
+.pp-mini-row { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.pp-mini { border: 1px solid var(--ink); border-radius: 10px; background: #fff; overflow: hidden; box-shadow: 3px 3px 0 var(--ink-2, #2F55A8); }
+.pp-mini-bar { display: flex; gap: 4px; padding: 7px 9px; background: #F7F1EA; border-bottom: 1px solid #E4DAD0; }
+.pp-mini-bar i { width: 6px; height: 6px; border-radius: 50%; background: #D8CBBE; }
+.pp-mini-art { height: 92px; background-image: radial-gradient(rgba(11,26,74,.18) 1px, transparent 1.4px); background-size: 6px 6px; display: flex; align-items: flex-end; padding: 10px 12px; }
+.pp-mini-art em { font: italic 500 17px/1.1 var(--font-display); color: #0E1729; }
+.pp-mini-art.c1 { background-color: #F1DDCC; } .pp-mini-art.c2 { background-color: #DCE3F1; } .pp-mini-art.c3 { background-color: #DCEBD9; }
+.pp-mini-body { padding: 10px 12px 12px; }
+.pp-mini-body small { display: block; font: 500 10px/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--coral-deep); margin-bottom: 6px; }
+.pp-mini-body span { font-size: 13.5px; line-height: 1.4; color: var(--text-ink-soft); }
+@media (max-width: 760px) { .pp-mini-row { grid-template-columns: 1fr; } .pp-mini-art { height: 64px; } }
