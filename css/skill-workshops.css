@@ -1,0 +1,9 @@
+/* portfolio workshop: three-beat horizontal timeline (base .timeline assumes 7 columns) */
+.timeline.tl-n3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.timeline.tl-n3::before { left: calc(100% / 6); right: calc(100% / 6); }
+.timeline.tl-n3::after { left: calc(100% / 6); width: calc((100% / 3) * var(--rx-n, 0)); }
+@media (max-width: 820px) {
+  .timeline.tl-n3 { grid-template-columns: repeat(3, 150px); }
+  .timeline.tl-n3::before { left: 75px; right: auto; width: calc(150px * 2); }
+  .timeline.tl-n3::after { left: 75px; width: calc(150px * var(--rx-n, 0)); }
+}

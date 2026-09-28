@@ -1,0 +1,41 @@
+/* AI Advantage Bootcamp page only (zero-to-launch.html + -cn). Loaded after riso-theme.css. */
+
+/* Why it matters: four outcomes in one row */
+.zl-four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.zl-story-line { margin-top: 16px; padding: 18px 24px; }
+.zl-story-line p { margin: 0; font-size: 15px; line-height: 1.6; }
+
+/* Toolkit: one compact horizontal strip, five groups, logo + name only */
+.zt-strip { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.zt-strip .zt-col { padding: 14px 14px 10px; }
+.zt-strip .zt-cat { margin-bottom: 6px; }
+.zt-strip .zt-tool { padding: 5px 0; gap: 9px; }
+.zt-strip .zt-tool img { width: 22px; height: 22px; border-radius: 6px; }
+.zt-strip .zt-tool b { font-size: 14px; }
+
+/* Proof band: teacher line, team logos, previous cohorts */
+.zl-proof-band .container { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.zl-proof-logos { justify-content: center; }
+.zl-prev { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 18px; margin-top: 8px;
+  padding-top: 18px; border-top: 1px solid var(--border-paper); width: 100%; }
+.zl-prev p { margin: 0; font-size: 16px; font-weight: 600; color: var(--ink); }
+
+/* Logistics: one horizontal spec strip */
+.zl-spec-strip { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); margin-top: 0; }
+.zl-spec-strip .zl-spec-row { display: flex; flex-direction: column; }
+.zl-spec-strip .zl-spec-row + .zl-spec-row { border-top: 0; border-left: 1px solid var(--border-paper); }
+.zl-spec-strip .zl-spec-label { padding: 12px 18px 10px; }
+.zl-spec-strip .zl-spec-value { padding: 14px 18px 16px; flex: 1; align-items: flex-start; font-size: 15px; }
+
+/* FAQ: two columns under the strip */
+.zl-faq-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; margin-top: 20px; }
+
+/* Phones and small tablets: rows become swipeable, never stacked */
+@media (max-width: 900px) {
+  .zl-four, .zt-strip, .zl-spec-strip { display: grid; grid-auto-flow: column; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; }
+  .zl-four { grid-template-columns: none; grid-auto-columns: 220px; }
+  .zt-strip { grid-template-columns: none; grid-auto-columns: 180px; }
+  .zl-spec-strip { grid-template-columns: none; grid-auto-columns: 170px; }
+  .zl-four > *, .zt-strip > *, .zl-spec-strip > * { scroll-snap-align: start; }
+  .zl-faq-grid { grid-template-columns: 1fr; }
+}

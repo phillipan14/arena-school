@@ -1,0 +1,14 @@
+/* teacher-training: 4-step session track + formats row */
+.timeline.tl-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: 980px; margin-inline: auto; }
+.timeline.tl-4::before { left: 12.5%; right: 12.5%; }
+.timeline.tl-4::after { left: 12.5%; width: calc(25% * var(--rx-n, 0)); }
+.tt-formats { margin-top: clamp(40px, 5vw, 64px); }
+.tt-formats .card-grid-290 { margin-top: 18px; }
+.tt-sessions { margin: 18px 0 0; font-size: 15px; color: var(--text-ink-muted); max-width: 96ch; }
+.tt-proof .zl-taught + .zl-taught { margin-top: 10px; }
+@media (max-width: 820px) {
+  .timeline.tl-4 { grid-template-columns: repeat(4, 150px); }
+  .timeline.tl-4::before { left: 75px; right: auto; width: 450px; }
+  .timeline.tl-4::after { left: 75px; width: calc(150px * var(--rx-n, 0)); }
+}
+.timeline.tl-4 + .rx-panel { max-width: 980px; margin-inline: auto; }

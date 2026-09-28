@@ -1,0 +1,5 @@
+/* partnerships: 3-up tracks and one-line proof */
+.pt-track { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 28px; }
+@media (max-width: 900px) { .pt-track { grid-template-columns: 1fr; } }
+.pt-proof { padding-block: clamp(40px, 5vw, 64px); }
+.pt-proof-line { font-family: var(--serif, 'Newsreader', serif); font-size: clamp(20px, 1.9vw, 26px); line-height: 1.4; max-width: 72ch; margin: 16px 0 0; }

@@ -1,0 +1,12 @@
+/* student-programs: five-day horizontal timeline (base .timeline assumes 7 columns) */
+.timeline.tl-n5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.timeline.tl-n5::before { left: calc(100% / 10); right: calc(100% / 10); }
+.timeline.tl-n5::after { left: calc(100% / 10); width: calc((100% / 5) * var(--rx-n, 0)); }
+@media (max-width: 820px) {
+  .timeline.tl-n5 { grid-template-columns: repeat(5, 150px); }
+  .timeline.tl-n5::before { left: 75px; right: auto; width: calc(150px * 4); }
+  .timeline.tl-n5::after { left: 75px; width: calc(150px * var(--rx-n, 0)); }
+}
+/* mentorship pointer under the closing CTA, readable on the dark band */
+.sp-next { margin: 22px auto 0; max-width: 60ch; color: rgba(252,243,237,.72); font-size: 15px; }
+.sp-next .tlink { color: #EFE3D4; white-space: nowrap; }

@@ -1,0 +1,20 @@
+/* Homepage only: pillar cards (reuse .prog-card) and the offer row's link list */
+.pillars { padding-block: clamp(24px, 3vw, 40px) clamp(64px, 8vw, 110px); }
+.pillars .sec-head { max-width: 1040px; margin-bottom: clamp(28px, 4vw, 44px); }
+
+.pillar-card .pillar-tag { font-family: var(--font-display); font-style: italic; color: var(--ink-2); font-size: 17px; line-height: 1.35; }
+.pillars .pillars-more { margin-top: 26px; }
+.programs { padding-bottom: clamp(40px, 5vw, 64px); }
+.programs .sec-head { margin-bottom: clamp(20px, 3vw, 32px); }
+.prog-links-stack { flex-direction: column; gap: 6px; }
+/* moving gallery of program photos (between the hero and the programs) */
+.gallery-strip { padding: clamp(28px, 4vw, 48px) 0 0; overflow: hidden; }
+.gal-track { display: flex; width: max-content; animation: gal-scroll 60s linear infinite; }
+.gallery-strip:hover .gal-track { animation-play-state: paused; }
+.gal-set { display: flex; gap: 16px; padding-right: 16px; }
+.gal-tile { margin: 0; height: clamp(190px, 22vw, 290px); aspect-ratio: 4 / 3; overflow: hidden; border-radius: 10px;
+  border: 0; box-shadow: none; background: var(--bg-paper-soft); flex: none; }
+.gal-tile:nth-child(3n+2) { aspect-ratio: 3 / 4; }
+.gal-tile img, .gal-tile video { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(.9); }
+@keyframes gal-scroll { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .gal-track { animation: none; overflow-x: auto; width: auto; } .gal-set[aria-hidden] { display: none; } }

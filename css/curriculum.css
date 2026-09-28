@@ -1,0 +1,53 @@
+/* Approach page (curriculum.html / curriculum-cn.html) */
+.curr-hero { padding-block: clamp(72px, 9vw, 120px); }
+.curr-hero .eyebrow { margin-bottom: 20px; }
+.curr-hero .display { font-family: var(--font-display); font-weight: 500; font-size: clamp(40px, 6vw, 76px);
+  line-height: 1.04; letter-spacing: -0.02em; margin: 0 0 clamp(24px, 3vw, 36px); }
+.curr-hero .display em { font-style: italic; }
+.curr-hero .thesis { max-width: 52ch !important; font-family: var(--font-display); font-size: clamp(18px, 1.9vw, 22px); line-height: 1.55; margin: 0; }
+
+.ap-sec { padding-block: clamp(60px, 7vw, 100px); border-top: 1px solid rgba(16,26,46,.1); }
+.ap-sec .sec-head { margin-bottom: clamp(32px, 4vw, 48px); }
+.ap-sec .sec-head .eyebrow { margin-bottom: 14px; }
+
+/* pillar cards */
+.glance-grid.pillars { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 2vw, 24px); }
+.pillars .glance-card { background: var(--paper-hi); border: 1.5px solid var(--ink); padding: clamp(22px, 2.4vw, 30px);
+  display: flex; flex-direction: column; gap: 10px; color: var(--text-ink); }
+.pillars .gc-name { font-family: var(--font-display); font-weight: 500; font-size: clamp(26px, 2.4vw, 32px); line-height: 1.1; margin: 0; color: var(--ink); }
+.pillars .gc-tag { font-family: var(--font-display); font-style: italic; font-size: 17px; line-height: 1.35; color: var(--ink-2); margin: 0; }
+.pillars .gc-sub { font-size: 14.5px; line-height: 1.55; color: var(--text-ink-soft); margin: 0; }
+.gc-do { list-style: none; margin: 6px 0 0; padding: 12px 0 0; border-top: 1px dashed rgba(11,26,74,.28); display: grid; gap: 7px; }
+.gc-do li { position: relative; padding-left: 20px; font-size: 14px; line-height: 1.45; color: var(--ink); }
+.gc-do li::before { content: "\2192"; position: absolute; left: 0; color: var(--ink-2); }
+.gc-more { margin-top: auto; padding-top: 12px; }
+.gc-more summary { cursor: pointer; list-style: none; font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink); display: inline-flex; align-items: center; gap: 8px; }
+.gc-more summary::-webkit-details-marker { display: none; }
+.gc-more summary::after { content: "+"; font-size: 15px; line-height: 1; color: var(--ink-2); transition: transform .2s; }
+.gc-more[open] summary::after { transform: rotate(45deg); }
+.gc-more ol { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 9px; }
+.gc-more li { font-size: 13.5px; line-height: 1.5; color: var(--text-ink-soft); }
+.gc-more li b { font-family: var(--font-mono); font-weight: 600; color: var(--ink-2); margin-right: 6px; }
+.gc-more li strong { color: var(--ink); font-weight: 600; }
+
+/* formats strip under the day track */
+.formats-strip { list-style: none; margin: clamp(28px, 3.5vw, 40px) 0 0; padding: 14px 0 0; border-top: 1px solid rgba(11,26,74,.2);
+  display: flex; flex-wrap: wrap; gap: 8px 28px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .06em; color: var(--ink); }
+.formats-strip li:first-child { color: var(--ink-2); text-transform: uppercase; letter-spacing: .14em; }
+
+/* close */
+.curr-closing { background: var(--bg-dark); color: var(--text-cream); padding-block: clamp(64px, 8vw, 110px); }
+.curr-closing .eyebrow { margin-bottom: 22px; }
+.leave-grid { list-style: none; margin: 0 0 28px; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px;
+  background: rgba(244,236,224,.18); border: 1px solid rgba(244,236,224,.18); }
+.leave-grid li { background: var(--bg-dark); padding: 20px 22px; font-family: var(--font-display); font-size: clamp(17px, 1.6vw, 20px); line-height: 1.35; color: var(--text-cream); }
+.curr-closing .ap-proof { font-size: 15px; line-height: 1.5; color: rgba(244,236,224,.78); margin: 0 0 24px; }
+.curr-closing .ap-proof a { color: var(--text-cream); text-underline-offset: 3px; }
+.curr-closing .closing-cta { display: flex; justify-content: flex-start; gap: 14px; flex-wrap: wrap; }
+
+@media (max-width: 900px) {
+  .glance-grid.pillars { grid-template-columns: 1fr; }
+  .leave-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 480px) { .leave-grid { grid-template-columns: 1fr; } }

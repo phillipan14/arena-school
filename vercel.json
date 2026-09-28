@@ -47,6 +47,46 @@
       "source": "/case-study",
       "destination": "/case-studies/student-programs",
       "permanent": true
+    },
+    {
+      "source": "/curriculum",
+      "destination": "/approach",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum-cn",
+      "destination": "/approach-cn",
+      "permanent": true
+    },
+    {
+      "source": "/case-study-hong-kong",
+      "destination": "/results#hong-kong",
+      "permanent": true
+    },
+    {
+      "source": "/case-study-hong-kong-cn",
+      "destination": "/results-cn#hong-kong",
+      "permanent": true
+    },
+    {
+      "source": "/case-study-beijing",
+      "destination": "/results#beijing",
+      "permanent": true
+    },
+    {
+      "source": "/case-study-beijing-cn",
+      "destination": "/results-cn#beijing",
+      "permanent": true
+    },
+    {
+      "source": "/speaking",
+      "destination": "/case-studies/teacher-training#formats",
+      "permanent": true
+    },
+    {
+      "source": "/speaking-cn",
+      "destination": "/case-studies/teacher-training-cn#formats",
+      "permanent": true
     }
   ],
   "headers": [
