@@ -115,7 +115,7 @@ a.pg-prog:hover .pg-go span, .pg-adult:hover .pg-go span { transform: translateX
 .pg-proof-k { font-size: 13px; color: var(--text-ink-muted); margin-bottom: 10px; }
 .pg-proof-logos { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; }
 .pg-proof-logos img { height: 28px; width: auto; }
-.pg-proof-logos img.is-yc { height: 26px; }
+.pg-proof-logos img.is-yc, .pg-judges img.is-yc { height: 24px; border-radius: 3px; }
 .pg-proof-logos span { font: 400 16px/1 var(--font-display); color: var(--ink); }
 .pg-proof b { font: 400 34px/1 var(--font-display); color: var(--ink); }
 .pg-proof b small { font-size: 17px; color: var(--text-ink-muted); }
@@ -384,3 +384,33 @@ a.pg-prog:hover .pg-go span, .pg-adult:hover .pg-go span { transform: translateX
 .pg-bootcamp #facts .zl-spec-value { font-weight: 400; }
 @media (max-width: 900px) { .pg-bootcamp #facts .pp-faq-wrap { grid-template-columns: 1fr; } }
 .pg-enroll-page .pg-enroll { padding-top: clamp(28px, 3.5vw, 44px); }
+
+/* ---------- Pass 3 (Sept 30): mobile compaction + pillar hover ---------- */
+.pg-pillar i { transition: transform .25s var(--pg-ease); }
+.pg-pillar:hover i, .pg-pillar:focus-visible i { transform: translateX(4px); }
+@media (max-width: 760px) {
+  /* Pillars: one compact row each (number, name, line, arrow) instead of tall empty cards. */
+  .pg-pillar { display: grid; grid-template-columns: 1fr auto; grid-template-areas: "n a" "b a" "s a"; column-gap: 16px; row-gap: 6px; padding: 18px 20px; }
+  .pg-pillar small { grid-area: n; }
+  .pg-pillar b { grid-area: b; font-size: 28px; }
+  .pg-pillar span { grid-area: s; font-size: 15px; }
+  .pg-pillar i { grid-area: a; align-self: center; margin: 0; padding: 0; font-size: 16px; }
+  .pg-pillars { gap: 10px; }
+}
+@media (max-width: 900px) {
+  /* Stats: number left, caption right, so three facts fit in one screen. */
+  .pg-stats > div:not(.pg-judges) { display: grid; grid-template-columns: 136px 1fr; column-gap: 14px; align-items: baseline; padding: 16px 0; }
+  .pg-stats > div:not(.pg-judges) b { font-size: 28px; white-space: nowrap; }
+  .pg-stats > div:not(.pg-judges) p { margin: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .pg-pillar i { transition: none; } }
+/* Non-sequential cards (partnerships "the track"): no numbers, rule under the title instead. */
+.pg-step-plain h3 { padding-bottom: 14px; margin-bottom: 4px; border-bottom: 1px solid var(--pg-line); }
+.pg .pg-form-card .cf-status:empty { min-height: 0; margin: 0; }
+.pg-contact-notes + .pg-contact-fine { border-top: 0; padding-top: 0; }
+/* Hover: calm and consistent (border darkens, text link colors), no sideways nudge. */
+.pg .faq-item:hover { transform: none; border-color: var(--pg-line-hi); }
+.pg .faq-item summary:hover .faq-q { color: var(--ink-2, #2F55A8); }
+.pg .gc-more summary { transition: color .2s; }
+.pg .gc-more summary:hover, .pg .gc-more summary:focus-visible { color: var(--ink-2, #2F55A8); }
+.pg .partners-form select:hover, .pg .partners-form input:hover, .pg .partners-form textarea:hover { border-color: var(--pg-line-hi); }
