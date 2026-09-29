@@ -485,3 +485,82 @@ html { scroll-behavior: smooth; }
 .prog-ph img[src*="parents-audience"] { object-position: 50% 20%; }
 @media (min-width: 1101px) { #programs .prog-card .prog-h { min-height: 0 !important; margin: 6px 0 8px !important; } #programs .prog-card .prog-p { min-height: 4.6em !important; } }
 @media (min-width: 1101px) { #programs .prog-card .prog-h { margin: 6px 20px 8px !important; } }
+
+/* ===== Homepage final loop (Sept 30): section-by-section polish, scoped to body.home ===== */
+/* programs: tighter card rhythm, one photo height, hover row padding on the grade timeline */
+body.home #programs .prog-card { gap: 0 !important; }
+body.home #programs .prog-card > .eyebrow { margin-top: 20px !important; margin-bottom: 0 !important; }
+body.home #programs .prog-card .prog-h { margin-top: 10px !important; margin-bottom: 8px !important; font-size: 21px !important; line-height: 1.2 !important; }
+body.home #programs .prog-card .prog-p { margin-bottom: 18px !important; min-height: 0 !important; }
+body.home #programs .prog-card > .prog-links:last-child { margin-bottom: 22px !important; padding-top: 16px !important; }
+body.home .prog-ph { height: 168px; }
+body.home .prog-ph img[src*="pitch-gesture"] { object-position: 60% 30%; }
+body.home #programs .cs-note { margin: 18px 0 0 !important; font-size: 15px; color: var(--text-ink-soft); }
+body.home .tl2 { margin-top: 20px !important; padding: 14px 20px 8px !important; }
+body.home .tl2-row { margin-inline: -10px; padding: 7px 10px !important; }
+body.home .tl2-head { padding-bottom: 10px; }
+body.home .tl2-axis .ms, body.home .tl2-axis .hs { padding-left: 6px; }
+@media (min-width: 1101px) { body.home #programs .prog-card > .prog-links:last-child { min-height: 128px; } }
+@media (max-width: 760px) {
+  body.home #programs .prog-grid-4 { gap: 14px !important; }
+  body.home .prog-ph { height: 190px; }
+  body.home #programs .prog-card > .prog-links:last-child { min-height: 0; }
+  body.home .tl2 { padding: 12px 14px 6px !important; }
+  body.home .tl2-row { margin-inline: -6px; padding: 8px 6px !important; gap: 8px !important; }
+  body.home .tl2-axis { padding-top: 20px !important; }
+  body.home .tl2-axis span { font-size: 12px; }
+  body.home .tl2-axis .tl2-col { font-size: 8.5px !important; letter-spacing: .04em !important; }
+  body.home .tl2-axis em { font-size: 8.5px; letter-spacing: .08em; }
+}
+
+/* founding team: logos sit on an even grid on phones */
+@media (max-width: 760px) {
+  body.home .hp-cred-row { gap: 14px; padding: 22px 0; }
+  body.home .hp-cred-row ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px 18px; justify-items: start; align-items: center; }
+  body.home .hp-cred-row li { min-height: 34px; }
+  body.home .hp-cred-row img { max-height: 26px !important; max-width: 100%; height: auto !important; }
+  body.home .hp-cred-row img[alt="Caltech"], body.home .hp-cred-row img[alt="加州理工学院"] { max-height: 20px !important; }
+  body.home .hp-cred-row img[alt="Deloitte"], body.home .hp-cred-row img[alt="德勤"], body.home .hp-cred-row img[alt*="Kimi"] { max-height: 18px !important; }
+  body.home .hp-cred-row img[alt*="McKinsey"], body.home .hp-cred-row img[alt="麦肯锡"] { max-height: 16px !important; }
+  body.home .hp-cred-row img[alt="Y Combinator"] { max-height: 24px !important; }
+  body.home .hp-cred-row img[alt*="Tsinghua"], body.home .hp-cred-row img[alt="清华大学"] { max-height: 30px !important; }
+  body.home .hp-isb { font-size: 12.5px; }
+}
+
+/* what we teach: plain three-up, no marker under the pillar names */
+body.home .pillars { padding-block: clamp(64px, 8vw, 104px) !important; }
+body.home .pillars .sec-head { margin-bottom: clamp(28px, 3.5vw, 40px) !important; }
+body.home .pillar-row { gap: 14px !important; }
+body.home .pillar-row .prog-card { padding: 24px 26px 26px !important; }
+body.home .pillar-card .prog-h { font-size: 26px !important; margin: 0 0 8px !important; }
+body.home .pillar-card .rh { color: var(--ink); font-style: normal; font-weight: 500; padding: 0; white-space: normal; }
+body.home .pillar-card .rh::after { display: none; }
+body.home .pillar-card .pillar-tag { font-family: var(--font-body); font-style: normal; font-size: 15.5px; line-height: 1.45; color: var(--text-ink-soft); }
+body.home .pillars .pillars-more { margin-top: 22px; }
+@media (max-width: 760px) {
+  body.home .pillar-row { gap: 10px !important; }
+  body.home .pillar-row .prog-card { padding: 18px 20px !important; }
+  body.home .pillar-card .prog-h { font-size: 22px !important; margin-bottom: 4px !important; }
+}
+
+/* upcoming: heading sits closer to the list */
+body.home .hp-next { padding-block: clamp(64px, 8vw, 104px) !important; }
+body.home .hp-next .sec-head { margin-bottom: clamp(24px, 3vw, 36px) !important; }
+
+/* contact: headline on the same scale as the other section heads, form without the dead space */
+body.home .partners-lede .h2.partners-h { font-size: clamp(40px, 4.4vw, 60px); line-height: 1.04; }
+body.home .partners-form .cf-status:empty { display: none; }
+body.home .partners-form { padding-bottom: clamp(24px, 3vw, 34px) !important; }
+@media (max-width: 760px) {
+  body.home .hp-cred-lab { text-align: center; }
+  body.home .hp-cred-row ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px 26px; }
+  body.home .hp-cred-row li { min-height: 32px; }
+  body.home .hp-cred-row img[alt="Brown University"], body.home .hp-cred-row img[alt="布朗大学"] { max-height: 30px !important; }
+  body.home .hp-cred-row img[alt="Harvard University"], body.home .hp-cred-row img[alt="哈佛大学"] { max-height: 28px !important; }
+  body.home .hp-cred-row img[alt*="McKinsey"], body.home .hp-cred-row img[alt="麦肯锡"] { max-height: 18px !important; }
+  body.home .hp-isb { font-size: 13px; }
+  body.home .hp-isb br { display: none; }
+}
+@media (min-width: 901px) { html[lang="zh-CN"] body.home .hero-riso-copy .lede { word-break: keep-all; } }
+html[lang="zh-CN"] body.home .cf-date b { word-break: keep-all; }
+html[lang="zh-CN"] body.home .hp-next .cf-ev p { max-width: 46em; }
