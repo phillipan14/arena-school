@@ -470,3 +470,7 @@ html { scroll-behavior: smooth; }
 @media (min-width: 1101px) { #programs .prog-card .prog-p { min-height: 7.6em; } #programs .prog-card .prog-h { min-height: 2.5em; } }
 @media (min-width: 1101px) { #programs .prog-card .prog-links:last-child, #programs .prog-card .prog-links-stack { min-height: 132px; } #programs .prog-card .prog-p { min-height: 0; } }
 #programs .prog-card .prog-links { display: flex !important; flex-direction: column; justify-content: flex-start !important; align-items: flex-start; gap: 8px !important; }
+.pillar-row .prog-card { padding: 22px 24px !important; }
+.pillar-row .prog-h { margin: 0 0 6px !important; }
+.pillar-row .pillar-tag { margin: 0 !important; }
+#approach .sec-head .h2 { max-width: 30ch; }
