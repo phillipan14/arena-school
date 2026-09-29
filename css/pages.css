@@ -357,3 +357,30 @@ a.pg-prog:hover .pg-go span, .pg-adult:hover .pg-go span { transform: translateX
 @media (prefers-reduced-motion: reduce) {
   .pg-prog, .pg-adult, .pg-step, .pg-pillar, .pg-go span, .pg .en-form .chk { transition: none !important; }
 }
+
+/* ---------- Clarity pass (Sept 30): merged sections ---------- */
+/* About: logo rows sit inside the leadership section, above the bios */
+.pg .pg-cred { margin: 0 0 clamp(28px, 3.5vw, 40px); border-top: 1px solid var(--pg-line); }
+.pg .pg-cred .hp-cred-row { padding: 18px 0; border-bottom-color: var(--pg-line); }
+.pg .pg-cred .hp-cred-row li:hover { transform: none; }
+/* Plain inline link on the navy next-step band */
+.pg .pp-final .pg-inv-link { color: #FCF3ED; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(252,243,237,.45); }
+.pg .pp-final .pg-inv-link:hover { text-decoration-color: #FCF3ED; }
+/* Approach: formats strip and take-home line share one rule */
+.pg .formats-strip + .pg-seq-foot { margin-top: 12px; padding-top: 0; border-top: 0; }
+/* Mentorship: the two ways to join, folded into How it works */
+.pg-join { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 24px; margin: clamp(36px, 4vw, 52px) 0 16px; padding-top: clamp(20px, 2.5vw, 28px); border-top: 1px solid var(--border-paper); }
+.pg-join .pg-k { margin: 0; }
+.pg-join-note { margin: 0; font-size: 14.5px; line-height: 1.5; color: var(--text-ink-soft); max-width: 60ch; }
+.pg-join-note a { color: var(--ink-2, #2F55A8); }
+.pg-join + .pg-steps + .pg-mentors { margin-top: clamp(28px, 3vw, 40px); }
+/* Bootcamp: tool strip folded into The week */
+.pg .pg-tools-k { margin: clamp(36px, 4vw, 52px) 0 14px; }
+/* Form pages: the form starts higher */
+.pg-contact-page .hero-pad-md, .pg-enroll-page .hero-pad-md { padding-bottom: clamp(28px, 3.5vw, 44px); }
+.pg-contact-page .pg-contact { padding-top: clamp(28px, 3.5vw, 44px); }
+/* Bootcamp: the facts table gets room so each fact reads on one or two lines */
+.pg-bootcamp #facts .pp-faq-wrap { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); }
+.pg-bootcamp #facts .zl-spec-value { font-weight: 400; }
+@media (max-width: 900px) { .pg-bootcamp #facts .pp-faq-wrap { grid-template-columns: 1fr; } }
+.pg-enroll-page .pg-enroll { padding-top: clamp(28px, 3.5vw, 44px); }

@@ -59,3 +59,14 @@ Ours is "too playful" and "too salesy/pitchy". Goal: **build trust** with school
 - "Who teaches it": **no founder photo/profile cards**. At most one line "Designed and taught by Arena's founding team"
   plus the institution logo row.
 - Keep: facts strip, how-it-runs steps (as simple numbered text + real photos), FAQ, one-pager form, contact CTA.
+
+## CLARITY PRINCIPLE (Sept 30, founder) — the metric for this pass
+Maximum value per word; minimum clicks and scrolls to understand the offer; lowest cognitive load.
+For every page, a skeptical principal or parent should grasp in ~10 seconds: what it is, who it's for, what
+students/teachers get, logistics (length, grades, where), and the next step. Score each page on:
+(a) words per idea (cut filler, merge duplicate sections, one idea per sentence, plain headlines that say the thing),
+(b) scroll depth to understand the offer (key facts above the fold; fewer, denser sections),
+(c) clicks to act (clear primary CTA, no dead ends), (d) scannability (labels, parallel card copy, consistent structure),
+plus formality/trust. Cut or merge anything that doesn't earn its space. Keep verified facts only. EN and CN together.
+Titles and card descriptions must be parallel and self-explanatory (e.g. label = audience, title = program, one line =
+what they get). Iterate: screenshot → score each dimension critically → cut/merge/rewrite → rescore, until ≥ 9.5.
