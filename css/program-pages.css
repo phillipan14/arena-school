@@ -1686,3 +1686,37 @@ main.pc > section.pc-sample .pc-intro .pc-tag { vertical-align: 1px; }
   .pc .pc-card-img .pc-card-body h3 { font-size: 18px; margin: 6px 0 4px; }
   .pc .pc-card-img .card-p { font-size: 14px; }
 }
+
+/* ---- Final section pass (Sept 30) ---- */
+/* Program names are titles: no marker under an arbitrary last word */
+.pc .pc-hero .hw-m::after { display: none !important; }
+/* Proof sits in the same centered column as the team line below it */
+.pc .pc-proof:not(:has(.pc-evs)) .pc-proof-head { display: flex; justify-content: center; }
+.pc .pc-proof:not(:has(.pc-evs)) .pc-proof-line { margin-inline: auto; text-align: center; max-width: 64ch; }
+/* Step media: our own photos and short clips, cropped to the people */
+.pc .pc-step-img video { width: 100%; height: 100%; object-fit: cover; object-position: 50% 55%; display: block; background: #E6DACB; }
+.pc .pc-step-img img[src*="pilot-sticky"] { object-position: 50% 78%; }
+.pc .pc-step-img img[src*="isb-team-slide"] { object-position: 30% 40%; }
+.pc .pc-step-img img[src*="isb-judges-test"] { object-position: 50% 35%; }
+/* sample notes: same measure as the why list */
+.pc .pc-notes span { display: block; line-height: 1.55; }
+/* CN "why" headlines: wider measure so phrases don't orphan */
+html[lang="zh-CN"] .pc .pc-why-grid .h2 { max-width: 13em; font-size: clamp(28px, 3vw, 42px); line-height: 1.22; }
+@media (max-width: 760px) {
+  .pc .pc-step-img.pc-step-vid figcaption { display: none; }
+  .pc .pc-step-vid video { position: absolute; inset: 0; }
+  /* sample sites: one swipeable row instead of three stacked screens */
+  .pc .pp-sites { display: flex; grid-template-columns: none; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; margin-inline: calc(-1 * var(--section-px, 24px)); padding: 2px var(--section-px, 24px) 10px; scroll-padding-inline: var(--section-px, 24px); scrollbar-width: none; }
+  .pc .pp-sites::-webkit-scrollbar { display: none; }
+  .pc .pp-sites > li { flex: 0 0 84%; scroll-snap-align: start; }
+  .pc .pp-hover-hint { font-size: 0; }
+  .pc .pp-hover-hint::after { content: "Swipe to see more sites →"; font-size: 10.5px; }
+  html[lang="zh-CN"] .pc .pp-hover-hint::after { content: "左右滑动查看更多网站 →"; }
+  .pc .pc-notes .pc-k { letter-spacing: .08em; }
+  /* conference tracks: a swipeable row, same as the sample sites */
+  .pc .cf-cols { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; margin-inline: calc(-1 * var(--section-px, 24px)); padding: 2px var(--section-px, 24px) 10px; scroll-padding-inline: var(--section-px, 24px); scrollbar-width: none; }
+  .pc .cf-cols::-webkit-scrollbar { display: none; }
+  .pc .cf-col { flex: 0 0 84%; scroll-snap-align: start; padding: 22px; }
+  .pc .pp-lead-top h3 { font-size: 21px; }
+  .pc .pp-dx-ctl b { display: none; }
+}

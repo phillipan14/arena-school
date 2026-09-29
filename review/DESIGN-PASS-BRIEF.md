@@ -70,3 +70,18 @@ students/teachers get, logistics (length, grades, where), and the next step. Sco
 plus formality/trust. Cut or merge anything that doesn't earn its space. Keep verified facts only. EN and CN together.
 Titles and card descriptions must be parallel and self-explanatory (e.g. label = audience, title = program, one line =
 what they get). Iterate: screenshot → score each dimension critically → cut/merge/rewrite → rescore, until ≥ 9.5.
+
+## FINAL CRITICAL LOOP (Sept 30) — per SECTION, not per page
+- Grade EVERY SECTION of every page (EN and CN, 1440 and 390) on: hierarchy, typography, alignment/grid, spacing,
+  background/color, imagery fit, copy clarity & substance, credibility/trust, interaction/hover, motion, mobile.
+  Log a table: page › section › each dimension score › fix made › new score. A section is done only at ≥9.5 on all.
+- Be adversarial: assume the first pass is wrong. Check that CSS actually applies (a section rendering as plain
+  bullets/unstyled = a bug: check class names, selectors, cache-bust ?v= on links; bump ?v= if you change CSS).
+- Substance matters (founder): keep the "why it matters", matched step photos, tools, what students make. Low
+  cognitive load ≠ cutting substance.
+- PHOTOS: prefer OUR OWN photos and videos (photos/isb-hq/, photos/isb-*.jpg, photos/isb-2026/, photos/mix/ incl.
+  pilot-collab/hands mp4s). Replace stock (photos/stock/) with ours wherever ours plausibly fits the step. Keep stock
+  only where nothing of ours fits AND it matches the warm, restrained paper/navy look; never staged-corporate.
+- Program names: App Design Workshop, College Portfolio Workshop, Entrepreneurship & AI Intensive, Year-Long Project
+  Mentorship, AI Advantage Bootcamp, AI for Educators, Community dialogues (parent education series).
+  CN: 应用设计工作坊, 升学作品集工作坊, 创业与AI集训营, 学年项目导师计划, AI职场先发营, 教育者AI培训, 社区对话.
