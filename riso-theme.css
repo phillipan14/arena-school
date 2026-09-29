@@ -510,3 +510,17 @@ html[lang="zh-CN"] .hero .cs-h1 { max-width: 12em; }
   .nav-dd-edu > a:nth-of-type(3) { grid-column: 2; grid-row: 2; } .nav-dd-edu > a:nth-of-type(4) { grid-column: 2; grid-row: 3; }
   .nav-dd-edu a { padding: 8px 12px !important; }
 }
+/* For students menu v6: balanced two columns + full-width college band */
+@media (min-width: 981px) {
+  .nav-dd-menu.nav-dd-stu { grid-template-rows: auto auto auto auto !important; min-width: 600px; padding: 14px 14px 0 !important; overflow: hidden; }
+  .nav-dd-stu > .nav-dd-sub:nth-of-type(4) { grid-column: 1 / -1 !important; grid-row: 4 !important; margin: 10px -14px 0 !important; padding: 12px 24px 0 !important; border-top: 1px solid #ECE4D8 !important; background: #F3ECE2; }
+  .nav-dd-stu > a:nth-of-type(5) { grid-column: 1 / -1 !important; grid-row: 5 !important; margin: 0 -14px !important; padding: 6px 24px 14px !important; border-radius: 0 !important; background: #F3ECE2; flex-direction: row !important; align-items: baseline; gap: 12px !important; }
+  .nav-dd-stu > a:nth-of-type(5):hover { background: #EDE4D7 !important; }
+  .nav-links .nav-dd-menu a:hover { background: #F3EDE4 !important; }
+  .nav-links .nav-dd-menu a:hover b { color: var(--ink-2, #2F55A8); }
+  .nav-dd-stu .nav-dd-sub { color: var(--text-ink-muted); }
+}
+@media (min-width: 981px) {
+  .nav-dd-stu > .nav-dd-sub:nth-of-type(4) { padding: 14px 24px 2px !important; margin-top: 12px !important; }
+  .nav-dd-stu > a:nth-of-type(5) { flex-direction: column !important; align-items: flex-start !important; gap: 1px !important; padding: 6px 24px 16px !important; }
+}
