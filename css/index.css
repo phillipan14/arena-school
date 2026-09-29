@@ -474,3 +474,12 @@ html { scroll-behavior: smooth; }
 .pillar-row .prog-h { margin: 0 0 6px !important; }
 .pillar-row .pillar-tag { margin: 0 !important; }
 #approach .sec-head .h2 { max-width: 30ch; }
+/* program cards with photos */
+#programs .prog-card { padding: 0 !important; overflow: hidden; }
+#programs .prog-card > :not(.prog-ph) { margin-left: 20px !important; margin-right: 20px !important; }
+#programs .prog-card > .eyebrow { margin-top: 16px !important; align-self: flex-start; }
+#programs .prog-card > .prog-links:last-child { margin-bottom: 20px !important; }
+.prog-ph { margin: 0; height: 150px; overflow: hidden; border-bottom: 1px solid var(--border-paper); }
+.prog-ph img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .8s var(--e); }
+#programs .prog-card:hover .prog-ph img { transform: scale(1.05); }
+.prog-ph img[src*="parents-audience"] { object-position: 50% 20%; }
