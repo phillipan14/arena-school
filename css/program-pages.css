@@ -1598,3 +1598,56 @@ body:has(main.pc) .pp-progress { display: none; }
 @media (max-width: 560px) { .pc .pp-award-tile > span:not(.pp-award-medal) { display: none; } }
 @media (prefers-reduced-motion: reduce) { .pc .pc-card, .pc .faq-item { transition: none; } }
 .pc .h2, .pc .pc-card h3, .pc .pc-step h3 { text-wrap: balance; }
+
+/* ================= Clarity pass (Sept 30) =================
+   One structure for every program page: hero with facts · how it runs · (sample) · proof and team · FAQ · next step.
+   Scoped to .pc so the other pages that load this file are unaffected. */
+.pc .pc-hero.hero-pad-md { padding-top: clamp(112px, 11vw, 150px); padding-bottom: clamp(56px, 6vw, 84px); }
+.pc .pc-sec { padding-block: clamp(56px, 6.5vw, 92px); }
+.pc .sec-head { margin-bottom: clamp(28px, 3.2vw, 40px); }
+main.pc > section.pc-sample, main.pc > section[data-screen-label="Topics"] { background: var(--paper-hi, #FCF3ED) !important; border-top: 1px solid var(--border-paper); }
+main.pc > section.pc-sample .pc-intro .pc-tag { vertical-align: 1px; }
+
+/* Four parallel cards (conference formats): label = when, title = format, one line = what */
+.pc .pc-cards-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.pc .pc-cards-4 .pc-num { font: 500 10.5px/1.3 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; }
+.pc .pc-cards-4 .pc-card h3 { font-size: 20px; margin-top: 12px; }
+
+/* Proof and team: one compact band */
+.pc .pc-proof { padding-block: clamp(56px, 6vw, 84px); }
+.pc .pc-proof-line { margin-top: 18px; }
+.pc .pc-team { margin-top: clamp(40px, 4.5vw, 56px); padding-top: clamp(36px, 4vw, 48px); }
+.pc .pc-team .fs-head { margin-bottom: clamp(24px, 3vw, 32px); }
+.pc .pc-team .cred-more { margin-top: clamp(24px, 3vw, 36px); }
+
+/* Dated rows (conferences: upcoming and past) */
+.pc .pc-evs { list-style: none; margin: 14px 0 0; padding: 0; border-top: 1px solid var(--pc-line); }
+.pc .pc-evs li { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 28px; padding: 20px 0; border-bottom: 1px solid var(--pc-line); align-items: baseline; }
+.pc .pc-evs h3 { margin: 0 0 4px; font: 500 21px/1.25 var(--font-display); color: var(--ink); }
+.pc .pc-evs p { margin: 0; font-size: 15.5px; line-height: 1.5; color: var(--text-ink-soft); }
+.pc .pc-evs .tlink { margin-left: 6px; white-space: nowrap; }
+
+/* Next step without a formats list: heading and form side by side */
+.pc .pc-final .pc-final-pair { align-items: center; margin-top: 0; padding-top: 0; border-top: 0; }
+
+@media (max-width: 1100px) { .pc .pc-cards-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 900px) { .pc .pc-final .pc-final-pair { grid-template-columns: 1fr; } }
+@media (max-width: 760px) {
+  .pc .pc-cards-4 { grid-template-columns: 1fr; gap: 12px; }
+  .pc .pc-evs li { grid-template-columns: 1fr; gap: 6px; padding: 16px 0; }
+  /* Results stay one row on phones: three short columns instead of a tall stack */
+  .pc .pc-proof .pc-stats-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .pc .pc-proof .pc-stats-3 li { padding: 16px 8px 4px 0; border-top: 0; }
+  .pc .pc-proof .pc-stats-3 li + li { padding-left: 10px; border-left: 1px solid var(--pc-line); }
+  .pc .pc-proof .pc-stats-3 b { font-size: 24px; }
+  .pc .pc-proof .pc-stats span { font-size: 13px; }
+  .pc .pc-proof .pc-stats small { font-size: 9.5px; letter-spacing: .08em; }
+  .pc .pc-team .cred-row { gap: 16px 22px; }
+}
+.pc .pc-hero .cs-h1 { max-width: 30ch; }
+/* Phones: smaller logos so education fits one row and work fits two */
+@media (max-width: 760px) {
+  .pc .pc-team .cred-row { gap: 18px 16px; }
+  .pc .pc-team .cred-row + .cred-row { margin-top: 18px; }
+  .pc .pc-team .cred-row img { height: calc(var(--h, 40px) * .5) !important; width: auto; }
+}
