@@ -85,3 +85,19 @@ what they get). Iterate: screenshot → score each dimension critically → cut/
 - Program names: App Design Workshop, College Portfolio Workshop, Entrepreneurship & AI Intensive, Year-Long Project
   Mentorship, AI Advantage Bootcamp, AI for Educators, Community dialogues (parent education series).
   CN: 应用设计工作坊, 升学作品集工作坊, 创业与AI集训营, 学年项目导师计划, AI职场先发营, 教育者AI培训, 社区对话.
+
+## ROUND 5 (Oct 1, founder feedback) — apply everywhere, EN + CN
+- Remove every "Illustrative" / "示意图" tag on stock photos.
+- Steps ("How it runs"): make them more cinematic and interactive (e.g. a step selector/timeline where the active step
+  swaps a large photo or video with a smooth crossfade, progress indicator, keyboard accessible; reduced-motion safe).
+  Formal, not playful.
+- Proof/case studies: NEVER "6 of 6", never "100% launched/shipped" (not impressive; it's the program's purpose).
+  Use stronger verified proof: 9.5/10 NPS (Hong Kong, 20 students), US$1,980 real seed money (HK pitch winners),
+  ¥8,888 final prize (Beijing), judged by founders/operators from Harvard, Y Combinator and AI labs, a 10-year-old
+  launched a sign-language-to-speech app in five days, Tsinghua Schwarzman College staff training.
+- Results/case studies are "three examples of programs we've run", NOT the only three. Frame as selected examples.
+- Remove ANY mention of tuition/fees/pricing amounts.
+- Year-Long Project Mentorship: NOT "October to March". Describe as "6 months to a year of continued, personalized
+  1:1 mentorship"; rolling start. CN: 六个月到一年、持续的一对一个性化导师指导.
+- Team framing: never imply a two-person company. Structure = "Our team comes from" (institution logos, the whole
+  team) + a separate "Co-founders" section: Jing Jing Yang FIRST, then Phillip An.
