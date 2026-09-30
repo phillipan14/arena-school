@@ -463,3 +463,9 @@ a.pg-prog:hover .pg-go span, .pg-adult:hover .pg-go span { transform: translateX
 .pg-proof-logos img.is-stanford, .pg-judges img.is-stanford { height: 17px; width: auto; }
 .pg-sj-logos img.is-stanford { height: 22px; width: auto; }
 @media (max-width: 760px) { .pg-sj-logos img.is-stanford { height: 19px; } }
+/* staff-training stat: Tsinghua + Schwarzman marks */
+.pg-proof-logos2 { display: flex !important; align-items: center; gap: 14px; min-height: 40px; }
+.pg-proof-logos2 img { display: block; width: auto; filter: grayscale(1); opacity: .8; }
+.pg-proof-logos2 img[alt="Tsinghua University"] { height: 28px; }
+.pg-proof-logos2 img[alt="Schwarzman College"] { height: 22px; }
+.pg-proof-logos2 img[alt="Schwarzman College"] { height: 25px; opacity: .9; }

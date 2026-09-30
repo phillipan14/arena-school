@@ -590,3 +590,21 @@ body.home .hp-next .cf-ev:hover .cf-go, body.home .hp-next .cf-ev:focus-within .
 @media (prefers-reduced-motion: reduce) { body.home .hp-next .cf-ev::before, body.home .hp-next .cf-date, body.home .hp-next .cf-go { transition: none; } }
 /* Upcoming: the details link sits on its own line, clear of the description */
 body.home .hp-next .cf-ev p .tlink { display: block; width: max-content; margin-top: 12px; }
+
+/* Contact: what happens next + direct contact, form as a white card */
+body.home .partners-grid { align-items: start; }
+body.home .hc-next { margin-top: 34px; padding-top: 24px; border-top: 1px solid var(--border-paper); max-width: 520px; }
+body.home .hc-k { margin: 0 0 14px; font: 500 10.5px/1 var(--font-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--coral-deep); }
+body.home .hc-steps { list-style: none; margin: 0; padding: 0; }
+body.home .hc-steps li { display: grid; grid-template-columns: 40px 1fr; gap: 12px; padding: 14px 0; border-bottom: 1px solid rgba(11,26,74,.08); }
+body.home .hc-steps li:last-child { border-bottom: 0; }
+body.home .hc-n { font: 400 22px/1 var(--font-display); color: var(--ink-2, #2F55A8); }
+body.home .hc-steps b { display: block; font-weight: 500; font-size: 16px; color: var(--ink); }
+body.home .hc-steps span:not(.hc-n) { display: block; margin-top: 3px; font-size: 14.5px; color: var(--text-ink-soft); }
+body.home .hc-direct { display: flex; flex-wrap: wrap; gap: 10px 26px; margin-top: 22px; }
+body.home .hc-direct a { display: inline-flex; align-items: center; gap: 9px; font-weight: 500; color: var(--ink-2, #2F55A8); text-decoration: none; }
+body.home .hc-direct a:hover { text-decoration: underline; text-underline-offset: 3px; }
+body.home .partners .partners-fine { margin-top: 14px; }
+body.home .partners .cohort-form { background: #fff; border: 1px solid var(--border-paper); border-radius: 20px; box-shadow: 0 30px 60px -40px rgba(11,26,74,.35); padding: clamp(26px, 3vw, 40px); }
+body.home .partners .cohort-form input, body.home .partners .cohort-form select, body.home .partners .cohort-form textarea { background-color: #FCF8F3; }
+body.home .partners .cohort-form input:focus, body.home .partners .cohort-form select:focus, body.home .partners .cohort-form textarea:focus { background-color: #fff; border-color: var(--ink-2, #2F55A8); box-shadow: 0 0 0 3px rgba(47,85,168,.12); outline: none; }

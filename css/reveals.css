@@ -74,3 +74,22 @@
 @media (hover: hover) and (pointer: fine) { .has-wr > li:hover > .wr, .has-wr > li:focus-within > .wr { padding-top: 16px; } }
 .has-wr > li.wr-open > .wr { padding-top: 16px; }
 .wr-idx li::before, .wr-idx li + li::before { content: "" !important; flex: none; width: 5px; height: 5px; margin: 0 10px 0 0 !important; border-radius: 50%; background: var(--coral, #E59375); }
+/* index v4: one line, items sized to their text; cards (bootcamp) keep a two-column grid */
+.wr-idx { display: flex !important; flex-wrap: wrap; gap: 8px 26px !important; white-space: nowrap; }
+.wr-idx li { flex: none; }
+.pg-outs .wr-idx { display: grid !important; grid-template-columns: 1fr 1fr; gap: 8px 16px !important; white-space: normal; }
+@media (max-width: 600px) { .wr-idx { flex-wrap: wrap; row-gap: 8px !important; white-space: normal; } }
+/* logos reveal */
+.wr-logos { display: flex; align-items: center; gap: 22px; }
+.wr-logos img { height: 28px; width: auto; filter: grayscale(1); opacity: .8; }
+.wr-logos img[src*="schwarzman"] { height: 22px; }
+/* Sample workshops (conferences): title always visible, idea opens on hover */
+.cf-ideas > li { cursor: default; }
+.cf-ideas > li b { transition: color .25s; }
+.cf-ideas > li > .wr { padding-top: 0 !important; }
+@media (hover: hover) and (pointer: fine) { .cf-ideas > li:hover > .wr { padding-top: 6px !important; } .cf-ideas > li:hover b { color: var(--ink-2, #2F55A8); } }
+.cf-ideas > li.wr-open > .wr { padding-top: 6px !important; }
+.cf-ideas > li b::after { content: "+"; margin-left: 8px; font-weight: 400; color: var(--coral-deep); transition: transform .3s; display: inline-block; }
+.cf-ideas > li:hover b::after, .cf-ideas > li.wr-open b::after { transform: rotate(45deg); }
+.cf-ideas > li b { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.cf-ideas > li b::after { flex: none; margin-left: 0; }

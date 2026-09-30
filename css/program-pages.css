@@ -1879,3 +1879,29 @@ html[lang="zh-CN"] .pc .pc-why-grid .h2 { max-width: 13em; font-size: clamp(28px
   .pc .pc-stat-logos img[alt="Y Combinator"] { height: 22px; }
 }
 
+/* judges row v3: optical balance (Harvard's small caps need more height than Stanford's heavy wordmark) */
+.pc .pc-stat-logos b { align-items: center; gap: 22px; }
+.pc .pc-stat-logos img[alt="Harvard"] { height: 32px; }
+.pc .pc-stat-logos img[alt="Stanford"] { height: 17px; }
+.pc .pc-stat-logos img[alt="Y Combinator"] { height: 24px; }
+@media (max-width: 900px) { .pc .pc-stat-logos img[alt="Harvard"] { height: 28px; } .pc .pc-stat-logos img[alt="Stanford"] { height: 15px; } .pc .pc-stat-logos img[alt="Y Combinator"] { height: 22px; } }
+
+/* Hero facts: one row on desktop; items share the width and never wrap onto a second line */
+@media (min-width: 1001px) {
+  .pc .pc-facts { flex-wrap: nowrap; }
+  .pc .pc-facts li { flex: 1 1 auto; min-width: 0; padding-right: 18px; margin-right: 18px; }
+  .pc .pc-facts span { white-space: nowrap; }
+}
+/* Staff-training stat: Tsinghua + Schwarzman marks in place of a number */
+.pc .pc-b-logos { display: flex; align-items: center; gap: 16px; }
+.pc .pc-b-logos img { display: block; width: auto; filter: grayscale(1); opacity: .8; }
+.pc .pc-b-logos img[alt="Tsinghua University"] { height: 30px; }
+.pc .pc-b-logos img[alt="Schwarzman College"] { height: 24px; }
+@media (max-width: 900px) { .pc .pc-b-logos img[alt="Tsinghua University"] { height: 26px; } .pc .pc-b-logos img[alt="Schwarzman College"] { height: 21px; } }
+.pc .pc-proof-logos { display: flex; justify-content: center; align-items: center; gap: 28px; margin: 26px 0 0; }
+.pc .pc-proof-logos img { width: auto; filter: grayscale(1); opacity: .8; }
+.pc .pc-proof-logos img[alt="Tsinghua University"] { height: 40px; }
+.pc .pc-proof-logos img[alt="Schwarzman College"] { height: 32px; }
+.pc .pc-proof-logos + .pc-proof-line { text-align: center; margin: 18px auto 0; }
+.pc .pc-b-logos img[alt="Schwarzman College"] { height: 27px; opacity: .9; }
+.pc .pc-proof-logos img[alt="Schwarzman College"] { height: 36px; opacity: .9; }
