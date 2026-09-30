@@ -70,3 +70,7 @@ body.home .gmap.has-focus .gm-lane.is-focus[data-prog="bootcamp"] .gm-bar { box-
   body.home .gmap.has-focus .gm-lane:not(.is-focus) .gm-bar { height: 5px; }
 }
 @media (prefers-reduced-motion: reduce) { body.home .gm-lane, body.home .gm-bar { transition: none; } }
+
+/* spotlight v2: focused lanes move to the top row; the rest drop their text */
+body.home .gmap.has-focus .gm-lane.is-focus { order: -1; }
+body.home .gmap.has-focus .gm-lane:not(.is-focus) .gm-lab { opacity: 0 !important; }

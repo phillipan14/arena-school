@@ -1668,8 +1668,8 @@ main.pc > section.pc-sample .pc-intro .pc-tag { vertical-align: 1px; }
 .pc .pc-why-src { margin: 18px 0 0; padding-top: 14px; border-top: 1px solid var(--pc-line); font-size: 13.5px; line-height: 1.5; color: var(--text-ink-muted); max-width: 58ch; }
 .pc .pc-why-src a { color: var(--ink-2, #2F55A8); text-decoration: underline; text-underline-offset: 3px; }
 .pc .pc-why-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--pc-line); counter-reset: why; }
-.pc .pc-why-list li { counter-increment: why; display: grid; grid-template-columns: 34px minmax(0, 1fr); column-gap: 10px; padding: 18px 0 19px; border-bottom: 1px solid var(--pc-line); }
-.pc .pc-why-list li::before { content: counter(why, decimal-leading-zero); grid-row: 1 / span 2; font: 500 11px/1.9 var(--font-mono); letter-spacing: .08em; color: var(--coral-deep); }
+.pc .pc-why-list > li { counter-increment: why; display: grid; grid-template-columns: 34px minmax(0, 1fr); column-gap: 10px; padding: 18px 0 19px; border-bottom: 1px solid var(--pc-line); }
+.pc .pc-why-list > li::before { content: counter(why, decimal-leading-zero); grid-row: 1 / span 2; font: 500 11px/1.9 var(--font-mono); letter-spacing: .08em; color: var(--coral-deep); }
 .pc .pc-why-list h3 { margin: 0 0 4px; font: 500 20px/1.25 var(--font-display); color: var(--ink); }
 .pc .pc-why-list p { margin: 0; font-size: 15.5px; line-height: 1.55; color: var(--text-ink-soft); max-width: 56ch; }
 .pc .pc-why-extra { margin: 16px 0 0 44px; font-size: 14px; line-height: 1.5; color: var(--text-ink-muted); }
@@ -1682,7 +1682,7 @@ main.pc > section.pc-sample .pc-intro .pc-tag { vertical-align: 1px; }
 .pc .pc-proof .pc-proof-line { font-size: 17px; }
 @media (max-width: 900px) { .pc .pc-why-grid { grid-template-columns: 1fr; } }
 @media (max-width: 760px) {
-  .pc .pc-why-list li { grid-template-columns: 28px minmax(0, 1fr); padding: 14px 0 15px; }
+  .pc .pc-why-list > li { grid-template-columns: 28px minmax(0, 1fr); padding: 14px 0 15px; }
   .pc .pc-why-list h3 { font-size: 18px; }
   .pc .pc-why-list p { font-size: 14.5px; }
   .pc .pc-why-extra { margin-left: 38px; font-size: 13.5px; }

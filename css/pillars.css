@@ -70,3 +70,10 @@ html[lang="zh-CN"] body.home .pl-lead { font-family: var(--font-body); font-size
 .pl-box { opacity: 0; transition: opacity .35s ease; }
 .pl-panel.is-open .pl-box { opacity: 1; transition-delay: .05s; }
 @media (prefers-reduced-motion: reduce) { .pl-box { transition: none; } }
+
+/* "What it changes": school / work / career rows instead of numbered practice steps */
+body.home .pl-impact li { grid-template-columns: 112px 1fr !important; align-items: baseline; }
+body.home .pl-impact li::before { content: none !important; }
+body.home .pl-impact .pl-where { font: 500 10px/1.6 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--coral-deep); }
+html[lang="zh-CN"] body.home .pl-impact .pl-where { letter-spacing: .04em; font-size: 12px; }
+@media (max-width: 600px) { body.home .pl-impact li { grid-template-columns: 1fr !important; gap: 4px !important; } }

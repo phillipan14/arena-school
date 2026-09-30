@@ -588,3 +588,5 @@ body.home .hp-next .cf-ev:hover .cf-go, body.home .hp-next .cf-ev:focus-within .
 }
 @media (hover: none) { body.home .hp-next .cf-ev:hover::before { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { body.home .hp-next .cf-ev::before, body.home .hp-next .cf-date, body.home .hp-next .cf-go { transition: none; } }
+/* Upcoming: the details link sits on its own line, clear of the description */
+body.home .hp-next .cf-ev p .tlink { display: block; width: max-content; margin-top: 12px; }

@@ -15,17 +15,37 @@
 
   const lanes = [...map.querySelectorAll('.gm-lane')];
   let clearTimer;
+  // FLIP: remember where each lane is, change state (focused lanes jump to the top via CSS order),
+  // then animate every lane from its old position to its new one.
+  const flip = (change) => {
+    const before = new Map(lanes.map((l) => [l, l.getBoundingClientRect().top]));
+    change();
+    if (reduce) return;
+    lanes.forEach((l) => {
+      const dy = before.get(l) - l.getBoundingClientRect().top;
+      if (Math.abs(dy) > 1) l.animate([{ transform: `translateY(${dy}px)` }, { transform: 'none' }], { duration: 520, easing: 'cubic-bezier(.2,.7,.2,1)' });
+    });
+  };
+  const key = (progs) => progs.join(',');
+  let current = '';
   const spotlight = (progs) => {
     clearTimeout(clearTimer);
-    map.classList.add('has-focus');
-    lanes.forEach((l) => l.classList.toggle('is-focus', progs.includes(l.dataset.prog)));
+    if (current === key(progs)) return;
+    current = key(progs);
+    flip(() => {
+      map.classList.add('has-focus');
+      lanes.forEach((l) => l.classList.toggle('is-focus', progs.includes(l.dataset.prog)));
+    });
   };
   // Small delay on clear so moving between a card and its links doesn't flicker.
   const clear = () => {
     clearTimeout(clearTimer);
     clearTimer = setTimeout(() => {
-      map.classList.remove('has-focus');
-      lanes.forEach((l) => l.classList.remove('is-focus'));
+      current = '';
+      flip(() => {
+        map.classList.remove('has-focus');
+        lanes.forEach((l) => l.classList.remove('is-focus'));
+      });
     }, 90);
   };
   const bind = (el, progs, onLeave) => {

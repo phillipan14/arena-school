@@ -143,3 +143,13 @@ html[lang="zh-CN"] .hp-cf-quote p { font-style: normal; font-family: var(--font-
   .hp-cf-lg img[src*="mckinsey"] { height: 11px !important; max-width: 84px !important; }
   .hp-cf-lg img[src*="deloitte"] { max-width: 70px !important; }
 }
+
+/* standard logo heights: emblems/stacked marks at one height, flat wordmarks at one cap height */
+.hp-cf-lg img[src*="brown"], .hp-cf-lg img[src*="harvard"], .hp-cf-lg img[src*="tsinghua"], .hp-cf-lg img[src*="goldman"] { height: 28px !important; }
+.hp-cf-lg img[src*="apple"] { height: 25px !important; }
+.hp-cf-lg img[src*="yc"] { height: 24px !important; }
+.hp-cf-lg img[src*="microsoft"] { height: 21px !important; }
+.hp-cf-lg img[src*="caltech"] { height: 15px !important; }
+.hp-cf-lg img[src*="deloitte"] { height: 14px !important; }
+.hp-cf-lg img[src*="kimi"] { height: 15px !important; }
+.hp-cf-lg img[src*="mckinsey"] { height: 13px !important; }
