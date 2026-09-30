@@ -565,3 +565,7 @@ html[lang="zh-CN"] .hero .cs-h1 { max-width: 12em; }
 .footer-contact a:hover, .footer-contact a:focus-visible { opacity: 1; text-decoration: underline; text-underline-offset: 3px; }
 .footer-contact svg { flex: none; }
 @media (max-width: 600px) { .footer-bottom { flex-direction: column; align-items: flex-start; } }
+
+/* Chinese headings: keep-all only breaks at punctuation, which forces mid-phrase splits on phones
+   ("产/品，"). Break normally with strict CJK line rules and balance the line lengths instead. */
+html[lang="zh-CN"] :is(h1, h2, .h2, .cs-h1, .display, .hero-riso-h1) { word-break: normal !important; overflow-wrap: normal !important; line-break: strict; text-wrap: balance; }
