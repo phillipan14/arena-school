@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[39756,["/case-study-examples/_next/static/chunks/ff1a16fafef87110.js","/case-study-examples/_next/static/chunks/d2be314c3ece3fbe.js"],"default"]
+3:I[37457,["/case-study-examples/_next/static/chunks/ff1a16fafef87110.js","/case-study-examples/_next/static/chunks/d2be314c3ece3fbe.js"],"default"]
+4:I[22016,["/case-study-examples/_next/static/chunks/7c92e96509cd355e.js"],""]
+:HL["/case-study-examples/_next/static/chunks/f5a16492c6ec877b.css","style"]
+0:{"buildId":"weFj35SrMT_1qAHlYPSjv","rsc":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/case-study-examples/_next/static/chunks/f5a16492c6ec877b.css","precedence":"next"}]],["$","html",null,{"lang":"en","className":"manrope_b322e695-module__mKPiKa__variable jetbrains_mono_964e2806-module__h6Ln4a__variable","children":["$","body",null,{"className":"antialiased","children":["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}],"notFound":[["$","main",null,{"style":{"minHeight":"100vh","display":"grid","placeItems":"center","fontFamily":"var(--font-mono)","fontSize":13},"children":["$","p",null,{"children":["404 · nothing here. ",["$","$L4",null,{"href":"/","children":"back to the map"}]]}]}],[]]}]}]}]]}],"loading":null,"isPartial":false}
