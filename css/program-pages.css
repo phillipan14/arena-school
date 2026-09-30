@@ -1865,3 +1865,16 @@ html[lang="zh-CN"] .pc .pc-why-grid .h2 { max-width: 13em; font-size: clamp(28px
 /* ghost button on the dark next-step band (was navy on navy) */
 .pp-final .pp-final-top .btn-ghost { color: var(--paper-hi, #FCF3ED); border-color: rgba(252,243,237,.42); background: transparent; }
 .pp-final .pp-final-top .btn-ghost:hover { border-color: rgba(252,243,237,.8); background: rgba(252,243,237,.08); }
+/* judges column: three marks at equal visual weight, level with the big numbers */
+.pc .pc-stat-logos b { gap: 20px; flex-wrap: nowrap; min-height: 44px; }
+.pc .pc-stat-logos img { opacity: .78; }
+.pc .pc-stat-logos img[alt="Harvard"] { height: 27px; }
+.pc .pc-stat-logos img[alt="Stanford"] { height: 19px; }
+.pc .pc-stat-logos img[alt="Y Combinator"] { height: 24px; border-radius: 3px; }
+.pc .pc-stat-logos span { max-width: 26ch; }
+@media (max-width: 900px) {
+  .pc .pc-stat-logos b { gap: 16px; }
+  .pc .pc-stat-logos img[alt="Harvard"] { height: 24px; }
+  .pc .pc-stat-logos img[alt="Stanford"] { height: 17px; }
+  .pc .pc-stat-logos img[alt="Y Combinator"] { height: 22px; }
+}
