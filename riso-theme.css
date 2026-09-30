@@ -557,3 +557,11 @@ html[lang="zh-CN"] .hero .cs-h1 { max-width: 12em; }
 .nav-links .nav-dd-menu a[aria-current="page"] { background: #F3EDE4 !important; }
 .nav-links .nav-dd-menu a[aria-current="page"] b { color: var(--ink-2, #2F55A8); }
 .nav-links .nav-dd-menu a:focus:not(:focus-visible) { background: none; }
+
+/* Footer contact: email + LinkedIn beside the copyright line */
+.footer-bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; }
+.footer-contact { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; }
+.footer-contact a { display: inline-flex; align-items: center; gap: 8px; color: inherit; text-decoration: none; opacity: .85; transition: opacity .2s; }
+.footer-contact a:hover, .footer-contact a:focus-visible { opacity: 1; text-decoration: underline; text-underline-offset: 3px; }
+.footer-contact svg { flex: none; }
+@media (max-width: 600px) { .footer-bottom { flex-direction: column; align-items: flex-start; } }

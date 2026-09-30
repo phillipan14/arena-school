@@ -1,0 +1,7 @@
+/* Year-Long Project Mentorship: page-specific spacing on top of css/program-pages.css.
+   Do not fork program-pages.css classes here; only add what this page alone needs. */
+
+.pc .pc-notes-wrap { margin-top: clamp(40px, 4.5vw, 56px); padding-top: clamp(28px, 3vw, 36px); border-top: 1px solid var(--pc-line); }
+.pc .pc-notes-wrap .pc-notes { margin-top: 14px; }
+.pc .pc-team-note { margin-top: 14px; max-width: 66ch; }
+.pc .pc-team .fs-head { margin-bottom: 0; }

@@ -123,7 +123,9 @@ AI **aids** people. It never does the work *for* them. People stay the authors a
 
 
 ## 9. Proof and program names (Oct 2026)
-- Never use "6 of 6" or "100% launched" as proof. Use: 9.5/10 NPS (Hong Kong), US$1,980 seed money (HK pitch winners), ¥8,888 prize (Beijing), judges from Harvard, Y Combinator and AI labs, Tsinghua Schwarzman College staff training.
+- Never use "6 of 6" or "100% launched" as proof. Use: 9.5/10 NPS (Hong Kong, 20 students), a ten-year-old launched a sign-language-to-speech app in five days (Hong Kong), judges from Harvard, Y Combinator and AI labs, Tsinghua Schwarzman College staff training.
+- No prize or seed-money amounts anywhere (founder, Oct 2026): do not mention US$1,980, ¥8,888, 种子资金/种子基金, or 奖金.
+- Framing (founder, Oct 2026): never call Arena "AI programs", "AI courses", or an "AI camp". Arena runs programs that help people thrive in the age of AI. The audience is the whole school community: students, families, educators, and schools.
 - Results are selected examples, not a complete list.
 - No tuition or fee amounts on marketing pages.
 - Program names: App Design Workshop, College Portfolio Workshop, Entrepreneurship & AI Intensive, Year-Long Project Mentorship, AI Advantage Bootcamp, AI for Educators, Community dialogues (parent education series).

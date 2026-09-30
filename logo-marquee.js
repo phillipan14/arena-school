@@ -2,7 +2,7 @@
    Items are cloned (aria-hidden) until one set is wider than the row, then doubled for a seamless loop. */
 (() => {
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const rows = [...document.querySelectorAll('body.home .hp-cred-row')];
+  const rows = [...document.querySelectorAll('.hp-cred-row')];
   rows.forEach((row, i) => {
     const ul = row.querySelector('ul');
     if (!ul || ul.dataset.marq) return;
