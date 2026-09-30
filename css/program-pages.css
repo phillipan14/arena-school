@@ -1862,3 +1862,6 @@ html[lang="zh-CN"] .pc .pc-why-grid .h2 { max-width: 13em; font-size: clamp(28px
   .pc .pc-proof .pc-stats-3 li + li { padding-left: 0; border-left: 0; border-top: 1px solid var(--pc-line); }
   .pc .pc-proof .pc-stats b { min-height: 0; }
 }
+/* ghost button on the dark next-step band (was navy on navy) */
+.pp-final .pp-final-top .btn-ghost { color: var(--paper-hi, #FCF3ED); border-color: rgba(252,243,237,.42); background: transparent; }
+.pp-final .pp-final-top .btn-ghost:hover { border-color: rgba(252,243,237,.8); background: rgba(252,243,237,.08); }
