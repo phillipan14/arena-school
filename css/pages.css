@@ -459,3 +459,7 @@ a.pg-prog:hover .pg-go span, .pg-adult:hover .pg-go span { transform: translateX
 }
 @media (max-width: 900px) { .pg-contact-aside .pg-next { order: -1; } .pg-contact-aside .pg-contact-photo { aspect-ratio: 16 / 9; } }
 @media (min-width: 901px) { .pg-outs-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+/* Stanford wordmark sits optically level with the Harvard crest and YC mark */
+.pg-proof-logos img.is-stanford, .pg-judges img.is-stanford { height: 17px; width: auto; }
+.pg-sj-logos img.is-stanford { height: 22px; width: auto; }
+@media (max-width: 760px) { .pg-sj-logos img.is-stanford { height: 19px; } }

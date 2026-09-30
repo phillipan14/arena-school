@@ -1853,3 +1853,12 @@ html[lang="zh-CN"] .pc .pc-why-grid .h2 { max-width: 13em; font-size: clamp(28px
   .pc .pc-stat-logos img[alt="Harvard"] { height: 28px; }
   .pc .pc-stat-logos img[alt="Y Combinator"] { height: 26px; }
 }
+.pc .pc-stat-logos img[alt="Stanford"] { height: 21px; }
+@media (max-width: 900px) { .pc .pc-stat-logos img[alt="Stanford"] { height: 18px; } }
+.pc .pc-stat-logos b { flex-wrap: wrap; row-gap: 10px; gap: 10px 14px; }
+.pc .pc-stat-logos em { white-space: nowrap; }
+@media (max-width: 900px) {
+  .pc .pc-proof .pc-stats-3 { grid-template-columns: 1fr; }
+  .pc .pc-proof .pc-stats-3 li + li { padding-left: 0; border-left: 0; border-top: 1px solid var(--pc-line); }
+  .pc .pc-proof .pc-stats b { min-height: 0; }
+}
