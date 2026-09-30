@@ -37,7 +37,6 @@ body.home .gmap.is-in .gm-bar { transform: none; }
 body.home .gmap.is-in .gm-lab { opacity: 1; transform: none; }
 body.home .gm-lane:hover .gm-bar, body.home .gm-lane.on .gm-bar, body.home .gm-lane:focus-visible .gm-bar { filter: brightness(1.18); box-shadow: 0 16px 30px -16px rgba(11,26,74,.75); }
 body.home .gm-lane:hover .gm-lab em, body.home .gm-lane.on .gm-lab em { opacity: 1; transform: none; }
-body.home .gm-lanes:hover .gm-lane:not(:hover):not(.on) .gm-bar { filter: opacity(.72); }
 body.home .gm-partner { margin-top: 26px; }
 
 @media (max-width: 760px) {
@@ -54,3 +53,20 @@ body.home .gm-partner { margin-top: 26px; }
 @media (prefers-reduced-motion: reduce) {
   body.home .gm-bar, body.home .gm-lab { transition: none; transform: none; opacity: 1; }
 }
+
+/* Spotlight: the focused lanes stay full; the rest fade to grey and slim down (grade-map.js) */
+body.home .gm-lane { transition: min-height .45s cubic-bezier(.2,.7,.2,1); }
+body.home .gm-bar { transition: transform 1.1s cubic-bezier(.2,.75,.15,1) calc(var(--i) * .11s), height .45s cubic-bezier(.2,.7,.2,1), background .35s, box-shadow .35s, filter .3s; }
+body.home .gmap.is-in .gm-lab { transition: opacity .35s, transform .6s ease, color .35s; }
+body.home .gmap.has-focus .gm-lane:not(.is-focus) { min-height: 32px; }
+body.home .gmap.has-focus .gm-lane:not(.is-focus) .gm-bar { height: 16px; background: #D6CDC1; box-shadow: none; filter: none; }
+body.home .gmap.has-focus .gm-lane:not(.is-focus) .gm-lab { color: var(--text-ink-muted); opacity: .75; }
+body.home .gmap.has-focus .gm-lane:not(.is-focus) .gm-lab small { opacity: .8; }
+body.home .gmap.has-focus .gm-lane.is-focus .gm-bar { filter: brightness(1.12); box-shadow: 0 18px 34px -16px rgba(11,26,74,.7); }
+body.home .gmap.has-focus .gm-lane.is-focus .gm-lab em { opacity: 1; transform: none; }
+body.home .gmap.has-focus .gm-lane.is-focus[data-prog="bootcamp"] .gm-bar { box-shadow: 0 18px 34px -16px rgba(196,103,74,.7); }
+@media (max-width: 760px) {
+  body.home .gmap.has-focus .gm-lane:not(.is-focus) { min-height: 0; }
+  body.home .gmap.has-focus .gm-lane:not(.is-focus) .gm-bar { height: 5px; }
+}
+@media (prefers-reduced-motion: reduce) { body.home .gm-lane, body.home .gm-bar { transition: none; } }
