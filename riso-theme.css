@@ -569,3 +569,12 @@ html[lang="zh-CN"] .hero .cs-h1 { max-width: 12em; }
 /* Chinese headings: keep-all only breaks at punctuation, which forces mid-phrase splits on phones
    ("产/品，"). Break normally with strict CJK line rules and balance the line lengths instead. */
 html[lang="zh-CN"] :is(h1, h2, .h2, .cs-h1, .display, .hero-riso-h1) { word-break: normal !important; overflow-wrap: normal !important; line-break: strict; text-wrap: balance; }
+
+/* No typewriter type (founder, Oct 2026): every label that used the mono stack now uses the body
+   sans as refined small caps. Tabular figures keep numbers (dates, times, counts) aligned. */
+:root { --font-mono: var(--font-body, 'Geist', 'Inter', system-ui, -apple-system, sans-serif); }
+/* Exception: the navy eyebrow badges keep the typewriter face. Plain (unboxed) eyebrows do not. */
+:root { --font-typewriter: 'Geist Mono', 'JetBrains Mono', ui-monospace, monospace; }
+.eyebrow { font-family: var(--font-typewriter); }
+#programs .prog-card .eyebrow { font-family: var(--font-body); }
+code, kbd, samp, pre { font-family: var(--font-body, 'Geist', system-ui, sans-serif); }
