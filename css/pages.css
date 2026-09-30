@@ -478,6 +478,6 @@ a.pg-prog:hover .pg-go span, .pg-adult:hover .pg-go span { transform: translateX
 }
 @media (max-width: 600px) {
   .pg-outs.pg-outs-3 { grid-auto-flow: row !important; grid-template-columns: 1fr !important; grid-auto-columns: auto !important; overflow: visible !important; }
-  .pp-hero-cta { display: grid !important; grid-template-columns: 1fr 1fr; gap: 10px; }
-  .pp-hero-cta .btn { justify-content: center; padding-inline: 12px; white-space: nowrap; }
+  .pp-hero-cta { display: flex !important; flex-wrap: wrap; gap: 10px; }
+  .pp-hero-cta .btn { flex: 1 1 auto; justify-content: center; padding-inline: 16px; white-space: nowrap; }
 }

@@ -1,32 +1,123 @@
-/* Sample portfolio: callout <-> mock hover highlighting, a cinematic one-time
-   entrance when the section first scrolls into view, the depth chart drawing
-   itself in, and a short auto-tour of the tabs that stops on any interaction.
+/* Sample portfolio: an accordion of callouts (one open at a time, first open by
+   default) that drives the mock's region highlight/pins; a JS-reinforced sticky
+   so the column tracks the mock as the page scrolls; a cinematic one-time
+   entrance; the depth chart drawing itself in; and a short auto-tour of the
+   tabs that stops on any interaction.
    Reduced-motion safe throughout: entrance/tour/draw-in are skipped entirely
-   and content is shown at full opacity immediately. */
+   and content is shown at full opacity immediately. Accordion open/close and
+   sticky tracking are positional, not decorative, so they still run either way. */
 (function () {
   var REDUCE = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   document.querySelectorAll('.sf-wrap').forEach(function (wrap) {
-    initHighlights(wrap);
+    initAccordion(wrap);
+    initSticky(wrap);
     initEntrance(wrap);
   });
 
-  /* Callouts <-> mock hover/focus highlight */
-  function initHighlights(wrap) {
-    var notes = [].slice.call(wrap.querySelectorAll('.sf-note'));
-    if (!notes.length) return;
+  /* Callouts: exactly one open at a time (first open by default, set in markup).
+     Opening a callout (click, Enter/Space, or a brief hover pause) sets the
+     mock's region highlight/pins to match. */
+  function initAccordion(wrap) {
+    var items = [].slice.call(wrap.querySelectorAll('.sf-note'));
+    if (!items.length) return;
     function targets(key) { return [].slice.call(wrap.querySelectorAll('[data-hl="' + key + '"]')); }
     function setGroup(key, on) { targets(key).forEach(function (el) { el.classList.toggle('is-hl', on); }); }
-    notes.forEach(function (li) {
-      var key = li.getAttribute('data-hl');
-      if (!key) return;
-      function on() { setGroup(key, true); li.classList.add('is-active'); }
-      function off() { setGroup(key, false); li.classList.remove('is-active'); }
-      li.addEventListener('mouseenter', on);
-      li.addEventListener('mouseleave', off);
-      li.addEventListener('focus', on);
-      li.addEventListener('blur', off);
+
+    // Opening/closing an item changes the column's height, which can shift a
+    // lower row under a mouse that never actually moved. Browsers still fire
+    // a genuine mouseenter for that, so hover-intent is suppressed briefly
+    // after any open() (click, focus, or a completed hover) to avoid the
+    // column silently stealing focus to whatever row drifted under the cursor.
+    var suppressUntil = 0;
+    function open(li) {
+      suppressUntil = Date.now() + 420;
+      items.forEach(function (other) {
+        var h = other.querySelector('.sf-note-h');
+        var panel = other.querySelector('.sf-note-panel');
+        var isThis = other === li;
+        if (h) h.setAttribute('aria-expanded', String(isThis));
+        if (panel) panel.classList.toggle('is-open', isThis);
+        setGroup(other.getAttribute('data-hl'), isThis && !!other.getAttribute('data-hl'));
+      });
+    }
+
+    items.forEach(function (li) {
+      var h = li.querySelector('.sf-note-h');
+      if (!h) return;
+      var hoverTimer = null;
+      h.addEventListener('click', function () { open(li); });
+      h.addEventListener('focus', function () { open(li); });
+      h.addEventListener('mouseenter', function () {
+        hoverTimer = setTimeout(function () {
+          if (Date.now() < suppressUntil) return;
+          open(li);
+        }, 180);
+      });
+      h.addEventListener('mouseleave', function () {
+        if (hoverTimer) { clearTimeout(hoverTimer); hoverTimer = null; }
+      });
     });
+
+    // Sync the mock highlight to whichever item is already open in the markup
+    // (the first one, by default), so the region is lit from the very start.
+    var already = items.filter(function (li) {
+      var h = li.querySelector('.sf-note-h');
+      return h && h.getAttribute('aria-expanded') === 'true';
+    })[0] || items[0];
+    open(already);
+  }
+
+  /* Reinforces position:sticky with a manual fixed/absolute fallback, because
+     body/html carry `overflow-x: hidden` site-wide, which makes some engines
+     compute the wrong containing block for native sticky. Desktop only
+     (matches the CSS breakpoint where the column goes static on mobile). */
+  function initSticky(wrap) {
+    var mock = wrap.querySelector('.sf-mock');
+    var notes = wrap.querySelector('.sf-notes');
+    if (!mock || !notes) return;
+    var mq = window.matchMedia('(min-width: 981px)');
+    var TOP = 96;
+    var mode = 'static'; // 'static' | 'fixed' | 'bottom'
+    var naturalLeft = 0, naturalWidth = 0, wrapLeft = 0;
+
+    function clear() { notes.style.position = ''; notes.style.top = ''; notes.style.left = ''; notes.style.width = ''; }
+    function measure() {
+      var wasSet = mode !== 'static';
+      if (wasSet) clear();
+      var r = notes.getBoundingClientRect();
+      var wr = wrap.getBoundingClientRect();
+      naturalWidth = r.width; naturalLeft = r.left; wrapLeft = wr.left;
+    }
+    function update() {
+      if (!mq.matches) { if (mode !== 'static') { clear(); mode = 'static'; } return; }
+      var mockBox = mock.getBoundingClientRect();
+      if (mode === 'static') measure();
+      var notesH = notes.offsetHeight;
+      if (mockBox.top > TOP) {
+        if (mode !== 'static') { clear(); mode = 'static'; }
+        return;
+      }
+      var room = mockBox.bottom - TOP;
+      if (room <= notesH) {
+        notes.style.position = 'absolute';
+        notes.style.top = (mock.offsetTop + mock.offsetHeight - notesH) + 'px';
+        notes.style.left = (naturalLeft - wrapLeft) + 'px';
+        notes.style.width = naturalWidth + 'px';
+        mode = 'bottom';
+      } else {
+        notes.style.position = 'fixed';
+        notes.style.top = TOP + 'px';
+        notes.style.left = naturalLeft + 'px';
+        notes.style.width = naturalWidth + 'px';
+        mode = 'fixed';
+      }
+    }
+    var ticking = false;
+    function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(function () { update(); ticking = false; }); } }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', function () { mode = 'static'; clear(); update(); });
+    update();
   }
 
   /* One-time cinematic entrance + chart draw-in + auto-tour, triggered together
