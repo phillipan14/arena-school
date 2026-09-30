@@ -103,3 +103,8 @@ html[lang="zh-CN"] .hp-cf-quote p { font-style: normal; font-family: var(--font-
 .hp-marq:hover ul.is-marq { animation-play-state: paused; }
 @keyframes hpMarq { to { transform: translateX(-50%); } }
 @media (max-width: 700px) { .hp-marq ul.is-marq li { padding: 0 20px; min-height: 36px; } }
+
+/* fade the panel in with the unfurl, and back out as it folds */
+.hp-cf-box { opacity: 0; transition: opacity .35s ease; }
+.hp-cf-panel.is-open .hp-cf-box { opacity: 1; transition-delay: .05s; }
+@media (prefers-reduced-motion: reduce) { .hp-cf-box { transition: none; } }

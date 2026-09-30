@@ -3,8 +3,8 @@
    (optionally wrapped in [data-xp-slot]) and one [data-xp-panel] whose [data-xp-box] holds
    [data-xp-for="<id>"] sections. Hover (with intent delay) or click opens the panel in the flow,
    so the section grows. Wide: panel spans the row under all cards, notch points at the active card.
-   Narrow: panel moves directly under the tapped card. Pointer-leave keeps it open; the active card
-   or Esc closes it. */
+   Narrow/touch: tap toggles, and the panel moves directly under the tapped card.
+   With a mouse, it is hover-only: leaving the cards and panel fades it closed. Esc also closes. */
 (() => {
   const canHover = matchMedia('(hover: hover)');
   document.querySelectorAll('[data-xp]').forEach((group) => {
@@ -57,18 +57,30 @@
       active = null;
     };
 
+    const hoverMode = () => canHover.matches && wide.matches;
     cards.forEach((card) => {
       card.addEventListener('mouseenter', () => {
-        if (!canHover.matches || !wide.matches) return;
+        if (!hoverMode()) return;
         clearTimeout(timer);
-        timer = setTimeout(() => open(card), 220);
+        timer = setTimeout(() => open(card), active ? 90 : 160);
       });
-      card.addEventListener('mouseleave', () => clearTimeout(timer));
       card.addEventListener('click', () => {
         clearTimeout(timer);
+        if (hoverMode()) { open(card); return; } // mouse: hover owns closing
         if (active === card && isOpen()) close();
         else open(card);
       });
+    });
+    // Mouse: stay open while the pointer is anywhere over the cards or panel; fade back on leave.
+    group.addEventListener('mouseenter', () => { if (hoverMode()) clearTimeout(timer); });
+    group.addEventListener('mouseleave', () => {
+      if (!hoverMode()) return;
+      clearTimeout(timer);
+      timer = setTimeout(close, 220);
+    });
+    // Keyboard: close when focus leaves the group.
+    group.addEventListener('focusout', (e) => {
+      if (active && !group.contains(e.relatedTarget) && !group.matches(':hover')) close();
     });
     document.addEventListener('keydown', (e) => {
       if (e.key !== 'Escape' || !active) return;
