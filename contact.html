@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="/styles.css?v=1790704894" />
 <link rel="stylesheet" href="/riso-theme.css?v=1790791000" />
 <link rel="stylesheet" href="/css/program-pages.css?v=1790704894" />
-<link rel="stylesheet" href="/css/pages.css?v=1790790000" />
+<link rel="stylesheet" href="/css/pages.css?v=1791000001" />
 </head>
 <body class="no-ticker zl-page pg pg-contact-page">
 <nav class="nav" id="nav">
@@ -57,24 +57,24 @@
     <div class="hero-copy hero-copy-wide">
       <div class="hero-eyebrow-row reveal"><span class="eyebrow">Contact</span></div>
       <h1 class="display reveal cs-h1">Contact <em>Arena School.</em></h1>
-      <p class="lede sub reveal lede-56">For schools, families, educators, and event organizers. We reply to every message within three working days.</p>
-      <p class="contact-inbox reveal">Or email us directly: <a href="mailto:contact@arenaschool.org">contact@arenaschool.org</a></p>
+      <p class="lede sub reveal lede-56">Choose the route that fits, or write to <a href="mailto:contact@arenaschool.org" class="pg-hero-mail">contact@arenaschool.org</a>.</p>
     </div>
+    <ul class="pg-routes reveal" aria-label="Choose a route"><li><a class="pg-route" href="#write" data-role="school"><small>Schools</small><b>Heads of school and teachers</b><span>Student programs, teacher training, and parent sessions.</span><svg class="pg-route-go" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a class="pg-route" href="#write" data-role="parent"><small>Families</small><b>Parents and students</b><span>Mentorship, and programs at your child’s school.</span><svg class="pg-route-go" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a class="pg-route" href="#write" data-role="organizer"><small>Events and partners</small><b>Organizers and programs</b><span>Talks, workshops, and AI tracks.</span><svg class="pg-route-go" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li></ul>
   </div>
 </section>
 <section class="zl-section pg-contact" data-screen-label="Contact form">
   <div class="container pg-contact-grid">
-    <div class="contact-card pg-form-card reveal"><form class="cohort-form partners-form" id="partnerForm" action="https://formsubmit.co/ajax/contact@arenaschool.org" method="POST" data-fallback-email="contact@arenaschool.org">
+    <div class="contact-card pg-form-card reveal" id="write"><form class="cohort-form partners-form" id="partnerForm" action="https://formsubmit.co/ajax/contact@arenaschool.org" method="POST" data-fallback-email="contact@arenaschool.org">
   <input type="hidden" name="_subject" value="Arena School · new inquiry" />
   <input type="hidden" name="_template" value="box" />
   <input type="hidden" name="_captcha" value="false" />
   <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
-  <div class="big">Tell us about you.</div>
-  <p class="seats">Takes about two minutes.</p>
+  <div class="big">Write to us.</div>
+  <p class="seats">About two minutes.</p>
   <div class="form-row">
-    <label for="pf-role">I'm reaching out as a…</label>
+    <label for="pf-role">I am writing as a</label>
     <select id="pf-role" name="role" required>
-      <option value="" disabled selected>Pick one</option><option value="school">School leader or teacher</option><option value="board">Board member or education consultant</option><option value="parent">Parent</option><option value="educator">Educator / program leader</option><option value="student">Student (12–22)</option><option value="organizer">Conference or event organizer</option><option value="other">Something else</option>
+      <option value="" disabled selected>Pick one</option><option value="school">School leader or teacher</option><option value="parent">Parent</option><option value="organizer">Conference or event organizer</option><option value="educator">Program partner or educator</option><option value="board">Board member or education consultant</option><option value="student">Student (12–22)</option><option value="other">Something else</option>
     </select>
   </div>
   <div class="form-row form-row-split">
@@ -93,11 +93,31 @@
 </form></div>
     <aside class="pg-contact-aside reveal">
       <figure class="pg-contact-photo"><img src="/photos/isb-hq/isb-cohort-800.webp" srcset="/photos/isb-hq/isb-cohort-800.webp 800w, /photos/isb-hq/isb-cohort-1400.webp 1400w" sizes="(max-width: 900px) 100vw, 38vw" alt="The 2026 cohort and mentors at the International School of Beijing" loading="lazy" decoding="async" /><figcaption>Beijing, 2026</figcaption></figure>
-      <ul class="pg-contact-notes"><li><b>Schools</b>Student programs, AI for Educators, and parent sessions on your campus.</li><li><b>Families</b>The Year-Long Project Mentorship and programs at your child’s school.</li><li><b>Events and partners</b>Talks, workshops, and AI tracks for your program.</li></ul>
+      <div class="pg-next"><h2 class="pg-next-h">What happens next</h2><ol><li><small>01</small><div><b>A reply within three working days.</b> By email.</div></li><li><small>02</small><div><b>A short call, if useful.</b> About your school, child, or event.</div></li><li><small>03</small><div><b>Options in writing.</b> Programs, dates, and next steps.</div></li></ol></div>
       <p class="pg-contact-fine">We use your details only to reply, and never share them.</p>
     </aside>
   </div>
 </section>
+<script>
+/* Route cards: choose the matching role in the form, then move to it. */
+(function () {
+  var role = document.getElementById('pf-role'), name = document.getElementById('pf-name');
+  var card = document.getElementById('write'); if (!role || !card) return;
+  var links = document.querySelectorAll('.pg-route[data-role]');
+  function mark(v) { links.forEach(function (a) { a.classList.toggle('is-on', a.getAttribute('data-role') === v); }); }
+  links.forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      role.value = a.getAttribute('data-role'); mark(role.value);
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      card.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      setTimeout(function () { if (name) name.focus({ preventScroll: true }); }, reduce ? 0 : 450);
+    });
+  });
+  role.addEventListener('change', function () { mark(role.value); });
+  window.addEventListener('load', function () { mark(role.value); });
+})();
+</script>
 </main>
 <footer class="footer">
   <div class="container">

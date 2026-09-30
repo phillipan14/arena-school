@@ -72,7 +72,7 @@ A section earns a place only if it passes all four questions:
   - Core idea: "When AI can make almost anything, students need to know what's worth making, whether it's good, and how to finish it."
   - Pillars: **Agency** (choosing what's worth solving), **Taste** (telling which version actually works), **Craft** (finishing it well).
   - Never add "creativity", "courage" or "judgment" as extra headline skills.
-- **The founders:** "the founding team", "our two co-founders", "two leaders" (CN 创始团队、两位联合创始人). Never "builders" (CN 创造者、建造者、动手派、做产品的人), "practitioners who build/ship", "we build with AI every day" or startup/hustle vocabulary about the founders or the company. Arena is a warm partner to schools, parents, families and administrators.
+- **The team:** "our team", "the Arena team", and "co-founders" for Jing Jing Yang and Phillip An (list Jing Jing first). Never imply a two-person company (no "our two co-founders run Arena"). CN 我们的团队、联合创始人. Never "builders" (CN 创造者、建造者、动手派、做产品的人), "practitioners who build/ship", "we build with AI every day" or startup/hustle vocabulary about the founders or the company. Arena is a warm partner to schools, parents, families and administrators.
 - **Students making things:** students may build and make; that is the program. Don't stack several "build" words in one line, don't label students "builders", and use "launch" or "publish" rather than "ship" slang.
 - **Terminology:** "How we work" / 工作方式 · "Community dialogues" / 社区对话 · "Portfolio workshop" · "AI Advantage Bootcamp".
 - **Chinese:** every edit is made to the EN and CN pages together.
@@ -97,7 +97,7 @@ AI **aids** people. It never does the work *for* them. People stay the authors a
 | Founder bios | **About** | Name plus "Read bio →" |
 | Agency / taste / craft (why and how) | **Approach** (full) · **Home** (short) | Pillar names only |
 | The daily structure of a program | Its own program page (one track) | Not repeated |
-| Mentorship facts: six months, October to March · weekly hybrid check-ins (fee is NOT published while pricing is adjusted; only on the unlinked payment page) | **Mentorship** | Not repeated |
+| Mentorship facts: 6 months to a year of personalized 1:1 mentorship, rolling start · weekly hybrid check-ins (fee is NOT published; only on the unlinked payment page) | **Mentorship** | Not repeated |
 | Bootcamp facts: Guangzhou · Dec 27, 2026 to Jan 2, 2027 · with Lux Scholar | **Bootcamp** | Not repeated (Lux Scholar only appears on bootcamp pages) |
 
 ## 7. Claims policy
@@ -120,3 +120,10 @@ AI **aids** people. It never does the work *for* them. People stay the authors a
 4. Add a one-line card to the Programs menu and the homepage program row. Don't write a new section anywhere else.
 5. After the cohort runs, add it to **Results**, not to the program page.
 6. Run `python3 tools/content_lint.py` until it passes.
+
+
+## 9. Proof and program names (Oct 2026)
+- Never use "6 of 6" or "100% launched" as proof. Use: 9.5/10 NPS (Hong Kong), US$1,980 seed money (HK pitch winners), ¥8,888 prize (Beijing), judges from Harvard, Y Combinator and AI labs, Tsinghua Schwarzman College staff training.
+- Results are selected examples, not a complete list.
+- No tuition or fee amounts on marketing pages.
+- Program names: App Design Workshop, College Portfolio Workshop, Entrepreneurship & AI Intensive, Year-Long Project Mentorship, AI Advantage Bootcamp, AI for Educators, Community dialogues (parent education series).
