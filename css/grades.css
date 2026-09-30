@@ -74,3 +74,4 @@ body.home .gmap.has-focus .gm-lane.is-focus[data-prog="bootcamp"] .gm-bar { box-
 /* spotlight v2: focused lanes move to the top row; the rest drop their text */
 body.home .gmap.has-focus .gm-lane.is-focus { order: -1; }
 body.home .gmap.has-focus .gm-lane:not(.is-focus) .gm-lab { opacity: 0 !important; }
+@media (max-width: 760px) { body.home .gm-lane.is-short .gm-lab small { order: 0; } }

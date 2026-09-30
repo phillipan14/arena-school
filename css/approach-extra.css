@@ -1,0 +1,156 @@
+/* ============================================================
+   Arena — approach-extra.css
+   Approach page only (EN + CN). Everything scoped under
+   body.pg-approach so nothing leaks to other pages.
+   1. Pillar cards: "What it changes" rows, aligned card rhythm,
+      hover lift + dim siblings, principles open on hover.
+   2. "A typical day": connected rail-and-node timeline.
+   3. Formats / take-home footer: two labeled rows.
+   4. Proof strip: Tsinghua x Schwarzman staff-training column.
+   Behaviour: approach-extra.js. Reduced-motion safe throughout.
+   ============================================================ */
+
+/* ---------- 1. Pillar cards ---------- */
+/* size each card to its own content (not stretched to the row's tallest sibling), so
+   opening one card's accordion doesn't visually inflate the other two */
+.pg-approach .ap-pcards { align-items: start; }
+.pg-approach .ap-pcard {
+  transition: transform .35s var(--pg-ease, ease), box-shadow .35s ease, border-color .35s ease, opacity .3s ease;
+}
+.pg-approach .ap-pcards:hover .ap-pcard:not(:hover):not(:focus-within) { opacity: .72; }
+.pg-approach .ap-pcard:hover,
+.pg-approach .ap-pcard:focus-within {
+  transform: translateY(-4px);
+  border-color: var(--ink) !important;
+  box-shadow: 0 20px 40px -26px rgba(11,26,74,.4);
+}
+
+.pg-approach .ap-pcard-body { display: flex; flex-direction: column; gap: 10px; }
+
+/* Row alignment across the three cards: everything before "The principles behind it"
+   (title, tag, body, in-practice, what-it-changes) lives in .ap-pcard-align. JS measures
+   the tallest one and sets it as a shared min-height (approach-extra.js), so the three
+   "The principles behind it" toggles start at the same baseline. Because gc-more sits
+   OUTSIDE that measured block, opening one card's accordion never stretches its siblings. */
+.pg-approach .ap-pcard-align { display: flex; flex-direction: column; gap: 10px; }
+.pg-approach .ap-pcard-body .gc-more { margin-top: auto; padding-top: 14px; }
+
+/* What it changes */
+.pg-approach .ap-impact { margin-top: 2px; padding-top: 12px; border-top: 1px dashed rgba(11,26,74,.25); }
+.pg-approach .ap-impact-lab { margin: 0 0 9px; font: 500 10px/1.3 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--text-ink-muted); }
+.pg-approach .ap-impact ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; }
+.pg-approach .ap-impact li { display: grid; grid-template-columns: 86px 1fr; gap: 10px; align-items: baseline; font-size: 13.5px; line-height: 1.5; color: var(--text-ink-soft); }
+.pg-approach .ap-where { font: 500 9.5px/1.5 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--coral-deep, #C96B45); }
+html[lang="zh-CN"] .pg-approach .ap-where { letter-spacing: .02em; font-size: 12px; }
+
+/* Principles: opened by JS on hover intent, native <details> otherwise (click / keyboard / touch untouched) */
+.pg-approach .gc-more[open] ol { overflow: hidden; }
+@media (prefers-reduced-motion: no-preference) {
+  .pg-approach .gc-more[open] ol { animation: apGcIn .38s var(--pg-ease, ease) both; }
+}
+@keyframes apGcIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: none; } }
+
+@media (max-width: 900px) {
+  .pg-approach .ap-impact li { grid-template-columns: 1fr; gap: 3px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pg-approach .ap-pcard { transition: none !important; }
+  .pg-approach .ap-pcard:hover, .pg-approach .ap-pcard:focus-within { transform: none !important; }
+}
+
+/* ---------- 2. "A typical day" timeline ----------
+   Coordinate system: .ap-timeline (the <ol>) is the sole positioned
+   ancestor for the rail and for each item's time/node (they read the
+   item's own --i, 0..6, inherited from an inline style on the <li>,
+   to find their x position). Items themselves stay unpositioned so
+   the math has one, consistent origin. Title/desc sit in normal flow
+   below, cleared by a fixed margin-top. */
+.pg-approach .ap-timeline-wrap { position: relative; margin-top: 6px; }
+.pg-approach .ap-timeline {
+  --ap-rail: 34px;
+  list-style: none; margin: 0; padding: 0; position: relative;
+  display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 0;
+}
+.pg-approach .ap-timeline::before {
+  content: ""; position: absolute; top: var(--ap-rail); height: 2px;
+  left: calc(100% / 14); right: calc(100% / 14); background: var(--pg-line, rgba(11,26,74,.16));
+}
+.pg-approach .ap-timeline::after {
+  content: ""; position: absolute; top: var(--ap-rail); height: 2px; left: calc(100% / 14); width: 0;
+  background: var(--ink-2); transform-origin: left center;
+  transition: width 1.15s var(--pg-ease, cubic-bezier(.2,.7,.2,1)) .12s;
+}
+.pg-approach .ap-timeline-wrap.in .ap-timeline::after { width: calc(100% - (100% / 7)); }
+
+.pg-approach .ap-tl-item { text-align: center; padding: 0 10px; outline: none; cursor: pointer; }
+.pg-approach .ap-tl-time,
+.pg-approach .ap-tl-node {
+  position: absolute; left: calc((100% / 7) * var(--i, 0) + (100% / 14)); transform: translateX(-50%);
+}
+.pg-approach .ap-tl-time {
+  top: calc(var(--ap-rail) - 24px); width: max-content; max-width: calc(100% / 7 - 8px);
+  font: 500 10.5px/1.25 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--text-ink-muted);
+  transition: color .25s ease;
+}
+.pg-approach .ap-tl-node {
+  top: var(--ap-rail); width: 12px; height: 12px; margin-top: -6px;
+  border-radius: 50%; background: var(--pg-card, #FCF3ED); border: 2px solid var(--pg-line-hi, rgba(11,26,74,.42));
+  transition: background-color .25s ease, border-color .25s ease, box-shadow .25s ease; z-index: 1;
+}
+.pg-approach .ap-tl-title { display: block; margin: calc(var(--ap-rail) + 16px) 0 6px; font: 400 18px/1.25 var(--font-display); color: var(--ink); transition: color .25s ease; }
+.pg-approach .ap-tl-desc { margin: 0 auto; font-size: 13.5px; line-height: 1.5; color: var(--text-ink-soft); max-width: 20ch; }
+
+.pg-approach .ap-tl-item:hover .ap-tl-node,
+.pg-approach .ap-tl-item.is-hover .ap-tl-node,
+.pg-approach .ap-tl-item:focus-visible .ap-tl-node {
+  background: var(--ink-2); border-color: var(--ink-2);
+  box-shadow: 0 0 0 4px var(--pg-card, #FCF3ED), 0 0 0 7px rgba(47,85,168,.24);
+}
+.pg-approach .ap-tl-item:hover .ap-tl-title, .pg-approach .ap-tl-item:hover .ap-tl-time,
+.pg-approach .ap-tl-item.is-hover .ap-tl-title, .pg-approach .ap-tl-item.is-hover .ap-tl-time,
+.pg-approach .ap-tl-item:focus-visible .ap-tl-title, .pg-approach .ap-tl-item:focus-visible .ap-tl-time { color: var(--ink-2); }
+.pg-approach .ap-timeline.has-hover .ap-tl-item:not(:hover):not(.is-hover):not(:focus-visible) { opacity: .66; transition: opacity .25s ease; }
+
+@media (max-width: 760px) {
+  .pg-approach .ap-timeline { grid-template-columns: 1fr; padding-top: 4px; gap: 0; }
+  .pg-approach .ap-timeline::before { top: 6px; bottom: 6px; left: 14px; right: auto; width: 2px; height: auto; }
+  .pg-approach .ap-timeline::after { top: 6px; left: 14px; width: 2px; height: 0; }
+  .pg-approach .ap-timeline-wrap.in .ap-timeline::after { width: 2px; height: calc(100% - 12px); }
+  .pg-approach .ap-tl-item {
+    display: grid; grid-template-columns: 28px 1fr; column-gap: 16px;
+    grid-template-areas: "node time" "node title" "node desc";
+    padding: 0 0 26px 0 !important; margin: 0 !important; text-align: left;
+  }
+  .pg-approach .ap-tl-item:last-child { padding-bottom: 0 !important; }
+  .pg-approach .ap-tl-time { grid-area: time; position: static; margin: 2px 0 0; transform: none; width: auto; max-width: none; }
+  .pg-approach .ap-tl-node { grid-area: node; position: static; align-self: start; margin: 6px 0 0; justify-self: center; transform: none; }
+  .pg-approach .ap-tl-title { grid-area: title; margin: 4px 0 5px; }
+  .pg-approach .ap-tl-desc { grid-area: desc; max-width: none; margin: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pg-approach .ap-timeline::after { transition: none; }
+  .pg-approach .ap-timeline-wrap.in .ap-timeline::after { width: calc(100% - (100% / 7)); }
+}
+
+/* ---------- 3. Formats / take-home footer ---------- */
+.pg-approach .ap-foot { margin-top: clamp(26px, 3.2vw, 38px); border-top: 1px solid var(--pg-line-hi, rgba(11,26,74,.2)); }
+.pg-approach .ap-foot-row { display: grid; grid-template-columns: 168px 1fr; gap: 6px 24px; padding: 15px 0; align-items: baseline; }
+.pg-approach .ap-foot-row + .ap-foot-row { border-top: 1px solid var(--pg-line, rgba(11,26,74,.16)); }
+.pg-approach .ap-foot-lab { font: 500 11px/1.4 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); }
+.pg-approach .ap-foot-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 14.5px; color: var(--ink); }
+.pg-approach .ap-foot-list li { position: relative; padding-left: 14px; }
+.pg-approach .ap-foot-list li::before { content: "\00B7"; position: absolute; left: 0; color: var(--text-ink-muted); }
+.pg-approach .ap-foot-text { margin: 0; font-size: 14.5px; line-height: 1.55; color: var(--text-ink-soft); }
+@media (max-width: 700px) {
+  .pg-approach .ap-foot-row { grid-template-columns: 1fr; gap: 5px; padding: 13px 0; }
+}
+
+/* ---------- 4. Proof strip: Tsinghua x Schwarzman staff training ---------- */
+.pg-approach .ap-proof-cred { justify-content: center; }
+.pg-approach .ap-cred-logos { display: flex; align-items: center; gap: 16px; min-height: 32px; }
+.pg-approach .ap-cred-tsinghua { display: block; height: 28px; width: auto; filter: grayscale(1); opacity: .82; }
+.pg-approach .ap-cred-schwarzman { display: block; height: 24px; width: auto; filter: grayscale(1); opacity: .82; }
+@media (max-width: 900px) {
+  .pg-approach .ap-cred-tsinghua { height: 24px; }
+  .pg-approach .ap-cred-schwarzman { height: 21px; }
+}
