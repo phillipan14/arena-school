@@ -564,12 +564,34 @@ body.home .partners-form { padding-bottom: clamp(24px, 3vw, 34px) !important; }
 @media (min-width: 901px) { html[lang="zh-CN"] body.home .hero-riso-copy .lede { word-break: keep-all; } }
 html[lang="zh-CN"] body.home .cf-date b { word-break: keep-all; }
 html[lang="zh-CN"] body.home .hp-next .cf-ev p { max-width: 46em; }
-/* co-founders row under the team logos */
-body.home .hp-cf { display: grid; grid-template-columns: 150px 1fr auto; gap: 24px; align-items: center; margin-top: 26px; padding: 22px 0 0; border-top: 1px solid var(--border-paper); }
+/* co-founders row under the team logos: headshot cards */
+body.home .hp-cf { display: grid; grid-template-columns: 140px 1fr; gap: 20px 24px; align-items: center; margin-top: 26px; }
+body.home .hp-cf-btn { grid-column: 2; justify-self: start; }
 body.home .hp-cf-k { font: 500 10.5px/1 var(--font-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--text-ink-muted); }
-body.home .hp-cf ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-body.home .hp-cf li b { display: block; font: 500 19px/1.2 var(--font-display); color: var(--ink); }
-body.home .hp-cf li span { display: block; margin-top: 2px; font: 500 10px/1.3 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--coral-deep); }
-body.home .hp-cf li em { display: block; margin-top: 6px; font-style: normal; font-size: 13.5px; line-height: 1.45; color: var(--text-ink-soft); }
-@media (max-width: 900px) { body.home .hp-cf { grid-template-columns: 1fr; gap: 16px; } body.home .hp-cf ul { grid-template-columns: 1fr; gap: 14px; } body.home .hp-cf .btn { justify-self: start; } }
-body.home .hp-cf { border-top: 0 !important; padding-top: 4px !important; grid-template-columns: 140px 1fr auto !important; }
+body.home .hp-cf-list { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+body.home .hp-cf-card { display: flex; align-items: center; gap: 16px; padding: 16px 18px; border: 1px solid var(--border-paper); border-radius: 14px; background: #fff; color: inherit; text-decoration: none; transition: border-color .25s, box-shadow .3s, transform .3s var(--e, ease); }
+body.home .hp-cf-card:hover, body.home .hp-cf-card:focus-visible { border-color: rgba(11,26,74,.28); box-shadow: 0 10px 28px -18px rgba(11,26,74,.35); transform: translateY(-2px); }
+body.home .hp-cf-card img { flex: none; width: 72px; height: 72px; border-radius: 50%; object-fit: cover; object-position: 50% 20%; box-shadow: 0 0 0 1px var(--border-paper); }
+body.home .hp-cf-t { display: block; min-width: 0; }
+body.home .hp-cf-t b { display: block; font: 500 19px/1.2 var(--font-display); color: var(--ink); }
+body.home .hp-cf-r { display: block; margin-top: 3px; font: 500 10px/1.3 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--coral-deep); }
+body.home .hp-cf-t em { display: block; margin-top: 6px; font-style: normal; font-size: 13.5px; line-height: 1.45; color: var(--text-ink-soft); }
+@media (prefers-reduced-motion: reduce) { body.home .hp-cf-card { transition: none; } body.home .hp-cf-card:hover { transform: none; } }
+@media (max-width: 900px) { body.home .hp-cf { grid-template-columns: 1fr; gap: 16px; } body.home .hp-cf-btn { grid-column: 1; } }
+@media (max-width: 700px) {
+  body.home .hp-cf-k { text-align: center; }
+  body.home .hp-cf-list { grid-template-columns: 1fr; gap: 12px; }
+  body.home .hp-cf-card { padding: 14px; gap: 14px; }
+  body.home .hp-cf-card img { width: 60px; height: 60px; }
+  body.home .hp-cf-t b { font-size: 18px; }
+  body.home .hp-cf-btn { justify-self: stretch; justify-content: center; }
+  body.home .hp-cred-row img[alt="International School of Beijing"], body.home .hp-cred-row img[alt="北京顺义国际学校"] { max-height: 32px !important; }
+}
+
+body.home .hp-cf-t .nw { white-space: nowrap; }
+@media (min-width: 701px) and (max-width: 900px) {
+  body.home .hp-cred-row { grid-template-columns: 1fr; gap: 16px; }
+  body.home .hp-cred-lab, body.home .hp-cf-k { text-align: center; }
+  body.home .hp-cred-row ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 22px 40px; }
+  body.home .hp-cf-btn { justify-self: center; }
+}
