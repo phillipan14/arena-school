@@ -463,3 +463,21 @@ a.pg-prog:hover .pg-go span, .pg-adult:hover .pg-go span { transform: translateX
 .pg-proof-logos img.is-stanford, .pg-judges img.is-stanford { height: 17px; width: auto; }
 .pg-sj-logos img.is-stanford { height: 22px; width: auto; }
 @media (max-width: 760px) { .pg-sj-logos img.is-stanford { height: 19px; } }
+/* staff-training stat: Tsinghua + Schwarzman marks */
+.pg-proof-logos2 { display: flex !important; align-items: center; gap: 14px; min-height: 40px; }
+.pg-proof-logos2 img { display: block; width: auto; filter: grayscale(1); opacity: .8; }
+.pg-proof-logos2 img[alt="Tsinghua University"] { height: 28px; }
+.pg-proof-logos2 img[alt="Schwarzman College"] { height: 22px; }
+.pg-proof-logos2 img[alt="Schwarzman College"] { height: 25px; opacity: .9; }
+@media (max-width: 760px) {
+  .pg-proof { grid-template-columns: 1fr !important; }
+  .pg-proof > * { grid-column: 1 / -1 !important; border-left: 0 !important; padding-left: 0 !important; }
+  .pg-proof > .pg-proof-stat { padding-block: 16px; border-top: 1px solid var(--pg-line-hi); }
+  .pg-proof-logos2 img[alt="Tsinghua University"] { height: 26px; }
+  .pg-proof-logos2 img[alt="Schwarzman College"] { height: 21px; }
+}
+@media (max-width: 600px) {
+  .pg-outs.pg-outs-3 { grid-auto-flow: row !important; grid-template-columns: 1fr !important; grid-auto-columns: auto !important; overflow: visible !important; }
+  .pp-hero-cta { display: flex !important; flex-wrap: wrap; gap: 10px; }
+  .pp-hero-cta .btn { flex: 1 1 auto; justify-content: center; padding-inline: 16px; white-space: nowrap; }
+}

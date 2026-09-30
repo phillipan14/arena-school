@@ -1668,8 +1668,8 @@ main.pc > section.pc-sample .pc-intro .pc-tag { vertical-align: 1px; }
 .pc .pc-why-src { margin: 18px 0 0; padding-top: 14px; border-top: 1px solid var(--pc-line); font-size: 13.5px; line-height: 1.5; color: var(--text-ink-muted); max-width: 58ch; }
 .pc .pc-why-src a { color: var(--ink-2, #2F55A8); text-decoration: underline; text-underline-offset: 3px; }
 .pc .pc-why-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--pc-line); counter-reset: why; }
-.pc .pc-why-list li { counter-increment: why; display: grid; grid-template-columns: 34px minmax(0, 1fr); column-gap: 10px; padding: 18px 0 19px; border-bottom: 1px solid var(--pc-line); }
-.pc .pc-why-list li::before { content: counter(why, decimal-leading-zero); grid-row: 1 / span 2; font: 500 11px/1.9 var(--font-mono); letter-spacing: .08em; color: var(--coral-deep); }
+.pc .pc-why-list > li { counter-increment: why; display: grid; grid-template-columns: 34px minmax(0, 1fr); column-gap: 10px; padding: 18px 0 19px; border-bottom: 1px solid var(--pc-line); }
+.pc .pc-why-list > li::before { content: counter(why, decimal-leading-zero); grid-row: 1 / span 2; font: 500 11px/1.9 var(--font-mono); letter-spacing: .08em; color: var(--coral-deep); }
 .pc .pc-why-list h3 { margin: 0 0 4px; font: 500 20px/1.25 var(--font-display); color: var(--ink); }
 .pc .pc-why-list p { margin: 0; font-size: 15.5px; line-height: 1.55; color: var(--text-ink-soft); max-width: 56ch; }
 .pc .pc-why-extra { margin: 16px 0 0 44px; font-size: 14px; line-height: 1.5; color: var(--text-ink-muted); }
@@ -1682,7 +1682,7 @@ main.pc > section.pc-sample .pc-intro .pc-tag { vertical-align: 1px; }
 .pc .pc-proof .pc-proof-line { font-size: 17px; }
 @media (max-width: 900px) { .pc .pc-why-grid { grid-template-columns: 1fr; } }
 @media (max-width: 760px) {
-  .pc .pc-why-list li { grid-template-columns: 28px minmax(0, 1fr); padding: 14px 0 15px; }
+  .pc .pc-why-list > li { grid-template-columns: 28px minmax(0, 1fr); padding: 14px 0 15px; }
   .pc .pc-why-list h3 { font-size: 18px; }
   .pc .pc-why-list p { font-size: 14.5px; }
   .pc .pc-why-extra { margin-left: 38px; font-size: 13.5px; }
@@ -1865,3 +1865,47 @@ html[lang="zh-CN"] .pc .pc-why-grid .h2 { max-width: 13em; font-size: clamp(28px
 /* ghost button on the dark next-step band (was navy on navy) */
 .pp-final .pp-final-top .btn-ghost { color: var(--paper-hi, #FCF3ED); border-color: rgba(252,243,237,.42); background: transparent; }
 .pp-final .pp-final-top .btn-ghost:hover { border-color: rgba(252,243,237,.8); background: rgba(252,243,237,.08); }
+/* judges column: three marks at equal visual weight, level with the big numbers */
+.pc .pc-stat-logos b { gap: 20px; flex-wrap: nowrap; min-height: 44px; }
+.pc .pc-stat-logos img { opacity: .78; }
+.pc .pc-stat-logos img[alt="Harvard"] { height: 27px; }
+.pc .pc-stat-logos img[alt="Stanford"] { height: 19px; }
+.pc .pc-stat-logos img[alt="Y Combinator"] { height: 24px; border-radius: 3px; }
+.pc .pc-stat-logos span { max-width: 26ch; }
+@media (max-width: 900px) {
+  .pc .pc-stat-logos b { gap: 16px; }
+  .pc .pc-stat-logos img[alt="Harvard"] { height: 24px; }
+  .pc .pc-stat-logos img[alt="Stanford"] { height: 17px; }
+  .pc .pc-stat-logos img[alt="Y Combinator"] { height: 22px; }
+}
+
+/* judges row v3: optical balance (Harvard's small caps need more height than Stanford's heavy wordmark) */
+.pc .pc-stat-logos b { align-items: center; gap: 22px; }
+.pc .pc-stat-logos img[alt="Harvard"] { height: 32px; }
+.pc .pc-stat-logos img[alt="Stanford"] { height: 17px; }
+.pc .pc-stat-logos img[alt="Y Combinator"] { height: 24px; }
+@media (max-width: 900px) { .pc .pc-stat-logos img[alt="Harvard"] { height: 28px; } .pc .pc-stat-logos img[alt="Stanford"] { height: 15px; } .pc .pc-stat-logos img[alt="Y Combinator"] { height: 22px; } }
+
+/* Hero facts: one row on desktop; items share the width and never wrap onto a second line */
+@media (min-width: 1001px) {
+  .pc .pc-facts { flex-wrap: nowrap; }
+  .pc .pc-facts li { flex: 1 1 auto; min-width: 0; padding-right: 18px; margin-right: 18px; }
+  .pc .pc-facts span { white-space: nowrap; }
+}
+/* Staff-training stat: Tsinghua + Schwarzman marks in place of a number */
+.pc .pc-b-logos { display: flex; align-items: center; gap: 16px; }
+.pc .pc-b-logos img { display: block; width: auto; filter: grayscale(1); opacity: .8; }
+.pc .pc-b-logos img[alt="Tsinghua University"] { height: 30px; }
+.pc .pc-b-logos img[alt="Schwarzman College"] { height: 24px; }
+@media (max-width: 900px) { .pc .pc-b-logos img[alt="Tsinghua University"] { height: 26px; } .pc .pc-b-logos img[alt="Schwarzman College"] { height: 21px; } }
+.pc .pc-proof-logos { display: flex; justify-content: center; align-items: center; gap: 28px; margin: 26px 0 0; }
+.pc .pc-proof-logos img { width: auto; filter: grayscale(1); opacity: .8; }
+.pc .pc-proof-logos img[alt="Tsinghua University"] { height: 40px; }
+.pc .pc-proof-logos img[alt="Schwarzman College"] { height: 32px; }
+.pc .pc-proof-logos + .pc-proof-line { text-align: center; margin: 18px auto 0; }
+.pc .pc-b-logos img[alt="Schwarzman College"] { height: 27px; opacity: .9; }
+.pc .pc-proof-logos img[alt="Schwarzman College"] { height: 36px; opacity: .9; }
+@media (max-width: 900px) {
+  .pc .cf-cols { display: grid !important; grid-template-columns: 1fr; overflow: visible; margin-inline: 0; padding: 0; gap: 12px; }
+  .pc .cf-cols > * { width: auto !important; min-width: 0 !important; flex: none !important; }
+}

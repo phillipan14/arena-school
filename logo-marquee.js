@@ -29,7 +29,7 @@
       c.querySelectorAll('img').forEach((img) => (img.alt = ''));
       ul.appendChild(c);
     });
-    const pxPerSec = 22;
+    const pxPerSec = 14;
     ul.style.setProperty('--marq-dur', Math.round(ul.scrollWidth / 2 / pxPerSec) + 's');
     if (i % 2) ul.classList.add('is-rev');
   });

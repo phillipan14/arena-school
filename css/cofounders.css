@@ -108,3 +108,48 @@ html[lang="zh-CN"] .hp-cf-quote p { font-style: normal; font-family: var(--font-
 .hp-cf-box { opacity: 0; transition: opacity .35s ease; }
 .hp-cf-panel.is-open .hp-cf-box { opacity: 1; transition-delay: .05s; }
 @media (prefers-reduced-motion: reduce) { .hp-cf-box { transition: none; } }
+
+/* Panel polish: tinted quote band, speaker line, uniform logo slots */
+.hp-cf-prof { padding: 0 !important; }
+.hp-cf-pq { padding: 32px 38px 28px; background: linear-gradient(180deg, rgba(239,227,212,.42), rgba(239,227,212,.12)); border-radius: 17px 17px 0 0; }
+.hp-cf-cite { display: flex; align-items: center; gap: 10px; margin: 18px 0 0 22px; font-size: 13.5px; color: var(--text-ink-soft); }
+.hp-cf-cite img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; object-position: 50% 20%; box-shadow: 0 0 0 1px var(--border-paper); }
+.hp-cf-cite b { font-weight: 500; color: var(--ink); }
+.hp-cf-cite span::before { content: "·"; margin-right: 8px; color: var(--text-ink-muted); }
+.hp-cf-pe { margin: 0 !important; padding: 28px 38px 30px !important; border-top: 1px solid var(--border-paper); }
+.hp-cf-exp { gap: 28px 36px !important; }
+.hp-cf-exp li { gap: 12px !important; }
+.hp-cf-lg { height: 34px !important; align-items: center; }
+.hp-cf-lg img { opacity: .82 !important; }
+.hp-cf-lg img[src*="caltech"] { height: 16px !important; }
+.hp-cf-lg img[src*="mckinsey"] { height: 14px !important; max-width: 150px !important; }
+.hp-cf-lg img[src*="goldman"] { height: 27px !important; }
+.hp-cf-lg img[src*="harvard"] { height: 27px !important; }
+.hp-cf-lg img[src*="brown"] { height: 29px !important; }
+.hp-cf-lg img[src*="yc"] { height: 24px !important; }
+.hp-cf-lg img[src*="tsinghua"] { height: 31px !important; }
+.hp-cf-lg img[src*="microsoft"] { height: 18px !important; }
+.hp-cf-lg img[src*="apple"] { height: 23px !important; }
+.hp-cf-lg img[src*="deloitte"] { height: 17px !important; max-width: 90px !important; }
+.hp-cf-lg img[src*="kimi"] { height: 15px !important; }
+.hp-cf-x b { font-size: 14.5px !important; letter-spacing: -.005em; }
+.hp-cf-x span { margin-top: 3px !important; font-size: 13.5px !important; color: var(--text-ink-muted) !important; }
+.hp-cf-links { margin: 0 !important; padding: 16px 38px !important; border-radius: 0 0 17px 17px; }
+@media (max-width: 700px) {
+  .hp-cf-pq { padding: 22px 18px 20px; }
+  .hp-cf-cite { margin-left: 0; }
+  .hp-cf-pe { padding: 20px 18px 22px !important; }
+  .hp-cf-links { padding: 14px 18px !important; }
+  .hp-cf-lg img[src*="mckinsey"] { height: 11px !important; max-width: 84px !important; }
+  .hp-cf-lg img[src*="deloitte"] { max-width: 70px !important; }
+}
+
+/* standard logo heights: emblems/stacked marks at one height, flat wordmarks at one cap height */
+.hp-cf-lg img[src*="brown"], .hp-cf-lg img[src*="harvard"], .hp-cf-lg img[src*="tsinghua"], .hp-cf-lg img[src*="goldman"] { height: 28px !important; }
+.hp-cf-lg img[src*="apple"] { height: 25px !important; }
+.hp-cf-lg img[src*="yc"] { height: 24px !important; }
+.hp-cf-lg img[src*="microsoft"] { height: 21px !important; }
+.hp-cf-lg img[src*="caltech"] { height: 15px !important; }
+.hp-cf-lg img[src*="deloitte"] { height: 14px !important; }
+.hp-cf-lg img[src*="kimi"] { height: 15px !important; }
+.hp-cf-lg img[src*="mckinsey"] { height: 13px !important; }
