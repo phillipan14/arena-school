@@ -12,7 +12,7 @@ BUDGET = {  # page -> (max words, max sections)
     'case-studies/parent-talks': (550, 6), 'case-studies/teacher-training': (550, 6),
     'programs/website-portfolio-workshop': (700, 7), 'programs/product-intensive': (700, 7), 'programs/remake-your-favorite-app': (700, 7),
     'programs/community-dialogues': (550, 6), 'programs/teacher-training': (550, 6),
-    'schools': (500, 6), 'curriculum': (650, 5), 'approach': (650, 5), 'about': (650, 5),
+    'schools': (550, 6)  # founder asked for fuller FAQ answers (Oct 2026), 'curriculum': (650, 5), 'approach': (650, 5), 'about': (650, 5),
     'results': (750, 6), 'partnerships': (450, 5), 'contact': (100, 2),
 }
 BLOCK = {'lede': 30, 'card': 25, 'detail': 30, 'faq': 45}

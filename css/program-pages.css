@@ -1835,3 +1835,21 @@ html[lang="zh-CN"] .pc .pc-why-grid .h2 { max-width: 13em; font-size: clamp(28px
 .pc .pc-sel-3 .pc-sel-tab { gap: 8px; padding-left: 30px; }
 @media (min-width: 901px) { .pc .pc-sel-3 .pc-sel-stage { min-height: clamp(400px, 34vw, 500px); } }
 @media (max-width: 900px) { .pc .pc-sel-3 .pc-sel-h { font-size: 18.5px; } .pc .pc-sel-3 .pc-sel-p { font-size: 14px; } .pc .pc-sel-3 .pc-sel-tab { gap: 6px; padding-left: 18px; } }
+
+/* Proof: three balanced columns (two stats + demo-day judges as logos) under a centered eyebrow */
+.pc .pc-proof .pc-proof-head { text-align: center; }
+.pc .pc-proof .pc-stats-3 { max-width: none; margin-top: 22px; }
+.pc .pc-proof .pc-stats-3 li { padding: 26px 32px 8px; align-items: flex-start; }
+.pc .pc-proof .pc-stats-3 li:first-child { padding-left: 0; }
+.pc .pc-proof .pc-stats b { min-height: 44px; display: flex; align-items: center; }
+.pc .pc-stat-logos b { gap: 16px; }
+.pc .pc-stat-logos img { display: block; width: auto; filter: grayscale(1); opacity: .8; }
+.pc .pc-stat-logos img[alt="Harvard"] { height: 34px; }
+.pc .pc-stat-logos img[alt="Y Combinator"] { height: 30px; }
+.pc .pc-stat-logos em { font: 500 13px/1 var(--font-mono); font-style: normal; letter-spacing: .08em; text-transform: uppercase; color: var(--text-ink-muted); }
+.pc .pc-proof .pc-proof-line { text-align: center; margin: 30px auto 0; }
+@media (max-width: 900px) {
+  .pc .pc-proof .pc-stats-3 li, .pc .pc-proof .pc-stats-3 li:first-child { padding: 20px 0; }
+  .pc .pc-stat-logos img[alt="Harvard"] { height: 28px; }
+  .pc .pc-stat-logos img[alt="Y Combinator"] { height: 26px; }
+}

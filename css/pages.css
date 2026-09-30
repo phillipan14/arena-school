@@ -458,3 +458,4 @@ a.pg-prog:hover .pg-go span, .pg-adult:hover .pg-go span { transform: translateX
   .pg-route-go { top: 50%; margin-top: -9px; }
 }
 @media (max-width: 900px) { .pg-contact-aside .pg-next { order: -1; } .pg-contact-aside .pg-contact-photo { aspect-ratio: 16 / 9; } }
+@media (min-width: 901px) { .pg-outs-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
