@@ -564,3 +564,12 @@ body.home .partners-form { padding-bottom: clamp(24px, 3vw, 34px) !important; }
 @media (min-width: 901px) { html[lang="zh-CN"] body.home .hero-riso-copy .lede { word-break: keep-all; } }
 html[lang="zh-CN"] body.home .cf-date b { word-break: keep-all; }
 html[lang="zh-CN"] body.home .hp-next .cf-ev p { max-width: 46em; }
+/* co-founders row under the team logos */
+body.home .hp-cf { display: grid; grid-template-columns: 150px 1fr auto; gap: 24px; align-items: center; margin-top: 26px; padding: 22px 0 0; border-top: 1px solid var(--border-paper); }
+body.home .hp-cf-k { font: 500 10.5px/1 var(--font-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--text-ink-muted); }
+body.home .hp-cf ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+body.home .hp-cf li b { display: block; font: 500 19px/1.2 var(--font-display); color: var(--ink); }
+body.home .hp-cf li span { display: block; margin-top: 2px; font: 500 10px/1.3 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--coral-deep); }
+body.home .hp-cf li em { display: block; margin-top: 6px; font-style: normal; font-size: 13.5px; line-height: 1.45; color: var(--text-ink-soft); }
+@media (max-width: 900px) { body.home .hp-cf { grid-template-columns: 1fr; gap: 16px; } body.home .hp-cf ul { grid-template-columns: 1fr; gap: 14px; } body.home .hp-cf .btn { justify-self: start; } }
+body.home .hp-cf { border-top: 0 !important; padding-top: 4px !important; grid-template-columns: 140px 1fr auto !important; }

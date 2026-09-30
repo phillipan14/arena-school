@@ -547,3 +547,13 @@ html[lang="zh-CN"] .hero .cs-h1 { max-width: 12em; }
 @media (max-width: 980px) {
   .nav-links.open .nav-dd-menu a { padding: 7px 10px !important; margin-inline: -10px; width: calc(100% + 20px); border-radius: 8px; }
 }
+/* students menu: college item styled like every other item (no grey band) */
+@media (min-width: 981px) {
+  .nav-dd-stu > .nav-dd-sub:nth-of-type(4), .nav-dd-stu > a:nth-of-type(5) { background: none !important; }
+  .nav-dd-stu > .nav-dd-sub:nth-of-type(4) { margin: 8px 0 0 !important; padding: 12px 12px 2px !important; }
+  .nav-dd-stu > a:nth-of-type(5) { margin: 0 0 10px !important; padding: 8px 12px !important; border-radius: 9px !important; flex-direction: column !important; }
+  .nav-dd-menu.nav-dd-stu { padding-bottom: 4px !important; }
+}
+.nav-links .nav-dd-menu a[aria-current="page"] { background: #F3EDE4 !important; }
+.nav-links .nav-dd-menu a[aria-current="page"] b { color: var(--ink-2, #2F55A8); }
+.nav-links .nav-dd-menu a:focus:not(:focus-visible) { background: none; }
