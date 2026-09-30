@@ -213,6 +213,7 @@ a.pg-prog:hover .pg-go span, .pg-adult:hover .pg-go span { transform: translateX
 .pg-founder-top { display: grid; grid-template-columns: 112px 1fr; gap: 22px; align-items: start; padding-bottom: 22px; margin-bottom: 20px; border-bottom: 1px solid var(--pg-line); }
 .pg-founder-top img { width: 112px; height: 112px; border-radius: 8px; object-fit: cover; border: 1px solid var(--pg-line); }
 .pg-founder h3 { margin: 0; font: 400 clamp(26px, 2.3vw, 32px)/1.1 var(--font-display); color: var(--ink); letter-spacing: -.01em; }
+.pg-founder h3 .pg-founder-en { display: block; margin-top: 6px; font: 400 14px/1.3 var(--font-body); letter-spacing: .01em; color: var(--text-ink-soft); }
 .pg-founder-role { margin: 8px 0 0; font: 500 10.5px/1.3 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--text-ink-muted); }
 .pg-founder-creds { margin: 12px 0 0; display: flex; flex-direction: column; gap: 3px; font-size: 13.5px; line-height: 1.45; color: var(--text-ink-soft); }
 .pg-founder-bio { margin: 0 0 14px; font-size: 15.5px; line-height: 1.7; color: var(--text-ink-soft); }

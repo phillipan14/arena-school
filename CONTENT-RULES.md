@@ -71,6 +71,7 @@ A section earns a place only if it passes all four questions:
 - **The core message is used identically everywhere.**
   - Core idea: "When AI can make almost anything, students need to know what's worth making, whether it's good, and how to finish it."
   - Pillars: **Agency** (choosing what's worth solving), **Taste** (telling which version actually works), **Craft** (finishing it well).
+  - CN pillars (identical everywhere): **主动性**（选出真正值得解决的问题。）、**审美**（分辨哪个版本真正行得通。）与 **匠心**（把事情做完，并且做好。）. Names in a sentence: 主动性、审美与匠心. Never 自主判断力 / 审美判断力 / 完成力.
   - Never add "creativity", "courage" or "judgment" as extra headline skills.
 - **The team:** "our team", "the Arena team", and "co-founders" for Jing Jing Yang and Phillip An (list Jing Jing first). Never imply a two-person company (no "our two co-founders run Arena"). CN 我们的团队、联合创始人. Never "builders" (CN 创造者、建造者、动手派、做产品的人), "practitioners who build/ship", "we build with AI every day" or startup/hustle vocabulary about the founders or the company. Arena is a warm partner to schools, parents, families and administrators.
 - **Students making things:** students may build and make; that is the program. Don't stack several "build" words in one line, don't label students "builders", and use "launch" or "publish" rather than "ship" slang.

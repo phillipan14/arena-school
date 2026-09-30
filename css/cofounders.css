@@ -18,6 +18,7 @@
 .hp-cf-card img { flex: none; width: 72px; height: 72px; border-radius: 50%; object-fit: cover; object-position: 50% 20%; box-shadow: 0 0 0 1px var(--border-paper), 0 0 0 4px #fff, 0 0 0 5px rgba(11,26,74,.08); }
 .hp-cf-t { display: block; flex: 1; min-width: 0; }
 .hp-cf-t b { display: block; font: 500 20px/1.2 var(--font-display); color: var(--ink); }
+.hp-cf-t .hp-cf-en { display: block; margin-top: 2px; font: 400 12.5px/1.3 var(--font-body); color: var(--text-ink-soft); }
 .hp-cf-r { display: block; margin-top: 4px; font: 500 10px/1.3 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--coral-deep); }
 .hp-cf-t em { display: block; margin-top: 7px; font-style: normal; font-size: 13.5px; line-height: 1.45; color: var(--text-ink-soft); }
 .hp-cf-t .nw { white-space: nowrap; }
