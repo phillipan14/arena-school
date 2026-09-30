@@ -595,3 +595,20 @@ body.home .hp-cf-t .nw { white-space: nowrap; }
   body.home .hp-cred-row ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 22px 40px; }
   body.home .hp-cf-btn { justify-self: center; }
 }
+
+/* co-founder quote: popover on hover/focus (desktop), inline on touch/mobile */
+body.home .hp-cf-card { position: relative; }
+body.home .hp-cf-q { display: block; }
+body.home .hp-cf-q q { quotes: "“" "”"; font: italic 400 16.5px/1.45 var(--font-display); color: var(--ink); }
+@media (hover: hover) and (min-width: 901px) {
+  body.home .hp-cf-q { position: absolute; left: 0; right: 0; bottom: calc(100% + 12px); z-index: 5; padding: 18px 22px; background: #fff; border: 1px solid rgba(11,26,74,.16); border-radius: 14px; box-shadow: 0 18px 40px -22px rgba(11,26,74,.45); opacity: 0; transform: translateY(6px); pointer-events: none; transition: opacity .25s, transform .3s var(--e, ease); }
+  body.home .hp-cf-q::after { content: ""; position: absolute; left: 52px; top: 100%; width: 12px; height: 12px; background: #fff; border-right: 1px solid rgba(11,26,74,.16); border-bottom: 1px solid rgba(11,26,74,.16); transform: translateY(-6px) rotate(45deg); }
+  body.home .hp-cf-card:hover .hp-cf-q, body.home .hp-cf-card:focus-visible .hp-cf-q { opacity: 1; transform: none; }
+}
+@media (hover: none), (max-width: 900px) {
+  body.home .hp-cf-card { display: grid; grid-template-columns: auto 1fr; align-items: center; }
+  body.home .hp-cf-q { grid-column: 1 / -1; margin-top: 2px; padding-top: 12px; border-top: 1px solid var(--border-paper); }
+  body.home .hp-cf-q q { font-size: 15px; }
+}
+@media (prefers-reduced-motion: reduce) { body.home .hp-cf-q { transition: none; transform: none !important; } }
+html[lang="zh-CN"] body.home .hp-cf-q q { font-style: normal; font-family: var(--font-body); font-size: 15.5px; line-height: 1.7; }
