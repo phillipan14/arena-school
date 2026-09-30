@@ -1,0 +1,34 @@
+/* "Why it matters" hover reveals (reveals.py): step photos, AI tool strip, or chips.
+   Mouse: opens on hover, folds away on leave. Touch: tap toggles (why-reveal.js). */
+.has-wr > li { position: relative; transition: background .3s; }
+.has-wr > li h3 { transition: color .25s; }
+.wr { display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows .5s cubic-bezier(.2,.7,.2,1), opacity .3s ease; }
+.wr-in { min-height: 0; overflow: hidden; }
+.wr-in > * { margin-top: 16px; }
+@media (hover: hover) and (pointer: fine) {
+  .has-wr > li:hover > .wr, .has-wr > li:focus-within > .wr { grid-template-rows: 1fr; opacity: 1; }
+  .has-wr > li:hover h3 { color: var(--ink-2, #2F55A8); }
+}
+.has-wr > li.wr-open > .wr { grid-template-rows: 1fr; opacity: 1; }
+/* step photos */
+.wr-photos { display: flex; gap: 10px; }
+.wr-photos figure { margin: 0; flex: 1 1 0; min-width: 0; max-width: 132px; }
+.wr-photos img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; box-shadow: 0 0 0 1px var(--border-paper); }
+.wr-photos figcaption { margin-top: 6px; font-size: 11.5px; line-height: 1.35; color: var(--text-ink-muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+/* AI tool strip */
+.wr-marq { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+.wr-track { display: flex; width: max-content; animation: wrMarq 32s linear infinite; animation-play-state: paused; }
+.has-wr > li:hover .wr-track, .has-wr > li.wr-open .wr-track, .has-wr > li:focus-within .wr-track { animation-play-state: running; }
+.wr-dup { display: flex; }
+.wr-tool { display: inline-flex; align-items: center; gap: 8px; margin-right: 10px; padding: 7px 14px 7px 10px; border: 1px solid var(--border-paper); border-radius: 999px; background: #fff; font-size: 13px; color: var(--ink); white-space: nowrap; }
+.wr-tool img { width: 18px; height: 18px; object-fit: contain; }
+@keyframes wrMarq { to { transform: translateX(-50%); } }
+/* chips */
+.wr-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.wr-chips span { padding: 7px 14px; border-radius: 999px; background: rgba(47,85,168,.07); border: 1px solid rgba(47,85,168,.14); font-size: 13.5px; color: var(--ink-2, #2F55A8); }
+@media (prefers-reduced-motion: reduce) { .wr { transition: none; } .wr-track { animation: none; } }
+.pg-outs.has-wr > li { cursor: default; }
+.pg-outs.has-wr .wr-in > * { margin-top: 14px; }
+.pg-outs.has-wr .wr-tool { font-size: 12.5px; padding: 6px 12px 6px 9px; }
+/* pc-why-list items are a two-column grid (number | text): the reveal belongs under the text */
+.pc-why-list.has-wr > li > .wr { grid-column: 2 / -1; }
