@@ -1,0 +1,17 @@
+/* Year-Long Project Mentorship: page-specific spacing on top of css/program-pages.css.
+   Do not fork program-pages.css classes here; only add what this page alone needs. */
+
+.pc .pc-notes-wrap { margin-top: clamp(40px, 4.5vw, 56px); padding-top: clamp(28px, 3vw, 36px); border-top: 1px solid var(--pc-line); }
+.pc .pc-notes-wrap .pc-notes { margin-top: 14px; }
+.pc .pc-team-note { margin-top: 14px; max-width: 66ch; }
+.pc .pc-team .fs-head { margin-bottom: 0; }
+
+/* "What students finish with": four cards under the proof strip */
+.pc .pc-proof .pc-notes-wrap { margin-top: clamp(40px, 5vw, 56px); padding-top: 28px; border-top: 1px solid var(--pc-line, var(--border-paper)); }
+.pc .pc-proof .pc-notes-wrap .pc-k { display: block; margin-bottom: 18px; }
+.pc .pc-proof .pc-notes { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.pc .pc-proof .pc-notes li { display: flex; flex-direction: column; gap: 8px; padding: 20px 20px 22px; background: rgba(255,255,255,.55); border: 1px solid var(--border-paper); border-radius: 14px; }
+.pc .pc-proof .pc-notes b { font: 500 18px/1.25 var(--font-display); color: var(--ink); }
+.pc .pc-proof .pc-notes span { font-size: 14.5px; line-height: 1.5; color: var(--text-ink-soft); }
+@media (max-width: 1000px) { .pc .pc-proof .pc-notes { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .pc .pc-proof .pc-notes { grid-template-columns: 1fr; } }

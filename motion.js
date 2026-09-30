@@ -67,13 +67,29 @@
     if (!b) return;
     b.addEventListener('click', function (e) {
       e.stopPropagation();
-      var open = !d.classList.contains('open');
+      // On hover devices the menu is already open from hover; a click keeps it open.
+      var hoverDevice = window.matchMedia('(hover: hover) and (min-width: 981px)').matches;
+      var open = hoverDevice ? true : !d.classList.contains('open');
       closeDDs(d);
       d.classList.toggle('open', open);
       b.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
   });
   document.addEventListener('click', function () { closeDDs(null); });
+
+  /* Hover intent on desktop: open after a short pause, close after a grace period, so the
+     menu doesn't flicker or snap shut when the cursor crosses the gap. */
+  document.documentElement.classList.add('nav-js');
+  var fine = window.matchMedia('(hover: hover) and (min-width: 981px)');
+  dds.forEach(function (d) {
+    var b = d.querySelector('.nav-dd-btn'); var tOpen = null, tClose = null;
+    function open() { clearTimeout(tClose); closeDDs(d); d.classList.add('open'); if (b) b.setAttribute('aria-expanded', 'true'); }
+    function close() { clearTimeout(tOpen); d.classList.remove('open'); if (b) b.setAttribute('aria-expanded', 'false'); }
+    d.addEventListener('mouseenter', function () { if (!fine.matches) return; clearTimeout(tClose); tOpen = setTimeout(open, 70); });
+    d.addEventListener('mouseleave', function () { if (!fine.matches) return; clearTimeout(tOpen); tClose = setTimeout(close, 220); });
+    d.addEventListener('focusin', function (e) { if (e.target.matches(':focus-visible')) open(); });
+    d.addEventListener('focusout', function (e) { if (!d.contains(e.relatedTarget)) close(); });
+  });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeDDs(null); });
 
   /* ---------- Count-up ---------- */
@@ -204,6 +220,10 @@
   setInterval(renderCountdown, 60 * 60 * 1000); // hourly is plenty
 
   /* ---------- Interest forms — FormSubmit AJAX primary, mailto fallback if the network's gone ---------- */
+  // Status messages follow the page language.
+  var ZH = (document.documentElement.lang || '').toLowerCase().indexOf('zh') === 0;
+  var T = ZH ? { thanks: '谢谢，我们会尽快与您联系。', mail: '正在打开您的邮箱以完成发送…', sending: '发送中…', err: '发送失败，请稍后再试。' }
+             : { thanks: "Thank you. We'll be in touch.", mail: 'Opening your email client to finish sending…', sending: 'Sending…', err: 'Something went wrong. Please try again.' };
   function wireForm(formId, statusId, subjectPrefix) {
     var form = document.getElementById(formId);
     var statusEl = document.getElementById(statusId);
@@ -250,19 +270,19 @@
       // Spam honeypot — if the hidden _honey field has anything, silently "succeed"
       if (data._honey) {
         form.reset();
-        setStatus("Thank you. We'll be in touch.", 'ok');
+        setStatus(T.thanks, 'ok');
         return;
       }
 
       // No real endpoint? Open the user's mail client as a fallback.
       if (!action || action.indexOf('REPLACE_WITH') !== -1) {
         mailtoFallback(data, fallback);
-        setStatus('Opening your email client to finish sending…', 'ok');
+        setStatus(T.mail, 'ok');
         return;
       }
 
       setLoading(true);
-      setStatus('Sending…');
+      setStatus(T.sending);
 
       fetch(action, {
         method: 'POST',
@@ -279,11 +299,11 @@
         var successful = r.ok && (body.success === 'true' || body.success === true || body.ok === true || !body.errors);
         if (successful) {
           form.reset();
-          setStatus(body.message || "Thank you. We'll be in touch.", 'ok');
+          setStatus(ZH ? T.thanks : (body.message || T.thanks), 'ok');
         } else {
           var err = body.message
             || (body.errors && body.errors[0] && body.errors[0].message)
-            || 'Something went wrong. Please try again.';
+            || T.err;
           setStatus(err, 'err');
         }
       }).catch(function () {

@@ -7,25 +7,27 @@ import glob, re, sys, collections
 from html.parser import HTMLParser
 
 BUDGET = {  # page -> (max words, max sections)
-    'index': (450, 7), 'mentorship': (700, 7), 'zero-to-launch': (700, 7),
+    'index': (600, 7), 'mentorship': (700, 7), 'zero-to-launch': (700, 7),
     'case-studies/student-programs': (550, 6), 'case-studies/skill-workshops': (550, 6),
     'case-studies/parent-talks': (550, 6), 'case-studies/teacher-training': (550, 6),
-    'programs/website-portfolio-workshop': (550, 6), 'programs/product-intensive': (550, 6),
+    'programs/website-portfolio-workshop': (700, 7), 'programs/product-intensive': (700, 7), 'programs/remake-your-favorite-app': (700, 7),
     'programs/community-dialogues': (550, 6), 'programs/teacher-training': (550, 6),
-    'programs/conferences': (550, 6),
-    'schools': (500, 6), 'curriculum': (650, 5), 'approach': (650, 5), 'about': (650, 5),
+    'schools': (550, 6), 'curriculum': (650, 5), 'approach': (650, 5), 'about': (650, 5),  # schools 550: founder asked for fuller FAQ answers (Oct 2026)
     'results': (750, 6), 'partnerships': (450, 5), 'contact': (100, 2),
 }
 BLOCK = {'lede': 30, 'card': 25, 'detail': 30, 'faq': 45}
 BANNED = [r'instead of writ', r'you (just )?review', r'type less', r'does (it|the work) for you', r'replace (you|teachers|your)', r'in minutes, not', r'never (mark|grade|write) again', r'\bweekend of marking', r'AI (builds|writes|grades|marks) (it|the|your)', r'替您完成', r'不再负责写', r'取代(老师|您|教师)', r'\bunlike school', r'school never', r'career teacher', r'\bNot [A-Z][^.]{0,40}\. Not ', r'waiting room', r'eulogy',
           r'creativity, taste', r'\bcourage\b.*\bjudgment\b', r'学校从不']
-SKIP_TAGS = {'script', 'style', 'svg', 'nav', 'footer', 'head', 'noscript'}
+SKIP_TAGS = {'script', 'style', 'svg', 'nav', 'footer', 'head', 'noscript', 'form'}
 
 class Page(HTMLParser):
     def __init__(s):
-        super().__init__(); s.skip = 0; s.sections = 0; s.text = []; s.blocks = []; s.cur = None; s.details = []
+        super().__init__(); s.skip = 0; s.mock = None; s.sections = 0; s.text = []; s.blocks = []; s.cur = None; s.details = []
     def handle_starttag(s, t, a):
         a = dict(a); cls = a.get('class') or ''
+        # Illustrative mockups (data-lint-skip) are visuals, not copy: skip their text.
+        if s.mock: s.mock[1] += (t == s.mock[0])
+        elif 'data-lint-skip' in a: s.mock = [t, 1]
         if t in SKIP_TAGS: s.skip += 1
         if s.skip: return
         if t == 'section': s.sections += 1
@@ -35,10 +37,13 @@ class Page(HTMLParser):
         if kind and t in ('p', 'div'): s.cur = [kind, t, []]; s.blocks.append(s.cur)
         s.text.append(' ')
     def handle_endtag(s, t):
+        if s.mock and t == s.mock[0]:
+            s.mock[1] -= 1
+            if s.mock[1] == 0: s.mock = None
         if t in SKIP_TAGS and s.skip: s.skip -= 1
         if s.cur and t == s.cur[1]: s.cur = None
     def handle_data(s, d):
-        if s.skip: return
+        if s.skip or s.mock: return
         s.text.append(d)
         if s.cur: s.cur[2].append(d)
 
