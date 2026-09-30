@@ -1905,3 +1905,7 @@ html[lang="zh-CN"] .pc .pc-why-grid .h2 { max-width: 13em; font-size: clamp(28px
 .pc .pc-proof-logos + .pc-proof-line { text-align: center; margin: 18px auto 0; }
 .pc .pc-b-logos img[alt="Schwarzman College"] { height: 27px; opacity: .9; }
 .pc .pc-proof-logos img[alt="Schwarzman College"] { height: 36px; opacity: .9; }
+@media (max-width: 900px) {
+  .pc .cf-cols { display: grid !important; grid-template-columns: 1fr; overflow: visible; margin-inline: 0; padding: 0; gap: 12px; }
+  .pc .cf-cols > * { width: auto !important; min-width: 0 !important; flex: none !important; }
+}

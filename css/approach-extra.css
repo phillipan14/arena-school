@@ -154,3 +154,9 @@ html[lang="zh-CN"] .pg-approach .ap-where { letter-spacing: .02em; font-size: 12
   .pg-approach .ap-cred-tsinghua { height: 24px; }
   .pg-approach .ap-cred-schwarzman { height: 21px; }
 }
+/* phones: stack the three pillar cards instead of a cropped carousel */
+@media (max-width: 760px) {
+  .pg-approach .ap-pcards { display: grid !important; grid-template-columns: 1fr !important; grid-auto-flow: row !important; grid-auto-columns: auto !important; overflow: visible !important; gap: 14px !important; margin-inline: 0 !important; padding-inline: 0 !important; }
+  .pg-approach .ap-pcards > * { width: auto !important; min-width: 0 !important; }
+  .pg-approach .ap-pcard-align { min-height: 0 !important; }
+}

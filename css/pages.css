@@ -476,3 +476,8 @@ a.pg-prog:hover .pg-go span, .pg-adult:hover .pg-go span { transform: translateX
   .pg-proof-logos2 img[alt="Tsinghua University"] { height: 26px; }
   .pg-proof-logos2 img[alt="Schwarzman College"] { height: 21px; }
 }
+@media (max-width: 600px) {
+  .pg-outs.pg-outs-3 { grid-auto-flow: row !important; grid-template-columns: 1fr !important; grid-auto-columns: auto !important; overflow: visible !important; }
+  .pp-hero-cta { display: grid !important; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .pp-hero-cta .btn { justify-content: center; padding-inline: 12px; white-space: nowrap; }
+}
