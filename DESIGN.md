@@ -28,6 +28,13 @@ Last full audit: 2026-10-01. That covers the live site at `7ef560c` (computed in
   - Web files: `logos/arena/wordmark-navy-1600.png` on light backgrounds, `wordmark-ivory-1600.png` on dark ones.
   - Seal alone: `seal-navy-*` and `seal-ivory-*` (256/512/1024).
   - Master files: Drive › 04 Marketing, Brand & Media › Logos › 01 Arena School.
+- **Lockup with web address: image posters only** (2026-10-01).
+  - **What it is:** the seal, "ARENA SCHOOL", and `www.arenaschool.org` underneath in Newsreader 400. The address is left-aligned to the "A", and the two-line block is centered on the crest.
+  - **When to use it:** **only** on posters or graphics sent out as images, where nothing can be linked (WeChat or Xiaohongshu posters, printed flyers, co-marketing images).
+  - **Everywhere else** (website, decks, documents, email, social posts that carry a link): use the standard lockup above or the seal alone.
+  - **Web files:** `logos/arena/wordmark-url-navy-1600.png` (light backgrounds) and `wordmark-url-ivory-1600.png` (dark backgrounds).
+  - **Master files:** all 8 colorways at full size, in Drive › Logos › 01 Arena School › `wordmark-url (image posters only)`, named `arena-wordmark-url-<colorway>.png`.
+  - **Co-branded posters:** the partner logo goes in one top corner and this lockup in the other, at equal height, with no "×" between them.
 - **Seal alone** is fine as a mark or watermark: the hero medallion, the one-pager watermark (large and partly cropped off the page, 09-28), the inner-page header watermark, and the favicon.
 - **Favicon:** the navy seal on a **circular** ivory disc, transparent outside the circle (09-24).
 - **Over art or photos:** put a beige underlay beneath the navy logo so it stays legible (09-24). The logo must never collide with UI such as buttons or the nav (09-28).
