@@ -1909,3 +1909,12 @@ html[lang="zh-CN"] .pc .pc-why-grid .h2 { max-width: 13em; font-size: clamp(28px
   .pc .cf-cols { display: grid !important; grid-template-columns: 1fr; overflow: visible; margin-inline: 0; padding: 0; gap: 12px; }
   .pc .cf-cols > * { width: auto !important; min-width: 0 !important; flex: none !important; }
 }
+
+/* Formats band v3: sans meta in sentence case, cards equal height, calmer number */
+.pp-formats small { font: 500 13.5px/1.4 var(--font-body) !important; letter-spacing: 0 !important; text-transform: none !important; color: #F2A98E; margin-top: 6px; }
+.pp-formats .pp-fnum, .pp-formats li > span:first-child { font-family: var(--font-display) !important; font-size: 15px !important; letter-spacing: .02em !important; color: rgba(242,169,142,.9); }
+@media (min-width: 901px) {
+  .pc .pc-final .pp-formats { align-items: stretch !important; }
+  .pc .pc-final .pp-formats li { align-content: start; padding: 22px 22px 24px !important; }
+  .pc .pc-final .pp-formats b { font-size: 21px !important; margin-top: 2px; }
+  .pc .pc-final .pp-formats p { font-size: 15px; line-height: 1.5; }

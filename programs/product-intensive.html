@@ -20,12 +20,95 @@
 <meta property="og:url" content="https://arenaschool.org/programs/product-intensive" />
 <meta property="og:image" content="https://arenaschool.org/og-image.png" />
 <link rel="stylesheet" href="/styles.css?v=1790704894" />
-<link rel="stylesheet" href="/riso-theme.css?v=1790803300" />
+<link rel="stylesheet" href="/riso-theme.css?v=1790900500" />
+<link rel="stylesheet" href="/mobile.css?v=1790900500" />
 <link rel="stylesheet" href="/css/student-programs.css?v=1790704894" />
-<link rel="stylesheet" href="/css/program-pages.css?v=1790806100" />
+<link rel="stylesheet" href="/css/program-pages.css?v=1790900500" />
 <link rel="stylesheet" href="/css/team.css?v=1790806300" />
 <link rel="stylesheet" href="/css/cofounders.css?v=1790806300" />
 <link rel="stylesheet" href="/css/reveals.css?v=1790805600" />
+<style data-mobile>
+@media (max-width: 760px) {
+  /* Line breaks: balanced headings, no orphans in body copy */
+  main.pc h1, main.pc h2, main.pc .pc-why-list h3, main.pc .pp-formats b { text-wrap: balance; }
+  main.pc .lede, main.pc .pc-intro, main.pc .pc-why-list p, main.pc .pc-sel-p, main.pc .faq-a, main.pc .pp-close-sub, main.pc .pp-formats p { text-wrap: pretty; }
+
+  /* Hero: centered copy, stacked full-width CTAs; at-a-glance grid stays left-aligned */
+  main.pc .pc-hero .hero-copy { text-align: center; }
+  main.pc .pc-hero .hero-eyebrow-row { justify-content: center; }
+  main.pc .pc-hero .cs-h1, main.pc .pc-hero .lede-56 { margin-left: auto !important; margin-right: auto !important; }
+  main.pc .pc-hero .lede-56 { text-wrap: balance; }
+  main.pc .pc-hero .pc-facts { text-align: left; }
+  main.pc .pc-hero .pc-facts b { font-size: 11px; }
+  main.pc .pc-hero .pc-facts span { font-size: 16px; }
+  main.pc .pc-hero .pc-cta { display: flex; flex-direction: column; align-items: stretch; gap: 12px; }
+  main.pc .pc-hero .pc-cta .btn { width: 100%; min-height: 52px; justify-content: center; margin: 0; }
+
+  /* Section heads centered */
+  main.pc .pc-sec .sec-head { text-align: center; margin-inline: auto; }
+  main.pc .pc-sec .sec-head .eyebrow { margin-inline: auto; }
+  main.pc .pc-sec .sec-head .h2, main.pc .pc-sec .sec-head .pc-intro { margin-left: auto; margin-right: auto; max-width: 100%; }
+
+  /* "Why it matters": tap-to-open points get a visible +/- affordance */
+  main.pc .pc-why-list.has-wr > li { cursor: pointer; padding-right: 44px; }
+  main.pc .pc-why-list.has-wr > li::after { content: "+"; position: absolute; right: 0; top: 16px; width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--pc-line); display: grid; place-items: center; font: 400 19px/1 var(--font-body, inherit); color: var(--coral-deep, #B4532A); }
+  main.pc .pc-why-list.has-wr > li.wr-open::after { content: "\2212"; }
+  main.pc .pc-why-list.has-wr > li > .wr { margin-right: -44px; }
+  main.pc .wr-proc .wr-k { font-size: 11px; }
+  main.pc .wr-proc b { font-size: 14.5px; }
+  main.pc .pc-why-extra { font-size: 14px; }
+
+  /* How it runs: the five days as a vertical timeline under the photo (no hidden sideways row) */
+  main.pc .pc-sel { gap: 18px; }
+  main.pc .pc-sel-list { flex-direction: column; gap: 0; overflow: visible; scroll-snap-type: none; margin-inline: 0; padding: 0; border-top: 0; }
+  main.pc .pc-sel-list > li { flex: none; display: block; position: relative; padding-left: 30px; }
+  main.pc .pc-sel-list > li::before { content: ""; position: absolute; left: 6px; top: 0; bottom: 0; width: 1.5px; background: var(--pc-line); }
+  main.pc .pc-sel-list > li:first-child::before { top: 22px; }
+  main.pc .pc-sel-list > li:last-child::before { bottom: auto; height: 22px; }
+  main.pc .pc-sel-list > li::after { content: ""; position: absolute; left: 0; top: 16px; width: 14px; height: 14px; border-radius: 50%; background: var(--paper-hi, #FCF3ED); box-shadow: inset 0 0 0 1.5px var(--ink-2, #2F55A8); transition: background .3s; }
+  main.pc .pc-sel-list > li:has(.is-on)::after { background: var(--ink-2, #2F55A8); }
+  main.pc .pc-sel-tab, main.pc .pc-sel-5 .pc-sel-tab { padding: 12px 16px 14px; margin-bottom: 8px; gap: 4px; border: 1px solid transparent; border-radius: 12px; background: transparent; }
+  main.pc .pc-sel-list > li:last-child .pc-sel-tab { margin-bottom: 0; }
+  main.pc .pc-sel-tab.is-on { border-color: var(--ink); background: var(--pc-card); }
+  main.pc .pc-sel-bar { left: 16px; right: 16px; top: 0; bottom: auto; width: auto; height: 2px; background: transparent; }
+  main.pc .pc-sel-tab.is-on .pc-sel-bar { background: rgba(11, 26, 74, .12); }
+  main.pc .pc-sel-tab .pc-step-k, main.pc .pc-sel-tab .pc-step-k b { font-size: 11.5px; }
+  main.pc .pc-sel-h, main.pc .pc-sel-5 .pc-sel-h { font-size: 19px; color: var(--ink); }
+  main.pc .pc-sel-p, main.pc .pc-sel-5 .pc-sel-p { font-size: 15px; color: var(--text-ink-soft); max-width: none; }
+  main.pc .pc-sel-slide figcaption { font-size: 11px; }
+  main.pc .pc-how .pc-note { text-align: center; text-wrap: balance; margin-inline: auto; }
+
+  /* Proof: centered stats under the centered eyebrow */
+  main.pc .pc-proof .pc-stats-3 { grid-template-columns: 1fr; }
+  main.pc .pc-proof .pc-stats-3 li, main.pc .pc-proof .pc-stats-3 li + li { align-items: center; text-align: center; padding: 22px 0; border-left: 0; }
+  main.pc .pc-proof .pc-stats-3 li + li { border-top: 1px solid var(--pc-line); }
+  main.pc .pc-proof .pc-stats-3 b { font-size: 34px; }
+  main.pc .pc-proof .pc-stats span { font-size: 15px; max-width: 32ch; text-wrap: balance; }
+  main.pc .pc-proof .pc-stats small { font-size: 11px; letter-spacing: .1em; }
+  main.pc .pc-proof .pc-b-logos, main.pc .pc-proof .pc-stat-logos b { justify-content: center; }
+  main.pc .pc-proof-line .tlink { display: inline-flex; align-items: center; min-height: 44px; }
+
+  /* Team labels: 11px floor */
+  main.pc .hp-cred-lab, main.pc .hp-cf-r, main.pc .hp-cf-k { font-size: 11px; }
+
+  /* Closing CTA: centered head, full-width button, roomier links */
+  main.pc .pc-final .pp-final-top > div:first-child { text-align: center; }
+  main.pc .pc-final .pp-final-top .eyebrow { margin-inline: auto; }
+  main.pc .pc-final .pp-close-sub { margin-inline: auto; }
+  main.pc .pc-final .pp-close-cta { display: flex; flex-direction: column; align-items: stretch; }
+  main.pc .pc-final .pp-close-cta .btn { width: 100%; min-height: 52px; justify-content: center; margin: 0; }
+  main.pc .pc-final .pp-close-parent { font-size: 15px; line-height: 1.9; text-wrap: balance; }
+  main.pc .pc-final .pp-close-parent a { display: inline-block; padding-block: 8px; line-height: 1.5; }
+  main.pc .pc-final .pp-close-photo figcaption { font-size: 13px; }
+  /* Formats: number above the title so the copy gets the full card width */
+  main.pc .pc-final .pp-formats li { grid-template-columns: 1fr; gap: 8px; padding: 20px 20px 22px; }
+  main.pc .pc-final .pp-fnum { padding-top: 0; }
+  main.pc .pc-final .pp-formats small { letter-spacing: .08em; line-height: 1.5; }
+  main.pc .pc-final .pp-formats .m-nw { white-space: nowrap; }
+  main.pc .pc-final .pp-final-k { display: block; text-align: center; }
+  main.pc .pp-final-all a { display: inline-flex; align-items: center; min-height: 44px; }
+}
+</style>
 </head>
 <body class="no-ticker zl-page">
 <nav class="nav" id="nav">
@@ -35,7 +118,6 @@
     </a>
     <div class="nav-links" id="navLinks">
       <div class="nav-dd is-current"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">For students<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu nav-dd-stu"><span class="nav-dd-sub">Short courses · 2 days</span><a href="/programs/remake-your-favorite-app"><b>App Design Workshop</b><span>Grades 6–9 · rebuild an app they love</span></a><a href="/programs/website-portfolio-workshop"><b>College Portfolio Workshop</b><span>Grades 10–12 · a portfolio for applications</span></a><span class="nav-dd-sub">Longer programs</span><a href="/programs/product-intensive" aria-current="page"><b>Entrepreneurship &amp; AI Intensive</b><span>Grades 7–12 · build, launch, and pitch</span></a><span class="nav-dd-sub">Year-long</span><a href="/mentorship"><b>Year-Long Project Mentorship</b><span>Grades 7–12 · 6 months to a year, 1:1</span></a><span class="nav-dd-sub">College &amp; career</span><a href="/zero-to-launch"><b>AI Advantage Bootcamp</b><span>College &amp; early career · workplace-ready with AI</span></a></div></div>
-      <a class="nav-top-link" href="/programs/community-dialogues">For families</a>
       <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">For educators<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu nav-dd-edu"><span class="nav-dd-sub">For schools</span><a href="/programs/teacher-training"><b>AI for Educators</b><span>Hands-on AI for teachers and curriculum leads</span></a><a href="/schools"><b>Bring Arena to your school</b><span>One approach for your whole school community</span></a><span class="nav-dd-sub">Events &amp; partners</span><a href="/programs/conferences"><b>Conferences &amp; events</b><span>Talks, hands-on workshops, and pre-conference sessions</span></a><a href="/partnerships"><b>Program partners</b><span>A product-building track for camps and programs</span></a></div></div>
       <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">About<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu"><a href="/about"><b>Our team</b><span>Who we are</span></a><a href="/approach"><b>Our approach</b><span>Agency, taste, and craft</span></a><a href="/results"><b>Results</b><span>What we have run</span></a></div></div>
       <a class="nav-mobile-only" href="/contact">Contact us</a>
@@ -115,7 +197,7 @@
       <figure class="pp-close-photo"><img src="/photos/isb-2026/cohort-800.webp" srcset="/photos/isb-2026/cohort-800.webp 800w, /photos/isb-2026/cohort-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 50vw" alt="Students and mentors, Beijing 2026" loading="lazy" decoding="async" /><figcaption><img src="/logos/arena/seal-ivory-256.png" alt="" width="18" height="18" />Students and mentors, Beijing 2026</figcaption></figure>
     </div>
     <div class="pp-final-grid">
-      <div class="reveal"><span class="pp-final-k">Formats</span><ol class="pp-formats"><li><span class="pp-fnum">01</span><div><b>Five-day intensive</b><small>Grades 7 to 12 · five school days</small><p>Teams go from choosing a problem to a live product and a pitch at demo day.</p></div></li><li><span class="pp-fnum">02</span><div><b>Starter</b><small>Grades 7 to 12 · two to three days</small><p>A shorter arc: choose a problem, build a first working version, and demo it.</p></div></li><li><span class="pp-fnum">03</span><div><b>Summer cohort</b><small>Grades 7 to 12 · the full week, June or July</small><p>The same five-day arc, run on your campus over the summer.</p></div></li></ol></div>
+      <div class="reveal"><span class="pp-final-k">Formats</span><ol class="pp-formats"><li><span class="pp-fnum">01</span><div><b>Five-day intensive</b><small><span class="m-nw">Grades 7 to 12</span> · <span class="m-nw">five school days</span></small><p>Teams go from choosing a problem to a live product and a pitch at demo day.</p></div></li><li><span class="pp-fnum">02</span><div><b>Starter</b><small><span class="m-nw">Grades 7 to 12</span> · <span class="m-nw">two to three days</span></small><p>A shorter arc: choose a problem, build a first working version, and demo it.</p></div></li><li><span class="pp-fnum">03</span><div><b>Summer cohort</b><small><span class="m-nw">Grades 7 to 12</span> · <span class="m-nw">the full week, June or July</span></small><p>The same five-day arc, run on your campus over the summer.</p></div></li></ol></div>
       <div class="pp-lead reveal" id="onepager">
         <div class="pp-lead-top"><img class="pp-lead-thumb" src="/onepager/arena-school-one-pager-en.jpg" alt="Preview of the Arena School one-pager" width="96" height="136" loading="lazy" /><div><h3>Get the Arena <span class="nw" style="white-space:nowrap">one-pager</span></h3><p>Every program and what we have run, on one page for your team or board.</p></div></div>
         <form class="cohort-form pp-lead-form" action="https://formsubmit.co/ajax/contact@arenaschool.org" method="POST">
@@ -162,8 +244,8 @@
   </div>
 </footer>
 <script src="/hero-options.js?v=1790704894" defer></script>
-<script src="/riso-field.js?v=1790704894" defer></script>
-<script src="/motion.js?v=1790704894"></script>
+<script src="/riso-field.js?v=1790900500" defer></script>
+<script src="/motion.js?v=1790900500"></script>
 <script src="/riso-interact.js?v=1790704894" defer></script>
 <script src="/onepager.js?v=1790780000" defer></script>
 <script src="/pp-steps.js?v=1790800100" defer></script>

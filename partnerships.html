@@ -20,10 +20,20 @@
 <meta property="og:url" content="https://arenaschool.org/partnerships" />
 <meta property="og:image" content="https://arenaschool.org/og-image.png" />
 <link rel="stylesheet" href="/styles.css?v=1790704894" />
-<link rel="stylesheet" href="/riso-theme.css?v=1790803300" />
+<link rel="stylesheet" href="/riso-theme.css?v=1790900500" />
+<link rel="stylesheet" href="/mobile.css?v=1790900500" />
 <link rel="stylesheet" href="/css/index.css?v=1790805600" />
-<link rel="stylesheet" href="/css/program-pages.css?v=1790806100" />
+<link rel="stylesheet" href="/css/program-pages.css?v=1790900500" />
 <link rel="stylesheet" href="/css/pages.css?v=1790806100" />
+<style data-mobile>
+@media (max-width: 760px) {
+  .pg-partnerships .pg-steps.is-3 { grid-template-columns: 1fr; grid-auto-flow: row; grid-auto-columns: auto; overflow: visible; scroll-snap-type: none; padding: 0; margin-inline: 0; gap: 14px; }
+  .pg-partnerships .pg-step small, .pg-partnerships .pg-side small, .pg-partnerships .pp-glance b { font-size: 11px; }
+  .pg-partnerships .pp-final .pp-close-cta { display: flex; flex-direction: column; align-items: stretch; gap: 12px; }
+  .pg-partnerships .pp-final .pp-close-cta .btn { width: 100%; justify-content: center; min-height: 48px; margin: 0; }
+  .pg-partnerships .pp-final .pp-close-photo figcaption { font-size: 13px; }
+}
+</style>
 </head>
 <body class="no-ticker zl-page pg pg-partnerships">
 <nav class="nav" id="nav">
@@ -33,7 +43,6 @@
     </a>
     <div class="nav-links" id="navLinks">
       <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">For students<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu nav-dd-stu"><span class="nav-dd-sub">Short courses · 2 days</span><a href="/programs/remake-your-favorite-app"><b>App Design Workshop</b><span>Grades 6–9 · rebuild an app they love</span></a><a href="/programs/website-portfolio-workshop"><b>College Portfolio Workshop</b><span>Grades 10–12 · a portfolio for applications</span></a><span class="nav-dd-sub">Longer programs</span><a href="/programs/product-intensive"><b>Entrepreneurship &amp; AI Intensive</b><span>Grades 7–12 · build, launch, and pitch</span></a><span class="nav-dd-sub">Year-long</span><a href="/mentorship"><b>Year-Long Project Mentorship</b><span>Grades 7–12 · 6 months to a year, 1:1</span></a><span class="nav-dd-sub">College &amp; career</span><a href="/zero-to-launch"><b>AI Advantage Bootcamp</b><span>College &amp; early career · workplace-ready with AI</span></a></div></div>
-      <a class="nav-top-link" href="/programs/community-dialogues">For families</a>
       <div class="nav-dd is-current"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">For educators<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu nav-dd-edu"><span class="nav-dd-sub">For schools</span><a href="/programs/teacher-training"><b>AI for Educators</b><span>Hands-on AI for teachers and curriculum leads</span></a><a href="/schools"><b>Bring Arena to your school</b><span>One approach for your whole school community</span></a><span class="nav-dd-sub">Events &amp; partners</span><a href="/programs/conferences"><b>Conferences &amp; events</b><span>Talks, hands-on workshops, and pre-conference sessions</span></a><a href="/partnerships" aria-current="page"><b>Program partners</b><span>A product-building track for camps and programs</span></a></div></div>
       <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">About<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu"><a href="/about"><b>Our team</b><span>Who we are</span></a><a href="/approach"><b>Our approach</b><span>Agency, taste, and craft</span></a><a href="/results"><b>Results</b><span>What we have run</span></a></div></div>
       <a class="nav-mobile-only" href="/contact">Contact us</a>
@@ -58,7 +67,7 @@
   <div class="container">
     <div class="hero-copy hero-copy-wide">
       <div class="hero-eyebrow-row reveal"><span class="eyebrow">Program partners</span></div>
-      <h1 class="display reveal cs-h1">A product-building track for <em>your program.</em></h1>
+      <h1 class="display reveal cs-h1">A <span style="white-space:nowrap">product-building</span> track for <em style="white-space:nowrap">your program.</em></h1>
       <p class="lede sub reveal lede-56">When AI can produce almost anything, what sets students apart is agency, taste, and craft. Arena adds a track that builds them to your program, under your brand.</p>
       <ul class="pp-glance reveal" aria-label="At a glance">
         <li><b>Length</b><span>2 to 7 days</span></li>
@@ -92,7 +101,7 @@
     </div>
     <div class="pg-proof reveal">
       <div class="pg-proof-judges"><span class="pg-proof-k">Demo day judged by founders and operators from</span><div class="pg-proof-logos"><img src="/logos/cred/harvard.png" alt="Harvard" /><img class="is-stanford" src="/logos/cred/stanford.png" alt="Stanford" /><img class="is-yc" src="/logos/cred/yc.png" alt="Y Combinator" /><span>and AI labs</span></div></div>
-      <div class="pg-proof-stat"><b class="pg-proof-logos2"><img src="/logos/cred/tsinghua-lockup.png" alt="Tsinghua University" /><img src="/logos/cred/schwarzman.png?v=2" alt="Schwarzman College" /></b><span>Staff training at Schwarzman College, Tsinghua University</span></div>
+      <div class="pg-proof-stat"><b class="pg-proof-logos2"><img src="/logos/cred/tsinghua-lockup.png" alt="Tsinghua University" /><img src="/logos/cred/schwarzman.png?v=2" alt="Schwarzman College" /></b><span>Staff training at Schwarzman College, <span style="white-space:nowrap">Tsinghua University</span></span></div>
       <div class="pg-proof-stat"><b>9.5<small>/10</small></b><span>Net Promoter Score, Hong Kong 2025</span></div>
       <a href="/results" class="pg-proof-go">See results <span>→</span></a>
     </div>
@@ -108,7 +117,7 @@
         <p class="pp-close-sub">Your students, their ages, and your dates. We reply within three working days with a proposed format.</p>
         <div class="pp-close-cta"><a href="/contact?program=partnership" class="btn btn-primary">Start the conversation <span class="arr">→</span></a><a href="mailto:contact@arenaschool.org" class="btn btn-ghost">contact@arenaschool.org</a></div>
       </div>
-      <figure class="pp-close-photo"><img src="/photos/isb-2026/demo-laptop-800.webp" srcset="/photos/isb-2026/demo-laptop-800.webp 800w, /photos/isb-2026/demo-laptop-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 50vw" alt="Students demo their product" loading="lazy" decoding="async" /><figcaption><img src="/logos/arena/seal-ivory-256.png" alt="" width="18" height="18" />A live demo, International School of Beijing, 2026</figcaption></figure>
+      <figure class="pp-close-photo"><img src="/photos/isb-2026/demo-laptop-800.webp" srcset="/photos/isb-2026/demo-laptop-800.webp 800w, /photos/isb-2026/demo-laptop-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 50vw" alt="Students demo their product" loading="lazy" decoding="async" /><figcaption><img src="/logos/arena/seal-ivory-256.png" alt="" width="18" height="18" />A live demo, International School of Beijing,&nbsp;2026</figcaption></figure>
     </div>
   </div>
 </section>
@@ -130,8 +139,8 @@
   </div>
 </footer>
 <script src="/hero-options.js?v=1790704894" defer></script>
-<script src="/riso-field.js?v=1790704894" defer></script>
-<script src="/motion.js?v=1790704894"></script>
+<script src="/riso-field.js?v=1790900500" defer></script>
+<script src="/motion.js?v=1790900500"></script>
 <script src="/riso-interact.js?v=1790704894" defer></script>
 </body>
 </html>

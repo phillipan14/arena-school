@@ -1,0 +1,264 @@
+/* Arena School · mobile.css
+   Site-wide mobile fixes for shared chrome (nav, mobile menu, footer, language switch, ticker).
+   Loaded last on every page. Page-specific fixes live in each page's own <style data-mobile> block.
+   Everything here sits inside a max-width media query, so desktop is untouched.
+   Menu behavior (accordion, scroll lock, close on outside tap / Escape) lives in motion.js. */
+
+
+/* ================================================================
+   1. TOP BAR ON PHONES (up to 560px)
+   Logo, language switch and hamburger fit at 360px with clear gaps;
+   the hamburger icon lines up with the page gutter; the EN/中文
+   switch gets a real finger-sized hit area.
+   ================================================================ */
+@media (max-width: 560px) {
+  .nav .nav-cta { gap: 6px; }
+  .nav .nav-toggle { margin-right: -11px; }            /* icon sits on the 24px gutter, like the logo */
+  .nav .lang-switch { padding: 3px; font-size: 12px; }
+  .nav .lang-switch a {
+    position: relative; display: inline-flex; align-items: center; justify-content: center;
+    min-height: 36px; padding: 0 12px; line-height: 1;                  /* 36px pill, 12px text */
+  }
+  .nav .lang-switch a::before { content: ""; position: absolute; inset: -4px -1px; }   /* 44px-tall tap area */
+}
+@media (max-width: 374px) {
+  .nav .nav-lockup { height: 21px; }
+  .nav .lang-switch a { padding: 0 10px; }
+}
+
+
+/* ================================================================
+   2. OPEN MOBILE MENU (hamburger range, up to 1080px)
+   A full-height sheet under the bar. Groups (For students /
+   For educators / About) are accordion rows with a chevron; the
+   direct link (For families) carries an arrow. Sub-items are
+   indented on a thin rule, 44px+ rows. Contact us is a full-width
+   button at the end. The sheet scrolls on its own; the page behind
+   is locked while it is open.
+   ================================================================ */
+@media (max-width: 1080px) {
+  /* page behind the sheet does not scroll */
+  html.nav-open, html.nav-open body { overflow: hidden; }
+
+  /* bar turns solid and ink-colored while the menu is open (also over photo / zl heroes) */
+  .nav.menu-open,
+  body.zl-page .nav.menu-open,
+  body:has(.hero-full) .nav.menu-open:not(.scrolled) {
+    background: #EFE3D4 !important;
+    -webkit-backdrop-filter: none !important; backdrop-filter: none !important;
+    border-bottom: 1px solid var(--border-paper) !important;
+    box-shadow: none !important;
+  }
+  .nav.menu-open .nav-lockup, .nav.menu-open .nav-crest { filter: none !important; }
+  .nav.menu-open .nav-toggle { color: var(--text-ink, #101A2E) !important; }
+  .nav.menu-open .lang-switch { background: rgba(34,69,138,.07) !important; border-color: rgba(34,69,138,.24) !important; }
+  .nav.menu-open .lang-switch a:not(.lang-active) { color: var(--text-ink-soft, #3E4660) !important; }
+  .nav.menu-open .lang-switch a.lang-active { background: var(--riso-blue, #22458A) !important; color: #F7F1E7 !important; }
+
+  /* hamburger becomes a close (X) icon */
+  .nav-toggle { position: relative; -webkit-tap-highlight-color: transparent; }
+  .nav-toggle[aria-expanded="true"] svg { opacity: 0; }
+  .nav-toggle[aria-expanded="true"]::before,
+  .nav-toggle[aria-expanded="true"]::after {
+    content: ""; position: absolute; left: 50%; top: 50%;
+    width: 20px; height: 1.6px; border-radius: 1px; background: currentColor;
+  }
+  .nav-toggle[aria-expanded="true"]::before { transform: translate(-50%, -50%) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"]::after  { transform: translate(-50%, -50%) rotate(-45deg); }
+
+  /* the sheet */
+  .nav-links.open {
+    position: absolute; top: 100%; left: 0; right: 0;
+    height: calc(100vh - var(--nav-bottom, 75px) + 2px);
+    height: calc(100dvh - var(--nav-bottom, 75px) + 2px);   /* +2px: no sliver of page under the sheet */
+    max-height: none !important;
+    overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch;
+    flex-direction: column; flex-wrap: nowrap; align-items: stretch !important; gap: 0 !important;
+    padding: 4px 24px calc(40px + env(safe-area-inset-bottom, 0px)) !important;
+    background: #EFE3D4; border-bottom: 0; box-shadow: none !important;
+  }
+
+  /* top-level rows: group buttons and the direct link share one style */
+  .nav-links.open > .nav-dd { width: 100%; }
+  .nav-links.open .nav-dd-btn,
+  .nav-links.open > a.nav-top-link {
+    pointer-events: auto !important;
+    display: flex !important; align-items: center; justify-content: space-between !important; gap: 12px;
+    width: 100%; min-height: 60px; padding: 0 2px 0 0 !important; margin: 0;
+    font: 500 20px/1.25 var(--font-display) !important; letter-spacing: 0 !important; text-transform: none !important;
+    color: var(--ink, #0B1A4A) !important; text-align: left;
+    background: none; -webkit-tap-highlight-color: transparent;
+  }
+  .nav-links.open > a.nav-top-link { border-top: 1px solid var(--border-paper) !important; }
+  .nav-links.open .nav-dd-btn { border-top: 1px solid var(--border-paper) !important; }
+  .nav-links.open > .nav-dd:first-child .nav-dd-btn { border-top: 0 !important; }
+  .nav-links.open .nav-dd-btn::after { display: none !important; }
+
+  /* chevron on group rows, turns when the group is open */
+  .nav-links.open .nav-dd-chev {
+    display: block !important; flex: none; width: 14px; height: 14px;
+    color: var(--ink-2, #2F55A8); transition: transform .2s ease;
+  }
+  html.nav-js .nav-links.open .nav-dd:not(.open) .nav-dd-chev,
+  .nav-links.open .nav-dd:not(.open) .nav-dd-chev { transform: none !important; }
+  .nav-links.open .nav-dd.open .nav-dd-chev { transform: rotate(180deg) !important; }
+
+  /* arrow on the direct link row, so it reads as "goes somewhere" rather than "opens" */
+  .nav-links.open > a.nav-top-link::after {
+    content: "\2192"; position: static; height: auto; width: auto; background: none;
+    transform: none !important; flex: none;
+    font: 400 17px/1 var(--font-body); color: var(--ink-2, #2F55A8); margin-right: 1px;
+  }
+
+  /* accordion: a closed group shows only its row */
+  html.nav-js .nav-links.open .nav-dd:not(.open) .nav-dd-menu,
+  .nav-links.open .nav-dd:not(.open) .nav-dd-menu { display: none !important; }
+  html.nav-js .nav-links.open .nav-dd.open .nav-dd-menu,
+  .nav-links.open .nav-dd.open .nav-dd-menu {
+    display: flex !important; flex-direction: column; gap: 0 !important;
+    position: static; min-width: 0; opacity: 1; visibility: visible; transform: none; pointer-events: auto;
+    margin: 0 0 16px 2px !important; padding: 2px 0 2px 10px !important;
+    border: 0 !important; border-left: 1.5px solid rgba(47,85,168,.22) !important; border-radius: 0 !important;
+    background: none !important; box-shadow: none !important;
+    animation: navSheetIn .22s ease both;
+  }
+  @keyframes navSheetIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+
+  /* group sub-labels (Short courses · 2 days, For schools …) */
+  .nav-links.open .nav-dd-sub {
+    display: block !important;
+    margin: 14px 0 2px 12px !important; padding: 0 !important; border: 0 !important;
+    font: 500 11px/1.3 var(--font-mono) !important; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--text-ink-muted, #5B5B6B) !important;
+  }
+  .nav-links.open .nav-dd-menu > .nav-dd-sub:first-child { margin-top: 6px !important; }
+  html[lang^="zh"] .nav-links.open .nav-dd-sub { font-size: 12px !important; letter-spacing: .08em; }
+
+  /* sub-item links: 44px+ rows, same indent everywhere */
+  .nav-links.open .nav-dd-menu a {
+    display: flex !important; flex-direction: column; justify-content: center;
+    min-height: 46px; width: 100% !important; margin: 0 !important;
+    padding: 10px 12px !important; border-radius: 8px !important;
+    font-size: 16px !important; line-height: 1.3; transform: none !important;
+    -webkit-tap-highlight-color: rgba(47,85,168,.10);
+  }
+  .nav-links.open .nav-dd-menu a b { font-size: 16px !important; font-weight: 500; line-height: 1.3; }
+  .nav-links.open .nav-dd-menu a span { display: none !important; }
+  .nav-links.open .nav-dd-menu a::before,
+  .nav-links.open .nav-dd-menu a::after { display: none !important; }
+  .nav-links.open .nav-dd-menu a[aria-current="page"] { background: #F7F0E6 !important; }
+  .nav-links.open .nav-dd-menu a[aria-current="page"] b { color: var(--ink-2, #2F55A8) !important; }
+
+  /* Contact us: full-width button after the last group */
+  .nav-links.open .nav-mobile-only {
+    display: flex !important; align-items: center; justify-content: center;
+    width: 100%; min-height: 52px; margin-top: 24px !important; padding: 14px 18px !important;
+    border-radius: 999px; background: var(--ink, #0B1A4A); color: #FCF3ED !important;
+    font: 500 16px/1.2 var(--font-body) !important; border-top: 0 !important;
+  }
+  .nav-links.open .nav-mobile-only::after { display: none !important; }
+}
+
+
+/* ================================================================
+   3. FOOTER ON PHONES (up to 560px)
+   English: one clean column (program names are too long for two
+   columns at 390px and were wrapping onto two lines).
+   Chinese: names are short, so two columns stay down to 400px, with
+   About moved under For educators instead of leaving a hole beside
+   it; below 400px it is one column like English.
+   Links (and the email / LinkedIn row) become 44px rows; headings
+   are 12px and sit closer to their links; the tagline wraps evenly.
+   ================================================================ */
+@media (max-width: 560px) {
+  .footer .footer-grid { grid-template-columns: 1fr !important; gap: 24px 20px !important; }
+  .footer .footer-brand { grid-column: 1 / -1; margin-bottom: 12px; }
+  .footer .tag { text-wrap: balance; }
+  html[lang^="zh"] .footer .tag { font-style: normal; }       /* no faux-italic Chinese */
+  html[lang^="zh"] .footer .footer-grid { grid-template-columns: 1fr 1fr !important; }
+  html[lang^="zh"] .footer .footer-brand + .footer-col { grid-row: span 2; }
+
+  .footer .footer-col h4 { margin-bottom: 4px !important; font-size: 12px; }
+  .footer .footer-col a {
+    display: flex; align-items: center; min-height: 44px;
+    padding-block: 10px !important; font-size: 16px; line-height: 1.35;
+  }
+  .footer .footer-col a + h4 { margin-top: 24px !important; }
+
+  .footer .footer-bottom { margin-top: 40px; padding-top: 22px; gap: 6px !important; }
+  .footer .footer-contact { gap: 0 24px !important; }
+  .footer .footer-contact a { min-height: 44px; }
+}
+@media (max-width: 399px) {
+  html[lang^="zh"] .footer .footer-grid { grid-template-columns: 1fr !important; }
+  html[lang^="zh"] .footer .footer-brand + .footer-col { grid-row: auto; }
+}
+
+
+/* ================================================================
+   4. INNER-PAGE HERO TOP SPACE (phones, up to 760px)
+   The desktop hero reserves 22vh (about 186px at 844px tall) above
+   the eyebrow, which left ~110px of empty paper under the fixed bar.
+   On phones: bar (75px) + 48px. Low specificity on purpose, so any
+   page's own <style data-mobile> value (or .pc .pc-hero) still wins.
+   ================================================================ */
+@media (max-width: 760px) {
+  .hero.hero-pad-md { padding-top: 124px; }
+}
+
+
+/* ================================================================
+   5. SHARED COMPONENTS (phones)
+   Components from css/pages.css, css/program-pages.css and
+   css/reveals.css used on several pages. mobile.css loads before those
+   files, so each selector carries one extra `body` (+1 element): enough
+   to beat the base rule, while any page-scoped class fix still wins.
+   ================================================================ */
+@media (max-width: 760px) {
+  /* swipe rows become one readable column (no half-visible cards) */
+  body .pg-progs, body .pg-steps, body .pg-steps.is-3 {
+    grid-template-columns: 1fr; grid-auto-flow: row; grid-auto-columns: auto;
+    overflow: visible; scroll-snap-type: none; padding: 0; margin-inline: 0; gap: 14px;
+  }
+
+  /* mono labels: 10.5px was below the 11px floor */
+  body .pg-prog small, body .pg-adult small, body .pg-step small, body .pg .pg-k { font-size: 11.5px; }
+  body .pc .pc-sel-slide figcaption { font-size: 11px; letter-spacing: .1em; }
+  body .pc .pc-proof .pc-stats small { font-size: 11px; letter-spacing: .06em; }
+
+  /* judge logos: "and AI labs" stays on the logo row */
+  body .pg-proof-logos { gap: 10px 14px; }
+  body .pg-proof-logos span { white-space: nowrap; }
+
+  /* tap-to-open rows (why-reveal.js toggles li.wr-open): a small round +/- cue,
+     same look as the page-level cues on product-intensive / zero-to-launch */
+  body .has-wr:not(.cf-ideas) > li { padding-right: 40px; }
+  body .has-wr:not(.cf-ideas) > li::after {
+    content: "+"; position: absolute; top: 16px; right: 0;
+    width: 30px; height: 30px; border-radius: 50%;
+    display: grid; place-items: center;
+    border: 1px solid rgba(11,26,74,.16); background: none;
+    font: 400 19px/1 var(--font-body); color: var(--coral-deep, #B4532A);
+    pointer-events: none;
+  }
+  body .has-wr:not(.cf-ideas) > li.wr-open::after { content: "\2212"; }
+  body .pg-outs.has-wr > li { padding-right: 22px; }                /* cards: cue sits inside the card corner */
+  body .pg-outs.has-wr > li::after { top: 16px; right: 18px; }
+  body .has-wr > li { cursor: pointer; -webkit-tap-highlight-color: rgba(47,85,168,.08); }
+}
+@media (max-width: 380px) {
+  body .pg-proof-logos { gap: 8px 10px; }
+  body .pg-proof-logos img { height: 24px; }
+  body .pg-proof-logos img.is-stanford { height: 15px; }
+  body .pg-proof-logos img.is-yc { height: 21px; }
+  body .pg-proof-logos span { font-size: 15px; }
+}
+
+/* team section: "ARENA LEADERSHIP" credential label was 10.5px */
+@media (max-width:760px){ .team-sec .hp-cf-k{ font-size:11px; } }
+
+/* shared label floor: step labels (.pc-step-k) and team credential labels were 10–10.5px
+   on every page using the program-steps or leadership block; page blocks may go higher */
+@media (max-width:760px){
+  .pc .pc-step-k, .hp-cred-lab, .hp-cf-k, .hp-cf-r { font-size: 11px; }
+}

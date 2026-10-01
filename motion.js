@@ -46,15 +46,47 @@
 
   var toggle = document.getElementById('navToggle');
   var navLinks = document.getElementById('navLinks');
-  if (toggle) {
-    toggle.addEventListener('click', function () { navLinks.classList.toggle('open'); });
+  /* Mobile menu (hamburger, below 1080px): full-height sheet under the bar. Its dropdown groups
+     work as an accordion; the group holding the current page starts expanded. While open, the
+     page behind is locked (html.nav-open) and the bar turns solid (.nav.menu-open). */
+  var dds = [].slice.call(document.querySelectorAll('.nav-dd'));
+  function menuIsOpen() { return !!(navLinks && navLinks.classList.contains('open')); }
+  function setMenu(open) {
+    if (!navLinks) return;
+    // Opening during a smooth or momentum scroll: stop it at its current spot first, so locking
+    // the page (overflow:hidden) can't strand the fixed bar half off-screen.
+    if (open) { try { window.scrollTo({ top: window.scrollY, left: 0, behavior: 'instant' }); } catch (e) { window.scrollTo(0, window.scrollY); } }
+    navLinks.classList.toggle('open', open);
+    if (nav) nav.classList.toggle('menu-open', open);
+    document.documentElement.classList.toggle('nav-open', open);
+    if (toggle) {
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    }
+    if (open) {
+      // mobile.css sizes the sheet to the space below the bar
+      if (nav) document.documentElement.style.setProperty('--nav-bottom', Math.round(nav.getBoundingClientRect().bottom) + 'px');
+      navLinks.scrollTop = 0;
+      var cur = null;
+      dds.forEach(function (d) { if (!cur && (d.classList.contains('is-current') || d.querySelector('[aria-current="page"]'))) cur = d; });
+      closeDDs(cur);
+      if (cur) { cur.classList.add('open'); var cb = cur.querySelector('.nav-dd-btn'); if (cb) cb.setAttribute('aria-expanded', 'true'); }
+    }
+  }
+  if (toggle && navLinks) {
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-controls', 'navLinks');
+    toggle.addEventListener('click', function (e) { e.stopPropagation(); setMenu(!menuIsOpen()); });
     navLinks.addEventListener('click', function (e) {
-      if (e.target.tagName === 'A') navLinks.classList.remove('open');
+      if (e.target.closest && e.target.closest('a')) setMenu(false);
     });
+    // Tap outside the bar and sheet closes the menu; leaving the hamburger range resets it.
+    document.addEventListener('click', function (e) { if (menuIsOpen() && nav && !nav.contains(e.target)) setMenu(false); });
+    window.matchMedia('(min-width: 1081px)').addEventListener('change', function (m) { if (m.matches) setMenu(false); });
+    window.addEventListener('pageshow', function (e) { if (e.persisted) setMenu(false); });
   }
 
   /* ---------- Nav dropdowns: hover on desktop, click/tap everywhere ---------- */
-  var dds = [].slice.call(document.querySelectorAll('.nav-dd'));
   function closeDDs(except) {
     dds.forEach(function (d) {
       if (d === except) return;
@@ -68,14 +100,19 @@
     b.addEventListener('click', function (e) {
       e.stopPropagation();
       // On hover devices the menu is already open from hover; a click keeps it open.
-      var hoverDevice = window.matchMedia('(hover: hover) and (min-width: 981px)').matches;
+      // Inside the open mobile menu it is always a plain accordion toggle.
+      var hoverDevice = !menuIsOpen() && window.matchMedia('(hover: hover) and (min-width: 981px)').matches;
       var open = hoverDevice ? true : !d.classList.contains('open');
       closeDDs(d);
       d.classList.toggle('open', open);
       b.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
   });
-  document.addEventListener('click', function () { closeDDs(null); });
+  // Outside clicks close desktop dropdowns; taps inside the open mobile menu leave its accordion alone.
+  document.addEventListener('click', function (e) {
+    if (menuIsOpen() && navLinks.contains(e.target)) return;
+    closeDDs(null);
+  });
 
   /* Hover intent on desktop: open after a short pause, close after a grace period, so the
      menu doesn't flicker or snap shut when the cursor crosses the gap. */
@@ -85,12 +122,15 @@
     var b = d.querySelector('.nav-dd-btn'); var tOpen = null, tClose = null;
     function open() { clearTimeout(tClose); closeDDs(d); d.classList.add('open'); if (b) b.setAttribute('aria-expanded', 'true'); }
     function close() { clearTimeout(tOpen); d.classList.remove('open'); if (b) b.setAttribute('aria-expanded', 'false'); }
-    d.addEventListener('mouseenter', function () { if (!fine.matches) return; clearTimeout(tClose); tOpen = setTimeout(open, 70); });
-    d.addEventListener('mouseleave', function () { if (!fine.matches) return; clearTimeout(tOpen); tClose = setTimeout(close, 220); });
-    d.addEventListener('focusin', function (e) { if (e.target.matches(':focus-visible')) open(); });
-    d.addEventListener('focusout', function (e) { if (!d.contains(e.relatedTarget)) close(); });
+    d.addEventListener('mouseenter', function () { if (!fine.matches || menuIsOpen()) return; clearTimeout(tClose); tOpen = setTimeout(open, 70); });
+    d.addEventListener('mouseleave', function () { if (!fine.matches || menuIsOpen()) return; clearTimeout(tOpen); tClose = setTimeout(close, 220); });
+    d.addEventListener('focusin', function (e) { if (!menuIsOpen() && e.target.matches(':focus-visible')) open(); });
+    d.addEventListener('focusout', function (e) { if (!menuIsOpen() && !d.contains(e.relatedTarget)) close(); });
   });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeDDs(null); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    if (menuIsOpen()) { setMenu(false); if (toggle) toggle.focus(); } else closeDDs(null);
+  });
 
   /* ---------- Count-up ---------- */
   function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }

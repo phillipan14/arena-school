@@ -20,12 +20,44 @@
 <meta property="og:url" content="https://arenaschool.org/programs/community-dialogues" />
 <meta property="og:image" content="https://arenaschool.org/og-image.png" />
 <link rel="stylesheet" href="/styles.css?v=1790704894" />
-<link rel="stylesheet" href="/riso-theme.css?v=1790803300" />
+<link rel="stylesheet" href="/riso-theme.css?v=1790900500" />
+<link rel="stylesheet" href="/mobile.css?v=1790900500" />
 <link rel="stylesheet" href="/css/parent-talks.css?v=1790704894" />
-<link rel="stylesheet" href="/css/program-pages.css?v=1790806100" />
+<link rel="stylesheet" href="/css/program-pages.css?v=1790900500" />
 <link rel="stylesheet" href="/css/team.css?v=1790806300" />
 <link rel="stylesheet" href="/css/cofounders.css?v=1790806300" />
 <link rel="stylesheet" href="/css/reveals.css?v=1790805600" />
+<style data-mobile>
+@media (max-width: 760px) {
+  /* Hero eyebrow: two clean lines instead of an orphaned "SERIES" */
+  .pc-hero .cd-eb { flex-wrap: wrap; row-gap: 4px; }
+  .pc-hero .cd-eb .cd-eb-sep { display: none; }
+  .pc-hero .cd-eb .cd-eb-2 { flex-basis: 100%; padding-left: 14px; }
+  /* Hero facts + CTAs */
+  .pc-hero .pc-facts b { font-size: 11px; }
+  .pc-hero .pc-cta { flex-direction: column; gap: 12px; }
+  .pc-hero .pc-cta .btn { width: 100%; min-height: 52px; justify-content: center; }
+  /* The talk: three parts stacked vertically instead of a clipped sideways row */
+  .pc-how .pc-sel-list { flex-direction: column; gap: 10px; overflow: visible; margin-inline: 0; padding: 0; scroll-snap-type: none; }
+  .pc-how .pc-sel-list > li { flex: 0 0 auto; }
+  .pc-how .pc-sel-tab { padding: 18px 18px 18px; }
+  .pc-how .pc-sel-h { font-size: 19px; }
+  .pc-how .pc-sel-p { font-size: 15px; max-width: none; }
+  .pc-how .pc-step-k, .pc-how .pc-step-k b { font-size: 11px; }
+  .pc-how .pc-sel-slide figcaption { font-size: 11px; }
+  /* Empty "Selected programs we have run" band (no content under the label) */
+  .pc-proof { display: none; }
+  /* Team */
+  #team .hp-cred-lab, #team .hp-cf-k { font-size: 11px; }
+  #team .hp-cf-r { font-size: 11px; }
+  /* Next step */
+  .pc-final .pp-close-cta .btn { width: 100%; min-height: 52px; justify-content: center; }
+  .pc-final .pp-close-parent { font-size: 15px; line-height: 1.5; }
+  .pc-final .pp-close-parent a { padding-block: 10px; }
+  .pc-final .pp-formats li { grid-template-columns: 28px 1fr; gap: 12px; padding: 20px 18px; }
+  .pc-final .pp-final-all a { display: inline-block; padding: 12px 8px; }
+}
+</style>
 </head>
 <body class="no-ticker zl-page">
 <nav class="nav" id="nav">
@@ -35,7 +67,6 @@
     </a>
     <div class="nav-links" id="navLinks">
       <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">For students<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu nav-dd-stu"><span class="nav-dd-sub">Short courses · 2 days</span><a href="/programs/remake-your-favorite-app"><b>App Design Workshop</b><span>Grades 6–9 · rebuild an app they love</span></a><a href="/programs/website-portfolio-workshop"><b>College Portfolio Workshop</b><span>Grades 10–12 · a portfolio for applications</span></a><span class="nav-dd-sub">Longer programs</span><a href="/programs/product-intensive"><b>Entrepreneurship &amp; AI Intensive</b><span>Grades 7–12 · build, launch, and pitch</span></a><span class="nav-dd-sub">Year-long</span><a href="/mentorship"><b>Year-Long Project Mentorship</b><span>Grades 7–12 · 6 months to a year, 1:1</span></a><span class="nav-dd-sub">College &amp; career</span><a href="/zero-to-launch"><b>AI Advantage Bootcamp</b><span>College &amp; early career · workplace-ready with AI</span></a></div></div>
-      <a class="nav-top-link" href="/programs/community-dialogues" aria-current="page">For families</a>
       <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">For educators<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu nav-dd-edu"><span class="nav-dd-sub">For schools</span><a href="/programs/teacher-training"><b>AI for Educators</b><span>Hands-on AI for teachers and curriculum leads</span></a><a href="/schools"><b>Bring Arena to your school</b><span>One approach for your whole school community</span></a><span class="nav-dd-sub">Events &amp; partners</span><a href="/programs/conferences"><b>Conferences &amp; events</b><span>Talks, hands-on workshops, and pre-conference sessions</span></a><a href="/partnerships"><b>Program partners</b><span>An AI product track for camps and programs</span></a></div></div>
       <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">About<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu"><a href="/about"><b>Our team</b><span>Who we are</span></a><a href="/approach"><b>Our approach</b><span>Agency, taste, and craft</span></a><a href="/results"><b>Results</b><span>What we have run</span></a></div></div>
       <a class="nav-mobile-only" href="/contact">Contact us</a>
@@ -58,7 +89,7 @@
   <div class="hero-bg" data-riso-field="static" aria-hidden="true"></div>
   <div class="container">
     <div class="hero-copy hero-copy-wide">
-      <div class="hero-eyebrow-row reveal"><span class="eyebrow">For families · Parent education series</span></div>
+      <div class="hero-eyebrow-row reveal"><span class="eyebrow cd-eb">For families<span class="cd-eb-sep"> · </span><span class="cd-eb-2">Parent education series</span></span></div>
       <h1 class="display reveal cs-h1">Community Dialogues</h1>
       <p class="lede reveal lede-56">A parent education series at your school: parent coffees and talks on how AI is changing work, jobs, and college admissions.</p>
       <ul class="pc-facts reveal" aria-label="At a glance"><li><b>Who</b><span>Parents and school communities</span></li><li><b>Format</b><span>Parent coffees and talks</span></li><li><b>Where</b><span>At your school</span></li><li><b>Length</b><span>Set with your school</span></li><li><b>Language</b><span>English or Chinese</span></li></ul>
@@ -75,7 +106,7 @@
 <section class="zl-section section-alt pc-sec pc-how" data-screen-label="How it runs">
   <div class="container">
     <div class="sec-head reveal"><span class="eyebrow">The talk</span><h2 class="h2 h2-md">Working Beside AI: What It Means for Our Kids’ Futures</h2></div>
-    <div class="pc-sel pc-sel-3 reveal" data-pc-sel data-label-pause="Pause" data-label-play="Play" style="--pc-n:3"><div class="pc-sel-stage"><figure class="pc-sel-slide is-on" id="st-community-di-p1" data-k="isb-pitch-gesture" role="tabpanel" aria-labelledby="st-community-di-t1"><img src="/photos/isb-hq/isb-pitch-gesture-800.webp" srcset="/photos/isb-hq/isb-pitch-gesture-800.webp 800w, /photos/isb-hq/isb-pitch-gesture-1400.webp 1400w" sizes="(max-width: 900px) 100vw, 58vw" alt="A student team presenting on demo day" loading="eager" decoding="async" /><figcaption>Beijing, 2026</figcaption></figure><figure class="pc-sel-slide" id="st-community-di-p2" data-k="demo-laptop" role="tabpanel" aria-labelledby="st-community-di-t2" aria-hidden="true"><img src="/photos/isb-2026/demo-laptop-800.webp" srcset="/photos/isb-2026/demo-laptop-800.webp 800w, /photos/isb-2026/demo-laptop-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 58vw" alt="Students presenting their work at the podium" loading="lazy" decoding="async" /><figcaption>Beijing, 2026</figcaption></figure><figure class="pc-sel-slide" id="st-community-di-p3" data-k="parents-audience" role="tabpanel" aria-labelledby="st-community-di-t3" aria-hidden="true"><img src="/photos/isb-2026/parents-audience-800.webp" srcset="/photos/isb-2026/parents-audience-800.webp 800w, /photos/isb-2026/parents-audience-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 58vw" alt="Families in the audience at a student demo day" loading="lazy" decoding="async" /><figcaption>Beijing, 2026</figcaption></figure><div class="pc-sel-count" aria-hidden="true"><b>01</b><span> / 03</span></div><button type="button" class="pc-sel-pp" aria-label="Pause" hidden><span aria-hidden="true"></span></button></div><ol class="pc-sel-list" role="tablist" aria-label="Working Beside AI: What It Means for Our Kids’ Futures"><li role="presentation"><button type="button" class="pc-sel-tab is-on" role="tab" id="st-community-di-t1" aria-controls="st-community-di-p1" aria-selected="true" tabindex="0"><span class="pc-sel-bar" aria-hidden="true"><i></i></span><span class="pc-step-k"><b>01</b> · Part 1</span><span class="pc-sel-h">How work and jobs are changing</span><span class="pc-sel-p">Our team describes how AI has changed our own work and what employers now expect.</span></button></li><li role="presentation"><button type="button" class="pc-sel-tab" role="tab" id="st-community-di-t2" aria-controls="st-community-di-p2" aria-selected="false" tabindex="-1"><span class="pc-sel-bar" aria-hidden="true"><i></i></span><span class="pc-step-k"><b>02</b> · Part 2</span><span class="pc-sel-h">What students can now do</span><span class="pc-sel-p">Work students made with AI tools in our programs, shown on screen.</span></button></li><li role="presentation"><button type="button" class="pc-sel-tab" role="tab" id="st-community-di-t3" aria-controls="st-community-di-p3" aria-selected="false" tabindex="-1"><span class="pc-sel-bar" aria-hidden="true"><i></i></span><span class="pc-step-k"><b>03</b> · Part 3</span><span class="pc-sel-h">College admissions and questions</span><span class="pc-sel-p">What AI means for applications, then families’ questions, with ideas for each age from grades 6 to 12.</span></button></li></ol></div>
+    <div class="pc-sel pc-sel-3 reveal" data-pc-sel data-label-pause="Pause" data-label-play="Play" style="--pc-n:3"><div class="pc-sel-stage"><figure class="pc-sel-slide is-on" id="st-community-di-p1" data-k="isb-pitch-gesture" role="tabpanel" aria-labelledby="st-community-di-t1"><img src="/photos/isb-hq/isb-pitch-gesture-800.webp" srcset="/photos/isb-hq/isb-pitch-gesture-800.webp 800w, /photos/isb-hq/isb-pitch-gesture-1400.webp 1400w" sizes="(max-width: 900px) 100vw, 58vw" alt="A student team presenting on demo day" loading="eager" decoding="async" /><figcaption>Beijing, 2026</figcaption></figure><figure class="pc-sel-slide" id="st-community-di-p2" data-k="demo-laptop" role="tabpanel" aria-labelledby="st-community-di-t2" aria-hidden="true"><img src="/photos/isb-2026/demo-laptop-800.webp" srcset="/photos/isb-2026/demo-laptop-800.webp 800w, /photos/isb-2026/demo-laptop-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 58vw" alt="Students presenting their work at the podium" loading="lazy" decoding="async" /><figcaption>Beijing, 2026</figcaption></figure><figure class="pc-sel-slide" id="st-community-di-p3" data-k="parents-audience" role="tabpanel" aria-labelledby="st-community-di-t3" aria-hidden="true"><img src="/photos/isb-2026/parents-audience-800.webp" srcset="/photos/isb-2026/parents-audience-800.webp 800w, /photos/isb-2026/parents-audience-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 58vw" alt="Families in the audience at a student demo day" loading="lazy" decoding="async" /><figcaption>Beijing, 2026</figcaption></figure><div class="pc-sel-count" aria-hidden="true"><b>01</b><span> / 03</span></div><button type="button" class="pc-sel-pp" aria-label="Pause" hidden><span aria-hidden="true"></span></button></div><ol class="pc-sel-list" role="tablist" aria-label="Working Beside AI: What It Means for Our Kids’ Futures"><li role="presentation"><button type="button" class="pc-sel-tab is-on" role="tab" id="st-community-di-t1" aria-controls="st-community-di-p1" aria-selected="true" tabindex="0"><span class="pc-sel-bar" aria-hidden="true"><i></i></span><span class="pc-step-k"><b>01</b> · Part 1</span><span class="pc-sel-h">How work and jobs are changing</span><span class="pc-sel-p">Our team describes how AI has changed our own work and what employers now expect.</span></button></li><li role="presentation"><button type="button" class="pc-sel-tab" role="tab" id="st-community-di-t2" aria-controls="st-community-di-p2" aria-selected="false" tabindex="-1"><span class="pc-sel-bar" aria-hidden="true"><i></i></span><span class="pc-step-k"><b>02</b> · Part 2</span><span class="pc-sel-h">What students can now do</span><span class="pc-sel-p">Work students made with AI tools in our programs, shown on screen.</span></button></li><li role="presentation"><button type="button" class="pc-sel-tab" role="tab" id="st-community-di-t3" aria-controls="st-community-di-p3" aria-selected="false" tabindex="-1"><span class="pc-sel-bar" aria-hidden="true"><i></i></span><span class="pc-step-k"><b>03</b> · Part 3</span><span class="pc-sel-h">College admissions and questions</span><span class="pc-sel-p">What AI means for applications, then families’ questions, with ideas for each age from <span style="white-space:nowrap">grades 6 to 12.</span></span></button></li></ol></div>
   </div>
 </section>
 <section class="founder-strip pc-proof" data-screen-label="Proof and team">
@@ -109,12 +140,12 @@
         <h2 class="h2 h2-md">Hold a dialogue at your school</h2>
         <p class="pp-close-sub">Tell us about your school community and preferred dates. We reply within three working days.</p>
         <div class="pp-close-cta"><a href="/contact?program=community-dialogues" class="btn btn-primary">Contact us <span class="arr">→</span></a></div>
-        <p class="pp-close-parent">A parent? <a href="/contact?program=community-dialogues&amp;role=parent">Tell us your school and we will reach out →</a></p>
+        <p class="pp-close-parent">A parent? <a href="/contact?program=community-dialogues&amp;role=parent">Tell us your school and <span style="white-space:nowrap">we will reach out →</span></a></p>
       </div>
       <figure class="pp-close-photo"><img src="/photos/isb-2026/cohort-800.webp" srcset="/photos/isb-2026/cohort-800.webp 800w, /photos/isb-2026/cohort-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 50vw" alt="Students and mentors, Beijing 2026" loading="lazy" decoding="async" /><figcaption><img src="/logos/arena/seal-ivory-256.png" alt="" width="18" height="18" />Students and mentors, Beijing 2026</figcaption></figure>
     </div>
     <div class="pp-final-grid">
-      <div class="reveal"><span class="pp-final-k">Formats</span><ol class="pp-formats"><li><span class="pp-fnum">01</span><div><b>Parent coffee</b><small>For a small group of parents</small><p>A morning conversation on how AI is changing work, jobs, and college admissions, with time for questions from the room.</p></div></li><li><span class="pp-fnum">02</span><div><b>Parent talk</b><small>For parents of students in grades 6 to 12</small><p>An evening talk covering how work and jobs are changing, student work made with AI, and what it means for college admissions.</p></div></li><li><span class="pp-fnum">03</span><div><b>Leadership and staff briefing</b><small>For heads of school, boards, and counselors</small><p>A longer discussion with school leaders on the questions families raise, so staff can answer them consistently.</p></div></li></ol></div>
+      <div class="reveal"><span class="pp-final-k">Formats</span><ol class="pp-formats"><li><span class="pp-fnum">01</span><div><b>Parent coffee</b><small>For a small group of parents</small><p>A morning conversation on how AI is changing work, jobs, and college admissions, with time for questions from the room.</p></div></li><li><span class="pp-fnum">02</span><div><b>Parent talk</b><small>For parents of students in <span style="white-space:nowrap">grades 6 to 12</span></small><p>An evening talk covering how work and jobs are changing, student work made with AI, and what it means for college admissions.</p></div></li><li><span class="pp-fnum">03</span><div><b>Leadership and staff briefing</b><small>For heads of school, boards, and counselors</small><p>A longer discussion with school leaders on the questions families raise, so staff can answer them consistently.</p></div></li></ol></div>
       <div class="pp-lead reveal" id="onepager">
         <div class="pp-lead-top"><img class="pp-lead-thumb" src="/onepager/arena-school-one-pager-en.jpg" alt="Preview of the Arena School one-pager" width="96" height="136" loading="lazy" /><div><h3>Get the Arena <span class="nw" style="white-space:nowrap">one-pager</span></h3><p>Every program and what we have run, on one page for your team or board.</p></div></div>
         <form class="cohort-form pp-lead-form" action="https://formsubmit.co/ajax/contact@arenaschool.org" method="POST">
@@ -161,8 +192,8 @@
   </div>
 </footer>
 <script src="/hero-options.js?v=1790704894" defer></script>
-<script src="/riso-field.js?v=1790704894" defer></script>
-<script src="/motion.js?v=1790704894"></script>
+<script src="/riso-field.js?v=1790900500" defer></script>
+<script src="/motion.js?v=1790900500"></script>
 <script src="/riso-interact.js?v=1790704894" defer></script>
 <script src="/onepager.js?v=1790780000" defer></script>
 <script src="/pp-steps.js?v=1790800100" defer></script>

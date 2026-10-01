@@ -17,6 +17,6 @@
     setTimeout(() => prev.classList.remove('is-out'), 600);
     words[i].classList.add('is-on');
     fit(words[i]);
-  }, 2600);
+  }, 2000);
   addEventListener('resize', () => fit(words[i]), { passive: true });
 })();

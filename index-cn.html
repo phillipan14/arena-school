@@ -6,7 +6,7 @@
 
 <!-- Primary -->
 <title>Arena School</title>
-<meta name="description" content="Arena School 的项目帮助学生、家庭、教育者与学校在 AI 时代茁壮成长：六至十二年级学生用 AI 做出真实作品，老师和家长学会如何引导。" />
+<meta name="description" content="Arena School 的项目帮助学生、家庭、教育者与学校在 AI 时代茁壮成长：初高中学生用 AI 亲手做出真实的作品，老师和家长也学会如何从旁引导。" />
 <meta name="author" content="Phillip An" />
 <meta name="theme-color" content="#152636" />
 <link rel="canonical" href="https://arenaschool.org/index-cn" />
@@ -27,7 +27,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Arena School" />
 <meta property="og:title" content="Arena School" />
-<meta property="og:description" content="Arena School 的项目帮助学生、家庭、教育者与学校在 AI 时代茁壮成长：六至十二年级学生用 AI 做出真实作品，老师和家长学会如何引导。" />
+<meta property="og:description" content="Arena School 的项目帮助学生、家庭、教育者与学校在 AI 时代茁壮成长：初高中学生用 AI 亲手做出真实的作品，老师和家长也学会如何从旁引导。" />
 <meta property="og:url" content="https://arenaschool.org/index-cn" />
 <meta property="og:image" content="https://arenaschool.org/og-image.png" />
 <meta property="og:image:width" content="1200" />
@@ -37,7 +37,7 @@
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Arena School" />
-<meta name="twitter:description" content="Arena School 的项目帮助学生、家庭、教育者与学校在 AI 时代茁壮成长：六至十二年级学生用 AI 做出真实作品，老师和家长学会如何引导。" />
+<meta name="twitter:description" content="Arena School 的项目帮助学生、家庭、教育者与学校在 AI 时代茁壮成长：初高中学生用 AI 亲手做出真实的作品，老师和家长也学会如何从旁引导。" />
 <meta name="twitter:image" content="https://arenaschool.org/og-image.png" />
 
 <script type="application/ld+json">
@@ -49,21 +49,78 @@
   "url": "https://arenaschool.org",
   "logo": "https://arenaschool.org/icons/icon-512.png",
   "image": "https://arenaschool.org/og-image.png",
-  "description": "Arena School 的项目帮助学生、家庭、教育者与学校在 AI 时代茁壮成长：六至十二年级学生用 AI 做出真实作品，老师和家长学会如何引导。",
+  "description": "Arena School 的项目帮助学生、家庭、教育者与学校在 AI 时代茁壮成长：初高中学生用 AI 亲手做出真实的作品，老师和家长也学会如何从旁引导。",
   "founder": { "@type": "Person", "name": "Phillip An", "alternateName": "安广宁" },
   "foundingDate": "2026"
 }
 </script>
 
 <link rel="stylesheet" href="/styles.css?v=1790704894" />
-<link rel="stylesheet" href="/riso-theme.css?v=1790803300" />
+<link rel="stylesheet" href="/riso-theme.css?v=1790900500" />
+<link rel="stylesheet" href="/mobile.css?v=1790900500" />
 <link rel="stylesheet" href="/css/journey.css?v=1790704894" />
-<link rel="stylesheet" href="/css/program-pages.css?v=1790806100" />
+<link rel="stylesheet" href="/css/program-pages.css?v=1790900500" />
 <link rel="stylesheet" href="/css/grades.css?v=1790805700" />
 <link rel="stylesheet" href="/css/pillars.css?v=1790804600" />
 <link rel="stylesheet" href="/css/cofounders.css?v=1790900000" />
 <link rel="stylesheet" href="/css/conferences.css?v=1790704894" />
 <link rel="stylesheet" href="/css/index.css?v=1790805600" />
+<style data-mobile>
+@media (max-width: 760px) {
+  /* word units that must not split on phones */
+  html[lang="zh-CN"] body.home .nw { white-space: nowrap; }
+
+  /* Hero: centered under the seal; headline always breaks as 让[词]在AI时代 / 茁壮成长。 so the rotating word never reflows it */
+  body.home .hero-riso-copy { text-align: center; }
+  body.home .hero-riso-copy .hero-eyebrow-row { display: flex; justify-content: center; }
+  body.home .hero-riso-h1 { text-wrap: wrap; }
+  body.home .hero-riso-h1 .hr-lb { display: block; height: 0; }
+  body.home .hero-riso-copy .lede { margin-inline: auto; max-width: 21em !important; }
+  body.home .hero-riso-copy .hero-cta { justify-content: center; }
+
+  /* Gallery captions: place/year label readable */
+  body.home .gm-t figcaption span { font-size: 11px; }
+
+  /* Program cards: comfortable tap rows for the stacked links */
+  body.home #programs .prog-links a { min-height: 40px; font-size: 15px; }
+  body.home #programs .prog-links-stack { gap: 0 !important; }
+  body.home #programs .prog-card .eyebrow { font-size: 12px !important; letter-spacing: .12em !important; }
+
+  /* Grade map: legible stage labels and grade ranges; taller lane hit areas */
+  body.home .gm-head { row-gap: 10px; }
+  body.home .gm-k { font-size: 12px; }
+  body.home .gm-note { font-size: 14px; }
+  body.home .gm-stage { font-size: 11px; letter-spacing: .04em; }
+  body.home .gm-axis > span:last-child { font-size: 11px; letter-spacing: 0; }
+  body.home .gm-lane { padding-block: 5px; }
+  body.home .gm-lab { align-items: baseline; gap: 10px; }
+  body.home .gm-lab b { font-size: 16px; }
+  body.home .gm-lab small { font-size: 12px; letter-spacing: .04em; }
+  body.home .gm-partner { line-height: 1.7; }
+  body.home .gm-partner .tlink, body.home .pillars-more .tlink { display: inline-flex; align-items: center; min-height: 40px; }
+
+  /* Team */
+  body.home .hp-cred-lab, body.home .hp-cf-k { font-size: 11.5px; }
+  body.home .hp-cf-r { font-size: 11px; }
+
+  /* Upcoming: arrow sits beside the date, description gets the full width */
+  body.home .hp-next .cf-ev { grid-template-columns: 1fr 40px; gap: 8px 16px; }
+  body.home .hp-next .cf-ev > .cf-date { grid-column: 1; grid-row: 1; }
+  body.home .hp-next .cf-ev > div:nth-child(2) { grid-column: 1 / -1; grid-row: 2; }
+  body.home .hp-next .cf-go { grid-column: 2; grid-row: 1; align-self: center; }
+  body.home .hp-next .cf-date span { font-size: 12px; margin-top: 8px; }
+  body.home .hp-next .cf-ev p .tlink { display: flex; width: fit-content; align-items: center; min-height: 36px; margin-top: 6px; }
+
+  body.home section.pillars { padding-bottom: 48px; }
+
+  /* Contact */
+  body.home section.hp-next.zl-section-md { padding-bottom: 40px !important; }
+  body.home .partners { padding-top: 60px; }
+  body.home .hc-direct a { min-height: 40px; }
+  body.home .hc-k { font-size: 12px; }
+  body.home .partners-form .form-row label { font-size: 13px; letter-spacing: .06em; }
+}
+</style>
 </head>
 <body class="no-ticker home">
 
@@ -103,8 +160,8 @@
     </div>
     <div class="hero-riso-copy">
       <div class="hero-eyebrow-row reveal"><span class="eyebrow">面向学生、家庭、教育者与学校</span></div>
-      <h1 class="hero-riso-h1 reveal"><span class="sr-only">让学生、家庭、教育者与学校在AI时代茁壮成长。</span><span aria-hidden="true">让<span class="hr-rot" data-rot><span class="is-on">学生</span><span>家庭</span><span>教育者</span><span>学校</span></span>在AI时代<em class="rh">茁壮成长</em>。</span></h1>
-      <p class="lede sub reveal">六至十二年级的学生在实践中用 AI 做出真实作品，身边的老师和家长也学会如何引导。</p>
+      <h1 class="hero-riso-h1 reveal"><span class="sr-only">让学生、家庭、教育者与学校在AI时代茁壮成长。</span><span aria-hidden="true">让<span class="hr-rot" data-rot><span class="is-on">学生</span><span>家庭</span><span>教育者</span><span>学校</span></span><span class="nw">在AI时代</span><span class="hr-lb" aria-hidden="true"></span><em class="rh">茁壮成长</em>。</span></h1>
+      <p class="lede sub reveal"><span class="nw">面向初高中学生的实践项目：</span><span class="nw">孩子们用 AI 亲手做出</span><span class="nw">真实的作品，</span><span class="nw">身边的老师和家长</span><span class="nw">也学会如何从旁引导。</span></p>
       <div class="hero-cta reveal">
           <a href="#programs" class="btn btn-primary">查看项目 <span class="arr">→</span></a>
           <a href="/contact-cn" class="btn btn-ghost">联系我们</a>
@@ -121,20 +178,20 @@
 <section class="programs" id="programs" data-screen-label="Programs">
   <div class="container">
     <div class="sec-head reveal"><span class="eyebrow">项目</span><h2 class="h2 h2-md">每个项目都培养主动性、审美与匠心，面向学生，也面向陪伴他们的大人。</h2></div>
-    <div class="prog-grid prog-grid-4"><article class="prog-card reveal"><figure class="prog-ph"><img src="/photos/isb-hq/isb-podium-duo-800.webp" alt="学生展示自己的作品" loading="lazy" decoding="async"></figure><span class="eyebrow">6–12年级</span><h3 class="prog-h">学生项目</h3><p class="prog-p">应用设计与升学作品集两天工作坊、创业与AI集训营，以及学年项目导师计划。</p><p class="prog-links prog-links-stack"><a href="/programs/remake-your-favorite-app-cn" class="tlink" data-prog="remake">应用设计工作坊 →</a> <a href="/programs/website-portfolio-workshop-cn" class="tlink" data-prog="portfolio">升学作品集工作坊 →</a> <a href="/programs/product-intensive-cn" class="tlink" data-prog="intensive">创业与AI集训营 →</a> <a href="/mentorship-cn" class="tlink" data-prog="mentorship">学年项目导师计划 →</a></p></article><article class="prog-card reveal"><figure class="prog-ph"><img src="/photos/isb-hq/isb-pitch-gesture-800.webp" alt="学生展示团队上线的产品" loading="lazy" decoding="async"></figure><span class="eyebrow">大学生与职场新人</span><h3 class="prog-h">AI职场先发营</h3><p class="prog-p">面向大学生与职场新人的一周项目：用AI做出并上线真实产品，为进入职场做好准备。</p><p class="prog-links"><a data-prog="bootcamp" href="/zero-to-launch-cn" class="tlink">查看训练营 →</a></p></article><article class="prog-card reveal"><figure class="prog-ph"><img src="/photos/isb-2026/mentors-laptop-800.webp" alt="导师与学生一起看电脑" loading="lazy" decoding="async"></figure><span class="eyebrow">面向教师</span><h3 class="prog-h">教育者AI培训</h3><p class="prog-p">动手实践的培训，老师为自己的课堂打造AI工具，判断始终由老师做主。</p><p class="prog-links prog-links-stack"><a href="/programs/teacher-training-cn" class="tlink">了解教育者AI培训 →</a> <a href="/programs/conferences-cn" class="tlink">会议与活动 →</a></p></article><article class="prog-card reveal"><figure class="prog-ph"><img src="/photos/isb-2026/parents-audience-800.webp" alt="台下的家长" loading="lazy" decoding="async"></figure><span class="eyebrow">面向家长</span><h3 class="prog-h">社区对话</h3><p class="prog-p">家长教育系列：以咖啡会和讲座的形式，分享AI如何改变工作、就业与大学申请。</p><p class="prog-links"><a href="/programs/community-dialogues-cn" class="tlink">了解社区对话 →</a></p></article></div>
-    <div class="gmap reveal" aria-label="各项目适用年级" data-gmap><div class="gm-head"><span class="gm-k">各项目适合的阶段</span><span class="gm-note">六至十二年级，以及大学生与职场新人</span></div><div class="gm-axis"><span class="gm-stage gm-ms" style="--s:1;--e:4">初中</span><span class="gm-stage gm-hs" style="--s:4;--e:8">高中</span><span class="gm-stage gm-col" style="--s:8;--e:9">毕业后</span><span style="--c:1">6</span><span style="--c:2">7</span><span style="--c:3">8</span><span style="--c:4">9</span><span style="--c:5">10</span><span style="--c:6">11</span><span style="--c:7">12</span><span style="--c:8">大学</span></div><div class="gm-lanes"><a class="gm-lane" data-prog="remake" href="/programs/remake-your-favorite-app-cn" style="--s:1;--e:5;--i:0"><i class="gm-bar" aria-hidden="true"></i><span class="gm-lab"><b>应用设计工作坊</b><small>6至9年级</small><em aria-hidden="true">→</em></span></a><a class="gm-lane" data-prog="portfolio" href="/programs/website-portfolio-workshop-cn" style="--s:5;--e:8;--i:1"><i class="gm-bar" aria-hidden="true"></i><span class="gm-lab"><b>升学作品集工作坊</b><small>10至12年级</small><em aria-hidden="true">→</em></span></a><a class="gm-lane" data-prog="intensive" href="/programs/product-intensive-cn" style="--s:2;--e:8;--i:2"><i class="gm-bar" aria-hidden="true"></i><span class="gm-lab"><b>创业与AI集训营</b><small>7至12年级</small><em aria-hidden="true">→</em></span></a><a class="gm-lane" data-prog="mentorship" href="/mentorship-cn" style="--s:2;--e:8;--i:3"><i class="gm-bar" aria-hidden="true"></i><span class="gm-lab"><b>学年项目导师计划</b><small>7至12年级</small><em aria-hidden="true">→</em></span></a><a class="gm-lane is-short" data-prog="bootcamp" href="/zero-to-launch-cn" style="--s:8;--e:9;--i:4"><i class="gm-bar" aria-hidden="true"></i><span class="gm-lab"><b>AI职场先发营</b><small>大学生与职场新人</small><em aria-hidden="true">→</em></span></a></div></div>
+    <div class="prog-grid prog-grid-4"><article class="prog-card reveal"><figure class="prog-ph"><img src="/photos/isb-hq/isb-podium-duo-800.webp" alt="学生展示自己的作品" loading="lazy" decoding="async"></figure><span class="eyebrow">面向初高中学生</span><h3 class="prog-h">学生项目</h3><p class="prog-p">应用设计与升学作品集两天工作坊、创业与AI集训营，以及学年项目导师计划。</p><p class="prog-links prog-links-stack"><a href="/programs/remake-your-favorite-app-cn" class="tlink" data-prog="remake">应用设计工作坊 →</a> <a href="/programs/website-portfolio-workshop-cn" class="tlink" data-prog="portfolio">升学作品集工作坊 →</a> <a href="/programs/product-intensive-cn" class="tlink" data-prog="intensive">创业与AI集训营 →</a> <a href="/mentorship-cn" class="tlink" data-prog="mentorship">学年项目导师计划 →</a></p></article><article class="prog-card reveal"><figure class="prog-ph"><img src="/photos/isb-hq/isb-pitch-gesture-800.webp" alt="学生展示团队上线的产品" loading="lazy" decoding="async"></figure><span class="eyebrow">大学生与职场新人</span><h3 class="prog-h">AI职场先发营</h3><p class="prog-p">面向大学生与职场新人的一周项目：用AI做出并上线真实产品，为进入职场做好准备。</p><p class="prog-links"><a data-prog="bootcamp" href="/zero-to-launch-cn" class="tlink">查看训练营 →</a></p></article><article class="prog-card reveal"><figure class="prog-ph"><img src="/photos/isb-2026/mentors-laptop-800.webp" alt="导师与学生一起看电脑" loading="lazy" decoding="async"></figure><span class="eyebrow">面向教师</span><h3 class="prog-h">教育者AI培训</h3><p class="prog-p">动手实践的培训，老师为自己的课堂打造AI工具，判断始终由老师做主。</p><p class="prog-links prog-links-stack"><a href="/programs/teacher-training-cn" class="tlink">了解教育者AI培训 →</a> <a href="/programs/conferences-cn" class="tlink">会议与活动 →</a></p></article><article class="prog-card reveal"><figure class="prog-ph"><img src="/photos/isb-2026/parents-audience-800.webp" alt="台下的家长" loading="lazy" decoding="async"></figure><span class="eyebrow">面向家长</span><h3 class="prog-h">社区对话</h3><p class="prog-p">家长教育系列：以咖啡会和讲座的形式，分享AI如何改变工作、就业与大学申请。</p><p class="prog-links"><a href="/programs/community-dialogues-cn" class="tlink">了解社区对话 →</a></p></article></div>
+    <div class="gmap reveal" aria-label="各项目适用年级" data-gmap><div class="gm-head"><span class="gm-k">各项目适合的阶段</span><span class="gm-note">初中到高中，以及大学生与职场新人</span></div><div class="gm-axis"><span class="gm-stage gm-ms" style="--s:1;--e:4">初中</span><span class="gm-stage gm-hs" style="--s:4;--e:8">高中</span><span class="gm-stage gm-col" style="--s:8;--e:9">毕业后</span><span style="--c:1">6</span><span style="--c:2">7</span><span style="--c:3">8</span><span style="--c:4">9</span><span style="--c:5">10</span><span style="--c:6">11</span><span style="--c:7">12</span><span style="--c:8">大学</span></div><div class="gm-lanes"><a class="gm-lane" data-prog="remake" href="/programs/remake-your-favorite-app-cn" style="--s:1;--e:5;--i:0"><i class="gm-bar" aria-hidden="true"></i><span class="gm-lab"><b>应用设计工作坊</b><small>6至9年级</small><em aria-hidden="true">→</em></span></a><a class="gm-lane" data-prog="portfolio" href="/programs/website-portfolio-workshop-cn" style="--s:5;--e:8;--i:1"><i class="gm-bar" aria-hidden="true"></i><span class="gm-lab"><b>升学作品集工作坊</b><small>10至12年级</small><em aria-hidden="true">→</em></span></a><a class="gm-lane" data-prog="intensive" href="/programs/product-intensive-cn" style="--s:2;--e:8;--i:2"><i class="gm-bar" aria-hidden="true"></i><span class="gm-lab"><b>创业与AI集训营</b><small>7至12年级</small><em aria-hidden="true">→</em></span></a><a class="gm-lane" data-prog="mentorship" href="/mentorship-cn" style="--s:2;--e:8;--i:3"><i class="gm-bar" aria-hidden="true"></i><span class="gm-lab"><b>学年项目导师计划</b><small>7至12年级</small><em aria-hidden="true">→</em></span></a><a class="gm-lane is-short" data-prog="bootcamp" href="/zero-to-launch-cn" style="--s:8;--e:9;--i:4"><i class="gm-bar" aria-hidden="true"></i><span class="gm-lab"><b>AI职场先发营</b><small>大学生与职场新人</small><em aria-hidden="true">→</em></span></a></div></div>
     <p class="cs-note gm-partner reveal">想把 Arena 带进贵校？ <a href="/schools-cn" class="tlink">了解我们如何与学校合作 →</a></p>
   </div>
 </section>
 
 <section class="founder-strip hp-lead hp-cred" data-screen-label="Founding team">
   <div class="container">
-    <div class="hp-cred-head reveal"><span class="eyebrow">我们的团队</span><h2 class="h2 h2-md">我们的团队<em>走过同一条路</em>。</h2><p class="lede">Arena 的团队曾就读并任职于学生们向往的院校与机构，并以亲身经验授课。</p></div>
+    <div class="hp-cred-head reveal"><span class="eyebrow">我们的团队</span><h2 class="h2 h2-md"><span class="nw">我们的团队</span><em class="nw">走过同一条路</em>。</h2><p class="lede"><span class="nw">Arena 的团队曾就读并任职于</span><span class="nw">学生们向往的院校与机构，</span><span class="nw">并以亲身经验授课。</span></p></div>
     <div class="hp-cred-grid reveal">
       <div class="hp-cred-row"><span class="hp-cred-lab">就读于</span><ul><li><img src="/logos/cred/caltech.png" alt="加州理工学院" style="height:30px" loading="lazy" /></li><li><img src="/logos/cred/harvard.png" alt="哈佛大学" style="height:40px" loading="lazy" /></li><li><img src="/logos/cred/brown.png" alt="布朗大学" style="height:40px" loading="lazy" /></li><li><img src="/logos/cred/tsinghua-lockup.png" alt="清华大学" style="height:44px" loading="lazy" /></li><li><img src="/logos/cred/isb.png" alt="北京顺义国际学校" style="height:46px" loading="lazy" /></li></ul></div>
       <div class="hp-cred-row"><span class="hp-cred-lab">曾任职于</span><ul><li><img src="/logos/cred/mckinsey.png" alt="麦肯锡" style="height:22px" loading="lazy" /></li><li><img src="/logos/cred/goldman.png" alt="高盛" style="height:36px" loading="lazy" /></li><li><img src="/logos/cred/yc.png" alt="Y Combinator" style="height:38px" loading="lazy" /></li><li><img src="/logos/cred/apple.png" alt="苹果" style="height:38px" loading="lazy" /></li><li><img src="/logos/cred/microsoft-ai.png" alt="微软 AI" style="height:30px" loading="lazy" /></li><li><img src="/logos/cred/deloitte.png" alt="德勤" style="height:22px" loading="lazy" /></li><li><img src="/logos/cred/kimi.png" alt="Kimi（月之暗面）" style="height:24px" loading="lazy" /></li></ul></div>
     </div>
-    <div class="hp-cf reveal"><span class="hp-cf-k">Arena 领导团队</span><div class="hp-cf-list" data-xp="701"><div class="hp-cf-slot" data-xp-slot><button type="button" class="hp-cf-card" data-xp-card="jj" aria-expanded="false" aria-controls="cf-panel"><img data-xp-notch src="/photos/jing-jing-yang-640.webp" alt="" width="72" height="72" loading="lazy" decoding="async" /><span class="hp-cf-t"><b>羊筱涵</b><span class="hp-cf-en" lang="en">Jing Jing Yang</span><span class="hp-cf-r">联合创始人</span><em><span class="nw">布朗大学</span> · <span class="nw">清华大学</span> · <span class="nw">苹果</span> · <span class="nw">Kimi</span></em></span><span class="hp-cf-plus" aria-hidden="true"></span><span class="sr-only">查看简介</span></button></div><div class="hp-cf-slot" data-xp-slot><button type="button" class="hp-cf-card" data-xp-card="pa" aria-expanded="false" aria-controls="cf-panel"><img data-xp-notch src="/photos/phillip-an-640.webp" alt="" width="72" height="72" loading="lazy" decoding="async" /><span class="hp-cf-t"><b>安广宁</b><span class="hp-cf-en" lang="en">Phillip An</span><span class="hp-cf-r">联合创始人</span><em><span class="nw">加州理工学院</span> · <span class="nw">哈佛大学</span> · <span class="nw">麦肯锡</span> · <span class="nw">Y&nbsp;Combinator</span></em></span><span class="hp-cf-plus" aria-hidden="true"></span><span class="sr-only">查看简介</span></button></div><div class="hp-cf-panel" id="cf-panel" data-xp-panel data-lint-skip><div class="hp-cf-clip"><div class="hp-cf-box" data-xp-box><div class="hp-cf-prof" data-xp-for="jj" aria-label="羊筱涵 Jing Jing Yang" hidden><div class="hp-cf-pq"><p class="hp-cf-lab">她的观点</p><!-- PLACEHOLDER quote: replace with real words --><blockquote class="hp-cf-quote"><p>教育正在从‘知道答案’转向‘知道什么值得去做’。这是 AI 无法替学生完成的能力，也是我们在教的能力。</p></blockquote><p class="hp-cf-cite"><img src="/photos/jing-jing-yang-640.webp" alt="" width="32" height="32" loading="lazy" /><b>羊筱涵</b><span>Arena School 联合创始人</span></p></div><div class="hp-cf-pe"><p class="hp-cf-lab">经历</p><ul class="hp-cf-exp"><li><span class="hp-cf-lg"><img src="/logos/cred/brown.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b>布朗大学</b><span>经济学与行为决策科学</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/microsoft-ai.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b>微软 AI</b><span>AI 研究</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/apple.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b>苹果</b><span>科技</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/deloitte.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b>德勤</b><span>咨询</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/tsinghua-lockup.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b>清华大学</b><span>苏世民学者，攻读硕士</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/kimi.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b>Kimi · 月之暗面</b><span>国际化增长</span></span></li></ul></div><div class="hp-cf-links"><a class="tlink" href="/about-cn#cofounders">阅读完整介绍 <span class="arr">→</span></a><a href="https://www.linkedin.com/in/xiao-han-yang/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4v11H3v-11Zm6.5 0h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4v-11Z"/></svg>LinkedIn</a><a href="mailto:jingjing@arenaschool.org">jingjing@arenaschool.org</a></div></div><div class="hp-cf-prof" data-xp-for="pa" aria-label="安广宁 Phillip An" hidden><div class="hp-cf-pq"><p class="hp-cf-lab">他的观点</p><!-- PLACEHOLDER quote: replace with real words --><blockquote class="hp-cf-quote"><p>AI 改写工作的速度，比学校更新课程还快。现在就学会用判断力驾驭 AI 的学生，将主导自己的职业道路。</p></blockquote><p class="hp-cf-cite"><img src="/photos/phillip-an-640.webp" alt="" width="32" height="32" loading="lazy" /><b>安广宁</b><span>Arena School 联合创始人</span></p></div><div class="hp-cf-pe"><p class="hp-cf-lab">经历</p><ul class="hp-cf-exp"><li><span class="hp-cf-lg"><img src="/logos/cred/caltech.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b>加州理工学院</b><span>计算机科学</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/mckinsey.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b>麦肯锡</b><span>管理咨询</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/goldman.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b>高盛</b><span>投资银行</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/harvard.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b>哈佛大学</b><span>MBA 与工程硕士</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/yc.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b>Y Combinator</b><span>联合创立 Homebase，首家获 YC 投资的越南公司；福布斯 30 岁以下精英榜</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/tsinghua-lockup.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b>清华大学</b><span>苏世民学者</span></span></li></ul></div><div class="hp-cf-links"><a class="tlink" href="/about-cn#cofounders">阅读完整介绍 <span class="arr">→</span></a><a href="https://www.linkedin.com/in/phillipan/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4v11H3v-11Zm6.5 0h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4v-11Z"/></svg>LinkedIn</a><a href="mailto:phillip@arenaschool.org">phillip@arenaschool.org</a></div></div></div></div></div></div><a href="/about-cn" class="btn btn-ghost hp-cf-btn">认识领导团队 <span class="arr">→</span></a></div>
+    <div class="hp-cf reveal"><span class="hp-cf-k">Arena 领导团队</span><div class="hp-cf-list" data-xp="701"><div class="hp-cf-slot" data-xp-slot><button type="button" class="hp-cf-card" data-xp-card="jj" aria-expanded="false" aria-controls="cf-panel"><img data-xp-notch src="/photos/jing-jing-yang-640.webp" alt="" width="72" height="72" loading="lazy" decoding="async" /><span class="hp-cf-t"><b>羊筱涵</b><span class="hp-cf-en" lang="en">Jing Jing Yang</span><span class="hp-cf-r">联合创始人</span><em><span class="nw">布朗大学</span> · <span class="nw">清华大学</span> · <span class="nw">苹果</span> · <span class="nw">Kimi</span></em></span><span class="hp-cf-plus" aria-hidden="true"></span><span class="sr-only">查看简介</span></button></div><div class="hp-cf-slot" data-xp-slot><button type="button" class="hp-cf-card" data-xp-card="pa" aria-expanded="false" aria-controls="cf-panel"><img data-xp-notch src="/photos/phillip-an-640.webp" alt="" width="72" height="72" loading="lazy" decoding="async" /><span class="hp-cf-t"><b>安广宁</b><span class="hp-cf-en" lang="en">Phillip An</span><span class="hp-cf-r">联合创始人</span><em><span class="nw">加州理工学院</span> · <span class="nw">哈佛大学</span> · <span class="nw">麦肯锡</span> · <span class="nw">Y&nbsp;Combinator</span></em></span><span class="hp-cf-plus" aria-hidden="true"></span><span class="sr-only">查看简介</span></button></div><div class="hp-cf-panel" id="cf-panel" data-xp-panel data-lint-skip><div class="hp-cf-clip"><div class="hp-cf-box" data-xp-box><div class="hp-cf-prof" data-xp-for="jj" aria-label="羊筱涵 Jing Jing Yang" hidden><div class="hp-cf-pq"><p class="hp-cf-lab">她的观点</p><!-- PLACEHOLDER quote: replace with real words --><blockquote class="hp-cf-quote"><p>教育正在从“知道答案”转向“知道什么值得去做”。这是 AI 无法替学生完成的能力，也是我们在教的能力。</p></blockquote><p class="hp-cf-cite"><img src="/photos/jing-jing-yang-640.webp" alt="" width="32" height="32" loading="lazy" /><b>羊筱涵</b><span>Arena School 联合创始人</span></p></div><div class="hp-cf-pe"><p class="hp-cf-lab">经历</p><ul class="hp-cf-exp"><li><span class="hp-cf-lg"><img src="/logos/cred/brown.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b>布朗大学</b><span>经济学与行为决策科学</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/microsoft-ai.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b>微软 AI</b><span>AI 研究</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/apple.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b>苹果</b><span>科技</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/deloitte.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b>德勤</b><span>咨询</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/tsinghua-lockup.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b>清华大学</b><span>苏世民学者，攻读硕士</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/kimi.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b>Kimi · 月之暗面</b><span>国际化增长</span></span></li></ul></div><div class="hp-cf-links"><a class="tlink" href="/about-cn#cofounders">阅读完整介绍 <span class="arr">→</span></a><a href="https://www.linkedin.com/in/xiao-han-yang/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4v11H3v-11Zm6.5 0h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4v-11Z"/></svg>LinkedIn</a><a href="mailto:jingjing@arenaschool.org">jingjing@arenaschool.org</a></div></div><div class="hp-cf-prof" data-xp-for="pa" aria-label="安广宁 Phillip An" hidden><div class="hp-cf-pq"><p class="hp-cf-lab">他的观点</p><!-- PLACEHOLDER quote: replace with real words --><blockquote class="hp-cf-quote"><p>AI 改写工作的速度，比学校更新课程还快。现在就学会用判断力驾驭 AI 的学生，将主导自己的职业道路。</p></blockquote><p class="hp-cf-cite"><img src="/photos/phillip-an-640.webp" alt="" width="32" height="32" loading="lazy" /><b>安广宁</b><span>Arena School 联合创始人</span></p></div><div class="hp-cf-pe"><p class="hp-cf-lab">经历</p><ul class="hp-cf-exp"><li><span class="hp-cf-lg"><img src="/logos/cred/caltech.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b>加州理工学院</b><span>计算机科学</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/mckinsey.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b>麦肯锡</b><span>管理咨询</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/goldman.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b>高盛</b><span>投资银行</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/harvard.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b>哈佛大学</b><span>MBA 与工程硕士</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/yc.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b>Y Combinator</b><span>联合创立 Homebase，首家获 YC 投资的越南公司；福布斯 30 岁以下精英榜</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/tsinghua-lockup.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b>清华大学</b><span>苏世民学者</span></span></li></ul></div><div class="hp-cf-links"><a class="tlink" href="/about-cn#cofounders">阅读完整介绍 <span class="arr">→</span></a><a href="https://www.linkedin.com/in/phillipan/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4v11H3v-11Zm6.5 0h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4v-11Z"/></svg>LinkedIn</a><a href="mailto:phillip@arenaschool.org">phillip@arenaschool.org</a></div></div></div></div></div></div><a href="/about-cn" class="btn btn-ghost hp-cf-btn">认识领导团队 <span class="arr">→</span></a></div>
   </div>
 </section>
 
@@ -142,7 +199,6 @@
   <div class="container">
     <div class="sec-head reveal"><span class="eyebrow">我们教什么</span><h2 class="h2 h2-md">学校、工作与职业的规则，写于 AI 出现之前。我们教的，是<em>如今依然让人脱颖而出</em>的能力。</h2><p class="lede pl-intro">当 AI 几乎什么都能做出来，关键在于知道什么值得做、做得好不好，以及怎样把它做完。我们让学生尽早练就这三种能力，并与老师和家长同行。</p></div>
     <div class="prog-grid pillar-row" data-xp="901"><button type="button" class="prog-card pillar-card reveal" data-xp-card="agency" aria-expanded="false" aria-controls="pl-panel"><span class="pl-num" data-xp-notch>I</span><span class="prog-h"><em class="rh">主动性</em></span><span class="pillar-tag">选出真正值得解决的问题。</span><span class="pl-plus" aria-hidden="true"></span><span class="pl-sr">看看我们怎么教</span></button><button type="button" class="prog-card pillar-card reveal" data-xp-card="taste" aria-expanded="false" aria-controls="pl-panel"><span class="pl-num" data-xp-notch>II</span><span class="prog-h"><em class="rh">审美</em></span><span class="pillar-tag">分辨哪个版本真正行得通。</span><span class="pl-plus" aria-hidden="true"></span><span class="pl-sr">看看我们怎么教</span></button><button type="button" class="prog-card pillar-card reveal" data-xp-card="craft" aria-expanded="false" aria-controls="pl-panel"><span class="pl-num" data-xp-notch>III</span><span class="prog-h"><em class="rh">匠心</em></span><span class="pillar-tag">把事情做完，并且做好。</span><span class="pl-plus" aria-hidden="true"></span><span class="pl-sr">看看我们怎么教</span></button><div class="pl-panel" id="pl-panel" data-xp-panel data-lint-skip><div class="pl-clip"><div class="pl-box" data-xp-box><div class="pl-sec" data-xp-for="agency" aria-label="主动性" hidden><div class="pl-body"><p class="pl-lab">I · 主动性</p><p class="pl-lead">AI 能帮人做出几乎任何东西，真正要下功夫的，是想清楚什么值得做。所以从第一天起，项目由学生自己选；导师提供支持，方向由学生决定。</p><a class="tlink" href="/approach-cn">我们如何教 <span class="arr">→</span></a></div><div class="pl-prac pl-impact"><p class="pl-lab">它带来的改变</p><ol><li><span class="pl-where">在学校</span><span>当 AI 能替学生完成作业，更难的能力是提出问题，而不是回答问题。</span></li><li><span class="pl-where">在工作中</span><span>只需照指令完成的任务最容易交给 AI；能定义问题的人，才是主导工作的人。</span></li><li><span class="pl-where">在职业生涯中</span><span>一个自己选定并坚持做完的项目，比成绩单更能说明一个人的主动性。</span></li></ol></div></div><div class="pl-sec" data-xp-for="taste" aria-label="审美" hidden><div class="pl-body"><p class="pl-lab">II · 审美</p><p class="pl-lead">AI 帮学生尝试更多版本。每天把作品拿给用户和导师看，学生从中学会判断哪一个真正行得通，以及为什么。</p><a class="tlink" href="/approach-cn">我们如何教 <span class="arr">→</span></a></div><div class="pl-prac pl-impact"><p class="pl-lab">它带来的改变</p><ol><li><span class="pl-where">在学校</span><span>当每篇文章、每个项目都能显得精致，分辨好坏才是老师真正需要看到的能力。</span></li><li><span class="pl-where">在工作中</span><span>团队一小时就能生成十个版本；能挑出对的那个、并说清为什么的人，才是大家依靠的人。</span></li><li><span class="pl-where">在职业生涯中</span><span>判断力会不断累积：它决定了一个人能否被托付更大的决定。</span></li></ol></div></div><div class="pl-sec" data-xp-for="craft" aria-label="匠心" hidden><div class="pl-body"><p class="pl-lab">III · 匠心</p><p class="pl-lead">AI 帮学生更快拿出初稿；把它做成可靠的作品，靠的是学生自己。每一次开发都以现场演示收尾。</p><a class="tlink" href="/approach-cn">我们如何教 <span class="arr">→</span></a></div><div class="pl-prac pl-impact"><p class="pl-lab">它带来的改变</p><ol><li><span class="pl-where">在学校</span><span>初稿如今唾手可得；把它打磨成可靠的作品，才是学习真正发生的地方。</span></li><li><span class="pl-where">在工作中</span><span>能真正运行的产品，比原型和幻灯片更能赢得信任。</span></li><li><span class="pl-where">在职业生涯中</span><span>一份做完的作品记录，加上一个可以打开的链接，在申请和面试中自会说话。</span></li></ol></div></div></div></div></div></div>
-    <p class="pillars-more reveal"><a href="/approach-cn" class="tlink">了解我们的教学理念 →</a></p>
   </div>
 </section>
 
@@ -150,9 +206,9 @@
   <div class="container">
     <div class="sec-head reveal"><span class="eyebrow">近期安排</span><h2 class="h2 h2-md">即将开展的项目与分享</h2></div>
     <ul class="cf-evs reveal">
-      <li class="cf-ev"><div class="cf-date"><b>2026年12月27日 – 2027年1月2日</b><span>广州</span></div><div><h3>AI职场先发营</h3><p>面向大学生与职场新人的一周项目：用AI设计、构建并上线一款产品。<a class="tlink" href="/zero-to-launch-cn">项目详情 →</a></p></div><span class="cf-go" aria-hidden="true">→</span></li>
-      <li class="cf-ev"><div class="cf-date"><b>2027年3月17–20日</b><span>曼谷</span></div><div><h3>EARCOS 教师大会</h3><p>面向东亚各地国际学校教师，带来一场全天会前工作坊与三场75分钟专题分享。<a class="tlink" href="/programs/conferences-cn">会议与活动 →</a></p></div><span class="cf-go" aria-hidden="true">→</span></li>
-    <li class="cf-ev"><div class="cf-date"><b>随时开始</b><span>长期招收</span></div><div><h3>学年项目导师计划</h3><p>六个月到一年、持续的一对一个性化导师指导，专注完成一个项目。 <a class="tlink" href="/mentorship-cn">项目详情 →</a></p></div><span class="cf-go" aria-hidden="true">→</span></li></ul>
+      <li class="cf-ev"><div class="cf-date"><b>2026年12月27日 – 2027年1月2日</b><span>广州</span></div><div><h3>AI职场先发营</h3><p>面向大学生与职场新人的一周项目：用 AI <span class="nw">设计、开发</span>并上线一款产品。<a class="tlink" href="/zero-to-launch-cn">项目详情 →</a></p></div><span class="cf-go" aria-hidden="true">→</span></li>
+      <li class="cf-ev"><div class="cf-date"><b>2027年3月17–20日</b><span>曼谷</span></div><div><h3>EARCOS 教师大会</h3><p>为东亚各地的国际学校教师带来一场<span class="nw">全天会前工作坊</span>，以及三场 <span class="nw">75 分钟的专题分享</span>。<a class="tlink" href="/programs/conferences-cn">会议与活动 →</a></p></div><span class="cf-go" aria-hidden="true">→</span></li>
+    <li class="cf-ev"><div class="cf-date"><b>随时开始</b><span>长期招收</span></div><div><h3>学年项目导师计划</h3><p>围绕一个项目，接受为期六个月到一年的<span class="nw">一对一</span>个性化导师指导。<a class="tlink" href="/mentorship-cn">项目详情 →</a></p></div><span class="cf-go" aria-hidden="true">→</span></li></ul>
   </div>
 </section>
 
@@ -161,9 +217,9 @@
     <div class="partners-grid">
       <div class="reveal partners-lede">
         <span class="eyebrow">联系我们</span>
-        <h2 class="h2 partners-h">告诉我们你在寻找什么。</h2>
-        <p class="lede partners-sub">学校、家长、教育者和学生：每一条消息我们都会认真阅读。</p>
-        <div class="hc-next"><p class="hc-k">之后的安排</p><ol class="hc-steps"><li><span class="hc-n">01</span><div><b>三个工作日内回复。</b><span>由我们的团队通过邮件回复。</span></div></li><li><span class="hc-n">02</span><div><b>如有需要，安排简短通话。</b><span>了解贵校、您的孩子或您的活动。</span></div></li><li><span class="hc-n">03</span><div><b>书面提供方案。</b><span>项目选项、时间安排与后续步骤。</span></div></li></ol></div>
+        <h2 class="h2 partners-h"><span class="nw">告诉我们</span><span class="nw">您的需求。</span></h2>
+        <p class="lede partners-sub">学校、家长、教育者和学生：<span class="nw">每一条消息</span>我们都会认真阅读。</p>
+        <div class="hc-next"><p class="hc-k">接下来</p><ol class="hc-steps"><li><span class="hc-n">01</span><div><b>三个工作日内回复。</b><span>团队成员会通过邮件与您联系。</span></div></li><li><span class="hc-n">02</span><div><b>如有需要，安排一次简短通话。</b><span>聊聊贵校、孩子或活动的具体情况。</span></div></li><li><span class="hc-n">03</span><div><b>以书面形式提供方案。</b><span>包括项目选择、时间安排与后续步骤。</span></div></li></ol></div>
         <div class="hc-direct"><a href="mailto:contact@arenaschool.org"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" d="M3.5 6.5h17v11h-17z M3.8 7l8.2 6.2L20.2 7"/></svg><span>contact@arenaschool.org</span></a><a href="https://www.linkedin.com/company/arena-school/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4v11H3v-11Zm6.5 0h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4v-11Z"/></svg><span>LinkedIn</span></a></div>
         <p class="partners-fine">您的信息仅用于回复，不会与他人共享。</p>
       </div>
@@ -172,21 +228,21 @@
   <input type="hidden" name="_template" value="box" />
   <input type="hidden" name="_captcha" value="false" />
   <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
-  <div class="big">告诉我们一些关于你的信息。</div>
+  <div class="big">介绍一下您自己。</div>
   <p class="seats">大约两分钟即可填完。</p>
   <div class="form-row">
-    <label for="pf-role">我的身份是……</label>
+    <label for="pf-role">您的身份</label>
     <select id="pf-role" name="role" required>
-      <option value="" disabled selected>请选择</option><option value="school">学校负责人或老师</option><option value="board">校董会成员或教育顾问</option><option value="parent">家长</option><option value="educator">教育者 / 项目负责人</option><option value="student">学生（12至22岁）</option><option value="organizer">会议或活动主办方</option><option value="other">其他</option>
+      <option value="" disabled selected>请选择</option><option value="school">学校负责人或老师</option><option value="board">校董会成员或教育顾问</option><option value="parent">家长</option><option value="educator">教育者或项目负责人</option><option value="student">学生（12至22岁）</option><option value="organizer">会议或活动主办方</option><option value="other">其他</option>
     </select>
   </div>
   <div class="form-row form-row-split">
-    <div><label for="pf-name">姓名</label><input id="pf-name" name="name" type="text" required autocomplete="name" placeholder="你的名字" /></div>
+    <div><label for="pf-name">姓名</label><input id="pf-name" name="name" type="text" required autocomplete="name" placeholder="您的姓名" /></div>
     <div><label for="pf-email">邮箱</label><input id="pf-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" /></div>
   </div>
   <div class="form-row">
-    <label for="pf-context">你想聊聊什么？</label>
-    <textarea id="pf-context" name="context" rows="4" required placeholder="几句话就够了。为学校引入项目？为孩子咨询？邀请讲座或工作坊？"></textarea>
+    <label for="pf-context">您想聊些什么？</label>
+    <textarea id="pf-context" name="context" rows="4" required placeholder="简单几句即可：为学校引入项目？为孩子咨询？还是邀请我们做讲座或工作坊？"></textarea>
   </div>
   <button type="submit" class="btn btn-primary cf-submit">
     <span class="cf-submit-label">发送 <span class="arr">→</span></span>
@@ -203,7 +259,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="/index-cn" class="footer-lockup-link"><img class="footer-lockup" src="/logos/arena/wordmark-ivory-1600.png" alt="Arena School" width="1600" height="242" /></a>
-        <p class="tag">帮助学生、家庭、教育者与学校在 AI 时代茁壮成长。</p>
+        <p class="tag">帮助学生、家庭、教育者与学校<span class="nw">在 AI 时代茁壮成长。</span></p>
       </div><div class="footer-col"><h4>学生项目</h4><a href="/programs/remake-your-favorite-app-cn">应用设计工作坊</a><a href="/programs/website-portfolio-workshop-cn">升学作品集工作坊</a><a href="/programs/product-intensive-cn">创业与AI集训营</a><a href="/mentorship-cn">学年项目导师计划</a><a href="/zero-to-launch-cn">AI职场先发营</a><h4>家庭</h4><a href="/programs/community-dialogues-cn">社区对话</a></div><div class="footer-col"><h4>教育者</h4><a href="/programs/teacher-training-cn">教育者AI培训</a><a href="/programs/conferences-cn">会议与活动</a><a href="/schools-cn">把 Arena 带进贵校</a><a href="/partnerships-cn">项目合作伙伴</a></div><div class="footer-col"><h4>关于我们</h4><a href="/about-cn">我们的团队</a><a href="/approach-cn">教学理念</a><a href="/results-cn">成果</a><a href="/contact-cn">联系我们</a></div>
     </div>
     <div class="footer-bottom">
@@ -212,11 +268,11 @@
     </div>
   </div>
 </footer>
-<script src="/riso-field.js?v=1790704894" defer></script>
-<script src="/motion.js?v=1790704894"></script>
+<script src="/riso-field.js?v=1790900500" defer></script>
+<script src="/motion.js?v=1790900500"></script>
 <script src="/riso-interact.js?v=1790704894" defer></script>
 <script src="/logo-marquee.js?v=1790803500" defer></script>
-<script src="/hero-rotator.js?v=2" defer></script>
+<script src="/hero-rotator.js?v=1790900500" defer></script>
 <script src="/xpand.js?v=1790803800" defer></script>
 <script src="/grade-map.js?v=1790804500" defer></script>
 <script src="/home2.js?v=1790704894" defer></script>

@@ -8,9 +8,42 @@
 <meta name="theme-color" content="#152636" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3" />
 <link rel="stylesheet" href="/styles.css?v=1790704894" />
-<link rel="stylesheet" href="/riso-theme.css?v=1790803300" />
-<link rel="stylesheet" href="/css/program-pages.css?v=1790806100" />
+<link rel="stylesheet" href="/riso-theme.css?v=1790900500" />
+<link rel="stylesheet" href="/mobile.css?v=1790900500" />
+<link rel="stylesheet" href="/css/program-pages.css?v=1790900500" />
 <link rel="stylesheet" href="/css/pages.css?v=1790806100" />
+<style data-mobile>
+@media (max-width: 760px) {
+  .pg-enroll-page .m-nw { white-space: nowrap; }
+  /* Hero: tighter top, centered */
+  .pg-enroll-page .hero.pg-enroll-hero { padding-top: 124px !important; padding-bottom: 36px !important; }
+  .pg-enroll-hero .hero-copy { text-align: center; margin-inline: auto; }
+  .pg-enroll-hero .hero-eyebrow-row { justify-content: center; }
+  .pg-enroll-hero .cs-h1, .pg-enroll-hero .lede-56 { margin-left: auto !important; margin-right: auto !important; }
+  .pg-enroll-hero .lede-56 { font-size: 16.5px; line-height: 1.65; }
+  @media (max-width: 374px) { .pg-enroll-hero .lede-56 { font-size: 16px; } }
+  .pg-enroll-hero .pg-ef-steps { justify-content: center; margin-top: 26px; }
+  .pg-enroll-hero .pg-ef-steps li { font-size: 13px; letter-spacing: .06em; }
+  .pg-enroll-hero .pg-ef-steps li span { width: 24px; height: 24px; font-size: 12px; }
+  /* Form */
+  .pg-enroll { padding-top: 32px !important; }
+  .pg-enroll .en-form .ef-sec { padding: 22px 20px 24px; }
+  .pg-enroll .en-form legend { margin-bottom: 14px; font-size: 23px; }
+  .pg-enroll .en-form legend small { font-size: 12px; }
+  .pg-enroll .en-form legend + .hint { margin-top: -6px; }
+  .pg-enroll .en-form label.f, .pg-enroll .en-form p.f { font-size: 13.5px; letter-spacing: .04em; margin-bottom: 8px; }
+  .pg-enroll .en-form input[type=text], .pg-enroll .en-form textarea { font-size: 16px; }
+  .pg-enroll .en-form .chk { font-size: 16px; min-height: 48px; align-items: center; }
+  .pg-enroll .en-form .chk input { margin-top: 0; width: 18px; height: 18px; }
+  .pg-enroll .en-form .ef-confirm .chk { align-items: flex-start; }
+  .pg-enroll .en-form .ef-confirm .chk input { margin-top: 3px; }
+  .pg-enroll .en-form .hint { font-size: 14.5px; line-height: 1.6; }
+  .pg-enroll .en-form .en-btn { min-height: 54px; margin-top: 12px; }
+  .pg-enroll .en-form .ef-help { font-size: 14px; line-height: 1.7; }
+  .pg-enroll .en-form .ef-help a { display: inline-block; padding: 9px 0; line-height: 1.3; }
+  .pg-enroll .en-form .ef-help { line-height: 1.6; }
+}
+</style>
 </head>
 <body class="no-ticker zl-page pg pg-enroll-page">
 <nav class="nav" id="nav">
@@ -20,7 +53,6 @@
     </a>
     <div class="nav-links" id="navLinks">
       <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">学生项目<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu nav-dd-stu"><span class="nav-dd-sub">短期课程 · 两天</span><a href="/programs/remake-your-favorite-app-cn"><b>应用设计工作坊</b><span>6–9年级 · 亲手重做一款喜欢的应用</span></a><a href="/programs/website-portfolio-workshop-cn"><b>升学作品集工作坊</b><span>10–12年级 · 为申请准备的作品集</span></a><span class="nav-dd-sub">长期项目</span><a href="/programs/product-intensive-cn"><b>创业与AI集训营</b><span>7–12年级 · 做出、上线并路演</span></a><span class="nav-dd-sub">学年项目</span><a href="/mentorship-cn"><b>学年项目导师计划</b><span>7–12年级 · 六个月到一年，一对一</span></a><span class="nav-dd-sub">大学与职场</span><a href="/zero-to-launch-cn"><b>AI职场先发营</b><span>大学生与职场新人 · 用AI准备职场</span></a></div></div>
-      <a class="nav-top-link" href="/programs/community-dialogues-cn">家庭</a>
       <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">教育者<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu nav-dd-edu"><span class="nav-dd-sub">学校</span><a href="/programs/teacher-training-cn"><b>教育者AI培训</b><span>面向教师与课程负责人的AI实践学习</span></a><a href="/schools-cn"><b>把 Arena 带进贵校</b><span>一套方法，服务整个学校社群</span></a><span class="nav-dd-sub">活动与合作</span><a href="/programs/conferences-cn"><b>会议与活动</b><span>主题演讲、动手工作坊与会前培训</span></a><a href="/partnerships-cn"><b>项目合作伙伴</b><span>为营地和教育项目加入产品实战模块</span></a></div></div>
       <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">关于我们<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu"><a href="/about-cn"><b>我们的团队</b><span>我们是谁</span></a><a href="/approach-cn"><b>教学理念</b><span>主动性、审美与匠心</span></a><a href="/results-cn"><b>成果</b><span>我们做过的项目</span></a></div></div>
       <a class="nav-mobile-only" href="/contact-cn">联系我们</a>
@@ -44,8 +76,8 @@
   <div class="container">
     <div class="hero-copy hero-copy-wide">
       <div class="hero-eyebrow-row reveal"><span class="eyebrow">报名</span></div>
-      <h1 class="display reveal cs-h1">学年项目导师计划<em>报名</em></h1>
-      <p class="lede sub reveal lede-56">六个月到一年、持续的一对一个性化导师指导，每周一次 25 分钟跟进，随时可以开始。填写约需两分钟，提交后进入支付页面。</p>
+      <h1 class="display reveal cs-h1"><span class="m-nw">学年项目</span><wbr><span class="m-nw">导师计划<em>报名</em></span></h1>
+      <p class="lede sub reveal lede-56"><span class="m-nw">为期六个月到一年的</span><span class="m-nw">一对一个性化导师指导，</span><span class="m-nw">每周一次 25 分钟跟进，</span><span class="m-nw">随时可以开始。</span><span class="m-nw">表格约两分钟填完，</span><span class="m-nw">提交后进入支付页面。</span></p>
       <ol class="pg-ef-steps reveal" aria-label="报名步骤"><li class="is-on" aria-current="step"><span>1</span>填写报名表</li><li><span>2</span>支付</li></ol>
     </div>
   </div>
@@ -81,15 +113,15 @@
         <p class="hint">可多选。</p>
         <div class="opts2">
           <label class="chk"><input type="checkbox" name="Goal: AI skills" value="yes"><span>掌握实用的 AI 能力</span></label>
-          <label class="chk"><input type="checkbox" name="Goal: college project" value="yes"><span>完成一个可用于升学申请的项目</span></label>
+          <label class="chk"><input type="checkbox" name="Goal: college project" value="yes"><span>做一个能写进升学申请的项目</span></label>
           <label class="chk"><input type="checkbox" name="Goal: competitions" value="yes"><span>参加比赛</span></label>
-          <label class="chk"><input type="checkbox" name="Goal: passion project" value="yes"><span>把个人兴趣发展成一个项目</span></label>
+          <label class="chk"><input type="checkbox" name="Goal: passion project" value="yes"><span>把个人兴趣做成一个项目</span></label>
         </div>
       </fieldset>
 
       <fieldset class="ef-sec reveal">
-        <legend><small>04</small>每周例会</legend>
-        <p class="hint">请选出所有方便的时间，我们会与您约定固定的时间。</p>
+        <legend><small>04</small>每周辅导时间</legend>
+        <p class="hint"><span class="m-nw">请勾选所有方便的时段，</span><span class="m-nw">我们会和您商定一个固定时间。</span></p>
         <div class="opts2">
           <label class="chk"><input type="checkbox" name="Time: Saturday morning" value="yes"><span>周六上午</span></label>
           <label class="chk"><input type="checkbox" name="Time: Saturday afternoon" value="yes"><span>周六下午</span></label>
@@ -107,11 +139,11 @@
 
       <fieldset class="ef-sec ef-confirm reveal">
         <legend><small>05</small>确认</legend>
-        <label class="chk"><input type="checkbox" name="Six-month commitment" value="confirmed" required><span><strong>我确认报名导师计划</strong>，参加时间不少于六个月。</span></label>
+        <label class="chk"><input type="checkbox" name="Six-month commitment" value="confirmed" required><span><strong>我确认报名学年项目导师计划</strong>，<span class="m-nw">参加时间不少于六个月</span>。</span></label>
       </fieldset>
 
       <button class="btn btn-primary en-btn" type="submit" id="sb">提交并前往支付 <span class="arr">→</span></button>
-      <p class="ef-help">有问题？请添加微信 phgan14，或发邮件至 <a href="mailto:contact@arenaschool.org">contact@arenaschool.org</a>。</p>
+      <p class="ef-help">有问题？请添加微信 <span class="m-nw">phgan14</span>，<span class="m-nw">或发邮件至</span> <a class="m-nw" href="mailto:contact@arenaschool.org">contact@arenaschool.org</a>。</p>
     </form>
   </div>
 </section>
@@ -131,8 +163,8 @@
   </div>
 </footer>
 <script src="/hero-options.js?v=1790704894" defer></script>
-<script src="/riso-field.js?v=1790704894" defer></script>
-<script src="/motion.js?v=1790704894"></script>
+<script src="/riso-field.js?v=1790900500" defer></script>
+<script src="/motion.js?v=1790900500"></script>
 <script>
 async function go(e){
   e.preventDefault();

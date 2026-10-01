@@ -19,13 +19,108 @@
 <meta property="og:image" content="https://arenaschool.org/og-image.png" />
 <meta property="og:locale" content="zh_CN" />
 <link rel="stylesheet" href="/styles.css?v=1790704894" />
-<link rel="stylesheet" href="/riso-theme.css?v=1790803300" />
+<link rel="stylesheet" href="/riso-theme.css?v=1790900500" />
+<link rel="stylesheet" href="/mobile.css?v=1790900500" />
 <link rel="stylesheet" href="/css/zero-to-launch.css?v=1790704894" />
-<link rel="stylesheet" href="/css/program-pages.css?v=1790806100" />
+<link rel="stylesheet" href="/css/program-pages.css?v=1790900500" />
 <link rel="stylesheet" href="/css/pages.css?v=1790806100" />
 <link rel="stylesheet" href="/css/team.css?v=1790802100" />
 <link rel="stylesheet" href="/css/cofounders.css?v=1790900000" />
 <link rel="stylesheet" href="/css/reveals.css?v=1790805600" />
+<style data-mobile>
+@media (max-width: 760px) {
+  /* Line breaks: no orphans in headings, ledes, and card copy */
+  .pg-bootcamp main h1, .pg-bootcamp main h2, .pg-bootcamp .pg-outs b, .pg-bootcamp .pg-seq b { text-wrap: balance; }
+  .pg-bootcamp .lede, .pg-bootcamp .card-p, .pg-bootcamp .pg-seq p, .pg-bootcamp .zl-spec-value, .pg-bootcamp .faq-a, .pg-bootcamp .pp-close-sub { text-wrap: pretty; }
+
+  /* Hero: trim the empty band above the eyebrow, center, stacked full-width CTAs */
+  .pg-bootcamp .hero.hero-pad-md { padding-top: 124px; padding-bottom: 44px; }
+  .pg-bootcamp .hero .hero-copy { text-align: center; margin-inline: auto; }
+  .pg-bootcamp .hero .hero-eyebrow-row { justify-content: center; }
+  .pg-bootcamp .hero .cs-h1, .pg-bootcamp .hero .lede-56 { margin-left: auto !important; margin-right: auto !important; }
+  .pg-bootcamp .hero .lede-56, .pg-bootcamp .sec-head.pg-head .lede, .pg-bootcamp .pp-close-sub { text-wrap: balance; }
+  .pg-bootcamp .hero .pp-hero-cta { flex-direction: column; align-items: stretch; gap: 12px; }
+  .pg-bootcamp .hero .pp-hero-cta .btn { width: 100%; min-height: 52px; justify-content: center; margin: 0; }
+  /* At-a-glance: one fact per row, label above value (no "in / person" or split dates) */
+  .pg-bootcamp .hero .pp-glance { grid-template-columns: 1fr; text-align: left; }
+  .pg-bootcamp .hero .pp-glance li, .pg-bootcamp .hero .pp-glance li:last-child { grid-column: auto; border-right: 0; border-bottom: 1px solid var(--pg-line); padding: 12px 20px 13px; }
+  .pg-bootcamp .hero .pp-glance li:last-child { border-bottom: 0; }
+  .pg-bootcamp .hero .pp-glance b { font-size: 11.5px; }
+  /* Co-brand strip: centered under the CTAs */
+  .pg-bootcamp .zl-hero-hosted { justify-content: center; margin-top: 26px; }
+
+  /* Section heads centered */
+  .pg-bootcamp .sec-head.pg-head { text-align: center; justify-items: center; margin-inline: auto; }
+  .pg-bootcamp .sec-head.pg-head .eyebrow { justify-self: center !important; }
+  .pg-bootcamp .sec-head.pg-head .h2, .pg-bootcamp .sec-head.pg-head .lede { margin-inline: auto; }
+
+  /* Outcomes: clean single column (matches "Why it matters") instead of a clipped sideways row */
+  .pg-bootcamp .pg-outs { grid-auto-flow: row; grid-template-columns: 1fr; grid-auto-columns: auto; overflow: visible; scroll-snap-type: none; padding: 0; margin-inline: 0; gap: 12px; }
+  .pg-bootcamp .pg-outs > li { padding: 20px 22px 22px; }
+  /* "Why it matters": tap-to-open points get a visible +/- affordance; no dead gap when closed */
+  .pg-bootcamp .has-wr > li { cursor: pointer; }
+  .pg-bootcamp .has-wr > li::after { content: "+"; position: absolute; right: 18px; top: 16px; width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--pg-line); display: grid; place-items: center; font: 400 19px/1 var(--font-body, inherit); color: var(--coral-deep, #B4532A); }
+  .pg-bootcamp .has-wr > li.wr-open::after { content: "\2212"; }
+  .pg-bootcamp .has-wr > li > .wr { margin-top: -10px; }
+  .pg-bootcamp .has-wr > li.wr-open > .wr { margin-top: 0; }
+  .pg-bootcamp .pg-outs-body .card-p { font-size: 15px; }
+
+  /* The week: vertical timeline, day label above the title */
+  .pg-bootcamp #week .pg-seq { border-top: 0; margin-top: 8px; }
+  .pg-bootcamp #week .pg-seq li, .pg-bootcamp #week .pg-seq li + li { position: relative; display: block; padding: 0 0 26px 34px; border: 0; }
+  .pg-bootcamp #week .pg-seq li:last-child { padding-bottom: 0; border-bottom: 0; }
+  .pg-bootcamp #week .pg-seq li::before { content: ""; position: absolute; left: 6px; top: 16px; bottom: -2px; width: 1.5px; background: var(--pg-line-hi, rgba(11,26,74,.25)); }
+  .pg-bootcamp #week .pg-seq li:last-child::before { display: none; }
+  .pg-bootcamp #week .pg-seq li::after { content: ""; position: absolute; left: 0; top: 2px; width: 14px; height: 14px; border-radius: 50%; background: var(--paper-hi, #FCF3ED); box-shadow: inset 0 0 0 1.5px var(--ink-2, #2F55A8); }
+  .pg-bootcamp #week .pg-seq li:first-child::after, .pg-bootcamp #week .pg-seq li:last-child::after { background: var(--ink-2, #2F55A8); }
+  .pg-bootcamp #week .pg-seq small { padding-top: 0; font-size: 11.5px; line-height: 18px; }
+  .pg-bootcamp #week .pg-seq b { margin-top: 6px; font-size: 21px; }
+  .pg-bootcamp #week .pg-seq p { margin-top: 6px; font-size: 15px; line-height: 1.55; }
+
+  /* AI tools: two-up category cards instead of a clipped sideways strip */
+  .pg-bootcamp .pg-tools-k { font-size: 11.5px; line-height: 1.6; text-align: center; text-wrap: balance; margin-top: 40px; }
+  .pg-bootcamp .zt-strip { grid-auto-flow: row; grid-template-columns: 1fr 1fr; grid-auto-columns: auto; overflow: visible; scroll-snap-type: none; padding-bottom: 0; gap: 10px; }
+  .pg-bootcamp .zt-strip .zt-col { padding: 14px 14px 8px; min-width: 0; }
+  .pg-bootcamp .zt-strip .zt-cat { font-size: 11.5px; letter-spacing: .06em; }
+  .pg-bootcamp .zt-strip .zt-tool b { font-size: 14.5px; }
+  .pg-bootcamp .zt-strip .zt-col:last-child:nth-child(odd) { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; column-gap: 14px; }
+  .pg-bootcamp .zt-strip .zt-col:last-child:nth-child(odd) .zt-cat { grid-column: 1 / -1; }
+
+  /* Team labels: 11px floor */
+  .pg-bootcamp .hp-cred-lab, .pg-bootcamp .hp-cf-r, .pg-bootcamp .hp-cf-k { font-size: 11px; }
+
+  /* Program facts head: centered like the other section heads */
+  .pg-bootcamp #facts .sec-head { text-align: center; }
+  .pg-bootcamp #facts .sec-head .h2 { margin-inline: auto; }
+  .pg-bootcamp #facts .zl-spec { text-align: left; }
+  /* Program facts: label above value so values get the full width */
+  .pg-bootcamp .pg-spec .zl-spec-row { grid-template-columns: 1fr; }
+  .pg-bootcamp .pg-spec .zl-spec-label { padding: 12px 18px 0; font-size: 11.5px; background: none; border: 0; }
+  .pg-bootcamp .pg-spec .zl-spec-value { padding: 4px 18px 13px; font-size: 16px; line-height: 1.5; }
+
+  /* Closing CTA: centered head, full-width button */
+  .pg-bootcamp .pp-final .pp-final-top > div:first-child { text-align: center; }
+  .pg-bootcamp .pp-final .pp-close-sub { margin-inline: auto; }
+  .pg-bootcamp .pp-final .pp-close-cta { display: flex; flex-direction: column; align-items: stretch; }
+  .pg-bootcamp .pp-final .pp-close-cta .btn { width: 100%; min-height: 52px; justify-content: center; margin: 0; }
+  .pg-bootcamp .pp-close-photo figcaption { font-size: 13px; }
+}
+@media (max-width: 374px) {
+  .pg-bootcamp .zt-strip .zt-col { padding: 12px 12px 6px; }
+  .pg-bootcamp .zt-strip .zt-cat { font-size: 11px; letter-spacing: .04em; }
+  .pg-bootcamp .zt-strip .zt-tool { gap: 8px; }
+  .pg-bootcamp .zt-strip .zt-tool b { font-size: 14px; }
+}
+@media (max-width: 760px) {
+  /* CN: Chinese copy reads better with a touch more leading; keep headings from splitting 什/么 etc. */
+  .pg-bootcamp .hero .lede-56 { line-height: 1.75; }
+  .pg-bootcamp .pg-outs b, .pg-bootcamp #week .pg-seq b { word-break: keep-all; }
+  /* CN: "pretty" wrapping splits Chinese words (路演/日); plain wrapping + .kp phrase spans reads cleaner */
+  .pg-bootcamp .card-p, .pg-bootcamp .pg-seq p, .pg-bootcamp .zl-spec-value, .pg-bootcamp .faq-a { text-wrap: wrap; }
+  /* CN: tools caption is a sentence, not a code label; 13px, tighter tracking so it doesn't read as spaced-out glyphs */
+  .pg-bootcamp .pg-tools-k { font-size: 13px; letter-spacing: .04em; }
+}
+</style>
 </head>
 <body class="no-ticker zl-page pg pg-bootcamp">
 <nav class="nav" id="nav">
@@ -73,7 +168,7 @@
         <li><b>地点</b><span>广州，线下</span></li>
         <li><b>对象</b><span>大学生与职场新人</span></li>
       </ul>
-      <div class="pp-hero-cta reveal"><a href="/contact-cn?program=bootcamp" class="btn btn-primary">申请邀请 <span class="arr">→</span></a><a href="#facts" class="btn btn-ghost">项目信息</a></div>
+      <div class="pp-hero-cta reveal"><a href="/contact-cn?program=bootcamp" class="btn btn-primary">申请加入 <span class="arr">→</span></a><a href="#facts" class="btn btn-ghost">项目信息</a></div>
       <div class="zl-hero-hosted pg-hosted reveal"><span class="zl-hero-hosted-label">联合主办</span><img src="/logos/lux/lux-navy-transparent.png" alt="千麓学者 Lux Scholar"></div>
     </div>
   </div>
@@ -81,49 +176,48 @@
 
 <section class="zl-section" data-screen-label="Why it matters">
   <div class="container">
-    <div class="sec-head pg-head reveal"><span class="eyebrow">为什么重要</span><h2 class="h2 h2-md">AI 几乎什么都能做出第一版。<em>知道该做什么、并把它做完，</em>才是新人脱颖而出的地方。</h2><p class="lede">在动手实践的一周里，学员了解一个产品是怎样做出来的，学会在真实工作中使用 AI 工具，并能独立继续做下去。</p></div>
-    <ul class="pg-outs pg-outs-body pg-outs-3 has-wr"><li class="reveal"><small>01</small><b>产品是怎样做出来的</b><p class="card-p">从选定问题、访谈用户，到上线、定价和路演日。</p><div class="wr" aria-hidden="true"><div class="wr-in"><ul class="wr-idx"><li>选定问题</li><li>用户调研</li><li>开发</li><li>品牌</li><li>上线</li><li>讲好故事</li><li>路演日</li></ul></div></div></li><li class="reveal"><small>02</small><b>在真实工作中用好 AI 工具</b><p class="card-p">二十多款工具，每一款都在学员自己的产品上学会，每个决定都由自己做。</p><div class="wr" aria-hidden="true"><div class="wr-in"><div class="wr-marq"><div class="wr-track"><span class="wr-tool"><img src="/logos/tools/openai.png" alt="" loading="lazy" />ChatGPT</span><span class="wr-tool"><img src="/logos/tools/claude.png" alt="" loading="lazy" />Claude</span><span class="wr-tool"><img src="/logos/tools/gemini.png" alt="" loading="lazy" />Gemini</span><span class="wr-tool"><img src="/logos/tools/deepseek.png" alt="" loading="lazy" />DeepSeek</span><span class="wr-tool"><img src="/logos/tools/perplexity.png" alt="" loading="lazy" />Perplexity</span><span class="wr-tool"><img src="/logos/tools/kimi.png" alt="" loading="lazy" />Kimi</span><span class="wr-tool"><img src="/logos/tools/doubao.png" alt="" loading="lazy" />Doubao</span><span class="wr-tool"><img src="/logos/tools/github.png" alt="" loading="lazy" />GitHub</span><span class="wr-tool"><img src="/logos/tools/vercel.png" alt="" loading="lazy" />Vercel</span><span class="wr-tool"><img src="/logos/tools/figma.png" alt="" loading="lazy" />Figma</span><span class="wr-tool"><img src="/logos/tools/canva.png" alt="" loading="lazy" />Canva</span><span class="wr-tool"><img src="/logos/tools/ideogram.png" alt="" loading="lazy" />Ideogram</span><span class="wr-tool"><img src="/logos/tools/notion.png" alt="" loading="lazy" />Notion</span><span class="wr-tool"><img src="/logos/tools/stripe.png" alt="" loading="lazy" />Stripe</span><span aria-hidden="true" class="wr-dup"><span class="wr-tool"><img src="/logos/tools/openai.png" alt="" loading="lazy" />ChatGPT</span><span class="wr-tool"><img src="/logos/tools/claude.png" alt="" loading="lazy" />Claude</span><span class="wr-tool"><img src="/logos/tools/gemini.png" alt="" loading="lazy" />Gemini</span><span class="wr-tool"><img src="/logos/tools/deepseek.png" alt="" loading="lazy" />DeepSeek</span><span class="wr-tool"><img src="/logos/tools/perplexity.png" alt="" loading="lazy" />Perplexity</span><span class="wr-tool"><img src="/logos/tools/kimi.png" alt="" loading="lazy" />Kimi</span><span class="wr-tool"><img src="/logos/tools/doubao.png" alt="" loading="lazy" />Doubao</span><span class="wr-tool"><img src="/logos/tools/github.png" alt="" loading="lazy" />GitHub</span><span class="wr-tool"><img src="/logos/tools/vercel.png" alt="" loading="lazy" />Vercel</span><span class="wr-tool"><img src="/logos/tools/figma.png" alt="" loading="lazy" />Figma</span><span class="wr-tool"><img src="/logos/tools/canva.png" alt="" loading="lazy" />Canva</span><span class="wr-tool"><img src="/logos/tools/ideogram.png" alt="" loading="lazy" />Ideogram</span><span class="wr-tool"><img src="/logos/tools/notion.png" alt="" loading="lazy" />Notion</span><span class="wr-tool"><img src="/logos/tools/stripe.png" alt="" loading="lazy" />Stripe</span></span></div></div></div></div></li><li class="reveal"><small>03</small><b>下一次，自己动手</b><p class="card-p">同样的方法可以用在第一份工作、业余项目或课程作业中。</p><div class="wr" aria-hidden="true"><div class="wr-in"><ul class="wr-idx"><li>第一份工作</li><li>业余项目</li><li>课程作业</li></ul></div></div></li></ul>
+    <div class="sec-head pg-head reveal"><span class="eyebrow">为什么重要</span><h2 class="h2 h2-md">AI 几乎<span class="kp">什么</span>都能做出<span class="kp">第一版。</span><em>想清楚<span class="kp">做什么，</span>并把它<span class="kp">做完，</span></em>才是<span class="kp">新人</span>真正拉开<span class="kp">差距的</span><span class="kp">地方。</span></h2><p class="lede">一周的动手实践里，学员会看清一个产品是<span class="kp">怎样做出来的，</span>学会在真实工作中用 AI 工具，结营后也能独立做下去。</p></div>
+    <ul class="pg-outs pg-outs-body pg-outs-3 has-wr"><li class="reveal"><small>01</small><b>产品是怎样做出来的</b><p class="card-p">从选定问题、访谈用户，到上线、定价和<span class="kp">路演日。</span></p><div class="wr" aria-hidden="true"><div class="wr-in"><ul class="wr-idx"><li>选定问题</li><li>用户调研</li><li>开发</li><li>品牌</li><li>上线</li><li>讲好故事</li><li>路演日</li></ul></div></div></li><li class="reveal"><small>02</small><b>在真实工作中用好 AI 工具</b><p class="card-p">二十多款工具，都在学员自己的产品上<span class="kp">边做边学，</span>每个决定都由<span class="kp">自己拍板。</span></p><div class="wr" aria-hidden="true"><div class="wr-in"><div class="wr-marq"><div class="wr-track"><span class="wr-tool"><img src="/logos/tools/openai.png" alt="" loading="lazy" />ChatGPT</span><span class="wr-tool"><img src="/logos/tools/claude.png" alt="" loading="lazy" />Claude</span><span class="wr-tool"><img src="/logos/tools/gemini.png" alt="" loading="lazy" />Gemini</span><span class="wr-tool"><img src="/logos/tools/deepseek.png" alt="" loading="lazy" />DeepSeek</span><span class="wr-tool"><img src="/logos/tools/perplexity.png" alt="" loading="lazy" />Perplexity</span><span class="wr-tool"><img src="/logos/tools/kimi.png" alt="" loading="lazy" />Kimi</span><span class="wr-tool"><img src="/logos/tools/doubao.png" alt="" loading="lazy" />豆包</span><span class="wr-tool"><img src="/logos/tools/github.png" alt="" loading="lazy" />GitHub</span><span class="wr-tool"><img src="/logos/tools/vercel.png" alt="" loading="lazy" />Vercel</span><span class="wr-tool"><img src="/logos/tools/figma.png" alt="" loading="lazy" />Figma</span><span class="wr-tool"><img src="/logos/tools/canva.png" alt="" loading="lazy" />Canva</span><span class="wr-tool"><img src="/logos/tools/ideogram.png" alt="" loading="lazy" />Ideogram</span><span class="wr-tool"><img src="/logos/tools/notion.png" alt="" loading="lazy" />Notion</span><span class="wr-tool"><img src="/logos/tools/stripe.png" alt="" loading="lazy" />Stripe</span><span aria-hidden="true" class="wr-dup"><span class="wr-tool"><img src="/logos/tools/openai.png" alt="" loading="lazy" />ChatGPT</span><span class="wr-tool"><img src="/logos/tools/claude.png" alt="" loading="lazy" />Claude</span><span class="wr-tool"><img src="/logos/tools/gemini.png" alt="" loading="lazy" />Gemini</span><span class="wr-tool"><img src="/logos/tools/deepseek.png" alt="" loading="lazy" />DeepSeek</span><span class="wr-tool"><img src="/logos/tools/perplexity.png" alt="" loading="lazy" />Perplexity</span><span class="wr-tool"><img src="/logos/tools/kimi.png" alt="" loading="lazy" />Kimi</span><span class="wr-tool"><img src="/logos/tools/doubao.png" alt="" loading="lazy" />豆包</span><span class="wr-tool"><img src="/logos/tools/github.png" alt="" loading="lazy" />GitHub</span><span class="wr-tool"><img src="/logos/tools/vercel.png" alt="" loading="lazy" />Vercel</span><span class="wr-tool"><img src="/logos/tools/figma.png" alt="" loading="lazy" />Figma</span><span class="wr-tool"><img src="/logos/tools/canva.png" alt="" loading="lazy" />Canva</span><span class="wr-tool"><img src="/logos/tools/ideogram.png" alt="" loading="lazy" />Ideogram</span><span class="wr-tool"><img src="/logos/tools/notion.png" alt="" loading="lazy" />Notion</span><span class="wr-tool"><img src="/logos/tools/stripe.png" alt="" loading="lazy" />Stripe</span></span></div></div></div></div></li><li class="reveal"><small>03</small><b>下一次，自己动手</b><p class="card-p">同一套方法，可以带进第一份工作、<span class="kp">业余项目</span>或<span class="kp">课程作业。</span></p><div class="wr" aria-hidden="true"><div class="wr-in"><ul class="wr-idx"><li>第一份工作</li><li>业余项目</li><li>课程作业</li></ul></div></div></li></ul>
   </div>
 </section>
 
 <section class="zl-section" data-screen-label="Outcomes">
   <div class="container">
-    <div class="sec-head pg-head reveal"><span class="eyebrow">收获</span><h2 class="h2 h2-md">学员<em>带走的成果</em></h2><p class="lede">为实习与求职申请而设计，也为一份需要用到 AI 的第一份工作做准备。</p></div>
+    <div class="sec-head pg-head reveal"><span class="eyebrow">收获</span><h2 class="h2 h2-md">学员<em>带走的成果</em></h2><p class="lede">为实习和求职申请<span class="kp">量身打造，</span>也为第一份要用到 AI 的工作<span class="kp">做好准备。</span></p></div>
     <ul class="pg-outs pg-outs-body">
-      <li class="reveal"><small>01</small><b>一个上线的 AI 产品</b><p class="card-p">在营期内上线，拥有真实用户，结营后继续运行。</p></li>
-      <li class="reveal"><small>02</small><b>一个岗位相关项目</b><p class="card-p">为学员正在申请的岗位开发的一个工具。</p></li>
-      <li class="reveal"><small>03</small><b>一次演练过的展示</b><p class="card-p">如何讲清自己做了什么，并在路演日现场演练。</p></li>
-      <li class="reveal"><small>04</small><b>一份作品集</b><p class="card-p">GitHub 上的代码，加上一个<span class="kp" style="display:inline-block">展示作品的个人网站。</span></p></li>
+      <li class="reveal"><small>01</small><b>一个上线的 AI 产品</b><p class="card-p">营期内上线，有真实用户，<span class="kp">结营后仍在运行。</span></p></li>
+      <li class="reveal"><small>02</small><b>一个岗位相关项目</b><p class="card-p">针对自己正在申请的岗位，开发一个工具。</p></li>
+      <li class="reveal"><small>03</small><b>一场练熟的路演</b><p class="card-p">学会讲清自己做了什么，并在<span class="kp">路演日登台实战。</span></p></li>
+      <li class="reveal"><small>04</small><b>一份作品集</b><p class="card-p">GitHub 上的代码，加上一个<span class="kp">展示作品的个人网站。</span></p></li>
     </ul>
   </div>
 </section>
 
 <section class="zl-section section-alt" id="week" data-screen-label="The week">
   <div class="container">
-    <div class="sec-head pg-head reveal"><span class="eyebrow">七天安排</span><h2 class="h2 h2-md"><span class="kp" style="display:inline-block">七天，</span><em><span class="kp" style="display:inline-block">从选题到路演日。</span></em></h2><p class="lede">开营前会收到预习资料。开发期间穿插两次企业参访和<span class="kp" style="display:inline-block">多场嘉宾炉边对话。</span></p></div>
+    <div class="sec-head pg-head reveal"><span class="eyebrow">七天安排</span><h2 class="h2 h2-md"><span class="kp" style="display:inline-block">七天，</span><em><span class="kp" style="display:inline-block">从选题到路演日。</span></em></h2><p class="lede">开营前，学员会先收到预习资料。开发期间穿插两次企业参访和<span class="kp" style="display:inline-block">多场嘉宾炉边对话。</span></p></div>
     <ol class="pg-seq reveal" style="--n:7">
-      <li><small>Day 01</small><b>选定问题</b><p>先点评预习作业，每位学员再确定要解决的问题。</p></li>
-      <li><small>Day 02</small><b><span class="kp" style="display:inline-block">用户调研</span><span class="kp" style="display:inline-block">与 PRD</span></b><p>访谈用户，写一份排好功能优先级的迷你 PRD。</p></li>
-      <li><small>Day 03</small><b><span class="kp" style="display:inline-block">借助 AI</span> <span class="kp" style="display:inline-block">编程工具开发</span></b><p>学员借助 AI 编程工具开发，每个决定都由自己做。</p></li>
-      <li><small>Day 04</small><b><span class="kp" style="display:inline-block">品牌、落地页</span><span class="kp" style="display:inline-block">与广告</span></b><p>产品名称、设计系统、落地页和一支广告。</p></li>
-      <li><small>Day 05</small><b><span class="kp" style="display:inline-block">上线、定价</span><span class="kp" style="display:inline-block">与封版</span></b><p>产品正式上线、完成定价，迎来第一批用户。</p></li>
-      <li><small>Day 06</small><b><span class="kp" style="display:inline-block">故事工作坊</span><span class="kp" style="display:inline-block">与岗位作品</span></b><p>打磨路演与面试叙事，完成岗位作品，并完整彩排。</p></li>
-      <li><small>Day 07</small><b>路演日</b><p>面向创始人和业界人士现场路演，并颁发奖项。</p></li>
+      <li><small>Day 01</small><b>选定问题</b><p>点评预习作业，随后每位学员确定<span class="kp">要解决的问题。</span></p></li>
+      <li><small>Day 02</small><b><span class="kp" style="display:inline-block">用户调研</span><span class="kp" style="display:inline-block">与 PRD</span></b><p>访谈用户，写一份排好功能<span class="kp">优先级的</span><span class="kp">迷你 PRD。</span></p></li>
+      <li><small>Day 03</small><b><span class="kp" style="display:inline-block">借助 AI</span> <span class="kp" style="display:inline-block">编程工具开发</span></b><p>用 AI 编程工具动手开发，每个决定都由<span class="kp">学员自己</span><span class="kp">拍板。</span></p></li>
+      <li><small>Day 04</small><b><span class="kp" style="display:inline-block">品牌、落地页</span><span class="kp" style="display:inline-block">与广告</span></b><p>确定产品名称，做出设计系统、落地页和<span class="kp">一支广告。</span></p></li>
+      <li><small>Day 05</small><b><span class="kp" style="display:inline-block">上线、定价</span><span class="kp" style="display:inline-block">与封版</span></b><p>产品正式上线、完成定价，迎来<span class="kp">第一批用户。</span></p></li>
+      <li><small>Day 06</small><b><span class="kp" style="display:inline-block">故事工作坊</span><span class="kp" style="display:inline-block">与岗位作品</span></b><p>打磨路演和面试时的表达，完成<span class="kp">目标岗位作品，</span>再完整<span class="kp">彩排一遍。</span></p></li>
+      <li><small>Day 07</small><b>路演日</b><p>向创始人和业界人士现场路演，并<span class="kp">颁发奖项。</span></p></li>
     </ol>
-    <p class="pg-k pg-tools-k reveal">二十多种 AI 工具，每位学员在自己的产品上学习使用</p>
+    <p class="pg-k pg-tools-k reveal">二十多款 AI 工具，每一款都在自己的产品上学会</p>
     <div class="zt-grid zt-strip reveal"><div class="zt-col"><div class="zt-cat">思考与调研</div><div class="zt-tool"><img src="/logos/tools/openai.png" alt="" loading="lazy"><b>ChatGPT</b></div><div class="zt-tool"><img src="/logos/tools/claude.png" alt="" loading="lazy"><b>Claude</b></div><div class="zt-tool"><img src="/logos/tools/gemini.png" alt="" loading="lazy"><b>Gemini</b></div><div class="zt-tool"><img src="/logos/tools/deepseek.png" alt="" loading="lazy"><b>DeepSeek</b></div><div class="zt-tool"><img src="/logos/tools/perplexity.png" alt="" loading="lazy"><b>Perplexity</b></div></div><div class="zt-col"><div class="zt-cat">开发与上线</div><div class="zt-tool"><img src="/logos/tools/kimi.png" alt="" loading="lazy"><b>Kimi Code</b></div><div class="zt-tool"><img src="/logos/tools/doubao.png" alt="" loading="lazy"><b>豆包</b></div><div class="zt-tool"><img src="/logos/tools/github.png" alt="" loading="lazy"><b>GitHub</b></div><div class="zt-tool"><img src="/logos/tools/vercel.png" alt="" loading="lazy"><b>Vercel</b></div></div><div class="zt-col"><div class="zt-cat">设计与品牌</div><div class="zt-tool"><img src="/logos/tools/figma.png" alt="" loading="lazy"><b>Figma</b></div><div class="zt-tool"><img src="/logos/tools/canva.png" alt="" loading="lazy"><b>Canva</b></div><div class="zt-tool"><img src="/logos/tools/ideogram.png" alt="" loading="lazy"><b>Ideogram</b></div><div class="zt-tool"><img src="/logos/tools/midjourney.png" alt="" loading="lazy"><b>Midjourney</b></div></div><div class="zt-col"><div class="zt-cat">视频与音频</div><div class="zt-tool"><img src="/logos/tools/kling.png" alt="" loading="lazy"><b>可灵 Kling</b></div><div class="zt-tool"><img src="/logos/tools/heygen.png" alt="" loading="lazy"><b>HeyGen</b></div><div class="zt-tool"><img src="/logos/tools/elevenlabs.png" alt="" loading="lazy"><b>ElevenLabs</b></div><div class="zt-tool"><img src="/logos/tools/suno.png" alt="" loading="lazy"><b>Suno</b></div><div class="zt-tool"><img src="/logos/tools/capcut.png" alt="" loading="lazy"><b>剪映 CapCut</b></div></div><div class="zt-col"><div class="zt-cat">运营与增长</div><div class="zt-tool"><img src="/logos/tools/notion.png" alt="" loading="lazy"><b>Notion</b></div><div class="zt-tool"><img src="/logos/tools/stripe.png" alt="" loading="lazy"><b>Stripe</b></div></div></div>
   </div>
 </section>
 
 <section class="hp-cred team-sec" id="team" data-screen-label="Our team">
   <div class="container">
-    <div class="hp-cred-head reveal"><span class="eyebrow">我们的团队</span><h2 class="h2 h2-md">我们的团队<em>走过同一条路</em>。</h2><p class="lede">Arena 的团队曾就读并任职于学生们向往的院校与机构，并以亲身经验授课。</p></div>
+    <div class="hp-cred-head reveal"><span class="eyebrow">我们的团队</span><h2 class="h2 h2-md"><span class="kp">我们的团队</span><span class="kp"><em>走过同一条路</em>。</span></h2><p class="lede">Arena 的团队曾在学生们向往的<span class="kp">院校求学、</span><span class="kp">机构任职，</span>如今把这些<span class="kp">亲身经验</span><span class="kp">带进课堂。</span></p></div>
     <div class="hp-cred-grid reveal">
       <div class="hp-cred-row"><span class="hp-cred-lab">就读于</span><ul><li><img src="/logos/cred/caltech.png" alt="加州理工学院" style="height:30px" loading="lazy" /></li><li><img src="/logos/cred/harvard.png" alt="哈佛大学" style="height:40px" loading="lazy" /></li><li><img src="/logos/cred/brown.png" alt="布朗大学" style="height:40px" loading="lazy" /></li><li><img src="/logos/cred/tsinghua-lockup.png" alt="清华大学" style="height:44px" loading="lazy" /></li><li><img src="/logos/cred/isb.png" alt="北京顺义国际学校" style="height:46px" loading="lazy" /></li></ul></div>
       <div class="hp-cred-row"><span class="hp-cred-lab">曾任职于</span><ul><li><img src="/logos/cred/mckinsey.png" alt="麦肯锡" style="height:22px" loading="lazy" /></li><li><img src="/logos/cred/goldman.png" alt="高盛" style="height:36px" loading="lazy" /></li><li><img src="/logos/cred/yc.png" alt="Y Combinator" style="height:38px" loading="lazy" /></li><li><img src="/logos/cred/apple.png" alt="苹果" style="height:38px" loading="lazy" /></li><li><img src="/logos/cred/microsoft-ai.png" alt="微软 AI" style="height:30px" loading="lazy" /></li><li><img src="/logos/cred/deloitte.png" alt="德勤" style="height:22px" loading="lazy" /></li><li><img src="/logos/cred/kimi.png" alt="Kimi（月之暗面）" style="height:24px" loading="lazy" /></li></ul></div>
     </div>
     <div class="hp-cf reveal"><span class="hp-cf-k">Arena 领导团队</span><div class="hp-cf-list" data-xp="701"><div class="hp-cf-slot" data-xp-slot><button type="button" class="hp-cf-card" data-xp-card="jj" aria-expanded="false" aria-controls="cf-panel"><img data-xp-notch src="/photos/jing-jing-yang-640.webp" alt="" width="72" height="72" loading="lazy" decoding="async" /><span class="hp-cf-t"><b>羊筱涵</b><span class="hp-cf-en" lang="en">Jing Jing Yang</span><span class="hp-cf-r">联合创始人</span><em><span class="nw">布朗大学</span> · <span class="nw">清华大学</span> · <span class="nw">苹果</span> · <span class="nw">Kimi</span></em></span><span class="hp-cf-plus" aria-hidden="true"></span><span class="sr-only">查看简介</span></button></div><div class="hp-cf-slot" data-xp-slot><button type="button" class="hp-cf-card" data-xp-card="pa" aria-expanded="false" aria-controls="cf-panel"><img data-xp-notch src="/photos/phillip-an-640.webp" alt="" width="72" height="72" loading="lazy" decoding="async" /><span class="hp-cf-t"><b>安广宁</b><span class="hp-cf-en" lang="en">Phillip An</span><span class="hp-cf-r">联合创始人</span><em><span class="nw">加州理工学院</span> · <span class="nw">哈佛大学</span> · <span class="nw">麦肯锡</span> · <span class="nw">Y&nbsp;Combinator</span></em></span><span class="hp-cf-plus" aria-hidden="true"></span><span class="sr-only">查看简介</span></button></div><div class="hp-cf-panel" id="cf-panel" data-xp-panel data-lint-skip><div class="hp-cf-clip"><div class="hp-cf-box" data-xp-box><div class="hp-cf-prof" data-xp-for="jj" aria-label="羊筱涵 Jing Jing Yang" hidden><div class="hp-cf-pq"><p class="hp-cf-lab">她的观点</p><!-- PLACEHOLDER quote: replace with real words --><blockquote class="hp-cf-quote"><p>教育正在从‘知道答案’转向‘知道什么值得去做’。这是 AI 无法替学生完成的能力，也是我们在教的能力。</p></blockquote><p class="hp-cf-cite"><img src="/photos/jing-jing-yang-640.webp" alt="" width="32" height="32" loading="lazy" /><b>羊筱涵</b><span>Arena School 联合创始人</span></p></div><div class="hp-cf-pe"><p class="hp-cf-lab">经历</p><ul class="hp-cf-exp"><li><span class="hp-cf-lg"><img src="/logos/cred/brown.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b>布朗大学</b><span>经济学与行为决策科学</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/microsoft-ai.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b>微软 AI</b><span>AI 研究</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/apple.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b>苹果</b><span>科技</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/deloitte.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b>德勤</b><span>咨询</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/tsinghua-lockup.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b>清华大学</b><span>苏世民学者，攻读硕士</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/kimi.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b>Kimi · 月之暗面</b><span>国际化增长</span></span></li></ul></div><div class="hp-cf-links"><a class="tlink" href="/about-cn#cofounders">阅读完整介绍 <span class="arr">→</span></a><a href="https://www.linkedin.com/in/xiao-han-yang/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4v11H3v-11Zm6.5 0h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4v-11Z"/></svg>LinkedIn</a><a href="mailto:jingjing@arenaschool.org">jingjing@arenaschool.org</a></div></div><div class="hp-cf-prof" data-xp-for="pa" aria-label="安广宁 Phillip An" hidden><div class="hp-cf-pq"><p class="hp-cf-lab">他的观点</p><!-- PLACEHOLDER quote: replace with real words --><blockquote class="hp-cf-quote"><p>AI 改写工作的速度，比学校更新课程还快。现在就学会用判断力驾驭 AI 的学生，将主导自己的职业道路。</p></blockquote><p class="hp-cf-cite"><img src="/photos/phillip-an-640.webp" alt="" width="32" height="32" loading="lazy" /><b>安广宁</b><span>Arena School 联合创始人</span></p></div><div class="hp-cf-pe"><p class="hp-cf-lab">经历</p><ul class="hp-cf-exp"><li><span class="hp-cf-lg"><img src="/logos/cred/caltech.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b>加州理工学院</b><span>计算机科学</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/mckinsey.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b>麦肯锡</b><span>管理咨询</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/goldman.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b>高盛</b><span>投资银行</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/harvard.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b>哈佛大学</b><span>MBA 与工程硕士</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/yc.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b>Y Combinator</b><span>联合创立 Homebase，首家获 YC 投资的越南公司；福布斯 30 岁以下精英榜</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/tsinghua-lockup.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b>清华大学</b><span>苏世民学者</span></span></li></ul></div><div class="hp-cf-links"><a class="tlink" href="/about-cn#cofounders">阅读完整介绍 <span class="arr">→</span></a><a href="https://www.linkedin.com/in/phillipan/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4v11H3v-11Zm6.5 0h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4v-11Z"/></svg>LinkedIn</a><a href="mailto:phillip@arenaschool.org">phillip@arenaschool.org</a></div></div></div></div></div></div><a href="/about-cn" class="btn btn-ghost hp-cf-btn">认识领导团队 <span class="arr">→</span></a></div>
-  </div>
 </section>
 
 <section class="zl-section-md" id="facts" data-screen-label="Program facts and FAQ">
@@ -131,23 +225,23 @@
     <div class="sec-head reveal"><span class="eyebrow">项目信息</span><h2 class="h2 h2-md">包含内容<em>与申请方式</em></h2>
       <div class="zl-spec pg-spec">
         <div class="zl-spec-row"><span class="zl-spec-label">语言</span><span class="zl-spec-value">中英双语</span></div>
-        <div class="zl-spec-row"><span class="zl-spec-label">包含</span><span class="zl-spec-value">预习资料、七个全天的课程、两次企业参访、嘉宾炉边对话和路演日</span></div>
+        <div class="zl-spec-row"><span class="zl-spec-label">包含</span><span class="zl-spec-value">预习资料、七整天课程、两次企业参访、<span class="kp">嘉宾炉边对话</span>和<span class="kp">路演日</span></span></div>
         <div class="zl-spec-row"><span class="zl-spec-label">主办</span><span class="zl-spec-value">Arena School 与千麓学者（Lux Scholar）</span></div>
-        <div class="zl-spec-row"><span class="zl-spec-label">申请</span><span class="zl-spec-value">申请邀请时注明你的学校或目前的职位。十月开放报名。</span></div>
+        <div class="zl-spec-row"><span class="zl-spec-label">申请</span><span class="zl-spec-value">申请时请注明你的学校或目前的职位。<span class="kp">十月开放报名。</span></span></div>
       </div>
     </div>
     <div class="faq pp-faq">
       <details class="faq-item reveal">
         <summary><span class="faq-q">需要会写代码吗？</span><span class="faq-toggle" aria-hidden="true">+</span></summary>
-        <p class="faq-a">不需要任何编程基础。学员借助 AI 编程工具开发，弄懂自己的产品如何运作，一路上的每个决定都由自己做，这也是如今许多团队在工作中的做法。</p>
+        <p class="faq-a">不需要任何编程基础。学员用 AI 编程工具开发，弄懂自己的产品怎么运作，一路上每个决定都由自己拍板。如今很多团队在工作中也正是这样做产品的。</p>
       </details>
       <details class="faq-item reveal">
         <summary><span class="faq-q">已经拿到 offer 了，还适合来吗？</span><span class="faq-toggle" aria-hidden="true">+</span></summary>
-        <p class="faq-a">这是参加的好时机。入职时，学员已经用 AI 做出并上线过一个产品，手里有作品集，也练过如何讲清自己的工作。</p>
+        <p class="faq-a">恰恰是参加的好时机。入职时，你已经用 AI 做出并上线过一个产品，手里有作品集，也练过怎样把自己的工作讲清楚。</p>
       </details>
       <details class="faq-item reveal">
         <summary><span class="faq-q">需要带什么？</span><span class="faq-toggle" aria-hidden="true">+</span></summary>
-        <p class="faq-a">一台笔记本电脑，和一个你真正关心的问题。预习资料会在第一天之前发给你，开营时就能直接投入这个问题。</p>
+        <p class="faq-a">一台笔记本电脑，外加一个你真正在意的问题。预习资料会在开营前发给你，第一天就能直接着手解决它。</p>
       </details>
     </div>
   </div>
@@ -158,11 +252,11 @@
     <div class="pp-final-top reveal">
       <div>
         <span class="eyebrow">如何申请</span>
-        <h2 class="h2 h2-md">申请<em>邀请</em></h2>
-        <p class="pp-close-sub">请告诉我们你的学校或目前的职位，我们会在三个工作日内回复后续安排。</p>
-        <div class="pp-close-cta"><a href="/contact-cn?program=bootcamp" class="btn btn-primary">申请邀请 <span class="arr">→</span></a></div>
+        <h2 class="h2 h2-md">申请<em>加入</em></h2>
+        <p class="pp-close-sub">告诉我们你的学校或目前的职位，<span class="kp">我们会在</span>三个工作日内<span class="kp">回复后续安排。</span></p>
+        <div class="pp-close-cta"><a href="/contact-cn?program=bootcamp" class="btn btn-primary">申请加入 <span class="arr">→</span></a></div>
       </div>
-      <figure class="pp-close-photo"><img src="/photos/isb-2026/pitch-team-800.webp" srcset="/photos/isb-2026/pitch-team-800.webp 800w, /photos/isb-2026/pitch-team-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 50vw" alt="两名学员在最终路演中展示产品" loading="lazy" decoding="async" style="object-position:50% 30%" /><figcaption>往期 Arena 营期的路演日，北京，2026</figcaption></figure>
+      <figure class="pp-close-photo"><img src="/photos/isb-2026/pitch-team-800.webp" srcset="/photos/isb-2026/pitch-team-800.webp 800w, /photos/isb-2026/pitch-team-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 50vw" alt="两名学员在最终路演中展示产品" loading="lazy" decoding="async" style="object-position:50% 30%" /><figcaption>往期 Arena 营期的最终路演，北京，2026 年</figcaption></figure>
     </div>
   </div>
 </section>
@@ -183,8 +277,8 @@
   </div>
 </footer>
 <script src="/hero-options.js?v=1790704894" defer></script>
-<script src="/riso-field.js?v=1790704894" defer></script>
-<script src="/motion.js?v=1790704894"></script>
+<script src="/riso-field.js?v=1790900500" defer></script>
+<script src="/motion.js?v=1790900500"></script>
 <script src="/riso-interact.js?v=1790704894" defer></script>
 <script src="/logo-marquee.js?v=1790803500" defer></script>
 <script src="/xpand.js?v=1790802400" defer></script>

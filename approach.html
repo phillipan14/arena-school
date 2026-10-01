@@ -38,12 +38,66 @@
 <meta name="twitter:image" content="https://arenaschool.org/og-image.png" />
 
 <link rel="stylesheet" href="/styles.css?v=1790704894" />
-<link rel="stylesheet" href="/riso-theme.css?v=1790803300" />
+<link rel="stylesheet" href="/riso-theme.css?v=1790900500" />
+<link rel="stylesheet" href="/mobile.css?v=1790900500" />
 <link rel="stylesheet" href="/css/curriculum.css?v=1790704894" />
 <link rel="stylesheet" href="/css/index.css?v=1790805600" />
-<link rel="stylesheet" href="/css/program-pages.css?v=1790806100" />
+<link rel="stylesheet" href="/css/program-pages.css?v=1790900500" />
 <link rel="stylesheet" href="/css/pages.css?v=1790806100" />
 <link rel="stylesheet" href="/css/approach-extra.css?v=1790806000" />
+<style data-mobile>
+@media (max-width: 760px) {
+  /* Line breaks: no orphans in headings, ledes, and card copy */
+  .pg-approach h1, .pg-approach h2, .pg-approach h3, .pg-approach .pg-tag { text-wrap: balance; }
+  .pg-approach .lede, .pg-approach .card-p, .pg-approach .gc-do li, .pg-approach .ap-impact li span,
+  .pg-approach .gc-more li, .pg-approach .ap-tl-desc, .pg-approach .ap-foot-text,
+  .pg-approach .pp-close-sub { text-wrap: pretty; }
+
+  /* Hero: centered, CTAs stacked full width */
+  .pg-approach .hero .hero-copy { text-align: center; margin-inline: auto; }
+  .pg-approach .hero .hero-eyebrow-row { justify-content: center; }
+  .pg-approach .hero .cs-h1, .pg-approach .hero .lede-56 { margin-left: auto !important; margin-right: auto !important; }
+  .pg-approach .hero .pp-hero-cta { flex-direction: column; align-items: stretch; gap: 12px; }
+  .pg-approach .hero .pp-hero-cta .btn { width: 100%; min-height: 52px; justify-content: center; }
+
+  /* Section heads centered */
+  .pg-approach .sec-head.pg-head { text-align: center; justify-items: center; margin-inline: auto; }
+  .pg-approach .sec-head.pg-head .eyebrow { justify-self: center !important; }
+  .pg-approach .sec-head.pg-head .h2, .pg-approach .sec-head.pg-head .lede { margin-inline: auto; text-wrap: balance; }
+
+  /* Pillar cards: readable labels, comfortable toggle */
+  .pg-approach .ap-impact-lab { font-size: 11px; }
+  .pg-approach .ap-where { font-size: 11px; letter-spacing: .08em; }
+  .pg-approach .gc-more summary { min-height: 44px; display: flex; align-items: center; gap: 8px; }
+  .pg-approach .gc-more li { font-size: 14.5px; }
+
+  /* Timeline labels */
+  .pg-approach .ap-tl-time { font-size: 11.5px; }
+
+  /* Proof strip: keep "and AI labs" with the logos, balance captions */
+  .pg-approach .pg-proof-logos { gap: 10px 14px; }
+  .pg-approach .pg-proof-logos span { white-space: nowrap; }
+  .pg-approach .pg-proof-stat span { font-size: 14px; text-wrap: balance; }
+  .pg-approach .pg-proof-k { font-size: 14px; text-wrap: balance; }
+  .pg-approach .pg-proof-go { min-height: 48px; }
+
+  /* Final CTA: centered head, stacked full-width buttons, readable caption */
+  .pg-approach .pp-final .pp-final-top > div:first-child { text-align: center; }
+  .pg-approach .pp-final .pp-close-sub { margin-inline: auto; }
+  .pg-approach .pp-final .pp-close-cta { flex-direction: column; align-items: stretch; gap: 12px; }
+  .pg-approach .pp-final .pp-close-cta .btn { width: 100%; min-height: 52px; justify-content: center; }
+  .pg-approach .pp-final .pp-close-photo figcaption { padding: 48px 16px 14px; font-size: 13.5px; text-align: center; text-wrap: balance;
+    background: linear-gradient(180deg, rgba(11,26,74,0), rgba(11,26,74,.88) 70%); }
+}
+@media (max-width: 380px) {
+  /* Small Android: fit judge logos and "and AI labs" on one row */
+  .pg-approach .pg-proof-logos { gap: 8px 10px; }
+  .pg-approach .pg-proof-logos img { height: 24px; }
+  .pg-approach .pg-proof-logos img.is-stanford { height: 15px; }
+  .pg-approach .pg-proof-logos img.is-yc { height: 21px; }
+  .pg-approach .pg-proof-logos span { font-size: 15px; }
+}
+</style>
 
 </head>
 <body class="zl-page no-ticker pg pg-approach">
@@ -59,7 +113,6 @@
     </a>
     <div class="nav-links" id="navLinks">
       <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">For students<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu nav-dd-stu"><span class="nav-dd-sub">Short courses · 2 days</span><a href="/programs/remake-your-favorite-app"><b>App Design Workshop</b><span>Grades 6–9 · rebuild an app they love</span></a><a href="/programs/website-portfolio-workshop"><b>College Portfolio Workshop</b><span>Grades 10–12 · a portfolio for applications</span></a><span class="nav-dd-sub">Longer programs</span><a href="/programs/product-intensive"><b>Entrepreneurship &amp; AI Intensive</b><span>Grades 7–12 · build, launch, and pitch</span></a><span class="nav-dd-sub">Year-long</span><a href="/mentorship"><b>Year-Long Project Mentorship</b><span>Grades 7–12 · 6 months to a year, 1:1</span></a><span class="nav-dd-sub">College &amp; career</span><a href="/zero-to-launch"><b>AI Advantage Bootcamp</b><span>College &amp; early career · workplace-ready with AI</span></a></div></div>
-      <a class="nav-top-link" href="/programs/community-dialogues">For families</a>
       <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">For educators<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu nav-dd-edu"><span class="nav-dd-sub">For schools</span><a href="/programs/teacher-training"><b>AI for Educators</b><span>Hands-on AI for teachers and curriculum leads</span></a><a href="/schools"><b>Bring Arena to your school</b><span>One approach for your whole school community</span></a><span class="nav-dd-sub">Events &amp; partners</span><a href="/programs/conferences"><b>Conferences &amp; events</b><span>Talks, hands-on workshops, and pre-conference sessions</span></a><a href="/partnerships"><b>Program partners</b><span>A product-building track for camps and programs</span></a></div></div>
       <div class="nav-dd is-current"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">About<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu"><a href="/about"><b>Our team</b><span>Who we are</span></a><a href="/approach" aria-current="page"><b>Our approach</b><span>Agency, taste, and craft</span></a><a href="/results"><b>Results</b><span>What we have run</span></a></div></div>
       <a class="nav-mobile-only" href="/contact">Contact us</a>
@@ -217,8 +270,8 @@
 </footer>
 
 <script src="/hero-options.js?v=1790704894" defer></script>
-<script src="/riso-field.js?v=1790704894" defer></script>
-<script src="/motion.js?v=1790704894"></script>
+<script src="/riso-field.js?v=1790900500" defer></script>
+<script src="/motion.js?v=1790900500"></script>
 <script src="/riso-interact.js?v=1790704894" defer></script>
 <script src="/approach-extra.js?v=1790805200" defer></script>
 </body>

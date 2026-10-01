@@ -18,13 +18,100 @@
 <meta property="og:url" content="https://arenaschool.org/zero-to-launch" />
 <meta property="og:image" content="https://arenaschool.org/og-image.png" />
 <link rel="stylesheet" href="/styles.css?v=1790704894" />
-<link rel="stylesheet" href="/riso-theme.css?v=1790803300" />
+<link rel="stylesheet" href="/riso-theme.css?v=1790900500" />
+<link rel="stylesheet" href="/mobile.css?v=1790900500" />
 <link rel="stylesheet" href="/css/zero-to-launch.css?v=1790704894" />
-<link rel="stylesheet" href="/css/program-pages.css?v=1790806100" />
+<link rel="stylesheet" href="/css/program-pages.css?v=1790900500" />
 <link rel="stylesheet" href="/css/pages.css?v=1790806100" />
 <link rel="stylesheet" href="/css/team.css?v=1790802100" />
 <link rel="stylesheet" href="/css/cofounders.css?v=1790804500" />
 <link rel="stylesheet" href="/css/reveals.css?v=1790805600" />
+<style data-mobile>
+@media (max-width: 760px) {
+  /* Line breaks: no orphans in headings, ledes, and card copy */
+  .pg-bootcamp main h1, .pg-bootcamp main h2, .pg-bootcamp .pg-outs b, .pg-bootcamp .pg-seq b { text-wrap: balance; }
+  .pg-bootcamp .lede, .pg-bootcamp .card-p, .pg-bootcamp .pg-seq p, .pg-bootcamp .zl-spec-value, .pg-bootcamp .faq-a, .pg-bootcamp .pp-close-sub { text-wrap: pretty; }
+
+  /* Hero: trim the empty band above the eyebrow, center, stacked full-width CTAs */
+  .pg-bootcamp .hero.hero-pad-md { padding-top: 124px; padding-bottom: 44px; }
+  .pg-bootcamp .hero .hero-copy { text-align: center; margin-inline: auto; }
+  .pg-bootcamp .hero .hero-eyebrow-row { justify-content: center; }
+  .pg-bootcamp .hero .cs-h1, .pg-bootcamp .hero .lede-56 { margin-left: auto !important; margin-right: auto !important; }
+  .pg-bootcamp .hero .lede-56, .pg-bootcamp .sec-head.pg-head .lede, .pg-bootcamp .pp-close-sub { text-wrap: balance; }
+  .pg-bootcamp .hero .pp-hero-cta { flex-direction: column; align-items: stretch; gap: 12px; }
+  .pg-bootcamp .hero .pp-hero-cta .btn { width: 100%; min-height: 52px; justify-content: center; margin: 0; }
+  /* At-a-glance: one fact per row, label above value (no "in / person" or split dates) */
+  .pg-bootcamp .hero .pp-glance { grid-template-columns: 1fr; text-align: left; }
+  .pg-bootcamp .hero .pp-glance li, .pg-bootcamp .hero .pp-glance li:last-child { grid-column: auto; border-right: 0; border-bottom: 1px solid var(--pg-line); padding: 12px 20px 13px; }
+  .pg-bootcamp .hero .pp-glance li:last-child { border-bottom: 0; }
+  .pg-bootcamp .hero .pp-glance b { font-size: 11.5px; }
+  /* Co-brand strip: centered under the CTAs */
+  .pg-bootcamp .zl-hero-hosted { justify-content: center; margin-top: 26px; }
+
+  /* Section heads centered */
+  .pg-bootcamp .sec-head.pg-head { text-align: center; justify-items: center; margin-inline: auto; }
+  .pg-bootcamp .sec-head.pg-head .eyebrow { justify-self: center !important; }
+  .pg-bootcamp .sec-head.pg-head .h2, .pg-bootcamp .sec-head.pg-head .lede { margin-inline: auto; }
+
+  /* Outcomes: clean single column (matches "Why it matters") instead of a clipped sideways row */
+  .pg-bootcamp .pg-outs { grid-auto-flow: row; grid-template-columns: 1fr; grid-auto-columns: auto; overflow: visible; scroll-snap-type: none; padding: 0; margin-inline: 0; gap: 12px; }
+  .pg-bootcamp .pg-outs > li { padding: 20px 22px 22px; }
+  /* "Why it matters": tap-to-open points get a visible +/- affordance; no dead gap when closed */
+  .pg-bootcamp .has-wr > li { cursor: pointer; }
+  .pg-bootcamp .has-wr > li::after { content: "+"; position: absolute; right: 18px; top: 16px; width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--pg-line); display: grid; place-items: center; font: 400 19px/1 var(--font-body, inherit); color: var(--coral-deep, #B4532A); }
+  .pg-bootcamp .has-wr > li.wr-open::after { content: "\2212"; }
+  .pg-bootcamp .has-wr > li > .wr { margin-top: -10px; }
+  .pg-bootcamp .has-wr > li.wr-open > .wr { margin-top: 0; }
+  .pg-bootcamp .pg-outs-body .card-p { font-size: 15px; }
+
+  /* The week: vertical timeline, day label above the title */
+  .pg-bootcamp #week .pg-seq { border-top: 0; margin-top: 8px; }
+  .pg-bootcamp #week .pg-seq li, .pg-bootcamp #week .pg-seq li + li { position: relative; display: block; padding: 0 0 26px 34px; border: 0; }
+  .pg-bootcamp #week .pg-seq li:last-child { padding-bottom: 0; border-bottom: 0; }
+  .pg-bootcamp #week .pg-seq li::before { content: ""; position: absolute; left: 6px; top: 16px; bottom: -2px; width: 1.5px; background: var(--pg-line-hi, rgba(11,26,74,.25)); }
+  .pg-bootcamp #week .pg-seq li:last-child::before { display: none; }
+  .pg-bootcamp #week .pg-seq li::after { content: ""; position: absolute; left: 0; top: 2px; width: 14px; height: 14px; border-radius: 50%; background: var(--paper-hi, #FCF3ED); box-shadow: inset 0 0 0 1.5px var(--ink-2, #2F55A8); }
+  .pg-bootcamp #week .pg-seq li:first-child::after, .pg-bootcamp #week .pg-seq li:last-child::after { background: var(--ink-2, #2F55A8); }
+  .pg-bootcamp #week .pg-seq small { padding-top: 0; font-size: 11.5px; line-height: 18px; }
+  .pg-bootcamp #week .pg-seq b { margin-top: 6px; font-size: 21px; }
+  .pg-bootcamp #week .pg-seq p { margin-top: 6px; font-size: 15px; line-height: 1.55; }
+
+  /* AI tools: two-up category cards instead of a clipped sideways strip */
+  .pg-bootcamp .pg-tools-k { font-size: 11.5px; line-height: 1.6; text-align: center; text-wrap: balance; margin-top: 40px; }
+  .pg-bootcamp .zt-strip { grid-auto-flow: row; grid-template-columns: 1fr 1fr; grid-auto-columns: auto; overflow: visible; scroll-snap-type: none; padding-bottom: 0; gap: 10px; }
+  .pg-bootcamp .zt-strip .zt-col { padding: 14px 14px 8px; min-width: 0; }
+  .pg-bootcamp .zt-strip .zt-cat { font-size: 11.5px; letter-spacing: .06em; }
+  .pg-bootcamp .zt-strip .zt-tool b { font-size: 14.5px; }
+  .pg-bootcamp .zt-strip .zt-col:last-child:nth-child(odd) { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; column-gap: 14px; }
+  .pg-bootcamp .zt-strip .zt-col:last-child:nth-child(odd) .zt-cat { grid-column: 1 / -1; }
+
+  /* Team labels: 11px floor */
+  .pg-bootcamp .hp-cred-lab, .pg-bootcamp .hp-cf-r, .pg-bootcamp .hp-cf-k { font-size: 11px; }
+  .pg-bootcamp .hp-cf-card em { text-wrap: balance; }
+
+  /* Program facts head: centered like the other section heads */
+  .pg-bootcamp #facts .sec-head { text-align: center; }
+  .pg-bootcamp #facts .sec-head .h2 { margin-inline: auto; }
+  .pg-bootcamp #facts .zl-spec { text-align: left; }
+  /* Program facts: label above value so values get the full width */
+  .pg-bootcamp .pg-spec .zl-spec-row { grid-template-columns: 1fr; }
+  .pg-bootcamp .pg-spec .zl-spec-label { padding: 12px 18px 0; font-size: 11.5px; background: none; border: 0; }
+  .pg-bootcamp .pg-spec .zl-spec-value { padding: 4px 18px 13px; font-size: 16px; line-height: 1.5; }
+
+  /* Closing CTA: centered head, full-width button */
+  .pg-bootcamp .pp-final .pp-final-top > div:first-child { text-align: center; }
+  .pg-bootcamp .pp-final .pp-close-sub { margin-inline: auto; }
+  .pg-bootcamp .pp-final .pp-close-cta { display: flex; flex-direction: column; align-items: stretch; }
+  .pg-bootcamp .pp-final .pp-close-cta .btn { width: 100%; min-height: 52px; justify-content: center; margin: 0; }
+  .pg-bootcamp .pp-close-photo figcaption { font-size: 13px; }
+}
+@media (max-width: 374px) {
+  .pg-bootcamp .zt-strip .zt-col { padding: 12px 12px 6px; }
+  .pg-bootcamp .zt-strip .zt-cat { font-size: 11px; letter-spacing: .04em; }
+  .pg-bootcamp .zt-strip .zt-tool { gap: 8px; }
+  .pg-bootcamp .zt-strip .zt-tool b { font-size: 14px; }
+}
+</style>
 </head>
 <body class="no-ticker zl-page pg pg-bootcamp">
 <nav class="nav" id="nav">
@@ -106,7 +193,6 @@
       <li><small>Day 03</small><b>Build with AI coding tools</b><p>Participants build with AI coding tools and make every decision.</p></li>
       <li><small>Day 04</small><b>Brand, landing page, ad</b><p>A name, a design system, a landing page, and an advertisement.</p></li>
       <li><small>Day 05</small><b>Launch, pricing, build freeze</b><p>The product goes live, gets priced, and finds its first users.</p></li>
-      <li><small>Day 06</small><b>Story workshop and target-job build</b><p>Pitch and interview framing, the target-job build, a full rehearsal.</p></li>
       <li><small>Day 07</small><b>Demo day</b><p>A live pitch to founders and operators, with awards.</p></li>
     </ol>
     <p class="pg-k pg-tools-k reveal">More than twenty AI tools, each learned on the participant’s own product</p>
@@ -183,8 +269,8 @@
   </div>
 </footer>
 <script src="/hero-options.js?v=1790704894" defer></script>
-<script src="/riso-field.js?v=1790704894" defer></script>
-<script src="/motion.js?v=1790704894"></script>
+<script src="/riso-field.js?v=1790900500" defer></script>
+<script src="/motion.js?v=1790900500"></script>
 <script src="/riso-interact.js?v=1790704894" defer></script>
 <script src="/logo-marquee.js?v=1790803500" defer></script>
 <script src="/xpand.js?v=1790802400" defer></script>

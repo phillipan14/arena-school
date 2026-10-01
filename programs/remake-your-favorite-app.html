@@ -20,12 +20,40 @@
 <meta property="og:url" content="https://arenaschool.org/programs/remake-your-favorite-app" />
 <meta property="og:image" content="https://arenaschool.org/og-image.png" />
 <link rel="stylesheet" href="/styles.css?v=1790704894" />
-<link rel="stylesheet" href="/riso-theme.css?v=1790803300" />
+<link rel="stylesheet" href="/riso-theme.css?v=1790900500" />
+<link rel="stylesheet" href="/mobile.css?v=1790900500" />
 <link rel="stylesheet" href="/css/skill-workshops.css?v=1790704894" />
-<link rel="stylesheet" href="/css/program-pages.css?v=1790806100" />
+<link rel="stylesheet" href="/css/program-pages.css?v=1790900500" />
 <link rel="stylesheet" href="/css/team.css?v=1790806300" />
 <link rel="stylesheet" href="/css/cofounders.css?v=1790806300" />
 <link rel="stylesheet" href="/css/reveals.css?v=1790805600" />
+<style data-mobile>
+@media (max-width: 760px) {
+  /* Hero: readable fact labels */
+  .pc .pc-hero .pc-facts b { font-size: 11.5px; letter-spacing: .12em; }
+  /* How it runs: readable step kickers and photo caption */
+  .pc .pc-how .pc-step-k { font-size: 11.5px; letter-spacing: .1em; }
+  .pc .pc-how .pc-sel-slide figcaption { font-size: 11px; letter-spacing: .1em; }
+  /* Proof: center the stack under the centered eyebrow, readable meta */
+  .pc .pc-proof .pc-stats-3 li { align-items: center; text-align: center; }
+  .pc .pc-proof .pc-stats-3 li b { justify-content: center; }
+  .pc .pc-proof .pc-b-logos { justify-content: center; }
+  .pc .pc-proof .pc-stats span { max-width: 32ch; }
+  .pc .pc-proof .pc-stats small { font-size: 11px; letter-spacing: .1em; }
+  .pc .pc-proof .pc-proof-line .tlink { display: inline-block; padding-block: 10px; }
+  /* Team: readable labels */
+  .pc .team-sec .hp-cred-lab { font-size: 11.5px; }
+  .pc .team-sec .hp-cf-r { font-size: 11px; }
+  /* Next step: easy tap targets, uncropped group photo */
+  .pc .pc-final .pp-close-parent { line-height: 1.5; }
+  .pc .pc-final .pp-close-parent a { display: inline-block; padding-block: 10px; }
+  .pc .pc-final .pp-close-photo { min-height: 0; aspect-ratio: 3 / 2; }
+  .pc .pc-final .pp-final-all a { display: inline-block; padding-block: 12px; }
+  /* Formats: tighter number column so text gets the width */
+  .pc .pc-final .pp-formats li { grid-template-columns: 26px minmax(0, 1fr); gap: 12px; padding: 18px 18px 20px; }
+  .pc .pc-final .pp-formats small { line-height: 1.45; letter-spacing: .08em; text-wrap: balance; }
+}
+</style>
 </head>
 <body class="no-ticker zl-page">
 <nav class="nav" id="nav">
@@ -35,7 +63,6 @@
     </a>
     <div class="nav-links" id="navLinks">
       <div class="nav-dd is-current"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">For students<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu nav-dd-stu"><span class="nav-dd-sub">Short courses · 2 days</span><a href="/programs/remake-your-favorite-app" aria-current="page"><b>App Design Workshop</b><span>Grades 6–9 · rebuild an app they love</span></a><a href="/programs/website-portfolio-workshop"><b>College Portfolio Workshop</b><span>Grades 10–12 · a portfolio for applications</span></a><span class="nav-dd-sub">Longer programs</span><a href="/programs/product-intensive"><b>Entrepreneurship &amp; AI Intensive</b><span>Grades 7–12 · build, launch, and pitch</span></a><span class="nav-dd-sub">Year-long</span><a href="/mentorship"><b>Year-Long Project Mentorship</b><span>Grades 7–12 · 6 months to a year, 1:1</span></a><span class="nav-dd-sub">College &amp; career</span><a href="/zero-to-launch"><b>AI Advantage Bootcamp</b><span>College &amp; early career · workplace-ready with AI</span></a></div></div>
-      <a class="nav-top-link" href="/programs/community-dialogues">For families</a>
       <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">For educators<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu nav-dd-edu"><span class="nav-dd-sub">For schools</span><a href="/programs/teacher-training"><b>AI for Educators</b><span>Hands-on AI for teachers and curriculum leads</span></a><a href="/schools"><b>Bring Arena to your school</b><span>One approach for your whole school community</span></a><span class="nav-dd-sub">Events &amp; partners</span><a href="/programs/conferences"><b>Conferences &amp; events</b><span>Talks, hands-on workshops, and pre-conference sessions</span></a><a href="/partnerships"><b>Program partners</b><span>A product-building track for camps and programs</span></a></div></div>
       <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">About<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu"><a href="/about"><b>Our team</b><span>Who we are</span></a><a href="/approach"><b>Our approach</b><span>Agency, taste, and craft</span></a><a href="/results"><b>Results</b><span>What we have run</span></a></div></div>
       <a class="nav-mobile-only" href="/contact">Contact us</a>
@@ -162,8 +189,8 @@
   </div>
 </footer>
 <script src="/hero-options.js?v=1790704894" defer></script>
-<script src="/riso-field.js?v=1790704894" defer></script>
-<script src="/motion.js?v=1790704894"></script>
+<script src="/riso-field.js?v=1790900500" defer></script>
+<script src="/motion.js?v=1790900500"></script>
 <script src="/riso-interact.js?v=1790704894" defer></script>
 <script src="/onepager.js?v=1790780000" defer></script>
 <script src="/pp-steps.js?v=1790800100" defer></script>

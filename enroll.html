@@ -8,9 +8,39 @@
 <meta name="theme-color" content="#152636" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3" />
 <link rel="stylesheet" href="/styles.css?v=1790704894" />
-<link rel="stylesheet" href="/riso-theme.css?v=1790803300" />
-<link rel="stylesheet" href="/css/program-pages.css?v=1790806100" />
+<link rel="stylesheet" href="/riso-theme.css?v=1790900500" />
+<link rel="stylesheet" href="/mobile.css?v=1790900500" />
+<link rel="stylesheet" href="/css/program-pages.css?v=1790900500" />
 <link rel="stylesheet" href="/css/pages.css?v=1790806100" />
+<style data-mobile>
+@media (max-width: 760px) {
+  .pg-enroll-page .m-nw { white-space: nowrap; }
+  /* hero: trim the tall empty band above the eyebrow */
+  .pg-enroll-page .pg-enroll-hero.hero-pad-md { padding-top: 124px; padding-bottom: 36px; }
+  .pg-enroll-page .pg-enroll-hero .lede { margin-bottom: 0; }
+  .pg-enroll-page .pg-ef-steps { margin-top: 24px; }
+  .pg-enroll-page .pg-ef-steps li { font-size: 12px; }
+  .pg-enroll-page .pg-enroll { padding-top: 32px; padding-bottom: 64px; }
+  /* form: iOS no-zoom inputs, readable options and labels */
+  .pg-enroll-page .en-form .ef-sec { padding: 22px 20px 24px; margin-bottom: 18px; }
+  .pg-enroll-page .en-form legend { margin-bottom: 16px; }
+  .pg-enroll-page .en-form legend small { font-size: 12px; }
+  .pg-enroll-page .en-form .ef-grid2 { gap: 18px; }
+  .pg-enroll-page .en-form .fld { margin-top: 18px; }
+  .pg-enroll-page .en-form label.f, .pg-enroll-page .en-form p.f { font-size: 12px; margin-bottom: 8px; }
+  .pg-enroll-page .en-form p.f.fld { margin-top: 24px; }
+  .pg-enroll-page .en-form input[type=text], .pg-enroll-page .en-form textarea { font-size: 16px; min-height: 50px; padding: 13px 14px; }
+  .pg-enroll-page .en-form textarea { min-height: 100px; }
+  .pg-enroll-page .en-form .hint { font-size: 15px; line-height: 1.5; }
+  .pg-enroll-page .en-form .chk { font-size: 16px; line-height: 1.4; padding: 14px 16px; gap: 12px; min-height: 52px; align-items: center; }
+  .pg-enroll-page .en-form .chk input { width: 20px; height: 20px; margin: 0; }
+  .pg-enroll-page .en-form .ef-confirm .chk { align-items: flex-start; padding: 2px 0; min-height: 0; }
+  .pg-enroll-page .en-form .ef-confirm .chk input { margin-top: 2px; }
+  .pg-enroll-page .en-form .en-btn { min-height: 56px; margin-top: 10px; }
+  .pg-enroll-page .en-form .ef-help { font-size: 14px; line-height: 1.6; margin-top: 16px; }
+  .pg-enroll-page .en-form .ef-help a { display: inline-block; padding: 8px 4px; margin: -8px -4px; }
+}
+</style>
 </head>
 <body class="no-ticker zl-page pg pg-enroll-page">
 <nav class="nav" id="nav">
@@ -20,7 +50,6 @@
     </a>
     <div class="nav-links" id="navLinks">
       <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">For students<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu nav-dd-stu"><span class="nav-dd-sub">Short courses · 2 days</span><a href="/programs/remake-your-favorite-app"><b>App Design Workshop</b><span>Grades 6–9 · rebuild an app they love</span></a><a href="/programs/website-portfolio-workshop"><b>College Portfolio Workshop</b><span>Grades 10–12 · a portfolio for applications</span></a><span class="nav-dd-sub">Longer programs</span><a href="/programs/product-intensive"><b>Entrepreneurship &amp; AI Intensive</b><span>Grades 7–12 · build, launch, and pitch</span></a><span class="nav-dd-sub">Year-long</span><a href="/mentorship"><b>Year-Long Project Mentorship</b><span>Grades 7–12 · 6 months to a year, 1:1</span></a><span class="nav-dd-sub">College &amp; career</span><a href="/zero-to-launch"><b>AI Advantage Bootcamp</b><span>College &amp; early career · workplace-ready with AI</span></a></div></div>
-      <a class="nav-top-link" href="/programs/community-dialogues">For families</a>
       <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">For educators<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu nav-dd-edu"><span class="nav-dd-sub">For schools</span><a href="/programs/teacher-training"><b>AI for Educators</b><span>Hands-on AI for teachers and curriculum leads</span></a><a href="/schools"><b>Bring Arena to your school</b><span>One approach for your whole school community</span></a><span class="nav-dd-sub">Events &amp; partners</span><a href="/programs/conferences"><b>Conferences &amp; events</b><span>Talks, hands-on workshops, and pre-conference sessions</span></a><a href="/partnerships"><b>Program partners</b><span>A product-building track for camps and programs</span></a></div></div>
       <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">About<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu"><a href="/about"><b>Our team</b><span>Who we are</span></a><a href="/approach"><b>Our approach</b><span>Agency, taste, and craft</span></a><a href="/results"><b>Results</b><span>What we have run</span></a></div></div>
       <a class="nav-mobile-only" href="/contact">Contact us</a>
@@ -44,8 +73,8 @@
   <div class="container">
     <div class="hero-copy hero-copy-wide">
       <div class="hero-eyebrow-row reveal"><span class="eyebrow">Enrollment</span></div>
-      <h1 class="display reveal cs-h1">Enroll in Year-Long <em>Project Mentorship.</em></h1>
-      <p class="lede sub reveal lede-56">Six months to a year of personalized 1:1 mentorship, with a weekly 25-minute check-in and a rolling start. The form takes two minutes; payment follows.</p>
+      <h1 class="display reveal cs-h1">Enroll in <span class="m-nw">Year-Long</span> <em>Project Mentorship.</em></h1>
+      <p class="lede sub reveal lede-56">Six months to a year of personalized 1:1 mentorship, with a weekly 25-minute <span class="m-nw">check-in</span> and a rolling start. The form takes two minutes; payment follows.</p>
       <ol class="pg-ef-steps reveal" aria-label="Enrollment steps"><li class="is-on" aria-current="step"><span>1</span>Enrollment</li><li><span>2</span>Payment</li></ol>
     </div>
   </div>
@@ -83,7 +112,7 @@
           <label class="chk"><input type="checkbox" name="Goal: AI skills" value="yes"><span>Develop practical AI skills</span></label>
           <label class="chk"><input type="checkbox" name="Goal: college project" value="yes"><span>A project for college applications</span></label>
           <label class="chk"><input type="checkbox" name="Goal: competitions" value="yes"><span>Enter competitions</span></label>
-          <label class="chk"><input type="checkbox" name="Goal: passion project" value="yes"><span>Develop a personal interest into a project</span></label>
+          <label class="chk"><input type="checkbox" name="Goal: passion project" value="yes"><span>Develop a personal interest into <span class="m-nw">a project</span></span></label>
         </div>
       </fieldset>
 
@@ -131,8 +160,8 @@
   </div>
 </footer>
 <script src="/hero-options.js?v=1790704894" defer></script>
-<script src="/riso-field.js?v=1790704894" defer></script>
-<script src="/motion.js?v=1790704894"></script>
+<script src="/riso-field.js?v=1790900500" defer></script>
+<script src="/motion.js?v=1790900500"></script>
 <script>
 async function go(e){
   e.preventDefault();

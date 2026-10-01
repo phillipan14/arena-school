@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>学校合作 · Arena School</title>
-<meta name="description" content="Arena 培养学生的主动性、审美与匠心，训练教师用这种方式教学与评估，并帮助家庭理解这种变化，与贵校教师共同规划，在贵校校园开展。" />
+<meta name="description" content="Arena 的项目培养学生的主动性、审美与匠心，帮助教师掌握这种教学方式，也让家庭理解这一变化。项目与贵校教师共同规划，在贵校校园开展。" />
 <meta name="author" content="Phillip An" />
 <meta name="theme-color" content="#152636" />
 <link rel="canonical" href="https://arenaschool.org/schools-cn" />
@@ -16,15 +16,46 @@
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Arena School" />
 <meta property="og:title" content="学校合作 · Arena School" />
-<meta property="og:description" content="Arena 培养学生的主动性、审美与匠心，训练教师用这种方式教学与评估，并帮助家庭理解这种变化，与贵校教师共同规划，在贵校校园开展。" />
+<meta property="og:description" content="Arena 的项目培养学生的主动性、审美与匠心，帮助教师掌握这种教学方式，也让家庭理解这一变化。项目与贵校教师共同规划，在贵校校园开展。" />
 <meta property="og:url" content="https://arenaschool.org/schools-cn" />
 <meta property="og:image" content="https://arenaschool.org/og-image.png" />
 <meta property="og:locale" content="zh_CN" />
 <link rel="stylesheet" href="/styles.css?v=1790704894" />
-<link rel="stylesheet" href="/riso-theme.css?v=1790803300" />
+<link rel="stylesheet" href="/riso-theme.css?v=1790900500" />
+<link rel="stylesheet" href="/mobile.css?v=1790900500" />
 <link rel="stylesheet" href="/css/index.css?v=1790805600" />
-<link rel="stylesheet" href="/css/program-pages.css?v=1790806100" />
+<link rel="stylesheet" href="/css/program-pages.css?v=1790900500" />
 <link rel="stylesheet" href="/css/pages.css?v=1790806100" />
+<style data-mobile>
+@media (max-width: 760px) {
+  /* hero: let the lede flow naturally (desktop keep-phrase spans cause ragged lines) */
+  .pg-schools .hero .lede .kp { display: inline !important; }
+  .pg-schools .pp-glance b { font-size: 11.5px; line-height: 1.2; }
+  .pg-schools .pg-k { font-size: 11.5px; }
+  .pg-schools .pg-prog small, .pg-schools .pg-adult small, .pg-schools .pg-step small { font-size: 11.5px; letter-spacing: .06em; }
+  .pg-schools .pg-prog p, .pg-schools .pg-adult p, .pg-schools .pg-step p { font-size: 15px; }
+  /* student programs: stacked compact cards (matches teacher/family cards) instead of a clipped sideways row */
+  .pg-schools .pg-progs { grid-template-columns: 1fr; grid-auto-flow: row; grid-auto-columns: auto; overflow: visible; scroll-snap-type: none; padding: 0; margin-inline: 0; gap: 12px; }
+  .pg-schools .pg-prog { display: grid; grid-template-columns: 108px 1fr; height: auto; }
+  .pg-schools .pg-prog figure { aspect-ratio: auto; height: 100%; border-bottom: 0; border-right: 1px solid var(--pg-line); }
+  .pg-schools .pg-prog-body, .pg-schools .pg-adult > div { padding: 16px 18px 18px; gap: 6px; }
+  .pg-schools .pg-prog b, .pg-schools .pg-adult b { font-size: 20px; }
+  .pg-schools .pg-adults { gap: 12px; margin-top: 0; }
+  /* partnership steps: vertical list, number on the left */
+  .pg-schools .pg-steps { grid-template-columns: 1fr; grid-auto-flow: row; grid-auto-columns: auto; overflow: visible; scroll-snap-type: none; padding: 0; margin-inline: 0; gap: 12px; }
+  .pg-schools .pg-step { display: grid; grid-template-columns: 44px 1fr; column-gap: 14px; row-gap: 6px; align-items: start; padding: 18px 20px 20px; }
+  .pg-schools .pg-step-n { grid-column: 1; grid-row: 1 / span 3; margin: 0; padding: 0; border-bottom: 0; font-size: 28px; line-height: 1.1; }
+  .pg-schools .pg-step > small, .pg-schools .pg-step > h3, .pg-schools .pg-step > p { grid-column: 2; }
+  .pg-schools .pg-step h3 { font-size: 20px; }
+  /* closing CTA */
+  .pg-schools .pp-close-cta .btn { width: 100%; justify-content: center; }
+  .pg-schools .pp-close-parent a { display: inline-block; padding: 12px 0; }
+}
+@media (max-width: 380px) {
+  .pg-schools .pp-glance li { padding-left: 12px; padding-right: 12px; }
+  .pg-schools .pp-glance span { font-size: 14px; }
+}
+</style>
 </head>
 <body class="no-ticker zl-page pg pg-schools">
 <nav class="nav" id="nav">
@@ -34,7 +65,6 @@
     </a>
     <div class="nav-links" id="navLinks">
       <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">学生项目<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu nav-dd-stu"><span class="nav-dd-sub">短期课程 · 两天</span><a href="/programs/remake-your-favorite-app-cn"><b>应用设计工作坊</b><span>6–9年级 · 亲手重做一款喜欢的应用</span></a><a href="/programs/website-portfolio-workshop-cn"><b>升学作品集工作坊</b><span>10–12年级 · 为申请准备的作品集</span></a><span class="nav-dd-sub">长期项目</span><a href="/programs/product-intensive-cn"><b>创业与AI集训营</b><span>7–12年级 · 做出、上线并路演</span></a><span class="nav-dd-sub">学年项目</span><a href="/mentorship-cn"><b>学年项目导师计划</b><span>7–12年级 · 六个月到一年，一对一</span></a><span class="nav-dd-sub">大学与职场</span><a href="/zero-to-launch-cn"><b>AI职场先发营</b><span>大学生与职场新人 · 用AI准备职场</span></a></div></div>
-      <a class="nav-top-link" href="/programs/community-dialogues-cn">家庭</a>
       <div class="nav-dd is-current"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">教育者<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu nav-dd-edu"><span class="nav-dd-sub">学校</span><a href="/programs/teacher-training-cn"><b>教育者AI培训</b><span>面向教师与课程负责人的AI实操培训</span></a><a href="/schools-cn" aria-current="page"><b>把 Arena 带进贵校</b><span>一套方法，服务整个学校社群</span></a><span class="nav-dd-sub">活动与合作</span><a href="/programs/conferences-cn"><b>会议与活动</b><span>主题演讲、动手工作坊与会前培训</span></a><a href="/partnerships-cn"><b>项目合作伙伴</b><span>为营地和教育项目加入产品实战模块</span></a></div></div>
       <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">关于我们<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu"><a href="/about-cn"><b>我们的团队</b><span>我们是谁</span></a><a href="/approach-cn"><b>教学理念</b><span>主动性、审美与匠心</span></a><a href="/results-cn"><b>成果</b><span>我们做过的项目</span></a></div></div>
       <a class="nav-mobile-only" href="/contact-cn">联系我们</a>
@@ -59,9 +89,9 @@
     <div class="hero-copy hero-copy-wide">
       <div class="hero-eyebrow-row reveal"><span class="eyebrow">学校合作</span></div>
       <h1 class="display reveal cs-h1"><span class="kp" style="display:inline-block">一套方法，</span><em><span class="kp" style="display:inline-block">贯穿贵校整个社群。</span></em></h1>
-      <p class="lede sub reveal lede-56">培养学生主动性、审美与匠心的项目，训练教师用同样的方式教学，<span class="kp" style="display:inline-block">帮助家庭理解这种变化，</span><span class="kp" style="display:inline-block">与贵校教师共同规划，在贵校校园开展。</span></p>
+      <p class="lede sub reveal lede-56">我们的项目培养学生的主动性、审美与匠心，帮助教师掌握这种教学方式，<span class="kp" style="display:inline-block">也让家庭理解这一变化。</span><span class="kp" style="display:inline-block">项目与贵校教师共同规划，在贵校校园开展。</span></p>
       <ul class="pp-glance reveal" aria-label="概览">
-        <li><b>学生</b><span>六至十二年级</span></li>
+        <li><b>学生</b><span>初中至高中</span></li>
         <li><b>成人</b><span>教师、家长与校董会</span></li>
         <li><b>地点</b><span>在贵校校园</span></li>
         <li><b>语言</b><span>英文或中文</span></li>
@@ -73,36 +103,36 @@
 
 <section class="zl-section" id="programs" data-screen-label="What we offer">
   <div class="container">
-    <div class="sec-head pg-head reveal"><span class="eyebrow">合作内容</span><h2 class="h2 h2-md">面向<em>六至十二年级</em>的项目</h2><p class="lede">每个项目都可以单独开展。大多数学校从一个项目开始，<span class="kp" style="display:inline-block">再逐步增加。</span></p></div>
+    <div class="sec-head pg-head reveal"><span class="eyebrow">合作内容</span><h2 class="h2 h2-md">面向<em>初高中学生</em>的项目</h2><p class="lede">每个项目都可以单独开展。大多数学校从一个项目开始，<span class="kp" style="display:inline-block">再逐步增加。</span></p></div>
     <span class="pg-k reveal">面向学生</span>
     <ul class="pg-progs reveal">
-      <li><a class="pg-prog" href="/programs/remake-your-favorite-app-cn"><figure><img src="/photos/mix/pilot-classroom-800.webp" alt="学生在教室里上课" loading="lazy" decoding="async" /></figure><div class="pg-prog-body"><small>六至九年级 · 两天</small><b>应用设计工作坊</b><p class="card-p">学生重做一款喜欢的应用，弄懂它如何运作。</p><span class="pg-go" aria-hidden="true"><span>→</span></span></div></a></li>
-      <li><a class="pg-prog" href="/programs/website-portfolio-workshop-cn"><figure><img src="/photos/isb-2026/pitch-duo-800.webp" alt="两名学生展示自己的作品" loading="lazy" decoding="async" /></figure><div class="pg-prog-body"><small>十至十二年级 · 两天</small><b>升学作品集工作坊</b><p class="card-p">学生上线自己的作品集网站，用于升学申请。</p><span class="pg-go" aria-hidden="true"><span>→</span></span></div></a></li>
-      <li><a class="pg-prog" href="/programs/product-intensive-cn"><figure><img src="/photos/isb-hq/isb-pitch-solo-800.webp" alt="一名学生在路演日展示" loading="lazy" decoding="async" /></figure><div class="pg-prog-body"><small>七至十二年级 · 五天</small><b>创业与AI集训营</b><p class="card-p">团队上线一个真实产品，并向评审团路演。</p><span class="pg-go" aria-hidden="true"><span>→</span></span></div></a></li>
-      <li><a class="pg-prog" href="/mentorship-cn"><figure><img src="/photos/isb-2026/mentor-feedback-800.webp" alt="导师为学生提供反馈" loading="lazy" decoding="async" /></figure><div class="pg-prog-body"><small>七至十二年级 · 六个月到一年</small><b>学年项目导师计划</b><p class="card-p">围绕一个项目，持续的一对一个性化导师指导，随时可以开始。</p><span class="pg-go" aria-hidden="true"><span>→</span></span></div></a></li>
+      <li><a class="pg-prog" href="/programs/remake-your-favorite-app-cn"><figure><img src="/photos/mix/pilot-classroom-800.webp" alt="学生在教室里上课" loading="lazy" decoding="async" /></figure><div class="pg-prog-body"><small>六至九年级 · 两天</small><b>应用设计工作坊</b><p class="card-p">学生亲手重做一款自己喜欢的应用，弄懂它的运作原理。</p><span class="pg-go" aria-hidden="true"><span>→</span></span></div></a></li>
+      <li><a class="pg-prog" href="/programs/website-portfolio-workshop-cn"><figure><img src="/photos/isb-2026/pitch-duo-800.webp" alt="两名学生展示自己的作品" loading="lazy" decoding="async" /></figure><div class="pg-prog-body"><small>十至十二年级 · 两天</small><b>升学作品集工作坊</b><p class="card-p">学生精选自己的代表作，做成可在线访问的作品集网站，用于升学申请。</p><span class="pg-go" aria-hidden="true"><span>→</span></span></div></a></li>
+      <li><a class="pg-prog" href="/programs/product-intensive-cn"><figure><img src="/photos/isb-hq/isb-pitch-solo-800.webp" alt="一名学生在路演日展示" loading="lazy" decoding="async" /></figure><div class="pg-prog-body"><small>七至十二年级 · 五天</small><b>创业与AI集训营</b><p class="card-p">学生组队上线一款真实产品，并向评审团路演。</p><span class="pg-go" aria-hidden="true"><span>→</span></span></div></a></li>
+      <li><a class="pg-prog" href="/mentorship-cn"><figure><img src="/photos/isb-2026/mentor-feedback-800.webp" alt="导师为学生提供反馈" loading="lazy" decoding="async" /></figure><div class="pg-prog-body"><small><span style="white-space:nowrap">七至十二年级</span> · <span style="white-space:nowrap">六个月到一年</span></small><b>学年项目导师计划</b><p class="card-p">导师围绕一个项目，持续提供量身定制的一对一指导，随时可以开始。</p><span class="pg-go" aria-hidden="true"><span>→</span></span></div></a></li>
     </ul>
-    <p class="pg-note reveal">短期项目由学校承办；学年项目导师计划由家庭直接报名。</p>
+    <p class="pg-note reveal">短期项目由学校承办；<span style="white-space:nowrap">学年项目导师计划由家庭直接报名。</span></p>
     <span class="pg-k reveal" style="margin-top:36px">面向教师与家庭</span>
     <div class="pg-adults">
-      <a class="pg-adult reveal" href="/programs/teacher-training-cn"><figure><img src="/photos/isb-hq/isb-judges-test-800.webp" alt="几位成人围着笔记本电脑合作" loading="lazy" decoding="async" /></figure><div><small>教师与课程负责人</small><b>教育者AI培训</b><p class="card-p">教师学习如何用这种新方式教学与评估，判断始终由教师做主。</p><span class="pg-go" aria-hidden="true"><span>→</span></span></div></a>
-      <a class="pg-adult reveal" href="/programs/community-dialogues-cn"><figure><img src="/photos/isb-2026/parents-audience-800.webp" alt="家长在学校活动中聆听" loading="lazy" decoding="async" /></figure><div><small>家长、校董会与校长</small><b>社区对话</b><p class="card-p">家长教育系列，聊聊孩子面对的变化，以及如何在家支持他们。</p><span class="pg-go" aria-hidden="true"><span>→</span></span></div></a>
+      <a class="pg-adult reveal" href="/programs/teacher-training-cn"><figure><img src="/photos/isb-hq/isb-judges-test-800.webp" alt="几位成人围着笔记本电脑合作" loading="lazy" decoding="async" /></figure><div><small>教师与课程负责人</small><b>教育者AI培训</b><p class="card-p">教师学会用这种方式教学和评估，判断权始终在教师手中。</p><span class="pg-go" aria-hidden="true"><span>→</span></span></div></a>
+      <a class="pg-adult reveal" href="/programs/community-dialogues-cn"><figure><img src="/photos/isb-2026/parents-audience-800.webp" alt="家长在学校活动中聆听" loading="lazy" decoding="async" /></figure><div><small>家长、校董会与校长</small><b>社区对话</b><p class="card-p">面向家长的系列讲座，聊聊孩子正在经历的变化，以及在家可以怎样支持他们。</p><span class="pg-go" aria-hidden="true"><span>→</span></span></div></a>
     </div>
   </div>
 </section>
 
 <section class="zl-section section-alt" id="partnership" data-screen-label="How a partnership works">
   <div class="container">
-    <div class="sec-head pg-head reveal"><span class="eyebrow">合作怎样进行</span><h2 class="h2 h2-md">与贵校团队共同规划，<em>在贵校校园开展。</em></h2><p class="lede">共四步，通常在项目开始前<span class="kp" style="display:inline-block">八到十二周启动。</span></p></div>
+    <div class="sec-head pg-head reveal"><span class="eyebrow">合作流程</span><h2 class="h2 h2-md">与贵校团队共同规划，<em>在贵校校园开展。</em></h2><p class="lede">共四步，通常在项目开始前<span class="kp" style="display:inline-block">八到十二周启动。</span></p></div>
     <ol class="pg-steps">
       <li class="pg-step reveal"><span class="pg-step-n">01</span><small>确定范围</small><h3>一次通话</h3><p>了解贵校的校历和目标，一起选定形式、确定日期。</p></li>
       <li class="pg-step reveal"><span class="pg-step-n">02</span><small>因校制宜</small><h3>贴合贵校情况</h3><p>我们按年龄段和授课语言调整方案，并附上致家长信。</p></li>
-      <li class="pg-step reveal"><span class="pg-step-n">03</span><small>落地执行</small><h3>在贵校校园</h3><p>我们与贵校教师共同带领课程，最后请家长到场观看展示。</p></li>
+      <li class="pg-step reveal"><span class="pg-step-n">03</span><small>落地执行</small><h3>在贵校校园</h3><p>我们与贵校教师共同授课，最后请家长到场观看学生展示。</p></li>
       <li class="pg-step reveal"><span class="pg-step-n">04</span><small>交接留存</small><h3>方法留在学校</h3><p>课程、评分标准和路演日流程，都留给贵校团队。</p></li>
     </ol>
     <div class="pg-proof reveal">
-      <div class="pg-proof-judges"><span class="pg-proof-k">路演日评委是来自以下机构的创始人和业界人士</span><div class="pg-proof-logos"><img src="/logos/cred/harvard.png" alt="哈佛" /><img class="is-stanford" src="/logos/cred/stanford.png" alt="斯坦福" /><img class="is-yc" src="/logos/cred/yc.png" alt="Y Combinator" /><span>以及 AI 实验室</span></div></div>
+      <div class="pg-proof-judges"><span class="pg-proof-k">路演日评委：来自以下机构的创始人与业界人士</span><div class="pg-proof-logos"><img src="/logos/cred/harvard.png" alt="哈佛" /><img class="is-stanford" src="/logos/cred/stanford.png" alt="斯坦福" /><img class="is-yc" src="/logos/cred/yc.png" alt="Y Combinator" /><span>以及 AI 实验室</span></div></div>
       <div class="pg-proof-stat"><b class="pg-proof-logos2"><img src="/logos/cred/tsinghua-lockup.png" alt="Tsinghua University" /><img src="/logos/cred/schwarzman.png?v=2" alt="Schwarzman College" /></b><span>为清华大学苏世民书院教职员工开展培训</span></div>
-      <div class="pg-proof-stat"><b>9.5<small>/10</small></b><span>净推荐值（NPS），香港 2025</span></div>
+      <div class="pg-proof-stat"><b>9.5<small>/10</small></b><span>净推荐值（NPS），2025 年香港课程</span></div>
       <a href="/results-cn" class="pg-proof-go">查看成果 <span>→</span></a>
     </div>
   </div>
@@ -112,9 +142,9 @@
   <div class="container pp-faq-wrap">
     <div class="sec-head reveal"><span class="eyebrow">常见问题</span><h2 class="h2 h2-md"><span class="kp" style="display:inline-block">学校管理者</span><span class="kp" style="display:inline-block">常问的问题。</span></h2></div>
     <div class="faq pp-faq">
-      <details class="faq-item reveal"><summary><span class="faq-q">学校需要提供什么？</span><span class="faq-toggle" aria-hidden="true">+</span></summary><p class="faq-a">一间教室、每位学生一台笔记本电脑，以及一位与我们共同带课的老师。课程方案、教学材料和适配贵校认可工具的设置由我们准备。</p></details>
+      <details class="faq-item reveal"><summary><span class="faq-q">学校需要提供什么？</span><span class="faq-toggle" aria-hidden="true">+</span></summary><p class="faq-a">一间教室、每位学生一台笔记本电脑，以及一位与我们共同带课的老师。课程方案、教学材料，以及与贵校认可工具配套的环境设置，都由我们准备。</p></details>
       <details class="faq-item reveal"><summary><span class="faq-q">学生使用哪些 AI 工具？</span><span class="faq-toggle" aria-hidden="true">+</span></summary><p class="faq-a">以贵校认可的工具为准，包括国内可以使用的工具。我们教的是驾驭工具、判断结果的方法，今后换用其他工具也同样适用。</p></details>
-      <details class="faq-item reveal"><summary><span class="faq-q">费用如何计算？</span><span class="faq-toggle" aria-hidden="true">+</span></summary><p class="faq-a">按期计算，根据人数、时长和形式确定。告诉我们年级、日期和学生人数，我们会在三个工作日内回复。</p></details>
+      <details class="faq-item reveal"><summary><span class="faq-q">费用如何计算？</span><span class="faq-toggle" aria-hidden="true">+</span></summary><p class="faq-a">按期计费，具体根据人数、时长和形式确定。告诉我们年级、日期和学生人数，我们会在三个工作日内回复。</p></details>
     </div>
   </div>
 </section>
@@ -125,11 +155,11 @@
       <div>
         <span class="eyebrow">下一步</span>
         <h2 class="h2 h2-md">从<em>一次对话</em>开始。</h2>
-        <p class="pp-close-sub">告诉我们年级和日期，我们会在三个工作日内回复一个合适的形式。</p>
+        <p class="pp-close-sub">告诉我们年级和日期，我们会在三个工作日内回复，并推荐合适的形式。</p>
         <div class="pp-close-cta"><a href="/contact-cn?program=school-partnership" class="btn btn-primary">开始对话 <span class="arr">→</span></a></div>
         <p class="pp-close-parent">经营教育机构？<a href="/partnerships-cn">了解机构合作 →</a></p>
       </div>
-      <figure class="pp-close-photo"><img src="/photos/isb-2026/parents-audience-800.webp" srcset="/photos/isb-2026/parents-audience-800.webp 800w, /photos/isb-2026/parents-audience-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 50vw" alt="家长观看学生展示" loading="lazy" decoding="async" /><figcaption><img src="/logos/arena/seal-ivory-256.png" alt="" width="18" height="18" />路演日的家长们，北京顺义国际学校</figcaption></figure>
+      <figure class="pp-close-photo"><img src="/photos/isb-2026/parents-audience-800.webp" srcset="/photos/isb-2026/parents-audience-800.webp 800w, /photos/isb-2026/parents-audience-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 50vw" alt="家长观看学生展示" loading="lazy" decoding="async" /><figcaption><img src="/logos/arena/seal-ivory-256.png" alt="" width="18" height="18" />北京顺义国际学校路演日上的家长们</figcaption></figure>
     </div>
   </div>
 </section>
@@ -149,8 +179,8 @@
   </div>
 </footer>
 <script src="/hero-options.js?v=1790704894" defer></script>
-<script src="/riso-field.js?v=1790704894" defer></script>
-<script src="/motion.js?v=1790704894"></script>
+<script src="/riso-field.js?v=1790900500" defer></script>
+<script src="/motion.js?v=1790900500"></script>
 <script src="/riso-interact.js?v=1790704894" defer></script>
 <script src="/faq-hover.js?v=1790803700" defer></script>
 </body>

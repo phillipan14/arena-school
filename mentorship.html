@@ -20,13 +20,53 @@
 <meta property="og:url" content="https://arenaschool.org/mentorship" />
 <meta property="og:image" content="https://arenaschool.org/og-image.png" />
 <link rel="stylesheet" href="/styles.css?v=1790704894" />
-<link rel="stylesheet" href="/riso-theme.css?v=1790803300" />
+<link rel="stylesheet" href="/riso-theme.css?v=1790900500" />
+<link rel="stylesheet" href="/mobile.css?v=1790900500" />
 <link rel="stylesheet" href="/css/pages.css?v=1790806100" />
-<link rel="stylesheet" href="/css/program-pages.css?v=1790806100" />
+<link rel="stylesheet" href="/css/program-pages.css?v=1790900500" />
 <link rel="stylesheet" href="/css/mentorship.css?v=1790802800" />
 <link rel="stylesheet" href="/css/team.css?v=1790802100" />
 <link rel="stylesheet" href="/css/cofounders.css?v=1790804500" />
 <link rel="stylesheet" href="/css/reveals.css?v=1790805600" />
+<style data-mobile>
+@media (max-width: 760px) {
+  /* Hero: readable fact labels, equal-width CTAs */
+  .pc-hero .pc-facts b { font-size: 11px; }
+  .pc-hero .pc-cta .btn, .pc-final .pp-close-cta .btn { flex: 1 1 auto; justify-content: center; }
+  /* Why it matters: tap-to-open points get a visible +/- affordance */
+  .pc .pc-why-list.has-wr > li { position: relative; cursor: pointer; }
+  .pc .pc-why-list.has-wr > li h3 { padding-right: 40px; }
+  .pc .pc-why-list.has-wr > li::after { content: "+"; position: absolute; right: 0; top: 14px; width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--pc-line); display: grid; place-items: center; font: 400 18px/1 var(--font-body, inherit); color: var(--coral-deep); }
+  .pc .pc-why-list.has-wr > li.wr-open::after { content: "\2212"; }
+  .pc .pc-why-list .wr-k { font-size: 11px; }
+  /* Team: shared-component labels up to 11px */
+  .team-sec .hp-cred-lab, .team-sec .hp-cf-k, .team-sec .hp-cf-r { font-size: 11px; }
+  /* How it works: phase cards + photo captions */
+  .pc .pc-sel-tab .pc-step-k { font-size: 11.5px; }
+  .pc .pc-sel-p { font-size: 14.5px; }
+  .pc .pc-sel-slide figcaption { font-size: 11px; }
+  /* Milestones: vertical ladder with numbered rungs */
+  #milestones .pg-seq { margin-top: 8px; }
+  #milestones .pg-seq li, #milestones .pg-seq li + li { position: relative; grid-template-columns: 34px 1fr; column-gap: 16px; padding: 0 0 26px; border: 0; }
+  #milestones .pg-seq li:last-child { padding-bottom: 0; border-bottom: 0; }
+  #milestones .pg-seq li::before { content: ""; position: absolute; left: 16px; top: 34px; bottom: 0; width: 1.5px; background: var(--pg-line-hi, rgba(11,26,74,.25)); }
+  #milestones .pg-seq li:last-child::before { display: none; }
+  #milestones .pg-seq small { grid-row: 1 / span 2; align-self: start; width: 34px; height: 34px; padding: 0; border-radius: 50%; display: grid; place-items: center; font-size: 12px; letter-spacing: .02em; color: var(--ink); background: var(--paper-hi, #FCF3ED); box-shadow: inset 0 0 0 1.5px var(--ink-2, #2F55A8); }
+  #milestones .pg-seq li:first-child small { background: var(--ink-2, #2F55A8); color: #FCF3ED; }
+  #milestones .pg-seq b { margin-top: 4px; font-size: 21px; }
+  #milestones .pg-seq p { font-size: 15px; }
+  /* Proof: centered under the centered eyebrow */
+  .pc .pc-proof .pc-stats-3 li { align-items: center; text-align: center; }
+  .pc .pc-proof .pc-stats-3 b, .pc .pc-proof .pc-b-logos { justify-content: center; }
+  .pc-proof .pc-stats span { max-width: 30ch; }
+  .pc .pc-proof .pc-stats small { font-size: 11px; letter-spacing: .1em; }
+  .pc-proof .pc-proof-line .tlink { display: inline-block; padding: 10px 8px; }
+  .pc-proof .pc-notes-wrap .pc-k { text-align: center; font-size: 11px; }
+  /* Next step: tighter number column, bigger tap target */
+  .pc-final .pp-formats li { grid-template-columns: 26px 1fr; gap: 12px; }
+  .pc-final .pp-final-all a { display: inline-block; padding: 12px 4px; }
+}
+</style>
 </head>
 <body class="no-ticker zl-page">
 <nav class="nav" id="nav">
@@ -36,7 +76,6 @@
     </a>
     <div class="nav-links" id="navLinks">
       <div class="nav-dd is-current"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">For students<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu nav-dd-stu"><span class="nav-dd-sub">Short courses · 2 days</span><a href="/programs/remake-your-favorite-app"><b>App Design Workshop</b><span>Grades 6–9 · rebuild an app they love</span></a><a href="/programs/website-portfolio-workshop"><b>College Portfolio Workshop</b><span>Grades 10–12 · a portfolio for applications</span></a><span class="nav-dd-sub">Longer programs</span><a href="/programs/product-intensive"><b>Entrepreneurship &amp; AI Intensive</b><span>Grades 7–12 · build, launch, and pitch</span></a><span class="nav-dd-sub">Year-long</span><a href="/mentorship" aria-current="page"><b>Year-Long Project Mentorship</b><span>Grades 7–12 · 6 months to a year, 1:1</span></a><span class="nav-dd-sub">College &amp; career</span><a href="/zero-to-launch"><b>AI Advantage Bootcamp</b><span>College &amp; early career · workplace-ready with AI</span></a></div></div>
-      <a class="nav-top-link" href="/programs/community-dialogues">For families</a>
       <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">For educators<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu nav-dd-edu"><span class="nav-dd-sub">For schools</span><a href="/programs/teacher-training"><b>AI for Educators</b><span>Hands-on AI for teachers and curriculum leads</span></a><a href="/schools"><b>Bring Arena to your school</b><span>One approach for your whole school community</span></a><span class="nav-dd-sub">Events &amp; partners</span><a href="/programs/conferences"><b>Conferences &amp; events</b><span>Talks, hands-on workshops, and pre-conference sessions</span></a><a href="/partnerships"><b>Program partners</b><span>A product-building track for camps and programs</span></a></div></div>
       <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">About<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu"><a href="/about"><b>Our team</b><span>Who we are</span></a><a href="/approach"><b>Our approach</b><span>Agency, taste, and craft</span></a><a href="/results"><b>Results</b><span>What we have run</span></a></div></div>
       <a class="nav-mobile-only" href="/contact">Contact us</a>
@@ -63,7 +102,7 @@
       <div class="hero-eyebrow-row reveal"><span class="eyebrow">For students · Grades 7 to 12</span></div>
       <h1 class="display reveal cs-h1">Year-Long Project Mentorship</h1>
       <p class="lede reveal lede-56">One student, one project they choose, and six months to a year of personalized 1:1 mentorship to build it, grow it, and show it.</p>
-      <ul class="pc-facts reveal" aria-label="At a glance"><li><b>Grades</b><span>7 to 12</span></li><li><b>Length</b><span>6 months to a year</span></li><li><b>Check-ins</b><span>Weekly, 25 min, hybrid</span></li><li><b>Project</b><span>Solo or a team of up to 4</span></li><li><b>Start</b><span>Rolling</span></li></ul>
+      <ul class="pc-facts reveal" aria-label="At a glance"><li><b>Grades</b><span>7 to 12</span></li><li><b>Length</b><span>6 months <span style="white-space:nowrap">to a year</span></span></li><li><b>Check-ins</b><span>Weekly, 25 min, hybrid</span></li><li><b>Project</b><span>Solo or a team <span style="white-space:nowrap">of up to 4</span></span></li><li><b>Start</b><span>Rolling</span></li></ul>
       <div class="pc-cta reveal"><a href="/enroll" class="btn btn-primary">Enroll <span class="arr">→</span></a><a href="#how" class="btn btn-ghost">How it works</a></div>
     </div>
   </div>
@@ -95,7 +134,7 @@
         <li role="presentation"><button type="button" class="pc-sel-tab" role="tab" id="st-mnt-t4" aria-controls="st-mnt-p4" aria-selected="false" tabindex="-1"><span class="pc-sel-bar" aria-hidden="true"><i></i></span><span class="pc-step-k"><b>04</b> · Present</span><span class="pc-sel-h">Present the work, then decide what’s next</span><span class="pc-sel-p">The student presents the product, enters a competition if it fits, or continues toward a longer goal.</span></button></li>
       </ol>
     </div>
-    <p class="cs-note reveal pc-note">Every week, a mentor holds a 25-minute check-in. Between sessions, the student sends a short written update, and families review progress each term.</p>
+    <p class="cs-note reveal pc-note">Every week, a mentor holds a <span style="white-space:nowrap">25-minute</span> <span style="white-space:nowrap">check-in</span>. Between sessions, the student sends a short written update, and families review progress each term.</p>
   </div>
 </section>
 
@@ -147,7 +186,7 @@
   <div class="container pc-faq-wrap">
     <div class="sec-head reveal"><span class="eyebrow">Questions</span><h2 class="h2 h2-md">What families ask.</h2></div>
     <div class="faq pc-faq reveal">
-      <details class="faq-item"><summary><span class="faq-q">What if my child doesn’t have an idea yet?</span><span class="faq-toggle" aria-hidden="true">+</span></summary><p class="faq-a">That is where most students start. In the first phase, the student and mentor explore problems the student cares about and test which one is worth building.</p></details>
+      <details class="faq-item"><summary><span class="faq-q">What if my child doesn’t have <span style="white-space:nowrap">an idea yet?</span></span><span class="faq-toggle" aria-hidden="true">+</span></summary><p class="faq-a">That is where most students start. In the first phase, the student and mentor explore problems the student cares about and test which one is worth building.</p></details>
         <details class="faq-item"><summary><span class="faq-q">Does this fit a busy schedule?</span><span class="faq-toggle" aria-hidden="true">+</span></summary><p class="faq-a">Yes. The weekly check-in is 25 minutes, and a written update between sessions takes a few minutes. The program is designed to sit alongside exams, sports, and other commitments.</p></details>
       <details class="faq-item"><summary><span class="faq-q">Does my child need a team, or can they work alone?</span><span class="faq-toggle" aria-hidden="true">+</span></summary><p class="faq-a">Either works. Teams of up to four are encouraged, and students may also work on their own. Students can regroup at the end of a term.</p></details>
       <details class="faq-item"><summary><span class="faq-q">Will this help with college admissions?</span><span class="faq-toggle" aria-hidden="true">+</span></summary><p class="faq-a">No program can promise an admissions outcome, and we do not. What a student gains is a real project with users, results, and decisions they can describe in their own words and show with a link. Each university makes its own decision.</p></details>
@@ -217,8 +256,8 @@
   </div>
 </footer>
 <script src="/hero-options.js?v=1790704894" defer></script>
-<script src="/riso-field.js?v=1790704894" defer></script>
-<script src="/motion.js?v=1790704894"></script>
+<script src="/riso-field.js?v=1790900500" defer></script>
+<script src="/motion.js?v=1790900500"></script>
 <script src="/riso-interact.js?v=1790704894" defer></script>
 <script src="/onepager.js?v=1790780000" defer></script>
 <script src="/pp-steps.js?v=1790800100" defer></script>

@@ -14,7 +14,7 @@
 
   var FS = [
     'precision highp float;',
-    'uniform vec2 u_res; uniform sampler2D u_field; uniform float u_t, u_pitch, u_ang, u_amb, u_max, u_dpr, u_calmS, u_top; uniform vec4 u_calm;',
+    'uniform vec2 u_res; uniform sampler2D u_field; uniform float u_t, u_pitch, u_ang, u_amb, u_max, u_dpr, u_calmS, u_top, u_navH, u_navF; uniform vec4 u_calm;',
     'uniform vec3 u_ink, u_ink2, u_paper, u_paper2, u_grain; uniform float u_mix, u_fadeB, u_grainA, u_flip, u_floor, u_jig;',
     'float h1(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }',
     'vec2 h2(vec2 p){ return fract(sin(vec2(dot(p, vec2(127.1, 311.7)), dot(p, vec2(269.5, 183.3)))) * 43758.5453); }',
@@ -29,7 +29,8 @@
     // quiet zones: the ink thins to bare paper around the headline and under the nav, like space left for type
     '  vec2 hb = u_calm.zw * 0.5; float rad = 0.6 * min(hb.x, hb.y); vec2 dq = abs(px - u_calm.xy) - (hb - rad); float sd = length(max(dq, 0.0)) + min(max(dq.x, dq.y), 0.0) - rad;',
     '  float feather = 0.40 * u_res.y; float calm = u_calmS * (1.0 - smoothstep(-0.06 * u_res.y, feather, sd + 0.04 * u_res.y * sin(px.x * 0.004 + px.y * 0.006)));',
-    '  calm = max(calm, u_top * smoothstep(u_res.y * 0.84, u_res.y * 0.95, px.y));',
+    '  float topc = u_navH > 0.0 ? smoothstep(u_res.y - u_navH - u_navF, u_res.y - u_navH, px.y) : smoothstep(u_res.y * 0.84, u_res.y * 0.95, px.y);',
+    '  calm = max(calm, u_top * topc);',
     '  float fb = smoothstep(0.0, u_fadeB * u_res.y, px.y);',   /* ink thins out toward the bottom edge */
     '  return clamp(max(T * (1.0 - calm) * fb, u_floor * (1.0 - 0.85 * calm)), 0.0, 0.97);',
     '}',
@@ -86,6 +87,8 @@
       flip: false,     // mirror the resting ombre (inner pages: text sits left, ink sits right)    // strength of the paper speckle
       jig: 0,          // how far each dot bounces around its home (fraction of the dot spacing)
       animate: false,  // animate a non-interactive print (the dots bounce in place)
+      speed: 1,        // time scale for the drifting ombre (animated prints)
+      navFade: 0,      // >0 = clear all ink under the fixed nav and fade it in over this many CSS px below it
       interactive: true, // false = a still print (inner pages): no cursor, no drift, drawn once
       calmSel: '.hero-riso-copy, .hero-copy, .zl-hero-copy, .curr-hero .reveal',
       ink: '#0B1A4A', ink2: '#2F55A8', paper: '#FCF3ED', paper2: '#EFE3D4', grain: '#A2A6B5'
@@ -96,7 +99,7 @@
     var gl = c.getContext('webgl', { alpha: false, antialias: false, preserveDrawingBuffer: /[?&]cap/.test(location.search) });
     if (!gl) return null;
     var P = gl.createProgram(); gl.attachShader(P, sh(gl, gl.VERTEX_SHADER, VS)); gl.attachShader(P, sh(gl, gl.FRAGMENT_SHADER, FS)); gl.linkProgram(P); gl.useProgram(P);
-    var U = {}; ['u_res', 'u_field', 'u_t', 'u_pitch', 'u_ang', 'u_amb', 'u_max', 'u_dpr', 'u_calm', 'u_calmS', 'u_top', 'u_ink', 'u_ink2', 'u_paper', 'u_paper2', 'u_grain', 'u_mix', 'u_fadeB', 'u_grainA', 'u_flip', 'u_floor', 'u_jig'].forEach(function (n) { U[n] = gl.getUniformLocation(P, n); });
+    var U = {}; ['u_res', 'u_field', 'u_t', 'u_pitch', 'u_ang', 'u_amb', 'u_max', 'u_dpr', 'u_calm', 'u_calmS', 'u_top', 'u_navH', 'u_navF', 'u_ink', 'u_ink2', 'u_paper', 'u_paper2', 'u_grain', 'u_mix', 'u_fadeB', 'u_grainA', 'u_flip', 'u_floor', 'u_jig'].forEach(function (n) { U[n] = gl.getUniformLocation(P, n); });
     var qb = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, qb); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
     gl.enableVertexAttribArray(0); gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
 
@@ -177,10 +180,13 @@
       if (o.interactive && o.ghost && !reduce && now - lastMove > 2500) ghost(t);
       step(dt);
       gl.viewport(0, 0, W, H);
-      gl.uniform2f(U.u_res, W, H); gl.uniform1f(U.u_t, reduce ? 0 : t); gl.uniform1f(U.u_pitch, o.pitch * dpr); gl.uniform1f(U.u_ang, o.angle * Math.PI / 180);
+      gl.uniform2f(U.u_res, W, H); gl.uniform1f(U.u_t, reduce ? 0 : t * o.speed); gl.uniform1f(U.u_pitch, o.pitch * dpr); gl.uniform1f(U.u_ang, o.angle * Math.PI / 180);
       var cz = [0, 0, 0, 0], cp = el.parentElement && el.parentElement.querySelector(o.calmSel || '.hero-riso-copy');
       if (cp) { var er = el.getBoundingClientRect(), cr = cp.getBoundingClientRect();
         cz = [((cr.left + cr.right) / 2 - er.left) * dpr, (er.bottom - (cr.top + cr.bottom) / 2) * dpr, (cr.width - 40) * dpr, (cr.height - 20) * dpr]; }
+      var nh = 0, nv = o.navFade ? document.getElementById('nav') : null;
+      if (nv) { var nr = nv.getBoundingClientRect(), er2 = el.getBoundingClientRect(); nh = Math.max(0, nr.bottom - er2.top) * dpr; }
+      gl.uniform1f(U.u_navH, nh); gl.uniform1f(U.u_navF, (o.navFade || 1) * dpr);
       gl.uniform4fv(U.u_calm, cz); gl.uniform1f(U.u_calmS, cp ? o.calm : 0); gl.uniform1f(U.u_top, o.top);
       gl.uniform1f(U.u_amb, o.ambient); gl.uniform1f(U.u_max, o.max); gl.uniform1f(U.u_dpr, dpr);
       gl.uniform3fv(U.u_ink, hex(o.ink)); gl.uniform3fv(U.u_ink2, hex(o.ink2)); gl.uniform3fv(U.u_paper, hex(o.paper)); gl.uniform3fv(U.u_paper2, hex(o.paper2)); gl.uniform3fv(U.u_grain, hex(o.grain));
@@ -204,7 +210,7 @@
   function boot() {
     [].forEach.call(document.querySelectorAll('[data-riso-field]'), function (el) {
       var mode = el.getAttribute('data-riso-field'), st = mode === 'static', hv = document.body.getAttribute('data-hero');
-      if (mode === 'still') { var sInst = window.RisoField(el, { interactive: false }); if (sInst) el.classList.add('is-live'); return; }   // homepage: the light print, drawn still (no cursor, no drift)
+      if (mode === 'still') { var sInst = window.RisoField(el, { interactive: false, animate: true, speed: 2.0, jig: 0, navFade: 150 }); if (sInst) el.classList.add('is-live'); return; }   // homepage: the light print drifts slowly (no cursor, no bouncing dots) and fades into the nav
       if (st && hv && hv !== 'B') return;   // header options A, C, D draw no print
       var inst = window.RisoField(el, st && hv === 'B' ? { interactive: false, animate: true, jig: 0.2, ambient: 0.30, fadeB: 0.35, flip: true, calm: 1, top: 1,
         paper: '#FCF3ED', paper2: '#EFE3D4', ink: '#0B1A4A', ink2: '#2F55A8', mix: 0.45, floor: 0.012, grainA: 0 } : st ? { interactive: false, animate: true, jig: 0.24, ambient: 0.36, fadeB: 0, flip: true, calm: 1, top: 0.6,
