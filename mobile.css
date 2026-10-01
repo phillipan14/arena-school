@@ -262,3 +262,8 @@
 @media (max-width:760px){
   .pc .pc-step-k, .hp-cred-lab, .hp-cf-k, .hp-cf-r { font-size: 11px; }
 }
+
+/* scrolled nav bar: solid on phones so text scrolling underneath (e.g. the dark footer) doesn't show through */
+@media (max-width:760px){
+  .nav.scrolled { background: rgb(245,236,225) !important; }
+}
