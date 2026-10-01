@@ -86,3 +86,11 @@ body.home .gmap.gm-pin.has-focus .gm-lane:not(.is-focus) .gm-lab { opacity: .55 
   body.home .gmap.gm-pin.has-focus .gm-lane:not(.is-focus) { min-height: 0; }
   body.home .gmap.gm-pin.has-focus .gm-lane:not(.is-focus) .gm-bar { height: 10px; }
 }
+
+/* Short lane (AI Advantage Bootcamp): its label sits outside the bar, so its arrow is drawn inside the bar
+   instead, matching the other lanes (same glyph, size, color, inset, and reveal on hover/focus). */
+body.home .gm-lane.is-short .gm-bar { position: relative; }
+body.home .gm-lane.is-short .gm-bar::after { content: "\2192"; position: absolute; right: 14px; top: 50%; font: 400 17px/1 var(--font-body, 'Geist', sans-serif); color: #FCF3ED; opacity: 0; transform: translate(-4px, -50%); transition: opacity .25s, transform .3s; pointer-events: none; }
+body.home .gm-lane.is-short:hover .gm-bar::after, body.home .gm-lane.is-short.on .gm-bar::after, body.home .gm-lane.is-short:focus-visible .gm-bar::after,
+body.home .gmap.has-focus .gm-lane.is-short.is-focus .gm-bar::after { opacity: 1; transform: translate(0, -50%); }
+@media (max-width: 760px) { body.home .gm-lane.is-short .gm-bar::after { display: none; } }
