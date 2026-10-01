@@ -215,6 +215,7 @@
   function boot() {
     [].forEach.call(document.querySelectorAll('[data-riso-field]'), function (el) {
       var mode = el.getAttribute('data-riso-field'), st = mode === 'static', hv = document.body.getAttribute('data-hero');
+      if (mode === 'still' && window.RisoParticles) { var pInst = window.RisoParticles(el, {}); if (pInst) { el.classList.add('is-live'); return; } }   // homepage: free-wandering particle dots (riso-particles.js); falls back to the print below without it
       if (mode === 'still') { var sInst = window.RisoField(el, { interactive: true, follow: false, speed: 5, ghostSpeed: 1.6, ghostWide: 1.25, jig: 0, navFade: 260, top: 0.94, flow: [14, -5] }); if (sInst) el.classList.add('is-live'); return; }   // homepage: the ink flows on its own (a drifting ghost brush, never the real cursor) and thins out gradually up into the nav
       if (st && hv && hv !== 'B') return;   // header options A, C, D draw no print
       var inst = window.RisoField(el, st && hv === 'B' ? { interactive: false, animate: true, jig: 0.2, ambient: 0.30, fadeB: 0.35, flip: true, calm: 1, top: 1,

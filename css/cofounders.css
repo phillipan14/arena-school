@@ -154,3 +154,7 @@ html[lang="zh-CN"] .hp-cf-quote p { font-style: normal; font-family: var(--font-
 .hp-cf-lg img[src*="deloitte"] { height: 14px !important; }
 .hp-cf-lg img[src*="kimi"] { height: 15px !important; }
 .hp-cf-lg img[src*="mckinsey"] { height: 13px !important; }
+
+/* English pages: the logos already carry the institution names, so the name is kept for screen readers only
+   and the role becomes the visible line. Chinese pages keep both (the logos have no Chinese, except Tsinghua). */
+.hp-cf-x b.sr-only + span { margin-top: 0; font-size: 14px; line-height: 1.4; color: var(--ink); }
