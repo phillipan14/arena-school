@@ -75,3 +75,14 @@ body.home .gmap.has-focus .gm-lane.is-focus[data-prog="bootcamp"] .gm-bar { box-
 body.home .gmap.has-focus .gm-lane.is-focus { order: -1; }
 body.home .gmap.has-focus .gm-lane:not(.is-focus) .gm-lab { opacity: 0 !important; }
 @media (max-width: 760px) { body.home .gm-lane.is-short .gm-lab small { order: 0; } }
+
+/* spotlight from the chart itself (grade-map.js adds .gm-pin): highlight in place. Lanes keep their order and
+   height so nothing moves under the pointer (moving them handed the hover to the next lane: endless flicker). */
+body.home .gmap.gm-pin.has-focus .gm-lane.is-focus { order: 0; }
+body.home .gmap.gm-pin.has-focus .gm-lane:not(.is-focus) { min-height: 50px; }
+body.home .gmap.gm-pin.has-focus .gm-lane:not(.is-focus) .gm-bar { height: 46px; }
+body.home .gmap.gm-pin.has-focus .gm-lane:not(.is-focus) .gm-lab { opacity: .55 !important; }
+@media (max-width: 760px) {
+  body.home .gmap.gm-pin.has-focus .gm-lane:not(.is-focus) { min-height: 0; }
+  body.home .gmap.gm-pin.has-focus .gm-lane:not(.is-focus) .gm-bar { height: 10px; }
+}

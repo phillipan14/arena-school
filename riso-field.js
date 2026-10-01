@@ -29,7 +29,7 @@
     // quiet zones: the ink thins to bare paper around the headline and under the nav, like space left for type
     '  vec2 hb = u_calm.zw * 0.5; float rad = 0.6 * min(hb.x, hb.y); vec2 dq = abs(px - u_calm.xy) - (hb - rad); float sd = length(max(dq, 0.0)) + min(max(dq.x, dq.y), 0.0) - rad;',
     '  float feather = 0.40 * u_res.y; float calm = u_calmS * (1.0 - smoothstep(-0.06 * u_res.y, feather, sd + 0.04 * u_res.y * sin(px.x * 0.004 + px.y * 0.006)));',
-    '  float topc = u_navH > 0.0 ? smoothstep(u_res.y - u_navH - u_navF, u_res.y - u_navH, px.y) : smoothstep(u_res.y * 0.84, u_res.y * 0.95, px.y);',
+    '  float topc = u_navH > 0.0 ? smoothstep(u_res.y - u_navH - u_navF, u_res.y, px.y) : smoothstep(u_res.y * 0.84, u_res.y * 0.95, px.y);',
     '  calm = max(calm, u_top * topc);',
     '  float fb = smoothstep(0.0, u_fadeB * u_res.y, px.y);',   /* ink thins out toward the bottom edge */
     '  return clamp(max(T * (1.0 - calm) * fb, u_floor * (1.0 - 0.85 * calm)), 0.0, 0.97);',
@@ -90,6 +90,9 @@
       speed: 1,        // time scale for the drifting ombre (animated prints)
       navFade: 0,      // >0 = clear all ink under the fixed nav and fade it in over this many CSS px below it
       interactive: true, // false = a still print (inner pages): no cursor, no drift, drawn once
+      ghostSpeed: 1,   // time scale of the ghost brush
+      ghostWide: 1,    // how far the ghost roams (1 = the middle two thirds)
+      follow: true,    // false = keep the flowing ink but ignore the real cursor (the ghost drifts all the time)
       calmSel: '.hero-riso-copy, .hero-copy, .zl-hero-copy, .curr-hero .reveal',
       ink: '#0B1A4A', ink2: '#2F55A8', paper: '#FCF3ED', paper2: '#EFE3D4', grain: '#A2A6B5'
     }, opts || {});
@@ -145,7 +148,7 @@
       if (ghostOn) { last = null; ghostOn = false; }
       lastMove = performance.now(); move(p[0], p[1], lastMove, 1); kick();
     }
-    if (o.interactive) { window.addEventListener('pointermove', onMove, { passive: true }); window.addEventListener('pointerdown', onMove, { passive: true }); }
+    if (o.interactive && o.follow) { window.addEventListener('pointermove', onMove, { passive: true }); window.addEventListener('pointerdown', onMove, { passive: true }); }
 
     // ---- per-frame: fade + soft bleed, then upload
     var prevT = 0;
@@ -166,8 +169,9 @@
       return any;
     }
     function ghost(t) {   // a slow invisible cursor for idle screens and phones
-      var x = cssW * (0.5 + 0.34 * Math.sin(t * 0.11) + 0.08 * Math.sin(t * 0.29 + 1.0));
-      var y = cssH * (0.5 + 0.30 * Math.sin(t * 0.083 + 2.0) + 0.08 * Math.cos(t * 0.23));
+      t *= o.ghostSpeed; var gw = o.ghostWide;
+      var x = cssW * (0.5 + 0.34 * gw * Math.sin(t * 0.11) + 0.08 * Math.sin(t * 0.29 + 1.0));
+      var y = cssH * (0.5 + 0.30 * gw * Math.sin(t * 0.083 + 2.0) + 0.08 * Math.cos(t * 0.23));
       if (!ghostOn) { last = null; ghostOn = true; }
       move(x, y, t, 0.55);
     }
@@ -177,7 +181,7 @@
       resize();
       var t = (now - t0) / 1000, dt = Math.min(0.05, prevT ? (now - prevT) / 1000 : 0.016); prevT = now;
       if (!o.interactive && !o.animate) t = 7.0;
-      if (o.interactive && o.ghost && !reduce && now - lastMove > 2500) ghost(t);
+      if (o.interactive && o.ghost && !reduce && (!o.follow || now - lastMove > 2500)) ghost(t);
       step(dt);
       gl.viewport(0, 0, W, H);
       gl.uniform2f(U.u_res, W, H); gl.uniform1f(U.u_t, reduce ? 0 : t * o.speed); gl.uniform1f(U.u_pitch, o.pitch * dpr); gl.uniform1f(U.u_ang, o.angle * Math.PI / 180);
@@ -210,7 +214,7 @@
   function boot() {
     [].forEach.call(document.querySelectorAll('[data-riso-field]'), function (el) {
       var mode = el.getAttribute('data-riso-field'), st = mode === 'static', hv = document.body.getAttribute('data-hero');
-      if (mode === 'still') { var sInst = window.RisoField(el, { interactive: false, animate: true, speed: 2.0, jig: 0, navFade: 150 }); if (sInst) el.classList.add('is-live'); return; }   // homepage: the light print drifts slowly (no cursor, no bouncing dots) and fades into the nav
+      if (mode === 'still') { var sInst = window.RisoField(el, { interactive: true, follow: false, speed: 5, ghostSpeed: 1.6, ghostWide: 1.25, jig: 0, navFade: 260, top: 0.94 }); if (sInst) el.classList.add('is-live'); return; }   // homepage: the ink flows on its own (a drifting ghost brush, never the real cursor) and thins out gradually up into the nav
       if (st && hv && hv !== 'B') return;   // header options A, C, D draw no print
       var inst = window.RisoField(el, st && hv === 'B' ? { interactive: false, animate: true, jig: 0.2, ambient: 0.30, fadeB: 0.35, flip: true, calm: 1, top: 1,
         paper: '#FCF3ED', paper2: '#EFE3D4', ink: '#0B1A4A', ink2: '#2F55A8', mix: 0.45, floor: 0.012, grainA: 0 } : st ? { interactive: false, animate: true, jig: 0.24, ambient: 0.36, fadeB: 0, flip: true, calm: 1, top: 0.6,

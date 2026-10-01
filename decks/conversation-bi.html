@@ -1,0 +1,856 @@
+<!doctype html>
+<html lang="en" class="bi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Working Beside AI · 与AI并肩工作</title>
+<link rel="icon" href="/favicon.svg">
+<style>@import url('/fonts/fonts.css');
+@import url('/fonts/zh/zh-fallback.css'); /* self-hosted Noto Serif SC slices: Chinese serif on phones without Songti (iPhone, Android); loads only the characters used */
+/* round 5: one serif family (Newsreader for Latin, Songti SC for Chinese), one radius, one card padding */
+:root{--ink:#0B1A4A;--ink2:#2F55A8;--paper:#F3E9DD;--paper-hi:#FCF3ED;--beige:#EFE3D4;--muted:#5B5B6B;--line:#D4C0AA;--text:#26304F;
+ --serif:'Newsreader','Songti SC','Noto Serif SC','Source Han Serif SC',Georgia,serif;
+ --r:12px;--ease:cubic-bezier(.2,.7,.2,1);--z:1;--gut:150px;--vh:calc(1vh / var(--z));
+ --cp:clamp(22px,calc(3 * var(--vh)),30px) clamp(22px,1.9vw,30px);
+ --pane:rgba(255,255,255,.45);--pp:clamp(24px,calc(3.4 * var(--vh)),34px) clamp(26px,2.4vw,40px)}
+@media (min-width:1700px) and (min-height:950px){:root{--z:1.32}}
+*{box-sizing:border-box}html,body{margin:0;height:100%}
+body{font-family:var(--serif);color:var(--ink);background:var(--paper);overflow:hidden;-webkit-font-smoothing:antialiased;font-variant-numeric:lining-nums}
+button{font:inherit;color:inherit}
+.deck{height:100vh;overflow-y:auto;scroll-snap-type:y mandatory;scroll-behavior:smooth}
+.s{position:relative;min-height:100vh;scroll-snap-align:start;display:flex;align-items:center;overflow:hidden;
+ background:var(--paper) radial-gradient(rgba(11,26,74,.22) 1.1px,transparent 1.4px) 12px 12px/24px 24px}
+.s.alt{background-color:var(--beige);background-image:none}
+.w{position:relative;z-index:2;zoom:var(--z);width:calc((100vw - var(--gut)) / var(--z));margin:0 auto;
+ padding:clamp(26px,calc(5.5 * var(--vh)),64px) 0;display:flex;flex-direction:column;align-items:stretch}
+.dense .w{padding:clamp(18px,calc(3.4 * var(--vh)),40px) 0}
+
+/* type */
+.chip{align-self:flex-start;display:inline-flex;align-items:center;gap:9px;font:600 12px/1 var(--serif);letter-spacing:.15em;text-transform:uppercase;
+ color:var(--paper-hi);background:var(--ink);padding:.66em .95em .6em;border-radius:2px;box-shadow:2px 2px 0 var(--ink2);margin-bottom:clamp(20px,calc(3.2 * var(--vh)),30px)}
+.chip::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ink2);box-shadow:0 0 0 1.5px var(--paper-hi);flex:none}
+:lang(zh-CN) .chip{letter-spacing:.1em}
+h1,h2{font-family:var(--serif);font-weight:500;letter-spacing:-.025em;margin:0;line-height:1.05;text-wrap:balance}
+h1{font-size:clamp(46px,6.2vw,88px)}h2{font-size:clamp(34px,4.2vw,58px)}
+:lang(zh-CN) h1,:lang(zh-CN) h2{letter-spacing:0;line-height:1.15}
+.dense h2{font-size:clamp(30px,3.3vw,48px)}
+em{font-style:italic;color:var(--ink2)}
+.nw{white-space:nowrap}
+.lede{font-size:clamp(18px,1.55vw,22px);line-height:1.6;color:var(--text);max-width:64ch;margin:clamp(20px,calc(3.4 * var(--vh)),32px) 0 0;text-wrap:pretty}
+.foot{font-size:clamp(16px,1.3vw,19px);line-height:1.6;color:var(--text);margin:clamp(24px,calc(4.4 * var(--vh)),44px) 0 0;text-wrap:pretty}
+.k{font:600 12px/1.3 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);margin:0 0 16px}
+:lang(zh-CN) .k{letter-spacing:.08em}
+.src{display:block;font:italic 400 13px/1.45 var(--serif);color:var(--muted);margin-top:14px}
+.quote{font:400 clamp(24px,2.4vw,34px)/1.3 var(--serif);color:var(--ink);letter-spacing:-.01em;text-wrap:balance}
+/* riso marker */
+.m{position:relative;z-index:0;white-space:nowrap}
+.m::after{content:"";position:absolute;left:-.03em;right:-.03em;bottom:.06em;height:.3em;z-index:-1;background:url(/art/riso-hl.png) 0 0/6px 6px repeat;transform:scaleX(0);transform-origin:left;transition:transform .7s cubic-bezier(.65,.05,.25,1) var(--d,.3s)}
+.in .m::after{transform:scaleX(1)}
+/* entrance: quiet, staggered */
+.r{opacity:0;transform:translateY(12px);transition:opacity .5s ease var(--d,0s),transform .6s var(--ease) var(--d,0s)}.in .r{opacity:1;transform:none}
+
+/* grid + cards */
+.grid{display:grid;gap:clamp(18px,2vw,28px);margin-top:clamp(28px,calc(5 * var(--vh)),52px);align-items:stretch}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g5{grid-template-columns:repeat(5,minmax(0,1fr))}
+.card{position:relative;background:var(--paper-hi);border:1px solid var(--ink);border-radius:var(--r);padding:var(--cp)}
+.card h3{font:500 clamp(22px,1.9vw,27px)/1.2 var(--serif);letter-spacing:-.01em;margin:0;text-wrap:balance}
+.card p{margin:0;font-size:15.5px;line-height:1.6;color:var(--text)}
+.card ul{margin:0;padding-left:18px;font-size:15.5px;line-height:1.55;color:var(--text)}
+.card li::marker{color:var(--ink2)}
+.callout{background:rgba(255,255,255,.45);border:0;border-radius:var(--r);padding:var(--cp)}
+.story{margin:0;font:400 clamp(19px,1.65vw,24px)/1.45 var(--serif);color:var(--ink);text-wrap:pretty}
+
+/* stats */
+.stat{display:flex;flex-direction:column}
+.num{font:400 clamp(48px,4.8vw,74px)/1 var(--serif);color:var(--ink2);letter-spacing:-.02em;margin:0 0 16px;font-variant-numeric:lining-nums tabular-nums}
+.num.sm{font-size:clamp(38px,3.4vw,54px);white-space:nowrap}
+.stat p{font-size:16px}
+.stat>.src{margin-top:auto;padding-top:18px}
+.stat.h{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;column-gap:clamp(22px,2.2vw,36px)}
+.stat.h .num{margin:0;min-width:2.6ch}
+.stat.h .sb{border-left:1px solid var(--line);padding-left:clamp(22px,2.2vw,36px)}
+.stat.h .src{margin-top:10px}
+
+/* 1 · title */
+.split{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(40px,6vw,110px);align-items:center}
+.split .col{display:flex;flex-direction:column}
+.title .lede{max-width:34ch}
+.agenda{border-top:1.5px solid var(--ink);padding-top:18px}
+.agenda .k{margin-bottom:6px}
+.agenda ol{list-style:none;margin:0;padding:0}
+.agenda a{display:grid;grid-template-columns:40px minmax(0,1fr) 20px;align-items:baseline;padding:15px 0;border-bottom:1px solid var(--line);color:var(--ink);text-decoration:none;font:500 clamp(19px,1.6vw,23px)/1.3 var(--serif)}
+.agenda .n{font:italic 400 15px/1 var(--serif);color:var(--ink2)}
+.agenda a::after{content:"\2192";justify-self:end;color:var(--ink2);opacity:0;transform:translateX(-6px);transition:opacity .2s ease,transform .25s var(--ease)}
+.agenda a:hover::after,.agenda a:focus-visible::after{opacity:1;transform:none}
+.agenda a:hover .t{color:var(--ink2)}
+.agenda a:focus-visible{outline:none;box-shadow:0 2px 0 var(--ink2)}
+
+/* 2 · speakers */
+.team{display:grid;grid-template-columns:1fr;gap:clamp(18px,calc(3 * var(--vh)),30px);margin-top:clamp(30px,calc(5 * var(--vh)),52px)}
+.person{display:grid;grid-template-columns:auto minmax(190px,.3fr) minmax(0,1fr);gap:0 clamp(20px,2vw,36px);align-items:center}
+.person img{width:104px;height:104px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 3px #fff}
+.person h3{margin:4px 0 6px;font:500 26px/1.15 var(--serif)}
+.co{font:600 12px/1.3 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
+:lang(zh-CN) .co{letter-spacing:.08em}
+.creds{list-style:none;margin:0;padding:0}
+.creds li{text-wrap:pretty;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.5;color:var(--text)}
+.creds li:last-child{border-bottom:1px solid var(--line)}
+.logos{display:flex;flex-wrap:nowrap;justify-content:space-between;align-items:center;gap:0 18px;margin-top:clamp(34px,calc(6 * var(--vh)),60px)}
+.logos img{flex:none;width:auto;opacity:.85}
+
+/* 3 · ask */
+.ask h2{font-size:clamp(42px,5.4vw,80px);max-width:17ch}
+:lang(zh-CN) .ask h2{max-width:12.5em}
+.askbody{align-self:flex-end;width:min(100%,60ch);margin-top:clamp(28px,calc(5 * var(--vh)),56px);border-top:1.5px solid var(--ink);padding-top:clamp(16px,calc(2.4 * var(--vh)),24px)}
+.askbody .lede{margin:0 0 .7em;max-width:none}
+.askbody .q{color:var(--ink);font-style:italic}
+:lang(zh-CN) .askbody .q{font-style:normal;font-weight:600}
+
+/* 6 · pair */
+.pair .callout .k,.pair .card .k{margin-bottom:20px}
+.pair .callout{display:flex;flex-direction:column}
+.card ul.big{font-size:clamp(16px,1.3vw,18.5px);line-height:1.55;padding-left:20px}.card ul.big li{margin:0 0 14px}.card ul.big li:last-child{margin:0}
+
+/* 7 · tools */
+.tools .card.rv{padding-right:clamp(22px,1.9vw,30px)}.tools .k{padding-right:16px}.tools .card ul{line-height:1.5}.tools .card li{margin:0 0 6px}
+
+/* reveal: in place. The card grows; nothing floats. */
+.rv{cursor:pointer;outline:none;transition:border-color .2s ease,background-color .2s ease}
+.card.rv{padding-right:clamp(40px,2.8vw,48px)}
+.rv::after{content:"+";position:absolute;top:12px;right:15px;font:400 24px/1 var(--serif);color:var(--ink2);transition:transform .25s var(--ease)}
+.rv.open::after{transform:rotate(45deg)}
+@media (hover:hover){.rv:not(.shut):hover::after{transform:rotate(45deg)}.card.rv:hover,.mc.rv:not(.tool):hover{border-color:var(--ink2);background:#FFF9F4}}
+.card.rv.open{border-color:var(--ink2);background:#FFF9F4}
+.rv:focus-visible{box-shadow:0 0 0 3px rgba(47,85,168,.35)}
+.rv-d{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .28s var(--ease),opacity .22s ease;cursor:default}
+.rv-d>p{min-height:0;overflow:hidden;margin:0;font-size:15px;line-height:1.55;color:var(--text)}
+.rv-d>p::before{content:"";display:block;width:28px;height:3px;margin:16px 0 12px;background:url(/art/riso-hl.png) 0 0/6px 6px repeat}
+.rv.open>.rv-d,.rv:focus-visible>.rv-d{grid-template-rows:1fr;opacity:1}
+@media (hover:hover){.rv:not(.shut):hover>.rv-d{grid-template-rows:1fr;opacity:1}}
+.measure .rv-d{grid-template-rows:1fr!important;opacity:1!important;transition:none!important}
+
+/* 8 · 9 · examples */
+.hd{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);column-gap:clamp(32px,4vw,72px);align-items:end}
+.hd>div{display:flex;flex-direction:column}
+.sit{font-size:clamp(15.5px,1.2vw,18px);line-height:1.6;color:var(--text);margin:0;text-wrap:pretty}
+.ex{margin-top:clamp(18px,calc(3.2 * var(--vh)),34px);width:100%}
+.stills{display:grid;grid-template-columns:repeat(2,minmax(0,var(--iw,1fr)));justify-content:space-between;gap:clamp(20px,2vw,28px)}
+.stills{position:relative}
+.stills figure{margin:0;position:relative;min-width:0}
+/* when the height budget opens a gap between the two steps, a quiet arrow reads it as a sequence */
+.stills.wide::after{content:"";position:absolute;left:50%;top:calc(50% - 22px);width:44px;height:14px;margin-left:-22px;
+ background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 14'%3E%3Cpath d='M1 7h40M35 1.5L41.5 7 35 12.5' fill='none' stroke='%232F55A8' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+.stills img{display:block;width:100%;height:auto}
+figcaption.rv{position:relative;display:flex;align-items:baseline;gap:10px;margin-top:10px;padding-right:26px;font:400 15px/1.4 var(--serif);color:var(--ink)}
+figcaption.rv::after{top:-3px;right:2px;font-size:22px}
+.cap b{font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);margin-right:10px;white-space:nowrap}
+:lang(zh-CN) .cap b{letter-spacing:.06em}
+/* step detail: a panel that rises from the screenshot's bottom edge, inside the figure */
+figcaption.rv>.rv-d{position:absolute;left:0;right:0;bottom:calc(100% + 10px);display:block;background:rgba(252,243,237,.95);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+ border-top:2px solid var(--ink2);padding:14px 18px 15px;transform:translateY(8px);transition:opacity .2s ease,transform .26s var(--ease);pointer-events:none}
+figcaption.rv>.rv-d>p::before{display:none}
+figcaption.rv.open>.rv-d,figcaption.rv:focus-visible>.rv-d{transform:none}
+@media (hover:hover){.stills figure:hover figcaption.rv:not(.shut)>.rv-d{opacity:1;transform:none}.stills figure:hover figcaption.rv:not(.shut)::after{transform:rotate(45deg)}}
+.measure figcaption.rv>.rv-d{opacity:0!important}
+.cmp3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2vw,28px);margin-top:clamp(16px,calc(2.6 * var(--vh)),26px);align-items:start}
+.mc{position:relative;display:grid;grid-template-columns:22px minmax(0,1fr);column-gap:12px;align-items:center;padding:14px 44px 14px 18px;border:1px solid var(--ink);border-radius:var(--r);background:var(--paper-hi)}
+.mc b{font:600 12.5px/1.3 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+:lang(zh-CN) .mc b{letter-spacing:.06em}
+.mc .ic{width:22px;height:22px;fill:none;stroke:var(--ink2);stroke-width:1.7;stroke-linejoin:round;stroke-linecap:round}
+.mc::after{top:11px}
+.mc .rv-d{grid-column:1/-1}
+/* compare detail: the card extends upward over the screenshots (the row sits at the slide's foot, so nothing below moves) */
+.mc>.rv-d{grid-column:auto;position:absolute;left:-1px;right:-1px;bottom:calc(100% - 1px);z-index:5;background:inherit;border:1px solid;border-color:inherit;border-bottom:0;border-radius:var(--r) var(--r) 0 0;padding:0 44px 0 18px}
+.mc>.rv-d>p::before{margin:16px 0 10px}
+.mc>.rv-d>p::after{content:"";display:block;height:4px}
+.mc.open,.mc:focus-visible{border-top-left-radius:0;border-top-right-radius:0;border-top-color:transparent}
+@media (hover:hover){.mc:not(.shut):hover{border-top-left-radius:0;border-top-right-radius:0;border-top-color:transparent}}
+.measure .mc>.rv-d{opacity:0!important}
+.mc.tool{background:var(--ink);border-color:var(--ink)}.mc.tool b{color:var(--paper-hi)}.mc.tool .ic{stroke:#fff}.mc.tool::after{color:var(--paper-hi)}
+.mc.tool .rv-d>p{color:rgba(252,243,237,.92)}
+@media (hover:hover){.mc.tool:hover{background:#12245f}}
+
+/* 10 · steps: titles on a track; one body at a time in a panel that follows the active step */
+.steps{margin-top:clamp(36px,calc(6.4 * var(--vh)),66px)}
+.step-row{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.rail{position:absolute;left:12.5%;right:12.5%;top:27px;height:2px;background:var(--line)}
+.rail i{display:block;height:100%;width:0;background:var(--ink2);transition:width .45s var(--ease)}
+.step{text-align:center;padding:0 14px;cursor:pointer;outline:none;position:relative}
+.step .dot{position:relative;z-index:1;width:56px;height:56px;border-radius:50%;margin:0 auto 18px;display:grid;place-items:center;background:var(--paper-hi);border:1.5px solid var(--ink);
+ font:italic 400 22px/1 var(--serif);color:var(--ink);transition:background-color .25s ease,color .25s ease,border-color .25s ease,transform .3s var(--ease)}
+.step b{display:block;font:500 20px/1.3 var(--serif);text-wrap:balance;color:var(--ink);opacity:.62;transition:opacity .25s ease,color .25s ease}
+.step.done .dot{border-color:var(--ink2);color:var(--ink2)}
+.step.done b{opacity:.85}
+.step.on .dot{background:var(--ink);border-color:var(--ink);color:var(--paper-hi);transform:scale(1.07)}
+.step.on b{opacity:1}
+@media (hover:hover){.step:hover b{opacity:1}.step:hover .dot{border-color:var(--ink2)}}
+.step:focus-visible .dot{box-shadow:0 0 0 4px rgba(47,85,168,.35)}
+.step-panel{position:relative;display:grid;width:50%;margin-top:26px;margin-left:0;padding:22px 28px;background:rgba(255,255,255,.5);border-radius:var(--r);transition:margin-left .45s var(--ease)}
+.step-panel::before{content:"";position:absolute;top:-10px;left:var(--caret,50%);width:20px;height:10px;margin-left:-10px;background:inherit;clip-path:polygon(50% 0,100% 100%,0 100%);transition:left .45s var(--ease)}
+.sd{grid-area:1/1;align-self:center;margin:0;font-size:16px;line-height:1.6;color:var(--text);opacity:0;transform:translateY(6px);transition:opacity .25s ease,transform .3s var(--ease);text-wrap:pretty;position:relative}
+.sd.on{opacity:1;transform:none}
+.sd i{font-style:italic;color:var(--ink)}
+
+/* 11 · quote band */
+.qband{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:end;margin-top:clamp(26px,calc(4.4 * var(--vh)),44px);
+ background:var(--pane);border-radius:var(--r);padding:var(--pp)}
+.qband .src{margin:0;text-align:right}
+
+/* 12 · lessons */
+.no{font:italic 400 clamp(38px,3.2vw,50px)/1 var(--serif);color:var(--ink2);margin:0 0 22px;letter-spacing:-.02em}
+.lessons .card{padding-top:clamp(26px,calc(3.6 * var(--vh)),36px)}
+
+/* 13 · college */
+.mit{padding:clamp(30px,calc(4.4 * var(--vh)),48px) clamp(28px,2.8vw,44px)}
+.mit .quote{font-size:clamp(26px,2.6vw,38px);font-style:italic}
+:lang(zh-CN) .mit .quote{font-style:normal}
+.mit .src{margin-top:22px}
+
+/* 14 · at home */
+.ctx{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px clamp(28px,4vw,64px);margin-top:clamp(22px,calc(3.6 * var(--vh)),36px)}
+.ctx>div{border-top:1px solid var(--line);padding-top:14px}
+.ctx p{margin:0;font-size:15.5px;line-height:1.6;color:var(--text)}
+.ctx .src{margin-top:6px}
+.hi{display:block;width:34px;height:34px;margin:0 0 18px;fill:none;stroke:var(--ink2);stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round}
+
+/* 15 · Q&A */
+.qa{display:grid;grid-template-columns:220px 220px minmax(0,1fr);gap:48px;align-items:center;margin-top:clamp(30px,calc(5.4 * var(--vh)),56px)}
+.qr{text-align:center;align-self:start}
+.qr img{width:100%;height:auto;display:block;background:var(--paper-hi);border:1px solid var(--ink);border-radius:var(--r);padding:12px}
+.qr-slot{aspect-ratio:1;border:2px dashed var(--ink2);border-radius:var(--r);background:rgba(255,255,255,.35)}
+.qr>span{display:block;margin-top:14px;font:600 12px/1.4 var(--serif);letter-spacing:.14em;text-transform:uppercase}
+:lang(zh-CN) .qr>span{letter-spacing:.06em}
+.qr>small{display:block;margin-top:4px;font:italic 13px/1.4 var(--serif);color:var(--muted)}
+.qa-cap{font-size:clamp(18px,1.5vw,22px);line-height:1.55;margin:0;color:var(--text);max-width:36ch;text-wrap:pretty}
+
+/* 16 · sources */
+.srcs{list-style:none;margin:clamp(24px,calc(4 * var(--vh)),40px) 0 0;padding:0}
+.srcs li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:baseline;padding:15px 0;border-bottom:1px solid var(--line);font-size:16px;line-height:1.5;color:var(--text)}
+.srcs li:first-child{border-top:1px solid var(--line)}
+.srcs li b{font-weight:600;color:var(--ink)}
+.srcs li .src{margin:0;white-space:nowrap}
+
+/* chrome */
+.lang{position:fixed;right:22px;top:18px;z-index:10;display:flex;border:1.5px solid var(--ink);border-radius:999px;overflow:hidden;font:600 12px/1 var(--serif);letter-spacing:.08em;background:var(--paper-hi)}
+.lang a{padding:7px 12px 6px;color:var(--ink);text-decoration:none}.lang a+a{border-left:1.5px solid var(--ink)}.lang a.on{background:var(--ink);color:var(--paper-hi)}
+.nav{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:9;display:flex;flex-direction:column;gap:9px}
+.nav a{width:9px;height:9px;border-radius:50%;background:rgba(11,26,74,.25);transition:background-color .2s ease}.nav a.on{background:var(--ink2);box-shadow:0 0 0 3px rgba(47,85,168,.25)}
+.hint{position:fixed;left:22px;bottom:16px;z-index:9;font:italic 400 13px/1 var(--serif);color:var(--muted)}
+
+/* bilingual: CN beneath EN, smaller and lighter */
+.bi .zh{display:block;font-size:.83em;opacity:.6;margin-top:.3em;font-weight:400;letter-spacing:0;text-transform:none;font-style:normal}
+.bi h1 .zh,.bi h2 .zh{margin-top:.34em;line-height:1.2;text-wrap:wrap}
+.bi .zh em{font-style:normal}
+.bi .chip .zh{display:inline;margin:0 0 0 .7em;font-size:.95em;opacity:.75;letter-spacing:.05em}
+.bi .k .zh,.bi .co .zh,.bi .mc b .zh,.bi .qr>span .zh,.bi .cap b .zh{margin-top:.25em}
+.bi .cap{display:block}.bi .cap .zh{margin-top:.2em}
+.bi .rv-d p .zh{opacity:.7;margin-top:.35em}
+.bi .step b .zh{margin-top:.35em}
+.bi .agenda .t .zh{margin-top:.15em}
+.bi .grid{margin-top:clamp(22px,calc(3.6 * var(--vh)),40px)}.bi .chip{margin-bottom:clamp(18px,calc(2.6 * var(--vh)),26px)}
+.bi .ask h2{max-width:none}.bi .askbody{width:min(100%,72ch)}
+.bi .tools .card li{margin:0 0 5px}
+.bi .creds li{padding:6px 0}
+.bi .person img{width:92px;height:92px}
+.bi .creds{margin-top:10px}.bi .creds li{padding:5px 0;line-height:1.4}.bi .team{margin-top:clamp(20px,calc(3.4 * var(--vh)),40px)}.bi .logos{margin-top:clamp(20px,calc(3.6 * var(--vh)),44px)}
+.bi .askbody{margin-top:clamp(16px,calc(3 * var(--vh)),36px);width:min(100%,82ch)}.bi .askbody .lede{margin-bottom:.45em;line-height:1.5}
+.bi .card ul{line-height:1.4}.bi .tools .card li{margin:0 0 4px}.bi .tools .k{margin-bottom:10px}.bi .tools .card{padding-top:18px;padding-bottom:16px}
+.bi .rv-d>p::before{margin:12px 0 9px}
+.bi .steps{margin-top:clamp(22px,calc(4 * var(--vh)),44px)}.bi .step-panel{margin-top:18px;padding:16px 24px}.bi .step .dot{margin-bottom:12px}
+.bi .qband{margin-top:clamp(18px,calc(3 * var(--vh)),32px);padding:18px 28px}.bi .card h3{line-height:1.15}
+.bi .lessons .no{margin-bottom:14px}
+.bi .tools .grid{gap:14px}.bi .tools .card{padding-left:18px;padding-right:18px}.bi .tools .card li .zh{margin-top:.1em}.bi .tools .foot{margin-top:16px}
+
+/* export / print: every detail expanded, in place */
+.export .r{opacity:1!important;transform:none!important;transition:none!important}.export .m::after{transform:scaleX(1)!important;transition:none!important}
+.export .lang,.export .nav,.export .hint{display:none}.export .deck{scroll-snap-type:none;scroll-behavior:auto}
+.export .rv-d{grid-template-rows:1fr!important;opacity:1!important;transition:none!important}
+.export .rv::after{display:none}.export .card.rv{padding-right:clamp(22px,1.9vw,30px)}
+.export figcaption.rv{display:block;padding-right:0}
+.export figcaption.rv>.rv-d{position:static;opacity:1;transform:none;background:none;border:0;padding:6px 0 0;backdrop-filter:none;-webkit-backdrop-filter:none}
+.export figcaption.rv>.rv-d>p{font-size:14.5px}
+.export .mc{padding-right:18px}.export .mc>.rv-d{grid-column:1/-1;position:static;border:0;padding:0;background:none}.export .mc{border-radius:var(--r)!important;border-top-color:inherit!important}.export .mc:not(.tool){border-top-color:var(--ink)!important}
+.export .step-panel{width:100%!important;margin-left:0!important;background:none;padding:0;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:14px}
+.export .step-panel::before{display:none}
+.export .sd{align-self:start;opacity:1;transform:none;text-align:center;padding:0 14px;grid-row:1;font-size:15px}
+.export .sd:nth-child(1){grid-column:1}.export .sd:nth-child(2){grid-column:2}.export .sd:nth-child(3){grid-column:3}.export .sd:nth-child(4){grid-column:4}
+.export .step b{opacity:1}.export .step .dot{transform:none;background:var(--paper-hi);color:var(--ink);border-color:var(--ink)}.export .rail i{width:100%!important}
+.export .agenda a::after{display:none}
+@media print{@page{size:1920px 1080px;margin:0}body{overflow:visible}.deck{height:auto;overflow:visible;scroll-snap-type:none}.s{height:1080px;min-height:0;break-after:page}.r{opacity:1;transform:none}.m::after{transform:scaleX(1)}.lang,.nav,.hint{display:none}.rv-d{grid-template-rows:1fr;opacity:1}}
+
+@media(max-width:900px){.g2,.g3,.g5,.team,.split,.hd,.cmp3,.ctx,.qband,.qa{grid-template-columns:1fr}.step-row{grid-template-columns:1fr 1fr}.rail{display:none}.logos{flex-wrap:wrap;gap:14px 24px;justify-content:flex-start}}
+@media(prefers-reduced-motion:reduce){.r,.m::after,.rv,.rv::after,.rv-d,.step .dot,.step b,.rail i,.sd,.step-panel,.step-panel::before,.agenda a::after{transition:none!important}}
+/* bilingual print: each step's caption and detail sit beside its screenshot */
+.bi.export .stills{grid-template-columns:1fr 1fr!important;justify-content:stretch}
+.bi.export .stills::after{display:none}
+.bi.export .stills figure{display:grid;grid-template-columns:54% minmax(0,1fr);gap:18px;align-items:start}
+.bi.export .stills figcaption.rv{margin-top:0}
+
+/* round 6: non-headline content never sits bare on the paper; it gets the same translucent card as the slide 11 quote band */
+.pane{background:var(--pane);border:0;border-radius:var(--r);padding:var(--pp)}
+p.pane{align-self:flex-start;width:fit-content}
+.lede.pane{max-width:calc(64ch + 80px)}.title .lede.pane{max-width:calc(34ch + 80px)}
+.split .col>.pane{align-self:flex-start}
+.agenda.pane{border-top:0;padding-top:clamp(18px,calc(2.6 * var(--vh)),26px);padding-bottom:clamp(10px,calc(1.6 * var(--vh)),16px)}
+.agenda.pane li:last-child a{border-bottom:0}
+.askbody.pane{border-top:0;width:min(100%,calc(60ch + 80px))}
+.askbody.pane .lede:last-child{margin-bottom:0}
+.foot.pane{max-width:none}
+.hd .sit.pane{align-self:end}
+.ctx>.pane{border-top:0;padding:clamp(18px,calc(2.6 * var(--vh)),26px) clamp(22px,2vw,32px)}
+.qa{grid-template-columns:256px 256px minmax(0,1fr)}
+.qr.pane{padding:20px 20px 18px}
+.qr.pane img{border:0;padding:10px}
+.qr.pane>span{margin-top:12px}
+.qa-cap.pane{align-self:center;max-width:calc(36ch + 80px)}
+.srcs.pane{padding-top:6px;padding-bottom:6px}
+.srcs.pane li:first-child{border-top:0}.srcs.pane li:last-child{border-bottom:0}
+/* step captions under the screenshots: a compact version of the same card */
+figcaption.rv{background:var(--pane);border-radius:var(--r);padding:10px 42px 10px 16px}
+figcaption.rv::after{top:7px;right:14px}
+.export figcaption.rv{padding:12px 16px}
+/* slide 2: one full-width profile row per person */
+.person img{width:96px;height:96px}
+.who h3{margin:0 0 6px}
+.creds li{padding:9px 0}
+.bi .person img{width:84px;height:84px}.bi .creds li{padding:5px 0}
+.bi .qa{grid-template-columns:236px 236px minmax(0,1fr)}
+
+/* round 6: closing and takeaway lines are anchored to the block they conclude: same card, content width, one grid gap below it */
+.pane.take{align-self:stretch;width:auto;max-width:none;margin-top:clamp(18px,2vw,28px);color:var(--ink)}
+.bi{--pp:clamp(14px,calc(2.2 * var(--vh)),24px) clamp(20px,1.8vw,30px)}
+.bi .take{margin-top:14px}
+.bi .tools .grid{margin-top:16px}.bi .tools .chip{margin-bottom:14px}
+
+/* ===== round 7 ===== */
+/* 1 · title: keyword on "Beside AI", the question as a lighter second line */
+.split{grid-template-columns:minmax(0,1.4fr) minmax(0,.6fr)}
+h1 .sub{display:block;font-size:.5em;line-height:1.2;letter-spacing:-.012em;margin-top:.38em;font-weight:400;color:var(--ink)}
+:lang(zh-CN) h1 .sub{letter-spacing:0}
+.bi h1 .zh .sub{margin-top:.3em}
+/* 2 · names: CN primary, EN small */
+.xn{font-size:.6em;color:var(--muted);margin-left:.55em;letter-spacing:.01em;font-weight:400;white-space:nowrap}
+.creds b{font-weight:600;color:var(--ink)}
+/* 8 · 9 · live link beside the chip */
+.chiprow{display:flex;align-items:center;flex-wrap:wrap;gap:10px 18px;margin-bottom:clamp(20px,calc(3.2 * var(--vh)),30px)}
+.chiprow .chip{margin-bottom:0}
+.live{display:inline-flex;align-items:baseline;gap:7px;font:italic 400 14.5px/1.2 var(--serif);color:var(--ink2);text-decoration:none}
+.live .ar{font-style:normal;transition:transform .2s var(--ease)}
+.live .url{font-size:13px;color:var(--muted)}
+.live:hover .lt,.live:focus-visible .lt{text-decoration:underline;text-underline-offset:3px}.live:hover .ar{transform:translateX(3px)}
+.live:focus-visible{outline:none;box-shadow:0 2px 0 var(--ink2)}
+.bi .live .lt .zh{display:inline;margin:0 0 0 .45em;font-size:.95em;opacity:.7}
+.bi .chiprow{margin-bottom:clamp(16px,calc(2.4 * var(--vh)),24px)}
+/* 8 · 9 · one looping walkthrough video with a side column */
+.vx{display:grid;grid-template-columns:var(--vw,62%) minmax(0,1fr);gap:clamp(20px,2vw,28px);align-items:stretch;margin-top:clamp(18px,calc(3 * var(--vh)),30px)}
+.vid{margin:0;min-width:0}
+.vframe{position:relative;aspect-ratio:16/10;border-radius:2.7% / 4.32%;overflow:hidden;background:#C9D2EC}
+.vframe video,.vframe .vposter{display:block;width:100%;height:100%;object-fit:cover}
+.vframe .vposter{display:none}
+.caps{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px}
+.vc{display:flex;align-items:baseline;padding:10px 42px 10px 16px;background:var(--pane);border-radius:var(--r);font:400 15px/1.4 var(--serif);color:var(--ink);position:relative}
+.caps .vc{position:static}
+.caps .vc::after{position:absolute;top:auto;right:auto;margin:-2px 0 0 0;transform-origin:center}
+.vc>.cap{flex:1;min-width:0}
+.vc>.rv-d{position:absolute;left:14px;right:14px;bottom:calc(100% + 24px);display:block;background:rgba(252,243,237,.95);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+ border-top:2px solid var(--ink2);border-radius:0 0 10px 10px;padding:14px 18px 15px;transform:translateY(8px);transition:opacity .2s ease,transform .26s var(--ease);pointer-events:none;z-index:6}
+.vc>.rv-d>p::before{display:none}
+.vc.open>.rv-d,.vc:focus-visible>.rv-d{transform:none}
+@media (hover:hover){.vc:not(.shut):hover>.rv-d{transform:none}}
+.measure .vc>.rv-d{opacity:0!important}
+.vcol{display:flex;flex-direction:column;justify-content:space-between;gap:16px;min-width:0}
+.vcol .sit.pane{align-self:stretch;width:auto}
+.cmpcol{display:flex;flex-direction:column;gap:10px}
+.cmpcol .mc>.rv-d{position:static;grid-column:1/-1;background:none;border:0;padding:0;border-radius:0;z-index:auto}
+.cmpcol .mc,.cmpcol .mc.open,.cmpcol .mc:focus-visible{border-radius:var(--r)!important;border-top-color:var(--ink)!important}
+@media (hover:hover){.cmpcol .mc:not(.shut):hover{border-radius:var(--r)!important}.cmpcol .mc:not(.tool):hover{border-top-color:var(--ink2)!important}}
+.cmpcol .mc>.rv-d>p::before{margin:12px 0 9px}
+.cmpcol .mc>.rv-d>p::after{display:none}
+.measure .cmpcol .mc>.rv-d{opacity:1!important}
+.measure .cmpcol .mc:not(.mx)>.rv-d{grid-template-rows:0fr!important}
+/* card details with two parts (slide 11 "At work", slide 14 examples) */
+.rv-d>.rvi{min-height:0;overflow:hidden}
+.rv-d>.rvi::before{content:"";display:block;width:28px;height:3px;margin:16px 0 12px;background:url(/art/riso-hl.png) 0 0/6px 6px repeat}
+.rvi p{margin:0;font-size:15px;line-height:1.55;color:var(--text)}
+.rvi .aw{margin-top:12px}
+.awk{display:block;font:600 11.5px/1.3 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);margin-bottom:3px}
+:lang(zh-CN) .awk{letter-spacing:.06em}
+.eg{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:7px}
+.eg li{font-size:14.5px;line-height:1.45;color:var(--text);padding:8px 12px 9px;background:rgba(47,85,168,.07);border-radius:8px}
+.g{display:block;font:600 11.5px/1.3 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);margin-bottom:2px}
+:lang(zh-CN) .g{letter-spacing:.06em}
+.bi .rvi::before{margin:12px 0 9px}.bi .eg li{padding:6px 10px 7px}.bi .eg li .zh{margin-top:.15em}
+/* 14 · framing label */
+.glabel{margin:clamp(24px,calc(4 * var(--vh)),40px) 0 0}
+.glabel+.grid{margin-top:12px}
+/* export / print: posters, captions and comparisons expanded */
+.export .vframe video{display:none}.export .vframe .vposter{display:block}
+@media print{.vframe video{display:none}.vframe .vposter{display:block}}
+.export .caps .vc{display:block;padding:12px 16px}
+.export .vc>.rv-d{position:static;opacity:1;transform:none;background:none;border:0;padding:6px 0 0;backdrop-filter:none;-webkit-backdrop-filter:none;border-radius:0}
+.export .vc>.rv-d>p{font-size:14.5px}
+.export .cmpcol .mc>.rv-d{grid-template-rows:1fr!important}
+/* 11 · header: title left, the core sentence right; "At work" runs inline */
+.hd11{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:end}
+.hd11 .lede.pane{margin:0;max-width:none;align-self:end;width:auto}
+.awk{display:inline;margin-right:.55em}
+/* 13 (habits) and 11 (pillars) · the detail opens inside its own card, in flow. The slide is sized for the
+   opened state (see lay() in shared.js), so an opened card only grows into reserved room and never covers anything. */
+.habits,.pillars{align-items:start}
+.export .habits,.export .pillars{align-items:stretch}
+.habits .card>.rv-d>.rvi::before,.pillars .card>.rv-d>.rvi::before{margin-top:14px}
+/* habit icon sits beside its title, saving a row */
+.habits .card{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:16px;align-content:start}
+.habits .card>.hi{margin:3px 0 0}
+.habits .card>h3{margin:0}
+.habits .card>.rv-d{grid-column:1/-1}
+
+/* round 7 */
+/* 8-9 · chip, live link, and headline read as one header: chip and link on one line, headline below */
+.hd:has(>.chiprow){display:block}
+.hd>.chiprow{flex-direction:row;align-items:center}
+.live{background:var(--pane);border-radius:999px;padding:7px 14px 8px}
+/* 8-9 · comparison cards follow the description directly; the room an opened card needs sits below them */
+.vcol{justify-content:flex-start}
+/* 8-9 · step caption marker sits at the caption's right edge, clear of "STEP" */
+.caps .vc::after{position:relative;flex:none;align-self:flex-start;margin:-1px -28px 0 12px}
+/* 2 · each profile sits on a translucent card */
+.person{background:var(--pane);border-radius:var(--r);padding:clamp(14px,calc(2 * var(--vh)),22px) clamp(20px,2vw,32px)}
+/* 10 · step titles sit on translucent cards */
+.step b{background:var(--pane);border-radius:var(--r);padding:10px 14px 11px;margin:0 6px}
+/* 13 · group label sits on a translucent card */
+.glabel{display:block;width:fit-content;background:var(--pane);border-radius:var(--r);padding:10px 18px 11px}
+/* 14 · the QR link never breaks mid-word */
+.qr>small{white-space:nowrap}
+/* 13 · grade examples: label runs into its line (one row per language), no list indent */
+.card .eg{padding:0}
+.eg .g{display:inline;margin:0 .7em 0 0}
+/* 11 · the Cornell quote takes the width it needs (one line where it fits); the source sits beside it */
+.qband{grid-template-columns:minmax(0,max-content) minmax(0,1fr)}
+/* export (all details open) · comparison details follow their label without the dotted rule */
+.export .cmpcol .mc>.rv-d>p::before{display:none}
+.export .cmpcol .mc>.rv-d>p{padding-top:8px}
+/* 11, 13 · reveal cards: the "+" only needs room beside the title row, so body text uses the full card width */
+.habits .card.rv,.pillars .card.rv{padding-right:clamp(22px,1.9vw,30px)}
+.habits .card>h3{padding-right:20px}
+.pillars .card .k{padding-right:20px}
+/* bilingual · short labels carry their Chinese on the same line */
+.bi .pillars .k .zh,.bi .glabel .zh{display:inline;margin:0 0 0 .8em;font-size:.95em}
+/* 13 · tighter rhythm between the stats, the label, and the habits */
+.ctx>.pane{padding-top:clamp(14px,calc(2 * var(--vh)),20px);padding-bottom:clamp(14px,calc(2 * var(--vh)),20px)}
+.ctx+.glabel{margin-top:clamp(18px,calc(2.6 * var(--vh)),26px)}
+/* 8-9 · header rows sit a little closer */
+.hd>.chiprow{margin-bottom:clamp(12px,calc(1.8 * var(--vh)),18px)}
+.bi .ctx{margin-top:clamp(16px,calc(2 * var(--vh)),22px)}
+.habits .card>.rv-d>.rvi::before,.pillars .card>.rv-d>.rvi::before{margin-top:10px}
+.hd+.vx{margin-top:clamp(16px,calc(2 * var(--vh)),22px)}
+.qa,.bi .qa{grid-template-columns:264px 264px minmax(0,1fr)}
+/* 10 · step title cards share one height */
+.step{display:flex;flex-direction:column}
+.step b{flex:1}
+
+/* 11 · no reserved gap: the Cornell quote sits right under the pillar cards; when a card opens, its detail
+   grows in flow and the quote slides down with it (lay() keeps the slide sized for the opened state) */
+.pillars .card>.rv-d{transition:grid-template-rows .3s ease,opacity .25s ease}
+
+/* ===== JJ feedback, Oct 1 ===== */
+/* Title slide: wider intro box, and an agenda card wide enough that every item sits on one line */
+.title .split{grid-template-columns:minmax(0,1fr) auto}
+.title .lede.pane{max-width:calc(46ch + 80px)}
+html:not(.bi) .title .agenda .t{white-space:nowrap}
+/* Roomy slides: text about 2pt (3px) larger */
+.fb-up .stat p{font-size:19px}
+.fb-up .stat .src{font-size:15px}
+.fb-up .foot{font-size:22px}
+.fb-up .lede.take{font-size:25px}
+.fb-up ul.big li{font-size:21.5px}
+.fb-up .story{font-size:27px}
+.fb-up .k{font-size:14px}
+.fb-up .step b{font-size:23px}
+.fb-up .sd{font-size:19px}
+.fb-up .lessons h3{font-size:30px}
+.fb-up .lessons .rv-d p{font-size:18px}
+/* At home: grade examples removed, text about 5pt (7px) larger */
+.fb-home .ctx p{font-size:22.5px}
+.fb-home .ctx .src{font-size:16px}
+.fb-home .glabel{font-size:16px}
+.fb-home .habits h3{font-size:34px}
+.fb-home .habits .rvi p{font-size:22px}
+
+/* ===== Phone reading mode (Oct 1): the CN deck is opened by QR on parents' phones during the talk.
+   Slides become normal stacked sections: one column, readable type, everything open (no hover or tap needed). ===== */
+@media (max-width:700px){
+ :root{--z:1;--gut:40px}
+ body{overflow:auto}
+ .deck{height:100vh;scroll-snap-type:none}
+ .s{min-height:0;display:block;overflow:visible;scroll-snap-align:none;border-bottom:1px solid var(--line)}
+ .w{zoom:1;width:auto;margin:0 20px;padding:56px 0 44px}
+ h1{font-size:40px;line-height:1.1}h2{font-size:28px;line-height:1.2}
+ h1 .sub{font-size:.55em}
+ h3{font-size:21px!important}
+ .chip{white-space:nowrap;max-width:100%}
+ .r,.in .r{opacity:1;transform:none}
+ .nav,.hint{display:none}
+ .lang{top:12px;right:12px}
+ .split,.grid,.g2,.g3,.g5,.ctx,.pair,.hd,.qband,.qa,.cmp3,.stills,.lessons,.habits,.tools{grid-template-columns:1fr!important}
+ .split{gap:24px}
+ .grid{margin-top:22px;gap:14px}
+ .title .lede.pane{max-width:none}
+ .title .agenda .t{white-space:normal}
+ .logos{flex-wrap:wrap;justify-content:flex-start;gap:12px 20px}
+ /* tap-to-open content shown open */
+ .rv::after{display:none}
+ .rv-d{grid-template-rows:1fr!important;opacity:1!important;transform:none!important}
+ .mc>.rv-d{position:static;border:0;background:none}
+ .mc{grid-template-columns:22px minmax(0,1fr);padding:14px 18px}
+ .mc.open,.mc{border-radius:var(--r)!important;border-top-color:inherit!important}
+ /* steps: a vertical list, every note visible */
+ .step-row{grid-template-columns:1fr!important;gap:12px}
+ .rail{display:none}
+ .step{text-align:left;display:grid;grid-template-columns:44px minmax(0,1fr);align-items:center;gap:12px;padding:0}
+ .step .dot{width:40px;height:40px;margin:0}
+ .step b{opacity:1;margin:0;font-size:18px!important}
+ .step-panel{width:auto;display:block;padding:16px 18px;margin-top:16px}
+ .step-panel::before{display:none}
+ .sd{opacity:1;transform:none;margin:0 0 10px;font-size:16px!important}
+ /* readable body text */
+ .s p,.s li,.rv-d>p,.rvi p,.ctx p,.stat p,.story{font-size:16.5px!important;line-height:1.6}
+ .lede,.take,.foot{font-size:18px!important}
+ .num{font-size:44px!important}
+ .stat.h{grid-template-columns:1fr!important}
+ video,img{max-width:100%;height:auto}
+ /* speakers: photo + name on one row, credentials underneath */
+ .person{grid-template-columns:72px minmax(0,1fr)!important;gap:10px 14px}
+ .person img{width:72px;height:72px}
+ .person .creds{grid-column:1/-1;margin:6px 0 0}
+ .person h3{font-size:22px!important}
+ .logos img{height:16px!important}
+ /* walkthrough examples: video full width, captions and comparison stacked under it */
+ .vx{grid-template-columns:1fr!important}
+ .caps{grid-template-columns:1fr!important}
+ .vc{display:block;padding:12px 16px}
+ .vc>.rv-d{position:static;background:none;backdrop-filter:none;-webkit-backdrop-filter:none;padding:6px 0 0}
+ .vcol{display:flex;flex-direction:column;gap:12px}
+ .hd{grid-template-columns:1fr!important}
+ .chiprow{flex-wrap:wrap}
+}
+
+/* Title slide QR: EN deck → Chinese deck on parents' phones (CN deck → English). Not shown in the bilingual deck or on phones. */
+.xqr{display:flex;align-items:center;gap:20px;align-self:flex-start;margin-top:clamp(16px,calc(2.4 * var(--vh)),24px);padding:14px 22px 14px 14px}
+.xqr img{width:176px;height:176px;flex:none;border-radius:6px}
+.xqr p{margin:0;font:400 17px/1.45 var(--serif);color:var(--text);max-width:16em}
+.xqr b{display:block;font:500 24px/1.2 var(--serif);color:var(--ink);margin-bottom:4px}
+.bi .xqr{display:none}
+@media (max-width:700px){.xqr{display:none}}
+/* bilingual deck: the at-home slide carries two languages, so it gets the +2pt step instead of +5pt to stay on one screen */
+.bi .fb-home .ctx p{font-size:18.5px}
+.bi .fb-home .habits h3{font-size:30px}
+.bi .fb-home .habits .rvi p{font-size:18px}
+.bi .fb-home .glabel{font-size:14px}
+</style></head><body>
+<div class="lang"><a href="/decks/conversation.html">EN</a><a href="/decks/conversation-cn.html">中文</a><a href="/decks/conversation-bi.html" class="on">双语</a></div><nav class="nav" id="nav"></nav><div class="hint">↓ / → next · ↑ / ← back</div>
+<main class="deck" id="deck">
+
+<!-- 1 · Title -->
+<section class="s title split-s"><div class="w">
+<div class="split">
+<div class="col">
+<div class="chip r">A conversation for families<span class="zh" lang="zh-CN">家长交流会</span></div>
+<h1 class="r" style="--d:.1s">Working <span class="m" style="--d:.6s"><em>Beside AI</em></span>:<span class="sub">What It Means for Our Kids’ Futures</span><span class="zh" lang="zh-CN">与<em>AI并肩</em>工作：<span class="sub">这对孩子的未来意味着什么</span></span></h1>
+<p class="lede pane r" style="--d:.25s">What agency, taste, and craft mean for children growing up now, and what is changing at work.<span class="zh" lang="zh-CN">职场正在发生哪些变化，以及主动性、审美与匠心对这一代孩子意味着什么。</span></p>
+<div class="xqr pane r" style="--d:.35s"><img alt="QR code for the Chinese version of this deck" src="/decks/img/conversation/qr-deck-cn.png"/><p><b>中文版</b>扫码，用手机跟着看中文。<span class="zh" lang="zh-CN"><b>English</b>Scan to follow along in English.</span></p></div>
+</div>
+<nav aria-label="Contents" class="agenda pane r" style="--d:.4s">
+<div class="k">In this conversation<span class="zh" lang="zh-CN">今天聊什么</span></div>
+<ol>
+<li><a data-go="3" href="#"><span class="n">01</span><span class="t">What’s changing at work<span class="zh" lang="zh-CN">职场在发生什么变化</span></span></a></li>
+<li><a data-go="6" href="#"><span class="n">02</span><span class="t">Making your own tools<span class="zh" lang="zh-CN">自己动手做工具</span></span></a></li>
+<li><a data-go="10" href="#"><span class="n">03</span><span class="t">Agency, taste, and craft<span class="zh" lang="zh-CN">主动性、审美与匠心</span></span></a></li>
+<li><a data-go="12" href="#"><span class="n">04</span><span class="t">At home<span class="zh" lang="zh-CN">在家里</span></span></a></li>
+</ol>
+</nav>
+</div>
+</div></section>
+<!-- 2 · The speakers -->
+<section class="s alt"><div class="w">
+<div class="chip r">The speakers<span class="zh" lang="zh-CN">主讲人</span></div>
+<h2 class="r" style="--d:.1s">Two young people in the workforce, <em>seeing AI change work up close.</em><span class="zh" lang="zh-CN">两个身在职场的年轻人，<em><span class="nw">亲眼看着</span> AI <span class="nw">改变工作。</span></em></span></h2>
+<div class="team r" style="--d:.3s">
+<div class="person"><img alt="" src="/photos/jing-jing-yang.jpg"/><div class="who"><h3>Jing Jing Yang<span class="zh" lang="zh-CN">羊筱涵</span></h3><div class="co">Co-founder, Arena School<span class="zh" lang="zh-CN">Arena School 联合创始人</span></div></div>
+<ul class="creds"><li>ISB ’19 · Brown (Economics and Behavioral Decision Sciences) · Tsinghua (Schwarzman Scholar)<span class="zh" lang="zh-CN">ISB 2019 届 · 布朗大学（经济学与行为决策科学）· 清华大学（苏世民学者）</span></li><li><b>Advises Chinese startups on overseas go-to-market strategy;</b> Kimi (Moonshot AI); research with Microsoft AI / MSRA.<span class="zh" lang="zh-CN"><b>为多家中国初创公司提供出海战略咨询；</b>Kimi（月之暗面）；与微软 AI / 微软亚洲研究院合作研究。</span></li><li>Apple · Deloitte · CICC<span class="zh" lang="zh-CN">苹果 · 德勤 · 中金公司</span></li></ul></div>
+<div class="person"><img alt="" src="/photos/phillip-an.jpg"/><div class="who"><h3>Phillip An<span class="zh" lang="zh-CN">安广宁</span></h3><div class="co">Co-founder, Arena School<span class="zh" lang="zh-CN">Arena School 联合创始人</span></div></div>
+<ul class="creds"><li>Caltech (Computer Science) · Harvard (MBA and MS) · Tsinghua (Schwarzman Scholar)<span class="zh" lang="zh-CN">加州理工学院（计算机科学）· 哈佛大学（MBA、理学硕士）· 清华大学（苏世民学者）</span></li><li><b>Serial entrepreneur:</b> now runs an AI startup; previous company backed by Y Combinator.<span class="zh" lang="zh-CN"><b>连续创业者：</b>目前在做一家 AI 初创公司；上一家公司获 Y Combinator 投资。</span></li><li>Goldman Sachs · McKinsey<span class="zh" lang="zh-CN">高盛 · 麦肯锡</span></li></ul></div>
+</div>
+<div class="logos r" style="--d:.45s"><img alt="Arena School" class="arena" src="/logos/arena/wordmark-navy-1600.png" style="height:23px"/><img alt="Caltech" src="/logos/cred/caltech.png" style="height:19px"/><img alt="Harvard" src="/logos/cred/harvard.png" style="height:21px"/><img alt="Brown" src="/logos/cred/brown.png" style="height:23px"/><img alt="Tsinghua" src="/logos/cred/tsinghua-lockup.png" style="height:23px"/><img alt="Goldman Sachs" src="/logos/cred/goldman.png" style="height:21px"/><img alt="McKinsey" src="/logos/cred/mckinsey.png" style="height:14px"/><img alt="Deloitte" src="/logos/cred/deloitte.png" style="height:15px"/><img alt="Apple" src="/logos/cred/apple.png" style="height:21px"/><img alt="CICC" src="/logos/cred/cicc.png" style="height:20px"/><img alt="Microsoft AI" src="/logos/cred/microsoft-ai.png" style="height:18px"/><img alt="Y Combinator" src="/logos/cred/yc.png" style="height:20px"/><img alt="Kimi" src="/logos/cred/kimi-wordmark.png" style="height:14px"/></div>
+</div></section>
+<!-- 3 · A question to start -->
+<section class="s ask"><div class="w">
+<div class="chip r">A question to start<span class="zh" lang="zh-CN">先问大家一个问题</span></div>
+<h2 class="r" style="--d:.1s">Think back to your <span class="m" style="--d:.7s"><em>first job.</em></span> What did you learn that first year?<span class="zh" lang="zh-CN">回想一下您的<em>第一份工作。</em><br/>那一年，您学到了什么？</span></h2>
+<div class="askbody pane r" style="--d:.45s">
+<p class="lede r" style="--d:.5s">For most people, the first job is where judgment is learned: small, routine tasks, done again and again, with someone checking the work.<span class="zh" lang="zh-CN">对很多人来说，判断力是在第一份工作里练出来的：琐碎的日常活儿一遍遍地做，旁边有人帮你把关。</span></p>
+<p class="lede r" style="--d:.75s">More and more of that routine work is now done with AI’s help. <span class="q">So where will young people learn judgment?</span><span class="zh" lang="zh-CN">现在，这类日常工作越来越多是借助 AI 完成的。<span class="q">那年轻人的判断力，要去哪里练？</span></span></p>
+</div>
+</div></section>
+<!-- 4 · Changing jobs -->
+<section class="s alt fb-up"><div class="w">
+<div class="chip r">What’s changing at work<span class="zh" lang="zh-CN">职场在发生什么变化</span></div>
+<h2 class="r" style="--d:.1s">AI is changing jobs <span class="m" style="--d:.7s"><em>more than</em></span> removing them.<span class="zh" lang="zh-CN">AI 更多是在<em>改变</em>工作，而不是让工作消失。</span></h2>
+<div class="grid g3">
+<div class="card stat r" style="--d:.25s"><div class="num">1 in 4</div><p>workers worldwide are in jobs exposed to generative AI. The most likely effect is that the job changes.<span class="zh" lang="zh-CN">全球约四分之一劳动者的工作会受到生成式 AI 的影响。最可能的结果，是工作本身发生变化。</span></p><span class="src">ILO and NASK, May 2025</span></div>
+<div class="card stat r" style="--d:.35s"><div class="num count">39%</div><p>of workers’ core skills are expected to change by 2030, down from 44% two years earlier.<span class="zh" lang="zh-CN">劳动者核心技能预计到 2030 年发生变化的比例，低于两年前预测的 44%。</span></p><span class="src">World Economic Forum, Future of Jobs 2025</span></div>
+<div class="card stat r" style="--d:.45s"><div class="num sm">170M vs 92M</div><p>jobs expected to be created vs displaced by 2030, a net gain of 78 million.<span class="zh" lang="zh-CN">到 2030 年预计新创造和被取代的岗位数量，相抵后净增 7800 万个。</span></p><span class="src">World Economic Forum, Future of Jobs 2025</span></div>
+</div>
+<p class="foot pane take r" style="--d:.55s">The question for children today is less “will there be work?” and more “what will the work ask of them?”<span class="zh" lang="zh-CN">对孩子们来说，与其问“以后还有没有工作”，不如问“将来的工作需要他们具备什么”。</span></p>
+</div></section>
+<!-- 5 · Entry-level -->
+<section class="s fb-up"><div class="w">
+<div class="chip r">Entry-level work<span class="zh" lang="zh-CN">初级岗位</span></div>
+<h2 class="r" style="--d:.1s">The first job now asks for <span class="m" style="--d:.7s"><em>judgment</em></span> earlier.<span class="zh" lang="zh-CN">第一份工作，就开始考验<em>判断力。</em></span></h2>
+<div class="grid g2">
+<div class="card stat h r" style="--d:.25s"><div class="num count">7×</div><div class="sb"><p>Entry-level roles that use AI are seven times more likely to ask for skills once expected of senior people, like judgment and leadership.<span class="zh" lang="zh-CN">用到 AI 的初级岗位，被要求具备判断力、领导力等过去只对资深员工提的能力，概率是其他岗位的七倍。</span></p><span class="src">PwC Global AI Jobs Barometer, June 2026</span></div></div>
+<div class="card stat h r" style="--d:.35s"><div class="num count">+35%</div><div class="sb"><p>growth in those AI-exposed entry-level roles since 2019, while other entry-level roles fell 10%.<span class="zh" lang="zh-CN">是这类受 AI 影响的初级岗位 2019 年以来的增幅；同期其他初级岗位反而减少了 10%。</span></p><span class="src">PwC Global AI Jobs Barometer, June 2026</span></div></div>
+</div>
+<p class="lede pane take r" style="--d:.45s">Young people who use AI well, and can judge what it gives them, are trusted with bigger decisions sooner.<span class="zh" lang="zh-CN">会用 AI、也能判断它给的东西好不好的年轻人，会更早被信任去做更大的决定。</span></p>
+</div></section>
+<!-- 6 · At work today -->
+<section class="s alt fb-up"><div class="w">
+<div class="chip r">At work today<span class="zh" lang="zh-CN">今天的职场</span></div>
+<h2 class="r" style="--d:.1s">Candidates now <span class="m" style="--d:.7s"><em>show</em></span> what they can do.<span class="zh" lang="zh-CN">求职者现在用<em>作品</em>说话。</span></h2>
+<div class="grid g2 pair">
+<div class="card r" style="--d:.25s"><div class="k">Day to day at an AI company<span class="zh" lang="zh-CN">AI 公司的日常</span></div>
+<ul class="big"><li class="r" style="--d:.4s">Everyone prototypes, not only engineers. A marketer mocks up a tool before asking for one.<span class="zh" lang="zh-CN">不只是工程师，人人都在做原型。做市场的同事会先自己搭个工具雏形，再去提需求。</span></li><li class="r" style="--d:.55s">The first draft is cheap. The discussion is about which version is right.<span class="zh" lang="zh-CN">出一版初稿几乎没有成本，大家讨论的是哪个版本才对。</span></li><li class="r" style="--d:.7s">People are judged on what they decided, and why.<span class="zh" lang="zh-CN">看一个人行不行，看的是他做了什么决定、为什么这么定。</span></li></ul></div>
+<div class="callout r" style="--d:.45s"><div class="k">An interview, recently<span class="zh" lang="zh-CN">最近的一次面试</span></div>
+<p class="story">A candidate for a growth role at an AI company built a small tool for the team’s social media work before the interview, showed it live, and got the offer. Nobody asked for it. That was the point.<span class="zh" lang="zh-CN">有位候选人应聘一家 AI 公司的增长岗位，面试前先给团队的社交媒体工作做了个小工具，当场演示，拿到了 offer。没人要求这么做，关键恰恰就在这里。</span></p></div>
+</div>
+</div></section>
+<!-- 7 · 13 tools -->
+<section class="s tools"><div class="w">
+<div class="chip r">Making your own tools<span class="zh" lang="zh-CN">自己动手做工具</span></div>
+<h2 class="r" style="--d:.1s">No engineering degree. <span class="m" style="--d:.7s"><em>13 tools</em></span> for real work.<span class="zh" lang="zh-CN">没有工科学位。<em>13 个工具</em>，用在真实工作里。</span></h2>
+<div class="grid g5">
+<div aria-expanded="false" class="card rv r" role="button" style="--d:.2s" tabindex="0"><div class="k">Marketing and growth<span class="zh" lang="zh-CN">市场与增长</span></div><ul><li>Market Watcher<span class="zh" lang="zh-CN">市场观察器</span></li><li>Reply Assistant<span class="zh" lang="zh-CN">回复助手</span></li><li>Industry Radar<span class="zh" lang="zh-CN">行业雷达</span></li><li>Creator Outreach CRM<span class="zh" lang="zh-CN">达人外联 CRM</span></li></ul><div class="rv-d"><p>Listening to a market, shaping a message, reaching people at scale.<span class="zh" lang="zh-CN">了解市场动向、打磨要说的话、批量联系到人。</span></p></div></div>
+<div aria-expanded="false" class="card rv r" role="button" style="--d:.27s" tabindex="0"><div class="k">Research and analysis<span class="zh" lang="zh-CN">研究与分析</span></div><ul><li>Case Study Library<span class="zh" lang="zh-CN">案例研究库</span></li><li>Org Chart Explorer<span class="zh" lang="zh-CN">组织架构图</span></li><li>Summit Primer<span class="zh" lang="zh-CN">峰会手册</span></li></ul><div class="rv-d"><p>Digging into companies and events and turning it into something readable.<span class="zh" lang="zh-CN">深挖公司和事件，整理成好读的内容。</span></p></div></div>
+<div aria-expanded="false" class="card rv r" role="button" style="--d:.34s" tabindex="0"><div class="k">Planning and organization<span class="zh" lang="zh-CN">规划与组织</span></div><ul><li>Peer Mentor Matcher<span class="zh" lang="zh-CN">导师配对</span></li><li>Interview Prep Kit<span class="zh" lang="zh-CN">面试准备包</span></li></ul><div class="rv-d"><p>Matching people, preparing for things, keeping a process on track.<span class="zh" lang="zh-CN">给人配对、做好准备、让流程按计划推进。</span></p></div></div>
+<div aria-expanded="false" class="card rv r" role="button" style="--d:.41s" tabindex="0"><div class="k">Writing and publishing<span class="zh" lang="zh-CN">写作与出版</span></div><ul><li>Article Translator<span class="zh" lang="zh-CN">文章翻译器</span></li><li>PDF Brief Maker<span class="zh" lang="zh-CN">PDF 简报生成器</span></li><li>Case Study Generator<span class="zh" lang="zh-CN">案例研究生成器</span></li></ul><div class="rv-d"><p>Turning a source into a finished, formatted piece.<span class="zh" lang="zh-CN">把一份原始材料变成排好版的成品。</span></p></div></div>
+<div aria-expanded="false" class="card rv r" role="button" style="--d:.48s" tabindex="0"><div class="k">Learning<span class="zh" lang="zh-CN">学习</span></div><ul><li>Course File Search<span class="zh" lang="zh-CN">课程文件搜索</span></li></ul><div class="rv-d"><p>Finding one answer across a whole semester of course files.<span class="zh" lang="zh-CN">在一整个学期的课程文件里，找到一个答案。</span></p></div></div>
+</div>
+<p class="foot pane take r" style="--d:.55s">Each one started as a task done by hand, over and over.<span class="zh" lang="zh-CN">每个工具，起初都是一件一遍遍手动在做的事。</span></p>
+</div></section>
+<!-- 8 · Course File Search -->
+<section class="s alt dense"><div class="w">
+<div class="hd">
+<div class="chiprow"><div class="chip r">Example 1 · for students<span class="zh" lang="zh-CN">例一 · 给学生用</span></div><a class="live r" href="https://arenaschool.org/case-study-examples" rel="noopener" style="--d:.15s" target="_blank"><span class="lt">See it live<span class="zh" lang="zh-CN">在线查看</span></span><span class="ar">→</span><span class="url">arenaschool.org/case-study-examples</span></a></div>
+<h2 class="r" style="--d:.1s">Finding one exam date across <span class="m" style="--d:.7s"><em>dozens of folders.</em></span><span class="zh" lang="zh-CN">在<em>几十个文件夹</em>里，找一个考试日期。</span></h2>
+</div>
+<div class="vx r" style="--d:.3s">
+<figure class="vid"><div class="vframe"><video autoplay="" loop="" muted="" playsinline="" poster="/decks/img/conversation/course-search-en-poster.png" preload="auto" src="/decks/img/conversation/course-search-en.mp4"></video><img alt="" class="vposter" src="/decks/img/conversation/course-search-en-poster.png"/></div>
+<div class="caps"><div aria-expanded="false" class="vc rv" role="button" tabindex="0"><span class="cap"><b>Step 4</b>Ask in plain English<span class="zh" lang="zh-CN"><b>第 4 步</b>直接用大白话问</span></span><div class="rv-d"><p>The student types a question. The tool spots that it’s about a deadline in ECON 214, lets the model pick the likely files, and pulls only the matching passages.<span class="zh" lang="zh-CN">学生输入一个问题。工具先判断出这是在问 ECON 214 的截止日期，再让模型挑出可能相关的文件，只取出对得上的段落。</span></p></div></div><div aria-expanded="false" class="vc rv" role="button" tabindex="0"><span class="cap"><b>Step 5</b>An answer that cites its files<span class="zh" lang="zh-CN"><b>第 5 步</b>答案注明出自哪个文件</span></span><div class="rv-d"><p>The model answers from those passages only, in a line or two, with numbered citations and cards showing each file and the Blackboard folder it sits in.<span class="zh" lang="zh-CN">模型只根据这些段落回答，一两句话说清楚，带编号引用，并用卡片列出每个文件和它在 Blackboard 里所在的文件夹。</span></p></div></div></div></figure>
+<div class="vcol">
+<p class="sit pane" style="--d:.2s">A student’s course files are scattered across dozens of Blackboard folders. Finding one late policy or exam date means clicking through every course, and the answer is usually buried deep in a PDF.<span class="zh" lang="zh-CN">学生的课程文件散落在 Blackboard 的几十个文件夹里。想找一条迟交规定或一个考试日期，就得把每门课点一遍，而答案往往埋在某个 PDF 的深处。</span></p>
+<div class="cmpcol">
+<div aria-expanded="false" class="mc rv" role="button" tabindex="0"><svg aria-hidden="true" class="ic" viewbox="0 0 24 24"><path d="M3 7h6l2 2h10v10H3z"></path></svg><b>By hand<span class="zh" lang="zh-CN">手动</span></b><div class="rv-d"><p>Click through every course and week folder, open PDFs one by one, and skim for the line.<span class="zh" lang="zh-CN">一门门课、一个个周文件夹点进去，挨个打开 PDF，一行行找那句话。</span></p></div></div>
+<div aria-expanded="false" class="mc rv" role="button" tabindex="0"><svg aria-hidden="true" class="ic" viewbox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"></path></svg><b>Just a chatbot<span class="zh" lang="zh-CN">只用聊天机器人</span></b><div class="rv-d"><p>Can’t see your Blackboard. You have to find and upload the right files first, and it rarely cites them.<span class="zh" lang="zh-CN">看不到你的 Blackboard。得先自己找出对的文件上传，而且它很少标出处。</span></p></div></div>
+<div aria-expanded="false" class="mc rv tool" role="button" tabindex="0"><svg aria-hidden="true" class="ic" viewbox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7"></path></svg><b>With this tool<span class="zh" lang="zh-CN">用这个工具</span></b><div class="rv-d"><p>Knows every file in your courses, answers in seconds, and links the exact file so you can check.<span class="zh" lang="zh-CN">知道你每门课里有哪些文件，几秒就能回答，还附上原文件链接，方便核对。</span></p></div></div>
+</div>
+</div>
+</div>
+</div></section>
+<!-- 9 · Interview Prep Kit -->
+<section class="s dense"><div class="w">
+<div class="hd">
+<div class="chiprow"><div class="chip r">Example 2 · for a job search<span class="zh" lang="zh-CN">例二 · 求职</span></div><a class="live r" href="https://arenaschool.org/case-study-examples" rel="noopener" style="--d:.15s" target="_blank"><span class="lt">See it live<span class="zh" lang="zh-CN">在线查看</span></span><span class="ar">→</span><span class="url">arenaschool.org/case-study-examples</span></a></div>
+<h2 class="r" style="--d:.1s">Walking into an interview <span class="m" style="--d:.7s"><em>prepared.</em></span><span class="zh" lang="zh-CN"><em>有备而来</em>，走进面试。</span></h2>
+</div>
+<div class="vx r" style="--d:.3s">
+<figure class="vid"><div class="vframe"><video autoplay="" loop="" muted="" playsinline="" poster="/decks/img/conversation/interview-kit-en-poster.png" preload="auto" src="/decks/img/conversation/interview-kit-en.mp4"></video><img alt="" class="vposter" src="/decks/img/conversation/interview-kit-en-poster.png"/></div>
+<div class="caps"><div aria-expanded="false" class="vc rv" role="button" tabindex="0"><span class="cap"><b>Step 4</b>Strengths matched, gaps named<span class="zh" lang="zh-CN"><b>第 4 步</b>优势对上号，短板说清楚</span></span><div class="rv-d"><p>Each requirement in the posting is paired with proof from the résumé. Where there is no proof, the kit says so and suggests how to answer honestly.<span class="zh" lang="zh-CN">职位描述里的每一条要求，都对应上简历里的实例。找不到的地方，准备包会直接点出来，并建议怎样如实回答。</span></p></div></div><div aria-expanded="false" class="vc rv" role="button" tabindex="0"><span class="cap"><b>Step 7</b>Practice until interview day<span class="zh" lang="zh-CN"><b>第 7 步</b>一直练到面试当天</span></span><div class="rv-d"><p>Flashcards flip between question and answer in both languages, and a three-day checklist tracks what is left to do before the interview.<span class="zh" lang="zh-CN">闪卡正面是问题、背面是答案，中英双语；一份三天清单列出面试前还剩哪些事要做。</span></p></div></div></div></figure>
+<div class="vcol">
+<p class="sit pane" style="--d:.2s">A candidate has a few days before an interview. Turning one résumé and one job posting into likely questions, rehearsed answers, and a study plan takes hours, and twice as long if they practice in two languages.<span class="zh" lang="zh-CN">离面试只剩几天。要根据一份简历和一份职位描述，整理出可能被问的问题、练熟回答、排好复习计划，得花好几个小时；要是中英文都得练，时间还要翻倍。</span></p>
+<div class="cmpcol">
+<div aria-expanded="false" class="mc rv" role="button" tabindex="0"><svg aria-hidden="true" class="ic" viewbox="0 0 24 24"><path d="M3 7h6l2 2h10v10H3z"></path></svg><b>By hand<span class="zh" lang="zh-CN">手动</span></b><div class="rv-d"><p>Hours of rereading, guessing questions, and writing answers, then doing it again in a second language.<span class="zh" lang="zh-CN">花几个小时反复读、猜问题、写回答，换一种语言再来一遍。</span></p></div></div>
+<div aria-expanded="false" class="mc rv" role="button" tabindex="0"><svg aria-hidden="true" class="ic" viewbox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"></path></svg><b>Just a chatbot<span class="zh" lang="zh-CN">只用聊天机器人</span></b><div class="rv-d"><p>Generic answers, one section at a time, and nothing to practice with or track.<span class="zh" lang="zh-CN">回答很空泛，一次只能处理一部分，也没有能拿来练习、跟进进度的东西。</span></p></div></div>
+<div aria-expanded="false" class="mc rv tool" role="button" tabindex="0"><svg aria-hidden="true" class="ic" viewbox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7"></path></svg><b>With this tool<span class="zh" lang="zh-CN">用这个工具</span></b><div class="rv-d"><p>One upload gives a full bilingual kit tied to your résumé, editable by asking, on your own key.<span class="zh" lang="zh-CN">上传一次，就能拿到一份紧扣你简历的完整双语准备包；想改哪里直接说，用的是你自己的 API 密钥。</span></p></div></div>
+</div>
+</div>
+</div>
+</div></section>
+<!-- 10 · What it took -->
+<section class="s alt fb-up"><div class="w">
+<div class="chip r">What it actually took<span class="zh" lang="zh-CN">其实靠的是什么</span></div>
+<h2 class="r" style="--d:.1s">The skill is not coding. It is knowing <span class="m" style="--d:.7s"><em>what you want.</em></span><span class="zh" lang="zh-CN">关键不是写代码，而是清楚<em>自己想要什么。</em></span></h2>
+<div class="steps r" style="--d:.3s">
+<div class="step-row" role="tablist">
+<div class="rail"><i></i></div>
+<div class="step" role="tab" tabindex="0"><span class="dot">1</span><b>Know, generally, what outcome you want<span class="zh" lang="zh-CN">大致知道你想要什么结果</span></b></div>
+<div class="step" role="tab" tabindex="0"><span class="dot">2</span><b>If needed, brainstorm with your coding agent first<span class="zh" lang="zh-CN">需要的话，先和<span class="nw">AI 编程助手</span>一起<span class="nw">头脑风暴</span></span></b></div>
+<div class="step" role="tab" tabindex="0"><span class="dot">3</span><b>Ask it directly what it needs from you<span class="zh" lang="zh-CN">直接问它需要你提供什么</span></b></div>
+<div class="step" role="tab" tabindex="0"><span class="dot">4</span><b>Once there’s a first output, feed it feedback like crazy<span class="zh" lang="zh-CN">第一版出来后，<span class="nw">使劲提意见</span></span></b></div>
+</div>
+<div class="step-panel" role="tabpanel">
+<p class="sd">You don’t need to know how it’s built. You need to know what it is when it’s done.<span class="zh" lang="zh-CN">不用知道它是怎么做出来的，只要知道做成之后它应该是什么样。</span></p>
+<p class="sd">Talk through the best way to implement it and the caveats.<span class="zh" lang="zh-CN">聊聊怎么实现最好，有哪些要注意的地方。</span></p>
+<p class="sd"><i>“What information do you need from me to begin the build?”</i><span class="zh" lang="zh-CN"><i>“开始做之前，你需要我提供哪些信息？”</i></span></p>
+<p class="sd">Treat yourself as a product manager giving feedback to a team member who takes instructions very literally.<span class="zh" lang="zh-CN">把自己当成产品经理，给一个只会照字面执行指令的队友提反馈。</span></p>
+</div>
+</div>
+<p class="foot pane take r" style="--d:.45s">These are habits anyone can practice, at any age.<span class="zh" lang="zh-CN">这些习惯，不管多大年纪都能练。</span></p>
+</div></section>
+<!-- 11 · Agency, taste, craft -->
+<section class="s"><div class="w">
+<div class="hd hd11">
+<div><div class="chip r">Why these three<span class="zh" lang="zh-CN">为什么是这三项</span></div>
+<h2 class="r" style="--d:.1s"><span class="m" style="--d:.6s"><em>Agency,</em></span> <span class="m" style="--d:.8s"><em>taste,</em></span> and <span class="m" style="--d:1s"><em>craft.</em></span><span class="zh" lang="zh-CN"><em>主动性</em>、<em>审美</em>与<em>匠心</em>。</span></h2></div>
+<p class="lede pane r" style="--d:.2s">When AI can make almost anything, what matters is knowing what’s worth making, whether it’s good, and how to finish it.<span class="zh" lang="zh-CN">AI 几乎什么都能做出来的时候，要紧的是知道什么值得做、做得好不好，以及怎么把它做完。</span></p>
+</div>
+<div class="grid g3 pillars">
+<div aria-expanded="false" class="card rv r" role="button" style="--d:.25s" tabindex="0"><div class="k">Agency<span class="zh" lang="zh-CN">主动性</span></div><h3>Choosing what’s worth solving.<span class="zh" lang="zh-CN">选出真正值得解决的问题。</span></h3><div class="rv-d"><div class="rvi"><p>Every useful tool starts with deciding a task is worth fixing.<span class="zh" lang="zh-CN">每个有用的工具，都是从认定“这件事值得改”开始的。</span></p><p class="aw"><span class="awk">At work</span>Tasks that only follow instructions are the easiest to hand to AI; people who define the problem direct the work.<span class="zh" lang="zh-CN"><span class="awk">在工作中</span>只是照指令办事的工作，最容易交给 AI；能定义问题的人，才是主导工作的人。</span></p></div></div></div>
+<div aria-expanded="false" class="card rv r" role="button" style="--d:.35s" tabindex="0"><div class="k">Taste<span class="zh" lang="zh-CN">审美</span></div><h3>Telling which version actually works.<span class="zh" lang="zh-CN">分辨哪个版本真正行得通。</span></h3><div class="rv-d"><div class="rvi"><p>AI offers many versions; the work is asking which one people will actually use.<span class="zh" lang="zh-CN">AI 能给出很多版本；真正的功夫，是判断大家到底会用哪一个。</span></p><p class="aw"><span class="awk">At work</span>Teams can generate ten versions in an hour; the person who picks the right one, and can say why, is the one they rely on.<span class="zh" lang="zh-CN"><span class="awk">在工作中</span>团队一小时就能做出十个版本；能挑出对的那个、还说得清为什么的人，才是大家信得过的人。</span></p></div></div></div>
+<div aria-expanded="false" class="card rv r" role="button" style="--d:.45s" tabindex="0"><div class="k">Craft<span class="zh" lang="zh-CN">匠心</span></div><h3>Finishing it well.<span class="zh" lang="zh-CN">把事情做完，并且做好。</span></h3><div class="rv-d"><div class="rvi"><p>The first draft comes fast. Making something people can rely on takes care.<span class="zh" lang="zh-CN">初稿来得很快；要做成别人用得放心的东西，得花心思。</span></p><p class="aw"><span class="awk">At work</span>Working products earn trust in a way prototypes and slide decks do not.<span class="zh" lang="zh-CN"><span class="awk">在工作中</span>真正能跑起来的产品，比原型和 PPT 更能赢得信任。</span></p></div></div></div>
+</div>
+<div class="qband take r" style="--d:.55s"><div class="quote">“People must be good at deciding what to do and why.”<span class="zh" lang="zh-CN">“人必须善于判断该做什么、为什么做。”</span></div><span class="src">Cornell University, Report of the Committee on the Future of the American University, September 2026</span></div>
+</div></section>
+<!-- 12 · From teaching -->
+<section class="s alt fb-up"><div class="w">
+<div class="chip r">From teaching<span class="zh" lang="zh-CN">来自教学一线</span></div>
+<h2 class="r" style="--d:.1s">Three lessons <span class="m" style="--d:.7s"><em>from the classroom.</em></span><span class="zh" lang="zh-CN"><em>课堂上</em>的三点体会。</span></h2>
+<div class="grid g3 lessons">
+<div aria-expanded="false" class="card rv r" role="button" style="--d:.3s" tabindex="0"><div class="no">01</div><div class="k">Agency<span class="zh" lang="zh-CN">主动性</span></div><h3>Choosing is the hard part.<span class="zh" lang="zh-CN">难的是选题。</span></h3><div class="rv-d"><p>Students pick up the tools in an afternoon. Choosing a problem worth solving takes longer, and matters more.<span class="zh" lang="zh-CN">工具，学生一个下午就能上手；找到一个值得解决的问题，要花更久，也更要紧。</span></p></div></div>
+<div aria-expanded="false" class="card rv r" role="button" style="--d:.4s" tabindex="0"><div class="no">02</div><div class="k">Taste<span class="zh" lang="zh-CN">审美</span></div><h3>Real feedback makes it better.<span class="zh" lang="zh-CN">真实反馈，让作品更好。</span></h3><div class="rv-d"><p>Live feedback from real users (a classmate, a colleague, or an instructor) is how students improve faster, and how a working product becomes a better one.<span class="zh" lang="zh-CN">真实用户（同学、同事或老师）当场给的反馈，让学生进步更快，也让一个能用的产品变得更好用。</span></p></div></div>
+<div aria-expanded="false" class="card rv r" role="button" style="--d:.5s" tabindex="0"><div class="no">03</div><div class="k">Craft<span class="zh" lang="zh-CN">匠心</span></div><h3>Finishing is where they grow.<span class="zh" lang="zh-CN">把事做完，人才会成长。</span></h3><div class="rv-d"><p>The first version comes fast. Finishing it so others can rely on it is where students grow the most.<span class="zh" lang="zh-CN">第一版来得很快；把它打磨到别人能放心用，学生在这一步成长最多。</span></p></div></div>
+</div>
+</div></section>
+<!-- 13 · At home -->
+<section class="s fb-home"><div class="w">
+<div class="chip r">At home<span class="zh" lang="zh-CN">在家里</span></div>
+<h2 class="r" style="--d:.1s">The question is not <span class="m" style="--d:.6s"><em>whether</em></span>, but <span class="m" style="--d:.8s"><em>how.</em></span><span class="zh" lang="zh-CN">问题不是<em>要不要用</em>，而是<em>怎么用。</em></span></h2>
+<div class="ctx r" style="--d:.2s">
+<div class="pane"><p>72.6% of parents in China support their child using AI, most of them with conditions.<span class="zh" lang="zh-CN">72.6% 的中国家长支持孩子用 AI，但大多附带条件。</span></p><span class="src">China Youth Daily poll, May 2026</span></div>
+<div class="pane"><p>The OECD’s newest data suggests moderate, intentional use may go with stronger learning.<span class="zh" lang="zh-CN">OECD 最新数据显示，适度、有目的地使用 AI，可能和更好的学习表现有关。</span></p><span class="src">OECD PISA 2025, September 2026</span></div>
+</div>
+<div class="k glabel r" style="--d:.25s">Small things families can do alongside school<span class="zh" lang="zh-CN">除了学校，家里也可以做的几件小事</span></div>
+<div class="grid g3 habits">
+<div aria-expanded="false" class="card rv r" role="button" style="--d:.3s" tabindex="0"><svg aria-hidden="true" class="hi" viewbox="0 0 32 32"><rect height="14" rx="1.5" width="12" x="5" y="12"></rect><rect height="12" rx="1.5" width="12" x="15" y="6"></rect></svg><h3>Make one small thing together.<span class="zh" lang="zh-CN">和孩子一起做个小东西。</span></h3><div class="rv-d"><div class="rvi"><p>A family chore list, a trip plan, or a quiz for a younger sibling.<span class="zh" lang="zh-CN">一张家务清单、一份旅行计划，或者给弟弟妹妹出的一套小测验。</span></p></div></div></div>
+<div aria-expanded="false" class="card rv r" role="button" style="--d:.4s" tabindex="0"><svg aria-hidden="true" class="hi" viewbox="0 0 32 32"><circle cx="14" cy="14" r="8"></circle><path d="M20 20l7 7M10.5 14.2l2.6 2.6 4.6-5"></path></svg><h3>Ask, “How did you check it?”<span class="zh" lang="zh-CN">问一句：“你是怎么核对的？”</span></h3><div class="rv-d"><div class="rvi"><p>Treat AI’s answer as a first draft, and talk about what was wrong with it.<span class="zh" lang="zh-CN">把 AI 的回答当作初稿，聊聊它哪里不对。</span></p></div></div></div>
+<div aria-expanded="false" class="card rv r" role="button" style="--d:.5s" tabindex="0"><svg aria-hidden="true" class="hi" viewbox="0 0 32 32"><circle cx="16" cy="11" r="5"></circle><path d="M6 27c1.5-5.5 5.5-8 10-8s8.5 2.5 10 8"></path></svg><h3>Show it to a real person.<span class="zh" lang="zh-CN">拿给真人看看。</span></h3><div class="rv-d"><div class="rvi"><p>A grandparent, a teacher, or a friend. Real feedback is where taste comes from.<span class="zh" lang="zh-CN">爷爷奶奶、老师、朋友都行。审美，就是从真实的反馈里来的。</span></p></div></div></div>
+</div>
+</div></section>
+<!-- 14 · Q&A -->
+<section class="s alt"><div class="w">
+<div class="chip r">Q&amp;A<span class="zh" lang="zh-CN">问答</span></div>
+<h2 class="r" style="--d:.1s">What questions <span class="m" style="--d:.7s"><em>do you have?</em></span><span class="zh" lang="zh-CN">您有什么<em>想问的？</em></span></h2>
+<div class="qa r" style="--d:.3s">
+<div class="qr pane"><img alt="QR code for arenaschool.org/case-study-examples" src="/decks/img/conversation/qr-case-study-examples.png"/><span>See it live<span class="zh" lang="zh-CN">在线查看</span></span><small>arenaschool.org/case-study-examples</small></div>
+<div class="qr pane"><div class="qr-slot"></div><span>Parent group chat QR<span class="zh" lang="zh-CN">家长群二维码</span></span><small>(added before the session)<span class="zh" lang="zh-CN">（活动前补上）</span></small></div>
+<p class="qa-cap pane">This deck and all the resources go to a parent group chat after the session. Join if you’d like them.<span class="zh" lang="zh-CN">活动结束后，这份 PPT 和所有资料都会发到家长群，需要的话欢迎进群。</span></p>
+</div>
+</div></section>
+<!-- 15 · Appendix -->
+<section class="s"><div class="w">
+<div class="chip r">Appendix<span class="zh" lang="zh-CN">附录</span></div>
+<h2 class="r" style="--d:.1s">Sources<span class="zh" lang="zh-CN">资料来源</span></h2>
+<ul class="srcs pane r" style="--d:.2s">
+<li><span><b>ILO and NASK</b>, Working Paper 140, generative AI and jobs</span><span class="src">May 20, 2025</span></li>
+<li><span><b>World Economic Forum</b>, Future of Jobs Report 2025</span><span class="src">Jan 2025</span></li>
+<li><span><b>PwC</b>, 2026 Global AI Jobs Barometer</span><span class="src">June 15, 2026</span></li>
+<li><span><b>Cornell University</b>, Report of the Committee on the Future of the American University</span><span class="src">Sept 22, 2026</span></li>
+<li><span><b>China Youth Daily</b> poll, n=1,336</span><span class="src">May 28, 2026</span></li>
+<li><span><b>OECD</b>, PISA 2025 results</span><span class="src">Sept 8, 2026</span></li>
+</ul>
+</div></section>
+
+</main>
+<script>
+/* navigation: dot nav, arrow keys, agenda links */
+var deck=document.getElementById('deck'),S=[].slice.call(document.querySelectorAll('.s')),nav=document.getElementById('nav');
+S.forEach(function(s,i){var a=document.createElement('a');a.href='#';a.setAttribute('aria-label','Slide '+(i+1));a.onclick=function(e){e.preventDefault();go(i)};nav.appendChild(a)});
+function cur(){var y=deck.scrollTop+innerHeight/2;for(var i=0;i<S.length;i++){if(S[i].offsetTop+S[i].offsetHeight>y)return i}return S.length-1}
+function go(i){i=Math.max(0,Math.min(S.length-1,i));deck.scrollTo({top:S[i].offsetTop,behavior:'smooth'})}
+[].forEach.call(document.querySelectorAll('[data-go]'),function(a){a.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();go(+a.dataset.go)})});
+deck.addEventListener('scroll',function(){var c=cur();[].forEach.call(nav.children,function(a,i){a.classList.toggle('on',i===c)})});
+addEventListener('keydown',function(e){if(e.target.closest&&e.target.closest('.rv,.step,[data-go]')&&(e.key===' '||e.key==='Enter'))return;
+ if(['ArrowDown','ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();go(cur()+1)}if(['ArrowUp','ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();go(cur()-1)}});
+nav.children[0].classList.add('on');
+/* entrance + stat count-up */
+var still=function(){var h=document.documentElement.classList;return h.contains('export')||h.contains('still')||matchMedia('(prefers-reduced-motion: reduce)').matches};
+function countUp(s){if(still())return;[].forEach.call(s.querySelectorAll('.count'),function(el){if(el.dataset.done)return;el.dataset.done=1;
+ var t=el.textContent,m=t.match(/^(\D*)(\d+(?:\.\d+)?)(.*)$/);if(!m)return;var to=parseFloat(m[2]),dec=(m[2].split('.')[1]||'').length,t0=0;
+ el.style.minWidth=el.offsetWidth+'px';
+ (function f(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/900),e=1-Math.pow(1-p,3);el.textContent=m[1]+(to*e).toFixed(dec)+m[3];if(p<1)requestAnimationFrame(f);else el.textContent=t})(performance.now())})}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');setTimeout(function(){countUp(e.target)},350)}})},{threshold:.35});
+S.forEach(function(s){io.observe(s)});
+</script><script>
+/* detail on demand: hover, click, or Enter/Space opens the detail inside its own card; Esc closes */
+(function(){var R=[].slice.call(document.querySelectorAll('.rv'));
+function set(el,o){el.classList.toggle('open',o);el.setAttribute('aria-expanded',o?'true':'false')}
+function close(ex){R.forEach(function(x){if(x!==ex)set(x,false)})}
+R.forEach(function(el){
+ el.addEventListener('click',function(e){e.stopPropagation();var o=!el.classList.contains('open');close(el);set(el,o);el.classList.toggle('shut',!o)});
+ el.addEventListener('pointerleave',function(){el.classList.remove('shut')});
+ el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();el.click()}if(e.key==='Escape'){close();el.blur()}})});
+document.addEventListener('click',function(){close()});addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+var last=0;deck.addEventListener('scroll',function(){var c=cur();if(c!==last){last=c;close()}},{passive:true});
+window.__close=close})();
+/* steps: the line fills to the active step; its text shows in a panel that follows it */
+(function(){[].forEach.call(document.querySelectorAll('.steps'),function(g){
+ var st=[].slice.call(g.querySelectorAll('.step')),sd=[].slice.call(g.querySelectorAll('.sd')),fill=g.querySelector('.rail i'),panel=g.querySelector('.step-panel'),pin=0,n=st.length;
+ function show(i){st.forEach(function(x,j){x.classList.toggle('on',j===i);x.classList.toggle('done',j<i);x.setAttribute('aria-selected',j===i?'true':'false')});
+  sd.forEach(function(x,j){x.classList.toggle('on',j===i)});fill.style.width=(i/(n-1)*100)+'%';
+  var PW=50,c=(100/n)*(i+.5),L=Math.max(0,Math.min(100-PW,c-PW/2));panel.style.marginLeft=L+'%';panel.style.setProperty('--caret',((c-L)/PW*100)+'%')}
+ st.forEach(function(x,i){x.addEventListener('pointerenter',function(){show(i)});x.addEventListener('click',function(e){e.stopPropagation();pin=i;show(i)});
+  x.addEventListener('focus',function(){pin=i;show(i)});x.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();pin=i;show(i)}})});
+ g.addEventListener('pointerleave',function(){show(pin)});show(0)})})();
+</script>
+<script>
+/* layout: size each slide for its fully opened state, so opening a card never moves anything else,
+   fit the screenshots to the height, then spread spare height into the gaps (type size never changes) */
+(function(){
+function lay(){var X=document.documentElement.classList.contains('export');if(matchMedia('(max-width:700px)').matches&&!X){[].forEach.call(document.querySelectorAll('#deck *'),function(e){if(e.style.minHeight)e.style.minHeight='';if(e.style.marginTop&&e.dataset&&e.dataset.mt!==undefined)e.style.marginTop='';if(e.style.marginBottom==='auto')e.style.marginBottom=''});return}
+ S.forEach(function(s){var w=s.querySelector('.w');if(!w)return;var kids=[].slice.call(w.children);
+  kids.forEach(function(k){k.style.marginTop='';k.style.marginBottom=''});w.style.minHeight='';w.style.paddingTop=w.style.paddingBottom='';
+  var RG=[].slice.call(s.querySelectorAll('.pillars,.habits'));RG.forEach(function(g){[].forEach.call(g.children,function(c){c.style.minHeight=''})});
+  var vx=s.querySelector('.vx');if(vx){vx.style.removeProperty('--vw');
+   [].forEach.call(vx.querySelectorAll('.cmpcol'),function(c){var m=null,ml=-1;[].forEach.call(c.querySelectorAll('.mc'),function(x){x.classList.remove('mx');var l=x.textContent.length;if(l>ml){ml=l;m=x}});if(m)m.classList.add('mx')})}
+  var st=s.querySelector('.stills');if(st)st.style.removeProperty('--iw');
+  s.classList.add('measure');
+  var Z=parseFloat(getComputedStyle(w).zoom)||1,avail=(innerHeight-(X?4:24))/Z;
+  /* a dense slide may use the outer padding, but never the strip the key hint lives in */
+  if(w.offsetHeight>avail){w.style.paddingTop=(X?26:22)/Z+'px';w.style.paddingBottom=(X?26:34)/Z+'px'}
+  if(st){var gap=parseFloat(getComputedStyle(st).columnGap)||0,lo=160,hi=(st.clientWidth-gap)/2;
+   if(w.offsetHeight>avail){for(var t=0;t<14;t++){var mid=(lo+hi)/2;st.style.setProperty('--iw',mid+'px');if(w.offsetHeight>avail)hi=mid;else lo=mid}st.style.setProperty('--iw',lo+'px')}
+   var fg=st.querySelectorAll('figure');st.classList.toggle('wide',fg.length===2&&fg[1].offsetLeft-(fg[0].offsetLeft+fg[0].offsetWidth)>72)}
+  if(vx){var fig=vx.querySelector('.vid'),col=vx.querySelector('.vcol'),best=38;
+   var colH=function(){var k=[].slice.call(col.children),g=parseFloat(getComputedStyle(col).rowGap)||0;return k.reduce(function(a,c){return a+c.offsetHeight},0)+g*(k.length-1)};
+   for(var f=72;f>=38;f--){vx.style.setProperty('--vw',f+'%');if(w.offsetHeight<=avail&&colH()<=fig.offsetHeight+2){best=f;break}}
+   vx.style.setProperty('--vw',best+'%')}
+  if(!s.classList.contains('split-s')&&!s.classList.contains('ask')){
+   var hi2=kids.findIndex(function(k){return /^H[12]$/.test(k.tagName)||k.classList.contains('hd')});
+   var after=hi2<0?[]:kids.slice(hi2+1).filter(function(k){return k.offsetHeight>0&&!k.classList.contains('take')});
+   if(after.length){after.forEach(function(k){k.dataset.mt=parseFloat(getComputedStyle(k).marginTop)||0});
+    var extra=avail*.9-w.offsetHeight;
+    if(extra>4){var n=after.length>1?after.length-1:1,per=Math.min(extra/(n+.6),64);
+     after.forEach(function(k,i){k.style.marginTop=(+k.dataset.mt+(i===0?Math.min(per,after.length>1?16:28):per))+'px'})}}}
+  var H=w.offsetHeight;s.classList.remove('measure');
+  /* reveal rows: closed cards share one height; an opened card grows below it, into room reserved above */
+  if(!X)RG.forEach(function(g){var cs=[].slice.call(g.children),m=0;cs.forEach(function(c){var d=c.querySelector('.rv-d');m=Math.max(m,c.offsetHeight-(d?d.offsetHeight:0))});cs.forEach(function(c){c.style.minHeight=m+'px'})});
+  if(!X){w.style.minHeight=H+'px';
+   /* spare room (for opening) sits right after the last interactive block, so what follows stays put */
+   /* ...unless what follows is a takeaway (11: the Cornell quote), which stays right under the cards and slides down as one opens (the spare room sits at the bottom) */
+   for(var i=kids.length-1;i>=0;i--){if(kids[i].querySelector('.rv')){var rest=kids.slice(i+1).filter(function(k){return k.offsetHeight>0});
+    if(rest.length&&!rest.every(function(k){return k.classList.contains('take')}))kids[i].style.marginBottom='auto';break}}}
+ })}
+lay();addEventListener('resize',lay);[].forEach.call(document.querySelectorAll('video'),function(v){v.addEventListener('loadedmetadata',lay,{once:true})});addEventListener('load',lay);if(document.fonts)document.fonts.ready.then(lay);window.__space=lay})();
+
+/* walkthrough videos: play only while their slide is on screen; posters for reduced motion and print */
+(function(){var V=[].slice.call(document.querySelectorAll('video')),H=document.documentElement,rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ V.forEach(function(v){if(rm){v.removeAttribute('autoplay');v.pause();v.controls=true}});
+ var vio=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;
+  if(e.isIntersecting&&e.intersectionRatio>=.5&&!rm&&!H.classList.contains('export')){var p=v.play();if(p&&p.catch)p.catch(function(){})}else v.pause()})},{threshold:[0,.5,1]});
+ V.forEach(function(v){vio.observe(v)})})();
+</script>
+
+<script>
+/* CJK orphan guard: keep the last 3 characters (plus closing punctuation) of each text block together */
+(function(){var sel='.zh';var re=/([\u3400-\u9fff][\u3400-\u9fff\u3000-\u303f\uff00-\uffef“”‘’」』]{0,2}[\u3400-\u9fff][\u3000-\u303f\uff00-\uffef“”‘’」』?？。，、！]*\s*)$/;
+document.querySelectorAll(sel).forEach(function(el){var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT),n,last=null;while(n=w.nextNode()){if(n.nodeValue.trim())last=n}
+ if(!last)return;var m=last.nodeValue.match(re);if(!m)return;var t=last.nodeValue;var sp=document.createElement('span');sp.style.whiteSpace='nowrap';sp.textContent=m[1];last.nodeValue=t.slice(0,t.length-m[1].length);last.parentNode.insertBefore(sp,last.nextSibling)})})();
+</script>
+</body></html>

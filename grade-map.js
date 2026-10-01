@@ -28,34 +28,41 @@
   };
   const key = (progs) => progs.join(',');
   let current = '';
-  const spotlight = (progs) => {
+  // pin = the pointer is on the chart itself. Then the spotlight stays in place (no reordering, no
+  // slimming): moving lanes under a still cursor would hand the hover to another lane, which moves
+  // them again, an endless flicker. Cards and links outside the chart keep the reorder.
+  const spotlight = (progs, pin) => {
     clearTimeout(clearTimer);
-    if (current === key(progs)) return;
-    current = key(progs);
-    flip(() => {
+    const k = key(progs) + (pin ? '|pin' : '');
+    if (current === k) return;
+    current = k;
+    const change = () => {
+      map.classList.toggle('gm-pin', !!pin);
       map.classList.add('has-focus');
       lanes.forEach((l) => l.classList.toggle('is-focus', progs.includes(l.dataset.prog)));
-    });
+    };
+    if (pin) change(); else flip(change);
   };
   // Small delay on clear so moving between a card and its links doesn't flicker.
   const clear = () => {
     clearTimeout(clearTimer);
     clearTimer = setTimeout(() => {
       current = '';
-      flip(() => {
-        map.classList.remove('has-focus');
+      const change = () => {
+        map.classList.remove('has-focus', 'gm-pin');
         lanes.forEach((l) => l.classList.remove('is-focus'));
-      });
+      };
+      if (map.classList.contains('gm-pin')) change(); else flip(change);
     }, 90);
   };
-  const bind = (el, progs, onLeave) => {
-    el.addEventListener('mouseenter', () => spotlight(progs));
+  const bind = (el, progs, onLeave, pin) => {
+    el.addEventListener('mouseenter', () => spotlight(progs, pin));
     el.addEventListener('mouseleave', onLeave || clear);
-    el.addEventListener('focus', () => spotlight(progs));
+    el.addEventListener('focus', () => spotlight(progs, pin));
     el.addEventListener('blur', clear);
   };
 
-  lanes.forEach((l) => bind(l, [l.dataset.prog]));
+  lanes.forEach((l) => bind(l, [l.dataset.prog], null, true));
   document.querySelectorAll('#programs .prog-card').forEach((card) => {
     const links = [...card.querySelectorAll('[data-prog]')];
     const progs = links.map((a) => a.dataset.prog);
