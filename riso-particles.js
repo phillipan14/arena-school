@@ -35,7 +35,7 @@
   // dots: one point per particle
   var DOT_VS = ['precision highp float;', TONE,
     'attribute vec4 a_h; attribute vec4 a_r;',   // a_h.xy = start (0..1 of the wrap box), a_h.zw / a_r = per-dot randoms
-    'uniform float u_t, u_pitch, u_dpr, u_mix, u_marg, u_vmin, u_vmax;',
+    'uniform float u_t, u_pitch, u_dot, u_dpr, u_mix, u_marg, u_vmin, u_vmax;',
     'varying float v_r, v_keep, v_blue, v_size;',
     'void main(){',
     '  vec2 box = u_res + 2.0 * u_marg;',
@@ -51,7 +51,7 @@
     '  float T = tone(p);',
     '  float hk = fract(a_r.w * 91.7 + a_h.z * 13.1);',
     '  v_keep = smoothstep(hk * 0.16, hk * 0.16 + 0.02, T);',
-    '  v_r = max(sqrt(T / 3.14159), 0.17) * (0.94 + 0.12 * fract(a_r.y * 57.3)) * u_pitch;',
+    '  v_r = max(sqrt(T / 3.14159), 0.17) * (0.94 + 0.12 * fract(a_r.y * 57.3)) * u_dot;',
     '  v_blue = step(fract(a_r.x * 73.1 + a_h.w * 5.3), u_mix);',
     '  v_size = v_keep > 0.01 ? ceil(2.0 * v_r + 2.0) : 0.0;',
     '  gl_PointSize = v_size;',
@@ -85,7 +85,8 @@
 
   window.RisoParticles = function (el, opts) {
     var o = Object.assign({
-      pitch: 2.5,        // average dot spacing in CSS px (one particle per pitch x pitch)
+      pitch: 3.6,        // average dot spacing in CSS px (one particle per pitch x pitch)
+      dot: 2.5,          // dot size scale in CSS px (independent of spacing: wider pitch = fewer dots, same size)
       ambient: 0.27,     // strength of the ombre
       speed: 5,          // time scale of the ombre's slow swells
       vmin: 3, vmax: 12, // each dot's own drift speed range, CSS px per second
@@ -106,7 +107,7 @@
     try { DP = prog(gl, DOT_VS, DOT_FS); PP = prog(gl, PAPER_VS, PAPER_FS); } catch (e) { return null; }
     el.appendChild(c);
     function locs(p, names) { var u = {}; names.forEach(function (n) { u[n] = gl.getUniformLocation(p, n); }); return u; }
-    var UD = locs(DP, ['u_res', 'u_ts', 'u_amb', 'u_calmS', 'u_top', 'u_navH', 'u_navF', 'u_fadeB', 'u_floor', 'u_calm', 'u_t', 'u_pitch', 'u_dpr', 'u_mix', 'u_marg', 'u_vmin', 'u_vmax', 'u_ink', 'u_ink2']);
+    var UD = locs(DP, ['u_res', 'u_ts', 'u_amb', 'u_calmS', 'u_top', 'u_navH', 'u_navF', 'u_fadeB', 'u_floor', 'u_calm', 'u_t', 'u_pitch', 'u_dot', 'u_dpr', 'u_mix', 'u_marg', 'u_vmin', 'u_vmax', 'u_ink', 'u_ink2']);
     var UP = locs(PP, ['u_res', 'u_paper', 'u_paper2', 'u_fadeB']);
     var aH = gl.getAttribLocation(DP, 'a_h'), aR = gl.getAttribLocation(DP, 'a_r'), aP = gl.getAttribLocation(PP, 'a_p');
     var tri = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, tri); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
@@ -149,7 +150,7 @@
       gl.uniform1f(UD.u_amb, o.ambient); gl.uniform1f(UD.u_calmS, cp ? o.calm : 0); gl.uniform4fv(UD.u_calm, cz);
       gl.uniform1f(UD.u_top, o.top); gl.uniform1f(UD.u_navH, nh); gl.uniform1f(UD.u_navF, (o.navFade || 1) * dpr);
       gl.uniform1f(UD.u_fadeB, Math.max(o.fadeB, 0.0001)); gl.uniform1f(UD.u_floor, o.floor);
-      gl.uniform1f(UD.u_pitch, o.pitch * dpr); gl.uniform1f(UD.u_dpr, dpr); gl.uniform1f(UD.u_mix, o.mix); gl.uniform1f(UD.u_marg, MARG * dpr);
+      gl.uniform1f(UD.u_pitch, o.pitch * dpr); gl.uniform1f(UD.u_dot, o.dot * dpr); gl.uniform1f(UD.u_dpr, dpr); gl.uniform1f(UD.u_mix, o.mix); gl.uniform1f(UD.u_marg, MARG * dpr);
       gl.uniform1f(UD.u_vmin, o.vmin); gl.uniform1f(UD.u_vmax, o.vmax);
       gl.uniform3fv(UD.u_ink, hex(o.ink)); gl.uniform3fv(UD.u_ink2, hex(o.ink2));
       gl.enable(gl.BLEND); gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
