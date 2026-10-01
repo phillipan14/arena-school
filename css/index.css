@@ -608,3 +608,8 @@ body.home .partners .partners-fine { margin-top: 14px; }
 body.home .partners .cohort-form { background: #fff; border: 1px solid var(--border-paper); border-radius: 20px; box-shadow: 0 30px 60px -40px rgba(11,26,74,.35); padding: clamp(26px, 3vw, 40px); }
 body.home .partners .cohort-form input, body.home .partners .cohort-form select, body.home .partners .cohort-form textarea { background-color: #FCF8F3; }
 body.home .partners .cohort-form input:focus, body.home .partners .cohort-form select:focus, body.home .partners .cohort-form textarea:focus { background-color: #fff; border-color: var(--ink-2, #2F55A8); box-shadow: 0 0 0 3px rgba(47,85,168,.12); outline: none; }
+
+/* Program cards: no hover lift. The card clips its overflow, so lifting it left a 3px band at the bottom edge
+   where the pointer fell off the raised card, dropped it back and re-hovered it in a loop (and this hover also
+   drives the grade-map spotlight). Border and shadow still respond. */
+#programs .prog-card:hover { transform: none; }
