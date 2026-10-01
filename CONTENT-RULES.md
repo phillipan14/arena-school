@@ -89,6 +89,17 @@ AI **aids** people. It never does the work *for* them. People stay the authors a
 - **Time claims:** only real, observed ones, never a promise of time saved. Frame benefits as outcomes: better materials, more time with students, work that fits their class.
 - **Balanced, never alarmist:** no fear-based framing ("AI will replace you", "the job market is collapsing").
 - **Formats for flexible offers** (teacher training, community dialogues) are described by outcome and audience, not length. Length is agreed with each school.
+- **Never compare Arena with schools:** No lines comparing Arena with schools or implying schools are behind; frame as things families can do alongside school. (No "faster than schools can update a syllabus", no "the rules for school were written before AI".)
+- **Approved rewrites (Oct 2026), reuse these instead of the old lines:**
+  - "AI tools can generate a working app in minutes." → "With AI as a helper, students can get a first working version of an app running quickly." (CN 有了AI的帮助，学生可以很快做出能运行的第一版应用。)
+  - "Anyone can generate a product now." → "With AI's help, more people than ever can build a product." (CN 有了AI的帮助，能做出产品的人比以往都多。)
+  - "Anyone can now write a polished essay." → "With AI's help, polished essays are now common." (CN 有了AI的帮助，文笔流畅的文书如今随处可见，)
+  - "Polished words, which AI can now produce for anyone." → "Polished words, which AI now helps anyone produce." (CN 打磨过的文字，如今AI能帮任何人写出来。)
+  - "AI can build a first version of almost anything." → "With AI, a first version of almost anything comes together faster." (CN 有了 AI，几乎什么都能更快做出第一版。)
+  - "When AI can complete an assignment" → "When AI can help finish an assignment" (CN 当 AI 能帮学生完成作业)
+  - Phillip's quote "AI is rewriting jobs faster than schools can update a syllabus…" → "AI is changing work quickly. The habits students build now, in class and at home, are what carry over." (CN AI正在快速改变工作。孩子们现在养成的习惯，无论在课堂还是在家里，都会一直陪着他们。)
+  - "The rules for school, jobs, and careers were written before AI." → "Much of how we prepare young people for work took shape before AI." (CN 我们为年轻人准备职业的许多方式，成形于 AI 出现之前。)
+  - "The assumptions that shaped school and careers no longer hold." → "AI is changing what careers ask of young people." (CN AI 正在改变职业对年轻人的要求。)
 
 ## 6. Canonical homes (each fact lives once)
 
