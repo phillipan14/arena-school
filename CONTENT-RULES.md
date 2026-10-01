@@ -95,11 +95,11 @@ AI **aids** people. It never does the work *for* them. People stay the authors a
   - "Anyone can generate a product now." → "With AI's help, more people than ever can build a product." (CN 有了AI的帮助，能做出产品的人比以往都多。)
   - "Anyone can now write a polished essay." → "With AI's help, polished essays are now common." (CN 有了AI的帮助，文笔流畅的文书如今随处可见，)
   - "Polished words, which AI can now produce for anyone." → "Polished words, which AI now helps anyone produce." (CN 打磨过的文字，如今AI能帮任何人写出来。)
-  - "AI can build a first version of almost anything." → "With AI, a first version of almost anything comes together faster." (CN 有了 AI，几乎什么都能更快做出第一版。)
-  - "When AI can complete an assignment" → "When AI can help finish an assignment" (CN 当 AI 能帮学生完成作业)
+  - "AI can build a first version of almost anything." → "With AI, a first version of almost anything comes together faster." (CN 有了AI，几乎什么都能更快做出第一版。)
+  - "When AI can complete an assignment" → "When AI can help finish an assignment" (CN 当AI能帮学生完成作业)
   - Phillip's quote "AI is rewriting jobs faster than schools can update a syllabus…" → "AI is changing work quickly. The habits students build now, in class and at home, are what carry over." (CN AI正在快速改变工作。孩子们现在养成的习惯，无论在课堂还是在家里，都会一直陪着他们。)
-  - "The rules for school, jobs, and careers were written before AI." → "Much of how we prepare young people for work took shape before AI." (CN 我们为年轻人准备职业的许多方式，成形于 AI 出现之前。)
-  - "The assumptions that shaped school and careers no longer hold." → "AI is changing what careers ask of young people." (CN AI 正在改变职业对年轻人的要求。)
+  - "The rules for school, jobs, and careers were written before AI." → "Much of how we prepare young people for work took shape before AI." (CN 很多帮年轻人走向职场的做法，都是在AI出现之前形成的。)
+  - "The assumptions that shaped school and careers no longer hold." → "AI is changing what careers ask of young people." (CN AI正在改变职场对年轻人的要求。)
 
 ## 6. Canonical homes (each fact lives once)
 
@@ -141,3 +141,21 @@ AI **aids** people. It never does the work *for* them. People stay the authors a
 - Results are selected examples, not a complete list.
 - No tuition or fee amounts on marketing pages.
 - Program names: App Design Workshop, College Portfolio Workshop, Entrepreneurship & AI Intensive, Year-Long Project Mentorship, AI Advantage Bootcamp, AI for Educators, Community dialogues (parent education series).
+
+## 10. Chinese style (Oct 2026, JJ: "write how a Chinese parent or educator would actually say it")
+- **No grade numbers in prose, menus, cards, or labels.** Say 初中生 (grades 6 to 9), 高中生 (grades 10 to 12), 初高中学生 (grades 7 to 12), 大学生与职场新人. Where one specific year matters, use the Chinese school-year name (高一, 高二, 高三, 准高三学生), never 10年级 / 11年级. Hero fact key is 对象, not 年级. "Tell us the grades" becomes 告诉我们学生年龄段. Numbers stay only where they are literal data: the 6 to 12 tick marks on the homepage grade map axis and the free-text 年级与学校 field on the enroll form.
+- **Tagline (site footer, meta, one-pager):** 陪伴学生、家庭、教育者与学校，从容走进AI时代。 Homepage hero: 陪伴[学生/家庭/教育者/学校]，从容走进AI时代。 Never 茁壮成长, 赋能, 在……的时代里, stacked 我们相信.
+- **Spacing:** no space between Chinese and "AI" or digits (AI时代, 用AI做出, 2026年, 25分钟, 30岁以下), matching the program names 创业与AI集训营, AI职场先发营, 教育者AI培训. Brand and proper names in Latin script keep a space (Arena 领导团队, Kimi 团队, Y Combinator 投资).
+- **Punctuation:** full-width Chinese punctuation (，。：；？！（）“”). Quotes use “ ” not ‘ ’. Date ranges use 至 in prose (2026年12月27日至2027年1月2日). No em dashes.
+- **Menu groups:** 短期课程 · 两天 (two workshops), 五天项目 (创业与AI集训营), 长期项目 (学年项目导师计划), 大学与职场 (AI职场先发营).
+- **Write it the way it is said, not translated:** no English list order, no noun piles (日常习惯，个人系统), no calques such as "学习真正发生的地方", "自会说话", "被托付更大的决定", "值得存在". Read every CN line aloud; if a parent at a school coffee morning would not say it, rewrite it.
+
+## 11. Confirmed facts (founder-confirmed)
+- 9.5/10 NPS (Hong Kong 2025, 20 students): confirmed real by JJ, 2026-10-01.
+- Mentorship length: "6 months to a year, rolling start" (CN 六个月到一年，滚动入学/随时可以开始) is correct as on the site. Confirmed 2026-10-01.
+- EARCOS: Mar 17 to 20, 2027, Bangkok. Confirmed.
+- The bootcamp page (zero-to-launch) is noindex on purpose.
+- "Enrollment opens in October" (CN 十月开放报名) is correct.
+- College admissions may be discussed in Community dialogues generally, but are avoided in the ISB parent talk (Oct 14, 2026).
+- Co-founder quotes ("In her words" / "In his words") are final, approved by JJ 2026-10-01; the placeholder comments were removed.
+
