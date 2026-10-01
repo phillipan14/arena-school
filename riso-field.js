@@ -15,7 +15,7 @@
   var FS = [
     'precision highp float;',
     'uniform vec2 u_res; uniform sampler2D u_field; uniform float u_t, u_pitch, u_ang, u_amb, u_max, u_dpr, u_calmS, u_top, u_navH, u_navF; uniform vec4 u_calm;',
-    'uniform vec3 u_ink, u_ink2, u_paper, u_paper2, u_grain; uniform float u_mix, u_fadeB, u_grainA, u_flip, u_floor, u_jig;',
+    'uniform vec3 u_ink, u_ink2, u_paper, u_paper2, u_grain; uniform float u_mix, u_fadeB, u_grainA, u_flip, u_floor, u_jig; uniform vec2 u_fo;',
     'float h1(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }',
     'vec2 h2(vec2 p){ return fract(sin(vec2(dot(p, vec2(127.1, 311.7)), dot(p, vec2(269.5, 183.3)))) * 43758.5453); }',
     'float tone(vec2 px){',
@@ -37,11 +37,11 @@
     'void main(){',
     '  vec2 px = gl_FragCoord.xy;',
     '  float c = cos(u_ang), s = sin(u_ang); mat2 R = mat2(c, -s, s, c);',
-    '  vec2 q = R * px / u_pitch; vec2 b = floor(q); float cov = 0.0; float blue = 0.0;',
+    '  vec2 q = R * (px - u_fo) / u_pitch; vec2 b = floor(q); float cov = 0.0; float blue = 0.0;',   /* u_fo: the whole print drifts across the page */
     '  for (int j = -1; j <= 1; j++) for (int i = -1; i <= 1; i++) {',
     '    vec2 id = b + vec2(float(i), float(j)); vec2 jt = (h2(id) - 0.5) * 0.24;',
     '    vec2 cc = id + 0.5 + jt + u_jig * vec2(sin(u_t * (2.3 + h1(id + 2.1) * 2.2) + h1(id + 5.3) * 6.2832), cos(u_t * (2.0 + h1(id + 8.9) * 2.2) + h1(id + 1.7) * 6.2832));',
-    '    float T = tone((cc * u_pitch) * R);',
+    '    float T = tone((cc * u_pitch) * R + u_fo);',
     '    float keep = smoothstep(h1(id + 7.1) * 0.16, h1(id + 7.1) * 0.16 + 0.02, T);',
     '    float r = max(sqrt(T / 3.14159), 0.17) * (0.94 + 0.12 * h1(id + 3.3));',
     '    float d = length(q - cc);',
@@ -92,6 +92,7 @@
       interactive: true, // false = a still print (inner pages): no cursor, no drift, drawn once
       ghostSpeed: 1,   // time scale of the ghost brush
       ghostWide: 1,    // how far the ghost roams (1 = the middle two thirds)
+      flow: [0, 0],    // CSS px per second the whole dot print drifts (0 = dots stay put)
       follow: true,    // false = keep the flowing ink but ignore the real cursor (the ghost drifts all the time)
       calmSel: '.hero-riso-copy, .hero-copy, .zl-hero-copy, .curr-hero .reveal',
       ink: '#0B1A4A', ink2: '#2F55A8', paper: '#FCF3ED', paper2: '#EFE3D4', grain: '#A2A6B5'
@@ -102,7 +103,7 @@
     var gl = c.getContext('webgl', { alpha: false, antialias: false, preserveDrawingBuffer: /[?&]cap/.test(location.search) });
     if (!gl) return null;
     var P = gl.createProgram(); gl.attachShader(P, sh(gl, gl.VERTEX_SHADER, VS)); gl.attachShader(P, sh(gl, gl.FRAGMENT_SHADER, FS)); gl.linkProgram(P); gl.useProgram(P);
-    var U = {}; ['u_res', 'u_field', 'u_t', 'u_pitch', 'u_ang', 'u_amb', 'u_max', 'u_dpr', 'u_calm', 'u_calmS', 'u_top', 'u_navH', 'u_navF', 'u_ink', 'u_ink2', 'u_paper', 'u_paper2', 'u_grain', 'u_mix', 'u_fadeB', 'u_grainA', 'u_flip', 'u_floor', 'u_jig'].forEach(function (n) { U[n] = gl.getUniformLocation(P, n); });
+    var U = {}; ['u_fo', 'u_res', 'u_field', 'u_t', 'u_pitch', 'u_ang', 'u_amb', 'u_max', 'u_dpr', 'u_calm', 'u_calmS', 'u_top', 'u_navH', 'u_navF', 'u_ink', 'u_ink2', 'u_paper', 'u_paper2', 'u_grain', 'u_mix', 'u_fadeB', 'u_grainA', 'u_flip', 'u_floor', 'u_jig'].forEach(function (n) { U[n] = gl.getUniformLocation(P, n); });
     var qb = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, qb); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
     gl.enableVertexAttribArray(0); gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
 
@@ -184,7 +185,7 @@
       if (o.interactive && o.ghost && !reduce && (!o.follow || now - lastMove > 2500)) ghost(t);
       step(dt);
       gl.viewport(0, 0, W, H);
-      gl.uniform2f(U.u_res, W, H); gl.uniform1f(U.u_t, reduce ? 0 : t * o.speed); gl.uniform1f(U.u_pitch, o.pitch * dpr); gl.uniform1f(U.u_ang, o.angle * Math.PI / 180);
+      gl.uniform2f(U.u_fo, reduce ? 0 : o.flow[0] * t * dpr, reduce ? 0 : -o.flow[1] * t * dpr); gl.uniform2f(U.u_res, W, H); gl.uniform1f(U.u_t, reduce ? 0 : t * o.speed); gl.uniform1f(U.u_pitch, o.pitch * dpr); gl.uniform1f(U.u_ang, o.angle * Math.PI / 180);
       var cz = [0, 0, 0, 0], cp = el.parentElement && el.parentElement.querySelector(o.calmSel || '.hero-riso-copy');
       if (cp) { var er = el.getBoundingClientRect(), cr = cp.getBoundingClientRect();
         cz = [((cr.left + cr.right) / 2 - er.left) * dpr, (er.bottom - (cr.top + cr.bottom) / 2) * dpr, (cr.width - 40) * dpr, (cr.height - 20) * dpr]; }
@@ -214,7 +215,7 @@
   function boot() {
     [].forEach.call(document.querySelectorAll('[data-riso-field]'), function (el) {
       var mode = el.getAttribute('data-riso-field'), st = mode === 'static', hv = document.body.getAttribute('data-hero');
-      if (mode === 'still') { var sInst = window.RisoField(el, { interactive: true, follow: false, speed: 5, ghostSpeed: 1.6, ghostWide: 1.25, jig: 0, navFade: 260, top: 0.94 }); if (sInst) el.classList.add('is-live'); return; }   // homepage: the ink flows on its own (a drifting ghost brush, never the real cursor) and thins out gradually up into the nav
+      if (mode === 'still') { var sInst = window.RisoField(el, { interactive: true, follow: false, speed: 5, ghostSpeed: 1.6, ghostWide: 1.25, jig: 0, navFade: 260, top: 0.94, flow: [14, -5] }); if (sInst) el.classList.add('is-live'); return; }   // homepage: the ink flows on its own (a drifting ghost brush, never the real cursor) and thins out gradually up into the nav
       if (st && hv && hv !== 'B') return;   // header options A, C, D draw no print
       var inst = window.RisoField(el, st && hv === 'B' ? { interactive: false, animate: true, jig: 0.2, ambient: 0.30, fadeB: 0.35, flip: true, calm: 1, top: 1,
         paper: '#FCF3ED', paper2: '#EFE3D4', ink: '#0B1A4A', ink2: '#2F55A8', mix: 0.45, floor: 0.012, grainA: 0 } : st ? { interactive: false, animate: true, jig: 0.24, ambient: 0.36, fadeB: 0, flip: true, calm: 1, top: 0.6,
