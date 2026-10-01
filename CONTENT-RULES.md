@@ -50,12 +50,14 @@ A section earns a place only if it passes all four questions:
 - FAQ answer: 45 words
 
 ## 4. Layout rules: save vertical space
-- **Horizontal first:** any sequence or set of 3 or more items (days, steps, phases, milestones, pillars, audiences, tools, formats) is a horizontal track or a 3-up/4-up row, never a vertical list. On phones it becomes a swipeable row.
+Visual styling (color, type, cards, pills, borders, motion) lives in `DESIGN.md`, the single design source of truth. This section covers only page structure.
+
+- **Horizontal first:** any sequence or set of 3 or more items (days, steps, phases, milestones, pillars, audiences, tools, formats) is a horizontal track or a 3-up/4-up row, never a vertical list. On phones it stacks into one column or becomes a swipeable row (see DESIGN.md §5 and §10.1).
 - **One schedule per program:** one horizontal track, with details in the hover/tap panel. Never a day-by-day list *and* a week overview.
 - **Depth on demand:** anything a visitor might want but most don't goes behind a hover panel, an accordion or a link, never on the scroll.
 - **Line length:** text boxes are wide enough that a subtitle's last line has 5 or more words. If a short last line is left dangling and there's room, widen the box (lede max about 64ch) before adding lines. `text-wrap: pretty` is on everywhere.
 - **Visual order on each page:**
-  1. hero (inverted riso)
+  1. hero (dot-grid header, see DESIGN.md §8)
   2. promise (3-up)
   3. how it works (track)
   4. proof (one line + link)
