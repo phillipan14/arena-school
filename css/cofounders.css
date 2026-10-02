@@ -158,3 +158,20 @@ html[lang="zh-CN"] .hp-cf-quote p { font-style: normal; font-family: var(--font-
 /* English pages: the logos already carry the institution names, so the name is kept for screen readers only
    and the role becomes the visible line. Chinese pages keep both (the logos have no Chinese, except Tsinghua). */
 .hp-cf-x b.sr-only + span { margin-top: 0; font-size: 14px; line-height: 1.4; color: var(--ink); }
+
+/* Experience logos: bigger, and every logo printed at the same visible height (each file is trimmed to its ink;
+   the Microsoft AI file carries 25% empty margin, so it gets a taller box to match). Text sizes unchanged. These come last and win over the earlier per-logo !important tuning above. */
+.hp-cf-lg { height: 40px !important; }
+.hp-cf-lg img, .hp-cf-lg img[src*="brown"], .hp-cf-lg img[src*="harvard"], .hp-cf-lg img[src*="mckinsey"], .hp-cf-lg img[src*="deloitte"],
+.hp-cf-lg img[src*="caltech"], .hp-cf-lg img[src*="apple"], .hp-cf-lg img[src*="tsinghua"], .hp-cf-lg img[src*="kimi"], .hp-cf-lg img[src*="yc"],
+.hp-cf-lg img[src*="goldman"] { height: 34px !important; width: auto !important; max-width: 100% !important; object-position: left center; }
+.hp-cf-lg img[src*="microsoft"] { height: 45px !important; max-width: 100% !important; object-position: left center; margin-left: -1px; }
+@media (max-width: 700px) {
+  /* phones: logo above its role, so long wordmarks (McKinsey) keep the shared height instead of shrinking into a narrow column */
+  .hp-cf-exp li { display: flex !important; flex-direction: column; align-items: flex-start; gap: 8px !important; padding: 14px 0; }
+  .hp-cf-lg { height: 30px !important; }
+  .hp-cf-lg img, .hp-cf-lg img[src*="mckinsey"], .hp-cf-lg img[src*="tsinghua"], .hp-cf-lg img[src*="brown"], .hp-cf-lg img[src*="harvard"],
+  .hp-cf-lg img[src*="deloitte"], .hp-cf-lg img[src*="caltech"], .hp-cf-lg img[src*="apple"], .hp-cf-lg img[src*="kimi"], .hp-cf-lg img[src*="yc"],
+  .hp-cf-lg img[src*="goldman"] { height: 26px !important; max-width: 100% !important; }
+  .hp-cf-lg img[src*="microsoft"] { height: 35px !important; }
+}
