@@ -175,3 +175,21 @@ html[lang="zh-CN"] .hp-cf-quote p { font-style: normal; font-family: var(--font-
   .hp-cf-lg img[src*="goldman"] { height: 26px !important; max-width: 100% !important; }
   .hp-cf-lg img[src*="microsoft"] { height: 35px !important; }
 }
+/* Optical balance (JJ, Oct 2): relative to the shared 34px (phones 26px): Deloitte x0.8, Brown x1.5,
+   Tsinghua x1.3, Harvard x1.3, Apple x1.2, Goldman x1.2. The logo row grows to fit the tallest; logos stay centered in it. */
+.hp-cf-lg { height: 52px !important; }
+.hp-cf-lg img[src*="deloitte"] { height: 27px !important; }
+.hp-cf-lg img[src*="brown"] { height: 51px !important; }
+.hp-cf-lg img[src*="tsinghua"] { height: 44px !important; }
+.hp-cf-lg img[src*="harvard"] { height: 44px !important; }
+.hp-cf-lg img[src*="apple"] { height: 41px !important; }
+.hp-cf-lg img[src*="goldman"] { height: 41px !important; }
+@media (max-width: 700px) {
+  .hp-cf-lg { height: 40px !important; }
+  .hp-cf-lg img[src*="deloitte"] { height: 21px !important; }
+  .hp-cf-lg img[src*="brown"] { height: 39px !important; }
+  .hp-cf-lg img[src*="tsinghua"] { height: 34px !important; }
+  .hp-cf-lg img[src*="harvard"] { height: 34px !important; }
+  .hp-cf-lg img[src*="apple"] { height: 31px !important; }
+  .hp-cf-lg img[src*="goldman"] { height: 31px !important; }
+}
