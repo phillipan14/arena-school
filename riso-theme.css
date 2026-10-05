@@ -582,18 +582,15 @@ body:has(.hero-full) .nav:not(.scrolled) { backdrop-filter: none !important; -we
 #programs .prog-card .eyebrow { font-family: var(--font-body); }
 code, kbd, samp, pre { font-family: var(--font-body, 'Geist', system-ui, sans-serif); }
 
-/* ===== Footer: header order + About card (Oct 5) ===== */
-/* columns follow the header: brand (with About card) | For students | For families | For educators */
-@media (min-width: 821px) { .footer .footer-grid { grid-template-columns: 1.3fr 1.15fr .85fr 1fr; } }
-.footer .footer-about { margin-top: 26px; width: max-content; max-width: 100%; padding: 18px 26px 14px 22px; border-radius: 12px; background: rgba(252,243,237,.06); }
-.footer .footer-about h4 { margin: 0 0 6px; }
-.footer .footer-about .fa-links { display: grid; grid-template-columns: repeat(2, max-content); column-gap: 32px; }
-.footer .footer-about .fa-links a { white-space: nowrap; }
-/* tablets: brand block gets its own row so every link column has room for one-line names */
+/* ===== Footer: header order (Oct 5) ===== */
+/* columns: brand | For students | For families + For educators (one column, two sections) | About */
+@media (min-width: 821px) { .footer .footer-grid { grid-template-columns: 1.25fr 1.15fr 1fr .85fr; } }
+/* the second section in the shared column reads as its own block */
+.footer .footer-col-split a + h4 { margin-top: 30px !important; }
+/* tablets: brand block on its own row so every link fits on one line */
 @media (min-width: 821px) and (max-width: 1100px) {
-  .footer .footer-grid { grid-template-columns: 1.2fr .9fr 1fr; row-gap: 40px; }
+  .footer .footer-grid { grid-template-columns: 1.15fr 1fr .85fr; row-gap: 40px; }
   .footer .footer-brand { grid-column: 1 / -1; }
 }
-/* Chinese has no italic: keep the footer tagline upright at every width (was only fixed below 560px) */
+/* Chinese has no italic: keep the footer tagline upright at every width */
 html[lang^="zh"] .footer .tag { font-style: normal; }
-@media (max-width: 820px) { .footer .footer-about { width: auto; } }
