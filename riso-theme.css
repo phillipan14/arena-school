@@ -598,3 +598,6 @@ html[lang^="zh"] .footer .tag { font-style: normal; }
 .footer .footer-col h4 { font-size: 13.5px !important; font-weight: 600 !important; color: #FCF3ED !important; letter-spacing: .12em !important; }
 html[lang^="zh"] .footer .footer-col h4 { font-size: 16px !important; letter-spacing: .06em !important; }
 @media (max-width: 760px) { .footer .footer-col h4 { font-size: 13px !important; } html[lang^="zh"] .footer .footer-col h4 { font-size: 16px !important; } }
+/* footer links: same beige at 70% so the ivory section headings lead (contrast ~8:1, still AAA); full ivory on hover */
+.footer .footer-col a { color: rgba(244,236,224,.70) !important; transition: color .2s ease; }
+.footer .footer-col a:hover, .footer .footer-col a:focus-visible { color: #FCF3ED !important; }
