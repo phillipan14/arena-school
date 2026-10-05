@@ -594,3 +594,7 @@ code, kbd, samp, pre { font-family: var(--font-body, 'Geist', system-ui, sans-se
 }
 /* Chinese has no italic: keep the footer tagline upright at every width */
 html[lang^="zh"] .footer .tag { font-style: normal; }
+/* footer section headings: clearly the headline of each column (Oct 5) */
+.footer .footer-col h4 { font-size: 13.5px !important; font-weight: 600 !important; color: #FCF3ED !important; letter-spacing: .12em !important; }
+html[lang^="zh"] .footer .footer-col h4 { font-size: 16px !important; letter-spacing: .06em !important; }
+@media (max-width: 760px) { .footer .footer-col h4 { font-size: 13px !important; } html[lang^="zh"] .footer .footer-col h4 { font-size: 16px !important; } }
