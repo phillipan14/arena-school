@@ -2,13 +2,14 @@ BEGIN:VCARD
 VERSION:3.0
 N:An;Phillip;;;
 FN:Phillip An
-NICKNAME:安广宁
 ORG:Arena School
 TITLE:Co-founder
 EMAIL;TYPE=INTERNET,WORK:phillip@arenaschool.org
-URL;TYPE=WORK:https://arenaschool.org
-X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/phillipan/
-NOTE:WeChat: phgan14 · 安广宁
+item1.URL:https://arenaschool.org
+item1.X-ABLabel:Website
+item2.URL:https://www.linkedin.com/in/phillipan/
+item2.X-ABLabel:LinkedIn
+NOTE:中文名：安广宁\nWeChat：phgan14
 PHOTO;ENCODING=b;TYPE=JPEG:/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAQDAwQDAwQEBAQF
  BQQFBwsHBwYGBw4KCggLEA4RERAOEA8SFBoWEhMYEw8QFh8XGBsbHR0dERYgIh8cIhocHRz/2w
  BDAQUFBQcGBw0HBw0cEhASHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwc

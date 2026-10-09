@@ -2,14 +2,15 @@ BEGIN:VCARD
 VERSION:3.0
 N:Yang;Jing Jing;;;
 FN:Jing Jing Yang
-NICKNAME:羊筱涵
 ORG:Arena School
 TITLE:Co-founder
 EMAIL;TYPE=INTERNET,WORK:jingjing@arenaschool.org
 TEL;TYPE=CELL:+8613811979760
-URL;TYPE=WORK:https://arenaschool.org
-X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/xiao-han-yang/
-NOTE:WeChat: 13811979760 · 羊筱涵
+item1.URL:https://arenaschool.org
+item1.X-ABLabel:Website
+item2.URL:https://www.linkedin.com/in/xiao-han-yang/
+item2.X-ABLabel:LinkedIn
+NOTE:中文名：羊筱涵\nWeChat：13811979760
 PHOTO;ENCODING=b;TYPE=JPEG:/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAQDAwQDAwQEBAQF
  BQQFBwsHBwYGBw4KCggLEA4RERAOEA8SFBoWEhMYEw8QFh8XGBsbHR0dERYgIh8cIhocHRz/2w
  BDAQUFBQcGBw0HBw0cEhASHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwc
