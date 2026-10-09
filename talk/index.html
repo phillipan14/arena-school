@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en" data-n-en="16" data-n-cn="16" data-l="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#F3E9DD">
+<meta name="format-detection" content="telephone=no">
+<title>Talk Resources · Arena School</title>
+<meta name="description" content="Slides and tools from “Our Kids’ Jobs Don’t Exist Yet. So Which Skills Will Matter?” at the ISB PTA Parent Coffee, October 14, 2026. 讲座幻灯片与演示工具。">
+<link rel="canonical" href="https://arenaschool.org/talk">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Arena School">
+<meta property="og:title" content="Talk Resources · 讲座资料 · Arena School">
+<meta property="og:description" content="Slides and tools from today’s talk. 今天讲座的幻灯片与演示工具。">
+<meta property="og:url" content="https://arenaschool.org/talk">
+<meta property="og:image" content="https://arenaschool.org/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Arena School seal and wordmark on ivory.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png?v=3">
+<link rel="shortcut icon" href="/favicon.ico?v=3">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=2">
+<script>
+/* Pick the language before first paint: ?lang= → saved choice → browser language. */
+(function(){
+  var l = null, d = document.documentElement;
+  try { var q = (location.search.match(/[?&]lang=(zh|en)/) || [])[1]; if (q) l = q; } catch (e) {}
+  if (!l) { try { l = localStorage.getItem('arena-talk-lang'); } catch (e) {} }
+  if (l !== 'zh' && l !== 'en') {
+    var n = (navigator.languages && navigator.languages[0]) || navigator.language || '';
+    l = /^zh/i.test(n) ? 'zh' : 'en';
+  }
+  d.setAttribute('data-l', l);
+  d.lang = l === 'zh' ? 'zh-CN' : 'en';
+  if (l === 'zh') document.title = '讲座资料 · Arena School';
+  if (/MicroMessenger/i.test(navigator.userAgent) || /[?&]wx=1/.test(location.search)) d.className += ' wx';
+})();
+</script>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/fonts/zh/zh.css?v=2">
+<style>
+:root{
+  --ink:#152636;--ink2:#4A5768;--btn:#152636;--btn-h:#22385a;
+  --paper:#F3E9DD;--paper-h:#FBF4EA;--card:#FBF4EA;--line:rgba(21,38,54,.12);
+  --text:#152636;--soft:#4A5768;--muted:#7A8492;
+  --serif:'Newsreader',Georgia,'Times New Roman',serif;
+  --sans:'Geist',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+  --gut:max(20px,env(safe-area-inset-left));
+}
+html[lang="zh-CN"]{
+  --serif:'Arena Serif SC','Newsreader','Songti SC','Noto Serif SC','Source Han Serif SC','STSong',serif;
+  --sans:'Arena Sans SC Punct','Geist','PingFang SC','Hiragino Sans GB','Noto Sans SC','Noto Sans CJK SC','Microsoft YaHei',system-ui,sans-serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{background:var(--paper);-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;font:400 17px/1.6 var(--sans);color:var(--text);background:var(--paper);-webkit-font-smoothing:antialiased;overflow-wrap:break-word;text-wrap:pretty}
+html[lang="zh-CN"] body{line-break:strict;font-size:16.5px;line-height:1.75}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--ink2);outline-offset:3px;border-radius:6px}
+
+/* language visibility */
+html[data-l="en"] .zh, html[data-l="zh"] .en{display:none !important}
+
+.page{max-width:560px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column}
+
+/* header: dotted paper + seal watermark (DESIGN §8) */
+.hd{position:relative;overflow:hidden;background-color:var(--paper-h);
+  background-image:radial-gradient(rgba(11,26,74,.22) 1.1px,transparent 1.4px);background-size:24px 24px;
+  padding:calc(env(safe-area-inset-top) + 10px) max(20px,env(safe-area-inset-right)) 30px var(--gut);border-bottom:1px solid var(--line)}
+.hd .seal{position:absolute;right:-64px;top:44px;width:230px;height:230px;opacity:.08;pointer-events:none}
+.bar{position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:56px}
+.bar a.home{display:inline-flex;align-items:center;min-height:48px}
+.wm{display:block;height:auto;width:158px}
+.lang{display:inline-flex;padding:2px;border:1px solid rgba(21,38,54,.25);border-radius:999px;background:rgba(252,243,237,.7)}
+.lang button{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;min-width:54px;min-height:48px;padding:0 14px;border-radius:999px;font:500 15px/1 var(--sans);color:var(--soft);cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--btn);color:#F7F1E7}
+.lang button:focus-visible{outline:3px solid var(--ink2);outline-offset:2px}
+.lang button span{font-family:'PingFang SC','Hiragino Sans GB','Noto Sans SC','Microsoft YaHei',sans-serif}
+
+.pane{position:relative;margin-top:22px;background:rgba(255,255,255,.45);border-radius:12px;padding:20px 18px 22px}
+.ev{margin:0 0 12px;white-space:nowrap;font:500 12px/1.45 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+html[lang="zh-CN"] .ev{letter-spacing:.04em;font-size:13px}
+h1{margin:0;font:500 31px/1.1 var(--serif);letter-spacing:-.022em;color:var(--ink);text-wrap:balance}
+h1 em{font-style:italic;color:var(--ink2)}
+html[lang="zh-CN"] h1{font-size:27px;line-height:1.38;letter-spacing:0;font-weight:500}
+html[lang="zh-CN"] h1 em{font-style:normal}
+.by{margin:14px 0 0;font-size:15.5px;line-height:1.5;color:var(--soft)}
+.by b{font-weight:500;color:var(--text)}
+.lede{margin:12px 0 0;font-size:16.5px;line-height:1.55;color:var(--soft)}
+
+main{flex:1;padding:8px max(20px,env(safe-area-inset-right)) 0 var(--gut)}
+section{padding:30px 0 4px}
+.k{margin:0 0 6px;font:600 12px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
+html[lang="zh-CN"] .k{letter-spacing:.04em;font-size:13px}
+h2{margin:0 0 14px;font:400 26px/1.15 var(--serif);letter-spacing:-.018em;color:var(--ink)}
+html[lang="zh-CN"] h2{font-size:23px;line-height:1.35;letter-spacing:0;font-weight:500}
+p{margin:0}
+.nw{white-space:nowrap}
+
+/* PDF buttons */
+.dl{display:flex;flex-direction:column;gap:12px}
+html[data-l="zh"] .dl .b-cn{order:-1}
+.btn{display:flex;align-items:center;justify-content:flex-start;gap:14px;min-height:64px;padding:10px 22px 10px 20px;border-radius:14px;text-decoration:none;font:500 17px/1.25 var(--sans);transition:background-color .2s,border-color .2s}
+.btn .ic{flex:none;width:30px;height:30px}
+.btn .lbl{flex:1;text-align:left}
+.btn small{display:block;font-size:13px;font-weight:400;opacity:.78;margin-top:2px}
+.btn .ar{font-size:20px;line-height:1;flex:none}
+.btn.pri{background:var(--btn);color:#F7F1E7}
+.btn.pri:active{background:var(--btn-h)}
+.btn.gh{background:var(--card);color:var(--ink);border:1px solid rgba(21,38,54,.25)}
+.btn.gh:active{border-color:var(--ink2)}
+@media (hover:hover){.btn.pri:hover{background:var(--btn-h)}.btn.gh:hover{border-color:var(--ink2)}}
+.note{margin-top:14px;font-size:14.5px;line-height:1.55;color:var(--muted)}
+.note b{font-weight:500;color:var(--soft)}
+html.wx .note{background:rgba(255,255,255,.5);border-radius:12px;padding:12px 14px;color:var(--soft)}
+
+/* slide gallery: plain images, so it works inside WeChat with no browser hop */
+.gal{margin-top:22px}
+.gl{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:15px;color:var(--soft);margin-bottom:10px}
+.gl .cnt{font:500 13px/1 var(--sans);color:var(--muted);font-variant-numeric:tabular-nums}
+.track{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;margin:0 calc(-1 * var(--gut));padding:0 var(--gut) 6px;scrollbar-width:none}
+.track::-webkit-scrollbar{display:none}
+.track img{flex:none;width:86%;max-width:480px;aspect-ratio:16/9;height:auto;border-radius:8px;background:var(--card);scroll-snap-align:center;box-shadow:0 1px 0 rgba(11,26,74,.08)}
+.gh2{margin-top:8px;font-size:13.5px;color:var(--muted)}
+@media (min-width:600px){.track{margin:0 -32px;padding:0 32px 6px}}
+
+/* WeChat banner: first thing a WeChat reader sees */
+.wxb{display:none}
+html.wx .wxb{display:block;background:var(--ink);color:#F7F1E7;font-size:14.5px;line-height:1.5;padding:calc(env(safe-area-inset-top) + 10px) max(20px,env(safe-area-inset-right)) 11px var(--gut)}
+html.wx .wxb b{font-weight:600}
+
+/* cards */
+.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 20px 18px;text-decoration:none;color:inherit;transition:border-color .2s}
+.card p{font-size:15.5px;line-height:1.6;color:var(--soft)}
+.card .go{display:flex;align-items:center;min-height:48px;margin-top:8px;margin-bottom:-6px;font-weight:500;font-size:16px;color:var(--btn)}
+.card .go .ar{margin-left:6px;transition:transform .2s}
+a.card:active{border-color:var(--ink2)}
+@media (hover:hover){a.card:hover{border-color:var(--ink2)}a.card:hover .go .ar{transform:translateX(3px)}}
+.card .sub{margin-top:10px;font-size:14px;color:var(--muted)}
+
+.list{list-style:none;margin:0;padding:0;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.list li+li{border-top:1px solid var(--line)}
+.row{display:flex;align-items:center;gap:14px;min-height:72px;padding:14px 18px 14px 20px;text-decoration:none;color:inherit}
+.row:active{background:rgba(21,38,54,.05)}
+@media (hover:hover){.row:hover{background:rgba(21,38,54,.04)}}
+.row .t{flex:1;min-width:0}
+.row b{display:block;font:500 18px/1.3 var(--serif);color:var(--ink)}
+html[lang="zh-CN"] .row b{font-size:17px}
+.row span.d{display:block;margin-top:3px;font-size:14.5px;line-height:1.5;color:var(--soft)}
+.row .ar{flex:none;color:var(--btn);font-size:18px}
+
+/* soft CTA */
+.cta{margin:34px 0 0;padding:24px 0 6px;border-top:1px solid var(--line)}
+.cta h2{font-size:21px;margin-bottom:6px}
+html[lang="zh-CN"] .cta h2{font-size:20px}
+.cta p{font-size:15.5px;color:var(--soft)}
+.links{display:flex;flex-wrap:wrap;gap:4px 22px;margin-top:8px}
+.links a{display:inline-flex;align-items:center;min-height:48px;font-weight:500;font-size:16px;color:var(--btn);text-decoration:underline;text-decoration-color:rgba(21,38,54,.3);text-underline-offset:4px}
+
+footer{padding:26px max(20px,env(safe-area-inset-right)) calc(env(safe-area-inset-bottom) + 28px) var(--gut);font-size:13.5px;color:var(--muted)}
+
+@media (min-width:600px){
+  .page{background:var(--paper)}
+  .hd{border-left:1px solid var(--line);border-right:1px solid var(--line);border-radius:0 0 12px 12px;padding-left:32px;padding-right:32px}
+  main,footer{padding-left:32px;padding-right:32px}
+  h1{font-size:36px}
+  html[lang="zh-CN"] h1{font-size:30px}
+}
+@media (max-width:370px){
+  h1{font-size:28px}
+  html[lang="zh-CN"] h1{font-size:25px}
+  .wm{width:142px}
+}
+
+/* compact intro: get parents to the resources fast */
+.hd{padding-bottom:18px !important}
+.intro{position:relative;margin-top:10px}
+.intro .ev{margin:0 0 4px}
+.hi{margin:0;font:400 20px/1.35 var(--serif);color:var(--ink);letter-spacing:-.01em}
+html[lang="zh-CN"] .hi{font-size:18.5px;line-height:1.5;letter-spacing:0}
+main section:first-child{padding-top:22px}
+
+/* v5: plain header (no dots) + section dividers; compact toggle; larger lockup */
+.hd{background-image:none !important;background-color:var(--paper-h)}
+main section+section{border-top:1px solid var(--line);margin-top:26px;padding-top:26px}
+.wm{width:204px !important}
+@media (max-width:370px){.wm{width:180px !important}}
+.lang{padding:2px;align-self:center}
+.lang button{min-height:28px !important;min-width:44px;padding:0 11px;font-size:13.5px;position:relative}
+.lang button::after{content:"";position:absolute;inset:-10px -2px}  /* keeps a 48px tap target */
+.bar{min-height:48px}
+
+/* viewer arrows (desktop) and mobile/desktop text variants */
+.desk{display:none}
+.vnav{display:none}
+.viewer{margin-top:18px}
+main > section.s-tools{border-top:1px solid var(--line);margin-top:26px;padding-top:26px}
+@media (min-width:960px){
+  :root{--gx:clamp(24px,4vw,80px)}
+  .mob{display:none !important}
+  html.wx .wxb{display:none}
+  .desk{display:inline}
+  .page{max-width:none;min-height:100vh}
+  .hd{border:0 !important;border-bottom:1px solid var(--line) !important;border-radius:0 !important;padding:18px var(--gx) 26px !important}
+  .bar,.intro{max-width:calc(1240px - 2 * var(--gx));margin-left:auto;margin-right:auto}
+  .intro{margin-top:18px}
+  .hi{font-size:26px}
+  html[lang="zh-CN"] .hi{font-size:23px}
+  main{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);grid-template-areas:"slides viewer" "tools viewer" "more viewer" "cta cta";column-gap:64px;align-items:start;max-width:1240px;width:100%;margin:0 auto;padding:36px var(--gx) 0 !important;box-sizing:border-box}
+  .s-slides{grid-area:slides;padding-top:0 !important}
+  .s-tools{grid-area:tools}
+  .s-more{grid-area:more}
+  .cta{grid-area:cta}
+  .viewer{grid-area:viewer;position:sticky;top:24px;margin-top:0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px 22px 18px}
+  .viewer .track{margin:0;padding:0;gap:0;border-radius:8px}
+  .viewer .track img{width:100%;max-width:none;border-radius:8px;box-shadow:none}
+  .vnav{display:flex;justify-content:flex-end;gap:10px;margin-top:14px}
+  .vb{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:999px;border:1px solid rgba(21,38,54,.25);color:var(--ink);font-size:18px;cursor:pointer;background:var(--paper-h)}
+  .vb:hover{border-color:var(--ink)}
+  .vb:focus-visible{outline:3px solid var(--soft);outline-offset:2px}
+  .vnav{justify-content:flex-end;align-items:center}
+  .vfs{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 16px;margin-right:auto;border-radius:999px;border:1px solid rgba(21,38,54,.25);color:var(--ink);font:500 14.5px/1 var(--sans);cursor:pointer;background:var(--paper-h)}
+  .vfs svg{width:18px;height:18px}
+  .vfs:hover{border-color:var(--ink)}
+  .vfs:focus-visible{outline:3px solid var(--soft);outline-offset:2px}
+  /* full-screen viewer (native or fallback overlay) */
+  .viewer:fullscreen,.viewer:-webkit-full-screen,.viewer.fs{position:fixed;inset:0;z-index:50;border:0;border-radius:0;margin:0;padding:24px 32px;background:#152636;display:flex;flex-direction:column;justify-content:center}
+  .viewer:fullscreen .gl,.viewer.fs .gl,.viewer:-webkit-full-screen .gl{color:#EFE3D4}
+  .viewer:fullscreen .track,.viewer.fs .track,.viewer:-webkit-full-screen .track{flex:1;align-items:center}
+  .viewer:fullscreen .track img,.viewer.fs .track img,.viewer:-webkit-full-screen .track img{width:auto;height:auto;max-width:100%;max-height:calc(100vh - 150px);margin:auto;flex:0 0 100%;object-fit:contain;background:transparent}
+  .viewer:fullscreen .vb,.viewer:fullscreen .vfs,.viewer.fs .vb,.viewer.fs .vfs,.viewer:-webkit-full-screen .vb,.viewer:-webkit-full-screen .vfs{background:transparent;color:#EFE3D4;border-color:rgba(239,227,212,.4)}
+  footer{max-width:1240px;margin:0 auto;width:100%;box-sizing:border-box;padding-left:var(--gx) !important;padding-right:var(--gx) !important}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none !important}}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="wxb" role="note"><span class="en" lang="en"><b>Reading in WeChat?</b> Swipe through the slides right on this page. To save the PDF, tap <b>···</b> (top right) and choose <b>Open in Browser</b>.</span><span class="zh" lang="zh-CN"><b>在微信中打开？</b>本页可直接滑动查看幻灯片。如需保存PDF，请点右上角“···”，选择“在浏览器打开”。</span></div>
+
+<header class="hd">
+  <div class="bar">
+    <a class="home" href="https://arenaschool.org/" aria-label="Arena School"><img class="wm" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School" width="1600" height="242"></a>
+    <div class="lang" role="group" aria-label="Language / 语言">
+      <button type="button" data-set="en" aria-pressed="true" lang="en">EN</button>
+      <button type="button" data-set="zh" aria-pressed="false" lang="zh-CN"><span>中文</span></button>
+    </div>
+  </div>
+
+  <div class="intro">
+    <p class="ev"><span class="en" lang="en">ISB PTA Parent Coffee · Oct 14, 2026</span><span class="zh" lang="zh-CN">ISB PTA 家长咖啡会 · 2026年10月14日</span></p>
+    <p class="hi"><span class="en" lang="en">Thank you for joining us. Below are the slides and resources from today’s talk.</span><span class="zh" lang="zh-CN">感谢您的参与！以下是今天讲座的幻灯片与相关资料。</span></p>
+  </div>
+
+</header>
+
+<main>
+  <section class="s-slides" aria-labelledby="h-slides">
+    <p class="k"><span class="en" lang="en">Slides</span><span class="zh" lang="zh-CN">幻灯片</span></p>
+    <h2 id="h-slides"><span class="en" lang="en">Today’s slides</span><span class="zh" lang="zh-CN">今天的讲座幻灯片</span></h2>
+    <div class="dl">
+      <a class="btn pri b-en" href="/talk/Arena-Parent-Conversation-EN.pdf" hreflang="en" type="application/pdf"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.75h8.2L19.25 7.8V20a1.25 1.25 0 0 1-1.25 1.25H6A1.25 1.25 0 0 1 4.75 20V4A1.25 1.25 0 0 1 6 2.75Z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M14 2.9V8h5.1" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="17.2" text-anchor="middle" font-size="5.6" font-weight="700" font-family="Arial,Helvetica,sans-serif" fill="currentColor">PDF</text></svg><span class="lbl"><span class="en" lang="en">English slides</span><span class="zh" lang="zh-CN">英文版幻灯片</span><small><span class="en" lang="en">PDF · open or save</span><span class="zh" lang="zh-CN">PDF · 打开或保存</span></small></span></a>
+      <a class="btn gh b-cn" href="/talk/Arena-Parent-Conversation-CN.pdf" hreflang="zh-CN" type="application/pdf"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.75h8.2L19.25 7.8V20a1.25 1.25 0 0 1-1.25 1.25H6A1.25 1.25 0 0 1 4.75 20V4A1.25 1.25 0 0 1 6 2.75Z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M14 2.9V8h5.1" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="17.2" text-anchor="middle" font-size="5.6" font-weight="700" font-family="Arial,Helvetica,sans-serif" fill="currentColor">PDF</text></svg><span class="lbl"><span class="en" lang="en">Chinese slides</span><span class="zh" lang="zh-CN">中文版幻灯片</span><small><span class="en" lang="en">PDF · open or save</span><span class="zh" lang="zh-CN">PDF · 打开或保存</span></small></span></a>
+    </div>
+
+
+    
+  </section>
+
+  <aside class="gal viewer" aria-label="Slides">
+      <p class="gl"><span class="en" lang="en"><span class="mob">Or swipe through them here</span><span class="desk">Browse the slides</span></span><span class="zh" lang="zh-CN"><span class="mob">也可以直接在这里滑动查看</span><span class="desk">在线浏览幻灯片</span></span><span class="cnt" aria-live="polite"></span></p>
+      <div class="track en" lang="en" data-set="en"></div>
+      <div class="track zh" lang="zh-CN" data-set="cn"></div>
+      <div class="vnav"><button type="button" class="vfs" aria-label="Full screen / 全屏"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span class="en" lang="en">Full screen</span><span class="zh" lang="zh-CN">全屏</span></button><button type="button" class="vb" data-d="-1" aria-label="Previous slide / 上一页">←</button><button type="button" class="vb" data-d="1" aria-label="Next slide / 下一页">→</button></div>
+      <p class="gh2 mob"><span class="en" lang="en">Long-press any slide to save it.</span><span class="zh" lang="zh-CN">长按任意一页即可保存图片。</span></p>
+    </aside>
+
+  <section class="s-tools" aria-labelledby="h-tools">
+    <p class="k"><span class="en" lang="en">Tools</span><span class="zh" lang="zh-CN">工具</span></p>
+    <h2 id="h-tools"><span class="en" lang="en">The case studies from the talk</span><span class="zh" lang="zh-CN">讲座中的案例</span></h2>
+    <a class="card" href="/case-study-examples">
+      <p><span class="en" lang="en">Open the case studies we walked through in the talk. Best viewed on a laptop.</span><span class="zh" lang="zh-CN">查看讲座中演示过的案例。<span class="nw">建议用电脑打开。</span></span></p>
+      <span class="go"><span class="en" lang="en">Open the case studies</span><span class="zh" lang="zh-CN">打开案例</span><span class="ar" aria-hidden="true">→</span></span>
+    </a>
+  </section>
+
+  <section class="s-more" aria-labelledby="h-more">
+    <p class="k"><span class="en" lang="en">Keep exploring</span><span class="zh" lang="zh-CN">延伸阅读</span></p>
+    <h2 id="h-more"><span class="en" lang="en">More from Arena</span><span class="zh" lang="zh-CN">更多了解 Arena</span></h2>
+    <ul class="list">
+      <li><a class="row" data-href-en="/approach" data-href-zh="/approach-cn" href="/approach">
+        <span class="t"><b><span class="en" lang="en">How we teach</span><span class="zh" lang="zh-CN">我们的教学理念</span></b><span class="d"><span class="en" lang="en">Agency, taste, and craft, and how a program runs.</span><span class="zh" lang="zh-CN">主动性、审美与匠心，以及一个项目是<span class="nw">怎样进行的。</span></span></span></span><span class="ar" aria-hidden="true">→</span></a></li>
+      <li><a class="row" data-href-en="/results" data-href-zh="/results-cn" href="/results">
+        <span class="t"><b><span class="en" lang="en">Selected programs</span><span class="zh" lang="zh-CN">项目案例</span></b><span class="d"><span class="en" lang="en">Students in Hong Kong and Beijing, and staff training at Tsinghua.</span><span class="zh" lang="zh-CN">香港和北京的学生项目，以及清华大学苏世民书院的教职<span class="nw">员工培训。</span></span></span></span><span class="ar" aria-hidden="true">→</span></a></li>
+    </ul>
+  </section>
+
+  <section class="cta" aria-labelledby="h-cta">
+    <h2 id="h-cta"><span class="en" lang="en">Learn more or get in touch</span><span class="zh" lang="zh-CN">了解更多或联系我们</span></h2>
+    
+    <div class="links">
+      <a data-href-en="https://arenaschool.org/" data-href-zh="https://arenaschool.org/index-cn" href="https://arenaschool.org/"><span class="en" lang="en">arenaschool.org</span><span class="zh" lang="zh-CN">访问官网</span></a>
+      <a href="mailto:contact@arenaschool.org">contact@arenaschool.org</a>
+    </div>
+  </section>
+</main>
+
+<footer>© 2026 Arena School</footer>
+</div>
+
+<script>
+(function(){
+  var d = document.documentElement;
+  function apply(l, save){
+    d.setAttribute('data-l', l);
+    d.lang = l === 'zh' ? 'zh-CN' : 'en';
+    document.title = l === 'zh' ? '讲座资料 · Arena School' : 'Talk Resources · Arena School';
+    var bs = document.querySelectorAll('.lang button');
+    for (var i = 0; i < bs.length; i++) bs[i].setAttribute('aria-pressed', bs[i].getAttribute('data-set') === l ? 'true' : 'false');
+    var as = document.querySelectorAll('[data-href-' + l + ']');
+    for (var j = 0; j < as.length; j++) as[j].setAttribute('href', as[j].getAttribute('data-href-' + l));
+    var pri = l === 'zh' ? '.b-cn' : '.b-en', sec = l === 'zh' ? '.b-en' : '.b-cn';
+    document.querySelector(pri).className = 'btn pri ' + pri.slice(1);
+    document.querySelector(sec).className = 'btn gh ' + sec.slice(1);
+    if (save) { try { localStorage.setItem('arena-talk-lang', l); } catch (e) {} }
+  }
+  apply(d.getAttribute('data-l') === 'zh' ? 'zh' : 'en', false);
+  var bs = document.querySelectorAll('.lang button');
+  for (var i = 0; i < bs.length; i++) bs[i].addEventListener('click', function(){ apply(this.getAttribute('data-set'), true); });
+})();
+</script>
+<script>
+/* Slide gallery: /talk/slides/{en,cn}/NN.jpg, count in slides/count.json-free form via data-n. */
+(function(){
+  var NS={en:+(document.documentElement.getAttribute('data-n-en')||0),cn:+(document.documentElement.getAttribute('data-n-cn')||0)};
+  document.querySelectorAll('.track').forEach(function(t){
+    var set=t.getAttribute('data-set'), n=NS[set]||0;
+    for(var i=1;i<=n;i++){var im=new Image();im.loading='lazy';im.decoding='async';im.width=1600;im.height=900;
+      im.src='/talk/slides/'+set+'/'+(i<10?'0':'')+i+'.jpg';im.alt=(set==='cn'?'第'+i+'页':'Slide '+i);t.appendChild(im);}
+    var c=document.querySelector('.gl .cnt');
+    function upd(){ if(t.offsetParent===null||!n) return; var w=t.firstChild?t.firstChild.getBoundingClientRect().width+(parseFloat(getComputedStyle(t).columnGap)||0):1; c.textContent=Math.min(n,Math.round(t.scrollLeft/w)+1)+' / '+n; }
+    t.addEventListener('scroll',function(){requestAnimationFrame(upd)},{passive:true}); upd();
+    document.addEventListener('langchange',upd); window.addEventListener('resize',upd); document.addEventListener('fullscreenchange',function(){setTimeout(upd,450)});
+  });
+  if(!NS.en&&!NS.cn){var g=document.querySelector('.gal'); if(g) g.style.display='none';}
+})();
+</script>
+
+<script>
+document.querySelectorAll('.vb').forEach(function(b){b.addEventListener('click',function(){
+  var t=[].find.call(document.querySelectorAll('.track'),function(x){return x.offsetParent!==null}); if(!t||!t.firstChild) return;
+  var w=t.firstChild.getBoundingClientRect().width+(parseFloat(getComputedStyle(t).columnGap)||0);
+  t.scrollBy({left:(+b.getAttribute('data-d'))*w,behavior:'smooth'});
+});});
+document.addEventListener('keydown',function(e){ if(window.innerWidth<960) return; if(e.key==='ArrowRight'||e.key==='ArrowLeft'){var b=document.querySelector('.vb[data-d="'+(e.key==='ArrowRight'?1:-1)+'"]'); if(b) b.click();}});
+</script>
+<script>
+(function(){
+  var v=document.querySelector('.viewer'), b=document.querySelector('.vfs'); if(!v||!b) return;
+  function track(){return [].find.call(document.querySelectorAll('.track'),function(x){return x.offsetParent!==null});}
+  function sw(t){return t&&t.firstChild?t.firstChild.getBoundingClientRect().width+(parseFloat(getComputedStyle(t).columnGap)||0):1;}
+  var cur=0, locked=false;
+  document.querySelectorAll('.track').forEach(function(t){t.addEventListener('scroll',function(){ if(!locked) cur=Math.round(t.scrollLeft/sw(t)); },{passive:true});});
+  var rt=null; function restore(){ locked=true; var t=track(); [0,80,200,400,650].forEach(function(ms){setTimeout(function(){ if(t){ t.style.scrollBehavior='auto'; t.scrollLeft=cur*sw(t); t.style.scrollBehavior=''; } label(); },ms);}); clearTimeout(rt); rt=setTimeout(function(){locked=false;},800); }
+  function isFs(){return document.fullscreenElement===v||document.webkitFullscreenElement===v||v.classList.contains('fs');}
+  function label(){var on=isFs(); b.querySelector('.en').textContent=on?'Exit full screen':'Full screen'; b.querySelector('.zh').textContent=on?'退出全屏':'全屏';}
+  b.addEventListener('click',function(){
+    var t=track(); if(t) cur=Math.round(t.scrollLeft/sw(t)); locked=true;
+    if(isFs()){ if(document.fullscreenElement) document.exitFullscreen(); else if(document.webkitFullscreenElement) document.webkitExitFullscreen(); else { v.classList.remove('fs'); restore(); } }
+    else if(v.requestFullscreen) v.requestFullscreen().catch(function(){v.classList.add('fs'); restore();});
+    else if(v.webkitRequestFullscreen) v.webkitRequestFullscreen();
+    else { v.classList.add('fs'); restore(); }
+  });
+  document.addEventListener('fullscreenchange',restore);
+  document.addEventListener('webkitfullscreenchange',restore);
+  window.addEventListener('resize',function(){ restore(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&v.classList.contains('fs')){ v.classList.remove('fs'); restore(); } });
+})();
+</script>
+</body>
+</html>
