@@ -233,6 +233,20 @@ main > section.s-tools{border-top:1px solid var(--line);margin-top:26px;padding-
   .viewer:fullscreen .vb,.viewer:fullscreen .vfs,.viewer.fs .vb,.viewer.fs .vfs,.viewer:-webkit-full-screen .vb,.viewer:-webkit-full-screen .vfs{background:transparent;color:#EFE3D4;border-color:rgba(239,227,212,.4)}
   footer{max-width:1240px;margin:0 auto;width:100%;box-sizing:border-box;padding-left:var(--gx) !important;padding-right:var(--gx) !important}
 }
+
+/* tap-to-view: full-screen slide viewer (phones); rotates with the device */
+.track img{cursor:zoom-in}
+.lb{position:fixed;inset:0;z-index:100;background:#0E1A26;display:flex;flex-direction:column}
+.lb[hidden]{display:none}
+.lb-track{flex:1;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.lb-track::-webkit-scrollbar{display:none}
+.lb-track img{flex:0 0 100%;width:100%;height:100%;object-fit:contain;scroll-snap-align:center;scroll-snap-stop:always;-webkit-touch-callout:default;user-select:none}
+.lb-top{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:calc(env(safe-area-inset-top) + 8px) max(14px,env(safe-area-inset-right)) 8px max(16px,env(safe-area-inset-left));pointer-events:none}
+.lb-cnt{font:500 14px/1 var(--sans);color:rgba(239,227,212,.85);font-variant-numeric:tabular-nums}
+.lb-x{all:unset;pointer-events:auto;box-sizing:border-box;width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;background:rgba(239,227,212,.14);color:#F7F1E7;font-size:18px;cursor:pointer}
+.lb-tip{position:absolute;bottom:0;left:0;right:0;margin:0;text-align:center;padding:8px 16px calc(env(safe-area-inset-bottom) + 10px);font-size:13px;color:rgba(239,227,212,.6)}
+@media (orientation:landscape){.lb-tip{display:none}}
+html.lb-open,html.lb-open body{overflow:hidden}
 @media (prefers-reduced-motion:reduce){*{transition:none !important}}
 </style>
 </head>
@@ -274,7 +288,7 @@ main > section.s-tools{border-top:1px solid var(--line);margin-top:26px;padding-
       <div class="track en" lang="en" data-set="en"></div>
       <div class="track zh" lang="zh-CN" data-set="cn"></div>
       <div class="vnav"><button type="button" class="vfs" aria-label="Full screen / 全屏"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span class="en" lang="en">Full screen</span><span class="zh" lang="zh-CN">全屏</span></button><button type="button" class="vb" data-d="-1" aria-label="Previous slide / 上一页">←</button><button type="button" class="vb" data-d="1" aria-label="Next slide / 下一页">→</button></div>
-      <p class="gh2 mob"><span class="en" lang="en">Long-press any slide to save it.</span><span class="zh" lang="zh-CN">长按任意一页即可保存图片。</span></p>
+      <p class="gh2 mob"><span class="en" lang="en">Tap a slide to view it full screen, and turn your phone sideways for a bigger view.</span><span class="zh" lang="zh-CN">点击幻灯片即可全屏查看，横屏看得更清楚。</span></p>
     </aside>
 
   <section class="s-tools" aria-labelledby="h-tools">
@@ -306,6 +320,11 @@ main > section.s-tools{border-top:1px solid var(--line);margin-top:26px;padding-
     </div>
   </section>
 </main>
+<div class="lb" hidden role="dialog" aria-modal="true" aria-label="Slides / 幻灯片">
+  <div class="lb-track"></div>
+  <div class="lb-top"><span class="lb-cnt"></span><button type="button" class="lb-x" aria-label="Close / 关闭">✕</button></div>
+  <p class="lb-tip"><span class="en" lang="en">Turn your phone sideways for a bigger view<br>Swipe for the next slide · long-press to save</span><span class="zh" lang="zh-CN">横过手机看得更清楚<br>左右滑动翻页 · 长按保存</span></p>
+</div>
 
 <footer>© 2026 Arena School</footer>
 </div>
@@ -377,6 +396,34 @@ document.addEventListener('keydown',function(e){ if(window.innerWidth<960) retur
   document.addEventListener('webkitfullscreenchange',restore);
   window.addEventListener('resize',function(){ restore(); });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&v.classList.contains('fs')){ v.classList.remove('fs'); restore(); } });
+})();
+</script>
+<script>
+(function(){
+  var lb=document.querySelector('.lb'), lt=lb.querySelector('.lb-track'), lc=lb.querySelector('.lb-cnt'), cur=0, n=0, lastFocus=null;
+  function w(){return lt.clientWidth||1;}
+  function upd(){ cur=Math.round(lt.scrollLeft/w()); lc.textContent=(cur+1)+' / '+n; }
+  function go(i){ lt.style.scrollBehavior='auto'; lt.scrollLeft=i*w(); lt.style.scrollBehavior=''; upd(); }
+  function open(track,i){
+    var imgs=track.querySelectorAll('img'); n=imgs.length; lt.innerHTML='';
+    imgs.forEach(function(im){var c=new Image(); c.src=im.src; c.alt=im.alt; c.decoding='async'; lt.appendChild(c);});
+    lastFocus=document.activeElement; lb.hidden=false; document.documentElement.classList.add('lb-open');
+    requestAnimationFrame(function(){ go(i); lb.querySelector('.lb-x').focus(); });
+  }
+  function close(){ lb.hidden=true; document.documentElement.classList.remove('lb-open'); lt.innerHTML=''; if(lastFocus) lastFocus.focus(); }
+  document.querySelectorAll('.track').forEach(function(t){
+    t.addEventListener('click',function(e){
+      var im=e.target.closest('img'); if(!im) return;
+      var i=[].indexOf.call(t.children,im);
+      if(window.innerWidth>=960){ var b=document.querySelector('.vfs'); if(b) b.click(); return; }   /* laptop: real full screen */
+      open(t,i);
+    });
+  });
+  lb.querySelector('.lb-x').addEventListener('click',close);
+  lt.addEventListener('scroll',function(){requestAnimationFrame(upd)},{passive:true});
+  window.addEventListener('resize',function(){ if(!lb.hidden){ var i=cur; setTimeout(function(){go(i)},60); setTimeout(function(){go(i)},300); } });
+  document.addEventListener('keydown',function(e){ if(lb.hidden) return;
+    if(e.key==='Escape') close(); if(e.key==='ArrowRight') go(Math.min(n-1,cur+1)); if(e.key==='ArrowLeft') go(Math.max(0,cur-1)); });
 })();
 </script>
 </body>
