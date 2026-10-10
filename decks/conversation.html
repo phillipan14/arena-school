@@ -700,11 +700,14 @@ section.s.title .chip::before{position:relative;top:-1.9px}
 .lab{display:block;margin:0;font:600 15px/1.3 var(--serif);letter-spacing:.13em;text-transform:uppercase;color:var(--ink2)}
 :lang(zh-CN) .lab{font-size:16px;letter-spacing:.06em}
 .big{font:400 128px/.9 var(--serif);letter-spacing:-.035em;color:var(--ink2);font-variant-numeric:lining-nums tabular-nums;white-space:nowrap}
+:lang(zh-CN) .big{font-size:108px;letter-spacing:0}
 .big small{display:block;margin:0 0 12px;font-size:30px;line-height:1.1;letter-spacing:-.005em;color:var(--ink)}
 .ae sup{font-size:.5em;line-height:0;vertical-align:.75em;margin-left:.12em;color:var(--ink2);font-weight:600;font-style:normal;letter-spacing:0}
 .ae .no{font:italic 400 44px/1 var(--serif);color:var(--ink2);letter-spacing:-.02em;margin:0 0 18px}
 .ae .pn{font-style:italic;color:var(--ink2)}
 :lang(zh-CN) .ae .pn{font-style:normal}
+
+.pr{display:grid;gap:0}.pr dd{margin:4px 0 10px}
 
 /* footnote band: numbered short sources, the full list is the appendix */
 .fn{display:flex;flex-wrap:wrap;gap:3px 28px;margin:0;padding:11px 20px 10px;border-radius:var(--r);background:var(--pane);font:400 15px/1.45 var(--serif);color:var(--muted)}
@@ -721,7 +724,7 @@ section.s.title .chip::before{position:relative;top:-1.9px}
 :lang(zh-CN) .org{font-size:17px;letter-spacing:.06em}
 
 /* Chinese: break lines only at punctuation and spaces, so a word is never split across two lines */
-:lang(zh-CN) .ae h2,:lang(zh-CN) .ae .bd p,:lang(zh-CN) .ae .bd h3,:lang(zh-CN) .ae .bd dd,:lang(zh-CN) .ae .bd li,:lang(zh-CN) .ae .fn span{word-break:keep-all;overflow-wrap:anywhere}
+@media (min-width:701px){:lang(zh-CN) .ae h2,:lang(zh-CN) .ae .bd p,:lang(zh-CN) .ae .bd h3,:lang(zh-CN) .ae .bd dd,:lang(zh-CN) .ae .bd li,:lang(zh-CN) .ae .fn span{word-break:keep-all;overflow-wrap:anywhere}}
 
 @media (min-width:701px){
  section.s.ae>.w{min-height:calc(100 * var(--vh) - 2px);padding:40px 0 28px}
@@ -741,7 +744,7 @@ section.s.title .chip::before{position:relative;top:-1.9px}
  .ae .take{margin:0}
 
  /* paired rows inside a card (AI / Person, In class / At work) */
- .pr{margin:22px 0 0;display:grid;gap:0}
+ .pr{margin:22px 0 0}
  .pr dt{padding-top:16px;border-top:1px solid var(--line)}
  .pr dd{margin:6px 0 16px}
  .pr dd:last-child{margin-bottom:0}
@@ -750,10 +753,12 @@ section.s.title .chip::before{position:relative;top:-1.9px}
  .ae .bd .pn{font-style:italic;color:var(--ink2)}
  :lang(zh-CN) .ae .bd .pn{font-style:normal}
 
- /* 3 · three ways */
- .three .pane{display:flex;flex-direction:column;min-height:300px;padding:34px 38px 38px}
- .three .no{font-size:64px;margin:0}
- .three h3{margin:auto 0 12px!important}
+ /* 3 · three ways: one summary pane, one ruled row per way */
+ .ae .bd .xs{padding:6px 44px}
+ .xs>div{display:grid;grid-template-columns:96px 210px minmax(0,1fr);align-items:baseline;padding:34px 0}
+ .xs>div+div{border-top:1px solid var(--line)}
+ .xs .no{font-size:52px;margin:0;line-height:1}
+ .xs h3{font-size:36px!important}
 
  /* 4 · stat panes: logo, number, line, then the evidence under it */
  .stat2{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}
@@ -857,9 +862,11 @@ section.s.title .chip::before{position:relative;top:-1.9px}
  .ae .bd{display:flex;flex-direction:column;gap:14px;margin-top:22px}
  .cols,.ba,.bump,.stat2,.hero{display:grid;grid-template-columns:1fr!important;gap:14px}
  .ba>.lab{display:none}
+ .xs>div{display:block;padding:14px 0}.xs>div+div{border-top:1px solid var(--line)}.xs .no{display:block;font-size:30px;margin:0 0 6px}
  .ar{height:24px}.ar svg{width:28px;height:12px;transform:rotate(90deg);fill:none;stroke:var(--ink2);stroke-width:1.8}
- .big{font-size:64px}.bump .big{font-size:52px}
- .lr{height:32px}
+ .big,:lang(zh-CN) .big{font-size:56px;white-space:normal}.bump .big{font-size:48px}
+ .lr{height:32px;margin-bottom:10px}.brand.sf{height:32px}
+ .cx ul{list-style:none;margin:10px 0 0;padding:0}.cx li{padding:6px 0;border-top:1px solid var(--line)}
  .ae .card,.ae .bd .pane{padding:18px 20px}
  .seq li+li::before{display:none}
  .pr dt{margin-top:12px}
@@ -916,17 +923,17 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 <section class="s ae"><div class="w">
  <ol class="trk r" aria-label="Sections"><li class="on"><i>01</i>What’s changing</li><li><i>02</i>What skills matter</li><li><i>03</i>What you can do</li></ol>
  <h2 class="r" style="--d:.1s">AI is already changing work in three ways: <em>its reach, the tasks, and the teams.</em></h2>
- <div class="bd r" style="--d:.25s"><div class="cols c3 three">
-  <div class="pane"><div class="no">01</div><h3>Reach</h3><p>About half of jobs already use AI for part of the work.</p></div>
-  <div class="pane"><div class="no">02</div><h3>Tasks</h3><p>AI prepares a first pass. A person checks and decides.</p></div>
-  <div class="pane"><div class="no">03</div><h3>Teams</h3><p>Some teams shrink. People who retrain move into new roles.</p></div>
+ <div class="bd r" style="--d:.25s"><div class="pane xs">
+  <div><span class="no">01</span><h3>Reach</h3><p>About half of jobs already use AI for at least part of the work.</p></div>
+  <div><span class="no">02</span><h3>Tasks</h3><p>AI prepares the first pass; a person checks it and decides.</p></div>
+  <div><span class="no">03</span><h3>Teams</h3><p>Some teams shrink; people who retrain move into new roles.</p></div>
  </div></div>
 </div></section>
 
 <!-- 4 · Reach -->
 <section class="s alt ae"><div class="w">
  <ol class="trk r" aria-label="Sections"><li class="on"><i>01</i>What’s changing</li><li><i>02</i>What skills matter</li><li><i>03</i>What you can do</li></ol>
- <h2 class="r" style="--d:.1s">AI already shows up in <em>about half of jobs,</em> and its users expect more soon.</h2>
+ <h2 class="r" style="--d:.1s">AI already reaches <em>about half of jobs;</em> users expect far more within a year.</h2>
  <div class="bd r" style="--d:.25s"><div class="cols stat2">
   <div class="pane"><div class="lr"><img class="brand an" src="/logos/deck/anthropic.svg" alt="Anthropic"></div><div class="big">49%</div><p>of jobs have used AI for at least a quarter of their tasks.<sup>1</sup></p>
    <div class="bars"><span>First report</span><i style="--v:36%"></i><b>36%</b><span class="on">January 2026</span><i class="on" style="--v:49%"></i><b class="on">49%</b></div></div>
