@@ -1,13 +1,38 @@
-/* s04: five jobs, 3 + 2. Tighter card padding so the grid still fits 1080; type stays at the deck scale.
+/* s04: four jobs, 2 × 2. Tighter card padding so the grid still fits 1080; type stays at the deck scale.
    The source sits at the foot of each card. */
-section.s04 .jobs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;margin-top:clamp(14px,calc(1.8 * var(--vh)),20px)}
-section.s04 .jobs .card:nth-child(-n+3){grid-column:span 2}
-section.s04 .jobs .card:nth-child(n+4){grid-column:span 3}
+section.s04 .jobs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:clamp(14px,calc(1.8 * var(--vh)),20px)}
 section.s04 .card{display:flex;flex-direction:column;padding:14px 18px 12px}
 section.s04 .card .k{margin-bottom:6px}
 section.s04 .card h3{margin:0 0 6px}
 section.s04 .card .src{margin-top:auto;padding-top:8px}
 section.s04 .foot{margin-top:12px}
+section.s04 .eg,section.s-hire .eg,section.s-want .eg,section.s06 .eg{display:flex;align-items:center;gap:8px;margin:10px 0 0;flex-wrap:wrap}
+section.s04 .eg span,section.s-hire .eg span,section.s-want .eg span{font:italic 13.5px/1.35 var(--serif);color:var(--muted)}
+.kh{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.kh .k{margin:0}
+.brand{display:block;height:18px;width:auto;max-width:148px;flex:none;object-fit:contain;object-position:left center;filter:grayscale(1);opacity:.82}
+.brand.sf{height:26px}
+.brand.xf{height:22px}
+.brand.ms{height:16px}
+.brand.km{height:14px}
+.brand.an{height:15px;max-width:180px}
+
+/* Framing, macro, and before/after: same card rhythm as the job cards. */
+section.s-show .grid,section.s-macro .grid,section.s-day .grid{margin-top:clamp(14px,calc(1.8 * var(--vh)),20px);gap:14px}
+section.s-show .card,section.s-macro .card,section.s-day .card{display:flex;flex-direction:column;padding:16px 18px 14px}
+section.s-show .card .k,section.s-macro .card .k,section.s-day .card .k{margin-bottom:8px}
+section.s-show .card h3,section.s-macro .card h3,section.s-day .card h3{margin:0 0 8px}
+section.s-macro .num{margin:2px 0 10px}
+section.s-macro .num.sm{font-size:clamp(32px,2.8vw,46px);line-height:1.05}
+section.s-macro .card .src,section.s-day .card .src{margin-top:auto;padding-top:8px}
+section.s-macro .foot,section.s-day .foot{margin-top:12px}
+section.s-day .ba{display:grid;grid-template-columns:1fr 1.15fr;gap:10px;margin-top:4px}
+section.s-day .ba>div{border-radius:8px;padding:12px 14px;background:rgba(11,26,74,.04)}
+section.s-day .ba>div+div{background:rgba(47,85,168,.08)}
+section.s-day .ba .k{margin-bottom:6px}
+section.s-day .ba p{margin:0}
+section.s-lessons .foot{margin-top:12px}
+@media(max-width:900px){section.s-day .ba{grid-template-columns:1fr}}
 
 /* Hiring and employer-survey slides: same card scale, slightly tighter rhythm. */
 section.s-hire .grid,section.s-want .grid{margin-top:clamp(14px,calc(1.8 * var(--vh)),20px);gap:14px}
