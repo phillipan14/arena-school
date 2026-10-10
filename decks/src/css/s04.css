@@ -1,7 +1,8 @@
-/* s04: stat numbers sit closer to their body text. The body text keeps its
-   position (relative offset, no layout change); each number drops by half of
-   the measured glyph-bottom-to-text-top gap (gap ~ .29em + 20px). */
-section.s04 .stat .num{position:relative;top:calc(.145em + 10px)}
-section.s04 .stat .num.sm{top:calc(.145em + 9.5px)}
-/* Chinese 亿/万 sit lower than Latin digits, so that card's gap is smaller (~27px at every size) */
-html[lang="zh-CN"] section.s04 .stat .num.sm{top:13.5px}
+/* s04: four jobs. Tighter card padding so the 2×2 still fits 1080; type stays at the deck scale.
+   The source sits at the foot of each card; a row shares one height. */
+section.s04 .grid{margin-top:clamp(16px,calc(2.2 * var(--vh)),26px);gap:16px}
+section.s04 .card{display:flex;flex-direction:column;padding:16px 22px 14px}
+section.s04 .card .k{margin-bottom:8px}
+section.s04 .card h3{margin:0 0 8px}
+section.s04 .card .src{margin-top:auto;padding-top:12px}
+section.s04 .foot{margin-top:14px}
