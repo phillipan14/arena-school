@@ -1,0 +1,5 @@
+/* slide numbers (snum): quiet folio in the bottom-right gutter of every slide except the title */
+section.s>.pgno{position:absolute;right:24px;bottom:16px;z-index:3;pointer-events:none;user-select:none;
+ font:400 13px/1 var(--serif);letter-spacing:.04em;color:var(--muted);font-variant-numeric:lining-nums tabular-nums}
+section.s>.pgno i{font-style:normal;opacity:.6}
+@media (max-width:700px){section.s>.pgno{display:none}}

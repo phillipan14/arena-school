@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Working Beside AI: What It Means for Our Kids’ Futures</title>
+<title>Our Kids’ Jobs Don’t Exist Yet. So Which Skills Will Matter?</title>
 <link rel="icon" href="/favicon.svg">
 <style>@import url('/fonts/fonts.css');
 @import url('/fonts/zh/zh-fallback.css'); /* self-hosted Noto Serif SC slices: Chinese serif on phones without Songti (iPhone, Android); loads only the characters used */
@@ -235,30 +235,6 @@ figcaption.rv.open>.rv-d,figcaption.rv:focus-visible>.rv-d{transform:none}
 .nav a{width:9px;height:9px;border-radius:50%;background:rgba(11,26,74,.25);transition:background-color .2s ease}.nav a.on{background:var(--ink2);box-shadow:0 0 0 3px rgba(47,85,168,.25)}
 .hint{position:fixed;left:22px;bottom:16px;z-index:9;font:italic 400 13px/1 var(--serif);color:var(--muted)}
 
-/* bilingual: CN beneath EN, smaller and lighter */
-.bi .zh{display:block;font-size:.83em;opacity:.6;margin-top:.3em;font-weight:400;letter-spacing:0;text-transform:none;font-style:normal}
-.bi h1 .zh,.bi h2 .zh{margin-top:.34em;line-height:1.2;text-wrap:wrap}
-.bi .zh em{font-style:normal}
-.bi .chip .zh{display:inline;margin:0 0 0 .7em;font-size:.95em;opacity:.75;letter-spacing:.05em}
-.bi .k .zh,.bi .co .zh,.bi .mc b .zh,.bi .qr>span .zh,.bi .cap b .zh{margin-top:.25em}
-.bi .cap{display:block}.bi .cap .zh{margin-top:.2em}
-.bi .rv-d p .zh{opacity:.7;margin-top:.35em}
-.bi .step b .zh{margin-top:.35em}
-.bi .agenda .t .zh{margin-top:.15em}
-.bi .grid{margin-top:clamp(22px,calc(3.6 * var(--vh)),40px)}.bi .chip{margin-bottom:clamp(18px,calc(2.6 * var(--vh)),26px)}
-.bi .ask h2{max-width:none}.bi .askbody{width:min(100%,72ch)}
-.bi .tools .card li{margin:0 0 5px}
-.bi .creds li{padding:6px 0}
-.bi .person img{width:92px;height:92px}
-.bi .creds{margin-top:10px}.bi .creds li{padding:5px 0;line-height:1.4}.bi .team{margin-top:clamp(20px,calc(3.4 * var(--vh)),40px)}.bi .logos{margin-top:clamp(20px,calc(3.6 * var(--vh)),44px)}
-.bi .askbody{margin-top:clamp(16px,calc(3 * var(--vh)),36px);width:min(100%,82ch)}.bi .askbody .lede{margin-bottom:.45em;line-height:1.5}
-.bi .card ul{line-height:1.4}.bi .tools .card li{margin:0 0 4px}.bi .tools .k{margin-bottom:10px}.bi .tools .card{padding-top:18px;padding-bottom:16px}
-.bi .rv-d>p::before{margin:12px 0 9px}
-.bi .steps{margin-top:clamp(22px,calc(4 * var(--vh)),44px)}.bi .step-panel{margin-top:18px;padding:16px 24px}.bi .step .dot{margin-bottom:12px}
-.bi .qband{margin-top:clamp(18px,calc(3 * var(--vh)),32px);padding:18px 28px}.bi .card h3{line-height:1.15}
-.bi .lessons .no{margin-bottom:14px}
-.bi .tools .grid{gap:14px}.bi .tools .card{padding-left:18px;padding-right:18px}.bi .tools .card li .zh{margin-top:.1em}.bi .tools .foot{margin-top:16px}
-
 /* export / print: every detail expanded, in place */
 .export .r{opacity:1!important;transform:none!important;transition:none!important}.export .m::after{transform:scaleX(1)!important;transition:none!important}
 .export .lang,.export .nav,.export .hint{display:none}.export .deck{scroll-snap-type:none;scroll-behavior:auto}
@@ -278,11 +254,6 @@ figcaption.rv.open>.rv-d,figcaption.rv:focus-visible>.rv-d{transform:none}
 
 @media(max-width:900px){.g2,.g3,.g5,.team,.split,.hd,.cmp3,.ctx,.qband,.qa{grid-template-columns:1fr}.step-row{grid-template-columns:1fr 1fr}.rail{display:none}.logos{flex-wrap:wrap;gap:14px 24px;justify-content:flex-start}}
 @media(prefers-reduced-motion:reduce){.r,.m::after,.rv,.rv::after,.rv-d,.step .dot,.step b,.rail i,.sd,.step-panel,.step-panel::before,.agenda a::after{transition:none!important}}
-/* bilingual print: each step's caption and detail sit beside its screenshot */
-.bi.export .stills{grid-template-columns:1fr 1fr!important;justify-content:stretch}
-.bi.export .stills::after{display:none}
-.bi.export .stills figure{display:grid;grid-template-columns:54% minmax(0,1fr);gap:18px;align-items:start}
-.bi.export .stills figcaption.rv{margin-top:0}
 
 /* round 6: non-headline content never sits bare on the paper; it gets the same translucent card as the slide 11 quote band */
 .pane{background:var(--pane);border:0;border-radius:var(--r);padding:var(--pp)}
@@ -311,21 +282,15 @@ figcaption.rv::after{top:7px;right:14px}
 .person img{width:96px;height:96px}
 .who h3{margin:0 0 6px}
 .creds li{padding:9px 0}
-.bi .person img{width:84px;height:84px}.bi .creds li{padding:5px 0}
-.bi .qa{grid-template-columns:236px 236px minmax(0,1fr)}
 
 /* round 6: closing and takeaway lines are anchored to the block they conclude: same card, content width, one grid gap below it */
 .pane.take{align-self:stretch;width:auto;max-width:none;margin-top:clamp(18px,2vw,28px);color:var(--ink)}
-.bi{--pp:clamp(14px,calc(2.2 * var(--vh)),24px) clamp(20px,1.8vw,30px)}
-.bi .take{margin-top:14px}
-.bi .tools .grid{margin-top:16px}.bi .tools .chip{margin-bottom:14px}
 
 /* ===== round 7 ===== */
 /* 1 · title: keyword on "Beside AI", the question as a lighter second line */
 .split{grid-template-columns:minmax(0,1.4fr) minmax(0,.6fr)}
 h1 .sub{display:block;font-size:.5em;line-height:1.2;letter-spacing:-.012em;margin-top:.38em;font-weight:400;color:var(--ink)}
 :lang(zh-CN) h1 .sub{letter-spacing:0}
-.bi h1 .zh .sub{margin-top:.3em}
 /* 2 · names: CN primary, EN small */
 .xn{font-size:.6em;color:var(--muted);margin-left:.55em;letter-spacing:.01em;font-weight:400;white-space:nowrap}
 .creds b{font-weight:600;color:var(--ink)}
@@ -337,8 +302,6 @@ h1 .sub{display:block;font-size:.5em;line-height:1.2;letter-spacing:-.012em;marg
 .live .url{font-size:13px;color:var(--muted)}
 .live:hover .lt,.live:focus-visible .lt{text-decoration:underline;text-underline-offset:3px}.live:hover .ar{transform:translateX(3px)}
 .live:focus-visible{outline:none;box-shadow:0 2px 0 var(--ink2)}
-.bi .live .lt .zh{display:inline;margin:0 0 0 .45em;font-size:.95em;opacity:.7}
-.bi .chiprow{margin-bottom:clamp(16px,calc(2.4 * var(--vh)),24px)}
 /* 8 · 9 · one looping walkthrough video with a side column */
 .vx{display:grid;grid-template-columns:var(--vw,62%) minmax(0,1fr);gap:clamp(20px,2vw,28px);align-items:stretch;margin-top:clamp(18px,calc(3 * var(--vh)),30px)}
 .vid{margin:0;min-width:0}
@@ -377,7 +340,6 @@ h1 .sub{display:block;font-size:.5em;line-height:1.2;letter-spacing:-.012em;marg
 .eg li{font-size:14.5px;line-height:1.45;color:var(--text);padding:8px 12px 9px;background:rgba(47,85,168,.07);border-radius:8px}
 .g{display:block;font:600 11.5px/1.3 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);margin-bottom:2px}
 :lang(zh-CN) .g{letter-spacing:.06em}
-.bi .rvi::before{margin:12px 0 9px}.bi .eg li{padding:6px 10px 7px}.bi .eg li .zh{margin-top:.15em}
 /* 14 · framing label */
 .glabel{margin:clamp(24px,calc(4 * var(--vh)),40px) 0 0}
 .glabel+.grid{margin-top:12px}
@@ -432,17 +394,15 @@ h1 .sub{display:block;font-size:.5em;line-height:1.2;letter-spacing:-.012em;marg
 .habits .card.rv,.pillars .card.rv{padding-right:clamp(22px,1.9vw,30px)}
 .habits .card>h3{padding-right:20px}
 .pillars .card .k{padding-right:20px}
-/* bilingual · short labels carry their Chinese on the same line */
-.bi .pillars .k .zh,.bi .glabel .zh{display:inline;margin:0 0 0 .8em;font-size:.95em}
+
 /* 13 · tighter rhythm between the stats, the label, and the habits */
 .ctx>.pane{padding-top:clamp(14px,calc(2 * var(--vh)),20px);padding-bottom:clamp(14px,calc(2 * var(--vh)),20px)}
 .ctx+.glabel{margin-top:clamp(18px,calc(2.6 * var(--vh)),26px)}
 /* 8-9 · header rows sit a little closer */
 .hd>.chiprow{margin-bottom:clamp(12px,calc(1.8 * var(--vh)),18px)}
-.bi .ctx{margin-top:clamp(16px,calc(2 * var(--vh)),22px)}
 .habits .card>.rv-d>.rvi::before,.pillars .card>.rv-d>.rvi::before{margin-top:10px}
 .hd+.vx{margin-top:clamp(16px,calc(2 * var(--vh)),22px)}
-.qa,.bi .qa{grid-template-columns:264px 264px minmax(0,1fr)}
+.qa{grid-template-columns:264px 264px minmax(0,1fr)}
 /* 10 · step title cards share one height */
 .step{display:flex;flex-direction:column}
 .step b{flex:1}
@@ -455,7 +415,7 @@ h1 .sub{display:block;font-size:.5em;line-height:1.2;letter-spacing:-.012em;marg
 /* Title slide: wider intro box, and an agenda card wide enough that every item sits on one line */
 .title .split{grid-template-columns:minmax(0,1fr) auto}
 .title .lede.pane{max-width:calc(46ch + 80px)}
-html:not(.bi) .title .agenda .t{white-space:nowrap}
+html .title .agenda .t{white-space:nowrap}
 /* Roomy slides: text about 2pt (3px) larger */
 .fb-up .stat p{font-size:19px}
 .fb-up .stat .src{font-size:15px}
@@ -533,38 +493,239 @@ html:not(.bi) .title .agenda .t{white-space:nowrap}
  .chiprow{flex-wrap:wrap}
 }
 
-/* Title slide QR: EN deck → Chinese deck on parents' phones (CN deck → English). Not shown in the bilingual deck or on phones. */
+/* Title slide QR: arenaschool.org/talk (landing page with EN + CN PDFs). Hidden on phones. */
 .xqr{display:flex;align-items:center;gap:20px;align-self:flex-start;margin-top:clamp(16px,calc(2.4 * var(--vh)),24px);padding:14px 22px 14px 14px}
 .xqr img{width:176px;height:176px;flex:none;border-radius:6px}
 .xqr p{margin:0;font:400 17px/1.45 var(--serif);color:var(--text);max-width:16em}
 .xqr b{display:block;font:500 24px/1.2 var(--serif);color:var(--ink);margin-bottom:4px}
-.bi .xqr{display:none}
 @media (max-width:700px){.xqr{display:none}}
-/* bilingual deck: the at-home slide carries two languages, so it gets the +2pt step instead of +5pt to stay on one screen */
-.bi .fb-home .ctx p{font-size:18.5px}
-.bi .fb-home .habits h3{font-size:30px}
-.bi .fb-home .habits .rvi p{font-size:18px}
-.bi .fb-home .glabel{font-size:14px}
+
+/* Title QR (presenting deck): English line, then one Chinese line for parents who read Chinese more easily.
+   Hidden on phones, and in "read" mode (/decks/conversation?read, linked from the landing page). */
+.xqr p{max-width:19em}
+.xqr .zh-line{display:block;margin-top:8px;font-size:16px;line-height:1.55;color:var(--ink)}
+.noqr .xqr{display:none}
+.xqr{gap:26px;padding:18px 28px 18px 18px}
+.xqr img{width:212px;height:212px}
+.xqr p{font-size:20px;line-height:1.45;max-width:20em}
+.xqr b{font-size:27px;margin-bottom:6px}
+.xqr .zh-line{font-size:19px;line-height:1.6;margin-top:10px}
+.xqr .nw{white-space:nowrap}
+
+/* ===== Mobile audit fixes (Oct 3) ===== */
+.nw{white-space:nowrap}
+.qr-chat{display:none}   /* parent group chat QR: show again (delete this line) once a real code is added */
+a.qr-live{color:inherit;text-decoration:none}
+@media (max-width:700px){
+ .ask h2{font-size:32px!important;max-width:none!important}
+ .live{min-height:44px;flex-wrap:wrap}.live .lt{white-space:nowrap}.live .url{display:none}
+ .person .co{letter-spacing:.08em}
+ .caps .vc .cap b{display:none}
+ .lang a{min-height:36px;display:inline-flex;align-items:center;padding:0 14px}
+ .lang{background:var(--paper-hi);box-shadow:0 4px 14px -6px rgba(11,26,74,.35)}
+ a.qr-live img{display:none}
+ a.qr-live{display:flex;align-items:center;justify-content:center;min-height:52px;border:1px solid var(--ink);border-radius:999px;padding:0 20px}
+ a.qr-live span::after{content:"  \2192"}
+ a.qr-live small{display:none}
+}
+/* Q&A slide while the group-chat QR is hidden: one QR, then the caption gets the remaining width */
+@media (min-width:701px){ .qa{grid-template-columns:264px minmax(0,1fr)} .qa-cap.pane{max-width:calc(30ch + 80px)} :lang(zh-CN) .qa-cap.pane{max-width:calc(24em + 80px)} }
+
+/* ---- s01.css ---- */
+/* s01 · title slide: no intro card; title block + agenda centered as one composition */
+@media (min-width:901px){
+ section.s.title.split-s .split{grid-template-columns:auto auto;justify-content:center;column-gap:clamp(48px,4vw,88px);align-items:center}
+}
+
+/* Agenda as a navy translucent card spanning the title's top to the QR card's bottom (JJ, Oct 5).
+   Height comes from the grid (stretch); js/s01.html sets the top offset so it starts at the title, not the chip. */
+@media (min-width:901px){
+ section.s.title.split-s .split{align-items:stretch}
+ section.s.title.split-s .agenda.pane{align-self:stretch;display:flex;flex-direction:column;justify-content:center;
+   background:rgba(11,26,74,.86);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid rgba(11,26,74,.9);
+   box-shadow:0 24px 50px -30px rgba(11,26,74,.6);padding-left:clamp(30px,2.4vw,44px);padding-right:clamp(30px,2.4vw,44px)}
+ section.s.title.split-s .agenda .k{color:#A9BEEA;margin-bottom:10px}
+ section.s.title.split-s .agenda a{color:#FCF3ED;border-bottom-color:rgba(252,243,237,.18)}
+ section.s.title.split-s .agenda a:hover .t{color:#C9D6F2}
+ section.s.title.split-s .agenda .n{color:#A9BEEA}
+ section.s.title.split-s .agenda a::after{color:#A9BEEA}
+ section.s.title.split-s .agenda a:focus-visible{box-shadow:0 2px 0 #A9BEEA}
+}
+
+/* title QR: no white backing square; the code sits straight on the card */
+section.s.title .xqr img{background:transparent;border-radius:0}
+
+/* ---- s03.css ---- */
+/* s03: bold lead-in phrase on "first job" slide, matching the CN .q emphasis (ink, 600) */
+.ask .askbody .lede b{font-weight:600;color:var(--ink)}
+
+/* ---- s04.css ---- */
+/* s04: stat numbers sit closer to their body text. The body text keeps its
+   position (relative offset, no layout change); each number drops by half of
+   the measured glyph-bottom-to-text-top gap (gap ~ .29em + 20px). */
+section.s04 .stat .num{position:relative;top:calc(.145em + 10px)}
+section.s04 .stat .num.sm{top:calc(.145em + 9.5px)}
+/* Chinese 亿/万 sit lower than Latin digits, so that card's gap is smaller (~27px at every size) */
+html[lang="zh-CN"] section.s04 .stat .num.sm{top:13.5px}
+
+/* ---- s05.css ---- */
+/* s05 · center each big number between the card's left border and the divider.
+   The card's left padding and the column gap move into the number's own box (same total width,
+   so the divider and text column stay put); the number is centered inside that box. */
+@media (min-width:701px){
+ section.s05 .card.stat.h{padding-left:0;column-gap:0;
+  --s05-pad:calc((clamp(22px,1.9vw,30px) + clamp(22px,2.2vw,36px)) / 2)}
+ section.s05 .card.stat.h .num{text-align:center;padding:0 var(--s05-pad);
+  min-width:calc(2.6ch + 2 * var(--s05-pad))}
+}
+/* optical nudge: glyph side bearings are uneven ("+35%" carries extra room on its right), so shift by ink */
+@media (min-width:701px){
+ section.s05 .card.stat.h:nth-child(1) .num{position:relative;left:.013em}
+ section.s05 .card.stat.h:nth-child(2) .num{position:relative;left:-.04em}
+}
+
+/* ---- s06.css ---- */
+/* s06: "Candidates now show what they can do" — balanced label wrap, no orphan words */
+section.s06 .k{text-wrap:balance}
+section.s06 .k .nw{white-space:nowrap}
+/* keep the brand name as "Kimi" in the Chinese label (no Latin caps in CN) */
+:lang(zh-CN) section.s06 .k{text-transform:none}
+
+/* ---- s07.css ---- */
+/* s07 · slides 7-9: the "See it live" pill sits on the chip's vertical midline, its text centered inside */
+section.s .chiprow{align-items:center}
+section.s .chiprow>.chip{align-self:center}
+section.s .chiprow>a.live{align-self:center;align-items:center;line-height:1.2;padding:8px 15px}
+section.s .chiprow>a.live>span:not(.url){display:block}
+section.s .chiprow>a.live>.url{display:block}
+@media (max-width:700px){section.s .chiprow>a.live>.url{display:none}}
+section.s .chiprow>a.live .ar{line-height:1}
+
+/* ---- s13.css ---- */
+/* s13 · "Small things families can do alongside school" pill: text optically centered
+   (caps sat high: more padding on top, less below; trailing letter-spacing removed from the right side) */
+section.s.fb-home .glabel{padding:13px calc(18px - .15em) 9px 18px}
+:lang(zh-CN) section.s.fb-home .glabel{padding:12px calc(18px - .06em) 10px 18px}
+
+/* ---- s14.css ---- */
+/* s14 · Q&A: the QR opens today's slides (/talk); the card beside it lists everything from today.
+   The pair spans the slide's content width, so it sits centered. */
+section.s .qa.qa14 .qa-links .k{display:block;margin:0 0 6px}
+section.s .qa.qa14 .qa-url{display:inline-block;color:var(--ink);font-weight:600;text-decoration:underline;text-decoration-color:var(--ink2);text-decoration-thickness:1.5px;text-underline-offset:.22em;transition:color .2s}
+section.s .qa.qa14 .qa-url:hover,section.s .qa.qa14 .qa-url:focus-visible{color:var(--ink2)}
+section.s .qa.qa14 .qa-links p{margin:0;color:var(--text)}
+section.s .qa.qa14 .qa-foot a{color:var(--ink2);text-decoration:underline;text-underline-offset:.2em;text-decoration-color:rgba(47,85,168,.4)}
+/* QR with no backing square: it sits straight on the card */
+section.s .qa.qa14 a.qr-slides img{background:transparent!important;border:0!important;padding:0!important;border-radius:0}
+section.s .qa.qa14 a.qr-slides small{color:var(--ink2);text-decoration:underline;text-decoration-color:rgba(47,85,168,.35);text-underline-offset:.2em}
+
+@media (min-width:701px){
+ section.s .qa.qa14{--qrw:clamp(250px,calc(36 * var(--vh)),320px);width:100%;
+  grid-template-columns:var(--qrw) minmax(0,1fr)!important;gap:clamp(24px,2.4vw,36px);align-items:stretch;justify-content:stretch}
+ section.s .qa.qa14 a.qr-slides{align-self:stretch;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:clamp(20px,calc(3 * var(--vh)),30px)}
+ section.s .qa.qa14 a.qr-slides img{width:100%;max-width:236px;height:auto}
+ section.s .qa.qa14 a.qr-slides>span{font-size:13px;margin-top:16px}
+ section.s .qa.qa14 a.qr-slides>small{font-size:14px}
+ section.s .qa.qa14 .qa-links.pane{display:grid;grid-template-columns:1fr 1fr;align-content:center;gap:clamp(18px,calc(2.8 * var(--vh)),28px) clamp(28px,3vw,52px);
+  padding:clamp(26px,calc(4 * var(--vh)),42px) clamp(32px,3.2vw,52px);font-size:clamp(16px,1.25vw,18px);line-height:1.55;max-width:none}
+ section.s .qa.qa14 .qa-intro,section.s .qa.qa14 .qa-foot{grid-column:1/-1}
+ section.s .qa.qa14 .qa-intro{font-family:var(--serif);font-size:1.3em;line-height:1.35;color:var(--ink)!important}
+ section.s .qa.qa14 .qa-url{font-size:1.18em;margin:0 0 8px;word-break:break-word}
+ section.s .qa.qa14 .qa-foot{padding-top:clamp(14px,calc(2 * var(--vh)),20px);border-top:1px solid var(--line);color:var(--muted)!important}
+}
+@media (max-width:700px){
+ section.s .qa.qa14 .qa-links.pane{display:grid;gap:18px;padding:22px 20px;font-size:16px;line-height:1.55}
+ section.s .qa.qa14 .qa-url{font-size:17px;margin:0 0 6px;word-break:break-word}
+ section.s .qa.qa14 .qa-intro{font-size:18px;color:var(--ink)!important}
+ section.s .qa.qa14 a.qr-slides span::after{content:"  \2192"}
+}
+
+/* ---- s15-poster.css ---- */
+/* ===== Oct 9 · deck aligned with the PTA Parent Coffee poster ===== */
+
+/* 1 · title: PTA and Arena logos side by side above the chip, at a similar optical weight, with a hairline between */
+.cobrand{display:flex;align-items:center;gap:clamp(20px,1.8vw,30px);margin:0 0 clamp(22px,calc(3.4 * var(--vh)),34px)}
+.cobrand img{display:block;width:auto;flex:none}
+.cobrand .pta{height:clamp(50px,calc(6.4 * var(--vh)),62px)}
+.cobrand .arena{height:clamp(30px,calc(3.9 * var(--vh)),38px);padding-left:clamp(20px,1.8vw,30px);border-left:1px solid var(--line);box-sizing:content-box;padding-top:6px;padding-bottom:6px}
+/* the poster's questions are full sentences: the agenda card gets a fixed width and its items wrap */
+@media (min-width:901px){
+ section.s.title.split-s .split{grid-template-columns:minmax(0,1fr) clamp(420px,36%,560px);justify-content:stretch}
+}
+html .title .agenda .t{white-space:normal}
+.title .agenda .t{text-wrap:pretty}
+.title .agenda a{padding:clamp(12px,calc(1.7 * var(--vh)),17px) 0;line-height:1.3}
+@media (max-width:700px){.cobrand .pta{height:46px}.cobrand .arena{height:24px}}
+
+/* 2 · speakers: one poster tag under each role (Forbes 30 Under 30; ISB Class of 2019) */
+.who .tag{display:inline-block;margin:10px 0 0;padding:5px 10px 5px;border-radius:3px;background:var(--beige);font:500 15px/1.2 var(--serif);color:var(--ink);white-space:nowrap}
+
+/* 11 · what students build: three cards, media on top (photos from ISB, the sign-language app as a looping video) */
+.builds .bl .card{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.builds .bm{margin:0;aspect-ratio:4/3;overflow:hidden;background:#C9D2EC;border-radius:0;flex:none}
+.builds .bm img,.builds .bm video{display:block;width:100%;height:100%;object-fit:cover}
+.builds .bm .vposter{display:none}
+.export .builds .bm video{display:none}.export .builds .bm .vposter{display:block}
+.builds .bb{display:flex;flex-direction:column;flex:1;padding:clamp(18px,calc(2.4 * var(--vh)),24px) clamp(20px,1.8vw,28px) clamp(16px,calc(2.2 * var(--vh)),22px)}
+.builds .bb .k{margin-bottom:10px}
+.builds .bb h3{font-size:clamp(21px,1.75vw,25px);line-height:1.22}
+.builds .bb .src{margin-top:auto;padding-top:12px}
+.builds .hd11 .lede.pane{font-size:clamp(17px,1.4vw,20px)}
+@media (max-width:700px){.builds .bl .card{padding:0}}
+/* 11 · the headline gets the wider column so it holds one line; media at the photos' native 3:2 */
+.builds .hd11{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr)}
+.builds .bm{aspect-ratio:3/2}
+.builds .bm video{object-position:50% 60%}
+
+/* Oct 9 (r2) · title chip: one flat navy pill, no offset shadow. Padding balances the ink, not the box:
+   the dot's ring and the last letter (minus its trailing tracking) sit the same distance from the edges,
+   and the caps (CN: the glyphs) sit midway between top and bottom. The dot is lifted onto the caps' midline. */
+section.s.title .chip{box-shadow:none;padding:9.3px 9.6px 5.9px 13.5px}
+section.s.title .chip::before{position:relative;top:-1.9px}
+:lang(zh-CN) section.s.title .chip{padding:9px 8.6px 6.15px 13.5px}
+:lang(zh-CN) section.s.title .chip::before{top:-1.3px}
+
+/* Oct 9 (r2) · "In this conversation" card: questions large enough to read across a room, about two lines each.
+   The left column takes only what the title and QR card need; the card gets the rest of the row. */
+@media (min-width:901px){
+ section.s.title.split-s .split{grid-template-columns:fit-content(612px) minmax(420px,1fr)}
+ section.s.title.split-s .agenda.pane{padding-left:clamp(28px,2.2vw,36px);padding-right:clamp(28px,2.2vw,36px)}
+ section.s.title .agenda a{grid-template-columns:46px minmax(0,1fr);font-size:clamp(23px,2vw,29px);line-height:1.28}
+ section.s.title .agenda .n{font-size:19px}
+ section.s.title .agenda a{padding:clamp(14px,calc(2.7 * var(--vh)),28px) 0}
+ section.s.title .agenda a::after{display:none}
+}
+.xqr p{max-width:15em}
+
+/* Chinese has no italic: emphasis stays upright (color + marker carry it) */
+:lang(zh-CN) em{font-style:normal}
+
+/* ---- snum.css ---- */
+/* slide numbers (snum): quiet folio in the bottom-right gutter of every slide except the title */
+section.s>.pgno{position:absolute;right:24px;bottom:16px;z-index:3;pointer-events:none;user-select:none;
+ font:400 13px/1 var(--serif);letter-spacing:.04em;color:var(--muted);font-variant-numeric:lining-nums tabular-nums}
+section.s>.pgno i{font-style:normal;opacity:.6}
+@media (max-width:700px){section.s>.pgno{display:none}}
 </style></head><body>
-<div class="lang"><a href="/decks/conversation.html" class="on">EN</a><a href="/decks/conversation-cn.html">中文</a><a href="/decks/conversation-bi.html">双语</a></div><nav class="nav" id="nav"></nav><div class="hint">↓ / → next · ↑ / ← back</div>
+<div class="lang"><a href="/decks/conversation.html" class="on">EN</a><a href="/decks/conversation-cn.html">中文</a></div><nav class="nav" id="nav"></nav><div class="hint">↓ / → next · ↑ / ← back</div>
 <main class="deck" id="deck">
 
 <!-- 1 · Title -->
 <section class="s title split-s"><div class="w">
  <div class="split">
   <div class="col">
-   <div class="chip r">A conversation for families</div>
-   <h1 class="r" style="--d:.1s">Working <span class="m" style="--d:.6s"><em>Beside AI</em></span>:<span class="sub">What It Means for Our Kids’ Futures</span></h1>
-   <p class="lede pane r" style="--d:.25s">What agency, taste, and craft mean for children growing up now, and what is changing at work.</p>
-   <div class="xqr pane r" style="--d:.35s"><img src="/decks/img/conversation/qr-deck-cn.png" alt="QR code for the Chinese version of this deck"><p><b>中文版</b>扫码，用手机跟着看中文。</p></div>
+   <div class="cobrand r"><img class="pta" src="/decks/img/conversation/pta-logo.png" alt="ISB PTA, Parent Teacher Association"><img class="arena" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School"></div>
+   <div class="chip r">PTA Parent Coffee · October 14, 2026</div>
+   <h1 class="r" style="--d:.1s">Our Kids’ Jobs <span class="m" style="--d:.6s"><em>Don’t Exist Yet.</em></span><span class="sub">So Which Skills Will Matter?</span></h1>
+   <div class="xqr pane r" style="--d:.35s"><img src="/decks/img/conversation/qr-talk-clear.png" alt="QR code for arenaschool.org/talk"><p><b>Today’s slides</b>Scan with your phone for today’s slides in <span class="nw">English and 中文.</span><span class="zh-line" lang="zh-CN">手机扫码即可查看中英文讲义。</span></p></div>
   </div>
   <nav class="agenda pane r" style="--d:.4s" aria-label="Contents">
    <div class="k">In this conversation</div>
    <ol>
-    <li><a href="#" data-go="3"><span class="n">01</span><span class="t">What’s changing at work</span></a></li>
-    <li><a href="#" data-go="6"><span class="n">02</span><span class="t">Making your own tools</span></a></li>
-    <li><a href="#" data-go="10"><span class="n">03</span><span class="t">Agency, taste, and craft</span></a></li>
-    <li><a href="#" data-go="12"><span class="n">04</span><span class="t">At home</span></a></li>
+    <li><a href="#" data-go="3"><span class="n">01</span><span class="t">What does “AI native” work look like in different industries?</span></a></li>
+    <li><a href="#" data-go="8"><span class="n">02</span><span class="t">What do employers actually look for now?</span></a></li>
+    <li><a href="#" data-go="10"><span class="n">03</span><span class="t">What can students build today using AI (with examples from ISB students)?</span></a></li>
+    <li><a href="#" data-go="12"><span class="n">04</span><span class="t">Which skills compound, and how to grow them without adding another class?</span></a></li>
    </ol>
   </nav>
  </div>
@@ -573,11 +734,11 @@ html:not(.bi) .title .agenda .t{white-space:nowrap}
 <!-- 2 · The speakers -->
 <section class="s alt"><div class="w">
  <div class="chip r">The speakers</div>
- <h2 class="r" style="--d:.1s">Two young people in the workforce, <em>seeing AI change work up close.</em></h2>
+ <h2 class="r" style="--d:.1s">Two founders who <em>build with AI every day.</em></h2>
  <div class="team r" style="--d:.3s">
-  <div class="person"><img src="/photos/jing-jing-yang.jpg?v=2" alt=""><div class="who"><h3>Jing Jing Yang</h3><div class="co">Co-founder, Arena School</div></div>
-   <ul class="creds"><li>ISB ’19 · Brown (Economics and Behavioral Decision Sciences) · Tsinghua (Schwarzman Scholar)</li><li><b>Advises Chinese startups on overseas go-to-market strategy;</b> Kimi (Moonshot AI); research with Microsoft AI / MSRA.</li><li>Apple · Deloitte · CICC</li></ul></div>
-  <div class="person"><img src="/photos/phillip-an.jpg" alt=""><div class="who"><h3>Phillip An</h3><div class="co">Co-founder, Arena School</div></div>
+  <div class="person"><img src="/photos/jing-jing-yang.jpg" alt=""><div class="who"><h3>Jing Jing Yang</h3><div class="co">Co-founder, Arena School</div><p class="tag">ISB Class of 2019</p></div>
+   <ul class="creds"><li>ISB from elementary school through graduation · Brown (Economics and Behavioral Decision Sciences) · Tsinghua (Schwarzman Scholar)</li><li><b>Advises Chinese startups on overseas go-to-market strategy;</b> Kimi (Moonshot AI); research with Microsoft AI.</li><li>Apple · Deloitte · CICC</li></ul></div>
+  <div class="person"><img src="/photos/phillip-an.jpg" alt=""><div class="who"><h3>Phillip An</h3><div class="co">Co-founder, Arena School</div><p class="tag">Forbes 30 Under 30</p></div>
    <ul class="creds"><li>Caltech (Computer Science) · Harvard (MBA and MS) · Tsinghua (Schwarzman Scholar)</li><li><b>Serial entrepreneur:</b> now runs an AI startup; previous company backed by Y Combinator.</li><li>Goldman Sachs · McKinsey</li></ul></div>
  </div>
  <div class="logos r" style="--d:.45s"><img class="arena" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School" style="height:23px"><img src="/logos/cred/caltech.png" alt="Caltech" style="height:19px"><img src="/logos/cred/harvard.png" alt="Harvard" style="height:21px"><img src="/logos/cred/brown.png" alt="Brown" style="height:23px"><img src="/logos/cred/tsinghua-lockup.png" alt="Tsinghua" style="height:23px"><img src="/logos/cred/goldman.png" alt="Goldman Sachs" style="height:21px"><img src="/logos/cred/mckinsey.png" alt="McKinsey" style="height:14px"><img src="/logos/cred/deloitte.png" alt="Deloitte" style="height:15px"><img src="/logos/cred/apple.png" alt="Apple" style="height:21px"><img src="/logos/cred/cicc.png" alt="CICC" style="height:20px"><img src="/logos/cred/microsoft-ai.png" alt="Microsoft AI" style="height:18px"><img src="/logos/cred/yc.png" alt="Y Combinator" style="height:20px"><img src="/logos/cred/kimi-wordmark.png" alt="Kimi" style="height:14px"></div>
@@ -588,49 +749,26 @@ html:not(.bi) .title .agenda .t{white-space:nowrap}
  <div class="chip r">A question to start</div>
  <h2 class="r" style="--d:.1s">Think back to your <span class="m" style="--d:.7s"><em>first job.</em></span> What did you learn that first year?</h2>
  <div class="askbody pane r" style="--d:.45s">
-  <p class="lede r" style="--d:.5s">For most people, the first job is where judgment is learned: small, routine tasks, done again and again, with someone checking the work.</p>
+  <p class="lede r" style="--d:.5s"><b>For most people, the first job is where judgment is learned:</b> small, routine tasks, done again and again, with someone checking the work.</p>
   <p class="lede r" style="--d:.75s">More and more of that routine work is now done with AI’s help. <span class="q">So where will young people learn judgment?</span></p>
  </div>
 </div></section>
 
 <!-- 4 · Changing jobs -->
-<section class="s alt fb-up"><div class="w">
- <div class="chip r">What’s changing at work</div>
+<section class="s alt fb-up s04"><div class="w">
+ <div class="chip r">01 · AI-native work</div>
  <h2 class="r" style="--d:.1s">AI is changing jobs <span class="m" style="--d:.7s"><em>more than</em></span> removing them.</h2>
  <div class="grid g3">
   <div class="card stat r" style="--d:.25s"><div class="num">1 in 4</div><p>workers worldwide are in jobs exposed to generative AI. The most likely effect is that the job changes.</p><span class="src">ILO and NASK, May 2025</span></div>
   <div class="card stat r" style="--d:.35s"><div class="num count">39%</div><p>of workers’ core skills are expected to change by 2030, down from 44% two years earlier.</p><span class="src">World Economic Forum, Future of Jobs 2025</span></div>
   <div class="card stat r" style="--d:.45s"><div class="num sm">170M vs 92M</div><p>jobs expected to be created vs displaced by 2030, a net gain of 78 million.</p><span class="src">World Economic Forum, Future of Jobs 2025</span></div>
  </div>
- <p class="foot pane take r" style="--d:.55s">The question for children today is less “will there be work?” and more “what will the work ask of them?”</p>
+ <p class="foot pane take r" style="--d:.55s">The question for children today is less “will there be work?” and more <b>“what will the work ask of them?”</b></p>
 </div></section>
 
-<!-- 5 · Entry-level -->
-<section class="s fb-up"><div class="w">
- <div class="chip r">Entry-level work</div>
- <h2 class="r" style="--d:.1s">The first job now asks for <span class="m" style="--d:.7s"><em>judgment</em></span> earlier.</h2>
- <div class="grid g2">
-  <div class="card stat h r" style="--d:.25s"><div class="num count">7×</div><div class="sb"><p>Entry-level roles that use AI are seven times more likely to ask for skills once expected of senior people, like judgment and leadership.</p><span class="src">PwC Global AI Jobs Barometer, June 2026</span></div></div>
-  <div class="card stat h r" style="--d:.35s"><div class="num count">+35%</div><div class="sb"><p>growth in those AI-exposed entry-level roles since 2019, while other entry-level roles fell 10%.</p><span class="src">PwC Global AI Jobs Barometer, June 2026</span></div></div>
- </div>
- <p class="lede pane take r" style="--d:.45s">Young people who use AI well, and can judge what it gives them, are trusted with bigger decisions sooner.</p>
-</div></section>
-
-<!-- 6 · At work today -->
-<section class="s alt fb-up"><div class="w">
- <div class="chip r">At work today</div>
- <h2 class="r" style="--d:.1s">Candidates now <span class="m" style="--d:.7s"><em>show</em></span> what they can do.</h2>
- <div class="grid g2 pair">
-  <div class="card r" style="--d:.25s"><div class="k">Day to day at an AI company</div>
-   <ul class="big"><li class="r" style="--d:.4s">Everyone prototypes, not only engineers. A marketer mocks up a tool before asking for one.</li><li class="r" style="--d:.55s">The first draft is cheap. The discussion is about which version is right.</li><li class="r" style="--d:.7s">People are judged on what they decided, and why.</li></ul></div>
-  <div class="callout r" style="--d:.45s"><div class="k">An interview, recently</div>
-   <p class="story">A candidate for a growth role at an AI company built a small tool for the team’s social media work before the interview, showed it live, and got the offer. Nobody asked for it. That was the point.</p></div>
- </div>
-</div></section>
-
-<!-- 7 · 13 tools -->
+<!-- 5 · 13 tools -->
 <section class="s tools"><div class="w">
- <div class="chip r">Making your own tools</div>
+ <div class="chiprow"><div class="chip r">What AI-native work looks like</div><a class="live r" style="--d:.15s" href="https://arenaschool.org/case-study-examples" target="_blank" rel="noopener"><span class="lt">See it live</span><span class="ar">→</span><span class="url">arenaschool.org/case-study-examples</span></a></div>
  <h2 class="r" style="--d:.1s">No engineering degree. <span class="m" style="--d:.7s"><em>13 tools</em></span> for real work.</h2>
  <div class="grid g5">
   <div class="card rv r" style="--d:.2s" tabindex="0" role="button" aria-expanded="false"><div class="k">Marketing and growth</div><ul><li>Market Watcher</li><li>Reply Assistant</li><li>Industry Radar</li><li>Creator Outreach CRM</li></ul><div class="rv-d"><p>Listening to a market, shaping a message, reaching people at scale.</p></div></div>
@@ -642,14 +780,14 @@ html:not(.bi) .title .agenda .t{white-space:nowrap}
  <p class="foot pane take r" style="--d:.55s">Each one started as a task done by hand, over and over.</p>
 </div></section>
 
-<!-- 8 · Course File Search -->
+<!-- 6 · Course File Search -->
 <section class="s alt dense"><div class="w">
  <div class="hd">
-  <div class="chiprow"><div class="chip r">Example 1 · for students</div><a class="live r" style="--d:.15s" href="https://arenaschool.org/case-study-examples" target="_blank" rel="noopener"><span class="lt">See it live</span><span class="ar">→</span><span class="url">arenaschool.org/case-study-examples</span></a></div>
+  <div class="chiprow"><div class="chip r">AI-native work · Example 1 · for students</div><a class="live r" style="--d:.15s" href="https://arenaschool.org/case-study-examples" target="_blank" rel="noopener"><span class="lt">See it live</span><span class="ar">→</span><span class="url">arenaschool.org/case-study-examples</span></a></div>
   <h2 class="r" style="--d:.1s">Finding one exam date across <span class="m" style="--d:.7s"><em>dozens of folders.</em></span></h2>
  </div>
  <div class="vx r" style="--d:.3s">
-  <figure class="vid"><div class="vframe"><video autoplay muted loop playsinline preload="auto" poster="/decks/img/conversation/course-search-en-poster.png" src="/decks/img/conversation/course-search-en.mp4"></video><img class="vposter" src="/decks/img/conversation/course-search-en-poster.png" alt=""></div>
+  <figure class="vid"><div class="vframe"><video autoplay muted loop playsinline preload="metadata" poster="/decks/img/conversation/course-search-en-poster.png" src="/decks/img/conversation/course-search-en.mp4"></video><img class="vposter" src="/decks/img/conversation/course-search-en-poster.png" alt=""></div>
    <div class="caps"><div class="vc rv" tabindex="0" role="button" aria-expanded="false"><span class="cap"><b>Step 4</b>Ask in plain English</span><div class="rv-d"><p>The student types a question. The tool spots that it’s about a deadline in ECON 214, lets the model pick the likely files, and pulls only the matching passages.</p></div></div><div class="vc rv" tabindex="0" role="button" aria-expanded="false"><span class="cap"><b>Step 5</b>An answer that cites its files</span><div class="rv-d"><p>The model answers from those passages only, in a line or two, with numbered citations and cards showing each file and the Blackboard folder it sits in.</p></div></div></div></figure>
   <div class="vcol">
    <p class="sit pane" style="--d:.2s">A student’s course files are scattered across dozens of Blackboard folders. Finding one late policy or exam date means clicking through every course, and the answer is usually buried deep in a PDF.</p>
@@ -662,14 +800,14 @@ html:not(.bi) .title .agenda .t{white-space:nowrap}
  </div>
 </div></section>
 
-<!-- 9 · Interview Prep Kit -->
+<!-- 7 · Interview Prep Kit -->
 <section class="s dense"><div class="w">
  <div class="hd">
-  <div class="chiprow"><div class="chip r">Example 2 · for a job search</div><a class="live r" style="--d:.15s" href="https://arenaschool.org/case-study-examples" target="_blank" rel="noopener"><span class="lt">See it live</span><span class="ar">→</span><span class="url">arenaschool.org/case-study-examples</span></a></div>
+  <div class="chiprow"><div class="chip r">AI-native work · Example 2 · for a job search</div><a class="live r" style="--d:.15s" href="https://arenaschool.org/case-study-examples" target="_blank" rel="noopener"><span class="lt">See it live</span><span class="ar">→</span><span class="url">arenaschool.org/case-study-examples</span></a></div>
   <h2 class="r" style="--d:.1s">Walking into an interview <span class="m" style="--d:.7s"><em>prepared.</em></span></h2>
  </div>
  <div class="vx r" style="--d:.3s">
-  <figure class="vid"><div class="vframe"><video autoplay muted loop playsinline preload="auto" poster="/decks/img/conversation/interview-kit-en-poster.png" src="/decks/img/conversation/interview-kit-en.mp4"></video><img class="vposter" src="/decks/img/conversation/interview-kit-en-poster.png" alt=""></div>
+  <figure class="vid"><div class="vframe"><video autoplay muted loop playsinline preload="metadata" poster="/decks/img/conversation/interview-kit-en-poster.png" src="/decks/img/conversation/interview-kit-en.mp4"></video><img class="vposter" src="/decks/img/conversation/interview-kit-en-poster.png" alt=""></div>
    <div class="caps"><div class="vc rv" tabindex="0" role="button" aria-expanded="false"><span class="cap"><b>Step 4</b>Strengths matched, gaps named</span><div class="rv-d"><p>Each requirement in the posting is paired with proof from the résumé. Where there is no proof, the kit says so and suggests how to answer honestly.</p></div></div><div class="vc rv" tabindex="0" role="button" aria-expanded="false"><span class="cap"><b>Step 7</b>Practice until interview day</span><div class="rv-d"><p>Flashcards flip between question and answer in both languages, and a three-day checklist tracks what is left to do before the interview.</p></div></div></div></figure>
   <div class="vcol">
    <p class="sit pane" style="--d:.2s">A candidate has a few days before an interview. Turning one résumé and one job posting into likely questions, rehearsed answers, and a study plan takes hours, and twice as long if they practice in two languages.</p>
@@ -682,7 +820,7 @@ html:not(.bi) .title .agenda .t{white-space:nowrap}
  </div>
 </div></section>
 
-<!-- 10 · What it took -->
+<!-- 8 · What it took -->
 <section class="s alt fb-up"><div class="w">
  <div class="chip r">What it actually took</div>
  <h2 class="r" style="--d:.1s">The skill is not coding. It is knowing <span class="m" style="--d:.7s"><em>what you want.</em></span></h2>
@@ -704,19 +842,41 @@ html:not(.bi) .title .agenda .t{white-space:nowrap}
  <p class="foot pane take r" style="--d:.45s">These are habits anyone can practice, at any age.</p>
 </div></section>
 
-<!-- 11 · Agency, taste, craft -->
-<section class="s"><div class="w">
+<!-- 9 · Entry-level -->
+<section class="s fb-up s05"><div class="w">
+ <div class="chip r">02 · What employers look for</div>
+ <h2 class="r" style="--d:.1s">The first job now asks for <span class="m" style="--d:.7s"><em>judgment</em></span> earlier.</h2>
+ <div class="grid g2">
+  <div class="card stat h r" style="--d:.25s"><div class="num count">7×</div><div class="sb"><p>Entry-level roles that use AI are seven times more likely to ask for skills once expected of senior people, like judgment and leadership.</p><span class="src">PwC Global AI Jobs Barometer, June 2026</span></div></div>
+  <div class="card stat h r" style="--d:.35s"><div class="num count">+35%</div><div class="sb"><p>growth in those AI-exposed entry-level roles since 2019, while other entry-level roles fell 10%.</p><span class="src">PwC Global AI Jobs Barometer, June 2026</span></div></div>
+ </div>
+ <p class="lede pane take r" style="--d:.45s">Young people who use AI well, and can judge what it gives them, are <b>trusted with bigger decisions sooner</b>.</p>
+</div></section>
+
+<!-- 10 · At work today -->
+<section class="s alt fb-up s06"><div class="w">
+ <div class="chip r">At work today</div>
+ <h2 class="r" style="--d:.1s">Candidates now <span class="m" style="--d:.7s"><em>show</em></span> what they can do.</h2>
+ <div class="grid g2 pair">
+  <div class="card r" style="--d:.25s"><div class="k">What we’re seeing in tech companies</div>
+   <ul class="big"><li class="r" style="--d:.4s">Everyone prototypes, not only engineers. A marketer mocks up a tool before asking for one.</li><li class="r" style="--d:.55s">The first draft is cheap. The discussion is about which version is right.</li><li class="r" style="--d:.7s">People are judged on what they decided, and why.</li></ul></div>
+  <div class="callout r" style="--d:.45s"><div class="k">How Jing Jing evaluated <span class="nw">non-technical</span> candidates at Kimi</div>
+   <p class="story">When Jing Jing was hiring for Kimi’s growth team, one candidate built a small tool for the team’s social media work before the interview, showed it live, and got the offer. Nobody asked for it. That was the point.</p></div>
+ </div>
+</div></section>
+
+<!-- 11 · What students build -->
+<section class="s builds"><div class="w">
  <div class="hd hd11">
-  <div><div class="chip r">Why these three</div>
-  <h2 class="r" style="--d:.1s"><span class="m" style="--d:.6s"><em>Agency,</em></span> <span class="m" style="--d:.8s"><em>taste,</em></span> and <span class="m" style="--d:1s"><em>craft.</em></span></h2></div>
-  <p class="lede pane r" style="--d:.2s">When AI can make almost anything, what matters is knowing what’s worth making, whether it’s good, and how to finish it.</p>
+  <div><div class="chip r">03 · What students build</div>
+  <h2 class="r" style="--d:.1s">What students <span class="m" style="--d:.7s"><em>actually built.</em></span></h2></div>
+  <p class="lede pane r" style="--d:.2s">What can students build today? Three recent projects from our programs, including work by ISB students.</p>
  </div>
- <div class="grid g3 pillars">
-  <div class="card rv r" style="--d:.25s" tabindex="0" role="button" aria-expanded="false"><div class="k">Agency</div><h3>Choosing what’s worth solving.</h3><div class="rv-d"><div class="rvi"><p>Every useful tool starts with deciding a task is worth fixing.</p><p class="aw"><span class="awk">At work</span>Tasks that only follow instructions are the easiest to hand to AI; people who define the problem direct the work.</p></div></div></div>
-  <div class="card rv r" style="--d:.35s" tabindex="0" role="button" aria-expanded="false"><div class="k">Taste</div><h3>Telling which version actually works.</h3><div class="rv-d"><div class="rvi"><p>AI offers many versions; the work is asking which one people will actually use.</p><p class="aw"><span class="awk">At work</span>Teams can generate ten versions in an hour; the person who picks the right one, and can say why, is the one they rely on.</p></div></div></div>
-  <div class="card rv r" style="--d:.45s" tabindex="0" role="button" aria-expanded="false"><div class="k">Craft</div><h3>Finishing it well.</h3><div class="rv-d"><div class="rvi"><p>The first draft comes fast. Making something people can rely on takes care.</p><p class="aw"><span class="awk">At work</span>Working products earn trust in a way prototypes and slide decks do not.</p></div></div></div>
+ <div class="grid g3 bl">
+  <div class="card r" style="--d:.25s"><figure class="bm"><img src="/photos/isb-2026/demo-laptop-1600.webp" alt="Students demonstrate their project at ISB"></figure><div class="bb"><div class="k">Games</div><h3>Five games, built to publish on Steam.</h3><span class="src">At ISB, 2026</span></div></div>
+  <div class="card r" style="--d:.35s"><figure class="bm"><img src="/photos/isb-2026/pitch-podium-1600.webp" alt="A student presents at ISB"></figure><div class="bb"><div class="k">Productivity</div><h3>An all-in-one productivity tool that tracks progress, sleep, and working time.</h3><span class="src">At ISB, 2026</span></div></div>
+  <div class="card r" style="--d:.45s"><figure class="bm vframe"><video autoplay muted loop playsinline preload="metadata" poster="/decks/img/conversation/hands-stage-poster.webp" src="/decks/img/conversation/hands-stage.mp4" aria-label="A student tests a sign-language app on a laptop"></video><img class="vposter" src="/decks/img/conversation/hands-stage-poster.webp" alt=""></figure><div class="bb"><div class="k">Accessibility</div><h3>A sign-language interpreter.</h3><span class="src">Testing the app</span></div></div>
  </div>
- <div class="qband take r" style="--d:.55s"><div class="quote">“People must be good at deciding what to do and why.”</div><span class="src">Cornell University, Report of the Committee on the Future of the American University, September 2026</span></div>
 </div></section>
 
 <!-- 12 · From teaching -->
@@ -730,15 +890,30 @@ html:not(.bi) .title .agenda .t{white-space:nowrap}
  </div>
 </div></section>
 
-<!-- 13 · At home -->
-<section class="s fb-home"><div class="w">
+<!-- 13 · Agency, taste, craft -->
+<section class="s"><div class="w">
+ <div class="hd hd11">
+  <div><div class="chip r">04 · Skills that compound</div>
+  <h2 class="r" style="--d:.1s"><span class="m" style="--d:.6s"><em>Agency,</em></span> <span class="m" style="--d:.8s"><em>taste,</em></span> and <span class="m" style="--d:1s"><em>craft.</em></span></h2></div>
+  <p class="lede pane r" style="--d:.2s">When AI can make almost anything, these are the skills that compound: knowing what’s worth making, whether it’s good, and how to finish it.</p>
+ </div>
+ <div class="grid g3 pillars">
+  <div class="card rv r" style="--d:.25s" tabindex="0" role="button" aria-expanded="false"><div class="k">Agency</div><h3>Choosing what’s worth solving.</h3><div class="rv-d"><div class="rvi"><p>Every useful tool starts with deciding a task is worth fixing.</p><p class="aw"><span class="awk">At work</span>Tasks that only follow instructions are the easiest to hand to AI; people who define the problem direct the work.</p></div></div></div>
+  <div class="card rv r" style="--d:.35s" tabindex="0" role="button" aria-expanded="false"><div class="k">Taste</div><h3>Telling which version actually works.</h3><div class="rv-d"><div class="rvi"><p>AI offers many versions; the work is asking which one people will actually use.</p><p class="aw"><span class="awk">At work</span>Teams can generate ten versions in an hour; the person who picks the right one, and can say why, is the one they rely on.</p></div></div></div>
+  <div class="card rv r" style="--d:.45s" tabindex="0" role="button" aria-expanded="false"><div class="k">Craft</div><h3>Finishing it well.</h3><div class="rv-d"><div class="rvi"><p>The first draft comes fast. Making something people can rely on takes care.</p><p class="aw"><span class="awk">At work</span>Working products earn trust in a way prototypes and slide decks do not.</p></div></div></div>
+ </div>
+ <div class="qband take r" style="--d:.55s"><div class="quote">“People must be good at deciding what to do and why.”</div><span class="src">Cornell University, Report of the Committee on the Future of the American University, September 2026</span></div>
+</div></section>
+
+<!-- 14 · At home -->
+<section class="s alt fb-home"><div class="w">
  <div class="chip r">At home</div>
  <h2 class="r" style="--d:.1s">The question is not <span class="m" style="--d:.6s"><em>whether</em></span>, but <span class="m" style="--d:.8s"><em>how.</em></span></h2>
  <div class="ctx r" style="--d:.2s">
   <div class="pane"><p>72.6% of parents in China support their child using AI, most of them with conditions.</p><span class="src">China Youth Daily poll, May 2026</span></div>
   <div class="pane"><p>The OECD’s newest data suggests moderate, intentional use may go with stronger learning.</p><span class="src">OECD PISA 2025, September 2026</span></div>
  </div>
- <div class="k glabel r" style="--d:.25s">Small things families can do alongside school</div>
+ <div class="k glabel r" style="--d:.25s">Small things families can do, without adding another class</div>
  <div class="grid g3 habits">
   <div class="card rv r" style="--d:.3s" tabindex="0" role="button" aria-expanded="false"><svg class="hi" viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="12" width="12" height="14" rx="1.5"/><rect x="15" y="6" width="12" height="12" rx="1.5"/></svg><h3>Make one small thing together.</h3><div class="rv-d"><div class="rvi"><p>A family chore list, a trip plan, or a quiz for a younger sibling.</p></div></div></div>
   <div class="card rv r" style="--d:.4s" tabindex="0" role="button" aria-expanded="false"><svg class="hi" viewBox="0 0 32 32" aria-hidden="true"><circle cx="14" cy="14" r="8"/><path d="M20 20l7 7M10.5 14.2l2.6 2.6 4.6-5"/></svg><h3>Ask, “How did you check it?”</h3><div class="rv-d"><div class="rvi"><p>Treat AI’s answer as a first draft, and talk about what was wrong with it.</p></div></div></div>
@@ -746,19 +921,24 @@ html:not(.bi) .title .agenda .t{white-space:nowrap}
  </div>
 </div></section>
 
-<!-- 14 · Q&A -->
-<section class="s alt"><div class="w">
+<!-- 15 · Q&A -->
+<section class="s"><div class="w">
  <div class="chip r">Q&amp;A</div>
  <h2 class="r" style="--d:.1s">What questions <span class="m" style="--d:.7s"><em>do you have?</em></span></h2>
- <div class="qa r" style="--d:.3s">
-  <div class="qr pane"><img src="/decks/img/conversation/qr-case-study-examples.png" alt="QR code for arenaschool.org/case-study-examples"><span>See it live</span><small>arenaschool.org/case-study-examples</small></div>
-  <div class="qr pane"><div class="qr-slot"></div><span>Parent group chat QR</span><small>(added before the session)</small></div>
-  <p class="qa-cap pane">This deck and all the resources go to a parent group chat after the session. Join if you’d like them.</p>
+ <div class="qa qa14 r" style="--d:.3s">
+  <a class="qr pane qr-live qr-slides" href="https://arenaschool.org/talk" target="_blank" rel="noopener"><img src="/decks/img/conversation/qr-talk-clear.png" alt="QR code for arenaschool.org/talk"><span>Today’s slides</span><small>arenaschool.org/talk</small></a>
+  <div class="qr pane qr-chat"><div class="qr-slot"></div><span>Parent group chat QR</span><small>(added before the session)</small></div>
+  <div class="qa-links pane">
+   <p class="qa-intro">Everything from today, free and in one place. <span class="nw">No sign-up needed.</span></p>
+   <div class="qa-item"><span class="k">Today’s slides</span><a class="qa-url" href="https://arenaschool.org/talk" target="_blank" rel="noopener">arenaschool.org/talk</a><p>This deck as a PDF in English and Chinese, or read it on your phone.</p></div>
+   <div class="qa-item"><span class="k">The tools we showed</span><a class="qa-url" href="https://arenaschool.org/case-study-examples" target="_blank" rel="noopener">arenaschool.org/case-study-examples</a><p>Walkthroughs of all 13 tools, including Course File Search and the Interview Prep Kit.</p></div>
+   <p class="qa-foot">Questions after today? <a href="mailto:contact@arenaschool.org">contact@arenaschool.org</a></p>
+  </div>
  </div>
 </div></section>
 
-<!-- 15 · Appendix -->
-<section class="s"><div class="w">
+<!-- 16 · Appendix -->
+<section class="s alt"><div class="w">
  <div class="chip r">Appendix</div>
  <h2 class="r" style="--d:.1s">Sources</h2>
  <ul class="srcs pane r" style="--d:.2s">
@@ -773,6 +953,8 @@ html:not(.bi) .title .agenda .t{white-space:nowrap}
 
 </main>
 <script>
+if(!matchMedia('(max-width:700px)').matches)[].forEach.call(document.querySelectorAll('video'),function(v){v.preload='auto'});
+if(/[?&]read\b/.test(location.search))document.documentElement.classList.add('noqr');
 /* navigation: dot nav, arrow keys, agenda links */
 var deck=document.getElementById('deck'),S=[].slice.call(document.querySelectorAll('.s')),nav=document.getElementById('nav');
 S.forEach(function(s,i){var a=document.createElement('a');a.href='#';a.setAttribute('aria-label','Slide '+(i+1));a.onclick=function(e){e.preventDefault();go(i)};nav.appendChild(a)});
@@ -859,6 +1041,31 @@ lay();addEventListener('resize',lay);[].forEach.call(document.querySelectorAll('
  var vio=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;
   if(e.isIntersecting&&e.intersectionRatio>=.5&&!rm&&!H.classList.contains('export')){var p=v.play();if(p&&p.catch)p.catch(function(){})}else v.pause()})},{threshold:[0,.5,1]});
  V.forEach(function(v){vio.observe(v)})})();
+</script>
+
+<script>
+/* s01: the title-slide agenda card starts at the top of the title (not the logos or chip above it) and runs to the bottom of the left column */
+(function(){var s=document.querySelector('section.s.title'); if(!s)return;
+ var a=s.querySelector('.agenda'),h=s.querySelector('h1'),c=s.querySelector('.split .col'); if(!a||!h||!c)return;
+ function fit(){ if(matchMedia('(max-width:900px)').matches){a.style.marginTop='';return}
+  a.style.marginTop='0px'; var z=parseFloat(getComputedStyle(s.querySelector('.w')).zoom)||1;
+  /* offsetTop ignores the reveal transform, so the card lands on the title's resting position mid-animation too */
+  var d=h.offsetTop-c.offsetTop; if(!(h.offsetParent&&h.offsetParent===c.offsetParent))d=(h.getBoundingClientRect().top-c.getBoundingClientRect().top)/z; a.style.marginTop=Math.max(0,d)+'px'; }
+ fit(); addEventListener('resize',fit); addEventListener('load',fit); if(document.fonts)document.fonts.ready.then(fit);
+ var sp=window.__space; if(sp)window.__space=function(){sp.apply(this,arguments);fit()};
+})();
+</script>
+
+<script>
+/* slide numbers: "N / total" on every slide except the title (slide 1) */
+(function(){
+  var ss=document.querySelectorAll('#deck section.s'),n=ss.length;
+  for(var i=1;i<n;i++){
+    if(ss[i].querySelector(':scope>.pgno'))continue;
+    var p=document.createElement('span');p.className='pgno';p.setAttribute('aria-hidden','true');
+    p.innerHTML=(i+1)+' <i>/ '+n+'</i>';ss[i].appendChild(p);
+  }
+})();
 </script>
 
 

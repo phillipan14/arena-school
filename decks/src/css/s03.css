@@ -1,0 +1,2 @@
+/* s03: bold lead-in phrase on "first job" slide, matching the CN .q emphasis (ink, 600) */
+.ask .askbody .lede b{font-weight:600;color:var(--ink)}

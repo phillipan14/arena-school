@@ -1,0 +1,4 @@
+/* s13 · "Small things families can do alongside school" pill: text optically centered
+   (caps sat high: more padding on top, less below; trailing letter-spacing removed from the right side) */
+section.s.fb-home .glabel{padding:13px calc(18px - .15em) 9px 18px}
+:lang(zh-CN) section.s.fb-home .glabel{padding:12px calc(18px - .06em) 10px 18px}

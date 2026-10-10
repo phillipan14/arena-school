@@ -1,0 +1,8 @@
+/* s07 · slides 7-9: the "See it live" pill sits on the chip's vertical midline, its text centered inside */
+section.s .chiprow{align-items:center}
+section.s .chiprow>.chip{align-self:center}
+section.s .chiprow>a.live{align-self:center;align-items:center;line-height:1.2;padding:8px 15px}
+section.s .chiprow>a.live>span:not(.url){display:block}
+section.s .chiprow>a.live>.url{display:block}
+@media (max-width:700px){section.s .chiprow>a.live>.url{display:none}}
+section.s .chiprow>a.live .ar{line-height:1}

@@ -1,0 +1,7 @@
+/* s04: stat numbers sit closer to their body text. The body text keeps its
+   position (relative offset, no layout change); each number drops by half of
+   the measured glyph-bottom-to-text-top gap (gap ~ .29em + 20px). */
+section.s04 .stat .num{position:relative;top:calc(.145em + 10px)}
+section.s04 .stat .num.sm{top:calc(.145em + 9.5px)}
+/* Chinese 亿/万 sit lower than Latin digits, so that card's gap is smaller (~27px at every size) */
+html[lang="zh-CN"] section.s04 .stat .num.sm{top:13.5px}

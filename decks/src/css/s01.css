@@ -1,0 +1,22 @@
+/* s01 · title slide: no intro card; title block + agenda centered as one composition */
+@media (min-width:901px){
+ section.s.title.split-s .split{grid-template-columns:auto auto;justify-content:center;column-gap:clamp(48px,4vw,88px);align-items:center}
+}
+
+/* Agenda as a navy translucent card spanning the title's top to the QR card's bottom (JJ, Oct 5).
+   Height comes from the grid (stretch); js/s01.html sets the top offset so it starts at the title, not the chip. */
+@media (min-width:901px){
+ section.s.title.split-s .split{align-items:stretch}
+ section.s.title.split-s .agenda.pane{align-self:stretch;display:flex;flex-direction:column;justify-content:center;
+   background:rgba(11,26,74,.86);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid rgba(11,26,74,.9);
+   box-shadow:0 24px 50px -30px rgba(11,26,74,.6);padding-left:clamp(30px,2.4vw,44px);padding-right:clamp(30px,2.4vw,44px)}
+ section.s.title.split-s .agenda .k{color:#A9BEEA;margin-bottom:10px}
+ section.s.title.split-s .agenda a{color:#FCF3ED;border-bottom-color:rgba(252,243,237,.18)}
+ section.s.title.split-s .agenda a:hover .t{color:#C9D6F2}
+ section.s.title.split-s .agenda .n{color:#A9BEEA}
+ section.s.title.split-s .agenda a::after{color:#A9BEEA}
+ section.s.title.split-s .agenda a:focus-visible{box-shadow:0 2px 0 #A9BEEA}
+}
+
+/* title QR: no white backing square; the code sits straight on the card */
+section.s.title .xqr img{background:transparent;border-radius:0}

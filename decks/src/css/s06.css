@@ -1,0 +1,5 @@
+/* s06: "Candidates now show what they can do" — balanced label wrap, no orphan words */
+section.s06 .k{text-wrap:balance}
+section.s06 .k .nw{white-space:nowrap}
+/* keep the brand name as "Kimi" in the Chinese label (no Latin caps in CN) */
+:lang(zh-CN) section.s06 .k{text-transform:none}

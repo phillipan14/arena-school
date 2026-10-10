@@ -438,7 +438,7 @@ QR on a `#FCF3ED` square with 10px padding, inside a pane. Caps caption, with th
 - **Phones (760px and below):** no sideways scroll, body text 15px or larger, tap targets 44px or larger, solid nav when scrolled, centered headings and CTAs, menus with no awkward breaks (09-30, 10-01).
 
 ### 10.2 Decks [Print]
-- **Source:** `arena-school-tools/deck-src/` (`body-en.html`, `body-cn.html`, `shared.css`, `shared.js`) → `build.py` → `decks/conversation{,-cn,-bi}.html` → `pdf.py` → `meeting-kit/*.pdf`.
+- **Source:** `decks/src/` in this repo (`body-en.html`, `body-cn.html`, `shared.css`, `shared.js`) → `build.py` → `decks/conversation{,-cn}.html` → `export.py` → `talk/*.pdf` + the /talk gallery. Workflow in `decks/src/README.md`. The bilingual deck is retired.
 - **Size checks:**
   - 16:9 at 1920×1080.
   - Every slide must fit 1080px in export mode; `pdf.py` aborts otherwise.

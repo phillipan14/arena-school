@@ -1,0 +1,11 @@
+<script>
+/* slide numbers: "N / total" on every slide except the title (slide 1) */
+(function(){
+  var ss=document.querySelectorAll('#deck section.s'),n=ss.length;
+  for(var i=1;i<n;i++){
+    if(ss[i].querySelector(':scope>.pgno'))continue;
+    var p=document.createElement('span');p.className='pgno';p.setAttribute('aria-hidden','true');
+    p.innerHTML=(i+1)+' <i>/ '+n+'</i>';ss[i].appendChild(p);
+  }
+})();
+</script>

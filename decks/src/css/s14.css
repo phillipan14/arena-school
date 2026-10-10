@@ -1,0 +1,31 @@
+/* s14 · Q&A: the QR opens today's slides (/talk); the card beside it lists everything from today.
+   The pair spans the slide's content width, so it sits centered. */
+section.s .qa.qa14 .qa-links .k{display:block;margin:0 0 6px}
+section.s .qa.qa14 .qa-url{display:inline-block;color:var(--ink);font-weight:600;text-decoration:underline;text-decoration-color:var(--ink2);text-decoration-thickness:1.5px;text-underline-offset:.22em;transition:color .2s}
+section.s .qa.qa14 .qa-url:hover,section.s .qa.qa14 .qa-url:focus-visible{color:var(--ink2)}
+section.s .qa.qa14 .qa-links p{margin:0;color:var(--text)}
+section.s .qa.qa14 .qa-foot a{color:var(--ink2);text-decoration:underline;text-underline-offset:.2em;text-decoration-color:rgba(47,85,168,.4)}
+/* QR with no backing square: it sits straight on the card */
+section.s .qa.qa14 a.qr-slides img{background:transparent!important;border:0!important;padding:0!important;border-radius:0}
+section.s .qa.qa14 a.qr-slides small{color:var(--ink2);text-decoration:underline;text-decoration-color:rgba(47,85,168,.35);text-underline-offset:.2em}
+
+@media (min-width:701px){
+ section.s .qa.qa14{--qrw:clamp(250px,calc(36 * var(--vh)),320px);width:100%;
+  grid-template-columns:var(--qrw) minmax(0,1fr)!important;gap:clamp(24px,2.4vw,36px);align-items:stretch;justify-content:stretch}
+ section.s .qa.qa14 a.qr-slides{align-self:stretch;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:clamp(20px,calc(3 * var(--vh)),30px)}
+ section.s .qa.qa14 a.qr-slides img{width:100%;max-width:236px;height:auto}
+ section.s .qa.qa14 a.qr-slides>span{font-size:13px;margin-top:16px}
+ section.s .qa.qa14 a.qr-slides>small{font-size:14px}
+ section.s .qa.qa14 .qa-links.pane{display:grid;grid-template-columns:1fr 1fr;align-content:center;gap:clamp(18px,calc(2.8 * var(--vh)),28px) clamp(28px,3vw,52px);
+  padding:clamp(26px,calc(4 * var(--vh)),42px) clamp(32px,3.2vw,52px);font-size:clamp(16px,1.25vw,18px);line-height:1.55;max-width:none}
+ section.s .qa.qa14 .qa-intro,section.s .qa.qa14 .qa-foot{grid-column:1/-1}
+ section.s .qa.qa14 .qa-intro{font-family:var(--serif);font-size:1.3em;line-height:1.35;color:var(--ink)!important}
+ section.s .qa.qa14 .qa-url{font-size:1.18em;margin:0 0 8px;word-break:break-word}
+ section.s .qa.qa14 .qa-foot{padding-top:clamp(14px,calc(2 * var(--vh)),20px);border-top:1px solid var(--line);color:var(--muted)!important}
+}
+@media (max-width:700px){
+ section.s .qa.qa14 .qa-links.pane{display:grid;gap:18px;padding:22px 20px;font-size:16px;line-height:1.55}
+ section.s .qa.qa14 .qa-url{font-size:17px;margin:0 0 6px;word-break:break-word}
+ section.s .qa.qa14 .qa-intro{font-size:18px;color:var(--ink)!important}
+ section.s .qa.qa14 a.qr-slides span::after{content:"  \2192"}
+}
