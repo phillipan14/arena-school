@@ -1,0 +1,188 @@
+/* ===== Oct 10 · content slides (.ae, "assertion-evidence"): one grid for every slide after the title.
+   Tracker, action title, evidence, footnote. Same margins, same four type levels (decks/src/PRINCIPLES.md).
+   lay() in shared.js leaves these slides alone: the fixed rhythm below is the layout. ===== */
+
+/* title agenda: the same three section names as the tracker, each with one plain line under it */
+.title .agenda .t small{display:block;margin-top:6px;font:400 19px/1.35 var(--serif);color:#C9D6F2;letter-spacing:0}
+
+/* tracker: the three sections, the current one in a navy pill */
+.trk{display:flex;align-self:flex-start;gap:4px;list-style:none;margin:0;padding:4px;border-radius:999px;background:var(--pane)}
+.trk li{display:block;padding:9.5px 16px 7px;border-radius:999px;font:600 13px/1 var(--serif);letter-spacing:.13em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.trk li i{margin-right:9px;font:italic 400 15px/1 var(--serif);letter-spacing:0;text-transform:none;color:var(--ink2);position:relative;top:-1px}
+.trk li.on{background:var(--ink);color:var(--paper-hi)}
+.trk li.on i{color:#A9BEEA}
+:lang(zh-CN) .trk li{font-size:14.5px;letter-spacing:.06em;padding:8.5px 16px 8px}
+:lang(zh-CN) .trk li i{top:0}
+
+/* type: title 50, card heading 32, body 26, labels and sources 15 */
+.ae h2 em{font-style:italic}
+.lab{display:block;margin:0;font:600 15px/1.3 var(--serif);letter-spacing:.13em;text-transform:uppercase;color:var(--ink2)}
+:lang(zh-CN) .lab{font-size:16px;letter-spacing:.06em}
+.big{font:400 128px/.9 var(--serif);letter-spacing:-.035em;color:var(--ink2);font-variant-numeric:lining-nums tabular-nums;white-space:nowrap}
+.big small{display:block;margin:0 0 12px;font-size:30px;line-height:1.1;letter-spacing:-.005em;color:var(--ink)}
+.ae sup{font-size:.5em;line-height:0;vertical-align:.75em;margin-left:.12em;color:var(--ink2);font-weight:600;font-style:normal;letter-spacing:0}
+.ae .no{font:italic 400 44px/1 var(--serif);color:var(--ink2);letter-spacing:-.02em;margin:0 0 18px}
+.ae .pn{font-style:italic;color:var(--ink2)}
+:lang(zh-CN) .ae .pn{font-style:normal}
+
+/* footnote band: numbered short sources, the full list is the appendix */
+.fn{display:flex;flex-wrap:wrap;gap:3px 28px;margin:0;padding:11px 20px 10px;border-radius:var(--r);background:var(--pane);font:400 15px/1.45 var(--serif);color:var(--muted)}
+.fn b{font-weight:600;color:var(--ink2);margin-right:6px}
+
+/* logos: one row height, one centre line, monochrome navy, never stretched */
+.lr{display:flex;align-items:center;gap:18px;height:44px;flex:none}
+.brand{display:block;flex:none;width:auto;max-width:100%;object-fit:contain;
+ filter:brightness(0) invert(10%) sepia(40%) saturate(3800%) hue-rotate(218deg) brightness(82%);opacity:.9}
+.brand.xf{height:32px}.brand.aos{height:30px}.brand.hv{height:20px}.brand.jp{height:22px}.brand.gg{height:32px}
+.brand.an{height:19px}.brand.acc{height:31px}.brand.msft{height:27px}.brand.km{height:30px}
+.brand.sf{height:44px;filter:none;opacity:.9}
+.org{font:600 15px/1 var(--serif);letter-spacing:.13em;text-transform:uppercase;color:var(--ink)}
+:lang(zh-CN) .org{font-size:17px;letter-spacing:.06em}
+
+/* Chinese: break lines only at punctuation and spaces, so a word is never split across two lines */
+:lang(zh-CN) .ae h2,:lang(zh-CN) .ae .bd p,:lang(zh-CN) .ae .bd h3,:lang(zh-CN) .ae .bd dd,:lang(zh-CN) .ae .bd li,:lang(zh-CN) .ae .fn span{word-break:keep-all;overflow-wrap:anywhere}
+
+@media (min-width:701px){
+ section.s.ae>.w{min-height:calc(100 * var(--vh) - 2px);padding:40px 0 28px}
+ .ae h2{margin:30px 0 0;font-size:50px;line-height:1.12;letter-spacing:-.022em;max-width:25.5em}
+ :lang(zh-CN) .ae h2{font-size:46px;line-height:1.3;letter-spacing:0;max-width:25em}
+ .ae .bd{flex:1;display:flex;flex-direction:column;justify-content:center;gap:26px;padding:30px 0 24px}
+ .ae .bd p,.ae .bd li,.ae .bd dd{margin:0;font-size:26px;line-height:1.42;color:var(--text);text-wrap:pretty}
+ :lang(zh-CN) .ae .bd p,:lang(zh-CN) .ae .bd li,:lang(zh-CN) .ae .bd dd{line-height:1.55}
+ .ae .bd h3{margin:0;font:500 32px/1.2 var(--serif);letter-spacing:-.01em;color:var(--ink);text-wrap:balance}
+ :lang(zh-CN) .ae .bd h3{letter-spacing:0;line-height:1.3}
+
+ .cols{display:grid;gap:28px;align-items:stretch}
+ .c2{grid-template-columns:repeat(2,minmax(0,1fr))}.c3{grid-template-columns:repeat(3,minmax(0,1fr))}.c4{grid-template-columns:repeat(4,minmax(0,1fr))}
+ .ae .card{display:flex;flex-direction:column;padding:30px 30px 32px}
+ .ae .bd .pane{padding:30px 34px}
+ .ae .card>.lr{margin-bottom:24px}
+ .ae .take{margin:0}
+
+ /* paired rows inside a card (AI / Person, In class / At work) */
+ .pr{margin:22px 0 0;display:grid;gap:0}
+ .pr dt{padding-top:16px;border-top:1px solid var(--line)}
+ .pr dd{margin:6px 0 16px}
+ .pr dd:last-child{margin-bottom:0}
+ .pr dd.me{color:var(--ink);font-weight:500}
+
+ .ae .bd .pn{font-style:italic;color:var(--ink2)}
+ :lang(zh-CN) .ae .bd .pn{font-style:normal}
+
+ /* 3 · three ways */
+ .three .pane{display:flex;flex-direction:column;min-height:300px;padding:34px 38px 38px}
+ .three .no{font-size:64px;margin:0}
+ .three h3{margin:auto 0 12px!important}
+
+ /* 4 · stat panes: logo, number, line, then the evidence under it */
+ .stat2{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}
+ .stat2 .pane{display:flex;flex-direction:column;justify-content:center}
+ .stat2 .big{margin:30px 0 18px}
+ .bars{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:14px 18px;margin-top:30px;padding-top:24px;border-top:1px solid var(--line)}
+ .bars span{font-size:20px;color:var(--muted)}
+ .bars i{display:block;height:14px;border-radius:2px;background:linear-gradient(90deg,var(--c,#9FB0D6) var(--v),rgba(11,26,74,.07) var(--v))}
+ .bars b{font:500 22px/1 var(--serif);color:var(--muted);font-variant-numeric:tabular-nums}
+ .bars .on{color:var(--ink)}.bars i.on{--c:var(--ink2)}.bars b.on{color:var(--ink2)}
+
+ /* 5 · job cards */
+ .jobs .card h3{font-size:34px}
+ .jobs .pr dd{min-height:2.84em}
+
+ /* 6 · before / after: column heads once, then one row per job */
+ .ba{display:grid;grid-template-columns:270px minmax(0,1fr) 72px minmax(0,1fr);row-gap:22px;align-items:stretch}
+ .ba>.lab{padding:0 0 0 34px}
+ .ba>.lab.a{grid-column:4}.ba>.lab.b{grid-column:2}
+ .ba .who{display:flex;flex-direction:column;justify-content:center;gap:10px;padding-right:24px}
+ .ba .who .lr{height:36px}
+ .ba .who p{font-size:22px!important;color:var(--muted)!important;line-height:1.35!important}
+ .ba .pane,.ba .card{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;min-height:150px}
+ .ba .card p{color:var(--ink)}
+ .ar{display:grid;place-items:center}
+ .ar svg{width:40px;height:16px;fill:none;stroke:var(--ink2);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+ /* 7 · company cards with two facts each, and the calm counterweight underneath */
+ .cx ul{list-style:none;margin:20px 0 0;padding:0}
+ .cx li{padding:14px 0;border-top:1px solid var(--line)}
+ .cx li:last-child{padding-bottom:0}
+ .bump{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;column-gap:34px}
+ .bump .big{font-size:84px;line-height:.9}
+ .bump p{color:var(--ink)!important}
+
+ /* 8 · one hero number, two supporting rows */
+ .hero{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr)}
+ .hero>.pane{display:flex;flex-direction:column;justify-content:center}
+ .hero .big{margin:26px 0 18px}
+ .rows{display:flex;flex-direction:column;justify-content:center}
+ .rows>div{padding:28px 0}
+ .rows>div+div{border-top:1px solid var(--line)}
+ .rows>div:first-child{padding-top:0}.rows>div:last-child{padding-bottom:0}
+ .rows h3{margin:14px 0 8px!important}
+
+ /* 9 · pillars and the quote that closes them */
+ .pil h3{font-size:40px!important;margin-bottom:12px!important}
+ .pil .def{color:var(--ink)!important;font-weight:500;min-height:2.84em}
+ :lang(zh-CN) .pil .def{min-height:0}
+ .pil .aw{margin-top:auto!important;padding-top:18px;border-top:1px solid var(--line)}
+ .pil .def+.aw{margin-top:22px!important}
+ .pil .aw .lab{margin-bottom:6px}
+ .qb{display:flex;align-items:baseline;justify-content:space-between;gap:40px}
+ .qb .q{font-size:30px!important;line-height:1.3!important;color:var(--ink)!important;font-style:italic}
+ :lang(zh-CN) .qb .q{font-style:normal}
+ .qb>span{flex:none;font:italic 400 17px/1.4 var(--serif);color:var(--muted)}
+
+ /* 10 · three steps in order */
+ .who-row{display:flex;align-items:center;gap:20px}
+ .who-row .lr{height:36px}
+ .seq{list-style:none;margin:0;padding:0;gap:64px}
+ .seq li{position:relative}
+ .seq li+li::before{content:"";position:absolute;left:-52px;top:50%;width:40px;height:16px;margin-top:-8px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 16'%3E%3Cpath d='M1 8h36M31 2l6 6-6 6' fill='none' stroke='%232F55A8' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+ .seq h3{margin-bottom:10px!important}
+
+ /* 11 · habits, then the two findings that back them */
+ .hab h3{margin-bottom:12px!important}
+ .ev .pane{padding:22px 30px}
+ .ev .lab{margin-bottom:8px}
+ .ev b{font-weight:600;color:var(--ink2)}
+
+ /* 12 · student work */
+ .proj .card{padding:0;overflow:hidden}
+ .proj figure{margin:0;aspect-ratio:3/2;overflow:hidden;background:#C9D2EC;flex:none}
+ .proj figure img,.proj figure video{display:block;width:100%;height:100%;object-fit:cover}
+ .proj figure .vposter{display:none}
+ .proj .pb{display:flex;flex-direction:column;flex:1;padding:26px 30px 28px}
+ .proj .pb .lab{margin-bottom:10px}
+ .proj .pb .where{margin-top:auto!important;padding-top:14px;font:italic 400 17px/1.4 var(--serif)!important;color:var(--muted)!important}
+
+ /* speakers, Q&A, sources: same frame, their own bodies */
+ .ae .team{margin:0}
+ .ae .bd .team h3{font-size:28px;line-height:1.15;margin:0 0 6px}
+ .ae .bd .team .tag{font-size:15px;line-height:1.2}
+ .ae .bd .team .creds li{font-size:18px;line-height:1.45}
+ .ae .logos{margin:0}
+ .ae .qa{margin:0}
+ .ae .srcs{margin:0;column-count:2;column-gap:40px}
+ .ae .srcs li{break-inside:avoid;padding:7px 0;font-size:17px}
+ .ae .srcs li .src{font-size:14px}
+}
+
+.export .proj figure video{display:none}.export .proj figure .vposter{display:block}
+@media print{.proj figure video{display:none}.proj figure .vposter{display:block}}
+
+@media (max-width:700px){
+ .trk{flex-wrap:wrap;border-radius:16px}
+ .trk li{padding:7px 10px 6px;font-size:11px;letter-spacing:.08em}
+ .ae h2{margin-top:18px}
+ .ae .bd{display:flex;flex-direction:column;gap:14px;margin-top:22px}
+ .cols,.ba,.bump,.stat2,.hero{display:grid;grid-template-columns:1fr!important;gap:14px}
+ .ba>.lab{display:none}
+ .ar{height:24px}.ar svg{width:28px;height:12px;transform:rotate(90deg);fill:none;stroke:var(--ink2);stroke-width:1.8}
+ .big{font-size:64px}.bump .big{font-size:52px}
+ .lr{height:32px}
+ .ae .card,.ae .bd .pane{padding:18px 20px}
+ .seq li+li::before{display:none}
+ .pr dt{margin-top:12px}
+ .qb{display:block}.qb span{display:block;margin-top:8px}
+ .proj .card{padding:0}.proj .pb{padding:16px 18px}
+ .fn{margin-top:18px;padding:10px 14px;font-size:13px}
+}

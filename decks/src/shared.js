@@ -46,7 +46,7 @@ window.__close=close})();
    fit the screenshots to the height, then spread spare height into the gaps (type size never changes) */
 (function(){
 function lay(){var X=document.documentElement.classList.contains('export');if(matchMedia('(max-width:700px)').matches&&!X){[].forEach.call(document.querySelectorAll('#deck *'),function(e){if(e.style.minHeight)e.style.minHeight='';if(e.style.marginTop&&e.dataset&&e.dataset.mt!==undefined)e.style.marginTop='';if(e.style.marginBottom==='auto')e.style.marginBottom=''});return}
- S.forEach(function(s){var w=s.querySelector('.w');if(!w)return;var kids=[].slice.call(w.children);
+ S.forEach(function(s){var w=s.querySelector('.w');if(!w||s.classList.contains('ae'))return;var kids=[].slice.call(w.children);
   kids.forEach(function(k){k.style.marginTop='';k.style.marginBottom=''});w.style.minHeight='';w.style.paddingTop=w.style.paddingBottom='';
   var RG=[].slice.call(s.querySelectorAll('.pillars,.habits'));RG.forEach(function(g){[].forEach.call(g.children,function(c){c.style.minHeight=''})});
   var vx=s.querySelector('.vx');if(vx){vx.style.removeProperty('--vw');

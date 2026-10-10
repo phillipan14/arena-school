@@ -559,55 +559,6 @@ section.s.title .xqr img{background:transparent;border-radius:0}
 /* s03: bold lead-in phrase on "first job" slide, matching the CN .q emphasis (ink, 600) */
 .ask .askbody .lede b{font-weight:600;color:var(--ink)}
 
-/* ---- s04.css ---- */
-/* s04: four jobs, 2 × 2. Tighter card padding so the grid still fits 1080; type stays at the deck scale.
-   The source sits at the foot of each card. */
-section.s04 .jobs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:clamp(14px,calc(1.8 * var(--vh)),20px)}
-section.s04 .card{display:flex;flex-direction:column;padding:14px 18px 12px}
-section.s04 .card .k{margin-bottom:6px}
-section.s04 .card h3{margin:0 0 6px}
-section.s04 .card .src{margin-top:auto;padding-top:8px}
-section.s04 .foot{margin-top:12px}
-section.s04 .eg,section.s-hire .eg,section.s-want .eg,section.s06 .eg{display:flex;align-items:center;gap:8px;margin:10px 0 0;flex-wrap:wrap}
-section.s04 .eg span,section.s-hire .eg span,section.s-want .eg span{font:italic 13.5px/1.35 var(--serif);color:var(--muted)}
-.kh{display:flex;align-items:center;gap:10px;margin-bottom:8px}
-.kh .k{margin:0}
-.brand{display:block;height:18px;width:auto;max-width:148px;flex:none;object-fit:contain;object-position:left center;filter:grayscale(1);opacity:.82}
-.brand.sf{height:26px}
-.brand.xf{height:22px}
-.brand.ms{height:16px}
-.brand.km{height:14px}
-.brand.an{height:15px;max-width:180px}
-
-/* Framing, macro, and before/after: same card rhythm as the job cards. */
-section.s-show .grid,section.s-macro .grid,section.s-day .grid{margin-top:clamp(14px,calc(1.8 * var(--vh)),20px);gap:14px}
-section.s-show .card,section.s-macro .card,section.s-day .card{display:flex;flex-direction:column;padding:16px 18px 14px}
-section.s-show .card .k,section.s-macro .card .k,section.s-day .card .k{margin-bottom:8px}
-section.s-show .card h3,section.s-macro .card h3,section.s-day .card h3{margin:0 0 8px}
-section.s-macro .num{margin:2px 0 10px}
-section.s-macro .num.sm{font-size:clamp(32px,2.8vw,46px);line-height:1.05}
-section.s-macro .card .src,section.s-day .card .src{margin-top:auto;padding-top:8px}
-section.s-macro .foot,section.s-day .foot{margin-top:12px}
-section.s-day .ba{display:grid;grid-template-columns:1fr 1.15fr;gap:10px;margin-top:4px}
-section.s-day .ba>div{border-radius:8px;padding:12px 14px;background:rgba(11,26,74,.04)}
-section.s-day .ba>div+div{background:rgba(47,85,168,.08)}
-section.s-day .ba .k{margin-bottom:6px}
-section.s-day .ba p{margin:0}
-section.s-lessons .foot{margin-top:12px}
-@media(max-width:900px){section.s-day .ba{grid-template-columns:1fr}}
-
-/* Hiring and employer-survey slides: same card scale, slightly tighter rhythm. */
-section.s-hire .grid,section.s-want .grid{margin-top:clamp(14px,calc(1.8 * var(--vh)),20px);gap:14px}
-section.s-hire .card,section.s-want .card{display:flex;flex-direction:column;padding:14px 18px 12px}
-section.s-hire .card .k,section.s-want .card .k{margin-bottom:6px}
-section.s-hire .card h3,section.s-want .card h3{margin:0 0 6px}
-section.s-hire .card .src,section.s-want .card .src{margin-top:auto;padding-top:8px}
-section.s-hire .foot,section.s-want .foot{margin-top:12px}
-
-/* Sources grew with the career section. Two columns, same type size. */
-section.s-src .srcs{column-count:2;column-gap:36px;margin-top:clamp(14px,calc(2 * var(--vh)),22px)}
-section.s-src .srcs li{break-inside:avoid;-webkit-column-break-inside:avoid;padding:8px 0}
-
 /* ---- s05.css ---- */
 /* s05 · center each big number between the card's left border and the divider.
    The card's left padding and the column gap move into the number's own box (same total width,
@@ -624,13 +575,6 @@ section.s-src .srcs li{break-inside:avoid;-webkit-column-break-inside:avoid;padd
  section.s05 .card.stat.h:nth-child(2) .num{position:relative;left:-.04em}
 }
 
-/* ---- s06.css ---- */
-/* s06: "Candidates now show what they can do" — balanced label wrap, no orphan words */
-section.s06 .k{text-wrap:balance}
-section.s06 .k .nw{white-space:nowrap}
-/* keep the brand name as "Kimi" in the Chinese label (no Latin caps in CN) */
-:lang(zh-CN) section.s06 .k{text-transform:none}
-
 /* ---- s07.css ---- */
 /* s07 · slides 7-9: the "See it live" pill sits on the chip's vertical midline, its text centered inside */
 section.s .chiprow{align-items:center}
@@ -640,12 +584,6 @@ section.s .chiprow>a.live>span:not(.url){display:block}
 section.s .chiprow>a.live>.url{display:block}
 @media (max-width:700px){section.s .chiprow>a.live>.url{display:none}}
 section.s .chiprow>a.live .ar{line-height:1}
-
-/* ---- s13.css ---- */
-/* s13 · "Small things families can do alongside school" pill: text optically centered
-   (caps sat high: more padding on top, less below; trailing letter-spacing removed from the right side) */
-section.s.fb-home .glabel{padding:13px calc(18px - .15em) 9px 18px}
-:lang(zh-CN) section.s.fb-home .glabel{padding:12px calc(18px - .06em) 10px 18px}
 
 /* ---- s14.css ---- */
 /* s14 · Q&A: the QR opens today's slides (/talk); the card beside it lists everything from today.
@@ -740,6 +678,196 @@ section.s.title .chip::before{position:relative;top:-1.9px}
 /* Chinese has no italic: emphasis stays upright (color + marker carry it) */
 :lang(zh-CN) em{font-style:normal}
 
+/* ---- s30-system.css ---- */
+/* ===== Oct 10 · content slides (.ae, "assertion-evidence"): one grid for every slide after the title.
+   Tracker, action title, evidence, footnote. Same margins, same four type levels (decks/src/PRINCIPLES.md).
+   lay() in shared.js leaves these slides alone: the fixed rhythm below is the layout. ===== */
+
+/* title agenda: the same three section names as the tracker, each with one plain line under it */
+.title .agenda .t small{display:block;margin-top:6px;font:400 19px/1.35 var(--serif);color:#C9D6F2;letter-spacing:0}
+
+/* tracker: the three sections, the current one in a navy pill */
+.trk{display:flex;align-self:flex-start;gap:4px;list-style:none;margin:0;padding:4px;border-radius:999px;background:var(--pane)}
+.trk li{display:block;padding:9.5px 16px 7px;border-radius:999px;font:600 13px/1 var(--serif);letter-spacing:.13em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.trk li i{margin-right:9px;font:italic 400 15px/1 var(--serif);letter-spacing:0;text-transform:none;color:var(--ink2);position:relative;top:-1px}
+.trk li.on{background:var(--ink);color:var(--paper-hi)}
+.trk li.on i{color:#A9BEEA}
+:lang(zh-CN) .trk li{font-size:14.5px;letter-spacing:.06em;padding:8.5px 16px 8px}
+:lang(zh-CN) .trk li i{top:0}
+
+/* type: title 50, card heading 32, body 26, labels and sources 15 */
+.ae h2 em{font-style:italic}
+.lab{display:block;margin:0;font:600 15px/1.3 var(--serif);letter-spacing:.13em;text-transform:uppercase;color:var(--ink2)}
+:lang(zh-CN) .lab{font-size:16px;letter-spacing:.06em}
+.big{font:400 128px/.9 var(--serif);letter-spacing:-.035em;color:var(--ink2);font-variant-numeric:lining-nums tabular-nums;white-space:nowrap}
+.big small{display:block;margin:0 0 12px;font-size:30px;line-height:1.1;letter-spacing:-.005em;color:var(--ink)}
+.ae sup{font-size:.5em;line-height:0;vertical-align:.75em;margin-left:.12em;color:var(--ink2);font-weight:600;font-style:normal;letter-spacing:0}
+.ae .no{font:italic 400 44px/1 var(--serif);color:var(--ink2);letter-spacing:-.02em;margin:0 0 18px}
+.ae .pn{font-style:italic;color:var(--ink2)}
+:lang(zh-CN) .ae .pn{font-style:normal}
+
+/* footnote band: numbered short sources, the full list is the appendix */
+.fn{display:flex;flex-wrap:wrap;gap:3px 28px;margin:0;padding:11px 20px 10px;border-radius:var(--r);background:var(--pane);font:400 15px/1.45 var(--serif);color:var(--muted)}
+.fn b{font-weight:600;color:var(--ink2);margin-right:6px}
+
+/* logos: one row height, one centre line, monochrome navy, never stretched */
+.lr{display:flex;align-items:center;gap:18px;height:44px;flex:none}
+.brand{display:block;flex:none;width:auto;max-width:100%;object-fit:contain;
+ filter:brightness(0) invert(10%) sepia(40%) saturate(3800%) hue-rotate(218deg) brightness(82%);opacity:.9}
+.brand.xf{height:32px}.brand.aos{height:30px}.brand.hv{height:20px}.brand.jp{height:22px}.brand.gg{height:32px}
+.brand.an{height:19px}.brand.acc{height:31px}.brand.msft{height:27px}.brand.km{height:30px}
+.brand.sf{height:44px;filter:none;opacity:.9}
+.org{font:600 15px/1 var(--serif);letter-spacing:.13em;text-transform:uppercase;color:var(--ink)}
+:lang(zh-CN) .org{font-size:17px;letter-spacing:.06em}
+
+/* Chinese: break lines only at punctuation and spaces, so a word is never split across two lines */
+:lang(zh-CN) .ae h2,:lang(zh-CN) .ae .bd p,:lang(zh-CN) .ae .bd h3,:lang(zh-CN) .ae .bd dd,:lang(zh-CN) .ae .bd li,:lang(zh-CN) .ae .fn span{word-break:keep-all;overflow-wrap:anywhere}
+
+@media (min-width:701px){
+ section.s.ae>.w{min-height:calc(100 * var(--vh) - 2px);padding:40px 0 28px}
+ .ae h2{margin:30px 0 0;font-size:50px;line-height:1.12;letter-spacing:-.022em;max-width:25.5em}
+ :lang(zh-CN) .ae h2{font-size:46px;line-height:1.3;letter-spacing:0;max-width:25em}
+ .ae .bd{flex:1;display:flex;flex-direction:column;justify-content:center;gap:26px;padding:30px 0 24px}
+ .ae .bd p,.ae .bd li,.ae .bd dd{margin:0;font-size:26px;line-height:1.42;color:var(--text);text-wrap:pretty}
+ :lang(zh-CN) .ae .bd p,:lang(zh-CN) .ae .bd li,:lang(zh-CN) .ae .bd dd{line-height:1.55}
+ .ae .bd h3{margin:0;font:500 32px/1.2 var(--serif);letter-spacing:-.01em;color:var(--ink);text-wrap:balance}
+ :lang(zh-CN) .ae .bd h3{letter-spacing:0;line-height:1.3}
+
+ .cols{display:grid;gap:28px;align-items:stretch}
+ .c2{grid-template-columns:repeat(2,minmax(0,1fr))}.c3{grid-template-columns:repeat(3,minmax(0,1fr))}.c4{grid-template-columns:repeat(4,minmax(0,1fr))}
+ .ae .card{display:flex;flex-direction:column;padding:30px 30px 32px}
+ .ae .bd .pane{padding:30px 34px}
+ .ae .card>.lr{margin-bottom:24px}
+ .ae .take{margin:0}
+
+ /* paired rows inside a card (AI / Person, In class / At work) */
+ .pr{margin:22px 0 0;display:grid;gap:0}
+ .pr dt{padding-top:16px;border-top:1px solid var(--line)}
+ .pr dd{margin:6px 0 16px}
+ .pr dd:last-child{margin-bottom:0}
+ .pr dd.me{color:var(--ink);font-weight:500}
+
+ .ae .bd .pn{font-style:italic;color:var(--ink2)}
+ :lang(zh-CN) .ae .bd .pn{font-style:normal}
+
+ /* 3 · three ways */
+ .three .pane{display:flex;flex-direction:column;min-height:300px;padding:34px 38px 38px}
+ .three .no{font-size:64px;margin:0}
+ .three h3{margin:auto 0 12px!important}
+
+ /* 4 · stat panes: logo, number, line, then the evidence under it */
+ .stat2{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}
+ .stat2 .pane{display:flex;flex-direction:column;justify-content:center}
+ .stat2 .big{margin:30px 0 18px}
+ .bars{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:14px 18px;margin-top:30px;padding-top:24px;border-top:1px solid var(--line)}
+ .bars span{font-size:20px;color:var(--muted)}
+ .bars i{display:block;height:14px;border-radius:2px;background:linear-gradient(90deg,var(--c,#9FB0D6) var(--v),rgba(11,26,74,.07) var(--v))}
+ .bars b{font:500 22px/1 var(--serif);color:var(--muted);font-variant-numeric:tabular-nums}
+ .bars .on{color:var(--ink)}.bars i.on{--c:var(--ink2)}.bars b.on{color:var(--ink2)}
+
+ /* 5 · job cards */
+ .jobs .card h3{font-size:34px}
+ .jobs .pr dd{min-height:2.84em}
+
+ /* 6 · before / after: column heads once, then one row per job */
+ .ba{display:grid;grid-template-columns:270px minmax(0,1fr) 72px minmax(0,1fr);row-gap:22px;align-items:stretch}
+ .ba>.lab{padding:0 0 0 34px}
+ .ba>.lab.a{grid-column:4}.ba>.lab.b{grid-column:2}
+ .ba .who{display:flex;flex-direction:column;justify-content:center;gap:10px;padding-right:24px}
+ .ba .who .lr{height:36px}
+ .ba .who p{font-size:22px!important;color:var(--muted)!important;line-height:1.35!important}
+ .ba .pane,.ba .card{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;min-height:150px}
+ .ba .card p{color:var(--ink)}
+ .ar{display:grid;place-items:center}
+ .ar svg{width:40px;height:16px;fill:none;stroke:var(--ink2);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+ /* 7 · company cards with two facts each, and the calm counterweight underneath */
+ .cx ul{list-style:none;margin:20px 0 0;padding:0}
+ .cx li{padding:14px 0;border-top:1px solid var(--line)}
+ .cx li:last-child{padding-bottom:0}
+ .bump{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;column-gap:34px}
+ .bump .big{font-size:84px;line-height:.9}
+ .bump p{color:var(--ink)!important}
+
+ /* 8 · one hero number, two supporting rows */
+ .hero{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr)}
+ .hero>.pane{display:flex;flex-direction:column;justify-content:center}
+ .hero .big{margin:26px 0 18px}
+ .rows{display:flex;flex-direction:column;justify-content:center}
+ .rows>div{padding:28px 0}
+ .rows>div+div{border-top:1px solid var(--line)}
+ .rows>div:first-child{padding-top:0}.rows>div:last-child{padding-bottom:0}
+ .rows h3{margin:14px 0 8px!important}
+
+ /* 9 · pillars and the quote that closes them */
+ .pil h3{font-size:40px!important;margin-bottom:12px!important}
+ .pil .def{color:var(--ink)!important;font-weight:500;min-height:2.84em}
+ :lang(zh-CN) .pil .def{min-height:0}
+ .pil .aw{margin-top:auto!important;padding-top:18px;border-top:1px solid var(--line)}
+ .pil .def+.aw{margin-top:22px!important}
+ .pil .aw .lab{margin-bottom:6px}
+ .qb{display:flex;align-items:baseline;justify-content:space-between;gap:40px}
+ .qb .q{font-size:30px!important;line-height:1.3!important;color:var(--ink)!important;font-style:italic}
+ :lang(zh-CN) .qb .q{font-style:normal}
+ .qb>span{flex:none;font:italic 400 17px/1.4 var(--serif);color:var(--muted)}
+
+ /* 10 · three steps in order */
+ .who-row{display:flex;align-items:center;gap:20px}
+ .who-row .lr{height:36px}
+ .seq{list-style:none;margin:0;padding:0;gap:64px}
+ .seq li{position:relative}
+ .seq li+li::before{content:"";position:absolute;left:-52px;top:50%;width:40px;height:16px;margin-top:-8px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 16'%3E%3Cpath d='M1 8h36M31 2l6 6-6 6' fill='none' stroke='%232F55A8' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+ .seq h3{margin-bottom:10px!important}
+
+ /* 11 · habits, then the two findings that back them */
+ .hab h3{margin-bottom:12px!important}
+ .ev .pane{padding:22px 30px}
+ .ev .lab{margin-bottom:8px}
+ .ev b{font-weight:600;color:var(--ink2)}
+
+ /* 12 · student work */
+ .proj .card{padding:0;overflow:hidden}
+ .proj figure{margin:0;aspect-ratio:3/2;overflow:hidden;background:#C9D2EC;flex:none}
+ .proj figure img,.proj figure video{display:block;width:100%;height:100%;object-fit:cover}
+ .proj figure .vposter{display:none}
+ .proj .pb{display:flex;flex-direction:column;flex:1;padding:26px 30px 28px}
+ .proj .pb .lab{margin-bottom:10px}
+ .proj .pb .where{margin-top:auto!important;padding-top:14px;font:italic 400 17px/1.4 var(--serif)!important;color:var(--muted)!important}
+
+ /* speakers, Q&A, sources: same frame, their own bodies */
+ .ae .team{margin:0}
+ .ae .bd .team h3{font-size:28px;line-height:1.15;margin:0 0 6px}
+ .ae .bd .team .tag{font-size:15px;line-height:1.2}
+ .ae .bd .team .creds li{font-size:18px;line-height:1.45}
+ .ae .logos{margin:0}
+ .ae .qa{margin:0}
+ .ae .srcs{margin:0;column-count:2;column-gap:40px}
+ .ae .srcs li{break-inside:avoid;padding:7px 0;font-size:17px}
+ .ae .srcs li .src{font-size:14px}
+}
+
+.export .proj figure video{display:none}.export .proj figure .vposter{display:block}
+@media print{.proj figure video{display:none}.proj figure .vposter{display:block}}
+
+@media (max-width:700px){
+ .trk{flex-wrap:wrap;border-radius:16px}
+ .trk li{padding:7px 10px 6px;font-size:11px;letter-spacing:.08em}
+ .ae h2{margin-top:18px}
+ .ae .bd{display:flex;flex-direction:column;gap:14px;margin-top:22px}
+ .cols,.ba,.bump,.stat2,.hero{display:grid;grid-template-columns:1fr!important;gap:14px}
+ .ba>.lab{display:none}
+ .ar{height:24px}.ar svg{width:28px;height:12px;transform:rotate(90deg);fill:none;stroke:var(--ink2);stroke-width:1.8}
+ .big{font-size:64px}.bump .big{font-size:52px}
+ .lr{height:32px}
+ .ae .card,.ae .bd .pane{padding:18px 20px}
+ .seq li+li::before{display:none}
+ .pr dt{margin-top:12px}
+ .qb{display:block}.qb span{display:block;margin-top:8px}
+ .proj .card{padding:0}.proj .pb{padding:16px 18px}
+ .fn{margin-top:18px;padding:10px 14px;font-size:13px}
+}
+
 /* ---- snum.css ---- */
 /* slide numbers (snum): quiet folio in the bottom-right gutter of every slide except the title */
 section.s>.pgno{position:absolute;right:24px;bottom:16px;z-index:3;pointer-events:none;user-select:none;
@@ -760,184 +888,206 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <nav class="agenda pane r" style="--d:.4s" aria-label="目录">
    <div class="k">今天聊什么</div>
    <ol>
-    <li><a href="#" data-go="2"><span class="n">01</span><span class="t"><span class="nw">AI已经怎样改变工作</span></span></a></li>
-    <li><a href="#" data-go="7"><span class="n">02</span><span class="t"><span class="nw">雇主真正看重哪些能力</span></span></a></li>
-    <li><a href="#" data-go="10"><span class="n">03</span><span class="t"><span class="nw">家里可以先做些什么</span></span></a></li>
+    <li><a href="#" data-go="2"><span class="n">01</span><span class="t">工作在怎么变<small>AI已经怎样改变工作</small></span></a></li>
+    <li><a href="#" data-go="7"><span class="n">02</span><span class="t">哪些能力重要<small>雇主现在看重什么</small></span></a></li>
+    <li><a href="#" data-go="10"><span class="n">03</span><span class="t">家长能做什么<small>家里的小习惯，和学生的作品</small></span></a></li>
    </ol>
   </nav>
  </div>
 </div></section>
 
 <!-- 2 · The speakers -->
-<section class="s alt"><div class="w">
- <div class="chip r">主讲人</div>
- <h2 class="r" style="--d:.1s">今天在场的<em>两位联合创始人。</em></h2>
- <div class="team r" style="--d:.3s">
+<section class="s alt ae"><div class="w">
+ <ol class="trk r"><li class="on">主讲人</li></ol>
+ <h2 class="r" style="--d:.1s">两位联合创始人，<em>在招聘、工作和课堂里</em>亲眼看到AI带来的变化。</h2>
+ <div class="bd r" style="--d:.25s">
+ <div class="team">
   <div class="person"><img src="/photos/jing-jing-yang.jpg" alt=""><div class="who"><h3>羊筱涵<span class="xn">Jing Jing Yang</span></h3><div class="co">Arena School 联合创始人</div><p class="tag">ISB 2019届</p></div>
    <ul class="creds"><li>小学至高中毕业就读 ISB · 布朗大学（经济学与行为决策科学）· 清华大学（苏世民学者）</li><li><b>为多家中国初创公司提供出海战略咨询；</b>Kimi（月之暗面）；与微软 AI合作研究。</li><li>苹果 · 德勤 · 中金公司</li></ul></div>
   <div class="person"><img src="/photos/phillip-an.jpg" alt=""><div class="who"><h3>安广宁<span class="xn">Phillip An</span></h3><div class="co">Arena School 联合创始人</div><p class="tag">福布斯30U30</p></div>
    <ul class="creds"><li>加州理工学院（计算机科学）· 哈佛大学（MBA、理学硕士）· 清华大学（苏世民学者）</li><li><b>连续创业者：</b>目前在做一家 AI 初创公司；上一家公司获 Y Combinator 投资。</li><li>高盛 · 麦肯锡</li></ul></div>
  </div>
- <div class="logos r" style="--d:.45s"><img class="arena" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School" style="height:23px"><img src="/logos/cred/caltech.png" alt="Caltech" style="height:19px"><img src="/logos/cred/harvard.png" alt="Harvard" style="height:21px"><img src="/logos/cred/brown.png" alt="Brown" style="height:23px"><img src="/logos/cred/tsinghua-lockup.png" alt="Tsinghua" style="height:23px"><img src="/logos/cred/goldman.png" alt="Goldman Sachs" style="height:21px"><img src="/logos/cred/mckinsey.png" alt="McKinsey" style="height:14px"><img src="/logos/cred/deloitte.png" alt="Deloitte" style="height:15px"><img src="/logos/cred/apple.png" alt="Apple" style="height:21px"><img src="/logos/cred/cicc.png" alt="CICC" style="height:20px"><img src="/logos/cred/microsoft-ai.png" alt="Microsoft AI" style="height:18px"><img src="/logos/cred/yc.png" alt="Y Combinator" style="height:20px"><img src="/logos/cred/kimi-wordmark.png" alt="Kimi" style="height:14px"></div>
-</div></section>
-
-<!-- 3 · How it shows up -->
-<section class="s s-show"><div class="w">
- <div class="chip r">01 · 这个变化</div>
- <h2 class="r" style="--d:.1s">AI已经在改变<span class="m" style="--d:.7s"><em>工作本身。</em></span></h2>
- <div class="grid g3">
-  <div class="card r" style="--d:.2s"><div class="k">在一件事上</div><h3>先有一份草稿。</h3><p>病历、合同或一段代码，可以先从草稿开始。留下什么，还是人来定。</p></div>
-  <div class="card r" style="--d:.32s"><div class="k">在一天里</div><h3>同一件事，做法变了。</h3><p>工具先出现在一天里反复要做的那些事上。结果对不对，还是人来核对。</p></div>
-  <div class="card r" style="--d:.44s"><div class="k">在团队里</div><h3>这也体现在谁能留下。</h3><p>雇主开始在招聘里要这项能力，团队里留下谁，也会看这个。</p></div>
+ <div class="logos"><img class="arena" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School" style="height:23px"><img src="/logos/cred/caltech.png" alt="Caltech" style="height:19px"><img src="/logos/cred/harvard.png" alt="Harvard" style="height:21px"><img src="/logos/cred/brown.png" alt="Brown" style="height:23px"><img src="/logos/cred/tsinghua-lockup.png" alt="Tsinghua" style="height:23px"><img src="/logos/cred/goldman.png" alt="Goldman Sachs" style="height:21px"><img src="/logos/cred/mckinsey.png" alt="McKinsey" style="height:14px"><img src="/logos/cred/deloitte.png" alt="Deloitte" style="height:15px"><img src="/logos/cred/apple.png" alt="Apple" style="height:21px"><img src="/logos/cred/cicc.png" alt="CICC" style="height:20px"><img src="/logos/cred/microsoft-ai.png" alt="Microsoft AI" style="height:18px"><img src="/logos/cred/yc.png" alt="Y Combinator" style="height:20px"><img src="/logos/cred/kimi-wordmark.png" alt="Kimi" style="height:14px"></div>
  </div>
 </div></section>
 
-<!-- 4 · How wide -->
-<section class="s alt s-macro"><div class="w">
- <div class="chip r">01 · 有多广</div>
- <h2 class="r" style="--d:.1s">这个变化已经落到<span class="m" style="--d:.7s"><em>大约一半的工作里。</em></span></h2>
- <div class="grid g2">
-  <div class="card r" style="--d:.25s"><div class="kh"><img class="brand an" src="/logos/deck/anthropic.svg" alt="Anthropic"><div class="k">Anthropic</div></div><div class="num">49%</div><p>的职业里，至少四分之一的任务已经出现过AI的使用，比第一份报告里的36%更高。</p><span class="src">2026年1月15日。2026年3月24日的更新里，这个比例几乎没再变。</span></div>
-  <div class="card r" style="--d:.4s"><div class="kh"><img class="brand an" src="/logos/deck/anthropic.svg" alt="Anthropic"><div class="k">Claude 用户</div></div><div class="num sm">超过三分之一</div><p>的人预计，一年之内，AI能完成自己的大部分任务。</p><span class="src">约9700名 Claude 用户，2026年6月26日发布。</span></div>
- </div>
- <p class="foot pane take r" style="--d:.55s">这统计的是人们拿去用 Claude 的任务，不是对每个劳动者的普查。<b>变化已经很广。但还不是每一份工作。</b></p>
+<!-- 3 · Three ways -->
+<section class="s ae"><div class="w">
+ <ol class="trk r" aria-label="三个部分"><li class="on"><i>01</i>工作在怎么变</li><li><i>02</i>哪些能力重要</li><li><i>03</i>家长能做什么</li></ol>
+ <h2 class="r" style="--d:.1s">AI已经从三个方面改变工作：<em>覆盖面、具体任务和团队。</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="cols c3 three">
+  <div class="pane"><div class="no">01</div><h3>覆盖面</h3><p>大约一半的职业，已经有一部分工作在用AI。</p></div>
+  <div class="pane"><div class="no">02</div><h3>具体任务</h3><p>AI先做第一遍，由人核对、拿主意。</p></div>
+  <div class="pane"><div class="no">03</div><h3>团队</h3><p>有的团队在缩小；接受再培训的人转到新岗位。</p></div>
+ </div></div>
 </div></section>
 
-<!-- 5 · The jobs -->
-<section class="s s04"><div class="w">
- <div class="chip r">01 · 这些职业</div>
- <h2 class="r" style="--d:.1s">家长熟悉的四份工作。<span class="m" style="--d:.7s"><em>决定的还是人。</em></span></h2>
- <div class="jobs">
-  <div class="card r" style="--d:.2s"><div class="k">医生</div><h3>病历可以先有一份草稿。</h3><p>一次看诊，可以先变成一份草稿。医生决定留下什么。</p><p class="eg"><img class="brand xf" src="/logos/deck/xunfei-healthcare.png" alt="讯飞医疗"><span>合肥一家医院，和讯飞医疗一起做的。</span></p><span class="src">安徽医科大学第一附属医院, June 4, 2025</span></div>
-  <div class="card r" style="--d:.28s"><div class="k">律师</div><h3>合同可以先放在一起比。</h3><p>工具能把几份协议对到一起。律师还是要自己核对。</p><p class="eg"><img class="brand" src="/logos/deck/aoshearman.svg" alt="A&amp;O Shearman"><img class="brand" src="/logos/deck/harvey.svg" alt="Harvey"><span>A&amp;O Shearman，用的是 Harvey。</span></p><span class="src">A&amp;O Shearman, April 6, 2025</span></div>
-  <div class="card r" style="--d:.36s"><div class="k">金融</div><h3>起草，也用来想点子。</h3><p>同事用银行自己的工具起草，也用它想点子。结果还是人来负责。</p><p class="eg"><img class="brand" src="/logos/deck/jpmorgan.svg" alt="摩根大通"><span>摩根大通的 LLM Suite。</span></p><span class="src">JPMorganChase, June 3, 2025</span></div>
-  <div class="card r" style="--d:.44s"><div class="k">工程师</div><h3>先有一条建议，再由人决定。</h3><p>工具提出代码。工程师决定留不留。</p><p class="eg"><img class="brand gg" src="/logos/deck/google.svg" alt="Google"><span>在谷歌。</span></p><span class="src">Alphabet earnings call, April 24, 2025</span></div>
- </div>
+<!-- 4 · Reach -->
+<section class="s alt ae"><div class="w">
+ <ol class="trk r" aria-label="三个部分"><li class="on"><i>01</i>工作在怎么变</li><li><i>02</i>哪些能力重要</li><li><i>03</i>家长能做什么</li></ol>
+ <h2 class="r" style="--d:.1s">AI已经出现在<em>大约一半的职业里，</em>用户还预计很快会更多。</h2>
+ <div class="bd r" style="--d:.25s"><div class="cols stat2">
+  <div class="pane"><div class="lr"><img class="brand an" src="/logos/deck/anthropic.svg" alt="Anthropic"></div><div class="big">49%</div><p>的职业里，至少四分之一的任务已经用过AI。<sup>1</sup></p>
+   <div class="bars"><span>第一份报告</span><i style="--v:36%"></i><b>36%</b><span class="on">2026年1月</span><i class="on" style="--v:49%"></i><b class="on">49%</b></div></div>
+  <div class="pane"><div class="lr"><img class="brand an" src="/logos/deck/anthropic.svg" alt="Anthropic"></div><div class="big"><small>超过</small>三分之一</div><p>的 Claude 用户预计，一年之内AI就能完成自己的大部分任务。<sup>2</sup></p></div>
+ </div></div>
+ <p class="fn r" style="--d:.35s"><span><b>1</b>Anthropic 经济指数，2026年1月15日；2026年3月24日更新时变化不大。统计的是人们使用 Claude 的情况，不是对所有劳动者的普查。</span><span><b>2</b>Anthropic 对约9700名 Claude 用户的调查，2026年6月26日。</span></p>
 </div></section>
 
-<!-- 6 · Before and after -->
-<section class="s alt s-day"><div class="w">
- <div class="chip r">01 · 工作日里</div>
- <h2 class="r" style="--d:.1s">一天里的一件事，<span class="m" style="--d:.7s"><em>之前和之后。</em></span></h2>
- <div class="grid g2">
-  <div class="card r" style="--d:.25s"><div class="kh"><img class="brand xf" src="/logos/deck/xunfei-healthcare.png" alt="讯飞医疗"><div class="k">医生</div></div><h3>看诊之后的那份病历。</h3><div class="ba"><div><div class="k">之前</div><p>医生自己手写病历。</p></div><div><div class="k">之后</div><p>看诊先变成一份草稿，推理过程也摆出来。医生决定留下什么。</p></div></div><span class="src">安徽医科大学第一附属医院, with 讯飞医疗, June 4, 2025</span></div>
-  <div class="card r" style="--d:.4s"><div class="kh"><img class="brand" src="/logos/deck/aoshearman.svg" alt="A&amp;O Shearman"><img class="brand" src="/logos/deck/harvey.svg" alt="Harvey"><div class="k">律师</div></div><h3>把贷款合同放在一起比。</h3><div class="ba"><div><div class="k">之前</div><p>律师一份一份自己看。</p></div><div><div class="k">之后</div><p>工具把合同对到一起，并把要点提出来。<span class="nw">律师</span>还是要自己核对。</p></div></div><span class="src">A&amp;O Shearman, with Harvey, April 6, 2025</span></div>
- </div>
+<!-- 5 · Tasks: four jobs -->
+<section class="s ae"><div class="w">
+ <ol class="trk r" aria-label="三个部分"><li class="on"><i>01</i>工作在怎么变</li><li><i>02</i>哪些能力重要</li><li><i>03</i>家长能做什么</li></ol>
+ <h2 class="r" style="--d:.1s">在四份熟悉的工作里，AI先做第一遍，<em>拿主意的还是人。</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="cols c4 jobs">
+  <div class="card"><div class="lr"><img class="brand xf" src="/logos/deck/xunfei-healthcare.png" alt="讯飞医疗"></div><h3>医疗<sup>1</sup></h3>
+   <dl class="pr"><dt class="lab">AI</dt><dd>起草病历</dd><dt class="lab">人</dt><dd class="me">决定留下什么</dd></dl></div>
+  <div class="card"><div class="lr"><img class="brand aos" src="/logos/deck/aoshearman.svg" alt="A&amp;O Shearman"><img class="brand hv" src="/logos/deck/harvey.svg" alt="Harvey"></div><h3>法律<sup>2</sup></h3>
+   <dl class="pr"><dt class="lab">AI</dt><dd>比对协议</dd><dt class="lab">人</dt><dd class="me">核对结果</dd></dl></div>
+  <div class="card"><div class="lr"><img class="brand jp" src="/logos/deck/jpmorgan.svg" alt="摩根大通"></div><h3>金融<sup>3</sup></h3>
+   <dl class="pr"><dt class="lab">AI</dt><dd>起草文稿、出主意</dd><dt class="lab">人</dt><dd class="me">对结果负责</dd></dl></div>
+  <div class="card"><div class="lr"><img class="brand gg" src="/logos/deck/google.svg" alt="Google"></div><h3>工程<sup>4</sup></h3>
+   <dl class="pr"><dt class="lab">AI</dt><dd>建议代码</dd><dt class="lab">人</dt><dd class="me">决定用不用</dd></dl></div>
+ </div></div>
+ <p class="fn r" style="--d:.35s"><span><b>1</b>安徽医科大学第一附属医院，与讯飞医疗合作，2025年6月4日</span><span><b>2</b>A&amp;O Shearman，与 Harvey 合作，2025年4月6日</span><span><b>3</b>摩根大通，LLM Suite，2025年6月3日</span><span><b>4</b>Alphabet 财报电话会，2025年4月24日</span></p>
 </div></section>
 
-<!-- 7 · Left behind -->
-<section class="s s-hire"><div class="w">
- <div class="chip r">01 · 接下来</div>
- <h2 class="r" style="--d:.1s">缺了这项能力，<span class="m" style="--d:.7s"><em>人就会被落下。</em></span></h2>
- <div class="grid g2">
-  <div class="card r" style="--d:.25s"><div class="kh"><img class="brand sf" src="/logos/deck/salesforce.svg" alt="Salesforce"><div class="k">Salesforce</div></div><h3>客服团队小了一些。</h3><p>首席执行官说，客服从9000人减到大约5000人。有几百人转到了别的岗位。公司说，<span class="nw">空出的客服职位</span>也不再补人。</p><span class="src">The Logan Bartlett Show, Aug 29, 2025 · The Register, Sept 2, 2025</span></div>
-  <div class="card r" style="--d:.4s"><div class="kh"><img class="brand" src="/logos/deck/accenture.svg" alt="Accenture"><div class="k">埃森哲</div></div><h3>还是先培训。</h3><p>培训仍是主要做法。培训补不上的地方，有人会离开。公司预计明年人还会更多。</p><span class="src">Accenture earnings release, Sept 25, 2025</span></div>
- </div>
- <p class="foot pane take r" style="--d:.55s">第一步仍是培训。另一项更大范围的调查里，只有11%的雇主在讨论某些岗位会不会减少。</p>
+<!-- 6 · Tasks: before and after -->
+<section class="s alt ae"><div class="w">
+ <ol class="trk r" aria-label="三个部分"><li class="on"><i>01</i>工作在怎么变</li><li><i>02</i>哪些能力重要</li><li><i>03</i>家长能做什么</li></ol>
+ <h2 class="r" style="--d:.1s">在一家医院和一家律所，日常工作现在从<em>AI的第一遍</em>开始。</h2>
+ <div class="bd r" style="--d:.25s"><div class="ba">
+  <div class="lab b">之前</div><div class="lab a">之后</div>
+  <div class="who"><div class="lr"><img class="brand xf" src="/logos/deck/xunfei-healthcare.png" alt="讯飞医疗"></div><h3>医生<sup>1</sup></h3><p>看诊后的病历</p></div>
+  <div class="pane"><p>亲手写病历</p></div>
+  <div class="ar" aria-hidden="true"><svg viewBox="0 0 40 16"><path d="M1 8h36M31 2l6 6-6 6"/></svg></div>
+  <div class="card"><p>核对一份草稿病历，推理过程一并列出</p></div>
+  <div class="who"><div class="lr"><img class="brand aos" src="/logos/deck/aoshearman.svg" alt="A&amp;O Shearman"><img class="brand hv" src="/logos/deck/harvey.svg" alt="Harvey"></div><h3>律师<sup>2</sup></h3><p>审阅贷款协议</p></div>
+  <div class="pane"><p>逐份亲手审阅协议</p></div>
+  <div class="ar" aria-hidden="true"><svg viewBox="0 0 40 16"><path d="M1 8h36M31 2l6 6-6 6"/></svg></div>
+  <div class="card"><p>核对工具给出的并排对照</p></div>
+ </div></div>
+ <p class="fn r" style="--d:.35s"><span><b>1</b>安徽医科大学第一附属医院，与讯飞医疗合作，2025年6月4日</span><span><b>2</b>A&amp;O Shearman，与 Harvey 合作，2025年4月6日</span></p>
 </div></section>
 
-<!-- 8 · What employers want -->
-<section class="s alt s-want"><div class="w">
- <div class="chip r">02 · 这些能力</div>
- <h2 class="r" style="--d:.1s">雇主希望<span class="m" style="--d:.7s"><em>实习生和应届生</em></span>具备什么。</h2>
- <div class="grid g3">
-  <div class="card r" style="--d:.25s"><div class="k">美国</div><h3>招聘启事里就写了。</h3><p>超过三分之一的初级岗位，现在要求会用AI。这个比例<span class="nw">差不多</span>是去年秋天的三倍。</p><span class="src">NACE Job Outlook, April 20, 2026</span></div>
-  <div class="card r" style="--d:.35s"><div class="kh"><img class="brand ms" src="/logos/deck/microsoft.svg" alt="Microsoft"><div class="k">微软</div></div><h3>核对结果，把事情想清楚。</h3><p>在工作里用AI的人说，更要紧的是这两件事。<span class="nw">思考还是自己的。</span></p><span class="src">Microsoft Work Trend Index, 2026</span></div>
-  <div class="card r" style="--d:.45s"><div class="k">中国</div><h3>会用工具，也要想清楚。</h3><p>中国的雇主也会看你会不会用AI工具，以及处理数据和<span class="nw">想清楚</span>问题的能力。</p><span class="src">解放日报, via 上观新闻, March 27, 2026</span></div>
+<!-- 7 · Teams -->
+<section class="s ae"><div class="w">
+ <ol class="trk r" aria-label="三个部分"><li class="on"><i>01</i>工作在怎么变</li><li><i>02</i>哪些能力重要</li><li><i>03</i>家长能做什么</li></ol>
+ <h2 class="r" style="--d:.1s">有的团队在缩小；<em>接受再培训的人</em>转到了新岗位。</h2>
+ <div class="bd r" style="--d:.25s">
+  <div class="cols c2">
+   <div class="card cx"><div class="lr"><img class="brand sf" src="/logos/deck/salesforce-navy.svg" alt="Salesforce"></div><h3>客服人员：9000 → 约5000<sup>1</sup></h3><ul><li>几百人转到了其他团队</li><li>空出的客服岗位不再补人</li></ul></div>
+   <div class="card cx"><div class="lr"><img class="brand acc" src="/logos/deck/accenture.svg" alt="埃森哲"></div><h3>先做再培训<sup>2</sup></h3><ul><li>再培训补不上的地方，有人离开</li><li>预计明年员工人数还会增加</li></ul></div>
+  </div>
+  <div class="pane bump"><div class="big">11%</div><p>的受访雇主在讨论裁员。多数雇主是在调整岗位里的工作内容。<sup>3</sup></p></div>
  </div>
- <p class="foot pane take r" style="--d:.6s">他们要的能力，后面会落到<b>主动性、审美与匠心</b>：选出要做的事，判断结果好不好，以及把它做完。</p>
+ <p class="fn r" style="--d:.35s"><span><b>1</b>Marc Benioff，The Logan Bartlett Show，2025年8月29日；The Register，2025年9月2日</span><span><b>2</b>埃森哲2025财年业绩，2025年9月25日</span><span><b>3</b>NACE《2026就业展望》春季更新，2026年4月20日</span></p>
+</div></section>
+
+<!-- 8 · What employers ask for -->
+<section class="s alt ae"><div class="w">
+ <ol class="trk r" aria-label="三个部分"><li><i>01</i>工作在怎么变</li><li class="on"><i>02</i>哪些能力重要</li><li><i>03</i>家长能做什么</li></ol>
+ <h2 class="r" style="--d:.1s">雇主现在要的人，既能<em>用好AI，</em>也能独立思考。</h2>
+ <div class="bd r" style="--d:.25s"><div class="cols hero">
+  <div class="pane"><div class="lr"><span class="org">美国</span></div><div class="big"><small>超过</small>三分之一</div><p>的初级岗位要求AI技能，差不多是去年秋天的三倍。<sup>1</sup></p></div>
+  <div class="pane rows">
+   <div><div class="lr"><img class="brand msft" src="/logos/deck/microsoft.svg" alt="微软"></div><h3>核对AI的结果，把事情想清楚</h3><p>在工作中用AI的人，把这两项能力排在最前面。<sup>2</sup></p></div>
+   <div><div class="lr"><span class="org">中国</span></div><h3>AI工具、数据能力和清晰的思考</h3><p>中国雇主现在看重的能力。<sup>3</sup></p></div>
+  </div>
+ </div></div>
+ <p class="fn r" style="--d:.35s"><span><b>1</b>NACE《2026就业展望》春季更新，2026年4月20日</span><span><b>2</b>微软《2026工作趋势指数》</span><span><b>3</b>解放日报（上观新闻）援引智联招聘，2026年3月27日</span></p>
 </div></section>
 
 <!-- 9 · Agency, taste, craft -->
-<section class="s"><div class="w">
- <div class="hd hd11">
-  <div><div class="chip r">02 · 会持续增值的能力</div>
-  <h2 class="r" style="--d:.1s"><span class="m" style="--d:.6s"><em>主动性</em></span>、<span class="m" style="--d:.8s"><em>审美</em></span>与<span class="m" style="--d:1s"><em>匠心</em></span>。</h2></div>
-  <p class="lede pane r" style="--d:.2s">雇主已经在要这种能力。当AI能帮人做出几乎任何东西时，会<span class="nw">持续增值</span>的，是这三种能力：知道什么值得做，判断做得<span class="nw">好不好</span>，以及把它做完。</p>
+<section class="s ae"><div class="w">
+ <ol class="trk r" aria-label="三个部分"><li><i>01</i>工作在怎么变</li><li class="on"><i>02</i>哪些能力重要</li><li><i>03</i>家长能做什么</li></ol>
+ <h2 class="r" style="--d:.1s">这些要求归结起来，就是三种能力：<span class="m" style="--d:.6s"><em>主动性</em></span>、<span class="m" style="--d:.8s"><em>审美</em></span>与<span class="m" style="--d:1s"><em>匠心</em></span>。</h2>
+ <div class="bd r" style="--d:.25s">
+  <div class="cols c3">
+   <div class="card pil"><h3 class="pn">主动性</h3><p class="def">选出真正值得解决的问题</p><p class="aw"><span class="lab">在工作中</span>能定义问题的人，主导工作。</p></div>
+   <div class="card pil"><h3 class="pn">审美</h3><p class="def">分辨哪个版本真正行得通</p><p class="aw"><span class="lab">在工作中</span>AI给出很多版本，要有人挑一个，并说清理由。</p></div>
+   <div class="card pil"><h3 class="pn">匠心</h3><p class="def">把事情做完，并且做好</p><p class="aw"><span class="lab">在工作中</span>能用的产品，比草稿更让人信任。</p></div>
+  </div>
+  <div class="pane qb"><p class="q">“人必须善于判断该做什么、为什么做。”</p><span>康奈尔大学，2026年<sup>1</sup></span></div>
  </div>
- <div class="grid g3 pillars">
-  <div class="card rv r" style="--d:.25s" tabindex="0" role="button" aria-expanded="false"><div class="k">主动性</div><h3>选出真正值得解决的问题。</h3><div class="rv-d"><div class="rvi"><p>每个有用的工具，都是从认定“这件事值得改”开始的。</p><p class="aw"><span class="awk">在工作中</span>只是照指令办事的工作，最容易交给AI；能定义问题的人，才是主导工作的人。</p></div></div></div>
-  <div class="card rv r" style="--d:.35s" tabindex="0" role="button" aria-expanded="false"><div class="k">审美</div><h3>分辨哪个版本真正行得通。</h3><div class="rv-d"><div class="rvi"><p>AI能给出很多版本；真正的功夫，是判断大家到底会用哪一个。</p><p class="aw"><span class="awk">在工作中</span>团队一小时就能做出十个版本；能挑出对的那个、还说得清为什么的人，才是大家信得过的人。</p></div></div></div>
-  <div class="card rv r" style="--d:.45s" tabindex="0" role="button" aria-expanded="false"><div class="k">匠心</div><h3>把事情做完，并且做好。</h3><div class="rv-d"><div class="rvi"><p>初稿来得很快；要做成别人用得放心的东西，得花心思。</p><p class="aw"><span class="awk">在工作中</span>真正能跑起来的产品，比原型和幻灯片更能赢得信任。</p></div></div></div>
- </div>
- <div class="qband take r" style="--d:.55s"><div class="quote">“人必须善于判断该做什么、为什么做。”</div><span class="src">Cornell University, Report of the Committee on the Future of the American University, September 2026</span></div>
+ <p class="fn r" style="--d:.35s"><span><b>1</b>康奈尔大学《美国大学未来委员会报告》，2026年9月22日</span></p>
 </div></section>
 
 <!-- 10 · A hiring story -->
-<section class="s alt fb-up s06"><div class="w">
- <div class="chip r">02 · 一个例子</div>
- <h2 class="r" style="--d:.1s">求职者现在用<span class="m" style="--d:.7s"><em>作品</em></span>说话。</h2>
- <div class="grid g2 pair">
-  <div class="card r" style="--d:.25s"><div class="k">这些能力在招聘里是什么样</div>
-   <ul class="big"><li class="r" style="--d:.4s">不只是工程师，人人都在做原型。做市场的同事会先自己<span class="nw">搭个</span>工具雏形，再去提需求。</li><li class="r" style="--d:.55s">出一版初稿几乎没有成本，大家讨论的是哪个版本才对。</li><li class="r" style="--d:.7s">看一个人行不行，看的是他做了什么决定、为什么这么定。</li></ul></div>
-  <div class="callout r" style="--d:.45s"><div class="kh"><img class="brand km" src="/logos/deck/kimi.png" alt="Kimi"><div class="k">筱涵在 Kimi 如何评估<span class="nw">非技术岗位</span>候选人</div></div>
-   <p class="story">筱涵在 Kimi 招增长团队的人时，有位候选人<span class="nw">面试前</span>先给团队的社交媒体工作做了个小工具，<span class="nw">当场演示</span>，拿到了 offer。没人要求这么做，关键<span class="nw">恰恰</span>就在这里。</p></div>
+<section class="s alt ae"><div class="w">
+ <ol class="trk r" aria-label="三个部分"><li><i>01</i>工作在怎么变</li><li class="on"><i>02</i>哪些能力重要</li><li><i>03</i>家长能做什么</li></ol>
+ <h2 class="r" style="--d:.1s">在 Kimi，面试前就<em>动手做出东西</em>的候选人，拿到了 offer。</h2>
+ <div class="bd r" style="--d:.25s">
+  <div class="who-row"><div class="lr"><img class="brand km" src="/logos/deck/kimi.png" alt="Kimi"></div><span class="lab">招聘增长团队，非技术岗位</span></div>
+  <ol class="cols c3 seq">
+   <li class="card"><div class="no">1</div><h3>做了个小工具</h3><p>面试前，为团队的社交媒体工作而做</p></li>
+   <li class="card"><div class="no">2</div><h3>当场演示</h3><p>在面试中展示一个能用的工具</p></li>
+   <li class="card"><div class="no">3</div><h3>拿到 offer</h3><p>没人要求这么做，关键恰恰在这里。</p></li>
+  </ol>
  </div>
+ <p class="fn r" style="--d:.35s"><span>来自 Kimi（月之暗面）的亲身招聘经历。</span></p>
 </div></section>
 
 <!-- 11 · At home -->
-<section class="s fb-home"><div class="w">
- <div class="chip r">03 · 在家里</div>
- <h2 class="r" style="--d:.1s">问题不是<span class="m" style="--d:.6s"><em>要不要用</em></span>，而是<span class="m" style="--d:.8s"><em>怎么用。</em></span></h2>
- <div class="ctx r" style="--d:.2s">
-  <div class="pane"><p>72.6%的中国家长支持孩子用AI，但大多附带条件。</p><span class="src">China Youth Daily poll, May 2026</span></div>
-  <div class="pane"><p>OECD 最新数据显示，适度、有目的地使用AI，可能和更好的学习表现有关。</p><span class="src">OECD PISA 2025, September 2026</span></div>
+<section class="s ae"><div class="w">
+ <ol class="trk r" aria-label="三个部分"><li><i>01</i>工作在怎么变</li><li><i>02</i>哪些能力重要</li><li class="on"><i>03</i>家长能做什么</li></ol>
+ <h2 class="r" style="--d:.1s">在家养成三个小习惯，帮孩子<em>有目的地使用AI。</em></h2>
+ <div class="bd r" style="--d:.25s">
+  <div class="cols c3">
+   <div class="card hab"><h3>和孩子一起做个小东西</h3><p>一张家务清单、一份旅行计划，或给弟弟妹妹出的小测验</p></div>
+   <div class="card hab"><h3>问一句：“你是怎么核对的？”</h3><p>把AI的回答当作初稿</p></div>
+   <div class="card hab"><h3>拿给真人看看</h3><p>爷爷奶奶、老师或朋友都行</p></div>
+  </div>
+  <div class="cols c2 ev">
+   <div class="pane"><span class="lab">中国家长</span><p><b>72.6%</b>支持孩子使用AI，但大多附带条件。<sup>1</sup></p></div>
+   <div class="pane"><span class="lab">OECD</span><p>适度、有目的地使用AI，可能和更好的学习表现有关。<sup>2</sup></p></div>
+  </div>
  </div>
- <div class="k glabel r" style="--d:.25s">不用多加一门课，家里就能做的几件小事</div>
- <div class="grid g3 habits">
-  <div class="card rv r" style="--d:.3s" tabindex="0" role="button" aria-expanded="false"><svg class="hi" viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="12" width="12" height="14" rx="1.5"/><rect x="15" y="6" width="12" height="12" rx="1.5"/></svg><h3>和孩子一起做个小东西。</h3><div class="rv-d"><div class="rvi"><p>一张家务清单、一份旅行计划，或者给弟弟妹妹出的一套小测验。</p></div></div></div>
-  <div class="card rv r" style="--d:.4s" tabindex="0" role="button" aria-expanded="false"><svg class="hi" viewBox="0 0 32 32" aria-hidden="true"><circle cx="14" cy="14" r="8"/><path d="M20 20l7 7M10.5 14.2l2.6 2.6 4.6-5"/></svg><h3>问一句：“你是怎么核对的？”</h3><div class="rv-d"><div class="rvi"><p>把AI的回答当作初稿，聊聊它哪里不对。</p></div></div></div>
-  <div class="card rv r" style="--d:.5s" tabindex="0" role="button" aria-expanded="false"><svg class="hi" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="11" r="5"/><path d="M6 27c1.5-5.5 5.5-8 10-8s8.5 2.5 10 8"/></svg><h3>拿给真人看看。</h3><div class="rv-d"><div class="rvi"><p>爷爷奶奶、老师、朋友都行。审美，就是从真实的反馈里来的。</p></div></div></div>
- </div>
+ <p class="fn r" style="--d:.35s"><span><b>1</b>中国青年报民调，n=1,336，2026年5月28日</span><span><b>2</b>OECD，PISA 2025结果，2026年9月8日</span></p>
 </div></section>
 
-<!-- 12 · What students build -->
-<section class="s alt builds"><div class="w">
- <div class="hd hd11">
-  <div><div class="chip r">03 · 学生能做出什么</div>
-  <h2 class="r" style="--d:.1s">学生们<span class="m" style="--d:.7s"><em>真正做出来</em></span>的东西。</h2></div>
-  <p class="lede pane r" style="--d:.2s">学生现在能做出什么？下面是我们项目里最近的三个作品，其中包括 ISB 学生的作品。</p>
- </div>
- <div class="grid g3 bl">
-  <div class="card r" style="--d:.25s"><figure class="bm"><img src="/photos/isb-2026/demo-laptop-1600.webp" alt="ISB 学生演示自己的作品"></figure><div class="bb"><div class="k">游戏</div><h3>做了五款游戏，准备上架 Steam。</h3><span class="src">摄于 ISB，2026年</span></div></div>
-  <div class="card r" style="--d:.35s"><figure class="bm"><img src="/photos/isb-2026/pitch-podium-1600.webp" alt="ISB 学生上台展示"></figure><div class="bb"><div class="k">效率工具</div><h3>一款一站式效率工具，<span class="nw">记录进度、睡眠和工作时长。</span></h3><span class="src">摄于 ISB，2026年</span></div></div>
-  <div class="card r" style="--d:.45s"><figure class="bm vframe"><video autoplay muted loop playsinline preload="metadata" poster="/decks/img/conversation/hands-stage-poster.webp" src="/decks/img/conversation/hands-stage.mp4" aria-label="学生在笔记本电脑上测试手语应用"></video><img class="vposter" src="/decks/img/conversation/hands-stage-poster.webp" alt=""></figure><div class="bb"><div class="k">无障碍</div><h3>一个手语翻译应用。</h3><span class="src">正在测试应用</span></div></div>
- </div>
+<!-- 12 · What students make -->
+<section class="s alt ae"><div class="w">
+ <ol class="trk r" aria-label="三个部分"><li><i>01</i>工作在怎么变</li><li><i>02</i>哪些能力重要</li><li class="on"><i>03</i>家长能做什么</li></ol>
+ <h2 class="r" style="--d:.1s">借助AI，学生已经做出了<em>真正的作品，</em>其中包括 ISB 的学生。</h2>
+ <div class="bd r" style="--d:.25s"><div class="cols c3 proj">
+  <div class="card"><figure><img src="/photos/isb-2026/demo-laptop-1600.webp" alt="ISB 学生演示自己的作品"></figure><div class="pb"><span class="lab">游戏</span><h3>五款游戏，准备上架 Steam</h3><p class="where">摄于 ISB，2026年</p></div></div>
+  <div class="card"><figure><img src="/photos/isb-2026/pitch-podium-1600.webp" alt="ISB 学生上台展示"></figure><div class="pb"><span class="lab">效率工具</span><h3>一款记录进度、睡眠和工作时长的工具</h3><p class="where">摄于 ISB，2026年</p></div></div>
+  <div class="card"><figure class="vframe"><video autoplay muted loop playsinline preload="metadata" poster="/decks/img/conversation/hands-stage-poster.webp" src="/decks/img/conversation/hands-stage.mp4" aria-label="学生在笔记本电脑上测试手语应用"></video><img class="vposter" src="/decks/img/conversation/hands-stage-poster.webp" alt=""></figure><div class="pb"><span class="lab">无障碍</span><h3>一个手语翻译应用</h3><p class="where">正在测试应用</p></div></div>
+ </div></div>
 </div></section>
 
-<!-- 13 · From teaching -->
-<section class="s fb-up s-lessons"><div class="w">
- <div class="chip r">03 · 课堂上</div>
- <h2 class="r" style="--d:.1s"><span class="m" style="--d:.7s"><em>课堂上</em></span>的三点体会。</h2>
- <div class="grid g3 lessons">
-  <div class="card rv r" style="--d:.3s" tabindex="0" role="button" aria-expanded="false"><div class="no">01</div><div class="k">主动性</div><h3>难的是选题。</h3><div class="rv-d"><p>工具，学生一个下午就能上手；找到一个值得解决的问题，要花更久，也更要紧。</p></div></div>
-  <div class="card rv r" style="--d:.4s" tabindex="0" role="button" aria-expanded="false"><div class="no">02</div><div class="k">审美</div><h3>真实反馈，让作品更好。</h3><div class="rv-d"><p>真实用户（同学、同事或老师）当场给的<span class="nw">反馈</span>，让学生进步更快，也让一个能用的产品变得更好用。</p></div></div>
-  <div class="card rv r" style="--d:.5s" tabindex="0" role="button" aria-expanded="false"><div class="no">03</div><div class="k">匠心</div><h3>把事做完，人才会成长。</h3><div class="rv-d"><p>第一版来得很快；把它打磨到别人能放心用，学生在这一步成长最多。</p></div></div>
- </div>
- <p class="foot pane take r" style="--d:.6s">上面这些工作要的，就是这三件事。课堂上练的，就是以后带到工作里的。</p>
+<!-- 13 · From the classroom to work -->
+<section class="s ae"><div class="w">
+ <ol class="trk r" aria-label="三个部分"><li><i>01</i>工作在怎么变</li><li><i>02</i>哪些能力重要</li><li class="on"><i>03</i>家长能做什么</li></ol>
+ <h2 class="r" style="--d:.1s">工具一个下午就能学会；<em>能带进工作的能力，</em>要练得更久。</h2>
+ <div class="bd r" style="--d:.25s"><div class="cols c3">
+  <div class="card"><h3 class="pn">主动性</h3><dl class="pr"><dt class="lab">课堂上</dt><dd>找到值得解决的问题，最花时间</dd><dt class="lab">工作中</dt><dd class="me">没人要求也先动手，就像 Kimi 那个例子</dd></dl></div>
+  <div class="card"><h3 class="pn">审美</h3><dl class="pr"><dt class="lab">课堂上</dt><dd>真实用户的反馈，让作品更好</dd><dt class="lab">工作中</dt><dd class="me">在别人依赖之前，先核对AI的结果</dd></dl></div>
+  <div class="card"><h3 class="pn">匠心</h3><dl class="pr"><dt class="lab">课堂上</dt><dd>打磨到别人能放心用，学生成长最多</dd><dt class="lab">工作中</dt><dd class="me">把AI的第一遍，变成别人信得过的成果</dd></dl></div>
+ </div></div>
 </div></section>
 
 <!-- 14 · Q&A -->
-<section class="s alt"><div class="w">
- <div class="chip r">问答</div>
- <h2 class="r" style="--d:.1s">您有什么<span class="m" style="--d:.7s"><em>想问的？</em></span></h2>
- <div class="qa qa14 r" style="--d:.3s">
+<section class="s alt ae"><div class="w">
+ <ol class="trk r"><li class="on">问答</li></ol>
+ <h2 class="r" style="--d:.1s">接下来请大家提问。今天的讲义和工具<em>都免费，无需注册。</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="qa qa14">
   <a class="qr pane qr-live qr-slides" href="https://arenaschool.org/talk" target="_blank" rel="noopener"><img src="/decks/img/conversation/qr-talk-clear.png" alt="arenaschool.org/talk 二维码"><span>今天的讲义</span><small>arenaschool.org/talk</small></a>
   <div class="qr pane qr-chat"><div class="qr-slot"></div><span>家长群二维码</span><small>（活动前补上）</small></div>
   <div class="qa-links pane">
-   <p class="qa-intro">今天的全部资料都在这里，<span class="nw">免费查看，</span><span class="nw">无需注册。</span></p>
    <div class="qa-item"><span class="k">今天的讲义</span><a class="qa-url" href="https://arenaschool.org/talk" target="_blank" rel="noopener">arenaschool.org/talk</a><p>本次分享的中英文 PDF，<span class="nw">也可以直接在手机上浏览。</span></p></div>
-   <div class="qa-item"><span class="k">项目里的工具</span><a class="qa-url" href="https://arenaschool.org/case-study-examples" target="_blank" rel="noopener">arenaschool.org/case-study-examples</a><p>我们项目里的工具演示，可以自己打开看。</p></div>
+   <div class="qa-item"><span class="k">项目里的工具</span><a class="qa-url" href="https://arenaschool.org/case-study-examples" target="_blank" rel="noopener">arenaschool.org/case-study-examples</a><p>项目里的工具演示，可以自己打开看。</p></div>
    <p class="qa-foot">会后有问题？<span class="nw">欢迎写信至</span> <a href="mailto:contact@arenaschool.org">contact@arenaschool.org</a></p>
   </div>
- </div>
+ </div></div>
 </div></section>
 
 <!-- 15 · Appendix -->
-<section class="s s-src"><div class="w">
- <div class="chip r">附录</div>
- <h2 class="r" style="--d:.1s">资料来源</h2>
- <ul class="srcs pane r" style="--d:.2s">
+<section class="s ae s-src"><div class="w">
+ <ol class="trk r"><li class="on">附录</li></ol>
+ <h2 class="r" style="--d:.1s">这场分享里的每个数字，都来自<em>2025或2026年的公开资料。</em></h2>
+ <div class="bd r" style="--d:.25s">
+ <ul class="srcs pane">
   <li><span><b>Anthropic</b>, Economic Index, on the share of jobs where AI has been used for at least a quarter of the tasks</span><span class="src">Jan 15, 2026 · March 24, 2026</span></li>
   <li><span><b>Anthropic</b>, Economic Index survey of about 9,700 Claude users, on what they expect within a year</span><span class="src">June 26, 2026</span></li>
   <li><span><b>A&amp;O Shearman</b>, with Harvey, on comparing loan agreements that lawyers had reviewed by hand</span><span class="src">April 6, 2025</span></li>
@@ -953,6 +1103,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <li><span><b>China Youth Daily</b> poll, n=1,336</span><span class="src">May 28, 2026</span></li>
   <li><span><b>OECD</b>, PISA 2025 results</span><span class="src">Sept 8, 2026</span></li>
  </ul>
+ </div>
 </div></section>
 
 </main>
@@ -1004,7 +1155,7 @@ window.__close=close})();
    fit the screenshots to the height, then spread spare height into the gaps (type size never changes) */
 (function(){
 function lay(){var X=document.documentElement.classList.contains('export');if(matchMedia('(max-width:700px)').matches&&!X){[].forEach.call(document.querySelectorAll('#deck *'),function(e){if(e.style.minHeight)e.style.minHeight='';if(e.style.marginTop&&e.dataset&&e.dataset.mt!==undefined)e.style.marginTop='';if(e.style.marginBottom==='auto')e.style.marginBottom=''});return}
- S.forEach(function(s){var w=s.querySelector('.w');if(!w)return;var kids=[].slice.call(w.children);
+ S.forEach(function(s){var w=s.querySelector('.w');if(!w||s.classList.contains('ae'))return;var kids=[].slice.call(w.children);
   kids.forEach(function(k){k.style.marginTop='';k.style.marginBottom=''});w.style.minHeight='';w.style.paddingTop=w.style.paddingBottom='';
   var RG=[].slice.call(s.querySelectorAll('.pillars,.habits'));RG.forEach(function(g){[].forEach.call(g.children,function(c){c.style.minHeight=''})});
   var vx=s.querySelector('.vx');if(vx){vx.style.removeProperty('--vw');
@@ -1074,7 +1225,7 @@ lay();addEventListener('resize',lay);[].forEach.call(document.querySelectorAll('
 
 <script>
 /* CJK orphan guard: keep the last 3 characters (plus closing punctuation) of each text block together */
-(function(){var sel='h1,h2,h3,p,li,.quote,.cap,.step b,.t,.mc b';var re=/([\u3400-\u9fff][\u3400-\u9fff\u3000-\u303f\uff00-\uffef“”‘’」』]{0,2}[\u3400-\u9fff][\u3000-\u303f\uff00-\uffef“”‘’」』?？。，、！]*\s*)$/;
+(function(){var sel='h1,h2,h3,p,li,dd,.quote,.cap,.step b,.t,.mc b';var re=/([\u3400-\u9fff][\u3400-\u9fff\u3000-\u303f\uff00-\uffef“”‘’」』]{0,2}[\u3400-\u9fff][\u3000-\u303f\uff00-\uffef“”‘’」』?？。，、！]*\s*)$/;
 document.querySelectorAll(sel).forEach(function(el){var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT),n,last=null;while(n=w.nextNode()){if(n.nodeValue.trim())last=n}
  if(!last)return;var m=last.nodeValue.match(re);if(!m)return;var t=last.nodeValue;var sp=document.createElement('span');sp.style.whiteSpace='nowrap';sp.textContent=m[1];last.nodeValue=t.slice(0,t.length-m[1].length);last.parentNode.insertBefore(sp,last.nextSibling)})})();
 </script>

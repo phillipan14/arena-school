@@ -8,7 +8,7 @@ js=R('shared.js')+''.join('\n'+open(f,encoding='utf-8').read() for f in sorted(g
 GUARD=R('guard.js')
 bodies={'en':R('body-en.html'),'cn':R('body-cn.html')}
 V=[('en','en','conversation.html','Our Kids’ Jobs Don’t Exist Yet. So Which Skills Will Matter?','↓ / → next · ↑ / ← back',''),
-   ('cn','zh-CN','conversation-cn.html','孩子们未来的工作还不存在，那么，哪些能力最重要？','↓ / → 下一页 · ↑ / ← 上一页','h1,h2,h3,p,li,.quote,.cap,.step b,.t,.mc b')]
+   ('cn','zh-CN','conversation-cn.html','孩子们未来的工作还不存在，那么，哪些能力最重要？','↓ / → 下一页 · ↑ / ← 上一页','h1,h2,h3,p,li,dd,.quote,.cap,.step b,.t,.mc b')]
 for key,lang,fn,title,hint,gsel in V:
     ON=' class="on"'
     pill=''.join('<a href="/decks/%s"%s>%s</a>'%(f,ON if f==fn else '',lab) for f,lab in [('conversation.html','EN'),('conversation-cn.html','中文')])
