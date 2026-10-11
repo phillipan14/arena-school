@@ -21,7 +21,8 @@ ROOT = os.path.abspath(os.path.join(SRC, '..', '..'))
 OUT = sys.argv[sys.argv.index('--out') + 1] if '--out' in sys.argv else None
 TALK = OUT or os.path.join(ROOT, 'talk')
 PRESENT = OUT or os.path.join(SRC, 'exports')
-MAX_MB = 6
+MAX_MB = 5.9
+MIN_Q = 56
 
 subprocess.run([sys.executable, os.path.join(SRC, 'build.py')], check=True)
 
@@ -44,7 +45,7 @@ with sync_playwright() as p:
     for deck, out, noqr, gal, q in JOBS:
         os.makedirs(os.path.dirname(out), exist_ok=True)
         pg = b.new_page(viewport={'width': 1920, 'height': 1080}, device_scale_factor=1.5)
-        pg.goto(f'{BASE}/decks/{deck}.html', wait_until='networkidle')
+        pg.goto(f'{BASE}/decks/{deck}.html?stage', wait_until='networkidle')
         pg.evaluate('document.fonts.ready'); pg.wait_for_timeout(500)
         pg.evaluate("document.documentElement.classList.add('export')" + (";document.documentElement.classList.add('noqr')" if noqr else '') + ';window.__space()')
         pg.wait_for_timeout(400)
@@ -56,10 +57,14 @@ with sync_playwright() as p:
         for i in range(n):
             pg.evaluate(f"document.getElementById('deck').scrollTop=document.querySelectorAll('section.s')[{i}].offsetTop"); pg.wait_for_timeout(200)
             pages.append(Image.open(io.BytesIO(pg.screenshot())).convert('RGB'))
-        pages[0].save(out, save_all=True, append_images=pages[1:], resolution=216.0, quality=q)
-        mb = os.path.getsize(out) / 1e6
-        print(f'{os.path.relpath(out, ROOT) if not OUT else out}: {len(PdfReader(out).pages)} pages, {mb:.1f} MB')
-        if gal and mb > MAX_MB: print(f'  WARNING: over {MAX_MB} MB, slow on phones / WeChat')
+        # every PDF must stay under MAX_MB for phones and WeChat: step the JPEG quality down until it fits
+        while True:
+            pages[0].save(out, save_all=True, append_images=pages[1:], resolution=216.0, quality=q, subsampling=2, optimize=True)
+            mb = os.path.getsize(out) / 1e6
+            if mb < MAX_MB or q <= MIN_Q: break
+            q -= 4
+        print(f'{os.path.relpath(out, ROOT) if not OUT else out}: {len(PdfReader(out).pages)} pages, {mb:.1f} MB, JPEG quality {q}')
+        if mb >= MAX_MB: print(f'  WARNING: over {MAX_MB} MB even at quality {MIN_Q}, slow on phones / WeChat')
         if gal:
             d = os.path.join(TALK, 'slides', gal); os.makedirs(d, exist_ok=True)
             for f in os.listdir(d):
