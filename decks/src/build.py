@@ -16,13 +16,13 @@ V=[('en','en','conversation.html','Our Kids’ Jobs Don’t Exist Yet. So Which 
    ('cn','zh-CN','conversation-cn.html','孩子们未来的工作还不存在，那么，哪些能力最重要？','↓ / → 下一页 · ↑ / ← 上一页','轻点或滑动翻页','幻灯片','h1,h2,h3,p,li,dd,.quote,.cap,.step b,.t,.mc b')]
 # without ?stage the page is the player: it loads itself at ?stage into a 1920×1080 frame (see the player in shared.js).
 # export.py and the frame use ?stage directly; without JavaScript the page falls back to the phone reading layout.
-MODE="<script>(function(h){if(self!==top)h.classList.add('framed');else if(!/[?&]stage\\b/.test(location.search))h.classList.add('player')})(document.documentElement)</script>"
+MODE="<script>(function(h){var m=document.querySelector('meta[name=viewport]');if(self!==top){h.classList.add('framed');if(m)m.setAttribute('content','width=1920,initial-scale=1')}else if(!/[?&]stage\\b/.test(location.search)){h.classList.add('player');if(m)m.setAttribute('content','width=device-width,initial-scale=1,viewport-fit=cover')}else if(m)m.setAttribute('content','width=1920,initial-scale=1')})(document.documentElement)</script>"
 for key,lang,fn,title,hint,phint,ftitle,gsel in V:
     ON=' class="on"'
     pill=''.join('<a href="/decks/%s"%s>%s</a>'%(f,ON if f==fn else '',lab) for f,lab in [('conversation.html','EN'),('conversation-cn.html','中文')])
     guard=GUARD.replace('__SEL__',gsel) if gsel else ''
     html=f'''<!doctype html>
-<html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex">
 <title>{title}</title>
 <link rel="icon" href="/favicon.svg">
