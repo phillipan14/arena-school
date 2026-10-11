@@ -25,6 +25,8 @@ MAX_MB = 5.9
 MIN_Q = 56
 
 subprocess.run([sys.executable, os.path.join(SRC, 'build.py')], check=True)
+sys.path.insert(0, SRC)
+import contain
 
 # serve the repo root so the deck's absolute paths (/fonts, /logos, /photos) resolve
 class Quiet(http.server.SimpleHTTPRequestHandler):
@@ -53,6 +55,10 @@ with sync_playwright() as p:
         tall = pg.evaluate("[...document.querySelectorAll('section.s')].map((s,i)=>[i+1,Math.max(s.offsetHeight,s.scrollHeight)]).filter(x=>x[1]>1080)")
         if tall:
             b.close(); sys.exit(f'ABORT {deck}: slides taller than 1080px in export mode (slide, px): {tall}')
+        # fitting the page is not enough: every line of text, image, and card must also stay inside its own card or pill
+        loose = contain.check(pg)
+        if loose:
+            b.close(); sys.exit(f'ABORT {deck}: outside their container (slide, container, item, overflow in px): {loose}')
         n = pg.evaluate("document.querySelectorAll('section.s').length"); pages = []
         for i in range(n):
             pg.evaluate(f"document.getElementById('deck').scrollTop=document.querySelectorAll('section.s')[{i}].offsetTop"); pg.wait_for_timeout(200)

@@ -43,6 +43,7 @@ python3 decks/src/export.py
 The script:
 - rebuilds the deck;
 - aborts if any slide is taller than 1080px in export mode;
+- aborts if any text, image, or card sits outside its own card, pane, or pill (`contain.py`; run it alone with `python3 decks/src/contain.py`, add `--georgia` to also test the wider Georgia metrics a phone shows when the web fonts fail to load);
 - writes `talk/Arena-Parent-Conversation-EN.pdf` and `talk/Arena-Parent-Conversation-CN.pdf` (no QR); each PDF is kept under 6 MB for phones and WeChat by lowering the JPEG quality step by step (it prints the quality used);
 - regenerates the /talk swipe gallery (`talk/slides/{en,cn}/NN.jpg`) and its slide counts;
 - writes a presenting copy with the QR to `decks/src/exports/` (git-ignored, not deployed).
