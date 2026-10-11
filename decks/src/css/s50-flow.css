@@ -126,6 +126,7 @@
  .tln .big small{display:inline;margin-left:.12em;font-size:.36em;color:var(--ink)}
  .ae .bd .tln h3{font-size:30px;margin-bottom:10px}
  .ae .bd .tln p{font-size:23px;line-height:1.4}
+ .accx{display:flex;flex-direction:column;gap:var(--gap);flex:1;min-height:0}
  .tln-pane{padding:var(--pad-l)!important;display:flex;flex-direction:column;gap:22px}
  .tln-pane>.lr{height:36px;margin:0}
 
