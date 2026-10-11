@@ -128,3 +128,4 @@
  .pn2{margin-top:12px}
 }
 :lang(zh-CN) .ae h2 em,:lang(zh-CN) .st .by{font-style:normal}
+@media (min-width:701px){:lang(zh-CN) .st .sl,:lang(zh-CN) .st .nst p,:lang(zh-CN) .ae .kick{word-break:keep-all;overflow-wrap:anywhere}}
