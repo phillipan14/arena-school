@@ -68,6 +68,19 @@
  .mb b{justify-self:end;font:500 19px/1 var(--serif);color:var(--muted);font-variant-numeric:lining-nums tabular-nums;white-space:nowrap}
  .mb .hl span{color:var(--ink)}.mb .hl b{color:var(--ink2)}
 
+ /* the stakes: the premium as two bars, comparable jobs = 100 */
+ .st .nst .nstx{flex:1;display:flex;flex-direction:column;gap:26px;max-width:760px;margin-bottom:16px}
+ .st .nst .nstx p{margin:0;max-width:none}
+ .nstx .mb{gap:16px;padding-top:22px;border-top-color:rgba(252,243,237,.2)}
+ .nstx .mb .row{grid-template-columns:250px minmax(0,1fr) 3em;column-gap:20px}
+ :lang(zh-CN) .nstx .mb .row{grid-template-columns:170px minmax(0,1fr) 3em}
+ .nstx .mb span,.nstx .mb b{font-size:24px}
+ .nstx .mb i{height:26px;background:rgba(252,243,237,.08)}
+ .nv .mb span,.nv .mb b{color:rgba(252,243,237,.72)}
+ .nv .mb i::after{background:rgba(169,190,234,.42)}
+ .nv .mb .hl i::after{background:#A9BEEA}
+ .nv .mb .hl span,.nv .mb .hl b{color:var(--paper-hi)}
+
  /* the young and the experienced, side by side */
  .cmp2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap)}
  .cmp2 .pane{display:flex;flex-direction:column;justify-content:center;gap:22px;padding:var(--pad-m)!important}

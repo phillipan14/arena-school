@@ -37,7 +37,7 @@ function cur(){var y=deck.scrollTop+innerHeight/2;for(var i=0;i<S.length;i++){if
 var gT=[];
 function settle(){gT.forEach(function(t){clearTimeout(t)});gT=[];[].forEach.call(document.querySelectorAll('.curtain'),function(c){c.remove()});S.forEach(function(s){s.classList.remove('out')})}
 function go(i){i=Math.max(0,Math.min(S.length-1,i));var y=S[i].offsetTop,from=cur(),H=document.documentElement;
- if(!H.classList.contains('motion')||from===i){deck.scrollTo({top:y,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});return}
+ if(!H.classList.contains('motion')||from===i){deck.scrollTo({top:y,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});return}
  settle();var t=S[i],f=S[from],nv=function(s){return s.classList.contains('nv')};
  function jump(){deck.scrollTop=y;f.classList.remove('out')}
  function panel(cls){var c=document.createElement('div');c.className='curtain'+cls;document.body.appendChild(c);void c.offsetWidth;return c}

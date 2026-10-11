@@ -1511,6 +1511,19 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .mb b{justify-self:end;font:500 19px/1 var(--serif);color:var(--muted);font-variant-numeric:lining-nums tabular-nums;white-space:nowrap}
  .mb .hl span{color:var(--ink)}.mb .hl b{color:var(--ink2)}
 
+ /* the stakes: the premium as two bars, comparable jobs = 100 */
+ .st .nst .nstx{flex:1;display:flex;flex-direction:column;gap:26px;max-width:760px;margin-bottom:16px}
+ .st .nst .nstx p{margin:0;max-width:none}
+ .nstx .mb{gap:16px;padding-top:22px;border-top-color:rgba(252,243,237,.2)}
+ .nstx .mb .row{grid-template-columns:250px minmax(0,1fr) 3em;column-gap:20px}
+ :lang(zh-CN) .nstx .mb .row{grid-template-columns:170px minmax(0,1fr) 3em}
+ .nstx .mb span,.nstx .mb b{font-size:24px}
+ .nstx .mb i{height:26px;background:rgba(252,243,237,.08)}
+ .nv .mb span,.nv .mb b{color:rgba(252,243,237,.72)}
+ .nv .mb i::after{background:rgba(169,190,234,.42)}
+ .nv .mb .hl i::after{background:#A9BEEA}
+ .nv .mb .hl span,.nv .mb .hl b{color:var(--paper-hi)}
+
  /* the young and the experienced, side by side */
  .cmp2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap)}
  .cmp2 .pane{display:flex;flex-direction:column;justify-content:center;gap:22px;padding:var(--pad-m)!important}
@@ -1908,7 +1921,8 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 <section class="s ae st nv"><div class="w">
  <p class="kick r">What the skills are worth · PwC 2026 Global AI Jobs Barometer</p>
  <h2 class="r" style="--d:.1s">Children without these skills will start their careers <em>far behind.</em></h2>
- <div class="nst" data-s="1"><div class="big">62%</div><p>higher advertised pay for jobs that require AI skills than for comparable jobs <span class="nw">that don’t</span></p></div>
+ <div class="nst" data-s="1"><div class="big">62%</div><div class="nstx"><p>higher advertised pay for jobs that require AI skills</p>
+  <div class="mb" role="img" aria-label="Advertised pay, comparable jobs set to 100: jobs that require AI skills, 162"><div class="row"><span>Comparable jobs</span><i style="--v:61.73"></i><b>100</b></div><div class="row hl"><span>AI skills required</span><i style="--v:100"></i><b>162</b></div></div></div></div>
  <p class="fn" data-s="1"><span>PwC 2026 Global AI Jobs Barometer, June 15, 2026: average wage premium in job ads across 27 countries; it does not control for education or experience</span></p>
 </div><aside class="notes">Up from 57% a year earlier, and as high as 118% in some sectors. The gap is widening.</aside></section>
 
@@ -2309,7 +2323,7 @@ function cur(){var y=deck.scrollTop+innerHeight/2;for(var i=0;i<S.length;i++){if
 var gT=[];
 function settle(){gT.forEach(function(t){clearTimeout(t)});gT=[];[].forEach.call(document.querySelectorAll('.curtain'),function(c){c.remove()});S.forEach(function(s){s.classList.remove('out')})}
 function go(i){i=Math.max(0,Math.min(S.length-1,i));var y=S[i].offsetTop,from=cur(),H=document.documentElement;
- if(!H.classList.contains('motion')||from===i){deck.scrollTo({top:y,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});return}
+ if(!H.classList.contains('motion')||from===i){deck.scrollTo({top:y,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});return}
  settle();var t=S[i],f=S[from],nv=function(s){return s.classList.contains('nv')};
  function jump(){deck.scrollTop=y;f.classList.remove('out')}
  function panel(cls){var c=document.createElement('div');c.className='curtain'+cls;document.body.appendChild(c);void c.offsetWidth;return c}
