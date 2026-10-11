@@ -57,13 +57,19 @@ with sync_playwright() as p:
         for i in range(n):
             pg.evaluate(f"document.getElementById('deck').scrollTop=document.querySelectorAll('section.s')[{i}].offsetTop"); pg.wait_for_timeout(200)
             pages.append(Image.open(io.BytesIO(pg.screenshot())).convert('RGB'))
-        # every PDF must stay under MAX_MB for phones and WeChat: step the JPEG quality down until it fits
-        while True:
-            pages[0].save(out, save_all=True, append_images=pages[1:], resolution=216.0, quality=q, subsampling=2, optimize=True)
-            mb = os.path.getsize(out) / 1e6
-            if mb < MAX_MB or q <= MIN_Q: break
-            q -= 4
-        print(f'{os.path.relpath(out, ROOT) if not OUT else out}: {len(PdfReader(out).pages)} pages, {mb:.1f} MB, JPEG quality {q}')
+        # every PDF must stay under MAX_MB for phones and WeChat: step the JPEG quality down, then the resolution
+        q0 = q
+        for scale in (1, .85, .72):
+            w, h = round(2880 * scale), round(1620 * scale)
+            imgs = pages if scale == 1 else [im.resize((w, h), Image.LANCZOS) for im in pages]
+            q = q0
+            while True:
+                imgs[0].save(out, save_all=True, append_images=imgs[1:], resolution=216.0 * scale, quality=q, subsampling=2, optimize=True)
+                mb = os.path.getsize(out) / 1e6
+                if mb < MAX_MB or q <= MIN_Q: break
+                q -= 4
+            if mb < MAX_MB: break
+        print(f'{os.path.relpath(out, ROOT) if not OUT else out}: {len(PdfReader(out).pages)} pages, {mb:.1f} MB, JPEG quality {q}, {w}×{h}')
         if mb >= MAX_MB: print(f'  WARNING: over {MAX_MB} MB even at quality {MIN_Q}, slow on phones / WeChat')
         if gal:
             d = os.path.join(TALK, 'slides', gal); os.makedirs(d, exist_ok=True)

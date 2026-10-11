@@ -20,6 +20,7 @@ Source for the Oct 14, 2026 ISB PTA Parent Coffee deck, "Our Kids' Jobs Don't Ex
    - From the repo root, run `python3 -m http.server 8780` and open http://127.0.0.1:8780/decks/conversation.html.
    - Keys: arrows or space to move. The EN · 中文 pill at top right switches language.
    - Every screen shows the real 1920×1080 slide, scaled to fit and letterboxed: the page loads itself at `?stage` into a fixed 1920×1080 frame, so phones never reflow. On touch screens a swipe or a tap moves one step (a tap on the left third goes back). Open `?stage` to see the bare deck at the window's own size (export.py uses it); add `?read` to show every step at once.
+   - Speaker notes live in each slide's `<aside class="notes">`. Add `?notes` to show them in a bar along the bottom; they never appear otherwise or in the PDF.
 6. Commit the source and the rebuilt HTML together, then push to `main`. Vercel deploys within about a minute.
 
 House rules (full detail in `/DESIGN.md` and `/CONTENT-RULES.md`):

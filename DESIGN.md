@@ -467,6 +467,10 @@ Modeled on Phillip's showcase-wrap deck (portal.arenaschool.org/decks/showcase-w
 - **Type:** serif only (§4.1). The parent-talk deck is lightly branded.
 - **Wording:** no first or third person on slides (09-30). Contact info is neutral ("Contact information"). Exception (10-11, Phillip): the parent-talk speakers slide may say why the speakers are credible in the first person ("We use AI at work…"), within CONTENT-RULES (no builder or startup vocabulary).
 - **Appendix:** appendix slides (such as Sources) come after the contact/Q&A slide.
+- **Every screen shows the real slide (10-11, Phillip):** the deck never reflows. In a top-level window it runs as a player: the 1920×1080 slide loads in a frame (`?stage`), is scaled uniformly to fit, and is letterboxed in navy, on phones exactly as on desktop. Swipe or tap advances on touch screens. Export and the /talk thumbnails load `?stage` directly.
+- **Speaker notes:** each slide may carry an `<aside class="notes">`. Hidden on screen and in the PDF; shown in a bar along the bottom with `?notes`.
+- **PDF size:** each exported PDF stays under 6 MB (`export.py` steps JPEG quality down until it fits).
+- **Pacing (parent talk, 10-11):** one main point per slide, and a single big number or quote gets its own slide. This is a judgment call, not a rule: keep evidence and comparisons on screen when parents should read or photograph them.
 - **Text with no home:** every floating sentence goes into a pane or card (09-30), except on navy statement slides, which have no pattern behind the text (§6.15).
 - **Agenda:** the title-slide agenda is a solid navy pane with ivory text; its links jump to each part's statement slide.
 - **Licensed photos:** a stock photo is allowed only when no program photo fits the slide. The credit goes on the slide's source line and in the appendix (photographer, site, and photo link).

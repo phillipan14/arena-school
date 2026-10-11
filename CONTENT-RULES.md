@@ -102,6 +102,12 @@ AI **aids** people. It never does the work *for* them. People stay the authors a
   - Phillip's quote "AI is rewriting jobs faster than schools can update a syllabus…" → "AI is changing work quickly. The habits students build now, in class and at home, are what carry over." (CN AI正在快速改变工作。孩子们现在养成的习惯，无论在课堂还是在家里，都会一直陪着他们。)
   - "The rules for school, jobs, and careers were written before AI." → "Much of how we prepare young people for work took shape before AI." (CN 很多帮年轻人走向职场的做法，都是在AI出现之前形成的。)
   - "The assumptions that shaped school and careers no longer hold." → "AI is changing what careers ask of young people." (CN AI正在改变职场对年轻人的要求。)
+- **Exception, ISB parent talk only (Oct 2026, approved by Phillip):** the talk argues one chain in three parts (work is being rewritten, therefore three skills decide who gets ahead, therefore start building them now) and may use urgent, convincing framing that the site does not:
+  - Speakers line: "We trained at ISB, Caltech, Harvard, Brown, and Tsinghua, then did the jobs AI is now automating." (CN 我们在 ISB、加州理工、哈佛、布朗和清华求学，做过的正是AI如今在自动化的工作。)
+  - Sourced workplace evidence may say AI drafts, generates, or handles a share of the work (hospital notes, court documents, bank workload, code), and may cite layoffs with leaders' own words, as long as every figure is sourced and the human check is shown where the source shows it.
+  - The stakes may be stated directly ("Children who don't build these skills will start behind"), backed by a sourced stat, never as a prediction of mass job loss.
+  - The close ends optimistic ("one of the best times ever to be a child, and the best time to build") and mentions Arena only as "this is what our students do", not a pitch.
+  - The site rules above still apply everywhere else, including to teachers' and students' own work.
 
 ## 6. Canonical homes (each fact lives once)
 
