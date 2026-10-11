@@ -9,7 +9,7 @@
  /* slide to slide (shared.js go()): the whole outgoing slide, still fully built, crossfades or moves out as one unit
     at the same moment the incoming slide arrives. Children never un-build on exit. */
  .motion .s{transition:opacity .42s var(--e-x),transform .45s var(--e-o)}
- .motion .s.leave{position:fixed;left:0;right:0;z-index:6;pointer-events:none;will-change:opacity,transform}
+ .motion .s.leave,.s.leave{position:fixed;left:0;right:0;z-index:6;margin:0;pointer-events:none;will-change:opacity,transform;background:inherit}
  .motion .s.leave.out,.motion .s.out.leave{opacity:0;transform:translateY(-18px)}
  .motion .s.leave .w,.motion .s.leave .w *,.motion .s.out .w,.motion .s.out .w *{opacity:1!important;transform:none!important;transition:none!important}
  .motion .s:not(.in):not(.leave)>.w{opacity:0;transform:translateY(16px)}
