@@ -8,8 +8,7 @@
 @media (min-width:901px){
  section.s.title.split-s .split{align-items:stretch}
  section.s.title.split-s .agenda.pane{align-self:stretch;display:flex;flex-direction:column;justify-content:center;
-   background:rgba(11,26,74,.86);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid rgba(11,26,74,.9);
-   box-shadow:0 24px 50px -30px rgba(11,26,74,.6);padding-left:clamp(30px,2.4vw,44px);padding-right:clamp(30px,2.4vw,44px)}
+   background:var(--ink);border:0;box-shadow:none;padding-left:clamp(30px,2.4vw,44px);padding-right:clamp(30px,2.4vw,44px)}
  section.s.title.split-s .agenda .k{color:#A9BEEA;margin-bottom:10px}
  section.s.title.split-s .agenda a{color:#FCF3ED;border-bottom-color:rgba(252,243,237,.18)}
  section.s.title.split-s .agenda a:hover .t{color:#C9D6F2}

@@ -5,14 +5,15 @@
  --serif:'Newsreader','Songti SC','Noto Serif SC','Source Han Serif SC',Georgia,serif;
  --r:12px;--ease:cubic-bezier(.2,.7,.2,1);--z:1;--gut:150px;--vh:calc(1vh / var(--z));
  --cp:clamp(22px,calc(3 * var(--vh)),30px) clamp(22px,1.9vw,30px);
- --pane:rgba(255,255,255,.45);--pp:clamp(24px,calc(3.4 * var(--vh)),34px) clamp(26px,2.4vw,40px)}
+ --pane:rgba(255,255,255,.45);--pp:clamp(24px,calc(3.4 * var(--vh)),34px) clamp(26px,2.4vw,40px);
+ --edge:rgba(11,26,74,.16);--data:#2F55A8;--data-2:#B3BFDB;--track:rgba(11,26,74,.07);--dots:rgba(11,26,74,.15)}
 @media (min-width:1700px) and (min-height:950px){:root{--z:1.32}}
 *{box-sizing:border-box}html,body{margin:0;height:100%}
 body{font-family:var(--serif);color:var(--ink);background:var(--paper);overflow:hidden;-webkit-font-smoothing:antialiased;font-variant-numeric:lining-nums}
 button{font:inherit;color:inherit}
 .deck{height:100vh;overflow-y:auto;scroll-snap-type:y mandatory;scroll-behavior:smooth}
 .s{position:relative;min-height:100vh;scroll-snap-align:start;display:flex;align-items:center;overflow:hidden;
- background:var(--paper) radial-gradient(rgba(11,26,74,.22) 1.1px,transparent 1.4px) 12px 12px/24px 24px}
+ background:var(--paper) radial-gradient(var(--dots) 1.1px,transparent 1.4px) 12px 12px/24px 24px}
 .s.alt{background-color:var(--beige);background-image:none}
 .w{position:relative;z-index:2;zoom:var(--z);width:calc((100vw - var(--gut)) / var(--z));margin:0 auto;
  padding:clamp(26px,calc(5.5 * var(--vh)),64px) 0;display:flex;flex-direction:column;align-items:stretch}

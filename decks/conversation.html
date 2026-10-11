@@ -10,14 +10,15 @@
  --serif:'Newsreader','Songti SC','Noto Serif SC','Source Han Serif SC',Georgia,serif;
  --r:12px;--ease:cubic-bezier(.2,.7,.2,1);--z:1;--gut:150px;--vh:calc(1vh / var(--z));
  --cp:clamp(22px,calc(3 * var(--vh)),30px) clamp(22px,1.9vw,30px);
- --pane:rgba(255,255,255,.45);--pp:clamp(24px,calc(3.4 * var(--vh)),34px) clamp(26px,2.4vw,40px)}
+ --pane:rgba(255,255,255,.45);--pp:clamp(24px,calc(3.4 * var(--vh)),34px) clamp(26px,2.4vw,40px);
+ --edge:rgba(11,26,74,.16);--data:#2F55A8;--data-2:#B3BFDB;--track:rgba(11,26,74,.07);--dots:rgba(11,26,74,.15)}
 @media (min-width:1700px) and (min-height:950px){:root{--z:1.32}}
 *{box-sizing:border-box}html,body{margin:0;height:100%}
 body{font-family:var(--serif);color:var(--ink);background:var(--paper);overflow:hidden;-webkit-font-smoothing:antialiased;font-variant-numeric:lining-nums}
 button{font:inherit;color:inherit}
 .deck{height:100vh;overflow-y:auto;scroll-snap-type:y mandatory;scroll-behavior:smooth}
 .s{position:relative;min-height:100vh;scroll-snap-align:start;display:flex;align-items:center;overflow:hidden;
- background:var(--paper) radial-gradient(rgba(11,26,74,.22) 1.1px,transparent 1.4px) 12px 12px/24px 24px}
+ background:var(--paper) radial-gradient(var(--dots) 1.1px,transparent 1.4px) 12px 12px/24px 24px}
 .s.alt{background-color:var(--beige);background-image:none}
 .w{position:relative;z-index:2;zoom:var(--z);width:calc((100vw - var(--gut)) / var(--z));margin:0 auto;
  padding:clamp(26px,calc(5.5 * var(--vh)),64px) 0;display:flex;flex-direction:column;align-items:stretch}
@@ -542,8 +543,7 @@ a.qr-live{color:inherit;text-decoration:none}
 @media (min-width:901px){
  section.s.title.split-s .split{align-items:stretch}
  section.s.title.split-s .agenda.pane{align-self:stretch;display:flex;flex-direction:column;justify-content:center;
-   background:rgba(11,26,74,.86);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid rgba(11,26,74,.9);
-   box-shadow:0 24px 50px -30px rgba(11,26,74,.6);padding-left:clamp(30px,2.4vw,44px);padding-right:clamp(30px,2.4vw,44px)}
+   background:var(--ink);border:0;box-shadow:none;padding-left:clamp(30px,2.4vw,44px);padding-right:clamp(30px,2.4vw,44px)}
  section.s.title.split-s .agenda .k{color:#A9BEEA;margin-bottom:10px}
  section.s.title.split-s .agenda a{color:#FCF3ED;border-bottom-color:rgba(252,243,237,.18)}
  section.s.title.split-s .agenda a:hover .t{color:#C9D6F2}
@@ -681,7 +681,8 @@ section.s.title .chip::before{position:relative;top:-1.9px}
 /* ---- s30-system.css ---- */
 /* ===== Oct 10 · content slides (.ae, "assertion-evidence"): one grid for every slide after the title.
    Tracker, action title, evidence, footnote. Same margins, same four type levels (decks/src/PRINCIPLES.md).
-   lay() in shared.js leaves these slides alone: the fixed rhythm below is the layout. ===== */
+   lay() in shared.js leaves these slides alone: the fixed rhythm below is the layout.
+   Oct 11 · calmer surfaces (hairline card edges, lighter dots), one chart style, and step builds ([data-s]). ===== */
 
 /* title agenda: the same three section names as the tracker, each with one plain line under it */
 .title .agenda .t small{display:block;margin-top:6px;font:400 19px/1.35 var(--serif);color:#C9D6F2;letter-spacing:0}
@@ -699,13 +700,14 @@ section.s.title .chip::before{position:relative;top:-1.9px}
 .ae h2 em{font-style:italic}
 .lab{display:block;margin:0;font:600 15px/1.3 var(--serif);letter-spacing:.13em;text-transform:uppercase;color:var(--ink2)}
 :lang(zh-CN) .lab{font-size:16px;letter-spacing:.06em}
-.big{font:400 128px/.9 var(--serif);letter-spacing:-.035em;color:var(--ink2);font-variant-numeric:lining-nums tabular-nums;white-space:nowrap}
+.big{font:300 128px/.9 var(--serif);letter-spacing:-.035em;color:var(--ink2);font-variant-numeric:lining-nums tabular-nums;white-space:nowrap}
 :lang(zh-CN) .big{font-size:108px;letter-spacing:0}
-.big small{display:block;margin:0 0 12px;font-size:30px;line-height:1.1;letter-spacing:-.005em;color:var(--ink)}
+.big small{display:block;margin:0 0 12px;font-size:30px;font-weight:400;line-height:1.1;letter-spacing:-.005em;color:var(--ink)}
 .ae sup{font-size:.5em;line-height:0;vertical-align:.75em;margin-left:.12em;color:var(--ink2);font-weight:600;font-style:normal;letter-spacing:0}
 .ae .no{font:italic 400 44px/1 var(--serif);color:var(--ink2);letter-spacing:-.02em;margin:0 0 18px}
 .ae .pn{font-style:italic;color:var(--ink2)}
 :lang(zh-CN) .ae .pn{font-style:normal}
+.ae .card{border-color:var(--edge)}
 
 .pr{display:grid;gap:0}.pr dd{margin:4px 0 10px}
 
@@ -723,14 +725,45 @@ section.s.title .chip::before{position:relative;top:-1.9px}
 .org{font:600 15px/1 var(--serif);letter-spacing:.13em;text-transform:uppercase;color:var(--ink)}
 :lang(zh-CN) .org{font-size:17px;letter-spacing:.06em}
 
+/* who does a step: a person glyph, or the plain word AI */
+.tg{display:inline-flex;align-items:center;gap:8px;font:600 14px/1 var(--serif);letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+:lang(zh-CN) .tg{font-size:15px;letter-spacing:.06em}
+.tg svg{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round}
+
 /* Chinese: break lines only at punctuation and spaces, so a word is never split across two lines */
-@media (min-width:701px){:lang(zh-CN) .ae h2,:lang(zh-CN) .ae .bd p,:lang(zh-CN) .ae .bd h3,:lang(zh-CN) .ae .bd dd,:lang(zh-CN) .ae .bd li,:lang(zh-CN) .ae .fn span{word-break:keep-all;overflow-wrap:anywhere}}
+@media (min-width:701px){:lang(zh-CN) .ae h2,:lang(zh-CN) .ae .bd p,:lang(zh-CN) .ae .bd h3,:lang(zh-CN) .ae .bd dd,:lang(zh-CN) .ae .bd li,:lang(zh-CN) .ae .fn span,:lang(zh-CN) .hb .bk{word-break:keep-all;overflow-wrap:anywhere}}
+
+/* bar charts: one style for the whole deck. Shares sit on a 0–100% track; counts (.abs) have no track.
+   Bar length is the value itself (--v, in %), so every chart keeps the source's ratios. */
+.hb{position:relative;display:grid;gap:24px}
+.hb .row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:10px 18px}
+.hb .bk{font-size:21px;line-height:1.3;color:var(--muted)}
+.hb b{font:400 30px/1 var(--serif);color:var(--muted);font-variant-numeric:lining-nums tabular-nums;white-space:nowrap}
+.hb b small{font-size:.62em;margin-right:.3em;color:inherit}
+.hb i{grid-column:1/-1;position:relative;display:block;height:22px;border-radius:3px;background:var(--track)}
+.hb i::after{content:"";position:absolute;left:0;top:0;bottom:0;width:calc(var(--v) * 1%);border-radius:3px;background:var(--data-2);transform-origin:left;transition:transform .9s var(--ease) .12s}
+.hb .hl .bk{color:var(--ink)}.hb .hl b{color:var(--ink2)}.hb .hl i::after{background:var(--data)}
+.hb.abs i{background:none}
+/* a reference tick across every bar (the 50% line on slide 4), labelled once underneath */
+.hb .mk{position:relative;height:16px;margin-top:-12px;font:italic 400 17px/1 var(--serif);color:var(--ink)}
+.hb .mk span{position:absolute;left:calc(var(--v) * 1%);transform:translateX(-50%);white-space:nowrap}
+.hb.ref i::before{content:"";position:absolute;z-index:1;left:calc(var(--m) * 1%);top:-7px;bottom:-7px;border-left:1.5px solid var(--ink)}
+
+/* step builds: hidden parts of a slide that is building; everything else (export, print, scroll, phone) shows in full */
+[data-s]{transition:opacity .45s ease,transform .55s var(--ease)}
+.s.bld [data-s]:not(.vis){opacity:0;transform:translateY(10px);pointer-events:none}
+.s.bld [data-s]:not(.vis) i::after{transform:scaleX(0)}
+.s.nt [data-s],.s.nt [data-s] *,.s.nt [data-s] i::after{transition:none!important}
+.export [data-s]{opacity:1!important;transform:none!important;transition:none!important}
+.export .hb i::after{transform:none!important;transition:none!important}
+@media print{[data-s]{opacity:1!important;transform:none!important}.hb i::after{transform:none!important}}
+@media (prefers-reduced-motion:reduce){[data-s],.hb i::after{transition:none!important}.s.bld [data-s]:not(.vis){transform:none}.s.bld [data-s]:not(.vis) i::after{transform:none}}
 
 @media (min-width:701px){
  section.s.ae>.w{min-height:calc(100 * var(--vh) - 2px);padding:40px 0 28px}
  .ae h2{margin:30px 0 0;font-size:50px;line-height:1.12;letter-spacing:-.022em;max-width:25.5em}
  :lang(zh-CN) .ae h2{font-size:46px;line-height:1.3;letter-spacing:0;max-width:25em}
- .ae .bd{flex:1;display:flex;flex-direction:column;justify-content:center;gap:26px;padding:30px 0 24px}
+ .ae .bd{flex:1;display:flex;flex-direction:column;justify-content:center;gap:28px;padding:34px 0 26px}
  .ae .bd p,.ae .bd li,.ae .bd dd{margin:0;font-size:26px;line-height:1.42;color:var(--text);text-wrap:pretty}
  :lang(zh-CN) .ae .bd p,:lang(zh-CN) .ae .bd li,:lang(zh-CN) .ae .bd dd{line-height:1.55}
  .ae .bd h3{margin:0;font:500 32px/1.2 var(--serif);letter-spacing:-.01em;color:var(--ink);text-wrap:balance}
@@ -738,12 +771,11 @@ section.s.title .chip::before{position:relative;top:-1.9px}
 
  .cols{display:grid;gap:28px;align-items:stretch}
  .c2{grid-template-columns:repeat(2,minmax(0,1fr))}.c3{grid-template-columns:repeat(3,minmax(0,1fr))}.c4{grid-template-columns:repeat(4,minmax(0,1fr))}
- .ae .card{display:flex;flex-direction:column;padding:30px 30px 32px}
- .ae .bd .pane{padding:30px 34px}
+ .ae .card{display:flex;flex-direction:column;padding:32px 32px 34px}
+ .ae .bd .pane{padding:32px 36px}
  .ae .card>.lr{margin-bottom:24px}
- .ae .take{margin:0}
 
- /* paired rows inside a card (AI / Person, In class / At work) */
+ /* paired rows inside a card (AI / Person) */
  .pr{margin:22px 0 0}
  .pr dt{padding-top:16px;border-top:1px solid var(--line)}
  .pr dd{margin:6px 0 16px}
@@ -753,85 +785,117 @@ section.s.title .chip::before{position:relative;top:-1.9px}
  .ae .bd .pn{font-style:italic;color:var(--ink2)}
  :lang(zh-CN) .ae .bd .pn{font-style:normal}
 
+ /* chart heading inside a pane or card */
+ .ae .bd .ct{margin:16px 0 26px!important;font-size:27px!important;line-height:1.3!important;font-weight:500}
+ .ae .bd .cap{margin-top:auto!important;padding-top:22px;font:italic 400 19px/1.4 var(--serif)!important;color:var(--muted)!important}
+
  /* 3 · three ways: one summary pane, one ruled row per way */
- .ae .bd .xs{padding:6px 44px}
- .xs>div{display:grid;grid-template-columns:96px 210px minmax(0,1fr);align-items:baseline;padding:34px 0}
+ .ae .bd .xs{padding:6px 48px}
+ .xs>div{display:grid;grid-template-columns:96px 220px minmax(0,1fr);align-items:baseline;padding:36px 0}
  .xs>div+div{border-top:1px solid var(--line)}
  .xs .no{font-size:52px;margin:0;line-height:1}
  .xs h3{font-size:36px!important}
 
- /* 4 · stat panes: logo, number, line, then the evidence under it */
- .stat2{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}
- .stat2 .pane{display:flex;flex-direction:column;justify-content:center}
- .stat2 .big{margin:30px 0 18px}
- .bars{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:14px 18px;margin-top:30px;padding-top:24px;border-top:1px solid var(--line)}
- .bars span{font-size:20px;color:var(--muted)}
- .bars i{display:block;height:14px;border-radius:2px;background:linear-gradient(90deg,var(--c,#9FB0D6) var(--v),rgba(11,26,74,.07) var(--v))}
- .bars b{font:500 22px/1 var(--serif);color:var(--muted);font-variant-numeric:tabular-nums}
- .bars .on{color:var(--ink)}.bars i.on{--c:var(--ink2)}.bars b.on{color:var(--ink2)}
+ /* 4 · reach: the chart pane, then the expectation */
+ .stat2{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
+ .stat2>.pane{display:flex;flex-direction:column;justify-content:center}
+ .stat2 .big{margin:34px 0 22px}
+ .stat2 .hb{margin-top:6px}
 
  /* 5 · job cards */
  .jobs .card h3{font-size:34px}
  .jobs .pr dd{min-height:2.84em}
 
- /* 6 · before / after: column heads once, then one row per job */
- .ba{display:grid;grid-template-columns:270px minmax(0,1fr) 72px minmax(0,1fr);row-gap:22px;align-items:stretch}
- .ba>.lab{padding:0 0 0 34px}
- .ba>.lab.a{grid-column:4}.ba>.lab.b{grid-column:2}
- .ba .who{display:flex;flex-direction:column;justify-content:center;gap:10px;padding-right:24px}
- .ba .who .lr{height:36px}
- .ba .who p{font-size:22px!important;color:var(--muted)!important;line-height:1.35!important}
- .ba .pane,.ba .card{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;min-height:150px}
- .ba .card p{color:var(--ink)}
- .ar{display:grid;place-items:center}
- .ar svg{width:40px;height:16px;fill:none;stroke:var(--ink2);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+ /* 6 · before / after as a workflow: the old single step, a divider, then AI's draft and the person's check */
+ .flow{display:grid;grid-template-columns:236px minmax(0,1fr) 64px minmax(0,1fr) 52px minmax(0,1fr);row-gap:24px;align-items:stretch}
+ .flow>.lab{grid-row:1}.flow>.x2{grid-row:2}.flow>.x3{grid-row:3}
+ .flow>.lab.b{grid-column:2}.flow>.lab.a{grid-column:4/7}
+ .flow .who{grid-column:1;display:flex;flex-direction:column;justify-content:center;gap:10px;padding-right:22px}
+ .flow .who .lr{height:36px;gap:12px}
+ .flow .who .brand.aos{height:24px}.flow .who .brand.hv{height:16px}
+ .flow .who p{font-size:21px!important;color:var(--muted)!important;line-height:1.35!important}
+ .flow .dv{grid-column:3;grid-row:1/4;justify-self:center;width:0;border-left:1px dashed rgba(11,26,74,.28)}
+ .nd{display:flex;flex-direction:column;justify-content:center;gap:12px;min-height:156px;padding:24px 26px;border-radius:var(--r)}
+ .ae .bd .nd p{font-size:24px;line-height:1.36;text-wrap:balance}
+ .nd.old{background:var(--pane)}.nd.old p{color:var(--muted)!important}
+ .nd.ai{border:1.5px dashed rgba(47,85,168,.55);background:rgba(255,255,255,.18)}.nd.ai .tg{color:var(--ink2)}
+ .nd.me{background:var(--paper-hi);border:1px solid var(--edge)}.nd.me .tg{color:var(--ink)}.nd.me p{color:var(--ink)!important;font-weight:500}
+ .flow .ar{display:grid;place-items:center}
+ .ar svg{width:34px;height:16px;fill:none;stroke:var(--ink2);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 
- /* 7 · company cards with two facts each, and the calm counterweight underneath */
- .cx ul{list-style:none;margin:20px 0 0;padding:0}
- .cx li{padding:14px 0;border-top:1px solid var(--line)}
- .cx li:last-child{padding-bottom:0}
- .bump{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;column-gap:34px}
- .bump .big{font-size:84px;line-height:.9}
- .bump p{color:var(--ink)!important}
+ /* 7 · two companies: Salesforce's headcount as a chart, Accenture's rule as two lines */
+ .tm .hb{margin-top:6px}
+ .tm .hb .bk{font-size:21px}
+ .tm .hb i{height:30px}
+ .ae .bd .tm .mid{margin-top:34px;padding-top:26px;border-top:1px solid var(--line);font-size:32px;line-height:1.3;color:var(--ink);text-wrap:balance}
+ .ae .bd .tm .note{margin-top:auto;padding-top:24px;color:var(--ink)}
 
- /* 8 · one hero number, two supporting rows */
- .hero{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr)}
- .hero>.pane{display:flex;flex-direction:column;justify-content:center}
- .hero .big{margin:26px 0 18px}
- .rows{display:flex;flex-direction:column;justify-content:center}
- .rows>div{padding:28px 0}
- .rows>div+div{border-top:1px solid var(--line)}
- .rows>div:first-child{padding-top:0}.rows>div:last-child{padding-bottom:0}
- .rows h3{margin:14px 0 8px!important}
+ /* 8 · one wide chart: label, bar, value on one line */
+ .wide-ch{padding:36px 48px 34px!important}
+ .wide-ch .lr{height:auto}
+ .hb.wide{gap:20px}
+ .hb.wide .row{grid-template-columns:420px minmax(0,1fr) 96px;align-items:center;column-gap:30px}
+ .hb.wide .bk{grid-column:1;grid-row:1;font-size:24px}
+ .hb.wide i{grid-column:2;grid-row:1;height:34px}
+ .hb.wide b{grid-column:3;grid-row:1;justify-self:end;font-size:34px}
+ :lang(zh-CN) .hb.wide .row{grid-template-columns:360px minmax(0,1fr) 96px}
 
- /* 9 · pillars and the quote that closes them */
- .pil h3{font-size:40px!important;margin-bottom:12px!important}
- .pil .def{color:var(--ink)!important;font-weight:500;min-height:2.84em}
- :lang(zh-CN) .pil .def{min-height:0}
- .pil .aw{margin-top:auto!important;padding-top:18px;border-top:1px solid var(--line)}
- .pil .def+.aw{margin-top:22px!important}
- .pil .aw .lab{margin-bottom:6px}
+ /* 9 · three markets, three panes: two charts and a short list */
+ .ae .bd .emp>.pane{display:flex;flex-direction:column;padding:28px 34px 30px}
+ .emp .ct{min-height:2.6em}
+ .emp .hb{gap:22px}
+ .emp .hb .bk{font-size:20px}
+ .ls{list-style:none;margin:0;padding:0}
+ .ae .bd .ls li{display:flex;align-items:baseline;gap:16px;padding:15px 0;border-top:1px solid var(--line);color:var(--ink)}
+ .ae .bd .ls li:last-child{border-bottom:1px solid var(--line)}
+ .ls li i{font:italic 400 22px/1 var(--serif);color:var(--ink2);flex:none;width:28px}
+
+ /* 10 · agency, taste, craft as one sequence: three rings joined by arrows, then the quote that closes them */
+ .model{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+ .model li{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center}
+ .ring{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;width:216px;height:216px;border-radius:50%;background:var(--paper-hi);border:1px solid var(--edge)}
+ .ring i{font:italic 400 19px/1 var(--serif);color:var(--muted)}
+ .ring .pn{font:italic 400 48px/1 var(--serif);letter-spacing:-.015em;color:var(--ink2)}
+ :lang(zh-CN) .ring .pn{font-size:44px;font-style:normal}
+ .ae .bd .model p{margin-top:28px;max-width:13em;color:var(--ink);font-weight:500;text-wrap:balance}
+ .model li+li::before{content:"";position:absolute;top:108px;left:calc(-50% + 128px);right:calc(50% + 128px);border-top:1.5px solid var(--ink2)}
+ .model li+li::after{content:"";position:absolute;top:102px;right:calc(50% + 128px);width:11px;height:11px;border-top:1.5px solid var(--ink2);border-right:1.5px solid var(--ink2);transform:rotate(45deg);transform-origin:center}
  .qb{display:flex;align-items:baseline;justify-content:space-between;gap:40px}
- .qb .q{font-size:30px!important;line-height:1.3!important;color:var(--ink)!important;font-style:italic}
- :lang(zh-CN) .qb .q{font-style:normal}
+ .ae .bd .qb .q{font-size:30px;line-height:1.3;color:var(--ink);font-style:italic}
+ :lang(zh-CN) .ae .bd .qb .q{font-style:normal}
  .qb>span{flex:none;font:italic 400 17px/1.4 var(--serif);color:var(--muted)}
 
- /* 10 · three steps in order */
- .who-row{display:flex;align-items:center;gap:20px}
+ /* 11 · the hiring story as a timeline: three dots on one rail, the last one filled */
+ .who-row{display:flex;align-items:center;gap:22px;margin-bottom:44px}
  .who-row .lr{height:36px}
- .seq{list-style:none;margin:0;padding:0;gap:64px}
- .seq li{position:relative}
- .seq li+li::before{content:"";position:absolute;left:-52px;top:50%;width:40px;height:16px;margin-top:-8px;
-  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 16'%3E%3Cpath d='M1 8h36M31 2l6 6-6 6' fill='none' stroke='%232F55A8' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
- .seq h3{margin-bottom:10px!important}
+ .tl-pane{padding:40px 48px 44px!important}
+ .tl{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px;position:relative}
+ .tl::before{content:"";position:absolute;top:32px;left:32px;right:calc((100% - 96px) / 3 - 32px);border-top:1.5px solid var(--ink2)}
+ .tl .dot{position:relative;z-index:1;display:grid;place-items:center;width:64px;height:64px;margin-bottom:28px;border-radius:50%;border:1.5px solid var(--ink);background:var(--paper-hi);font:italic 400 28px/1 var(--serif);color:var(--ink)}
+ .tl .end .dot{background:var(--ink);color:var(--paper-hi)}
+ .tl h3{margin-bottom:10px!important}
 
- /* 11 · habits, then the two findings that back them */
- .hab h3{margin-bottom:12px!important}
- .ev .pane{padding:22px 30px}
- .ev .lab{margin-bottom:8px}
- .ev b{font-weight:600;color:var(--ink2)}
+ /* 12 · parents and research: one share on a track, one finding */
+ .par>.pane{display:flex;flex-direction:column;justify-content:flex-start}
+ .par .big{margin:26px 0 26px}
+ .par .hb{margin-bottom:26px}
+ .par .big.wd{display:flex;align-items:flex-end;height:94px;font-size:72px;line-height:1;letter-spacing:-.02em}
+ :lang(zh-CN) .par .big.wd{font-size:96px;letter-spacing:.02em}
+ .par .pane>p:last-child{margin-top:auto}
 
- /* 12 · student work */
+ /* 13 · habits beside one photo */
+ .hm{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:28px;align-items:stretch}
+ .s .bd:has(>.hm){padding:26px 0 20px}
+ .ph{position:relative;margin:0;border-radius:var(--r);overflow:hidden;background:#C9D2EC;min-height:0}
+ .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:58% 50%}
+ .ae .bd .habs{list-style:none;margin:0;padding:2px 44px;display:flex;flex-direction:column;justify-content:center}
+ .ae .bd .habs>li{display:grid;grid-template-columns:62px minmax(0,1fr);align-items:baseline;padding:17px 0}
+ .habs>li+li{border-top:1px solid var(--line)}
+ .habs .no{font-size:40px;margin:0}
+ .habs .lab{margin-bottom:6px}
+ .habs h3{margin-bottom:4px!important}
+
+ /* 14 · student work */
  .proj .card{padding:0;overflow:hidden}
  .proj figure{margin:0;aspect-ratio:3/2;overflow:hidden;background:#C9D2EC;flex:none}
  .proj figure img,.proj figure video{display:block;width:100%;height:100%;object-fit:cover}
@@ -840,16 +904,25 @@ section.s.title .chip::before{position:relative;top:-1.9px}
  .proj .pb .lab{margin-bottom:10px}
  .proj .pb .where{margin-top:auto!important;padding-top:14px;font:italic 400 17px/1.4 var(--serif)!important;color:var(--muted)!important}
 
+ /* 15 · class to work as a matrix: one column per skill, one row per setting */
+ .ae .bd .mx{display:grid;grid-template-columns:150px repeat(3,minmax(0,1fr));grid-template-rows:auto auto auto;grid-auto-flow:column;column-gap:44px;padding:12px 48px 18px}
+ .mx>*{padding:26px 0}
+ .mx .ch{padding:26px 0 18px;border-bottom:1px solid var(--ink)}
+ .ae .bd .mx .ch h3{font-size:40px;font-style:italic;color:var(--ink2)}
+ :lang(zh-CN) .ae .bd .mx .ch h3{font-style:normal}
+ .mx .rl{padding-top:33px}
+ .mx .r1{border-bottom:1px solid var(--line)}
+ .ae .bd .mx .me{color:var(--ink);font-weight:500}
+
  /* speakers, Q&A, sources: same frame, their own bodies */
  .ae .team{margin:0}
- .ae .bd .team h3{font-size:28px;line-height:1.15;margin:0 0 6px}
- .ae .bd .team .tag{font-size:15px;line-height:1.2}
+ .ae .bd .team h3{font-size:28px;line-height:1.15;margin:0 0 8px}
  .ae .bd .team .creds li{font-size:18px;line-height:1.45}
  .ae .logos{margin:0}
  .ae .qa{margin:0}
  .ae .srcs{margin:0;column-count:2;column-gap:40px}
- .ae .srcs li{break-inside:avoid;padding:7px 0;font-size:17px}
- .ae .srcs li .src{font-size:14px}
+ .ae .srcs li{break-inside:avoid;padding:6px 0;font-size:16.5px}
+ .ae .srcs li .src{font-size:14px;margin-top:2px}
 }
 
 .export .proj figure video{display:none}.export .proj figure .vposter{display:block}
@@ -860,15 +933,25 @@ section.s.title .chip::before{position:relative;top:-1.9px}
  .trk li{padding:7px 10px 6px;font-size:11px;letter-spacing:.08em}
  .ae h2{margin-top:18px}
  .ae .bd{display:flex;flex-direction:column;gap:14px;margin-top:22px}
- .cols,.ba,.bump,.stat2,.hero{display:grid;grid-template-columns:1fr!important;gap:14px}
- .ba>.lab{display:none}
+ .cols,.stat2,.hm,.tl,.model{display:grid;grid-template-columns:1fr!important;gap:14px}
  .xs>div{display:block;padding:14px 0}.xs>div+div{border-top:1px solid var(--line)}.xs .no{display:block;font-size:30px;margin:0 0 6px}
- .ar{height:24px}.ar svg{width:28px;height:12px;transform:rotate(90deg);fill:none;stroke:var(--ink2);stroke-width:1.8}
- .big,:lang(zh-CN) .big{font-size:56px;white-space:normal}.bump .big{font-size:48px}
+ .flow{display:grid;grid-template-columns:1fr;gap:10px}.flow>.lab,.flow .dv{display:none}.flow .who{margin-top:12px}
+ .flow .ar{height:22px}.ar svg{width:28px;height:12px;transform:rotate(90deg);fill:none;stroke:var(--ink2);stroke-width:1.8}
+ .nd{padding:14px 16px;border-radius:var(--r)}.nd.ai{border:1.5px dashed rgba(47,85,168,.5)}.nd.me{background:var(--paper-hi);border:1px solid var(--edge)}.nd.old{background:var(--pane)}
+ .big,:lang(zh-CN) .big{font-size:56px;white-space:normal}.big.wd,:lang(zh-CN) .big.wd{font-size:38px}
  .lr{height:32px;margin-bottom:10px}.brand.sf{height:32px}
- .cx ul{list-style:none;margin:10px 0 0;padding:0}.cx li{padding:6px 0;border-top:1px solid var(--line)}
+ .hb{gap:14px}.hb .bk{font-size:14px}.hb b{font-size:20px}.hb i{height:14px}
+ .hb.wide .row{grid-template-columns:minmax(0,1fr) auto}.hb.wide i{grid-column:1/-1}
+ .ct{margin:8px 0 14px}.cap{margin-top:10px;font-style:italic;color:var(--muted)}
+ .ls{list-style:none;margin:10px 0 0;padding:0}.ls li{padding:6px 0;border-top:1px solid var(--line)}.ls li i{margin-right:8px;color:var(--ink2)}
  .ae .card,.ae .bd .pane{padding:18px 20px}
- .seq li+li::before{display:none}
+ .model li{display:flex;align-items:center;gap:14px;text-align:left}.ring{width:96px;height:96px;flex:none;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--paper-hi);border:1px solid var(--edge)}.ring i{font-size:12px}.ring .pn{font-size:22px}
+ .tl .dot{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--ink);margin-bottom:8px}.tl .end .dot{background:var(--ink);color:var(--paper-hi)}
+ .who-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:12px}
+ .ph{margin:0;border-radius:var(--r);overflow:hidden;aspect-ratio:3/2}.ph img{width:100%;height:100%;object-fit:cover}
+ .habs{list-style:none;margin:0;padding:0}.habs>li{padding:12px 0}.habs>li+li{border-top:1px solid var(--line)}.habs .no{display:none}
+ .mx{display:block}.mx>*{display:block;padding:6px 0}.mx>span:empty,.mx .rl{display:none}.mx .ch{margin-top:14px;border-bottom:1px solid var(--ink)}
+ .mx p::before{content:attr(data-l);display:block;margin-bottom:2px;font:600 11px/1.3 var(--serif);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
  .pr dt{margin-top:12px}
  .qb{display:block}.qb span{display:block;margin-top:8px}
  .proj .card{padding:0}.proj .pb{padding:16px 18px}
@@ -896,9 +979,9 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <nav class="agenda pane r" style="--d:.4s" aria-label="Contents">
    <div class="k">In this conversation</div>
    <ol>
-    <li><a href="#" data-go="2"><span class="n">01</span><span class="t">What’s changing<small>How AI is already changing work</small></span></a></li>
-    <li><a href="#" data-go="7"><span class="n">02</span><span class="t">What skills matter<small>What employers now ask for</small></span></a></li>
-    <li><a href="#" data-go="10"><span class="n">03</span><span class="t">What you can do<small>Habits at home, and what students make</small></span></a></li>
+    <li><a href="#" data-go="2"><span class="n">01</span><span class="t">What’s changing<small>Reach, tasks, and teams</small></span></a></li>
+    <li><a href="#" data-go="8"><span class="n">02</span><span class="t">What skills matter<small>Agency, taste, and craft</small></span></a></li>
+    <li><a href="#" data-go="11"><span class="n">03</span><span class="t">What you can do<small>Habits, projects, and practice</small></span></a></li>
    </ol>
   </nav>
  </div>
@@ -910,12 +993,12 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <h2 class="r" style="--d:.1s">Two co-founders who see AI’s impact up close: <em>in hiring, at work, and in class.</em></h2>
  <div class="bd r" style="--d:.25s">
  <div class="team">
-  <div class="person"><img src="/photos/jing-jing-yang.jpg" alt=""><div class="who"><h3>Jing Jing Yang</h3><div class="co">Co-founder, Arena School</div><p class="tag">ISB Class of 2019</p></div>
+  <div class="person" data-s="1"><img src="/photos/jing-jing-yang.jpg" alt=""><div class="who"><h3>Jing Jing Yang</h3><div class="co">ISB Class of 2019</div></div>
    <ul class="creds"><li>ISB from elementary school through graduation · Brown (Economics and Behavioral Decision Sciences) · Tsinghua (Schwarzman Scholar)</li><li><b>Advises Chinese startups on overseas go-to-market strategy;</b> Kimi (Moonshot AI); research with Microsoft AI.</li><li>Apple · Deloitte · CICC</li></ul></div>
-  <div class="person"><img src="/photos/phillip-an.jpg" alt=""><div class="who"><h3>Phillip An</h3><div class="co">Co-founder, Arena School</div><p class="tag">Forbes 30 Under 30</p></div>
+  <div class="person" data-s="2"><img src="/photos/phillip-an.jpg" alt=""><div class="who"><h3>Phillip An</h3><div class="co">Forbes 30 Under 30</div></div>
    <ul class="creds"><li>Caltech (Computer Science) · Harvard (MBA and MS) · Tsinghua (Schwarzman Scholar)</li><li><b>Serial entrepreneur:</b> now runs an AI startup; previous company backed by Y Combinator.</li><li>Goldman Sachs · McKinsey</li></ul></div>
  </div>
- <div class="logos"><img class="arena" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School" style="height:23px"><img src="/logos/cred/caltech.png" alt="Caltech" style="height:19px"><img src="/logos/cred/harvard.png" alt="Harvard" style="height:21px"><img src="/logos/cred/brown.png" alt="Brown" style="height:23px"><img src="/logos/cred/tsinghua-lockup.png" alt="Tsinghua" style="height:23px"><img src="/logos/cred/goldman.png" alt="Goldman Sachs" style="height:21px"><img src="/logos/cred/mckinsey.png" alt="McKinsey" style="height:14px"><img src="/logos/cred/deloitte.png" alt="Deloitte" style="height:15px"><img src="/logos/cred/apple.png" alt="Apple" style="height:21px"><img src="/logos/cred/cicc.png" alt="CICC" style="height:20px"><img src="/logos/cred/microsoft-ai.png" alt="Microsoft AI" style="height:18px"><img src="/logos/cred/yc.png" alt="Y Combinator" style="height:20px"><img src="/logos/cred/kimi-wordmark.png" alt="Kimi" style="height:14px"></div>
+ <div class="logos" data-s="3"><img class="arena" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School" style="height:23px"><img src="/logos/cred/caltech.png" alt="Caltech" style="height:19px"><img src="/logos/cred/harvard.png" alt="Harvard" style="height:21px"><img src="/logos/cred/brown.png" alt="Brown" style="height:23px"><img src="/logos/cred/tsinghua-lockup.png" alt="Tsinghua" style="height:23px"><img src="/logos/cred/goldman.png" alt="Goldman Sachs" style="height:21px"><img src="/logos/cred/mckinsey.png" alt="McKinsey" style="height:14px"><img src="/logos/cred/deloitte.png" alt="Deloitte" style="height:15px"><img src="/logos/cred/apple.png" alt="Apple" style="height:21px"><img src="/logos/cred/cicc.png" alt="CICC" style="height:20px"><img src="/logos/cred/microsoft-ai.png" alt="Microsoft AI" style="height:18px"><img src="/logos/cred/yc.png" alt="Y Combinator" style="height:20px"><img src="/logos/cred/kimi-wordmark.png" alt="Kimi" style="height:14px"></div>
  </div>
 </div></section>
 
@@ -923,10 +1006,10 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 <section class="s ae"><div class="w">
  <ol class="trk r" aria-label="Sections"><li class="on"><i>01</i>What’s changing</li><li><i>02</i>What skills matter</li><li><i>03</i>What you can do</li></ol>
  <h2 class="r" style="--d:.1s">AI is already changing work in three ways: <em>its reach, the tasks, and the teams.</em></h2>
- <div class="bd r" style="--d:.25s"><div class="pane xs">
-  <div><span class="no">01</span><h3>Reach</h3><p>About half of jobs already use AI for at least part of the work.</p></div>
-  <div><span class="no">02</span><h3>Tasks</h3><p>AI prepares the first pass; a person checks it and decides.</p></div>
-  <div><span class="no">03</span><h3>Teams</h3><p>Some teams shrink; people who retrain move into new roles.</p></div>
+ <div class="bd r" style="--d:.25s"><div class="pane xs" data-s="1">
+  <div data-s="1"><span class="no">01</span><h3>Reach</h3><p>About half of jobs already use AI for part of the work.</p></div>
+  <div data-s="2"><span class="no">02</span><h3>Tasks</h3><p>AI drafts the first pass; a person checks and decides.</p></div>
+  <div data-s="3"><span class="no">03</span><h3>Teams</h3><p>Some teams shrink; people who retrain move to new roles.</p></div>
  </div></div>
 </div></section>
 
@@ -935,11 +1018,16 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <ol class="trk r" aria-label="Sections"><li class="on"><i>01</i>What’s changing</li><li><i>02</i>What skills matter</li><li><i>03</i>What you can do</li></ol>
  <h2 class="r" style="--d:.1s">AI already reaches <em>about half of jobs;</em> users expect far more within a year.</h2>
  <div class="bd r" style="--d:.25s"><div class="cols stat2">
-  <div class="pane"><div class="lr"><img class="brand an" src="/logos/deck/anthropic.svg" alt="Anthropic"></div><div class="big">49%</div><p>of jobs have used AI for at least a quarter of their tasks.<sup>1</sup></p>
-   <div class="bars"><span>First report</span><i style="--v:36%"></i><b>36%</b><span class="on">January 2026</span><i class="on" style="--v:49%"></i><b class="on">49%</b></div></div>
-  <div class="pane"><div class="lr"><img class="brand an" src="/logos/deck/anthropic.svg" alt="Anthropic"></div><div class="big"><small>More than</small>1 in 3</div><p>Claude users expect AI to be able to do most of their tasks within a year.<sup>2</sup></p></div>
+  <div class="pane" data-s="1"><div class="lr"><img class="brand an" src="/logos/deck/anthropic.svg" alt="Anthropic"></div>
+   <h3 class="ct">Jobs using AI for at least a quarter of their tasks<sup>1</sup></h3>
+   <div class="hb ref" style="--m:50">
+    <div class="row"><span class="bk">First report, January 2025 data</span><b>36%</b><i style="--v:36"></i></div>
+    <div class="row hl"><span class="bk">January 2026 report</span><b>49%</b><i style="--v:49"></i></div>
+    <div class="mk" style="--v:50"><span>Half of jobs</span></div>
+   </div></div>
+  <div class="pane" data-s="2"><div class="lr"><img class="brand an" src="/logos/deck/anthropic.svg" alt="Anthropic"></div><div class="big"><small>More than</small>1 in 3</div><p>Claude users expect AI to be able to do most of their tasks within a year.<sup>2</sup></p></div>
  </div></div>
- <p class="fn r" style="--d:.35s"><span><b>1</b>Anthropic Economic Index, Jan 15, 2026; little change by March 24, 2026. Based on how people use Claude, not a census of every worker.</span><span><b>2</b>Anthropic survey of about 9,700 Claude users, June 26, 2026.</span></p>
+ <p class="fn" data-s="1"><span><b>1</b>Anthropic Economic Index, Jan 15, 2026; little change by March 24, 2026. Based on how people use Claude, not a census of every worker.</span><span><b>2</b>Anthropic survey of about 9,700 Claude users, June 26, 2026.</span></p>
 </div></section>
 
 <!-- 5 · Tasks: four jobs -->
@@ -947,135 +1035,174 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <ol class="trk r" aria-label="Sections"><li class="on"><i>01</i>What’s changing</li><li><i>02</i>What skills matter</li><li><i>03</i>What you can do</li></ol>
  <h2 class="r" style="--d:.1s">In four familiar jobs, AI prepares the first pass and <em>a person still decides.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="cols c4 jobs">
-  <div class="card"><div class="lr"><img class="brand xf" src="/logos/deck/xunfei-healthcare.png" alt="Xunfei Healthcare"></div><h3>Medicine<sup>1</sup></h3>
-   <dl class="pr"><dt class="lab">AI</dt><dd>Drafts the visit note</dd><dt class="lab">Person</dt><dd class="me">Decides what to keep</dd></dl></div>
-  <div class="card"><div class="lr"><img class="brand aos" src="/logos/deck/aoshearman.svg" alt="A&amp;O Shearman"><img class="brand hv" src="/logos/deck/harvey.svg" alt="Harvey"></div><h3>Law<sup>2</sup></h3>
+  <div class="card" data-s="1"><div class="lr"><img class="brand xf" src="/logos/deck/xunfei-healthcare.png" alt="Xunfei Healthcare"></div><h3>Medicine<sup>1</sup></h3>
+   <dl class="pr"><dt class="lab">AI</dt><dd>Drafts the visit note</dd><dt class="lab">Person</dt><dd class="me">Checks and approves it</dd></dl></div>
+  <div class="card" data-s="2"><div class="lr"><img class="brand aos" src="/logos/deck/aoshearman.svg" alt="A&amp;O Shearman"><img class="brand hv" src="/logos/deck/harvey.svg" alt="Harvey"></div><h3>Law<sup>2</sup></h3>
    <dl class="pr"><dt class="lab">AI</dt><dd>Compares agreements</dd><dt class="lab">Person</dt><dd class="me">Checks the result</dd></dl></div>
-  <div class="card"><div class="lr"><img class="brand jp" src="/logos/deck/jpmorgan.svg" alt="JPMorganChase"></div><h3>Finance<sup>3</sup></h3>
+  <div class="card" data-s="3"><div class="lr"><img class="brand jp" src="/logos/deck/jpmorgan.svg" alt="JPMorganChase"></div><h3>Finance<sup>3</sup></h3>
    <dl class="pr"><dt class="lab">AI</dt><dd>Drafts and suggests ideas</dd><dt class="lab">Person</dt><dd class="me">Owns the result</dd></dl></div>
-  <div class="card"><div class="lr"><img class="brand gg" src="/logos/deck/google.svg" alt="Google"></div><h3>Engineering<sup>4</sup></h3>
-   <dl class="pr"><dt class="lab">AI</dt><dd>Suggests code</dd><dt class="lab">Person</dt><dd class="me">Decides whether to keep it</dd></dl></div>
+  <div class="card" data-s="4"><div class="lr"><img class="brand gg" src="/logos/deck/google.svg" alt="Google"></div><h3>Engineering<sup>4</sup></h3>
+   <dl class="pr"><dt class="lab">AI</dt><dd>Suggests code</dd><dt class="lab">Person</dt><dd class="me">Decides what to keep</dd></dl></div>
  </div></div>
- <p class="fn r" style="--d:.35s"><span><b>1</b>Anhui Medical University First Affiliated Hospital, with Xunfei Healthcare, June 4, 2025</span><span><b>2</b>A&amp;O Shearman, with Harvey, April 6, 2025</span><span><b>3</b>JPMorganChase, LLM Suite, June 3, 2025</span><span><b>4</b>Alphabet earnings call, April 24, 2025</span></p>
+ <p class="fn" data-s="1"><span><b>1</b>Anhui Medical University First Affiliated Hospital, June 4, 2025</span><span><b>2</b>A&amp;O Shearman, April 6, 2025</span><span><b>3</b>JPMorganChase, LLM Suite, June 3, 2025</span><span><b>4</b>Alphabet earnings call, April 24, 2025</span></p>
 </div></section>
 
 <!-- 6 · Tasks: before and after -->
 <section class="s alt ae"><div class="w">
  <ol class="trk r" aria-label="Sections"><li class="on"><i>01</i>What’s changing</li><li><i>02</i>What skills matter</li><li><i>03</i>What you can do</li></ol>
  <h2 class="r" style="--d:.1s">At a hospital and a law firm, routine work now starts from <em>AI’s first pass.</em></h2>
- <div class="bd r" style="--d:.25s"><div class="ba">
-  <div class="lab b">Before</div><div class="lab a">After</div>
-  <div class="who"><div class="lr"><img class="brand xf" src="/logos/deck/xunfei-healthcare.png" alt="Xunfei Healthcare"></div><h3>Doctor<sup>1</sup></h3><p>The note after a visit</p></div>
-  <div class="pane"><p>Writes the note by hand</p></div>
-  <div class="ar" aria-hidden="true"><svg viewBox="0 0 40 16"><path d="M1 8h36M31 2l6 6-6 6"/></svg></div>
-  <div class="card"><p>Checks a draft note, with its reasoning shown</p></div>
-  <div class="who"><div class="lr"><img class="brand aos" src="/logos/deck/aoshearman.svg" alt="A&amp;O Shearman"><img class="brand hv" src="/logos/deck/harvey.svg" alt="Harvey"></div><h3>Lawyer<sup>2</sup></h3><p>Loan agreement review</p></div>
-  <div class="pane"><p>Reviews each agreement by hand</p></div>
-  <div class="ar" aria-hidden="true"><svg viewBox="0 0 40 16"><path d="M1 8h36M31 2l6 6-6 6"/></svg></div>
-  <div class="card"><p>Checks a <span class="nw">side-by-side</span> comparison</p></div>
+ <div class="bd r" style="--d:.25s"><div class="flow">
+  <span class="lab b" data-s="1">Before</span><span class="lab a" data-s="2">After</span><span class="dv" data-s="2" aria-hidden="true"></span>
+  <div class="who x2" data-s="1"><div class="lr"><img class="brand xf" src="/logos/deck/xunfei-healthcare.png" alt="Xunfei Healthcare"></div><h3>Hospital<sup>1</sup></h3><p>The note after a visit</p></div>
+  <div class="x2 nd old" data-s="1"><span class="tg"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="6.6" r="3.4"/><path d="M3.6 17.4c.9-3.5 3.4-5.3 6.4-5.3s5.5 1.8 6.4 5.3"/></svg>Doctor</span><p>Writes the note by hand</p></div>
+  <div class="x2 nd ai" data-s="2"><span class="tg">AI</span><p>Drafts the note, with its reasoning</p></div>
+  <div class="ar x2" data-s="2" aria-hidden="true"><svg viewBox="0 0 34 16"><path d="M1 8h30M25 2l6 6-6 6"/></svg></div>
+  <div class="x2 nd me" data-s="2"><span class="tg"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="6.6" r="3.4"/><path d="M3.6 17.4c.9-3.5 3.4-5.3 6.4-5.3s5.5 1.8 6.4 5.3"/></svg>Doctor</span><p>Checks the draft and decides</p></div>
+  <div class="who x3" data-s="3"><div class="lr"><img class="brand aos" src="/logos/deck/aoshearman.svg" alt="A&amp;O Shearman"><img class="brand hv" src="/logos/deck/harvey.svg" alt="Harvey"></div><h3>Law firm<sup>2</sup></h3><p>Loan agreement review</p></div>
+  <div class="x3 nd old" data-s="3"><span class="tg"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="6.6" r="3.4"/><path d="M3.6 17.4c.9-3.5 3.4-5.3 6.4-5.3s5.5 1.8 6.4 5.3"/></svg>Lawyer</span><p>Reviews each agreement by hand</p></div>
+  <div class="x3 nd ai" data-s="4"><span class="tg">AI</span><p>Lines the agreements up <span class="nw">side by side</span></p></div>
+  <div class="ar x3" data-s="4" aria-hidden="true"><svg viewBox="0 0 34 16"><path d="M1 8h30M25 2l6 6-6 6"/></svg></div>
+  <div class="x3 nd me" data-s="4"><span class="tg"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="6.6" r="3.4"/><path d="M3.6 17.4c.9-3.5 3.4-5.3 6.4-5.3s5.5 1.8 6.4 5.3"/></svg>Lawyer</span><p>Checks the comparison</p></div>
  </div></div>
- <p class="fn r" style="--d:.35s"><span><b>1</b>Anhui Medical University First Affiliated Hospital, with Xunfei Healthcare, June 4, 2025</span><span><b>2</b>A&amp;O Shearman, with Harvey, April 6, 2025</span></p>
+ <p class="fn" data-s="1"><span><b>1</b>Anhui Medical University First Affiliated Hospital, with Xunfei Healthcare, June 4, 2025</span><span><b>2</b>A&amp;O Shearman, with Harvey, April 6, 2025</span></p>
 </div></section>
 
-<!-- 7 · Teams -->
+<!-- 7 · Teams: two companies -->
 <section class="s ae"><div class="w">
  <ol class="trk r" aria-label="Sections"><li class="on"><i>01</i>What’s changing</li><li><i>02</i>What skills matter</li><li><i>03</i>What you can do</li></ol>
  <h2 class="r" style="--d:.1s">Some teams are shrinking; <em>people who retrain</em> move into new roles.</h2>
- <div class="bd r" style="--d:.25s">
-  <div class="cols c2">
-   <div class="card cx"><div class="lr"><img class="brand sf" src="/logos/deck/salesforce-navy.svg" alt="Salesforce"></div><h3>Support staff: 9,000 → about 5,000<sup>1</sup></h3><ul><li>Hundreds moved to other teams</li><li>Open support roles are not refilled</li></ul></div>
-   <div class="card cx"><div class="lr"><img class="brand acc" src="/logos/deck/accenture.svg" alt="Accenture"></div><h3>Retraining comes first<sup>2</sup></h3><ul><li>People leave where retraining can’t close the gap</li><li>Expects to employ more people next year</li></ul></div>
-  </div>
-  <div class="pane bump"><div class="big">11%</div><p>of employers surveyed were discussing cutting jobs. Most were changing tasks within jobs instead.<sup>3</sup></p></div>
- </div>
- <p class="fn r" style="--d:.35s"><span><b>1</b>Marc Benioff, The Logan Bartlett Show, Aug 29, 2025; The Register, Sept 2, 2025</span><span><b>2</b>Accenture fiscal 2025 results, Sept 25, 2025</span><span><b>3</b>NACE Job Outlook 2026 Spring Update, April 20, 2026</span></p>
+ <div class="bd r" style="--d:.25s"><div class="cols c2 tm">
+  <div class="card" data-s="1"><div class="lr"><img class="brand sf" src="/logos/deck/salesforce-navy.svg" alt="Salesforce"></div><h3>Support staff<sup>1</sup></h3>
+   <div class="hb abs" style="margin-top:28px">
+    <div class="row"><span class="bk">Before AI agents</span><b>9,000</b><i style="--v:100"></i></div>
+    <div class="row hl"><span class="bk">August 2025</span><b><small>about</small>5,000</b><i style="--v:55.56"></i></div>
+   </div>
+   <p class="note">Hundreds moved to other teams.</p></div>
+  <div class="card" data-s="2"><div class="lr"><img class="brand acc" src="/logos/deck/accenture.svg" alt="Accenture"></div><h3>Retraining comes first<sup>2</sup></h3>
+   <p class="mid">People leave only where retraining can’t close the gap.</p>
+   <p class="note">Expects to employ more people next year.</p></div>
+ </div></div>
+ <p class="fn" data-s="1"><span><b>1</b>Marc Benioff, The Logan Bartlett Show, Aug 29, 2025; The Register, Sept 2, 2025</span><span><b>2</b>Accenture fiscal 2025 results, Sept 25, 2025</span></p>
 </div></section>
 
-<!-- 8 · What employers ask for -->
+<!-- 8 · Teams: what employers discuss -->
 <section class="s alt ae"><div class="w">
+ <ol class="trk r" aria-label="Sections"><li class="on"><i>01</i>What’s changing</li><li><i>02</i>What skills matter</li><li><i>03</i>What you can do</li></ol>
+ <h2 class="r" style="--d:.1s">Most employers are changing <em>tasks within jobs;</em> few are discussing cutting jobs.</h2>
+ <div class="bd r" style="--d:.25s"><div class="pane wide-ch" data-s="1">
+  <div class="lr" data-s="1"><span class="org">US employers surveyed by NACE</span></div>
+  <h3 class="ct" data-s="1">How employers discuss AI in workforce planning<sup>1</sup></h3>
+  <div class="hb wide">
+   <div class="row hl" data-s="1"><span class="bk">Tasks within jobs</span><b>66%</b><i style="--v:66.4"></i></div>
+   <div class="row" data-s="2"><span class="bk">In general, not tied to roles</span><b>47%</b><i style="--v:47"></i></div>
+   <div class="row" data-s="2"><span class="bk">Redesigning roles</span><b>18%</b><i style="--v:18.1"></i></div>
+   <div class="row hl" data-s="3"><span class="bk">Whether some jobs are still needed</span><b>11%</b><i style="--v:10.7"></i></div>
+  </div>
+  <p class="cap" data-s="1">Share of 149 employers; they could give more than one answer.</p>
+ </div></div>
+ <p class="fn" data-s="1"><span><b>1</b>NACE Job Outlook 2026 Spring Update, April 20, 2026</span></p>
+</div></section>
+
+<!-- 9 · What employers ask for -->
+<section class="s ae"><div class="w">
  <ol class="trk r" aria-label="Sections"><li><i>01</i>What’s changing</li><li class="on"><i>02</i>What skills matter</li><li><i>03</i>What you can do</li></ol>
  <h2 class="r" style="--d:.1s">Employers now want people who <em>use AI well</em> and still think for themselves.</h2>
- <div class="bd r" style="--d:.25s"><div class="cols hero">
-  <div class="pane"><div class="lr"><span class="org">United States</span></div><div class="big"><small>More than</small>1 in 3</div><p>entry-level jobs now ask for AI skills, nearly triple the share last fall.<sup>1</sup></p></div>
-  <div class="pane rows">
-   <div><div class="lr"><img class="brand msft" src="/logos/deck/microsoft.svg" alt="Microsoft"></div><h3>Check AI’s work, and think it through</h3><p>The two skills people who use AI at work rank first.<sup>2</sup></p></div>
-   <div><div class="lr"><span class="org">China</span></div><h3>AI tools, data skills, and clear thinking</h3><p>What employers in China now ask for.<sup>3</sup></p></div>
-  </div>
+ <div class="bd r" style="--d:.25s"><div class="cols c3 emp">
+  <div class="pane" data-s="1"><div class="lr"><span class="org">United States</span></div><h3 class="ct">Entry-level jobs that require AI skills<sup>1</sup></h3>
+   <div class="hb"><div class="row"><span class="bk">Fall 2025</span><b>13.3%</b><i style="--v:13.3"></i></div><div class="row hl"><span class="bk">Spring 2026</span><b>35%</b><i style="--v:35"></i></div></div>
+   <p class="cap">Nearly triple in six months</p></div>
+  <div class="pane" data-s="2"><div class="lr"><img class="brand msft" src="/logos/deck/microsoft.svg" alt="Microsoft"></div><h3 class="ct">Skills that matter more as AI does more<sup>2</sup></h3>
+   <div class="hb"><div class="row hl"><span class="bk">Checking AI’s output</span><b>50%</b><i style="--v:50"></i></div><div class="row hl"><span class="bk">Critical thinking</span><b>46%</b><i style="--v:46"></i></div></div>
+   <p class="cap">Ranked first and second by AI users</p></div>
+  <div class="pane" data-s="3"><div class="lr"><span class="org">China</span></div><h3 class="ct">What employers in China ask for<sup>3</sup></h3>
+   <ol class="ls"><li><i>1</i><span>AI tools</span></li><li><i>2</i><span>Data skills</span></li><li><i>3</i><span>Clear thinking</span></li></ol></div>
  </div></div>
- <p class="fn r" style="--d:.35s"><span><b>1</b>NACE Job Outlook 2026 Spring Update, April 20, 2026</span><span><b>2</b>Microsoft 2026 Work Trend Index</span><span><b>3</b>解放日报, via 上观新闻, citing 智联招聘, March 27, 2026</span></p>
+ <p class="fn" data-s="1"><span><b>1</b>NACE Job Outlook 2026, Nov 2025; Spring Update, April 20, 2026</span><span><b>2</b>Microsoft 2026 Work Trend Index</span><span><b>3</b>解放日报, via 上观新闻, citing 智联招聘, March 27, 2026</span></p>
 </div></section>
 
-<!-- 9 · Agency, taste, craft -->
-<section class="s ae"><div class="w">
+<!-- 10 · Agency, taste, craft -->
+<section class="s alt ae"><div class="w">
  <ol class="trk r" aria-label="Sections"><li><i>01</i>What’s changing</li><li class="on"><i>02</i>What skills matter</li><li><i>03</i>What you can do</li></ol>
  <h2 class="r" style="--d:.1s">Those asks add up to three skills: <span class="m" style="--d:.6s"><em>agency,</em></span> <span class="m" style="--d:.8s"><em>taste,</em></span> and <span class="m" style="--d:1s"><em>craft.</em></span></h2>
  <div class="bd r" style="--d:.25s">
-  <div class="cols c3">
-   <div class="card pil"><h3 class="pn">Agency</h3><p class="def">Choosing what’s worth solving</p><p class="aw"><span class="lab">At work</span>The person who defines the problem directs the work.</p></div>
-   <div class="card pil"><h3 class="pn">Taste</h3><p class="def">Telling which version actually works</p><p class="aw"><span class="lab">At work</span>AI offers many versions; someone has to pick one and say why.</p></div>
-   <div class="card pil"><h3 class="pn">Craft</h3><p class="def">Finishing it well</p><p class="aw"><span class="lab">At work</span>A working product earns trust that a draft can’t.</p></div>
-  </div>
-  <div class="pane qb"><p class="q">“People must be good at deciding what to do and why.”</p><span>Cornell University, 2026<sup>1</sup></span></div>
+  <ol class="model">
+   <li data-s="1"><div class="ring"><i>01</i><span class="pn">Agency</span></div><p>Choosing what’s worth solving</p></li>
+   <li data-s="2"><div class="ring"><i>02</i><span class="pn">Taste</span></div><p>Telling which version works</p></li>
+   <li data-s="3"><div class="ring"><i>03</i><span class="pn">Craft</span></div><p>Finishing it well</p></li>
+  </ol>
+  <div class="pane qb" data-s="4"><p class="q">“People must be good at deciding what to do and why.”</p><span>Cornell University, 2026<sup>1</sup></span></div>
  </div>
- <p class="fn r" style="--d:.35s"><span><b>1</b>Cornell University, Report of the Committee on the Future of the American University, Sept 22, 2026</span></p>
+ <p class="fn" data-s="4"><span><b>1</b>Cornell University, Report of the Committee on the Future of the American University, Sept 22, 2026</span></p>
 </div></section>
 
-<!-- 10 · A hiring story -->
-<section class="s alt ae"><div class="w">
+<!-- 11 · A hiring story -->
+<section class="s ae"><div class="w">
  <ol class="trk r" aria-label="Sections"><li><i>01</i>What’s changing</li><li class="on"><i>02</i>What skills matter</li><li><i>03</i>What you can do</li></ol>
  <h2 class="r" style="--d:.1s">At Kimi, the candidate who <em>built something</em> before the interview got the offer.</h2>
- <div class="bd r" style="--d:.25s">
-  <div class="who-row"><div class="lr"><img class="brand km" src="/logos/deck/kimi.png" alt="Kimi"></div><span class="lab">Hiring for the growth team, a non-technical role</span></div>
-  <ol class="cols c3 seq">
-   <li class="card"><div class="no">1</div><h3>Built a small tool</h3><p>For the team’s social media work, before the interview</p></li>
-   <li class="card"><div class="no">2</div><h3>Showed it live</h3><p>A working tool, shown in the interview</p></li>
-   <li class="card"><div class="no">3</div><h3>Got the offer</h3><p>Nobody had asked for it. That was the point.</p></li>
+ <div class="bd r" style="--d:.25s"><div class="pane tl-pane" data-s="1">
+  <div class="who-row" data-s="1"><div class="lr"><img class="brand km" src="/logos/deck/kimi.png" alt="Kimi"></div><span class="lab">Growth team, a non-technical role</span></div>
+  <ol class="tl">
+   <li data-s="1"><span class="dot">1</span><h3>Built a small tool</h3><p>For the team’s social media work</p></li>
+   <li data-s="2"><span class="dot">2</span><h3>Showed it in the interview</h3><p>Nobody had asked for it</p></li>
+   <li data-s="3" class="end"><span class="dot">3</span><h3>Got the offer</h3><p>The working tool made the case</p></li>
   </ol>
- </div>
- <p class="fn r" style="--d:.35s"><span>A first-hand hiring example from Kimi (Moonshot AI).</span></p>
+ </div></div>
+ <p class="fn" data-s="1"><span>A first-hand hiring example from Kimi (Moonshot AI).</span></p>
 </div></section>
 
-<!-- 11 · At home -->
+<!-- 12 · Parents and research -->
+<section class="s alt ae"><div class="w">
+ <ol class="trk r" aria-label="Sections"><li><i>01</i>What’s changing</li><li><i>02</i>What skills matter</li><li class="on"><i>03</i>What you can do</li></ol>
+ <h2 class="r" style="--d:.1s">Most parents in China already support AI; research favors <em>moderate, intentional use.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="cols c2 par">
+  <div class="pane" data-s="1"><span class="lab">Parents in China</span><div class="big">72.6%</div>
+   <div class="hb"><div class="row hl"><i style="--v:72.6"></i></div></div>
+   <p>support their child using AI, most with conditions.<sup>1</sup></p></div>
+  <div class="pane" data-s="2"><span class="lab">OECD, PISA 2025</span><div class="big wd">Stronger learning</div>
+   <p>seen with moderate, intentional use, though not proven to cause it.<sup>2</sup></p></div>
+ </div></div>
+ <p class="fn" data-s="1"><span><b>1</b>China Youth Daily poll, n=1,336, May 28, 2026</span><span><b>2</b>OECD, PISA 2025 results, Sept 8, 2026</span></p>
+</div></section>
+
+<!-- 13 · At home -->
 <section class="s ae"><div class="w">
  <ol class="trk r" aria-label="Sections"><li><i>01</i>What’s changing</li><li><i>02</i>What skills matter</li><li class="on"><i>03</i>What you can do</li></ol>
  <h2 class="r" style="--d:.1s">Three small habits at home help children <em>use AI with intention.</em></h2>
- <div class="bd r" style="--d:.25s">
-  <div class="cols c3">
-   <div class="card hab"><h3>Make one small thing together</h3><p>A chore list, a trip plan, or a quiz for a younger sibling</p></div>
-   <div class="card hab"><h3>Ask, “How did you check it?”</h3><p>Treat AI’s answer as a first draft</p></div>
-   <div class="card hab"><h3>Show it to a real person</h3><p>A grandparent, a teacher, or a friend</p></div>
-  </div>
-  <div class="cols c2 ev">
-   <div class="pane"><span class="lab">Parents in China</span><p><b>72.6%</b> support their child using AI, most with conditions.<sup>1</sup></p></div>
-   <div class="pane"><span class="lab">OECD</span><p>Moderate, intentional use may go with stronger learning.<sup>2</sup></p></div>
-  </div>
- </div>
- <p class="fn r" style="--d:.35s"><span><b>1</b>China Youth Daily poll, n=1,336, May 28, 2026</span><span><b>2</b>OECD, PISA 2025 results, Sept 8, 2026</span></p>
+ <div class="bd r" style="--d:.25s"><div class="hm">
+  <figure class="ph" data-s="1"><img src="/decks/img/conversation/home-together-1600.webp" alt="A parent and a child use a laptop together"></figure>
+  <ol class="pane habs" data-s="1">
+   <li data-s="1"><span class="no">1</span><div><span class="lab">Agency</span><h3>Make one small thing together</h3><p>A chore list, a trip plan, or a quiz for a younger sibling</p></div></li>
+   <li data-s="2"><span class="no">2</span><div><span class="lab">Taste</span><h3>Ask, “How did you check it?”</h3><p>Treat AI’s answer as a first draft</p></div></li>
+   <li data-s="3"><span class="no">3</span><div><span class="lab">Craft</span><h3>Show it to a real person</h3><p>A grandparent, a teacher, or a friend</p></div></li>
+  </ol>
+ </div></div>
+ <p class="fn" data-s="1"><span>Photo: Ksenia Chernaya, Pexels</span></p>
 </div></section>
 
-<!-- 12 · What students make -->
+<!-- 14 · What students make -->
 <section class="s alt ae"><div class="w">
  <ol class="trk r" aria-label="Sections"><li><i>01</i>What’s changing</li><li><i>02</i>What skills matter</li><li class="on"><i>03</i>What you can do</li></ol>
  <h2 class="r" style="--d:.1s">With AI as a helper, students already make <em>real projects,</em> including at ISB.</h2>
  <div class="bd r" style="--d:.25s"><div class="cols c3 proj">
-  <div class="card"><figure><img src="/photos/isb-2026/demo-laptop-1600.webp" alt="Students demonstrate their project at ISB"></figure><div class="pb"><span class="lab">Games</span><h3>Five games, built to publish on Steam</h3><p class="where">At ISB, 2026</p></div></div>
-  <div class="card"><figure><img src="/photos/isb-2026/pitch-podium-1600.webp" alt="A student presents at ISB"></figure><div class="pb"><span class="lab">Productivity</span><h3>A tool that tracks progress, sleep, and working time</h3><p class="where">At ISB, 2026</p></div></div>
-  <div class="card"><figure class="vframe"><video autoplay muted loop playsinline preload="metadata" poster="/decks/img/conversation/hands-stage-poster.webp" src="/decks/img/conversation/hands-stage.mp4" aria-label="A student tests a sign-language app on a laptop"></video><img class="vposter" src="/decks/img/conversation/hands-stage-poster.webp" alt=""></figure><div class="pb"><span class="lab">Accessibility</span><h3>A sign-language interpreter</h3><p class="where">Testing the app</p></div></div>
+  <div class="card" data-s="1"><figure><img src="/photos/isb-2026/demo-laptop-1600.webp" alt="Students demonstrate their project at ISB"></figure><div class="pb"><span class="lab">Games</span><h3>Five games, built to publish on Steam</h3><p class="where">At ISB, 2026</p></div></div>
+  <div class="card" data-s="2"><figure><img src="/photos/isb-2026/pitch-podium-1600.webp" alt="A student presents at ISB"></figure><div class="pb"><span class="lab">Productivity</span><h3>A tool that tracks progress, sleep, and working time</h3><p class="where">At ISB, 2026</p></div></div>
+  <div class="card" data-s="3"><figure class="vframe"><video autoplay muted loop playsinline preload="metadata" poster="/decks/img/conversation/hands-stage-poster.webp" src="/decks/img/conversation/hands-stage.mp4" aria-label="A student tests a sign-language app on a laptop"></video><img class="vposter" src="/decks/img/conversation/hands-stage-poster.webp" alt=""></figure><div class="pb"><span class="lab">Accessibility</span><h3>A sign-language interpreter</h3><p class="where">In testing</p></div></div>
  </div></div>
 </div></section>
 
-<!-- 13 · From the classroom to work -->
+<!-- 15 · From the classroom to work -->
 <section class="s ae"><div class="w">
  <ol class="trk r" aria-label="Sections"><li><i>01</i>What’s changing</li><li><i>02</i>What skills matter</li><li class="on"><i>03</i>What you can do</li></ol>
  <h2 class="r" style="--d:.1s">Tools take an afternoon to learn; <em>the skills that carry into work</em> take longer.</h2>
- <div class="bd r" style="--d:.25s"><div class="cols c3">
-  <div class="card"><h3 class="pn">Agency</h3><dl class="pr"><dt class="lab">In class</dt><dd>Choosing a problem worth solving takes longest</dd><dt class="lab">At work</dt><dd class="me">Building before being asked, as at Kimi</dd></dl></div>
-  <div class="card"><h3 class="pn">Taste</h3><dl class="pr"><dt class="lab">In class</dt><dd>Feedback from real users makes the work better</dd><dt class="lab">At work</dt><dd class="me">Checking AI’s work before anyone relies on it</dd></dl></div>
-  <div class="card"><h3 class="pn">Craft</h3><dl class="pr"><dt class="lab">In class</dt><dd>Finishing it so others can rely on it is where students grow</dd><dt class="lab">At work</dt><dd class="me">Turning AI’s first pass into something people trust</dd></dl></div>
+ <div class="bd r" style="--d:.25s"><div class="pane mx" data-s="1">
+  <span class="ch" aria-hidden="true"></span><span class="lab rl r1" data-s="1">In class</span><span class="lab rl" data-s="1">At work</span>
+  <div class="ch" data-s="1"><h3>Agency</h3></div><p class="r1" data-s="1" data-l="In class">Choosing a problem takes longest</p><p class="me" data-s="1" data-l="At work">Building before being asked, as at Kimi</p>
+  <div class="ch" data-s="2"><h3>Taste</h3></div><p class="r1" data-s="2" data-l="In class">Feedback from real users improves the work</p><p class="me" data-s="2" data-l="At work">Checking AI’s work before anyone relies on it</p>
+  <div class="ch" data-s="3"><h3>Craft</h3></div><p class="r1" data-s="3" data-l="In class">Finishing is where students grow most</p><p class="me" data-s="3" data-l="At work">Turning a first pass into something people trust</p>
  </div></div>
 </div></section>
 
-<!-- 14 · Q&A -->
+<!-- 16 · Q&A -->
 <section class="s alt ae"><div class="w">
  <ol class="trk r"><li class="on">Q&amp;A</li></ol>
  <h2 class="r" style="--d:.1s">Your questions next. Today’s slides and tools are <em>free, with no sign-up.</em></h2>
@@ -1083,33 +1210,35 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <a class="qr pane qr-live qr-slides" href="https://arenaschool.org/talk" target="_blank" rel="noopener"><img src="/decks/img/conversation/qr-talk-clear.png" alt="QR code for arenaschool.org/talk"><span>Today’s slides</span><small>arenaschool.org/talk</small></a>
   <div class="qr pane qr-chat"><div class="qr-slot"></div><span>Parent group chat QR</span><small>(added before the session)</small></div>
   <div class="qa-links pane">
-   <div class="qa-item"><span class="k">Today’s slides</span><a class="qa-url" href="https://arenaschool.org/talk" target="_blank" rel="noopener">arenaschool.org/talk</a><p>This deck as a PDF in English and Chinese, or read it on your phone.</p></div>
-   <div class="qa-item"><span class="k">Tools from the programs</span><a class="qa-url" href="https://arenaschool.org/case-study-examples" target="_blank" rel="noopener">arenaschool.org/case-study-examples</a><p>Walkthroughs of tools from the programs, to open on your own time.</p></div>
+   <div class="qa-item"><span class="k">Today’s slides</span><a class="qa-url" href="https://arenaschool.org/talk" target="_blank" rel="noopener">arenaschool.org/talk</a><p>A PDF in English and Chinese, or read it on your phone.</p></div>
+   <div class="qa-item"><span class="k">Tools from the programs</span><a class="qa-url" href="https://arenaschool.org/case-study-examples" target="_blank" rel="noopener">arenaschool.org/case-study-examples</a><p>Step-by-step walkthroughs to open on your own time.</p></div>
    <p class="qa-foot">Questions after today? <a href="mailto:contact@arenaschool.org">contact@arenaschool.org</a></p>
   </div>
  </div></div>
 </div></section>
 
-<!-- 15 · Appendix -->
+<!-- 17 · Appendix -->
 <section class="s ae s-src"><div class="w">
  <ol class="trk r"><li class="on">Appendix</li></ol>
  <h2 class="r" style="--d:.1s">Every figure in this talk comes from a <em>public 2025 or 2026 source.</em></h2>
  <div class="bd r" style="--d:.25s">
  <ul class="srcs pane">
-  <li><span><b>Anthropic</b>, Economic Index, on the share of jobs where AI has been used for at least a quarter of the tasks</span><span class="src">Jan 15, 2026 · March 24, 2026</span></li>
+  <li><span><b>Anthropic</b>, Economic Index, share of jobs using AI: 36% (January 2025 data), 49% (January 2026)</span><span class="src">Jan 15, 2026 · March 24, 2026</span></li>
   <li><span><b>Anthropic</b>, Economic Index survey of about 9,700 Claude users, on what they expect within a year</span><span class="src">June 26, 2026</span></li>
-  <li><span><b>A&amp;O Shearman</b>, with Harvey, on comparing loan agreements that lawyers had reviewed by hand</span><span class="src">April 6, 2025</span></li>
   <li><span><b>安徽医科大学第一附属医院</b>, pilot with 讯飞医疗, from handwritten notes to a draft the doctor can cite</span><span class="src">June 4, 2025</span></li>
+  <li><span><b>A&amp;O Shearman</b>, with Harvey, on comparing loan agreements that lawyers had reviewed by hand</span><span class="src">April 6, 2025</span></li>
   <li><span><b>JPMorganChase</b>, on LLM Suite for drafting and ideas</span><span class="src">June 3, 2025</span></li>
   <li><span><b>Alphabet</b>, Q1 2025 earnings call, on engineers accepting code suggestions</span><span class="src">April 24, 2025</span></li>
   <li><span><b>Marc Benioff</b>, The Logan Bartlett Show, on Salesforce support headcount; company comment in The Register</span><span class="src">Aug 29, 2025 · Sept 2, 2025</span></li>
   <li><span><b>Accenture</b>, fiscal 2025 results, on reskilling and headcount</span><span class="src">Sept 25, 2025</span></li>
-  <li><span><b>NACE</b>, Job Outlook 2026 Spring Update, on AI skills in entry-level jobs, and on staffing discussions</span><span class="src">April 20, 2026</span></li>
-  <li><span><b>Microsoft</b>, 2026 Work Trend Index, on quality control and critical thinking</span><span class="src">Feb 18–April 7, 2026</span></li>
+  <li><span><b>NACE</b>, Job Outlook 2026, on jobs that require AI skills (13.3%)</span><span class="src">Nov 2025</span></li>
+  <li><span><b>NACE</b>, Job Outlook 2026 Spring Update, on AI skills in entry-level jobs (35%), and on workforce planning (n=149)</span><span class="src">April 20, 2026</span></li>
+  <li><span><b>Microsoft</b>, 2026 Work Trend Index, on quality control (50%) and critical thinking (46%)</span><span class="src">Feb 18–April 7, 2026</span></li>
   <li><span><b>解放日报</b>, published by 上观新闻, citing 智联招聘 on employer skills</span><span class="src">March 27, 2026</span></li>
   <li><span><b>Cornell University</b>, Report of the Committee on the Future of the American University</span><span class="src">Sept 22, 2026</span></li>
   <li><span><b>China Youth Daily</b> poll, n=1,336</span><span class="src">May 28, 2026</span></li>
   <li><span><b>OECD</b>, PISA 2025 results</span><span class="src">Sept 8, 2026</span></li>
+  <li><span><b>Habits photo</b>, Ksenia Chernaya, Pexels license</span><span class="src">pexels.com/photo/7295878</span></li>
  </ul>
  </div>
 </div></section>
@@ -1124,9 +1253,22 @@ S.forEach(function(s,i){var a=document.createElement('a');a.href='#';a.setAttrib
 function cur(){var y=deck.scrollTop+innerHeight/2;for(var i=0;i<S.length;i++){if(S[i].offsetTop+S[i].offsetHeight>y)return i}return S.length-1}
 function go(i){i=Math.max(0,Math.min(S.length-1,i));deck.scrollTo({top:S[i].offsetTop,behavior:'smooth'})}
 [].forEach.call(document.querySelectorAll('[data-go]'),function(a){a.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();go(+a.dataset.go)})});
-deck.addEventListener('scroll',function(){var c=cur();[].forEach.call(nav.children,function(a,i){a.classList.toggle('on',i===c)})});
+/* builds: a slide reached with the keys opens on its title, and each press shows its next [data-s] step; back hides them again.
+   Slides reached any other way (scroll, dots, agenda, export, phone, ?read) are always fully built. */
+var B=S.map(function(s){return [].reduce.call(s.querySelectorAll('[data-s]'),function(m,e){return Math.max(m,+e.dataset.s)},0)}),armed=-1;
+function canBuild(){return !document.documentElement.classList.contains('export')&&!/[?&]read\b/.test(location.search)&&!matchMedia('(max-width:700px)').matches}
+function build(i,k,quiet){var s=S[i];s.dataset.k=k;if(quiet)s.classList.add('nt');s.classList.toggle('bld',k<B[i]);
+ [].forEach.call(s.querySelectorAll('[data-s]'),function(e){e.classList.toggle('vis',+e.dataset.s<=k)});if(quiet){void s.offsetWidth;s.classList.remove('nt')}}
+function step(d){var c=armed>=0&&Math.abs(S[armed].offsetTop-deck.scrollTop)<innerHeight*.75?armed:cur();
+ if(!canBuild()){go(c+d);return}
+ var k=S[c].dataset.k===undefined?B[c]:+S[c].dataset.k;
+ if(d>0){if(k<B[c]){build(c,k+1);return}if(c<S.length-1){armed=c+1;build(c+1,0,true);go(c+1)}}
+ else{if(k>0){build(c,k-1);return}if(c>0){armed=c-1;build(c-1,B[c-1],true);go(c-1)}}}
+deck.addEventListener('scroll',function(){var c=cur();[].forEach.call(nav.children,function(a,i){a.classList.toggle('on',i===c)});
+ if(armed>=0&&Math.abs(S[armed].offsetTop-deck.scrollTop)>innerHeight*1.5)armed=-1;
+ S.forEach(function(s,j){if(j!==armed&&s.classList.contains('bld')&&Math.abs(s.offsetTop-deck.scrollTop)>=innerHeight)build(j,B[j],true)})},{passive:true});
 addEventListener('keydown',function(e){if(e.target.closest&&e.target.closest('.rv,.step,[data-go]')&&(e.key===' '||e.key==='Enter'))return;
- if(['ArrowDown','ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();go(cur()+1)}if(['ArrowUp','ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();go(cur()-1)}});
+ if(['ArrowDown','ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();step(1)}if(['ArrowUp','ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();step(-1)}});
 nav.children[0].classList.add('on');
 /* entrance + stat count-up */
 var still=function(){var h=document.documentElement.classList;return h.contains('export')||h.contains('still')||matchMedia('(prefers-reduced-motion: reduce)').matches};

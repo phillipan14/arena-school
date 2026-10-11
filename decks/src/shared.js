@@ -7,9 +7,22 @@ S.forEach(function(s,i){var a=document.createElement('a');a.href='#';a.setAttrib
 function cur(){var y=deck.scrollTop+innerHeight/2;for(var i=0;i<S.length;i++){if(S[i].offsetTop+S[i].offsetHeight>y)return i}return S.length-1}
 function go(i){i=Math.max(0,Math.min(S.length-1,i));deck.scrollTo({top:S[i].offsetTop,behavior:'smooth'})}
 [].forEach.call(document.querySelectorAll('[data-go]'),function(a){a.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();go(+a.dataset.go)})});
-deck.addEventListener('scroll',function(){var c=cur();[].forEach.call(nav.children,function(a,i){a.classList.toggle('on',i===c)})});
+/* builds: a slide reached with the keys opens on its title, and each press shows its next [data-s] step; back hides them again.
+   Slides reached any other way (scroll, dots, agenda, export, phone, ?read) are always fully built. */
+var B=S.map(function(s){return [].reduce.call(s.querySelectorAll('[data-s]'),function(m,e){return Math.max(m,+e.dataset.s)},0)}),armed=-1;
+function canBuild(){return !document.documentElement.classList.contains('export')&&!/[?&]read\b/.test(location.search)&&!matchMedia('(max-width:700px)').matches}
+function build(i,k,quiet){var s=S[i];s.dataset.k=k;if(quiet)s.classList.add('nt');s.classList.toggle('bld',k<B[i]);
+ [].forEach.call(s.querySelectorAll('[data-s]'),function(e){e.classList.toggle('vis',+e.dataset.s<=k)});if(quiet){void s.offsetWidth;s.classList.remove('nt')}}
+function step(d){var c=armed>=0&&Math.abs(S[armed].offsetTop-deck.scrollTop)<innerHeight*.75?armed:cur();
+ if(!canBuild()){go(c+d);return}
+ var k=S[c].dataset.k===undefined?B[c]:+S[c].dataset.k;
+ if(d>0){if(k<B[c]){build(c,k+1);return}if(c<S.length-1){armed=c+1;build(c+1,0,true);go(c+1)}}
+ else{if(k>0){build(c,k-1);return}if(c>0){armed=c-1;build(c-1,B[c-1],true);go(c-1)}}}
+deck.addEventListener('scroll',function(){var c=cur();[].forEach.call(nav.children,function(a,i){a.classList.toggle('on',i===c)});
+ if(armed>=0&&Math.abs(S[armed].offsetTop-deck.scrollTop)>innerHeight*1.5)armed=-1;
+ S.forEach(function(s,j){if(j!==armed&&s.classList.contains('bld')&&Math.abs(s.offsetTop-deck.scrollTop)>=innerHeight)build(j,B[j],true)})},{passive:true});
 addEventListener('keydown',function(e){if(e.target.closest&&e.target.closest('.rv,.step,[data-go]')&&(e.key===' '||e.key==='Enter'))return;
- if(['ArrowDown','ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();go(cur()+1)}if(['ArrowUp','ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();go(cur()-1)}});
+ if(['ArrowDown','ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();step(1)}if(['ArrowUp','ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();step(-1)}});
 nav.children[0].classList.add('on');
 /* entrance + stat count-up */
 var still=function(){var h=document.documentElement.classList;return h.contains('export')||h.contains('still')||matchMedia('(prefers-reduced-motion: reduce)').matches};
