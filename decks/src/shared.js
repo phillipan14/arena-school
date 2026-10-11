@@ -126,7 +126,7 @@ if(!HM.classList.contains('player')&&!HM.classList.contains('export')&&!/[?&]rea
 (function(){var FILL=[['openai','ChatGPT'],['claude','Claude'],['gemini','Gemini'],['deepseek','DeepSeek'],['doubao','Doubao'],['qwen','Qwen'],['perplexity','Perplexity'],['metaso','Metaso'],['notion','Notion'],['canva','Canva'],['figma','Figma'],['cursor','Cursor'],['lovable','Lovable'],['replit','Replit'],['trae','TRAE'],['github','GitHub'],['vercel','Vercel'],['midjourney','Midjourney'],['ideogram','Ideogram'],['kling','Kling'],['hailuo','Hailuo'],['dreamina','Dreamina'],['suno','Suno'],['elevenlabs','ElevenLabs'],['heygen','HeyGen'],['capcut','CapCut'],['flow','Flow'],['comet','Comet'],['lovart','Lovart'],['workbuddy','WorkBuddy'],['cue','Cue'],['gemini-notebook','NotebookLM'],['stripe','Stripe'],['kimi','Kimi'],['manus','Manus'],['genspark','Genspark']];
  [].forEach.call(document.querySelectorAll('.ag-fill'),function(box){var n=180,frag=document.createDocumentFragment();
   for(var i=0;i<n;i++){var t=FILL[i%FILL.length],el=document.createElement('span');el.className='ag-tile';el.style.setProperty('--i',i);el.style.setProperty('--n',n);
-   el.innerHTML='<img alt="" src="/logos/tools/'+t[0]+'.png"><b>'+t[1]+'</b>';frag.appendChild(el)}
+   el.innerHTML='<img alt="" src="/logos/tools/'+t[0]+'.png">';el.title=t[1];frag.appendChild(el)}
   box.appendChild(frag)})})();
 /* counters: the first number in each .big or .cnt counts up from zero, keeping its prefix, commas, decimals, and unit */
 function firstNum(el){var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);while(w.nextNode())if(/\d/.test(w.currentNode.nodeValue))return w.currentNode;return null}

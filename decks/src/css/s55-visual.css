@@ -237,10 +237,9 @@
 
  /* personal agents: curated six sit on a filling field of real tools */
  .ag-flood{position:relative;flex:1;min-height:0;display:grid}
- .ag-fill{position:absolute;inset:0;display:grid;grid-template-columns:repeat(18,minmax(0,1fr));grid-auto-rows:42px;gap:6px;align-content:start;overflow:hidden;pointer-events:none;z-index:0}
- .ag-tile{display:flex;align-items:center;gap:5px;min-width:0;padding:4px 6px;border-radius:8px;background:var(--paper-hi);box-shadow:inset 0 0 0 1px var(--edge);opacity:.55}
- .ag-tile img{flex:none;width:22px;height:22px;border-radius:6px;object-fit:cover;background:#fff}
- .ag-tile b{overflow:hidden;font:500 11px/1.1 var(--serif);color:var(--muted);white-space:nowrap;text-overflow:ellipsis}
+ .ag-fill{position:absolute;inset:-8px;display:grid;grid-template-columns:repeat(20,minmax(0,1fr));grid-auto-rows:36px;gap:8px;align-content:start;overflow:hidden;pointer-events:none;z-index:0}
+ .ag-tile{display:grid;place-items:center;min-width:0;overflow:hidden;padding:0;border-radius:8px;background:var(--paper-hi);box-shadow:inset 0 0 0 1px var(--edge);opacity:.5}
+ .ag-tile img{width:22px;height:22px;border-radius:6px;object-fit:cover;background:#fff}
  .ag-flood .agx{position:relative;z-index:1;align-self:center}
  .ag-flood .agx .pane{background:var(--paper-hi);box-shadow:0 10px 28px rgba(20,28,45,.12),inset 0 0 0 1.5px var(--ink)}
 
@@ -260,9 +259,9 @@
  .grow-n .pair img.sx{height:16px;max-width:92px}
  .grow-n .pair .to{font:400 18px/1 var(--serif);color:var(--muted)}
  .ae .bd .grow-n h3{margin:0;font:500 26px/1.2 var(--serif);color:var(--ink)}
- .ae .bd .grow-n p{margin:0;font-size:22px;line-height:1.35;color:var(--muted)}
+ .ae .bd .grow-n p{margin:0;font-size:24px;line-height:1.35;color:var(--muted)}
  :lang(zh-CN) .ae .bd .grow-n h3{font-size:24px;line-height:1.35}
- :lang(zh-CN) .ae .bd .grow-n p{font-size:20px;line-height:1.45}
+ :lang(zh-CN) .ae .bd .grow-n p{font-size:24px;line-height:1.4}
  .grow-n .big{margin:0;font-size:64px;line-height:.9}
  .grow-n .big small{display:inline;margin-left:.12em;font-size:.32em}
  .grow-line{position:absolute;left:4%;right:4%;bottom:118px;height:160px;width:auto;pointer-events:none}
@@ -282,12 +281,12 @@
  .sk-proc i{flex:none;font:300 28px/1 var(--serif);color:#A9BEEA}
  .ae .bd .sk-proc b{font:500 26px/1.2 var(--serif);color:var(--paper-hi)}
  :lang(zh-CN) .ae .bd .sk-proc b{font-size:22px;line-height:1.35}
- .ae .bd .sk-note{margin:0;font-size:22px;line-height:1.4;color:var(--muted)}
+ .ae .bd .sk-note{margin:0;font-size:24px;line-height:1.4;color:var(--muted)}
 
  /* four project cards: problem, build, feedback, launch */
- .proj4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap-s);flex:1;min-height:0;align-items:stretch}
+ .proj4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap-s);align-items:stretch}
  .proj4 .card{display:flex;flex-direction:column;min-height:0;overflow:hidden}
- .proj4 figure{flex:1;min-height:0;margin:0;aspect-ratio:auto;max-height:none}
+ .proj4 figure{flex:none;height:192px;margin:0;overflow:hidden}
  .proj4 figure img,.proj4 figure video,.proj4 .vposter{width:100%;height:100%;object-fit:cover}
  .ae .bd .proj4 .pb{padding:14px 16px}
  .ae .bd .proj4 h3{font-size:22px;line-height:1.25}
