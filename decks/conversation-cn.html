@@ -1606,13 +1606,13 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  :lang(zh-CN) .endline{font-style:normal;font-size:26px;line-height:1.5}
 
  /* Kimi hiring story: Jing Jing's original wording beside the interview-kit walkthrough */
- .kimi{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:var(--gap);align-items:stretch;flex:1;min-height:0}
- .kimi .pane{display:flex;flex-direction:column;justify-content:center;gap:22px;padding:var(--pad-m)!important}
+ .kimi{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:var(--gap);align-items:stretch;flex:1;min-width:0;min-height:0;width:100%}
+ .kimi .pane{display:flex;flex-direction:column;justify-content:center;gap:22px;padding:var(--pad-m)!important;min-width:0}
  .ae .bd .kimi .story{font-size:28px;line-height:1.4;color:var(--ink)}
  :lang(zh-CN) .ae .bd .kimi .story{font-size:26px;line-height:1.55}
  .kimi .punch{margin:0;padding-top:16px;border-top:1.5px solid var(--ink2);font:italic 400 28px/1.3 var(--serif);color:var(--ink)}
  :lang(zh-CN) .kimi .punch{font-style:normal}
- .kimi .vframe{height:100%;min-height:0}
+ .kimi .vframe{width:100%;min-width:0;height:100%;margin:0;aspect-ratio:auto;overflow:hidden}
  .kimi .vframe video,.kimi .vframe img{width:100%;height:100%;object-fit:cover}
 
  /* a story as three steps, then the line that lands it */
