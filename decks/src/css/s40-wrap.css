@@ -50,13 +50,13 @@
  :lang(zh-CN) .st .by{font-style:normal}
  .st .sl{margin:var(--body-gap) 0 0;max-width:34em;font-size:30px;line-height:1.45;text-wrap:pretty}
  :lang(zh-CN) .st .sl{max-width:30em;line-height:1.6}
- .st>.w>.fn{position:absolute;left:0;bottom:var(--pad-bot)}
- .st .nst{display:flex;align-items:flex-end;gap:var(--gap-l);margin-top:var(--body-gap)}
+ .st>.w>.fn{position:static;margin-top:auto;flex:none}
+ .st .nst{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:64px;align-items:center;flex:1;min-height:0;margin-top:var(--body-gap)}
  .st .nst .nstx .lr{height:44px}
  .st .nst .nstx .brand.pwc{height:34px}
- .st .nst .big{font-size:168px}
+ .st .nst .big{margin:0;font-size:168px;line-height:.85;white-space:nowrap}
  :lang(zh-CN) .st .nst .big{font-size:150px}
- .st .nst p{margin:0 0 16px;max-width:19em;font-size:30px;line-height:1.4}
+ .st .nst p{margin:0 0 16px;max-width:none;font-size:30px;line-height:1.4}
 
  .rows{display:grid;gap:var(--gap-s)}
  .rw{display:grid;grid-template-columns:236px minmax(0,1fr) 40px minmax(0,1fr) auto;align-items:center;column-gap:26px;padding:var(--pad-s)}
