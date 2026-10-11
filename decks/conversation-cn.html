@@ -1771,9 +1771,12 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
 
  /* Section 2 chain: how→what, WEF bars, then the five named skills */
  .dn>.big{display:grid;place-items:center;font-size:120px;line-height:.85}
- .shift{display:flex;flex-direction:column;justify-content:flex-start;gap:24px;min-height:0}
+ .ae:has(.shift)>.w{padding-top:60px;padding-bottom:60px}
+ .ae:has(.shift):not(.st):not(.bq)>.w>h2{min-height:100px}
+ .ae:has(.shift) .bd{padding:16px 0 12px}
+ .shift{display:flex;flex-direction:column;justify-content:flex-start;gap:16px;min-height:0}
  .shx{display:grid;grid-template-columns:minmax(0,1fr) 64px minmax(0,1fr);gap:0;align-items:stretch}
- .sh-col{display:flex;flex-direction:column;justify-content:center;gap:16px;padding:32px 36px;border-radius:var(--r);min-width:0}
+ .sh-col{display:flex;flex-direction:column;justify-content:center;gap:12px;padding:22px 32px;border-radius:var(--r);min-width:0}
  .sh-col.o{background:var(--pane)}
  .sh-col.n{background:var(--ink);color:var(--paper-hi)}
  .shx .hd,.wefx .hd{font:600 15px/1 var(--serif);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
@@ -1781,15 +1784,15 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  :lang(zh-CN) .shx .hd,:lang(zh-CN) .wefx .hd{font-size:16px;letter-spacing:.08em}
  .sh-col.n .hd{color:#A9BEEA}
  .shx ul{list-style:none;margin:0;padding:0;display:grid;gap:14px}
- .ae .bd .shx li{margin:0;font:400 32px/1.25 var(--serif);color:var(--ink)}
+ .ae .bd .shx li{margin:0;font:400 28px/1.25 var(--serif);color:var(--ink)}
  .ae .bd .sh-col.n li{color:var(--paper-hi)}
- :lang(zh-CN) .ae .bd .shx li{font-size:30px;line-height:1.4}
+ :lang(zh-CN) .ae .bd .shx li{font-size:26px;line-height:1.4}
  .sh-arr{display:grid;place-items:center;z-index:1}
  .sh-arr i{display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:var(--paper-hi);box-shadow:0 0 0 8px var(--paper),inset 0 0 0 1px var(--edge)}
  .s.alt .sh-arr i{box-shadow:0 0 0 8px var(--beige),inset 0 0 0 1px var(--edge)}
  .sh-arr i::after{content:"";width:12px;height:12px;margin-left:-3px;border-top:2px solid var(--ink2);border-right:2px solid var(--ink2);transform:rotate(45deg)}
- .wefx{display:flex;flex-direction:column;gap:14px;padding:22px 28px 24px;background:var(--paper-hi);border:1px solid var(--edge);border-radius:var(--r)}
- .wefx .hb{gap:16px}
+ .wefx{display:flex;flex-direction:column;gap:12px;padding:16px 28px;background:var(--paper-hi);border:1px solid var(--edge);border-radius:var(--r)}
+ .wefx .hb{gap:10px}
  .wefx .hb .row{grid-template-columns:minmax(11em,16em) minmax(80px,1fr) 4.2em;align-items:center;gap:10px 20px}
  :lang(zh-CN) .wefx .hb .row{grid-template-columns:minmax(7em,10em) minmax(80px,1fr) 4.2em}
  .wefx .hb .bk{grid-column:1;font-size:24px;line-height:1.2;color:var(--ink)}
