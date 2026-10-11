@@ -129,6 +129,11 @@
  .accx{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:var(--gap);align-items:stretch;flex:1;min-height:0}
  .accx .pane{padding:var(--pad-m)!important}
  .accx .hb{gap:16px}
+ .accx .hb.wide .row{grid-template-columns:210px minmax(0,1fr) 5.6em;column-gap:18px}
+ :lang(zh-CN) .accx .hb.wide .row{grid-template-columns:200px minmax(0,1fr) 5.6em}
+ .accx .hb.wide .bk{font-size:20px}
+ .accx .hb.wide i{height:26px}
+ .accx .hb.wide b{font-size:24px}
  .accx .tln{grid-template-columns:1fr;gap:0;align-content:center}
  .accx .tln::before{left:10px;right:auto;top:12px;bottom:12px;width:0;border-top:0;border-left:1.5px solid var(--ink2);transform-origin:top}
  .accx .tln li{display:grid;grid-template-columns:22px minmax(0,1fr);grid-template-rows:auto auto auto;column-gap:14px;padding:0}
@@ -208,7 +213,7 @@
  /* a quote that carries the slide, with two supporting figures stacked beside it */
  .qx{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:var(--gap)}
  .qx-q{display:flex;flex-direction:column;gap:20px;padding:var(--pad-m)!important}
- .qx-q .lr{height:48px;margin:0}.qx-q .brand.sf{height:48px}
+ .qx-q .lr{height:56px;margin:0}.qx-q .brand.sf{height:56px}
  .ae .bd .qx-q .say{margin-top:auto;font:400 44px/1.34 var(--serif);letter-spacing:-.01em;color:var(--ink);text-wrap:pretty}
  :lang(zh-CN) .ae .bd .qx-q .say{font-size:40px;line-height:1.5;letter-spacing:0}
  .ae .bd .qx-q .who3{margin-top:auto;font:italic 400 21px/1.45 var(--serif);color:var(--muted)}
@@ -254,7 +259,7 @@
  .kick i.cn{margin:0 8px 2px 0;vertical-align:middle}
 
  /* three habits as three equal columns, numbered */
- .hab3{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap)}
+ .hab3{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap);align-items:stretch;align-content:center}
  .hab3 li{display:flex;flex-direction:column;gap:14px;padding:var(--pad-m);border-radius:var(--r);background:var(--paper-hi);border:1px solid var(--edge)}
  .hab3 .no{font:300 96px/.85 var(--serif);letter-spacing:-.04em;color:var(--ink2);margin:0 0 auto;padding-bottom:18px}
  .ae .bd .hab3 h3{font-size:33px}

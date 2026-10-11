@@ -32,7 +32,7 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
 .brand.an{height:19px}.brand.acc{height:31px}.brand.msft{height:27px}.brand.km{height:30px}
 .brand.sf{height:44px;filter:none;opacity:.9}
 .brand.amz{height:28px}.brand.duo{height:26px}.brand.icbc{height:32px}.brand.sc{height:36px}
-.brand.pwc{height:36px}.brand.sx{height:18px}.brand.cur{height:28px}
+.brand.pwc{height:56px}.brand.sx{height:18px}.brand.cur{height:28px}
 .pane.dk .brand,.nv .brand,.cmp2 .dk .brand{filter:brightness(0) invert(1);opacity:.88}
 .org{font:600 15px/1 var(--serif);letter-spacing:.13em;text-transform:uppercase;color:var(--ink)}
 :lang(zh-CN) .org{font-size:17px;letter-spacing:.06em}
@@ -196,8 +196,9 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .ae .qa{margin:0}
  .ae .srcs{margin:0;column-count:2;column-gap:40px}
  .ae .bd .srcs.pane{padding:var(--pad-s)}
- .ae .srcs li{break-inside:avoid;padding:2px 0;font-size:16.5px}
- .ae .srcs li .src{max-width:15em;font-size:14px;margin-top:2px;white-space:normal;text-align:right}
+ .ae .srcs li{display:grid;grid-template-columns:minmax(0,1fr) 10.5em;column-gap:14px;align-items:start;break-inside:avoid;padding:5px 0;font-size:16px;line-height:1.35}
+ :lang(zh-CN) .ae .srcs li{grid-template-columns:minmax(0,1fr) 11.5em}
+ .ae .srcs li .src{max-width:none;font-size:13.5px;margin-top:0;white-space:normal;text-align:right;line-height:1.35}
 }
 
 .export .proj figure video{display:none}.export .proj figure .vposter{display:block}
