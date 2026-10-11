@@ -1586,6 +1586,25 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .ae .bd .m4 .mm b{font-size:25px}
  .ae .bd .m4 .mm small,:lang(zh-CN) .ae .bd .m4 .mm small{font-size:19px}
 
+ /* entrepreneurial process: problem, build, feedback, launch */
+ .proc4{list-style:none;margin:0 0 var(--gap);padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap-s)}
+ .ae .bd .proc4 li{display:flex;flex-direction:column;gap:8px;padding:18px 16px 16px;border-top:1.5px solid var(--ink)}
+ .proc4 i{font:italic 400 18px/1 var(--serif);color:var(--ink2)}
+ .ae .bd .proc4 b{font:500 26px/1.2 var(--serif);color:var(--ink)}
+ :lang(zh-CN) .ae .bd .proc4 b{font-size:22px;line-height:1.35}
+ .ae .bd>.proj{flex-grow:1}
+
+ /* 1-2-3 close on navy */
+ .c123{list-style:none;margin:var(--body-gap) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap)}
+ .ae .c123 li{display:flex;flex-direction:column;gap:12px;padding-top:22px;border-top:1.5px solid rgba(252,243,237,.35)}
+ .c123 i{font:300 56px/1 var(--serif);color:#A9BEEA}
+ .ae .c123 b{font:500 28px/1.25 var(--serif);color:var(--paper-hi)}
+ .ae .c123 span{font:400 22px/1.4 var(--serif);color:rgba(252,243,237,.78)}
+ :lang(zh-CN) .ae .c123 b{font-size:24px;line-height:1.4}
+ :lang(zh-CN) .ae .c123 span{font-size:20px;line-height:1.55}
+ .endline{margin:var(--gap-l) 0 0;font:italic 400 30px/1.35 var(--serif);color:var(--paper-hi)}
+ :lang(zh-CN) .endline{font-style:normal;font-size:26px;line-height:1.5}
+
  /* Kimi hiring story: Jing Jing's original wording beside the interview-kit walkthrough */
  .kimi{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:var(--gap);align-items:stretch;flex:1;min-height:0}
  .kimi .pane{display:flex;flex-direction:column;justify-content:center;gap:22px;padding:var(--pad-m)!important}
@@ -1684,7 +1703,7 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .spk .lgx dd img{width:auto;max-height:16px;border-radius:0;box-shadow:none}.lgx .nw2{font-size:14px}
  .pb-t{height:14px;margin-top:12px;border-radius:3px;background:var(--data-2);position:relative;overflow:hidden}.pb-t i{position:absolute;left:0;top:0;bottom:0;width:calc(var(--v) * 1%);background:var(--data)}
  .pb-l{display:flex;justify-content:space-between;gap:10px;margin-top:6px;font-size:13px;color:var(--muted)}
- .st3,.cmp2,.rk3,.agx,.fl3,.ic3,.spine,.kimi{display:grid;grid-template-columns:1fr;gap:12px;list-style:none;margin:12px 0 0;padding:0}
+ .st3,.cmp2,.rk3,.agx,.fl3,.ic3,.spine,.kimi,.proc4,.c123{display:grid;grid-template-columns:1fr;gap:12px;list-style:none;margin:12px 0 0;padding:0}
  .st3 .big,.cmp2 .big{font-size:48px}
  .mb{display:grid;gap:6px;margin-top:10px}.mb .row{display:grid;grid-template-columns:72px minmax(0,1fr) auto;gap:8px;align-items:center;font-size:12px}
  .mb i{position:relative;display:block;height:10px;border-radius:2px;background:var(--track)}.mb i::after{content:"";position:absolute;left:0;top:0;bottom:0;width:calc(var(--v) * 1%);background:var(--data)}
@@ -2251,13 +2270,20 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 <!-- 39 · What students make -->
 <section class="s ae"><div class="w">
  <p class="kick r">Takeaway 3 · this is what our students do · Arena at ISB, 2026</p>
- <h2 class="r" style="--d:.1s">In our ISB course, a middle-school student made a game. Others made <em>a sleep tracker and a sign-language app.</em></h2>
- <div class="bd r" style="--d:.25s"><div class="cols c3 proj">
-  <div class="card" data-s="1"><figure><img src="/photos/isb-2026/demo-laptop-1600.webp" alt="Students demonstrate their project at ISB"></figure><div class="pb"><span class="lab">Games</span><h3>Games built to publish on Steam</h3><p class="where">At ISB, 2026</p></div></div>
-  <div class="card" data-s="2"><figure><img src="/photos/isb-2026/pitch-podium-1600.webp" alt="A student presents at ISB"></figure><div class="pb"><span class="lab">Productivity</span><h3>A tool that tracks progress, sleep, and working time</h3><p class="where">At ISB, 2026</p></div></div>
-  <div class="card" data-s="3"><figure class="vframe"><video autoplay muted loop playsinline preload="metadata" poster="/decks/img/conversation/hands-stage-poster.webp" src="/decks/img/conversation/hands-stage.mp4" aria-label="A student tests a sign-language app on a laptop"></video><img class="vposter" src="/decks/img/conversation/hands-stage-poster.webp" alt=""></figure><div class="pb"><span class="lab">Accessibility</span><h3>A sign-language interpreter</h3><p class="where">In testing</p></div></div>
+ <h2 class="r" style="--d:.1s">Making is no longer the hard part. The advantage is <em>problem, build, real-user feedback, and launch.</em></h2>
+ <div class="bd r" style="--d:.25s">
+  <ol class="proc4">
+   <li><i>01</i><b>Problem</b></li>
+   <li><i>02</i><b>Build</b></li>
+   <li><i>03</i><b>Real-user feedback</b></li>
+   <li><i>04</i><b>Launch</b></li>
+  </ol>
+  <div class="cols c3 proj">
+  <div class="card" data-s="1"><figure><img src="/photos/isb-2026/demo-laptop-1600.webp" alt="Students demonstrate their project at ISB"></figure><div class="pb"><span class="lab">Problem</span><h3>Games built to publish on Steam</h3><p class="where">At ISB, 2026</p></div></div>
+  <div class="card" data-s="2"><figure><img src="/photos/isb-2026/pitch-podium-1600.webp" alt="A student presents at ISB"></figure><div class="pb"><span class="lab">Build</span><h3>A tool that tracks progress, sleep, and working time</h3><p class="where">At ISB, 2026</p></div></div>
+  <div class="card" data-s="3"><figure class="vframe"><video autoplay muted loop playsinline preload="metadata" poster="/decks/img/conversation/hands-stage-poster.webp" src="/decks/img/conversation/hands-stage.mp4" aria-label="A student tests a sign-language app on a laptop"></video><img class="vposter" src="/decks/img/conversation/hands-stage-poster.webp" alt=""></figure><div class="pb"><span class="lab">Feedback · launch</span><h3>A sign-language interpreter, in testing</h3><p class="where">Real users, before they leave school</p></div></div>
  </div></div>
-</div><aside class="notes">Students used AI coding tools, and they chose the problems, judged the versions, and finished the work themselves. That is agency, taste, and craft in practice.</aside></section>
+</div><aside class="notes">When a first version comes together quickly, entrepreneurship is the process: find a real problem, build, get honest feedback from real users, and launch. That is why agency, taste, and craft — choosing, judging, and finishing — matter more now than making the first draft. The ISB students used AI coding tools; they chose the problems, judged the versions, and finished the work themselves.</aside></section>
 
 <!-- 40 · Tools and skills -->
 <section class="s ae st alt"><div class="w">

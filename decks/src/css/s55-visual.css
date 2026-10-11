@@ -138,6 +138,25 @@
  .ae .bd .m4 .mm b{font-size:25px}
  .ae .bd .m4 .mm small,:lang(zh-CN) .ae .bd .m4 .mm small{font-size:19px}
 
+ /* entrepreneurial process: problem, build, feedback, launch */
+ .proc4{list-style:none;margin:0 0 var(--gap);padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap-s)}
+ .ae .bd .proc4 li{display:flex;flex-direction:column;gap:8px;padding:18px 16px 16px;border-top:1.5px solid var(--ink)}
+ .proc4 i{font:italic 400 18px/1 var(--serif);color:var(--ink2)}
+ .ae .bd .proc4 b{font:500 26px/1.2 var(--serif);color:var(--ink)}
+ :lang(zh-CN) .ae .bd .proc4 b{font-size:22px;line-height:1.35}
+ .ae .bd>.proj{flex-grow:1}
+
+ /* 1-2-3 close on navy */
+ .c123{list-style:none;margin:var(--body-gap) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap)}
+ .ae .c123 li{display:flex;flex-direction:column;gap:12px;padding-top:22px;border-top:1.5px solid rgba(252,243,237,.35)}
+ .c123 i{font:300 56px/1 var(--serif);color:#A9BEEA}
+ .ae .c123 b{font:500 28px/1.25 var(--serif);color:var(--paper-hi)}
+ .ae .c123 span{font:400 22px/1.4 var(--serif);color:rgba(252,243,237,.78)}
+ :lang(zh-CN) .ae .c123 b{font-size:24px;line-height:1.4}
+ :lang(zh-CN) .ae .c123 span{font-size:20px;line-height:1.55}
+ .endline{margin:var(--gap-l) 0 0;font:italic 400 30px/1.35 var(--serif);color:var(--paper-hi)}
+ :lang(zh-CN) .endline{font-style:normal;font-size:26px;line-height:1.5}
+
  /* Kimi hiring story: Jing Jing's original wording beside the interview-kit walkthrough */
  .kimi{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:var(--gap);align-items:stretch;flex:1;min-height:0}
  .kimi .pane{display:flex;flex-direction:column;justify-content:center;gap:22px;padding:var(--pad-m)!important}
@@ -236,7 +255,7 @@
  .spk .lgx dd img{width:auto;max-height:16px;border-radius:0;box-shadow:none}.lgx .nw2{font-size:14px}
  .pb-t{height:14px;margin-top:12px;border-radius:3px;background:var(--data-2);position:relative;overflow:hidden}.pb-t i{position:absolute;left:0;top:0;bottom:0;width:calc(var(--v) * 1%);background:var(--data)}
  .pb-l{display:flex;justify-content:space-between;gap:10px;margin-top:6px;font-size:13px;color:var(--muted)}
- .st3,.cmp2,.rk3,.agx,.fl3,.ic3,.spine,.kimi{display:grid;grid-template-columns:1fr;gap:12px;list-style:none;margin:12px 0 0;padding:0}
+ .st3,.cmp2,.rk3,.agx,.fl3,.ic3,.spine,.kimi,.proc4,.c123{display:grid;grid-template-columns:1fr;gap:12px;list-style:none;margin:12px 0 0;padding:0}
  .st3 .big,.cmp2 .big{font-size:48px}
  .mb{display:grid;gap:6px;margin-top:10px}.mb .row{display:grid;grid-template-columns:72px minmax(0,1fr) auto;gap:8px;align-items:center;font-size:12px}
  .mb i{position:relative;display:block;height:10px;border-radius:2px;background:var(--track)}.mb i::after{content:"";position:absolute;left:0;top:0;bottom:0;width:calc(var(--v) * 1%);background:var(--data)}
