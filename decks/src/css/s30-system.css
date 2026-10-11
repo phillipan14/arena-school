@@ -1,19 +1,10 @@
 /* ===== Oct 10 · content slides (.ae, "assertion-evidence"): one grid for every slide after the title.
-   Tracker, action title, evidence, footnote. Same margins, same four type levels (decks/src/PRINCIPLES.md).
+   Kicker, action title, evidence, footnote. Same margins, same four type levels (decks/src/PRINCIPLES.md).
    lay() in shared.js leaves these slides alone: the fixed rhythm below is the layout.
    Oct 11 · calmer surfaces (hairline card edges, lighter dots), one chart style, and step builds ([data-s]). ===== */
 
-/* title agenda: the same three section names as the tracker, each with one plain line under it */
+/* title agenda: the three parts, each with one plain line under it; each part opens on a navy statement slide */
 .title .agenda .t small{display:block;margin-top:6px;font:400 19px/1.35 var(--serif);color:#C9D6F2;letter-spacing:0}
-
-/* tracker: the three sections, the current one in a navy pill */
-.trk{display:flex;align-self:flex-start;gap:4px;list-style:none;margin:0;padding:4px;border-radius:999px;background:var(--pane)}
-.trk li{display:block;padding:9.5px 16px 7px;border-radius:999px;font:600 13px/1 var(--serif);letter-spacing:.13em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
-.trk li i{margin-right:9px;font:italic 400 15px/1 var(--serif);letter-spacing:0;text-transform:none;color:var(--ink2);position:relative;top:-1px}
-.trk li.on{background:var(--ink);color:var(--paper-hi)}
-.trk li.on i{color:#A9BEEA}
-:lang(zh-CN) .trk li{font-size:14.5px;letter-spacing:.06em;padding:8.5px 16px 8px}
-:lang(zh-CN) .trk li i{top:0}
 
 /* type: title 50, card heading 32, body 26, labels and sources 15 */
 .ae h2 em{font-style:italic}
@@ -27,8 +18,6 @@
 .ae .pn{font-style:italic;color:var(--ink2)}
 :lang(zh-CN) .ae .pn{font-style:normal}
 .ae .card{border-color:var(--edge)}
-
-.pr{display:grid;gap:0}.pr dd{margin:4px 0 10px}
 
 /* footnote band: numbered short sources, the full list is the appendix */
 .fn{display:flex;flex-wrap:wrap;gap:3px 28px;margin:0;padding:11px 20px 10px;border-radius:var(--r);background:var(--pane);font:400 15px/1.45 var(--serif);color:var(--muted)}
@@ -63,7 +52,7 @@
 .hb i::after{content:"";position:absolute;left:0;top:0;bottom:0;width:calc(var(--v) * 1%);border-radius:3px;background:var(--data-2);transform-origin:left;transition:transform .9s var(--ease) .12s}
 .hb .hl .bk{color:var(--ink)}.hb .hl b{color:var(--ink2)}.hb .hl i::after{background:var(--data)}
 .hb.abs i{background:none}
-/* a reference tick across every bar (the 50% line on slide 4), labelled once underneath */
+/* a reference tick across every bar (the 50% line on the reach chart), labelled once underneath */
 .hb .mk{position:relative;height:16px;margin-top:-12px;font:italic 400 17px/1 var(--serif);color:var(--ink)}
 .hb .mk span{position:absolute;left:calc(var(--v) * 1%);transform:translateX(-50%);white-space:nowrap}
 .hb.ref i::before{content:"";position:absolute;z-index:1;left:calc(var(--m) * 1%);top:-7px;bottom:-7px;border-left:1.5px solid var(--ink)}
@@ -94,13 +83,6 @@
  .ae .bd .pane{padding:32px 36px}
  .ae .card>.lr{margin-bottom:24px}
 
- /* paired rows inside a card (AI / Person) */
- .pr{margin:22px 0 0}
- .pr dt{padding-top:16px;border-top:1px solid var(--line)}
- .pr dd{margin:6px 0 16px}
- .pr dd:last-child{margin-bottom:0}
- .pr dd.me{color:var(--ink);font-weight:500}
-
  .ae .bd .pn{font-style:italic;color:var(--ink2)}
  :lang(zh-CN) .ae .bd .pn{font-style:normal}
 
@@ -108,24 +90,13 @@
  .ae .bd .ct{margin:16px 0 26px!important;font-size:27px!important;line-height:1.3!important;font-weight:500}
  .ae .bd .cap{margin-top:auto!important;padding-top:22px;font:italic 400 19px/1.4 var(--serif)!important;color:var(--muted)!important}
 
- /* 3 · three ways: one summary pane, one ruled row per way */
- .ae .bd .xs{padding:6px 48px}
- .xs>div{display:grid;grid-template-columns:96px 220px minmax(0,1fr);align-items:baseline;padding:36px 0}
- .xs>div+div{border-top:1px solid var(--line)}
- .xs .no{font-size:52px;margin:0;line-height:1}
- .xs h3{font-size:36px!important}
-
- /* 4 · reach: the chart pane, then the expectation */
+ /* reach: the chart pane, then the expectation */
  .stat2{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
  .stat2>.pane{display:flex;flex-direction:column;justify-content:center}
  .stat2 .big{margin:34px 0 22px}
  .stat2 .hb{margin-top:6px}
 
- /* 5 · job cards */
- .jobs .card h3{font-size:34px}
- .jobs .pr dd{min-height:2.84em}
-
- /* 6 · before / after as a workflow: the old single step, a divider, then AI's draft and the person's check */
+ /* before / after as a workflow: the old single step, a divider, then AI's draft and the person's check */
  .flow{display:grid;grid-template-columns:236px minmax(0,1fr) 64px minmax(0,1fr) 52px minmax(0,1fr);row-gap:24px;align-items:stretch}
  .flow>.lab{grid-row:1}.flow>.x2{grid-row:2}.flow>.x3{grid-row:3}
  .flow>.lab.b{grid-column:2}.flow>.lab.a{grid-column:4/7}
@@ -142,14 +113,7 @@
  .flow .ar{display:grid;place-items:center}
  .ar svg{width:34px;height:16px;fill:none;stroke:var(--ink2);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 
- /* 7 · two companies: Salesforce's headcount as a chart, Accenture's rule as two lines */
- .tm .hb{margin-top:6px}
- .tm .hb .bk{font-size:21px}
- .tm .hb i{height:30px}
- .ae .bd .tm .mid{margin-top:34px;padding-top:26px;border-top:1px solid var(--line);font-size:32px;line-height:1.3;color:var(--ink);text-wrap:balance}
- .ae .bd .tm .note{margin-top:auto;padding-top:24px;color:var(--ink)}
-
- /* 8 · one wide chart: label, bar, value on one line */
+ /* one wide chart: label, bar, value on one line */
  .wide-ch{padding:36px 48px 34px!important}
  .wide-ch .lr{height:auto}
  .hb.wide{gap:20px}
@@ -159,9 +123,8 @@
  .hb.wide b{grid-column:3;grid-row:1;justify-self:end;font-size:34px}
  :lang(zh-CN) .hb.wide .row{grid-template-columns:360px minmax(0,1fr) 96px}
 
- /* 9 · three markets, three panes: two charts and a short list */
+ /* two markets, two panes: a chart and a short list */
  .ae .bd .emp>.pane{display:flex;flex-direction:column;padding:28px 34px 30px}
- .emp .ct{min-height:2.6em}
  .emp .hb{gap:22px}
  .emp .hb .bk{font-size:20px}
  .ls{list-style:none;margin:0;padding:0}
@@ -169,7 +132,7 @@
  .ae .bd .ls li:last-child{border-bottom:1px solid var(--line)}
  .ls li i{font:italic 400 22px/1 var(--serif);color:var(--ink2);flex:none;width:28px}
 
- /* 10 · agency, taste, craft as one sequence: three rings joined by arrows, then the quote that closes them */
+ /* agency, taste, craft as one sequence: three rings joined by arrows, each with an example from the stories */
  .model{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
  .model li{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center}
  .ring{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;width:216px;height:216px;border-radius:50%;background:var(--paper-hi);border:1px solid var(--edge)}
@@ -179,12 +142,8 @@
  .ae .bd .model p{margin-top:28px;max-width:13em;color:var(--ink);font-weight:500;text-wrap:balance}
  .model li+li::before{content:"";position:absolute;top:108px;left:calc(-50% + 128px);right:calc(50% + 128px);border-top:1.5px solid var(--ink2)}
  .model li+li::after{content:"";position:absolute;top:102px;right:calc(50% + 128px);width:11px;height:11px;border-top:1.5px solid var(--ink2);border-right:1.5px solid var(--ink2);transform:rotate(45deg);transform-origin:center}
- .qb{display:flex;align-items:baseline;justify-content:space-between;gap:40px}
- .ae .bd .qb .q{font-size:30px;line-height:1.3;color:var(--ink);font-style:italic}
- :lang(zh-CN) .ae .bd .qb .q{font-style:normal}
- .qb>span{flex:none;font:italic 400 17px/1.4 var(--serif);color:var(--muted)}
 
- /* 11 · the hiring story as a timeline: three dots on one rail, the last one filled */
+ /* the hiring story as a timeline: three dots on one rail, the last one filled */
  .who-row{display:flex;align-items:center;gap:22px;margin-bottom:44px}
  .who-row .lr{height:36px}
  .tl-pane{padding:40px 48px 44px!important}
@@ -194,15 +153,7 @@
  .tl .end .dot{background:var(--ink);color:var(--paper-hi)}
  .tl h3{margin-bottom:10px!important}
 
- /* 12 · parents and research: one share on a track, one finding */
- .par>.pane{display:flex;flex-direction:column;justify-content:flex-start}
- .par .big{margin:26px 0 26px}
- .par .hb{margin-bottom:26px}
- .par .big.wd{display:flex;align-items:flex-end;height:94px;font-size:72px;line-height:1;letter-spacing:-.02em}
- :lang(zh-CN) .par .big.wd{font-size:96px;letter-spacing:.02em}
- .par .pane>p:last-child{margin-top:auto}
-
- /* 13 · habits beside one photo */
+ /* habits beside one photo */
  .hm{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:28px;align-items:stretch}
  .s .bd:has(>.hm){padding:26px 0 20px}
  .ph{position:relative;margin:0;border-radius:var(--r);overflow:hidden;background:#C9D2EC;min-height:0}
@@ -214,7 +165,7 @@
  .habs .lab{margin-bottom:6px}
  .habs h3{margin-bottom:4px!important}
 
- /* 14 · student work */
+ /* student work */
  .proj .card{padding:0;overflow:hidden}
  .proj figure{margin:0;aspect-ratio:3/2;overflow:hidden;background:#C9D2EC;flex:none}
  .proj figure img,.proj figure video{display:block;width:100%;height:100%;object-fit:cover}
@@ -222,16 +173,6 @@
  .proj .pb{display:flex;flex-direction:column;flex:1;padding:26px 30px 28px}
  .proj .pb .lab{margin-bottom:10px}
  .proj .pb .where{margin-top:auto!important;padding-top:14px;font:italic 400 17px/1.4 var(--serif)!important;color:var(--muted)!important}
-
- /* 15 · class to work as a matrix: one column per skill, one row per setting */
- .ae .bd .mx{display:grid;grid-template-columns:150px repeat(3,minmax(0,1fr));grid-template-rows:auto auto auto;grid-auto-flow:column;column-gap:44px;padding:12px 48px 18px}
- .mx>*{padding:26px 0}
- .mx .ch{padding:26px 0 18px;border-bottom:1px solid var(--ink)}
- .ae .bd .mx .ch h3{font-size:40px;font-style:italic;color:var(--ink2)}
- :lang(zh-CN) .ae .bd .mx .ch h3{font-style:normal}
- .mx .rl{padding-top:33px}
- .mx .r1{border-bottom:1px solid var(--line)}
- .ae .bd .mx .me{color:var(--ink);font-weight:500}
 
  /* speakers, Q&A, sources: same frame, their own bodies */
  .ae .team{margin:0}
@@ -248,16 +189,13 @@
 @media print{.proj figure video{display:none}.proj figure .vposter{display:block}}
 
 @media (max-width:700px){
- .trk{flex-wrap:wrap;border-radius:16px}
- .trk li{padding:7px 10px 6px;font-size:11px;letter-spacing:.08em}
  .ae h2{margin-top:18px}
  .ae .bd{display:flex;flex-direction:column;gap:14px;margin-top:22px}
  .cols,.stat2,.hm,.tl,.model{display:grid;grid-template-columns:1fr!important;gap:14px}
- .xs>div{display:block;padding:14px 0}.xs>div+div{border-top:1px solid var(--line)}.xs .no{display:block;font-size:30px;margin:0 0 6px}
  .flow{display:grid;grid-template-columns:1fr;gap:10px}.flow>.lab,.flow .dv{display:none}.flow .who{margin-top:12px}
  .flow .ar{height:22px}.ar svg{width:28px;height:12px;transform:rotate(90deg);fill:none;stroke:var(--ink2);stroke-width:1.8}
  .nd{padding:14px 16px;border-radius:var(--r)}.nd.ai{border:1.5px dashed rgba(47,85,168,.5)}.nd.me{background:var(--paper-hi);border:1px solid var(--edge)}.nd.old{background:var(--pane)}
- .big,:lang(zh-CN) .big{font-size:56px;white-space:normal}.big.wd,:lang(zh-CN) .big.wd{font-size:38px}
+ .big,:lang(zh-CN) .big{font-size:56px;white-space:normal}
  .lr{height:32px;margin-bottom:10px}.brand.sf{height:32px}
  .hb{gap:14px}.hb .bk{font-size:14px}.hb b{font-size:20px}.hb i{height:14px}
  .hb.wide .row{grid-template-columns:minmax(0,1fr) auto}.hb.wide i{grid-column:1/-1}
@@ -269,10 +207,6 @@
  .who-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:12px}
  .ph{margin:0;border-radius:var(--r);overflow:hidden;aspect-ratio:3/2}.ph img{width:100%;height:100%;object-fit:cover}
  .habs{list-style:none;margin:0;padding:0}.habs>li{padding:12px 0}.habs>li+li{border-top:1px solid var(--line)}.habs .no{display:none}
- .mx{display:block}.mx>*{display:block;padding:6px 0}.mx>span:empty,.mx .rl{display:none}.mx .ch{margin-top:14px;border-bottom:1px solid var(--ink)}
- .mx p::before{content:attr(data-l);display:block;margin-bottom:2px;font:600 11px/1.3 var(--serif);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
- .pr dt{margin-top:12px}
- .qb{display:block}.qb span{display:block;margin-top:8px}
  .proj .card{padding:0}.proj .pb{padding:16px 18px}
  .fn{margin-top:18px;padding:10px 14px;font-size:13px}
 }

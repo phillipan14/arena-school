@@ -18,12 +18,12 @@ function step(d){var c=armed>=0&&Math.abs(S[armed].offsetTop-deck.scrollTop)<inn
  var k=S[c].dataset.k===undefined?B[c]:+S[c].dataset.k;
  if(d>0){if(k<B[c]){build(c,k+1);return}if(c<S.length-1){armed=c+1;build(c+1,0,true);go(c+1)}}
  else{if(k>0){build(c,k-1);return}if(c>0){armed=c-1;build(c-1,B[c-1],true);go(c-1)}}}
-deck.addEventListener('scroll',function(){var c=cur();[].forEach.call(nav.children,function(a,i){a.classList.toggle('on',i===c)});
+deck.addEventListener('scroll',function(){var c=cur();[].forEach.call(nav.children,function(a,i){a.classList.toggle('on',i===c)});document.body.classList.toggle('nvon',S[c].classList.contains('nv'));
  if(armed>=0&&Math.abs(S[armed].offsetTop-deck.scrollTop)>innerHeight*1.5)armed=-1;
  S.forEach(function(s,j){if(j!==armed&&s.classList.contains('bld')&&Math.abs(s.offsetTop-deck.scrollTop)>=innerHeight)build(j,B[j],true)})},{passive:true});
 addEventListener('keydown',function(e){if(e.target.closest&&e.target.closest('.rv,.step,[data-go]')&&(e.key===' '||e.key==='Enter'))return;
  if(['ArrowDown','ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();step(1)}if(['ArrowUp','ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();step(-1)}});
-nav.children[0].classList.add('on');
+nav.children[0].classList.add('on');document.body.classList.toggle('nvon',S[cur()].classList.contains('nv'));
 /* entrance + stat count-up */
 var still=function(){var h=document.documentElement.classList;return h.contains('export')||h.contains('still')||matchMedia('(prefers-reduced-motion: reduce)').matches};
 function countUp(s){if(still())return;[].forEach.call(s.querySelectorAll('.count'),function(el){if(el.dataset.done)return;el.dataset.done=1;
