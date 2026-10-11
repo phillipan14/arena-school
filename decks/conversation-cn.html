@@ -246,9 +246,13 @@ figcaption.rv.open>.rv-d,figcaption.rv:focus-visible>.rv-d{transform:none}
 .stage iframe{position:absolute;left:50%;top:50%;width:1920px;height:1080px;border:0;transform-origin:50% 50%;background:var(--paper)}
 .player .phint.on{display:block;position:fixed;z-index:9;left:0;right:0;bottom:calc(16px + env(safe-area-inset-bottom));text-align:center;font:italic 400 15px/1 var(--serif);color:rgba(252,243,237,.72);pointer-events:none}
 .player .lang{border-color:rgba(252,243,237,.6)}.player .lang a+a{border-left-color:rgba(252,243,237,.6)}
-.player.dock .lang{flex-direction:column;top:auto;right:calc(var(--side) + 37.5px * var(--ps));bottom:calc(var(--band) + 66px * var(--ps));transform:translateX(50%) scale(var(--pk));transform-origin:50% 100%;border-color:var(--ink)}
-.player.dock .lang a{text-align:center;padding:7px 6px 6px;font-size:11px}.player.dock .lang a+a{border-left:0;border-top:1.5px solid var(--ink)}
-@media (min-width:701px){html:not(.player) .lang{flex-direction:column;top:auto;right:calc(var(--gut) / 4);bottom:66px;transform:translateX(50%)}
+/* no letterbox above or below: stand upright in the side letterbox, foot level with the slide's bottom margin (72 × 1.32).
+   Only when that letterbox is too narrow too does it dock inside the frame's right margin, centred in it (half of 6.25% of 1920). */
+.player.side .lang{flex-direction:column;top:auto;right:calc(var(--side) / 2);bottom:calc(var(--band) + 95px * var(--ps));transform:translateX(50%)}
+.player.dock .lang{flex-direction:column;top:auto;right:calc(var(--side) + 60px * var(--ps));bottom:calc(var(--band) + 95px * var(--ps));transform:translateX(50%) scale(var(--pk));transform-origin:50% 100%;border-color:var(--ink)}
+.player:is(.dock,.side) .lang a{text-align:center;padding:7px 6px 6px;font-size:11px}.player:is(.dock,.side) .lang a+a{border-left:0;border-top:1.5px solid var(--ink)}
+.player.side .lang a+a{border-top-color:rgba(252,243,237,.6)}
+@media (min-width:701px){html:not(.player) .lang{flex-direction:column;top:auto;right:calc(var(--margin-x) / 2);bottom:calc(var(--pad-bot) * var(--z));transform:translateX(50%)}
  html:not(.player) .lang a{text-align:center;padding:7px 6px 6px;font-size:11px}html:not(.player) .lang a+a{border-left:0;border-top:1.5px solid var(--ink)}}
 .framed .lang,.tiny .nav,.tiny .hint{display:none}
 .touch .deck{overflow:hidden;scroll-snap-type:none}
@@ -552,13 +556,16 @@ a.qr-live{color:inherit;text-decoration:none}
 
 /* ---- s00-tokens.css ---- */
 /* ===== spacing tokens: the one set every slide is laid out with (slide px; the stage zooms them 1.32× at 1920×1080).
-   Frame: every kicker sits on the brand mark's line, every content title starts at the same y, its evidence starts at
-   the same y below a two-line title zone, and every footnote sits the same distance above the bottom edge.
+   Outer safe margins: 6.25% of the slide width on the left and right (120px at 1920) and 72 slide px on the top and
+   bottom (95px at 1080). The kicker and the brand mark sit on the top margin, footnotes on the bottom margin, and the
+   page number and language pill live inside the margins, never in the content area.
+   Frame: every content title starts at the same y, its evidence starts at the same y below a two-line title zone.
    Statement, section, and takeaway slides share one anchor instead of being centered, so their kickers line up too.
    /tmp/audit.py checks each slide against these values. ===== */
 :root{
- --pad-top:40px;     /* slide top to the kicker */
- --pad-bot:28px;     /* footnote (or last block) to the slide bottom */
+ --margin-x:6.25vw;  /* left and right safe margin (viewport px; the content width is the slide minus both) */
+ --pad-top:72px;     /* slide top to the kicker and the brand mark */
+ --pad-bot:72px;     /* footnote (or last block) to the slide bottom */
  --kick-gap:14px;    /* kicker to title, on every slide type */
  --title-zone:120px; /* room for a two-line content title; the evidence starts below it */
  --body-gap:36px;    /* title zone to evidence */
@@ -571,6 +578,7 @@ a.qr-live{color:inherit;text-decoration:none}
  --pad-m:36px 40px;  /* a pane or card in a row of two to four */
  --pad-s:24px 28px   /* a small card, node, or row */
 }
+@media (min-width:701px){:root{--gut:calc(2 * var(--margin-x))}}
 
 /* ---- s01.css ---- */
 /* s01 · title slide: no intro card; title block + agenda centered as one composition */
@@ -803,7 +811,7 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .ae:not(.st):not(.bq) .bd>:last-child:is(.bnx,.model,.story3){align-content:center}
  .ae .bd>.team{flex-grow:1;grid-auto-rows:1fr}
  .ae .bd>.logos:last-child{flex-grow:0}
- .ae .bd>.srcs:last-child{flex-grow:0}
+ .ae:not(.st):not(.bq) .bd>.srcs:last-child{flex-grow:0}
  .ae .bd p,.ae .bd li,.ae .bd dd{margin:0;font-size:26px;line-height:1.42;color:var(--text);text-wrap:pretty}
  :lang(zh-CN) .ae .bd p,:lang(zh-CN) .ae .bd li,:lang(zh-CN) .ae .bd dd{line-height:1.55}
  .ae .bd h3{margin:0;font:500 32px/1.2 var(--serif);letter-spacing:-.01em;color:var(--ink);text-wrap:balance}
@@ -899,7 +907,7 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
 
  /* student work */
  .proj .card{padding:0;overflow:hidden}
- .proj figure{margin:0;aspect-ratio:3/2;overflow:hidden;background:#C9D2EC;flex:none}
+ .proj figure{margin:0;aspect-ratio:16/9;overflow:hidden;background:#C9D2EC;flex:none}
  .proj figure img,.proj figure video{display:block;width:100%;height:100%;object-fit:cover}
  .proj figure .vposter{display:none}
  .proj .pb{display:flex;flex-direction:column;flex:1;padding:var(--pad-s)}
@@ -913,8 +921,9 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .ae .logos{margin:0}
  .ae .qa{margin:0}
  .ae .srcs{margin:0;column-count:2;column-gap:40px}
- .ae .srcs li{break-inside:avoid;padding:6px 0;font-size:16.5px}
- .ae .srcs li .src{font-size:14px;margin-top:2px}
+ .ae .bd .srcs.pane{padding:var(--pad-s)}
+ .ae .srcs li{break-inside:avoid;padding:2px 0;font-size:16.5px}
+ .ae .srcs li .src{max-width:15em;font-size:14px;margin-top:2px;white-space:normal;text-align:right}
 }
 
 .export .proj figure video{display:none}.export .proj figure .vposter{display:block}
@@ -985,7 +994,7 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
 .dk p{color:rgba(252,243,237,.82)!important}
 
 @media (min-width:701px){
- section.s.st>.w{justify-content:flex-start;padding:var(--hero-top) 0 112px}
+ section.s.st>.w{justify-content:flex-start;padding:var(--hero-top) 0 var(--pad-bot)}
  .ae .kick+h2{margin-top:var(--kick-gap)}
  .ae.st h2{font-size:72px;line-height:1.08;letter-spacing:-.028em;max-width:17.5em}
  :lang(zh-CN) .ae.st h2{font-size:62px;line-height:1.32;letter-spacing:0;max-width:18em}
@@ -1032,9 +1041,10 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .ae .bd .chain .nd.old p{color:var(--text)!important}
  .chain .ar{display:grid;place-items:center}
 
- .ae .bd .arc{padding:var(--pad-l)}
- .arow{display:grid;grid-template-columns:minmax(0,1fr) 200px minmax(0,1fr);align-items:end;column-gap:44px;margin-top:6px}
- .an .big{margin:16px 0 30px;font-size:168px}
+ .ae .bd .arc{padding:var(--pad-m)}
+ .arc>.lr{height:auto}
+ .arow{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:end;column-gap:var(--gap);margin-top:6px}
+ .an .big{margin:12px 0 20px;font-size:168px}
  :lang(zh-CN) .an .big{font-size:150px}
  .an .big.lo{color:var(--muted)}
  .an .hb i{height:30px}
@@ -1143,7 +1153,7 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
 
 @media (min-width:701px){
  /* cover: title, date, logos, QR, and room */
- section.s.cover>.w{justify-content:space-between;padding:23px 0 var(--pad-bot)} /* the PTA logo's midline sits on the brand mark's */
+ section.s.cover>.w{justify-content:space-between;padding:calc(var(--pad-top) - 17px) 0 var(--pad-bot)} /* the PTA logo's midline sits on the brand mark's */
  .cv-top{display:flex;align-items:center;gap:28px}
  .cv-top .pta{display:block;height:50px;width:auto}
  .cv-top .arena{display:block;height:34px;width:auto;padding:7px 0 7px 28px;border-left:1px solid var(--line);box-sizing:content-box}
@@ -1194,10 +1204,10 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .sec .trk b{font-size:25px;line-height:1.25;color:var(--paper-hi)}
  :lang(zh-CN) .sec .trk b{font-size:24px;line-height:1.45}
  .sec .trk small{margin-top:6px;font-size:17px;color:rgba(252,243,237,.7)}
- section.s.sec>.w{justify-content:flex-start;padding:var(--hero-top) 0 96px}
+ section.s.sec>.w{justify-content:flex-start;padding:var(--hero-top) 0 var(--pad-bot)}
 
  /* takeaway dividers: a large numeral beside the takeaway, and where it sits among the three */
- section.s.tk>.w{justify-content:flex-start;padding:var(--hero-top) 0 96px}
+ section.s.tk>.w{justify-content:flex-start;padding:var(--hero-top) 0 var(--pad-bot)}
  .tk-g{display:grid;grid-template-columns:260px minmax(0,1fr);column-gap:64px;align-items:start}
  .tk-n{display:flex;flex-direction:column;align-items:flex-start;gap:22px;padding:0 56px 10px 0;border-right:1px solid var(--line)}
  .tk-n span{font:italic 400 36px/1 var(--serif);letter-spacing:-.01em;color:var(--ink2)}
@@ -1237,9 +1247,9 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  /* a comparison table: one row per organisation */
  .tbl{display:grid;grid-template-columns:290px 340px minmax(0,1fr);border-top:1px solid var(--line)}
  .tbl>div{display:contents}
- .tbl>div>*{display:flex;align-items:center;margin:0;padding:22px 28px 22px 0;border-bottom:1px solid var(--line)}
+ .tbl>div>*{display:flex;align-items:center;margin:0;padding:14px 28px 14px 0;border-bottom:1px solid var(--line)}
  .tbl>div>*:last-child{padding-right:0}
- .tbl .th{padding:0 0 14px;font:600 15px/1.3 var(--serif);letter-spacing:.13em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line)}
+ .tbl .th{padding:0 0 10px;font:600 15px/1.3 var(--serif);letter-spacing:.13em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line)}
  :lang(zh-CN) .tbl .th{font-size:16px;letter-spacing:.06em}
  .tbl .org2{display:flex;align-items:center;font:500 30px/1.2 var(--serif);color:var(--ink)}
  .tbl .cnt{font:300 64px/1 var(--serif);letter-spacing:-.03em;color:var(--ink2);font-variant-numeric:lining-nums tabular-nums;white-space:nowrap}
@@ -1248,7 +1258,7 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .ae .bd .tbl p{font-size:25px;line-height:1.4}
  .tbl .th{display:block}
  .tbl .hl .cnt{font-weight:400}
- .tbl-wrap{padding:var(--pad-m)!important}
+ .tbl-wrap{padding:var(--pad-s)!important}
 
  /* a timeline drawn across: dates over dots, what happened under them */
  .tln{position:relative;list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));gap:var(--gap-l)}
@@ -1293,7 +1303,7 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  :lang(zh-CN) .ae .bd .pg p{line-height:1.55}
 
  /* a story: who told it on the left, the story and the line that lands it on the right */
- .story3{display:grid;grid-template-columns:290px minmax(0,1fr);column-gap:var(--gap-l);align-items:start;padding:var(--pad-l)!important}
+ .story3{display:grid;grid-template-columns:290px minmax(0,1fr);column-gap:var(--gap-l);align-items:start;padding:var(--pad-m)!important}
  .s3-l{display:flex;flex-direction:column;gap:22px;padding-right:var(--gap-l);border-right:1px solid var(--line)}
  .s3-l .brand.km{height:40px;width:auto;align-self:flex-start}
  .s3-l .lab{margin-top:14px}
@@ -1301,11 +1311,11 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  :lang(zh-CN) .ae .bd .s3-l .who{font-style:normal;font-size:21px;line-height:1.6}
  .ae .bd .s3-r .story{margin:0;font:400 36px/1.42 var(--serif);color:var(--ink);text-wrap:pretty}
  :lang(zh-CN) .ae .bd .s3-r .story{font-size:33px;line-height:1.65}
- .ae .bd .s3-r .punch{margin:30px 0 0;padding-top:28px;border-top:1px solid var(--line);font:500 56px/1.12 var(--serif);letter-spacing:-.02em;color:var(--ink)}
+ .ae .bd .s3-r .punch{margin:20px 0 0;padding-top:20px;border-top:1px solid var(--line);font:500 56px/1.12 var(--serif);letter-spacing:-.02em;color:var(--ink)}
  :lang(zh-CN) .ae .bd .s3-r .punch{font-size:50px;line-height:1.4;letter-spacing:0}
 
  /* a two-bar comparison set large enough to carry the slide */
- .ch-xl{padding:var(--pad-l)!important}
+ .ch-xl{padding:var(--pad-m)!important}
  .ch-xl .ct{margin-bottom:34px}
  .ch-xl .hb.wide{gap:var(--gap-l)}
  .ch-xl .hb.wide .row{grid-template-columns:420px minmax(0,1fr) 170px}
@@ -1314,11 +1324,14 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .ch-xl .hb.wide b{font-size:64px}
  :lang(zh-CN) .ch-xl .hb.wide .row{grid-template-columns:360px minmax(0,1fr) 170px}
 
- /* two panes side by side, the second dark: a China figure beside a global one */
- .duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap)}
- .duo .pane{display:flex;flex-direction:column;padding:var(--pad-l)!important}
- .duo .lr{height:40px;margin:0 0 30px}
- .duo .big{font-size:132px;line-height:.9;margin-bottom:22px;white-space:nowrap}
+ /* two full-width rows, the second dark: a China figure above a global one. Each row puts the number on the left
+    and who reported it and what it means on the right; the number column is as wide as the widest number,
+    so both numbers and both texts line up, and the build fills the slide downward instead of leaving a half empty. */
+ .duo{display:grid;grid-template-columns:max-content minmax(0,1fr);grid-template-rows:repeat(2,minmax(0,1fr));gap:var(--gap) var(--gap-l)}
+ .duo .pane{grid-column:1/-1;display:grid;grid-template-columns:subgrid;grid-template-rows:auto auto;align-content:center;row-gap:var(--gap-s);padding:var(--pad-s)!important}
+ .duo .lr{grid-column:2;align-self:end;height:auto;margin:0}
+ .duo .big{grid-column:1;grid-row:1/3;align-self:center;font-size:132px;line-height:.9;margin:0;white-space:nowrap}
+ .duo p{grid-column:2;align-self:start;margin:0}
  :lang(zh-CN) .duo .big{font-size:120px}
  .duo .big small{display:inline;margin-left:.16em;font-size:.24em;letter-spacing:0;color:var(--ink)}
  .ae .bd .duo p{font-size:28px;line-height:1.42;color:var(--ink)}
@@ -1330,15 +1343,17 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
 
  /* a quote that carries the slide, with two supporting figures stacked beside it */
  .qx{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:var(--gap)}
- .qx-q{display:flex;flex-direction:column;gap:20px;padding:var(--pad-l)!important}
+ .qx-q{display:flex;flex-direction:column;gap:20px;padding:var(--pad-m)!important}
  .qx-q .lr{height:48px;margin:0}.qx-q .brand.sf{height:48px}
  .ae .bd .qx-q .say{margin-top:auto;font:400 44px/1.34 var(--serif);letter-spacing:-.01em;color:var(--ink);text-wrap:pretty}
  :lang(zh-CN) .ae .bd .qx-q .say{font-size:40px;line-height:1.5;letter-spacing:0}
  .ae .bd .qx-q .who3{margin-top:auto;font:italic 400 21px/1.45 var(--serif);color:var(--muted)}
  :lang(zh-CN) .ae .bd .qx-q .who3{font-style:normal}
  .qx-f{display:grid;grid-template-rows:1fr 1fr;gap:var(--gap)}
- .qx-f .pane{display:flex;flex-direction:column;justify-content:center;padding:var(--pad-s)!important}
- .qx-f .lr{height:30px;margin:0 0 14px}.qx-f .brand.gg{height:28px}
+ .qx-f .pane{display:grid;grid-template-columns:auto minmax(0,1fr);align-content:center;column-gap:var(--gap);padding:var(--pad-s)!important}
+ .qx-f .lr{grid-column:2;grid-row:1;justify-self:end;align-self:start;height:30px;margin:0}
+ .qx-f .big{grid-column:1;grid-row:1}
+ .ae .bd .qx-f p{grid-column:1/-1}.qx-f .brand.gg{height:28px}
  .qx-f .big{font-size:72px;line-height:.95;margin-bottom:8px}
  :lang(zh-CN) .qx-f .big{font-size:64px}
  .qx-f .big small{display:inline;margin-left:.1em;font-size:.4em;color:var(--ink)}
@@ -1347,16 +1362,17 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
 
  /* the tools market map: personal agents across the top, four categories beneath */
  .mmap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap-s)}
- .mm-c{display:flex;flex-direction:column;gap:16px;padding:var(--pad-s)!important}
+ .mm-c{display:flex;flex-direction:column;gap:12px;padding:var(--pad-s)!important}
  .mm-c.ag{grid-column:1/-1;flex-direction:row;align-items:center;gap:var(--gap);padding:var(--pad-s)!important;background:var(--ink);border-color:var(--ink)}
  .ae .bd .mm-h{display:flex;flex-direction:column;gap:5px;margin:0;font:600 15px/1.2 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
  :lang(zh-CN) .ae .bd .mm-h{font-size:18px;letter-spacing:.06em}
  .mm-h small{font:italic 400 17px/1.3 var(--serif);letter-spacing:0;text-transform:none;color:var(--muted)}
  :lang(zh-CN) .mm-h small{font-style:normal;font-size:16px}
  .ae .bd .ag .mm-h{flex:none;width:118px;color:#A9BEEA}
+ :lang(zh-CN) .ag .mm-h>span{white-space:nowrap}
  .ag .mm-h small{color:rgba(252,243,237,.7)}
- .mm{list-style:none;margin:0;padding:0;display:grid;gap:10px}
- .ag .mm{flex:1;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}
+ .mm{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+ .ag .mm{flex:1;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px var(--gap)}
  .ae .bd .mm li{display:flex;align-items:center;gap:13px;font-size:inherit;line-height:1}
  .ae .bd .ag .mm li{align-items:flex-start;gap:12px}
  .mm img{flex:none;display:block;width:46px;height:46px;border-radius:12px;object-fit:cover;background:#fff;box-shadow:0 0 0 1px var(--edge)}
@@ -1371,6 +1387,7 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .ae .bd .ag .mm small{font-size:16px;color:rgba(252,243,237,.72)}
  i.cn{flex:none;display:inline-block;width:8px;height:8px;border-radius:50%;background:#C8553D}
  .fn i.cn{margin:0 4px 1px 0;vertical-align:middle}
+ .kick i.cn{margin:0 8px 2px 0;vertical-align:middle}
 
  /* three habits as three equal columns, numbered */
  .hab3{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap)}
@@ -1388,13 +1405,13 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  :lang(zh-CN) .paths li i,:lang(zh-CN) .paths li span{font-style:normal}
 
  /* scale: slides whose evidence is one or two short blocks get type large enough to fill the stage */
- .toc .trk li{padding:32px 0}
- :lang(zh-CN) .toc .trk li{padding:29px 0}
+ .toc .trk li{padding:20px 0}
+ :lang(zh-CN) .toc .trk li{padding:19px 0}
  .toc .trk .tn{font-size:76px}
  .toc .trk b{font-size:46px}
  :lang(zh-CN) .toc .trk b{font-size:42px}
  .toc .trk small{margin-top:12px;font-size:25px}
- .pair .pc{gap:28px;padding:var(--pad-l)}
+ .pair .pc{gap:28px;padding:var(--pad-m)}
  .ae .bd .pair .pc .say{font-size:60px;line-height:1.12}
  :lang(zh-CN) .ae .bd .pair .pc .say{font-size:54px;line-height:1.35}
  .ae .bd .pair .pc p:not(.say){font-size:32px;line-height:1.4}
@@ -1406,8 +1423,8 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  :lang(zh-CN) .ae .bd .hab3 h3{font-size:36px;line-height:1.4}
  .ae .bd .hab3 p{font-size:27px}
  .hab3 .no{font-size:120px}
- .ae .bd .emp1{width:100%;padding:var(--pad-l)}
- .ae .bd .emp1 .ls li{padding:24px 0;font-size:48px}
+ .ae .bd .emp1{width:100%;padding:var(--pad-m)}
+ .ae .bd .emp1 .ls li{padding:14px 0;font-size:48px}
  .emp1 .ls li i{font-size:38px;width:64px}
  .ring{width:268px;height:268px;gap:12px}
  .ring i{font-size:22px}
@@ -1417,7 +1434,7 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .model li+li::after{top:128px;right:calc(50% + 156px)}
  .ae .bd .model p{margin-top:34px;font-size:34px;line-height:1.25}
  .ae .bd .model p.ex{font-size:25px}
- .trio .card{gap:26px}
+ .trio .card{gap:20px}
  .ae .bd .trio .say{font-size:38px;line-height:1.25}
  :lang(zh-CN) .ae .bd .trio .say{font-size:32px;line-height:1.5}
  .ae .bd .trio .who3{font-size:21px}
@@ -1502,13 +1519,13 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
 
 /* ---- s70-brand.css ---- */
 /* brand mark: aligned to the content's right edge, centered on the kicker line */
-section.s>.brandmk{position:absolute;z-index:3;top:calc(37px * var(--z));right:calc(var(--gut) / 2);height:calc(22px * var(--z));width:auto;pointer-events:none;user-select:none}
+section.s>.brandmk{position:absolute;z-index:3;top:calc((var(--pad-top) - 3px) * var(--z));right:var(--margin-x);height:calc(22px * var(--z));width:auto;pointer-events:none;user-select:none}
 /* the reflowed phone page keeps its fixed language pill top-right, so the mark sits above each kicker on the left */
 @media (max-width:700px){section.s>.brandmk{top:22px;right:auto;left:20px;height:15px}}
 
 /* ---- snum.css ---- */
 /* slide numbers (snum): quiet folio in the bottom-right gutter of every slide except the title */
-section.s>.pgno{position:absolute;right:24px;bottom:16px;z-index:3;pointer-events:none;user-select:none;
+section.s>.pgno{position:absolute;right:var(--margin-x);bottom:calc(var(--pad-bot) * var(--z) / 2 - 6px);z-index:3;pointer-events:none;user-select:none;
  font:400 13px/1 var(--serif);letter-spacing:.04em;color:var(--muted);font-variant-numeric:lining-nums tabular-nums}
 section.s>.pgno i{font-style:normal;opacity:.6}
 @media (max-width:700px){section.s>.pgno{display:none}}
@@ -1626,7 +1643,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <h2 class="r" style="--d:.1s">在中国最大的银行工商银行，AI在2025年承担的工作量<em>约相当于全行员工的13%。</em></h2>
  <div class="bd r" style="--d:.25s"><div class="duo">
   <div class="pane" data-s="1"><div class="lr"><span class="org">中国工商银行</span></div><div class="big">5.5<small>万人年</small></div><p>由AI“数字员工”承担的工作量；全行员工约41万人</p></div>
-  <div class="pane dk" data-s="2"><div class="lr"><span class="org">渣打银行</span></div><div class="big">7800<small>个岗位</small></div><p>企业职能岗位将在2030年前削减。CEO 称这是“在某些情况下，替换价值较低的人力资本”。</p></div>
+  <div class="pane dk" data-s="2"><div class="lr"><span class="org">渣打银行</span></div><div class="big">7800<small>个岗位</small></div><p>企业职能岗位将在2030年前削减，CEO 称之为替换“价值较低的人力资本”。</p></div>
  </div></div>
  <p class="fn" data-s="1"><span>中国工商银行2025年年度报告，2026年3月27日（13%为我们的估算）；渣打银行投资者活动，2026年5月19日：削减15%的企业职能岗位；CEO Bill Winters 事后为这一措辞道歉</span></p>
 </div><aside class="notes">工商银行把这算作工作量，而不是裁员，但方向很清楚：同样的工作，需要的人少得多。招商银行和中信银行也报告了类似的数字。摩根大通在2025年5月告诉投资者，未来五年消费者银行运营部门人数将减少约10%，而业务量还要增长25%以上。</aside></section>
@@ -1636,14 +1653,14 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <p class="kick r">4/4 · 工程师 · Salesforce、Google 与中国大厂</p>
  <h2 class="r" style="--d:.1s">Salesforce 不再扩大工程师团队，<em>CEO 说原因就是AI。</em></h2>
  <div class="bd r" style="--d:.25s"><div class="qx">
-  <div class="pane qx-q" data-s="1"><div class="lr"><img class="brand sf" src="/logos/deck/salesforce.svg" alt="Salesforce"></div><p class="say">“人数基本持平，是因为我们一直在用AI提升工程师的效率……我们不再<span class="nw">增加工程师。”</span></p><p class="who3">Salesforce CEO Marc Benioff，财报电话会，2026年5月27日。约1.5万名工程师，两年来基本持平。</p></div>
+  <div class="pane qx-q" data-s="1"><div class="lr"><img class="brand sf" src="/logos/deck/salesforce.svg" alt="Salesforce"></div><p class="say">“我们一直在用AI提升工程师的效率……我们不再<span class="nw">增加工程师。”</span></p><p class="who3">Salesforce CEO Marc Benioff，财报电话会，2026年5月27日</p></div>
   <div class="qx-f">
    <div class="pane" data-s="2"><div class="lr"><img class="brand gg" src="/logos/deck/google.svg" alt="Google"></div><div class="big">75%</div><p>的新代码由AI生成、经工程师批准</p></div>
    <div class="pane" data-s="3"><div class="lr"><span class="org">中国大型科技公司</span></div><div class="big">10<small>倍</small></div><p>AI岗位需求约为往年的10倍，而基础开发岗位招聘大幅下滑</p></div>
   </div>
  </div></div>
  <p class="fn" data-s="1"><span>《财富》和雅虎财经报道 Salesforce 财报电话会，2026年5月27日至28日；Sundar Pichai，Google Cloud Next，2026年4月22日；界面新闻援引脉脉数据，2025年8月</span></p>
-</div><aside class="notes">工程师不会消失，但每个人能做的事多了，公司做同样的工作就需要更少的人。据 SignalFire 统计，美国最大科技公司的应届生招聘比2019年减少了一半以上，原因不只是AI。在中国，需求转向了会用AI做东西的人，而 Java、iOS 等基础开发岗位的招聘明显减少。</aside></section>
+</div><aside class="notes">Salesforce 约有1.5万名工程师，两年来人数基本持平。工程师不会消失，但每个人能做的事多了，公司做同样的工作就需要更少的人。据 SignalFire 统计，美国最大科技公司的应届生招聘比2019年减少了一半以上，原因不只是AI。在中国，需求转向了会用AI做东西的人，而 Java、iOS 等基础开发岗位的招聘明显减少。</aside></section>
 
 <!-- 13 · Layoffs -->
 <section class="s ae"><div class="w">
@@ -1841,7 +1858,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 
 <!-- 31 · The tools -->
 <section class="s alt ae"><div class="w">
- <p class="kick r">建议一 · 最新AI工具一览，2026年10月</p>
+ <p class="kick r">建议一 · 最新AI工具一览，2026年10月 · <i class="cn" aria-hidden="true"></i>中国大陆可用</p>
  <h2 class="r" style="--d:.1s">聊天机器人之外，还有编程、研究、设计和视频的智能体与工具。<em>这些您听说过几个？</em></h2>
  <div class="bd r" style="--d:.25s"><div class="mmap">
   <div class="pane mm-c ag"><h3 class="mm-h"><span>个人AI智能体</span><small>替你把事办完</small></h3><ul class="mm">
@@ -1864,20 +1881,19 @@ section.s>.pgno i{font-style:normal;opacity:.6}
    <li><img src="/logos/tools/metaso.png" alt=""><span><b>秘塔AI搜索<i class="cn" aria-label="中国大陆可用"></i></b><small>无广告、有出处的搜索</small></span></li>
   </ul></div>
   <div class="pane mm-c ds"><h3 class="mm-h"><span>设计</span></h3><ul class="mm">
-   <li><img src="/logos/tools/lovart.png" alt=""><span><b>Lovart<i class="cn" aria-label="中国大陆可用"></i></b><small>一句话做出品牌设计</small></span></li>
+   <li><img src="/logos/tools/lovart.png" alt=""><span><b>Lovart 星流<i class="cn" aria-label="中国大陆可用"></i></b><small>一句话做出品牌设计</small></span></li>
    <li><img src="/logos/tools/canva.png" alt=""><span><b>Canva AI</b><small>对话生成可编辑的设计</small></span></li>
    <li><img src="/logos/tools/figma.png" alt=""><span><b>Figma Make</b><small>把想法变成可用的原型</small></span></li>
    <li><img src="/logos/tools/gemini.png" alt=""><span><b>Nano Banana</b><small>谷歌的聊天改图工具</small></span></li>
   </ul></div>
   <div class="pane mm-c vd"><h3 class="mm-h"><span>视频与声音</span></h3><ul class="mm">
-   <li><img src="/logos/tools/kling.png" alt=""><span><b>可灵<i class="cn" aria-label="中国大陆可用"></i></b><small>快手的电影级AI视频</small></span></li>
-   <li><img src="/logos/tools/dreamina.png" alt=""><span><b>即梦 Seedance<i class="cn" aria-label="中国大陆可用"></i></b><small>字节跳动的有声视频</small></span></li>
+   <li><img src="/logos/tools/kling.png" alt=""><span><b>可灵<i class="cn" aria-label="中国大陆可用"></i></b><small>快手的AI视频</small></span></li>
+   <li><img src="/logos/tools/dreamina.png" alt=""><span><b>即梦 Seedance<i class="cn" aria-label="中国大陆可用"></i></b><small>字节跳动的AI视频工具</small></span></li>
    <li><img src="/logos/tools/suno.png" alt=""><span><b>Suno</b><small>一句话生成一整首歌</small></span></li>
    <li><img src="/logos/tools/elevenlabs.png" alt=""><span><b>ElevenLabs</b><small>逼真的AI配音</small></span></li>
   </ul></div>
  </div></div>
- <p class="fn"><span><i class="cn" aria-hidden="true"></i> 中国大陆可用。截至2026年10月，其余大多未在中国大陆提供服务。Lovart 在国内的版本是星流，Seedance 属于即梦。</span></p>
-</div><aside class="notes">大多数家庭都知道 DeepSeek、豆包和 ChatGPT。这里是下一波：给它一个目标，它能一步步把整件事做完。Kimi 的智能体模式一句话就能做出网站或PPT。OpenClaw“龙虾”是今年3月国内的全民热潮。Meta 在9月推出 Muse，替你处理邮件和预订。孩子可以用 Lovable 做一个应用，用 Suno 写一首歌，用可灵拍一部短片。如果我们不知道这些工具的存在，就没办法引导孩子，而这正是我们在教的。</aside></section>
+</div><aside class="notes">红点表示截至2026年10月在中国大陆可用的工具，其余大多未在中国大陆提供服务。Lovart 在国内的版本是星流，Seedance 属于即梦。大多数家庭都知道 DeepSeek、豆包和 ChatGPT。这里是下一波：给它一个目标，它能一步步把整件事做完。Kimi 的智能体模式一句话就能做出网站或PPT。OpenClaw“龙虾”是今年3月国内的全民热潮。Meta 在9月推出 Muse，替你处理邮件和预订。孩子可以用 Lovable 做一个应用，用 Suno 写一首歌，用可灵拍一部短片。如果我们不知道这些工具的存在，就没办法引导孩子，而这正是我们在教的。</aside></section>
 
 <!-- 32 · Takeaway 2 -->
 <section class="s alt ae st tk"><div class="w"><div class="tk-g">
@@ -1892,7 +1908,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <h2 class="r" style="--d:.1s">一位应聘 Kimi 的候选人，带着<em>自己用AI做的工具</em>来面试。</h2>
  <div class="bd r" style="--d:.25s"><div class="pane story3">
   <div class="s3-l"><img class="brand km" src="/logos/deck/kimi.png" alt="Kimi"><span class="lab">非技术岗位</span><p class="who">讲述人：羊筱涵，当时在为 Kimi 增长团队招人</p></div>
-  <div class="s3-r"><p class="story">筱涵在 Kimi 招增长团队的人时，有位候选人面试前先给团队的社交媒体工作做了个小工具，当场演示，拿到了 offer。</p><p class="punch" data-s="1">没人要求这么做，<br><em>关键恰恰就在这里。</em></p></div>
+  <div class="s3-r"><p class="story">有位候选人面试前先给团队的社交媒体工作做了个小工具，当场演示，拿到了 offer。</p><p class="punch" data-s="1">没人要求这么做，<br><em>关键恰恰就在这里。</em></p></div>
  </div></div>
  <p class="fn" data-s="1"><span>来自 Kimi（月之暗面）的亲身招聘经历，由羊筱涵分享</span></p>
 </div><aside class="notes">这是筱涵亲历的故事。求职面试几乎是日常生活里最重要的场合之一，这位候选人带来了自己用AI做的东西。这个岗位并不是技术岗。鼓励孩子把AI用在真实的事情上：学校项目、社团活动、各种申请。</aside></section>
@@ -2033,8 +2049,9 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  function fw(){try{return f.contentWindow.__step?f.contentWindow:null}catch(e){return null}}
  function fit(){var v=window.visualViewport,W=innerWidth,Hh=innerHeight,s=Math.min(W/1920,Hh/1080);
   f.style.transform='translate(-50%,-50%) scale('+s+')';window.__ps=s;
-  /* no letterbox room for the language pill: dock it in the slide's right gutter, clear of the corner logo */
-  var band=(Hh-1080*s)/2,side=(W-1920*s)/2;H.classList.toggle('dock',band<45&&side<120);
+  /* no letterbox above or below for the language pill: stand it in the side letterbox if the upright pill (about 40px) fits there,
+     otherwise dock it in the slide's right margin, clear of the corner logo */
+  var band=(Hh-1080*s)/2,side=(W-1920*s)/2,low=band<45;H.classList.toggle('side',low&&side>=56);H.classList.toggle('dock',low&&side<56);
   H.style.setProperty('--ps',s);H.style.setProperty('--pk',Math.max(s,.8));H.style.setProperty('--band',band+'px');H.style.setProperty('--side',side+'px');
   ph.classList.toggle('on',matchMedia('(pointer:coarse)').matches&&(Hh-1080*s)/2>=48);
   var w=fw();if(w){w.__ps=s;w.document.documentElement.classList.toggle('tiny',s<.6)}}

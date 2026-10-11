@@ -38,7 +38,7 @@
 .dk p{color:rgba(252,243,237,.82)!important}
 
 @media (min-width:701px){
- section.s.st>.w{justify-content:flex-start;padding:var(--hero-top) 0 112px}
+ section.s.st>.w{justify-content:flex-start;padding:var(--hero-top) 0 var(--pad-bot)}
  .ae .kick+h2{margin-top:var(--kick-gap)}
  .ae.st h2{font-size:72px;line-height:1.08;letter-spacing:-.028em;max-width:17.5em}
  :lang(zh-CN) .ae.st h2{font-size:62px;line-height:1.32;letter-spacing:0;max-width:18em}
@@ -85,9 +85,10 @@
  .ae .bd .chain .nd.old p{color:var(--text)!important}
  .chain .ar{display:grid;place-items:center}
 
- .ae .bd .arc{padding:var(--pad-l)}
- .arow{display:grid;grid-template-columns:minmax(0,1fr) 200px minmax(0,1fr);align-items:end;column-gap:44px;margin-top:6px}
- .an .big{margin:16px 0 30px;font-size:168px}
+ .ae .bd .arc{padding:var(--pad-m)}
+ .arc>.lr{height:auto}
+ .arow{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:end;column-gap:var(--gap);margin-top:6px}
+ .an .big{margin:12px 0 20px;font-size:168px}
  :lang(zh-CN) .an .big{font-size:150px}
  .an .big.lo{color:var(--muted)}
  .an .hb i{height:30px}

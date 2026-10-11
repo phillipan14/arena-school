@@ -6,7 +6,7 @@
 
 @media (min-width:701px){
  /* cover: title, date, logos, QR, and room */
- section.s.cover>.w{justify-content:space-between;padding:23px 0 var(--pad-bot)} /* the PTA logo's midline sits on the brand mark's */
+ section.s.cover>.w{justify-content:space-between;padding:calc(var(--pad-top) - 17px) 0 var(--pad-bot)} /* the PTA logo's midline sits on the brand mark's */
  .cv-top{display:flex;align-items:center;gap:28px}
  .cv-top .pta{display:block;height:50px;width:auto}
  .cv-top .arena{display:block;height:34px;width:auto;padding:7px 0 7px 28px;border-left:1px solid var(--line);box-sizing:content-box}
@@ -57,10 +57,10 @@
  .sec .trk b{font-size:25px;line-height:1.25;color:var(--paper-hi)}
  :lang(zh-CN) .sec .trk b{font-size:24px;line-height:1.45}
  .sec .trk small{margin-top:6px;font-size:17px;color:rgba(252,243,237,.7)}
- section.s.sec>.w{justify-content:flex-start;padding:var(--hero-top) 0 96px}
+ section.s.sec>.w{justify-content:flex-start;padding:var(--hero-top) 0 var(--pad-bot)}
 
  /* takeaway dividers: a large numeral beside the takeaway, and where it sits among the three */
- section.s.tk>.w{justify-content:flex-start;padding:var(--hero-top) 0 96px}
+ section.s.tk>.w{justify-content:flex-start;padding:var(--hero-top) 0 var(--pad-bot)}
  .tk-g{display:grid;grid-template-columns:260px minmax(0,1fr);column-gap:64px;align-items:start}
  .tk-n{display:flex;flex-direction:column;align-items:flex-start;gap:22px;padding:0 56px 10px 0;border-right:1px solid var(--line)}
  .tk-n span{font:italic 400 36px/1 var(--serif);letter-spacing:-.01em;color:var(--ink2)}
@@ -100,9 +100,9 @@
  /* a comparison table: one row per organisation */
  .tbl{display:grid;grid-template-columns:290px 340px minmax(0,1fr);border-top:1px solid var(--line)}
  .tbl>div{display:contents}
- .tbl>div>*{display:flex;align-items:center;margin:0;padding:22px 28px 22px 0;border-bottom:1px solid var(--line)}
+ .tbl>div>*{display:flex;align-items:center;margin:0;padding:14px 28px 14px 0;border-bottom:1px solid var(--line)}
  .tbl>div>*:last-child{padding-right:0}
- .tbl .th{padding:0 0 14px;font:600 15px/1.3 var(--serif);letter-spacing:.13em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line)}
+ .tbl .th{padding:0 0 10px;font:600 15px/1.3 var(--serif);letter-spacing:.13em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line)}
  :lang(zh-CN) .tbl .th{font-size:16px;letter-spacing:.06em}
  .tbl .org2{display:flex;align-items:center;font:500 30px/1.2 var(--serif);color:var(--ink)}
  .tbl .cnt{font:300 64px/1 var(--serif);letter-spacing:-.03em;color:var(--ink2);font-variant-numeric:lining-nums tabular-nums;white-space:nowrap}
@@ -111,7 +111,7 @@
  .ae .bd .tbl p{font-size:25px;line-height:1.4}
  .tbl .th{display:block}
  .tbl .hl .cnt{font-weight:400}
- .tbl-wrap{padding:var(--pad-m)!important}
+ .tbl-wrap{padding:var(--pad-s)!important}
 
  /* a timeline drawn across: dates over dots, what happened under them */
  .tln{position:relative;list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));gap:var(--gap-l)}
@@ -156,7 +156,7 @@
  :lang(zh-CN) .ae .bd .pg p{line-height:1.55}
 
  /* a story: who told it on the left, the story and the line that lands it on the right */
- .story3{display:grid;grid-template-columns:290px minmax(0,1fr);column-gap:var(--gap-l);align-items:start;padding:var(--pad-l)!important}
+ .story3{display:grid;grid-template-columns:290px minmax(0,1fr);column-gap:var(--gap-l);align-items:start;padding:var(--pad-m)!important}
  .s3-l{display:flex;flex-direction:column;gap:22px;padding-right:var(--gap-l);border-right:1px solid var(--line)}
  .s3-l .brand.km{height:40px;width:auto;align-self:flex-start}
  .s3-l .lab{margin-top:14px}
@@ -164,11 +164,11 @@
  :lang(zh-CN) .ae .bd .s3-l .who{font-style:normal;font-size:21px;line-height:1.6}
  .ae .bd .s3-r .story{margin:0;font:400 36px/1.42 var(--serif);color:var(--ink);text-wrap:pretty}
  :lang(zh-CN) .ae .bd .s3-r .story{font-size:33px;line-height:1.65}
- .ae .bd .s3-r .punch{margin:30px 0 0;padding-top:28px;border-top:1px solid var(--line);font:500 56px/1.12 var(--serif);letter-spacing:-.02em;color:var(--ink)}
+ .ae .bd .s3-r .punch{margin:20px 0 0;padding-top:20px;border-top:1px solid var(--line);font:500 56px/1.12 var(--serif);letter-spacing:-.02em;color:var(--ink)}
  :lang(zh-CN) .ae .bd .s3-r .punch{font-size:50px;line-height:1.4;letter-spacing:0}
 
  /* a two-bar comparison set large enough to carry the slide */
- .ch-xl{padding:var(--pad-l)!important}
+ .ch-xl{padding:var(--pad-m)!important}
  .ch-xl .ct{margin-bottom:34px}
  .ch-xl .hb.wide{gap:var(--gap-l)}
  .ch-xl .hb.wide .row{grid-template-columns:420px minmax(0,1fr) 170px}
@@ -177,11 +177,14 @@
  .ch-xl .hb.wide b{font-size:64px}
  :lang(zh-CN) .ch-xl .hb.wide .row{grid-template-columns:360px minmax(0,1fr) 170px}
 
- /* two panes side by side, the second dark: a China figure beside a global one */
- .duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap)}
- .duo .pane{display:flex;flex-direction:column;padding:var(--pad-l)!important}
- .duo .lr{height:40px;margin:0 0 30px}
- .duo .big{font-size:132px;line-height:.9;margin-bottom:22px;white-space:nowrap}
+ /* two full-width rows, the second dark: a China figure above a global one. Each row puts the number on the left
+    and who reported it and what it means on the right; the number column is as wide as the widest number,
+    so both numbers and both texts line up, and the build fills the slide downward instead of leaving a half empty. */
+ .duo{display:grid;grid-template-columns:max-content minmax(0,1fr);grid-template-rows:repeat(2,minmax(0,1fr));gap:var(--gap) var(--gap-l)}
+ .duo .pane{grid-column:1/-1;display:grid;grid-template-columns:subgrid;grid-template-rows:auto auto;align-content:center;row-gap:var(--gap-s);padding:var(--pad-s)!important}
+ .duo .lr{grid-column:2;align-self:end;height:auto;margin:0}
+ .duo .big{grid-column:1;grid-row:1/3;align-self:center;font-size:132px;line-height:.9;margin:0;white-space:nowrap}
+ .duo p{grid-column:2;align-self:start;margin:0}
  :lang(zh-CN) .duo .big{font-size:120px}
  .duo .big small{display:inline;margin-left:.16em;font-size:.24em;letter-spacing:0;color:var(--ink)}
  .ae .bd .duo p{font-size:28px;line-height:1.42;color:var(--ink)}
@@ -193,15 +196,17 @@
 
  /* a quote that carries the slide, with two supporting figures stacked beside it */
  .qx{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:var(--gap)}
- .qx-q{display:flex;flex-direction:column;gap:20px;padding:var(--pad-l)!important}
+ .qx-q{display:flex;flex-direction:column;gap:20px;padding:var(--pad-m)!important}
  .qx-q .lr{height:48px;margin:0}.qx-q .brand.sf{height:48px}
  .ae .bd .qx-q .say{margin-top:auto;font:400 44px/1.34 var(--serif);letter-spacing:-.01em;color:var(--ink);text-wrap:pretty}
  :lang(zh-CN) .ae .bd .qx-q .say{font-size:40px;line-height:1.5;letter-spacing:0}
  .ae .bd .qx-q .who3{margin-top:auto;font:italic 400 21px/1.45 var(--serif);color:var(--muted)}
  :lang(zh-CN) .ae .bd .qx-q .who3{font-style:normal}
  .qx-f{display:grid;grid-template-rows:1fr 1fr;gap:var(--gap)}
- .qx-f .pane{display:flex;flex-direction:column;justify-content:center;padding:var(--pad-s)!important}
- .qx-f .lr{height:30px;margin:0 0 14px}.qx-f .brand.gg{height:28px}
+ .qx-f .pane{display:grid;grid-template-columns:auto minmax(0,1fr);align-content:center;column-gap:var(--gap);padding:var(--pad-s)!important}
+ .qx-f .lr{grid-column:2;grid-row:1;justify-self:end;align-self:start;height:30px;margin:0}
+ .qx-f .big{grid-column:1;grid-row:1}
+ .ae .bd .qx-f p{grid-column:1/-1}.qx-f .brand.gg{height:28px}
  .qx-f .big{font-size:72px;line-height:.95;margin-bottom:8px}
  :lang(zh-CN) .qx-f .big{font-size:64px}
  .qx-f .big small{display:inline;margin-left:.1em;font-size:.4em;color:var(--ink)}
@@ -210,16 +215,17 @@
 
  /* the tools market map: personal agents across the top, four categories beneath */
  .mmap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap-s)}
- .mm-c{display:flex;flex-direction:column;gap:16px;padding:var(--pad-s)!important}
+ .mm-c{display:flex;flex-direction:column;gap:12px;padding:var(--pad-s)!important}
  .mm-c.ag{grid-column:1/-1;flex-direction:row;align-items:center;gap:var(--gap);padding:var(--pad-s)!important;background:var(--ink);border-color:var(--ink)}
  .ae .bd .mm-h{display:flex;flex-direction:column;gap:5px;margin:0;font:600 15px/1.2 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
  :lang(zh-CN) .ae .bd .mm-h{font-size:18px;letter-spacing:.06em}
  .mm-h small{font:italic 400 17px/1.3 var(--serif);letter-spacing:0;text-transform:none;color:var(--muted)}
  :lang(zh-CN) .mm-h small{font-style:normal;font-size:16px}
  .ae .bd .ag .mm-h{flex:none;width:118px;color:#A9BEEA}
+ :lang(zh-CN) .ag .mm-h>span{white-space:nowrap}
  .ag .mm-h small{color:rgba(252,243,237,.7)}
- .mm{list-style:none;margin:0;padding:0;display:grid;gap:10px}
- .ag .mm{flex:1;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}
+ .mm{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+ .ag .mm{flex:1;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px var(--gap)}
  .ae .bd .mm li{display:flex;align-items:center;gap:13px;font-size:inherit;line-height:1}
  .ae .bd .ag .mm li{align-items:flex-start;gap:12px}
  .mm img{flex:none;display:block;width:46px;height:46px;border-radius:12px;object-fit:cover;background:#fff;box-shadow:0 0 0 1px var(--edge)}
@@ -234,6 +240,7 @@
  .ae .bd .ag .mm small{font-size:16px;color:rgba(252,243,237,.72)}
  i.cn{flex:none;display:inline-block;width:8px;height:8px;border-radius:50%;background:#C8553D}
  .fn i.cn{margin:0 4px 1px 0;vertical-align:middle}
+ .kick i.cn{margin:0 8px 2px 0;vertical-align:middle}
 
  /* three habits as three equal columns, numbered */
  .hab3{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap)}
@@ -251,13 +258,13 @@
  :lang(zh-CN) .paths li i,:lang(zh-CN) .paths li span{font-style:normal}
 
  /* scale: slides whose evidence is one or two short blocks get type large enough to fill the stage */
- .toc .trk li{padding:32px 0}
- :lang(zh-CN) .toc .trk li{padding:29px 0}
+ .toc .trk li{padding:20px 0}
+ :lang(zh-CN) .toc .trk li{padding:19px 0}
  .toc .trk .tn{font-size:76px}
  .toc .trk b{font-size:46px}
  :lang(zh-CN) .toc .trk b{font-size:42px}
  .toc .trk small{margin-top:12px;font-size:25px}
- .pair .pc{gap:28px;padding:var(--pad-l)}
+ .pair .pc{gap:28px;padding:var(--pad-m)}
  .ae .bd .pair .pc .say{font-size:60px;line-height:1.12}
  :lang(zh-CN) .ae .bd .pair .pc .say{font-size:54px;line-height:1.35}
  .ae .bd .pair .pc p:not(.say){font-size:32px;line-height:1.4}
@@ -269,8 +276,8 @@
  :lang(zh-CN) .ae .bd .hab3 h3{font-size:36px;line-height:1.4}
  .ae .bd .hab3 p{font-size:27px}
  .hab3 .no{font-size:120px}
- .ae .bd .emp1{width:100%;padding:var(--pad-l)}
- .ae .bd .emp1 .ls li{padding:24px 0;font-size:48px}
+ .ae .bd .emp1{width:100%;padding:var(--pad-m)}
+ .ae .bd .emp1 .ls li{padding:14px 0;font-size:48px}
  .emp1 .ls li i{font-size:38px;width:64px}
  .ring{width:268px;height:268px;gap:12px}
  .ring i{font-size:22px}
@@ -280,7 +287,7 @@
  .model li+li::after{top:128px;right:calc(50% + 156px)}
  .ae .bd .model p{margin-top:34px;font-size:34px;line-height:1.25}
  .ae .bd .model p.ex{font-size:25px}
- .trio .card{gap:26px}
+ .trio .card{gap:20px}
  .ae .bd .trio .say{font-size:38px;line-height:1.25}
  :lang(zh-CN) .ae .bd .trio .say{font-size:32px;line-height:1.5}
  .ae .bd .trio .who3{font-size:21px}
