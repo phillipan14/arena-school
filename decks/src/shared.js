@@ -142,7 +142,7 @@ if(!HM.classList.contains('player')&&!HM.classList.contains('export')&&!/[?&]rea
  [].slice.call(g.children).forEach(function(c,i){c.style.setProperty('--i',i);if(g.classList.contains('tbl'))[].forEach.call(c.children,function(x){x.style.setProperty('--i',i)})});
  if(g.classList.contains('pg-m')){var j=0;[].forEach.call(g.children,function(c){if(c.classList.contains('f'))c.style.setProperty('--i',j++)})}});
 (function(){var FILL=[['openai','ChatGPT'],['claude','Claude'],['gemini','Gemini'],['deepseek','DeepSeek'],['doubao','Doubao'],['qwen','Qwen'],['perplexity','Perplexity'],['metaso','Metaso'],['notion','Notion'],['canva','Canva'],['figma','Figma'],['cursor','Cursor'],['lovable','Lovable'],['replit','Replit'],['trae','TRAE'],['github','GitHub'],['vercel','Vercel'],['midjourney','Midjourney'],['ideogram','Ideogram'],['kling','Kling'],['hailuo','Hailuo'],['dreamina','Dreamina'],['suno','Suno'],['elevenlabs','ElevenLabs'],['heygen','HeyGen'],['capcut','CapCut'],['flow','Flow'],['comet','Comet'],['lovart','Lovart'],['workbuddy','WorkBuddy'],['cue','Cue'],['gemini-notebook','NotebookLM'],['stripe','Stripe'],['kimi','Kimi'],['manus','Manus'],['genspark','Genspark']];
- [].forEach.call(document.querySelectorAll('.ag-fill'),function(box){var n=220,frag=document.createDocumentFragment();
+ [].forEach.call(document.querySelectorAll('.ag-fill'),function(box){var n=260,frag=document.createDocumentFragment();
   for(var i=0;i<n;i++){var t=FILL[i%FILL.length],el=document.createElement('span');el.className='ag-tile';
    /* ease-in stagger: early tiles wait longer between arrivals, then the field packs in */
    var p=n<2?1:i/(n-1),d=(p*p)*1850;

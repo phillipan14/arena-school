@@ -1714,11 +1714,11 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
 
  /* personal agents: curated six sit on a filling field of real tools */
  .ag-flood{position:relative;flex:1;min-height:0;display:grid}
- .ag-fill{position:absolute;inset:-6px;display:grid;grid-template-columns:repeat(22,minmax(0,1fr));grid-auto-rows:32px;gap:6px;align-content:start;overflow:hidden;pointer-events:none;z-index:0}
- .ag-tile{display:grid;place-items:center;min-width:0;overflow:hidden;padding:0;border-radius:7px;background:var(--paper-hi);box-shadow:inset 0 0 0 1px var(--edge);opacity:.42}
- .ag-tile img{width:20px;height:20px;border-radius:5px;object-fit:cover;background:#fff}
- .ag-flood .agx{position:relative;z-index:2;align-self:center}
- .ag-flood .agx .pane{background:var(--paper-hi);box-shadow:0 12px 32px rgba(20,28,45,.14),inset 0 0 0 1.5px var(--ink)}
+ .ag-fill{position:absolute;inset:-4px;display:grid;grid-template-columns:repeat(24,minmax(0,1fr));grid-auto-rows:28px;gap:5px;align-content:start;overflow:hidden;pointer-events:none;z-index:0}
+ .ag-tile{display:grid;place-items:center;min-width:0;overflow:hidden;padding:0;border-radius:6px;background:var(--paper-hi);box-shadow:inset 0 0 0 1px var(--edge);opacity:.38}
+ .ag-tile img{width:18px;height:18px;border-radius:5px;object-fit:cover;background:#fff}
+ .ag-flood .agx{position:relative;z-index:2;align-self:center;width:100%;padding:28px 12px;box-sizing:border-box}
+ .ag-flood .agx li,.ag-flood .agx .pane{background:var(--paper-hi);box-shadow:0 12px 32px rgba(20,28,45,.14),inset 0 0 0 1.5px var(--ink)}
 
  /* Cursor valuation as a rising story */
  .grow{position:relative;flex:1;min-height:0;display:flex;flex-direction:column;justify-content:flex-end;padding:8px 8px 0}
@@ -1771,35 +1771,40 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
 
  /* Section 2 chain: how→what, WEF bars, then the five named skills */
  .dn>.big{display:grid;place-items:center;font-size:120px;line-height:.85}
- .shift{display:flex;flex-direction:column;justify-content:center;gap:28px;min-height:0}
- .shx{display:grid;grid-template-columns:minmax(0,1fr) 88px minmax(0,1fr);gap:0;align-items:stretch}
- .sh-col{display:flex;flex-direction:column;justify-content:center;gap:18px;padding:36px 40px;border-radius:var(--r);min-width:0}
+ .shift{display:flex;flex-direction:column;justify-content:flex-start;gap:24px;min-height:0}
+ .shx{display:grid;grid-template-columns:minmax(0,1fr) 64px minmax(0,1fr);gap:0;align-items:stretch}
+ .sh-col{display:flex;flex-direction:column;justify-content:center;gap:16px;padding:32px 36px;border-radius:var(--r);min-width:0}
  .sh-col.o{background:var(--pane)}
  .sh-col.n{background:var(--ink);color:var(--paper-hi)}
- .shx .hd,.wefx .hd{font:600 15px/1 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+ .shx .hd,.wefx .hd{font:600 15px/1 var(--serif);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+ .shx .hd{white-space:nowrap}
  :lang(zh-CN) .shx .hd,:lang(zh-CN) .wefx .hd{font-size:16px;letter-spacing:.08em}
  .sh-col.n .hd{color:#A9BEEA}
  .shx ul{list-style:none;margin:0;padding:0;display:grid;gap:14px}
  .ae .bd .shx li{margin:0;font:400 32px/1.25 var(--serif);color:var(--ink)}
  .ae .bd .sh-col.n li{color:var(--paper-hi)}
  :lang(zh-CN) .ae .bd .shx li{font-size:30px;line-height:1.4}
- .sh-arr{display:grid;place-items:center}
- .sh-arr i{display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:var(--paper-hi);box-shadow:inset 0 0 0 1px var(--edge)}
+ .sh-arr{display:grid;place-items:center;z-index:1}
+ .sh-arr i{display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:var(--paper-hi);box-shadow:0 0 0 8px var(--paper),inset 0 0 0 1px var(--edge)}
+ .s.alt .sh-arr i{box-shadow:0 0 0 8px var(--beige),inset 0 0 0 1px var(--edge)}
  .sh-arr i::after{content:"";width:12px;height:12px;margin-left:-3px;border-top:2px solid var(--ink2);border-right:2px solid var(--ink2);transform:rotate(45deg)}
- .wefx{display:flex;flex-direction:column;gap:16px;padding:26px 32px 28px;background:var(--paper-hi);border:1px solid var(--edge);border-radius:var(--r)}
+ .wefx{display:flex;flex-direction:column;gap:14px;padding:22px 28px 24px;background:var(--paper-hi);border:1px solid var(--edge);border-radius:var(--r)}
  .wefx .hb{gap:16px}
  .wefx .hb .row{grid-template-columns:minmax(11em,16em) minmax(80px,1fr) 4.2em;align-items:center;gap:10px 20px}
  :lang(zh-CN) .wefx .hb .row{grid-template-columns:minmax(7em,10em) minmax(80px,1fr) 4.2em}
  .wefx .hb .bk{grid-column:1;font-size:24px;line-height:1.2;color:var(--ink)}
  .wefx .hb b{grid-column:3;justify-self:end;font:400 28px/1 var(--serif);color:var(--ink2)}
  .wefx .hb i{grid-column:2;grid-row:1;height:18px;align-self:center}
- .why5{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:var(--gap);align-content:center}
- .ae .bd .why5 li{display:flex;flex-direction:column;justify-content:center;gap:12px;grid-column:span 2;padding:32px 34px;background:var(--paper-hi);border:1px solid var(--edge);border-radius:var(--r);min-width:0}
- .ae .bd .why5 li:nth-child(4){grid-column:1/4}
- .ae .bd .why5 li:nth-child(5){grid-column:4/7}
+ .why5{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:20px 22px;align-content:center}
+ .ae .bd .why5 li{display:flex;flex-direction:column;justify-content:center;gap:10px;padding:28px 30px;background:var(--paper-hi);border:1px solid var(--edge);border-radius:var(--r);min-width:0}
+ .ae .bd .why5 li:nth-child(1){grid-column:1/5}
+ .ae .bd .why5 li:nth-child(2){grid-column:5/9}
+ .ae .bd .why5 li:nth-child(3){grid-column:9/13}
+ .ae .bd .why5 li:nth-child(4){grid-column:3/7}
+ .ae .bd .why5 li:nth-child(5){grid-column:7/11}
  .why5 i{font:600 15px/1 var(--serif);letter-spacing:.14em;color:var(--ink2)}
- .ae .bd .why5 b{font:500 40px/1.1 var(--serif);letter-spacing:-.015em;color:var(--ink)}
- .ae .bd .why5 span{font:400 24px/1.35 var(--serif);color:var(--text);max-width:18em}
+ .ae .bd .why5 b{font:500 36px/1.12 var(--serif);letter-spacing:-.015em;color:var(--ink)}
+ .ae .bd .why5 span{font:400 23px/1.35 var(--serif);color:var(--text)}
  :lang(zh-CN) .why5 i{letter-spacing:.08em}
  :lang(zh-CN) .ae .bd .why5 b{font-size:36px;line-height:1.25;letter-spacing:0}
  :lang(zh-CN) .ae .bd .why5 span{font-size:24px;line-height:1.45;max-width:none}
@@ -1848,7 +1853,7 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .pb-l{display:flex;justify-content:space-between;gap:10px;margin-top:6px;font-size:13px;color:var(--muted)}
  .st3,.cmp2,.rk3,.agx,.fl3,.ic3,.spine,.kimi,.proc4,.c123,.accx,.proj4,.skmap,.grow-n,.shift,.shx,.wefx,.why5{display:grid;grid-template-columns:1fr;gap:12px;list-style:none;margin:12px 0 0;padding:0}
  .ag-fill{display:none}
- .why5 li,.why5 li:nth-child(4),.why5 li:nth-child(5){grid-column:auto}
+ .why5 li,.why5 li:nth-child(1),.why5 li:nth-child(2),.why5 li:nth-child(3),.why5 li:nth-child(4),.why5 li:nth-child(5){grid-column:auto}
  .sh-arr{display:none}
  .wefx{padding:12px}
  .tn-pair{display:grid;grid-template-columns:1fr;gap:6px}
@@ -1951,15 +1956,18 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .motion .cv-top,.motion .cv-foot{transition:opacity .8s ease .6s}
  .motion .s:not(.in) .cv-top,.motion .s:not(.in) .cv-foot{opacity:0}
 
- /* market map: six agents arrive and settle, recede, then a field of tools floods in, then the six lift again.
-    Only opacity and transform. Delays for the field are set in JS (--d) so the stagger can accelerate. */
- .motion .ag-flood .agx li{opacity:0;transform:translateY(18px) scale(.96);transition:opacity .48s ease,transform .56s var(--e-o),box-shadow .4s ease;transition-delay:calc(80ms + var(--i,0) * 155ms)}
+ /* market map: six agents arrive and settle, the cluster recedes, the field floods in, then the six lift again.
+    Cards stay opaque (never fade) so the field cannot show through them. Only opacity and transform. */
+ .motion .ag-flood .agx{transition:transform .5s var(--e-o)}
+ .motion .ag-flood .agx li{opacity:0;transform:translateY(16px) scale(.96);transition:opacity .46s ease,transform .54s var(--e-o),box-shadow .4s ease;transition-delay:calc(70ms + var(--i,0) * 150ms)}
  .motion .s.in .ag-flood .agx li{opacity:1;transform:none}
- .motion .ag-flood.recede:not(.focus):not(.done) .agx li{opacity:.62;transform:scale(.975);transition-delay:0s}
+ .motion .ag-flood.recede:not(.focus):not(.done) .agx{transform:scale(.955)}
+ .motion .ag-flood.recede:not(.focus):not(.done) .agx li{box-shadow:0 4px 14px rgba(20,28,45,.08),inset 0 0 0 1px var(--edge);transition-delay:0s}
+ .motion .ag-flood.focus .agx,.motion .ag-flood.done .agx{transform:none}
  .motion .ag-flood.focus .agx li,.motion .ag-flood.done .agx li{opacity:1;transform:none;transition-delay:0s}
- .motion .ag-flood.done .agx li{transition:none}
- .motion .ag-fill .ag-tile{opacity:0;transform:scale(.84);transition:opacity .3s ease var(--d,0s),transform .4s var(--e-o) var(--d,0s)}
- .motion .ag-flood.flood .ag-tile,.motion .ag-flood.done .ag-tile,.motion .ag-fill.done .ag-tile{opacity:.42;transform:none}
+ .motion .ag-flood.done .agx,.motion .ag-flood.done .agx li{transition:none}
+ .motion .ag-fill .ag-tile{opacity:0;transform:scale(.82);transition:opacity .28s ease var(--d,0s),transform .38s var(--e-o) var(--d,0s)}
+ .motion .ag-flood.flood .ag-tile,.motion .ag-flood.done .ag-tile,.motion .ag-fill.done .ag-tile{opacity:.36;transform:none}
  .motion .ag-flood.done .ag-tile,.motion .ag-fill.done .ag-tile{transition:none}
 
  /* Cursor growth: the line draws, then nodes climb */
@@ -2179,10 +2187,10 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <div class="shx" data-s="1">
    <div class="sh-col o"><span class="hd">How to do it</span><ul><li>Write the code</li><li>Draft the memo</li><li>Run the analysis</li></ul></div>
    <div class="sh-arr" aria-hidden="true"><i></i></div>
-   <div class="sh-col n"><span class="hd">What to do, and whether it’s good</span><ul><li>Decide what to build</li><li>Judge the output</li><li>Lead people and AI</li></ul></div>
+   <div class="sh-col n"><span class="hd">What · whether it’s good</span><ul><li>Decide what to build</li><li>Judge the output</li><li>Lead people and AI</li></ul></div>
   </div>
   <div class="wefx" data-s="2">
-   <span class="hd">Share of employers who call this essential now</span>
+   <span class="hd">Essential now · rising through 2030</span>
    <div class="hb">
     <div class="row hl"><span class="bk">Analytical thinking</span><b>69%</b><i style="--v:69"></i></div>
     <div class="row hl"><span class="bk">Resilience and agility</span><b>67%</b><i style="--v:67"></i></div>
@@ -2625,7 +2633,7 @@ if(!HM.classList.contains('player')&&!HM.classList.contains('export')&&!/[?&]rea
  [].slice.call(g.children).forEach(function(c,i){c.style.setProperty('--i',i);if(g.classList.contains('tbl'))[].forEach.call(c.children,function(x){x.style.setProperty('--i',i)})});
  if(g.classList.contains('pg-m')){var j=0;[].forEach.call(g.children,function(c){if(c.classList.contains('f'))c.style.setProperty('--i',j++)})}});
 (function(){var FILL=[['openai','ChatGPT'],['claude','Claude'],['gemini','Gemini'],['deepseek','DeepSeek'],['doubao','Doubao'],['qwen','Qwen'],['perplexity','Perplexity'],['metaso','Metaso'],['notion','Notion'],['canva','Canva'],['figma','Figma'],['cursor','Cursor'],['lovable','Lovable'],['replit','Replit'],['trae','TRAE'],['github','GitHub'],['vercel','Vercel'],['midjourney','Midjourney'],['ideogram','Ideogram'],['kling','Kling'],['hailuo','Hailuo'],['dreamina','Dreamina'],['suno','Suno'],['elevenlabs','ElevenLabs'],['heygen','HeyGen'],['capcut','CapCut'],['flow','Flow'],['comet','Comet'],['lovart','Lovart'],['workbuddy','WorkBuddy'],['cue','Cue'],['gemini-notebook','NotebookLM'],['stripe','Stripe'],['kimi','Kimi'],['manus','Manus'],['genspark','Genspark']];
- [].forEach.call(document.querySelectorAll('.ag-fill'),function(box){var n=220,frag=document.createDocumentFragment();
+ [].forEach.call(document.querySelectorAll('.ag-fill'),function(box){var n=260,frag=document.createDocumentFragment();
   for(var i=0;i<n;i++){var t=FILL[i%FILL.length],el=document.createElement('span');el.className='ag-tile';
    /* ease-in stagger: early tiles wait longer between arrivals, then the field packs in */
    var p=n<2?1:i/(n-1),d=(p*p)*1850;
