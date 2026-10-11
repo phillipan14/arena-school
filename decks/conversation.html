@@ -1195,15 +1195,18 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .ae .bd .ba-p.new li{color:var(--paper-hi)}
 
  /* a comparison table: one row per organisation */
- .tbl{display:grid;grid-template-columns:260px 300px minmax(0,1fr);border-top:1px solid var(--line)}
+ .tbl{display:grid;grid-template-columns:290px 340px minmax(0,1fr);border-top:1px solid var(--line)}
  .tbl>div{display:contents}
- .tbl>div>*{padding:26px 0;border-bottom:1px solid var(--line)}
+ .tbl>div>*{display:flex;align-items:center;margin:0;padding:26px 28px 26px 0;border-bottom:1px solid var(--line)}
+ .tbl>div>*:last-child{padding-right:0}
  .tbl .th{padding:0 0 14px;font:600 15px/1.3 var(--serif);letter-spacing:.13em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line)}
  :lang(zh-CN) .tbl .th{font-size:16px;letter-spacing:.06em}
  .tbl .org2{display:flex;align-items:center;font:500 30px/1.2 var(--serif);color:var(--ink)}
- .tbl .cnt{font:300 64px/1 var(--serif);letter-spacing:-.03em;color:var(--ink2);font-variant-numeric:lining-nums tabular-nums;white-space:nowrap;align-self:center}
+ .tbl .cnt{font:300 64px/1 var(--serif);letter-spacing:-.03em;color:var(--ink2);font-variant-numeric:lining-nums tabular-nums;white-space:nowrap}
+ .tbl .cnt.nc{font-size:56px}
  .tbl .cnt small{font-size:.42em;margin-left:.12em;letter-spacing:0;color:var(--ink)}
- .ae .bd .tbl p{align-self:center;font-size:25px;line-height:1.4}
+ .ae .bd .tbl p{font-size:25px;line-height:1.4}
+ .tbl .th{display:block}
  .tbl .hl .cnt{font-weight:400}
  .tbl-wrap{padding:30px 44px 18px!important}
 
@@ -1260,6 +1263,46 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  :lang(zh-CN) .ae .bd .s3-r .story{font-size:33px;line-height:1.65}
  .ae .bd .s3-r .punch{margin:30px 0 0;padding-top:28px;border-top:1px solid var(--line);font:500 56px/1.12 var(--serif);letter-spacing:-.02em;color:var(--ink)}
  :lang(zh-CN) .ae .bd .s3-r .punch{font-size:50px;line-height:1.4;letter-spacing:0}
+
+ /* a two-bar comparison set large enough to carry the slide */
+ .ch-xl{padding:48px 60px 52px!important}
+ .ch-xl .ct{margin-bottom:34px}
+ .ch-xl .hb.wide{gap:30px}
+ .ch-xl .hb.wide .row{grid-template-columns:400px minmax(0,1fr) 150px}
+ .ch-xl .hb.wide .bk{font-size:30px}
+ .ch-xl .hb.wide i{height:64px}
+ .ch-xl .hb.wide b{font-size:56px}
+ :lang(zh-CN) .ch-xl .hb.wide .row{grid-template-columns:360px minmax(0,1fr) 150px}
+
+ /* two panes side by side, the second dark: a China figure beside a global one */
+ .duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+ .duo .pane{display:flex;flex-direction:column;padding:40px 48px 44px!important}
+ .duo .lr{height:40px;margin:0 0 30px}
+ .duo .big{font-size:132px;line-height:.9;margin-bottom:22px;white-space:nowrap}
+ :lang(zh-CN) .duo .big{font-size:120px}
+ .duo .big small{display:inline;margin-left:.16em;font-size:.24em;letter-spacing:0;color:var(--ink)}
+ .ae .bd .duo p{font-size:28px;line-height:1.42;color:var(--ink)}
+ :lang(zh-CN) .ae .bd .duo p{font-size:27px;line-height:1.6}
+ .duo .pane.dk{background:var(--ink);border-color:var(--ink)}
+ .duo .dk .org{color:#A9BEEA}
+ .duo .dk .big{color:#A9BEEA}.duo .dk .big small{color:var(--paper-hi)}
+ .ae .bd .duo .dk p{color:var(--paper-hi)}
+
+ /* a quote that carries the slide, with two supporting figures stacked beside it */
+ .qx{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:28px}
+ .qx-q{display:flex;flex-direction:column;gap:26px;padding:44px 52px 44px!important}
+ .qx-q .lr{height:56px;margin:0}.qx-q .brand.sf{height:56px}
+ .ae .bd .qx-q .say{margin-top:auto;font:400 44px/1.34 var(--serif);letter-spacing:-.01em;color:var(--ink);text-wrap:pretty}
+ :lang(zh-CN) .ae .bd .qx-q .say{font-size:40px;line-height:1.58;letter-spacing:0}
+ .ae .bd .qx-q .who3{margin-top:auto;font:italic 400 21px/1.45 var(--serif);color:var(--muted)}
+ :lang(zh-CN) .ae .bd .qx-q .who3{font-style:normal}
+ .qx-f{display:grid;grid-template-rows:1fr 1fr;gap:28px}
+ .qx-f .pane{display:flex;flex-direction:column;justify-content:center;padding:24px 34px!important}
+ .qx-f .lr{height:30px;margin:0 0 14px}.qx-f .brand.gg{height:28px}
+ .qx-f .big{font-size:72px;line-height:.95;margin-bottom:8px}
+ .qx-f .big small{display:inline;margin-left:.1em;font-size:.4em;color:var(--ink)}
+ .ae .bd .qx-f p{font-size:22px;line-height:1.4;color:var(--ink)}
+ :lang(zh-CN) .ae .bd .qx-f p{font-size:21px;line-height:1.55}
 
  /* three habits as three equal columns, numbered */
  .hab3{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
@@ -1434,41 +1477,56 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 <section class="s alt ae st"><div class="w">
  <p class="kick r">Doctor · Lawyer · Banker · Engineer</p>
  <h2 class="r" style="--d:.1s">Even the safest careers are <em>being rewritten.</em></h2>
- <p class="sl" data-s="1">The four paths families have trusted for generations. One number from each.</p>
+ <p class="sl" data-s="1">The four paths families have trusted for generations. In each one, the people who work with AI are <span class="nw">pulling ahead.</span></p>
  <ul class="paths"><li>Doctor</li><li>Lawyer</li><li>Banker</li><li>Engineer</li></ul>
-</div><aside class="notes">For decades these were the safe answers. Each of the next four slides shows how much of that job AI already does, from a named hospital, court, bank, and company.</aside></section>
+</div><aside class="notes">For decades these were the safe answers. The next four slides show what is at stake in each: who does better work, how many people are needed, and who gets hired. As the neuroscientist Mu-ming Poo of the Chinese Academy of Sciences put it in May 2025, the coming decades are not about AI replacing people, but about people who use AI replacing people who don't.</aside></section>
 
 <!-- 9 · Medicine -->
-<section class="s ae bn"><div class="w">
- <p class="kick r">Safe career 1 of 4 · Medicine · a hospital in Hefei</p>
- <h2 class="r" style="--d:.1s">At a Hefei hospital, AI now drafts the notes, saving each doctor <em>about 2.8 hours a day.</em></h2>
- <div class="bd r" style="--d:.25s"><div class="bnx" data-s="1"><div class="lr"><img class="brand xf" src="/logos/deck/xunfei-healthcare.png" alt="Xunfei Healthcare"></div><div class="big">2.8<small style="display:inline;margin:0 0 0 .18em;font-size:.3em">hours</small></div><p>of note-writing saved per doctor, every day. The doctor checks <span class="nw">and signs each one.</span></p></div></div>
- <p class="fn" data-s="1"><span>Anhui Medical University First Affiliated Hospital, with Xunfei Healthcare, June 4, 2025: pilot in two departments; over 80% of AI drafts were used</span></p>
-</div><aside class="notes">By August 2026 the same hospital had produced more than 140,000 AI-drafted records across about 233 outpatient rooms, and an outpatient note fell from 2.5 minutes to half a minute. The doctor still decides.</aside></section>
+<section class="s ae"><div class="w">
+ <p class="kick r">Safe career 1 of 4 · Medicine · a randomized trial in China</p>
+ <h2 class="r" style="--d:.1s">In a randomized trial, eye doctors working with AI got the diagnosis right <em>92% of the time. Without AI, 75%.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="pane wide-ch ch-xl" data-s="1"><div class="lr"><span class="org">The EyeFM trial · Nature Medicine</span></div><h3 class="ct">Patients given the correct diagnosis</h3>
+  <div class="hb wide"><div class="row"><span class="bk">Eye doctors without AI</span><i style="--v:75.4"></i><b class="cnt">75.4%</b></div><div class="row hl"><span class="bk">Eye doctors with AI</span><i style="--v:92.2"></i><b class="cnt">92.2%</b></div></div></div></div>
+ <p class="fn" data-s="1"><span>Shanghai Jiao Tong University, Tsinghua University, and others, Nature Medicine, Aug 28, 2025: 668 patients and 16 eye doctors at one centre, retinal screening; correct referrals also rose, from 80.5% to 92.2%</span></p>
+</div><aside class="notes">This is not about saving time. In a controlled trial, the doctors who worked with AI were simply right more often, and patients will choose those doctors. In a separate test in June 2025, Microsoft reported that its AI system solved 85% of very hard published cases, against 20% for experienced doctors working without help; that study is not yet peer-reviewed.</aside></section>
 
 <!-- 10 · Law -->
-<section class="s alt ae bn"><div class="w">
- <p class="kick r">Safe career 2 of 4 · Law · the courts of Shenzhen</p>
- <h2 class="r" style="--d:.1s">In Shenzhen’s courts, AI has already drafted <em>145,000 legal documents</em> for judges to review.</h2>
- <div class="bd r" style="--d:.25s"><div class="bnx" data-s="1"><div class="lr"><span class="org">Shenzhen courts</span></div><div class="big">145,000</div><p>legal documents drafted with AI by December 2024. Every draft is reviewed <span class="nw">by a judge.</span></p></div></div>
- <p class="fn" data-s="1"><span>Guangzhou Daily, Jan 10, 2025, on the Shenzhen courts’ AI-assisted trial system, from launch to December 2024; civil and commercial cases closed 25.6% faster</span></p>
-</div><aside class="notes">The same system helped judges review 153,000 case files. China's Supreme People's Court is clear that AI assists and only judges carry responsibility, which is exactly the point: the people who stay are the ones who can judge AI's work. Law firms too: JunHe, one of China's top firms, disbanded its translation team in 2026 after adopting AI tools and moved those people to other work.</aside></section>
+<section class="s alt ae"><div class="w">
+ <p class="kick r">Safe career 2 of 4 · Law · a randomized trial, China, and US hiring</p>
+ <h2 class="r" style="--d:.1s">In a randomized trial, law students using AI got <em>50% to 130% more done</em> on most legal tasks.</h2>
+ <div class="bd r" style="--d:.25s"><div class="pane tbl-wrap"><div class="tbl">
+  <div><span class="th">Where</span><span class="th">The figure</span><span class="th">What it measures</span></div>
+  <div class="hl"><span class="org2">A randomized trial in the US</span><span class="cnt nc">+50–130%</span><p>more work done with AI on 5 of 6 legal tasks, and better work on 4</p></div>
+  <div><span class="org2">Lawyers in mainland China</span><span class="cnt">93%</span><p>of lawyers and trainee lawyers already use AI in their work</p></div>
+  <div><span class="org2">Large US law firms</span><span class="cnt">−7.5%</span><p>new-graduate lawyers hired in 2025, the first drop <span class="nw">since 2014</span></p></div>
+ </div></div></div>
+ <p class="fn" data-s="1"><span>Schwarcz, Manning, Prescott, and others, “AI-Powered Lawyering”, 127 law students, 2026; LexisNexis survey of 404 legal professionals in mainland China, via Caixin, Aug 29, 2025; NALP, Class of 2025, Aug 5, 2026, which does not attribute the drop to AI alone</span></p>
+</div><aside class="notes">Law students are the right comparison for our children: the ones who worked with AI simply got more done, and mostly did better work. The trial also caught AI making mistakes, which is why judging AI's work matters. In China, nearly every lawyer already uses AI, so not using it is the risk. And at the largest US firms, fewer new graduates were hired in 2025, for the first time in over a decade.</aside></section>
 
 <!-- 11 · Finance -->
-<section class="s ae bn"><div class="w">
- <p class="kick r">Safe career 3 of 4 · Banking · ICBC</p>
- <h2 class="r" style="--d:.1s">At ICBC, China’s largest bank, AI took on <em>55,000 person-years of work</em> in 2025.</h2>
- <div class="bd r" style="--d:.25s"><div class="bnx" data-s="1"><div class="lr"><span class="org">Industrial and Commercial Bank of China</span></div><div class="big">55,000</div><p>person-years of work done by AI <span class="nw">“digital employees”</span></p></div></div>
- <p class="fn" data-s="1"><span>ICBC 2025 Annual Report, March 27, 2026: the bank’s own estimate, across more than 500 AI applications</span></p>
-</div><aside class="notes">That is the work of tens of thousands of people for a year. China Merchants Bank reports 15.56 million hours saved. In New York, about 250,000 JPMorgan employees have access to its AI platform, and half use it roughly every day.</aside></section>
+<section class="s ae"><div class="w">
+ <p class="kick r">Safe career 3 of 4 · Banking · ICBC and Standard Chartered</p>
+ <h2 class="r" style="--d:.1s">At ICBC, China’s biggest bank, AI did work equal to <em>about 13% of its staff</em> in 2025.</h2>
+ <div class="bd r" style="--d:.25s"><div class="duo">
+  <div class="pane" data-s="1"><div class="lr"><span class="org">Industrial and Commercial Bank of China</span></div><div class="big">55,000<small>person-years</small></div><p>of work done by AI “digital employees”, at a bank with 409,758 staff</p></div>
+  <div class="pane dk" data-s="2"><div class="lr"><span class="org">Standard Chartered</span></div><div class="big">7,800<small>roles</small></div><p>in corporate functions to go by 2030. Its CEO called it “replacing in some cases <span class="nw">lower-value human capital.”</span></p></div>
+ </div></div>
+ <p class="fn" data-s="1"><span>ICBC 2025 Annual Report, March 27, 2026 (13% is our calculation); Standard Chartered investor event, May 19, 2026: 15% of corporate-function roles; Bill Winters later apologised for the wording</span></p>
+</div><aside class="notes">ICBC counts this as workload, not job cuts, but the direction is clear: the same work needs far fewer people. China Merchants Bank and CITIC Bank report similar figures. JPMorgan told investors in May 2025 that its operations headcount would fall about 10% over five years while the business grows by more than 25%.</aside></section>
 
 <!-- 12 · Engineering -->
-<section class="s alt ae bn"><div class="w">
- <p class="kick r">Safe career 4 of 4 · Engineering · Google</p>
- <h2 class="r" style="--d:.1s">At Google, <em>three quarters of all new code</em> is now written by AI and approved by engineers.</h2>
- <div class="bd r" style="--d:.25s"><div class="bnx" data-s="1"><div class="lr"><img class="brand gg" src="/logos/deck/google.svg" alt="Google"></div><div class="big">75%</div><p>of all new code, up from 50% <span class="nw">just six months earlier</span></p></div></div>
- <p class="fn" data-s="1"><span>Sundar Pichai, Google Cloud Next, April 22, 2026: “75% of all new code at Google is now AI-generated and approved by engineers, up from 50% last fall.”</span></p>
-</div><aside class="notes">In China the curve is the same: Tencent says 50% of its new code is generated with AI's help, and Baidu says more than 43% of the code it adds each day. Engineers now spend their time deciding what to build and checking the result.</aside></section>
+<section class="s alt ae"><div class="w">
+ <p class="kick r">Safe career 4 of 4 · Software engineering · Salesforce, Google, and China</p>
+ <h2 class="r" style="--d:.1s">Salesforce has stopped adding engineers, <em>because AI makes each one do more.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="qx">
+  <div class="pane qx-q" data-s="1"><div class="lr"><img class="brand sf" src="/logos/deck/salesforce.svg" alt="Salesforce"></div><p class="say">“We’re not hiring more engineers … The reason it’s been mostly flat is because we’ve been using AI to create more efficiencies for <span class="nw">our engineers.”</span></p><p class="who3">Marc Benioff, CEO of Salesforce, earnings call, May 27, 2026. About 15,000 engineers, flat for two years.</p></div>
+  <div class="qx-f">
+   <div class="pane" data-s="2"><div class="lr"><img class="brand gg" src="/logos/deck/google.svg" alt="Google"></div><div class="big">75%</div><p>of new code at Google is written by AI and approved by engineers</p></div>
+   <div class="pane" data-s="3"><div class="lr"><span class="org">China’s big tech firms</span></div><div class="big">10×</div><p>the demand for AI roles, while hiring for basic coding jobs has <span class="nw">fallen sharply</span></p></div>
+  </div>
+ </div></div>
+ <p class="fn" data-s="1"><span>Fortune and Yahoo Finance on the Salesforce call, May 27–28, 2026; Sundar Pichai, Google Cloud Next, April 22, 2026; 界面新闻 citing Maimai (脉脉), August 2025</span></p>
+</div><aside class="notes">Engineers are not disappearing, but each one now does more, so companies need fewer of them for the same work. In the US, new-graduate hiring at the biggest tech firms is down by more than half since 2019, though not only because of AI. In China, demand has moved to people who build with AI, while hiring for basic Java and iOS jobs has dropped.</aside></section>
 
 <!-- 13 · Layoffs -->
 <section class="s ae"><div class="w">
@@ -1786,13 +1844,13 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <ul class="srcs pane">
   <li><span><b>Anthropic</b>, Economic Index: occupations using AI for at least 25% of tasks, 36% to 49%</span><span class="src">Jan 15, 2026</span></li>
   <li><span><b>CNNIC</b>, 57th Statistical Report on China’s Internet Development: 602 million generative AI users</span><span class="src">Feb 5, 2026</span></li>
-  <li><span><b>安徽医科大学第一附属医院</b> with 讯飞医疗: 2.8 hours a day; 2026 rollout reported by 安徽医科大学</span><span class="src">June 4, 2025 · Aug 17, 2026</span></li>
-  <li><span><b>广州日报</b> on the Shenzhen courts’ AI-assisted trial system: 145,000 documents</span><span class="src">Jan 10, 2025</span></li>
-  <li><span><b>最高人民法院</b> work report; <b>ALB</b> on 君合 JunHe’s translation team</span><span class="src">March 2026 · 2026</span></li>
-  <li><span><b>ICBC</b> 2025 Annual Report: 55,000 person-years; <b>招商银行</b> 2025 report: 15.56 million hours</span><span class="src">March 27 and 30, 2026</span></li>
-  <li><span><b>CNBC</b> on JPMorganChase’s LLM Suite: about 250,000 employees with access</span><span class="src">Sept 30, 2025</span></li>
-  <li><span><b>Google</b>, Sundar Pichai at Cloud Next: 75% of new code</span><span class="src">April 22, 2026</span></li>
-  <li><span><b>新浪科技</b> on Tencent’s R&amp;D report (50%); <b>凤凰WEEKLY</b> on Baidu (43%)</span><span class="src">Oct 24, 2025 · June 7, 2025</span></li>
+  <li><span><b>Nature Medicine</b>, the EyeFM randomized trial: 92.2% against 75.4%</span><span class="src">Aug 28, 2025</span></li>
+  <li><span><b>Schwarcz, Manning, Prescott, and others</b>, “AI-Powered Lawyering”: 50% to 130%</span><span class="src">2026</span></li>
+  <li><span><b>Caixin</b> on the LexisNexis survey (93%); <b>NALP</b>, Class of 2025 (−7.5%)</span><span class="src">Aug 29, 2025 · Aug 5, 2026</span></li>
+  <li><span><b>ICBC</b> 2025 Annual Report: 55,000 person-years, 409,758 staff</span><span class="src">March 27, 2026</span></li>
+  <li><span><b>Standard Chartered</b> investor event; <b>The Guardian</b> on Bill Winters</span><span class="src">May 19 and 22, 2026</span></li>
+  <li><span><b>Fortune</b> and <b>Yahoo Finance</b> on Salesforce; <b>Google</b>, Sundar Pichai (75%)</span><span class="src">May 27–28, 2026 · April 22, 2026</span></li>
+  <li><span><b>界面新闻</b> citing 脉脉 on AI roles and basic developer hiring</span><span class="src">August 2025</span></li>
   <li><span><b>Business Insider</b> on David Solomon, Goldman Sachs, at the Cisco AI Summit</span><span class="src">Jan 15, 2025</span></li>
   <li><span><b>Amazon</b>: Andy Jassy memo; workforce memos (14,000 and 16,000 roles)</span><span class="src">June 17, 2025 · Oct 28, 2025 · Jan 28, 2026</span></li>
   <li><span><b>CNBC</b> on Salesforce support (9,000 to about 5,000); <b>CNN</b> on Block</span><span class="src">Sept 2, 2025 · Feb 26, 2026</span></li>
@@ -1819,6 +1877,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <li><span><b>People’s Daily</b> on 中国教育科学研究院 (85.6%, 17.8%, 13.8%) and 中国青少年研究中心 (67.9%)</span><span class="src">Aug 17, 2026</span></li>
   <li><span><b>北京市教育委员会</b>, work plan for AI education (2025–2027), 京教办〔2025〕2号</span><span class="src">March 6, 2025</span></li>
   <li><span><b>Ministry of Education</b> and four ministries, AI+Education action plan</span><span class="src">April 2, 2026</span></li>
+  <li><span><b>中国教育科学研究院</b> survey of schools and teachers (88%, 54%); <b>Gallup</b> and <b>Walton Family Foundation</b> (68%)</span><span class="src">Aug 19, 2026 · 2025</span></li>
   <li><span><b>中国教育新闻网</b> on the teacher survey by 中国教育发展战略学会 and 学科网 (n=68,792)</span><span class="src">Oct 20, 2025</span></li>
   <li><span><b>AI tools</b>: Meta newsroom on Muse; instinct.com and TechCrunch on Instinct; Xinhua on OpenClaw</span><span class="src">Sept 8 and 28, 2026 · March 10, 2026</span></li>
   <li><span><b>Kimi</b> (Moonshot AI) hiring story, first-hand</span><span class="src">2026</span></li>
@@ -1906,7 +1965,7 @@ if(!HM.classList.contains('player')&&!HM.classList.contains('export')&&!/[?&]rea
 /* counters: the first number in each .big or .cnt counts up from zero, keeping its prefix, commas, decimals, and unit */
 function firstNum(el){var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);while(w.nextNode())if(/\d/.test(w.currentNode.nodeValue))return w.currentNode;return null}
 function countUp(s){if(!HM.classList.contains('motion'))return;
- [].forEach.call(s.querySelectorAll('.big,.cnt'),function(el){if(el.dataset.run||(s.classList.contains('bld')&&el.closest('[data-s]:not(.vis)')))return;
+ [].forEach.call(s.querySelectorAll('.big,.cnt'),function(el){if(el.dataset.run||el.classList.contains('nc')||(s.classList.contains('bld')&&el.closest('[data-s]:not(.vis)')))return;
   var t=firstNum(el);if(!t)return;var full=t.nodeValue,m=full.match(/^([^\d]*)(\d[\d,]*(?:\.\d+)?)([\s\S]*)$/);if(!m)return;
   var raw=m[2],to=parseFloat(raw.replace(/,/g,'')),dec=(raw.split('.')[1]||'').length,cm=raw.indexOf(',')>=0,t0=0,D=to>=1000?1500:1200;
   el.dataset.run=1;el.style.minWidth=getComputedStyle(el).width;

@@ -99,15 +99,18 @@
  .ae .bd .ba-p.new li{color:var(--paper-hi)}
 
  /* a comparison table: one row per organisation */
- .tbl{display:grid;grid-template-columns:260px 300px minmax(0,1fr);border-top:1px solid var(--line)}
+ .tbl{display:grid;grid-template-columns:290px 340px minmax(0,1fr);border-top:1px solid var(--line)}
  .tbl>div{display:contents}
- .tbl>div>*{padding:26px 0;border-bottom:1px solid var(--line)}
+ .tbl>div>*{display:flex;align-items:center;margin:0;padding:26px 28px 26px 0;border-bottom:1px solid var(--line)}
+ .tbl>div>*:last-child{padding-right:0}
  .tbl .th{padding:0 0 14px;font:600 15px/1.3 var(--serif);letter-spacing:.13em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line)}
  :lang(zh-CN) .tbl .th{font-size:16px;letter-spacing:.06em}
  .tbl .org2{display:flex;align-items:center;font:500 30px/1.2 var(--serif);color:var(--ink)}
- .tbl .cnt{font:300 64px/1 var(--serif);letter-spacing:-.03em;color:var(--ink2);font-variant-numeric:lining-nums tabular-nums;white-space:nowrap;align-self:center}
+ .tbl .cnt{font:300 64px/1 var(--serif);letter-spacing:-.03em;color:var(--ink2);font-variant-numeric:lining-nums tabular-nums;white-space:nowrap}
+ .tbl .cnt.nc{font-size:56px}
  .tbl .cnt small{font-size:.42em;margin-left:.12em;letter-spacing:0;color:var(--ink)}
- .ae .bd .tbl p{align-self:center;font-size:25px;line-height:1.4}
+ .ae .bd .tbl p{font-size:25px;line-height:1.4}
+ .tbl .th{display:block}
  .tbl .hl .cnt{font-weight:400}
  .tbl-wrap{padding:30px 44px 18px!important}
 
@@ -164,6 +167,46 @@
  :lang(zh-CN) .ae .bd .s3-r .story{font-size:33px;line-height:1.65}
  .ae .bd .s3-r .punch{margin:30px 0 0;padding-top:28px;border-top:1px solid var(--line);font:500 56px/1.12 var(--serif);letter-spacing:-.02em;color:var(--ink)}
  :lang(zh-CN) .ae .bd .s3-r .punch{font-size:50px;line-height:1.4;letter-spacing:0}
+
+ /* a two-bar comparison set large enough to carry the slide */
+ .ch-xl{padding:48px 60px 52px!important}
+ .ch-xl .ct{margin-bottom:34px}
+ .ch-xl .hb.wide{gap:30px}
+ .ch-xl .hb.wide .row{grid-template-columns:400px minmax(0,1fr) 150px}
+ .ch-xl .hb.wide .bk{font-size:30px}
+ .ch-xl .hb.wide i{height:64px}
+ .ch-xl .hb.wide b{font-size:56px}
+ :lang(zh-CN) .ch-xl .hb.wide .row{grid-template-columns:360px minmax(0,1fr) 150px}
+
+ /* two panes side by side, the second dark: a China figure beside a global one */
+ .duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+ .duo .pane{display:flex;flex-direction:column;padding:40px 48px 44px!important}
+ .duo .lr{height:40px;margin:0 0 30px}
+ .duo .big{font-size:132px;line-height:.9;margin-bottom:22px;white-space:nowrap}
+ :lang(zh-CN) .duo .big{font-size:120px}
+ .duo .big small{display:inline;margin-left:.16em;font-size:.24em;letter-spacing:0;color:var(--ink)}
+ .ae .bd .duo p{font-size:28px;line-height:1.42;color:var(--ink)}
+ :lang(zh-CN) .ae .bd .duo p{font-size:27px;line-height:1.6}
+ .duo .pane.dk{background:var(--ink);border-color:var(--ink)}
+ .duo .dk .org{color:#A9BEEA}
+ .duo .dk .big{color:#A9BEEA}.duo .dk .big small{color:var(--paper-hi)}
+ .ae .bd .duo .dk p{color:var(--paper-hi)}
+
+ /* a quote that carries the slide, with two supporting figures stacked beside it */
+ .qx{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:28px}
+ .qx-q{display:flex;flex-direction:column;gap:26px;padding:44px 52px 44px!important}
+ .qx-q .lr{height:56px;margin:0}.qx-q .brand.sf{height:56px}
+ .ae .bd .qx-q .say{margin-top:auto;font:400 44px/1.34 var(--serif);letter-spacing:-.01em;color:var(--ink);text-wrap:pretty}
+ :lang(zh-CN) .ae .bd .qx-q .say{font-size:40px;line-height:1.58;letter-spacing:0}
+ .ae .bd .qx-q .who3{margin-top:auto;font:italic 400 21px/1.45 var(--serif);color:var(--muted)}
+ :lang(zh-CN) .ae .bd .qx-q .who3{font-style:normal}
+ .qx-f{display:grid;grid-template-rows:1fr 1fr;gap:28px}
+ .qx-f .pane{display:flex;flex-direction:column;justify-content:center;padding:24px 34px!important}
+ .qx-f .lr{height:30px;margin:0 0 14px}.qx-f .brand.gg{height:28px}
+ .qx-f .big{font-size:72px;line-height:.95;margin-bottom:8px}
+ .qx-f .big small{display:inline;margin-left:.1em;font-size:.4em;color:var(--ink)}
+ .ae .bd .qx-f p{font-size:22px;line-height:1.4;color:var(--ink)}
+ :lang(zh-CN) .ae .bd .qx-f p{font-size:21px;line-height:1.55}
 
  /* three habits as three equal columns, numbered */
  .hab3{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}

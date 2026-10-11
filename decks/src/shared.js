@@ -75,7 +75,7 @@ if(!HM.classList.contains('player')&&!HM.classList.contains('export')&&!/[?&]rea
 /* counters: the first number in each .big or .cnt counts up from zero, keeping its prefix, commas, decimals, and unit */
 function firstNum(el){var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);while(w.nextNode())if(/\d/.test(w.currentNode.nodeValue))return w.currentNode;return null}
 function countUp(s){if(!HM.classList.contains('motion'))return;
- [].forEach.call(s.querySelectorAll('.big,.cnt'),function(el){if(el.dataset.run||(s.classList.contains('bld')&&el.closest('[data-s]:not(.vis)')))return;
+ [].forEach.call(s.querySelectorAll('.big,.cnt'),function(el){if(el.dataset.run||el.classList.contains('nc')||(s.classList.contains('bld')&&el.closest('[data-s]:not(.vis)')))return;
   var t=firstNum(el);if(!t)return;var full=t.nodeValue,m=full.match(/^([^\d]*)(\d[\d,]*(?:\.\d+)?)([\s\S]*)$/);if(!m)return;
   var raw=m[2],to=parseFloat(raw.replace(/,/g,'')),dec=(raw.split('.')[1]||'').length,cm=raw.indexOf(',')>=0,t0=0,D=to>=1000?1500:1200;
   el.dataset.run=1;el.style.minWidth=getComputedStyle(el).width;
