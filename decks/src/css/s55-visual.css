@@ -23,14 +23,14 @@
  /* speakers: photo and name, then where each studied, worked, and works now, as logos */
  .spk .person{grid-template-columns:minmax(0,.62fr) minmax(0,1fr);column-gap:var(--gap-l)}
  .spk .who-r{display:flex;align-items:center;gap:30px}
- .spk .who-r img{flex:none;width:132px;height:132px}
+ .spk .who-r img{flex:none;width:118px;height:118px}
  .ae .bd .spk h3{margin:0 0 10px;font-size:38px}
  .spk .co{font-size:15px;line-height:1.4}
  :lang(zh-CN) .spk .co{font-size:16px}
  .lgx{margin:0;display:grid}
  /* logo heights are set per logo (inline) so each carries the same optical weight. Every row has the same height and
     the logos sit on one three-column grid on its centre line, so columns line up across rows and across both cards */
- .lgx>div{display:grid;grid-template-columns:104px minmax(0,1fr);align-items:center;height:62px}
+ .lgx>div{display:grid;grid-template-columns:104px minmax(0,1fr);align-items:center;height:56px}
  .lgx>div+div{border-top:1px solid var(--line)}
  .lgx dt{font:600 14px/1 var(--serif);letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
  :lang(zh-CN) .lgx dt{font-size:16px;letter-spacing:.06em}
@@ -139,12 +139,15 @@
  .ae .bd .m4 .mm small,:lang(zh-CN) .ae .bd .m4 .mm small{font-size:19px}
 
  /* entrepreneurial process: problem, build, feedback, launch */
- .proc4{list-style:none;margin:0 0 var(--gap);padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap-s)}
- .ae .bd .proc4 li{display:flex;flex-direction:column;gap:8px;padding:18px 16px 16px;border-top:1.5px solid var(--ink)}
+ .proc4{list-style:none;margin:0 0 var(--gap-s);padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap-s)}
+ .ae .bd .proc4 li{display:flex;flex-direction:row;align-items:baseline;gap:10px;padding:10px 0;border-top:1.5px solid var(--ink)}
  .proc4 i{font:italic 400 18px/1 var(--serif);color:var(--ink2)}
  .ae .bd .proc4 b{font:500 26px/1.2 var(--serif);color:var(--ink)}
  :lang(zh-CN) .ae .bd .proc4 b{font-size:22px;line-height:1.35}
- .ae .bd>.proj{flex-grow:1}
+ .ae .bd>.proj{flex:1;min-height:0}
+ .ae .bd:has(.proc4) .proj .card{min-height:0}
+ .ae .bd:has(.proc4) .proj .pb{padding:16px 20px}
+ .ae .bd:has(.proc4) .proj figure{aspect-ratio:16/10;flex:none;max-height:160px;width:100%}
 
  /* 1-2-3 close on navy */
  .c123{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap)}
@@ -183,8 +186,9 @@
  :lang(zh-CN) .ae .bd .story4 .punch{font-size:50px;line-height:1.35;letter-spacing:0}
 
  /* habits: an icon for each */
- .hab3.hic .ico{width:96px;height:96px;margin:0 0 auto}.hab3.hic .ico .lic{width:44px;height:44px}
- .hab3.hic .lab{margin-top:26px}
+ .hab3.hic li{gap:10px;padding:var(--pad-s)}
+ .hab3.hic .ico{width:80px;height:80px;margin:0 0 auto}.hab3.hic .ico .lic{width:36px;height:36px}
+ .hab3.hic .lab{margin-top:var(--gap-s)}
 
  /* then and now as two equal columns, both visible in the final state */
  .tn2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap);align-items:stretch;flex:1}
@@ -240,7 +244,7 @@
  .spk .lgx dd img{width:auto;max-height:16px;border-radius:0;box-shadow:none}.lgx .nw2{font-size:14px}
  .pb-t{height:14px;margin-top:12px;border-radius:3px;background:var(--data-2);position:relative;overflow:hidden}.pb-t i{position:absolute;left:0;top:0;bottom:0;width:calc(var(--v) * 1%);background:var(--data)}
  .pb-l{display:flex;justify-content:space-between;gap:10px;margin-top:6px;font-size:13px;color:var(--muted)}
- .st3,.cmp2,.rk3,.agx,.fl3,.ic3,.spine,.kimi,.proc4,.c123{display:grid;grid-template-columns:1fr;gap:12px;list-style:none;margin:12px 0 0;padding:0}
+ .st3,.cmp2,.rk3,.agx,.fl3,.ic3,.spine,.kimi,.proc4,.c123,.accx{display:grid;grid-template-columns:1fr;gap:12px;list-style:none;margin:12px 0 0;padding:0}
  .st3 .big,.cmp2 .big{font-size:48px}
  .mb{display:grid;gap:6px;margin-top:10px}.mb .row{display:grid;grid-template-columns:72px minmax(0,1fr) auto;gap:8px;align-items:center;font-size:12px}
  .mb i{position:relative;display:block;height:10px;border-radius:2px;background:var(--track)}.mb i::after{content:"";position:absolute;left:0;top:0;bottom:0;width:calc(var(--v) * 1%);background:var(--data)}
