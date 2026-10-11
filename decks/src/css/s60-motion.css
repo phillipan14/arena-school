@@ -29,7 +29,7 @@
  .motion .s:not(.in) .mm-c{opacity:0;transform:translateY(18px)}
  .motion .mm li{transition:opacity .45s ease calc(.45s + var(--i) * 45ms),transform .6s cubic-bezier(.2,1.25,.4,1) calc(.45s + var(--i) * 45ms)}
  .motion .s:not(.in) .mm li{opacity:0;transform:translateY(10px) scale(.94)}
- .motion .paths li{transition:opacity .45s ease calc(.6s + var(--i) * .12s),transform .55s var(--ease) calc(.6s + var(--i) * .12s)}
+ .motion .paths li{transition:opacity .5s ease calc(.8s + var(--i) * .12s),transform .6s var(--ease) calc(.8s + var(--i) * .12s)}
  .motion .s:not(.in) .paths li{opacity:0;transform:translateY(10px)}
 
  /* timelines: the line draws across, then each point lands */

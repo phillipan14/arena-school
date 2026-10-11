@@ -243,8 +243,12 @@
  .ae .bd .hab3 p{color:var(--muted)}
 
  /* the safest careers: four paths named under the statement */
- .paths{display:flex;gap:16px;margin:52px 0 0;padding:0;list-style:none}
- .paths li{padding:14px 26px 12px;border:1px solid var(--edge);border-radius:999px;background:var(--paper-hi);font:500 26px/1 var(--serif);color:var(--ink)}
+ .paths{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:36px;margin:76px 0 0;padding:0;list-style:none}
+ .paths li{display:flex;flex-direction:column;gap:10px;padding-top:22px;border-top:1.5px solid var(--ink)}
+ .paths li i{font:italic 400 24px/1 var(--serif);color:var(--ink2)}
+ .paths li b{font:500 44px/1.1 var(--serif);letter-spacing:-.01em;color:var(--ink)}
+ .paths li span{font:italic 400 23px/1.35 var(--serif);color:var(--muted)}
+ :lang(zh-CN) .paths li i,:lang(zh-CN) .paths li span{font-style:normal}
 
  /* scale: slides whose evidence is one or two short blocks get type large enough to fill the stage */
  .toc .trk li{padding:38px 0}
@@ -269,4 +273,16 @@
  .ae .bd .emp1{width:100%;padding:40px 56px 44px}
  .ae .bd .emp1 .ls li{padding:28px 0;font-size:48px}
  .emp1 .ls li i{font-size:38px;width:64px}
+ .ring{width:268px;height:268px;gap:12px}
+ .ring i{font-size:22px}
+ .ring .pn{font-size:60px}
+ :lang(zh-CN) .ring .pn{font-size:54px}
+ .model li+li::before{top:134px;left:calc(-50% + 156px);right:calc(50% + 156px)}
+ .model li+li::after{top:128px;right:calc(50% + 156px)}
+ .ae .bd .model p{margin-top:34px;font-size:34px;line-height:1.25}
+ .ae .bd .model p.ex{font-size:25px}
+ .trio .card{gap:26px;padding:40px 40px 42px}
+ .ae .bd .trio .say{font-size:38px;line-height:1.25}
+ :lang(zh-CN) .ae .bd .trio .say{font-size:32px;line-height:1.5}
+ .ae .bd .trio .who3{font-size:21px}
 }

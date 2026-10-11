@@ -1084,6 +1084,10 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .bnx .lr{margin-bottom:6px}.bnx .big,:lang(zh-CN) .bnx .big{font-size:84px;line-height:1}.bnx p{margin:8px 0 0;font-size:18px;line-height:1.45}
  .ae.bq h2{font-size:26px;line-height:1.3}
  .bqx{display:flex;align-items:center;gap:14px}.bqx .lr{margin:0}.bqx .who2 b{display:block}.bqx .who2 span{display:block;font-size:14px;color:var(--muted)}
+ .paths{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:22px 0 0;padding:0;list-style:none}
+ .paths li{display:flex;flex-direction:column;gap:4px;padding-top:10px;border-top:1px solid var(--ink)}
+ .paths li i{font-style:italic;font-size:13px;color:var(--ink2)}.paths li b{font-weight:500;font-size:19px}.paths li span{font-size:13px;line-height:1.4;color:var(--muted)}
+ :lang(zh-CN) .paths li i,:lang(zh-CN) .paths li span{font-style:normal}
 }
 :lang(zh-CN) .ae h2 em,:lang(zh-CN) .st .by{font-style:normal}
 
@@ -1339,8 +1343,12 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .ae .bd .hab3 p{color:var(--muted)}
 
  /* the safest careers: four paths named under the statement */
- .paths{display:flex;gap:16px;margin:52px 0 0;padding:0;list-style:none}
- .paths li{padding:14px 26px 12px;border:1px solid var(--edge);border-radius:999px;background:var(--paper-hi);font:500 26px/1 var(--serif);color:var(--ink)}
+ .paths{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:36px;margin:76px 0 0;padding:0;list-style:none}
+ .paths li{display:flex;flex-direction:column;gap:10px;padding-top:22px;border-top:1.5px solid var(--ink)}
+ .paths li i{font:italic 400 24px/1 var(--serif);color:var(--ink2)}
+ .paths li b{font:500 44px/1.1 var(--serif);letter-spacing:-.01em;color:var(--ink)}
+ .paths li span{font:italic 400 23px/1.35 var(--serif);color:var(--muted)}
+ :lang(zh-CN) .paths li i,:lang(zh-CN) .paths li span{font-style:normal}
 
  /* scale: slides whose evidence is one or two short blocks get type large enough to fill the stage */
  .toc .trk li{padding:38px 0}
@@ -1365,6 +1373,18 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .ae .bd .emp1{width:100%;padding:40px 56px 44px}
  .ae .bd .emp1 .ls li{padding:28px 0;font-size:48px}
  .emp1 .ls li i{font-size:38px;width:64px}
+ .ring{width:268px;height:268px;gap:12px}
+ .ring i{font-size:22px}
+ .ring .pn{font-size:60px}
+ :lang(zh-CN) .ring .pn{font-size:54px}
+ .model li+li::before{top:134px;left:calc(-50% + 156px);right:calc(50% + 156px)}
+ .model li+li::after{top:128px;right:calc(50% + 156px)}
+ .ae .bd .model p{margin-top:34px;font-size:34px;line-height:1.25}
+ .ae .bd .model p.ex{font-size:25px}
+ .trio .card{gap:26px;padding:40px 40px 42px}
+ .ae .bd .trio .say{font-size:38px;line-height:1.25}
+ :lang(zh-CN) .ae .bd .trio .say{font-size:32px;line-height:1.5}
+ .ae .bd .trio .who3{font-size:21px}
 }
 
 /* ---- s60-motion.css ---- */
@@ -1399,7 +1419,7 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .motion .s:not(.in) .mm-c{opacity:0;transform:translateY(18px)}
  .motion .mm li{transition:opacity .45s ease calc(.45s + var(--i) * 45ms),transform .6s cubic-bezier(.2,1.25,.4,1) calc(.45s + var(--i) * 45ms)}
  .motion .s:not(.in) .mm li{opacity:0;transform:translateY(10px) scale(.94)}
- .motion .paths li{transition:opacity .45s ease calc(.6s + var(--i) * .12s),transform .55s var(--ease) calc(.6s + var(--i) * .12s)}
+ .motion .paths li{transition:opacity .5s ease calc(.8s + var(--i) * .12s),transform .6s var(--ease) calc(.8s + var(--i) * .12s)}
  .motion .s:not(.in) .paths li{opacity:0;transform:translateY(10px)}
 
  /* timelines: the line draws across, then each point lands */
@@ -1459,7 +1479,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <div class="cv-top"><img class="pta" src="/decks/img/conversation/pta-logo.png" alt="ISB PTA, Parent Teacher Association"><img class="arena" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School"></div>
  <div class="cv-mid">
   <p class="kick r">PTA Parent Coffee · October 14, 2026</p>
-  <h1 class="r" style="--d:.1s">Our Kids’ Jobs <span class="m" style="--d:1s"><em>Don’t Exist Yet.</em></span><span class="sub">So Which Skills Will Matter?</span></h1>
+  <h1 class="r" style="--d:.1s">Our Kids’ Jobs <span class="m" style="--d:1s"><em>Don’t Exist Yet.</em></span><span class="sub" style="--d:1.3s">So Which Skills Will Matter?</span></h1>
  </div>
  <div class="cv-foot"><span class="cv-rule"></span><a class="cv-qr" href="https://arenaschool.org/talk" target="_blank" rel="noopener"><img src="/decks/img/conversation/qr-talk-clear.png" alt="QR code for arenaschool.org/talk"><span>Today’s slides, in English and 中文<small>arenaschool.org/talk</small></span></a></div>
 </div><aside class="notes">Welcome. Scan the code for today's slides in English and Chinese. Every number today comes from a public 2025 or 2026 source, listed at the end.</aside></section>
@@ -1532,8 +1552,8 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 <section class="s alt ae st"><div class="w">
  <p class="kick r">The careers parents hope for</p>
  <h2 class="r" style="--d:.1s">The safest careers are <em>changing too.</em></h2>
- <p class="sl" data-s="1">In medicine, law, banking, and engineering, the people who work well with AI are already <span class="nw">pulling ahead.</span></p>
- <ul class="paths"><li>Doctor</li><li>Lawyer</li><li>Banker</li><li>Engineer</li></ul>
+ <p class="sl r" style="--d:.35s">In medicine, law, banking, and engineering, the people who work well with AI are already <span class="nw">pulling ahead.</span></p>
+ <ol class="paths"><li><i>1</i><b>Doctors</b><span>A randomized trial in China</span></li><li><i>2</i><b>Lawyers</b><span>A US trial and China’s law firms</span></li><li><i>3</i><b>Bankers</b><span>China’s biggest bank</span></li><li><i>4</i><b>Engineers</b><span>Salesforce and Google</span></li></ol>
 </div><aside class="notes">For decades these were the safe answers. The next four slides show what is at stake in each: who does better work, how many people are needed, and who gets hired. As the neuroscientist Mu-ming Poo of the Chinese Academy of Sciences put it in May 2025, the coming decades are not about AI replacing people, but about people who use AI replacing people who don't.</aside></section>
 
 <!-- 9 · Medicine -->
@@ -1607,9 +1627,9 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <p class="kick r">Three employers · 2025</p>
  <h2 class="r" style="--d:.1s">At Accenture, Microsoft, and Duolingo, <em>using AI well is now part of the job.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="trio">
-  <div class="card"><div class="lr"><img class="brand acc" src="/logos/deck/accenture.svg" alt="Accenture"></div><p class="say">Exiting staff for whom reskilling “is not a viable path for the skills we need”</p><p class="who3">Julie Sweet, CEO of Accenture, earnings call, Sept 25, 2025</p></div>
-  <div class="card"><div class="lr"><img class="brand msft" src="/logos/deck/microsoft.svg" alt="Microsoft"></div><p class="say">“Using AI is no longer optional — it’s core to every role and every level.”</p><p class="who3">Julia Liuson, Microsoft, internal email, June 2025</p></div>
-  <div class="card"><div class="lr"><span class="org">Duolingo</span></div><p class="say">“AI use will be part of what we evaluate in performance reviews.”</p><p class="who3">Luis von Ahn, CEO of Duolingo, memo, April 28, 2025</p></div>
+  <div class="card"><div class="lr"><img class="brand acc" src="/logos/deck/accenture.svg" alt="Accenture"></div><p class="say">Exiting staff for whom reskilling <span class="nw">“is not</span> a viable path for the skills we need”</p><p class="who3">Julie Sweet, CEO of Accenture<br>Earnings call, Sept 25, 2025</p></div>
+  <div class="card"><div class="lr"><img class="brand msft" src="/logos/deck/microsoft.svg" alt="Microsoft"></div><p class="say">“Using AI is no longer optional — it’s core to every role and every level.”</p><p class="who3">Julia Liuson, Microsoft<br>Internal email, June 2025</p></div>
+  <div class="card"><div class="lr"><span class="org">Duolingo</span></div><p class="say">“AI use will be part of what we evaluate in performance reviews.”</p><p class="who3">Luis von Ahn, CEO of Duolingo<br>Memo, April 28, 2025</p></div>
  </div></div>
 </div><aside class="notes">Accenture's workforce shrank by more than 11,000 in one quarter while it doubled its AI and data staff to 77,000 in two years. The message is the same everywhere: the skill protects you.</aside></section>
 
@@ -1693,7 +1713,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 <!-- 23 · Agency, taste, craft -->
 <section class="s alt ae"><div class="w">
  <p class="kick r">Putting it together</p>
- <h2 class="r" style="--d:.1s">Everything so far points to three skills: <span class="m" style="--d:.6s"><em>agency,</em></span> <span class="m" style="--d:.8s"><em>taste,</em></span> and <span class="m" style="--d:1s"><em>craft.</em></span></h2>
+ <h2 class="r" style="--d:.1s">Everything so far points to three skills: <span class="m" style="--d:.6s"><em>agency,</em></span> <span class="m" style="--d:.8s"><em>taste,</em></span> <span style="--d:.8s">and</span> <span class="m" style="--d:1s"><em>craft.</em></span></h2>
  <div class="bd r" style="--d:.25s">
   <ol class="model">
    <li data-s="1"><div class="ring"><i>01</i><span class="pn">Agency</span></div><p>Choosing what’s worth solving</p><p class="ex">Deciding what to make before anyone asks</p></li>
@@ -1855,7 +1875,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <h2 class="r" style="--d:.1s">When we were young, most ideas never left the notebook. Today, with AI as a helper, a child can <em>turn one into something real.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="ba">
   <div class="ba-p old"><span class="pl">When we were young</span><ul><li><span>Almost everything was done by hand</span></li><li><span>Building software took a team and years of training</span></li><li><span>Few people outside the family ever saw what you made</span></li></ul></div>
-  <div class="ba-p new" data-s="1"><span class="pl">Today</span><ul><li><span>With AI as a helper, a first working version comes together quickly</span></li><li><span>Real people can try it the same week</span></li><li><span>An idea can become something people use while a child is still in school</span></li></ul></div>
+  <div class="ba-p new" data-s="1"><span class="pl">Today</span><ul><li><span>With AI as a helper, a first working version comes together quickly</span></li><li><span>Real people can try it the same week</span></li><li><span>A child’s idea can reach real users before they leave school</span></li></ul></div>
  </div></div>
 </div><aside class="notes">We wrote essays by hand and waited years to build anything real. Our children can build, test, and improve in a week. The ones who start now compound that advantage.</aside></section>
 
