@@ -60,6 +60,8 @@ JS = r"""([idx, tol, onlyNums]) => {
    if(a.closest('figure')&&a.closest('figure')===b.closest('figure'))continue;
    if(a.closest('.ring2,.dn,.pg-m')&&a.closest('.ring2,.dn,.pg-m')===b.closest('.ring2,.dn,.pg-m'))continue;
    if(a.closest('.lr')&&a.closest('.lr')===b.closest('.lr')&&media(a)&&media(b))continue;
+   if(a.closest('.ag-fill')||b.closest('.ag-fill'))continue;
+   if(a.closest('.grow-line')||b.closest('.grow-line'))continue;
    const A=a.getBoundingClientRect(),B=b.getBoundingClientRect();
    if(A.width<2||B.width<2||A.height<2||B.height<2)continue;
    const ix=Math.min(A.right,B.right)-Math.max(A.left,B.left),iy=Math.min(A.bottom,B.bottom)-Math.max(A.top,B.top);

@@ -30,40 +30,57 @@ if(/[?&]notes\b/.test(location.search))document.documentElement.classList.add('s
 var deck=document.getElementById('deck'),S=[].slice.call(document.querySelectorAll('.s')),nav=document.getElementById('nav');
 S.forEach(function(s,i){var a=document.createElement('a');a.href='#';a.setAttribute('aria-label','Slide '+(i+1));a.onclick=function(e){e.preventDefault();go(i)};nav.appendChild(a)});
 function cur(){var y=deck.scrollTop+innerHeight/2;for(var i=0;i<S.length;i++){if(S[i].offsetTop+S[i].offsetHeight>y)return i}return S.length-1}
-/* with motion on, moving between slides is choreographed rather than scrolled (css/s60-motion.css), with nothing but opacity and
-   transform so a phone composites every frame: the slide's content fades out, the deck jumps, and the next slide's content settles in.
+/* with motion on, slides move as one unit (css/s60-motion.css): the outgoing slide stays fully built and
+   crossfades or slides away at the same moment the incoming slide arrives. No reverse builds, no blank gap.
    Going into a navy chapter slide, a navy panel rises over the page first; leaving one, the panel lifts away.
-   Only one move runs at a time. A new press finishes the current jump immediately (no stacked curtains or half-fades),
-   then starts the next. Images are decoded up front so the arriving slide never paints empty. */
-var gT=[],moving=false,dest=-1;
-function land(i){if(i<0||i>=S.length)return;deck.scrollTop=S[i].offsetTop;S[i].classList.add('in');warmSlide(i);warmSlide(i+1)}
-function finishMove(){gT.forEach(function(t){clearTimeout(t)});gT=[];[].forEach.call(document.querySelectorAll('.curtain'),function(c){c.remove()});S.forEach(function(s){s.classList.remove('out')});if(dest>=0)land(dest);dest=-1;moving=false}
+   Only one move runs at a time. A new press finishes the current jump immediately, then starts the next.
+   Images are decoded up front so the arriving slide never paints empty. */
+var gT=[],playT=[],moving=false,dest=-1,armed=-1;
+function unpin(s){if(!s)return;s.classList.remove('leave','out');s.style.top='';s.style.height=''}
+function pinLeave(s){var r=s.getBoundingClientRect();s.classList.add('leave');s.style.top=r.top+'px';s.style.height=r.height+'px'}
+function land(i,play){if(i<0||i>=S.length)return;S[i].classList.add('in');deck.scrollTop=S[i].offsetTop;warmSlide(i);warmSlide(i+1);
+ if(play!==false)startPlay(i)}
+function finishMove(){gT.forEach(function(t){clearTimeout(t)});gT=[];[].forEach.call(document.querySelectorAll('.curtain'),function(c){c.remove()});
+ S.forEach(function(s){unpin(s)});if(dest>=0)land(dest);dest=-1;moving=false}
 function go(i){i=Math.max(0,Math.min(S.length-1,i));var H=document.documentElement;
- if(!H.classList.contains('motion')){deck.scrollTo({top:S[i].offsetTop,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});return}
+ if(!H.classList.contains('motion')){deck.scrollTo({top:S[i].offsetTop,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});startPlay(i);return}
  if(moving)finishMove();
  var from=cur();if(from===i)return;
  moving=true;dest=i;var t=S[i],f=S[from],nv=function(s){return s.classList.contains('nv')};
- function jump(keep){var n=dest;dest=-1;moving=false;S.forEach(function(s){s.classList.remove('out')});if(!keep)[].forEach.call(document.querySelectorAll('.curtain'),function(c){c.remove()});if(n>=0)land(n)}
+ function jump(keep){var n=dest;dest=-1;moving=false;S.forEach(function(s){if(s!==f)unpin(s)});if(!keep)[].forEach.call(document.querySelectorAll('.curtain'),function(c){c.remove()});if(n>=0)land(n);
+  if(f&&f!==t){f.classList.add('out');gT.push(setTimeout(function(){unpin(f);if(f!==S[cur()])f.classList.remove('in')},420))}}
  function panel(cls){var c=document.createElement('div');c.className='curtain'+cls;document.body.appendChild(c);void c.offsetWidth;return c}
- f.classList.add('out');warmSlide(i);
+ pinLeave(f);warmSlide(i);
  if(i>from&&nv(t)&&!nv(f)){var c=panel('');c.classList.add('up');gT.push(setTimeout(jump,680));return}
- if(i>from&&nv(f)&&!nv(t)){gT.push(setTimeout(function(){var c=panel(' on');jump(true);c.classList.add('lift');gT.push(setTimeout(function(){c.remove()},720))},220));return}
- gT.push(setTimeout(jump,i<from?150:t.matches('.st,.bq')?320:230))}
+ if(i>from&&nv(f)&&!nv(t)){gT.push(setTimeout(function(){var c=panel(' on');jump(true);c.classList.add('lift');gT.push(setTimeout(function(){c.remove()},720))},80));return}
+ requestAnimationFrame(function(){f.classList.add('out');jump()})}
 [].forEach.call(document.querySelectorAll('[data-go]'),function(a){a.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();go(+a.dataset.go)})});
-/* builds: a slide reached with the keys opens on its title, and each press shows its next [data-s] step; back hides them again.
-   Slides reached any other way (scroll, dots, agenda, export, phone, ?read) are always fully built. */
-var B=S.map(function(s){return [].reduce.call(s.querySelectorAll('[data-s]'),function(m,e){return Math.max(m,+e.dataset.s)},0)}),armed=-1;
+/* builds: when a slide arrives, [data-s] steps auto-play in sequence (about 300–500ms apart, the slide done in ~2–3s).
+   One arrow / space / tap goes to the next slide. Mid-sequence, the first press finishes the slide instantly;
+   the next press moves on. Export, ?read, reduced-motion, and the phone reading layout stay fully built. */
+var B=S.map(function(s){return [].reduce.call(s.querySelectorAll('[data-s]'),function(m,e){return Math.max(m,+e.dataset.s)},0)});
 function canBuild(){return !document.documentElement.classList.contains('export')&&!/[?&]read\b/.test(location.search)&&!matchMedia('(max-width:700px)').matches}
+function shouldPlay(){return canBuild()&&document.documentElement.classList.contains('motion')}
 function build(i,k,quiet){var s=S[i];s.dataset.k=k;if(quiet)s.classList.add('nt');s.classList.toggle('bld',k<B[i]);
  [].forEach.call(s.querySelectorAll('[data-s]'),function(e){e.classList.toggle('vis',+e.dataset.s<=k)});if(quiet){void s.offsetWidth;s.classList.remove('nt')}
  else if(window.__count)setTimeout(function(){__count(s)},150)}
+function snapFx(s){[].forEach.call(s.querySelectorAll('.ag-fill,.grow,.skmap'),function(el){el.classList.add('done')})}
+function clearPlay(){playT.forEach(function(t){clearTimeout(t)});playT=[]}
+function finishSlide(i){clearPlay();build(i,B[i]);snapFx(S[i]);if(window.__count)__count(S[i])}
+function startPlay(i){if(i<0||i>=S.length)return;clearPlay();
+ if(!shouldPlay()){build(i,B[i],true);snapFx(S[i]);return}
+ build(i,0,true);S[i].classList.remove('done');
+ [].forEach.call(S[i].querySelectorAll('.ag-fill,.grow,.skmap'),function(el){el.classList.remove('done')});
+ var k=0,n=B[i],gap=n<=1?380:Math.min(480,Math.max(300,2000/n));
+ function tick(){k++;build(i,k);if(k<n)playT.push(setTimeout(tick,gap));else playT.push(setTimeout(function(){snapFx(S[i])},80))}
+ if(n)playT.push(setTimeout(tick,320));else{if(window.__count)setTimeout(function(){__count(S[i])},200);playT.push(setTimeout(function(){snapFx(S[i])},80))}}
 function step(d){if(moving)finishMove();
  var c=armed>=0&&Math.abs(S[armed].offsetTop-deck.scrollTop)<innerHeight*.75?armed:cur();
  if(!canBuild()){go(c+d);return}
  var k=S[c].dataset.k===undefined?B[c]:+S[c].dataset.k;
- if(d>0){if(k<B[c]){build(c,k+1);return}if(c<S.length-1){armed=c+1;build(c+1,0,true);go(c+1)}}
- else{if(k>0){build(c,k-1);return}if(c>0){armed=c-1;build(c-1,B[c-1],true);go(c-1)}}}
-deck.addEventListener('scroll',function(){var c=cur();[].forEach.call(nav.children,function(a,i){a.classList.toggle('on',i===c)});document.body.classList.toggle('nvon',S[c].classList.contains('nv'));
+ if(d>0){if(k<B[c]||S[c].querySelector('.ag-fill:not(.done),.grow:not(.done)')){finishSlide(c);return}if(c<S.length-1){armed=c+1;go(c+1)}}
+ else{if(c>0){armed=c-1;finishSlide(c-1);go(c-1)}}}
+deck.addEventListener('scroll',function(){if(moving)return;var c=cur();[].forEach.call(nav.children,function(a,i){a.classList.toggle('on',i===c)});document.body.classList.toggle('nvon',S[c].classList.contains('nv'));
  if(armed>=0&&Math.abs(S[armed].offsetTop-deck.scrollTop)>innerHeight*1.5)armed=-1;
  S.forEach(function(s,j){if(j!==armed&&s.classList.contains('bld')&&Math.abs(s.offsetTop-deck.scrollTop)>=innerHeight)build(j,B[j],true)})},{passive:true});
 window.__step=step;
@@ -103,9 +120,14 @@ if(!HM.classList.contains('player')&&!HM.classList.contains('export')&&!/[?&]rea
     n.replaceChild(f,c)}else if(c.nodeType===1&&c.tagName!=='BR')walk(c)})})(h);h.classList.add('psplit')});
 }
 [].forEach.call(document.querySelectorAll('.mmap'),function(g){[].forEach.call(g.querySelectorAll('.mm-c'),function(c,k){c.style.setProperty('--c',k)});[].forEach.call(g.querySelectorAll('.mm li'),function(c,k){c.style.setProperty('--i',k)})});
-[].forEach.call(document.querySelectorAll('.tln,.apps,.tbl,.trk,.paths,.tk-prog,.pg-m,.trio,.proj,.agx,.spine'),function(g){
+[].forEach.call(document.querySelectorAll('.tln,.apps,.tbl,.trk,.paths,.tk-prog,.pg-m,.trio,.proj,.agx,.spine,.tn-r,.grow-n,.sk-tools,.proj4'),function(g){
  [].slice.call(g.children).forEach(function(c,i){c.style.setProperty('--i',i);if(g.classList.contains('tbl'))[].forEach.call(c.children,function(x){x.style.setProperty('--i',i)})});
  if(g.classList.contains('pg-m')){var j=0;[].forEach.call(g.children,function(c){if(c.classList.contains('f'))c.style.setProperty('--i',j++)})}});
+(function(){var FILL=[['openai','ChatGPT'],['claude','Claude'],['gemini','Gemini'],['deepseek','DeepSeek'],['doubao','Doubao'],['qwen','Qwen'],['perplexity','Perplexity'],['metaso','Metaso'],['notion','Notion'],['canva','Canva'],['figma','Figma'],['cursor','Cursor'],['lovable','Lovable'],['replit','Replit'],['trae','TRAE'],['github','GitHub'],['vercel','Vercel'],['midjourney','Midjourney'],['ideogram','Ideogram'],['kling','Kling'],['hailuo','Hailuo'],['dreamina','Dreamina'],['suno','Suno'],['elevenlabs','ElevenLabs'],['heygen','HeyGen'],['capcut','CapCut'],['flow','Flow'],['comet','Comet'],['lovart','Lovart'],['workbuddy','WorkBuddy'],['cue','Cue'],['gemini-notebook','NotebookLM'],['stripe','Stripe'],['kimi','Kimi'],['manus','Manus'],['genspark','Genspark']];
+ [].forEach.call(document.querySelectorAll('.ag-fill'),function(box){var n=180,frag=document.createDocumentFragment();
+  for(var i=0;i<n;i++){var t=FILL[i%FILL.length],el=document.createElement('span');el.className='ag-tile';el.style.setProperty('--i',i);el.style.setProperty('--n',n);
+   el.innerHTML='<img alt="" src="/logos/tools/'+t[0]+'.png"><b>'+t[1]+'</b>';frag.appendChild(el)}
+  box.appendChild(frag)})})();
 /* counters: the first number in each .big or .cnt counts up from zero, keeping its prefix, commas, decimals, and unit */
 function firstNum(el){var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);while(w.nextNode())if(/\d/.test(w.currentNode.nodeValue))return w.currentNode;return null}
 function countUp(s){if(!HM.classList.contains('motion'))return;
@@ -118,7 +140,8 @@ function countUp(s){if(!HM.classList.contains('motion'))return;
    t.nodeValue=m[1]+(cm?Math.round(v).toLocaleString('en-US'):v.toFixed(dec))+m[3];requestAnimationFrame(f)})})}
 window.__count=countUp;
 var io=new IntersectionObserver(function(es){es.forEach(function(e){var s=e.target;
- if(e.intersectionRatio>=.35){if(!s.classList.contains('in')){s.classList.add('in');setTimeout(function(){countUp(s)},420)}}
+ if(moving||s.classList.contains('leave'))return;
+ if(e.intersectionRatio>=.35){if(!s.classList.contains('in')){s.classList.add('in');startPlay(S.indexOf(s))}}
  else if(!e.isIntersecting&&HM.classList.contains('motion')){s.classList.remove('in');[].forEach.call(s.querySelectorAll('[data-run]'),function(x){delete x.dataset.run})}})},{threshold:[0,.35]});
 S.forEach(function(s){io.observe(s)});
 /* decode every slide image (and the next slide's) so a transition never paints an empty box */

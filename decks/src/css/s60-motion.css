@@ -6,11 +6,14 @@
    items in a group follow one another 120ms apart, after the title has settled. ===== */
 :root{--t-f:.5s;--t-m:.7s;--t-d:1.2s;--e-o:cubic-bezier(.2,.7,.2,1);--e-io:cubic-bezier(.65,0,.35,1);--e-x:cubic-bezier(.4,0,.2,1);--st:120ms;--t0:.3s}
 @media screen{
- /* slide to slide (shared.js go()): the leaving slide's content lifts away and fades; the arriving slide's content settles a short
-    way up as it fades in. Statements and quotes wait a beat longer on the empty page; going back is quicker. */
- .motion .s>.w{transition:opacity var(--t-f) ease,transform var(--t-m) var(--e-o)}
- .motion .s:not(.in)>.w{opacity:0;transform:translateY(16px)}
- .motion .s.out>.w{opacity:0;transform:translateY(-10px);transition:opacity .22s var(--e-x),transform .3s var(--e-x)}
+ /* slide to slide (shared.js go()): the whole outgoing slide, still fully built, crossfades or moves out as one unit
+    at the same moment the incoming slide arrives. Children never un-build on exit. */
+ .motion .s{transition:opacity .42s var(--e-x),transform .45s var(--e-o)}
+ .motion .s.leave{position:fixed;left:0;right:0;z-index:6;pointer-events:none;will-change:opacity,transform}
+ .motion .s.leave.out,.motion .s.out.leave{opacity:0;transform:translateY(-18px)}
+ .motion .s.leave .w,.motion .s.leave .w *,.motion .s.out .w,.motion .s.out .w *{opacity:1!important;transform:none!important;transition:none!important}
+ .motion .s:not(.in):not(.leave)>.w{opacity:0;transform:translateY(16px)}
+ .motion .s.in>.w{opacity:1;transform:none;transition:opacity .35s ease,transform .45s var(--e-o)}
  /* navy chapter slides (sections, the stakes, the close): a navy panel rises over the page, and lifts away again when leaving */
  .curtain{position:fixed;inset:0;z-index:8;background:var(--ink);transform:translateY(100%);pointer-events:none;will-change:transform}
  .curtain.up{transform:none;transition:transform .66s var(--e-io)}
@@ -69,8 +72,29 @@
  /* the three skills: each ring settles into place as it appears */
  .motion .model li .ring{transition:transform var(--t-m) var(--e-o)}
  .motion .s:not(.in) .model li .ring,.motion .s.bld .model li[data-s]:not(.vis) .ring{transform:scale(.88)}
- .motion .proj figure img{transition:transform 6s ease-out}
- .motion .s:not(.in) .proj figure img{transform:scale(1.06)}
+ .motion .proj figure img,.motion .proj4 figure img{transition:transform 6s ease-out}
+ .motion .s:not(.in) .proj figure img,.motion .s:not(.in) .proj4 figure img{transform:scale(1.06)}
  .motion .cv-top,.motion .cv-foot{transition:opacity .8s ease .6s}
  .motion .s:not(.in) .cv-top,.motion .s:not(.in) .cv-foot{opacity:0}
+
+ /* tool flood: curated tiles stay put; fill tiles land faster and faster */
+ .motion .ag-fill .ag-tile{opacity:0;transform:scale(.86);transition:opacity .28s ease calc(40ms + var(--i) * (18ms - var(--i) * .04ms)),transform .4s var(--e-o) calc(40ms + var(--i) * (18ms - var(--i) * .04ms))}
+ .motion .s.in .ag-fill .ag-tile,.motion .ag-fill.done .ag-tile{opacity:.55;transform:none}
+ .motion .ag-fill.done .ag-tile{transition:none}
+ .motion .s.in .agx li{transition-delay:calc(80ms + var(--i,0) * 70ms)}
+
+ /* Cursor growth: the line draws, then nodes climb */
+ .motion .grow-line path{stroke-dasharray:1400;stroke-dashoffset:1400;transition:stroke-dashoffset 1.6s var(--e-io) .2s}
+ .motion .s.in .grow-line path,.motion .grow.done .grow-line path{stroke-dashoffset:0}
+ .motion .grow-n li{opacity:0;transform:translateY(14px);transition:opacity var(--t-f) ease calc(.35s + var(--i) * .28s),transform var(--t-m) var(--e-o) calc(.35s + var(--i) * .28s)}
+ .motion .s.in .grow-n li,.motion .grow.done .grow-n li{opacity:1;transform:none}
+ .motion .grow-n .bar{transform-origin:left center;transform:scaleX(0);transition:transform 1.1s var(--e-o) calc(.3s + var(--i) * .22s)}
+ .motion .s.in .grow-n .bar,.motion .grow.done .grow-n .bar{transform:scaleX(1)}
+
+ /* then/now rows: left then right */
+ .motion .tn-pair .o{transition:opacity var(--t-f) ease calc(var(--t0) + var(--i,0) * .22s),transform var(--t-m) var(--e-o) calc(var(--t0) + var(--i,0) * .22s)}
+ .motion .tn-pair .n{transition:opacity var(--t-f) ease calc(var(--t0) + .16s + var(--i,0) * .22s),transform var(--t-m) var(--e-o) calc(var(--t0) + .16s + var(--i,0) * .22s)}
+ .motion .s:not(.in) .tn-pair .o,.motion .s:not(.in) .tn-pair .n{opacity:0}
+ .motion .s:not(.in) .tn-pair .o{transform:translateX(-16px)}
+ .motion .s:not(.in) .tn-pair .n{transform:translateX(-12px)}
 }
