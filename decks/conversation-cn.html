@@ -1448,7 +1448,7 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
 /* ---- s55-visual.css ---- */
 /* ===== Oct 11 · visual first: icons (Lucide line icons, inlined by build.py), a proportion bar, stat tiles with
    mini charts, a two-panel comparison, ranked tiles, step flows, paired then/now rows, and the tools in two slides.
-   Every bar is drawn to the source's own numbers (--v in %); the one schematic (tools vs skills) carries no numbers. ===== */
+   Every bar is drawn to the source's own numbers (--v in %). ===== */
 .lic{display:block;width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .ico{display:grid;place-items:center;flex:none;width:76px;height:76px;border-radius:50%;background:var(--paper-hi);border:1px solid var(--edge);color:var(--ink2)}
 .ico .lic{width:36px;height:36px}
@@ -1657,21 +1657,6 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .ae .bd .tn3 p.n{background:var(--ink);color:var(--paper-hi)}
  .tn3 .ico{position:relative;justify-self:center;align-self:center}
  .tn3 .ico::after{content:"";position:absolute;right:-26px;top:50%;width:10px;height:10px;margin-top:-5px;border-top:1.5px solid var(--ink2);border-right:1.5px solid var(--ink2);transform:rotate(45deg)}
-
- /* tools vs skills: a schematic on one time axis, no numbers */
- .st .tvs{display:grid;gap:34px;margin-top:var(--gap-l)}
- .st .tvs{gap:40px;margin-top:72px}
- .tvs .row{display:grid;grid-template-columns:minmax(0,1fr) 250px;grid-template-rows:auto auto;align-items:center;gap:18px 34px}
- .tvs .kq{grid-column:1/-1}
- :lang(zh-CN) .tvs .row{grid-template-columns:minmax(0,1fr) 190px}
- .tvs .kq{display:flex;align-items:center;gap:18px;font:500 32px/1.2 var(--serif);color:var(--ink)}
- .tvs .kq .lic{flex:none;width:40px;height:40px;color:var(--ink2)}
- .tvs i{position:relative;display:block;height:46px;border-radius:4px;background:var(--track)}
- .tvs i::after{content:"";position:absolute;left:0;top:0;bottom:0;width:calc(var(--v) * 1%);min-width:12px;border-radius:4px;background:var(--data-2);transform-origin:left}
- .tvs .hl i::after{background:var(--data)}
- .tvs b{font:italic 400 42px/1 var(--serif);color:var(--muted)}
- .tvs .hl b{color:var(--ink2)}
- :lang(zh-CN) .tvs b{font-style:normal;font-size:38px}
 }
 
 /* motion for these layouts (see s60-motion.css for the timing system) */
@@ -1685,9 +1670,9 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  :lang(zh-CN) .ae .bd .spine li>span:last-child{font-size:18px;line-height:1.5}
 
 @media screen{
- .motion .pb-t i,.motion .mb i::after,.motion .mb i.rg::before,.motion .tvs i::after{transition:transform var(--t-d) var(--e-o) .3s}
+ .motion .pb-t i,.motion .mb i::after,.motion .mb i.rg::before{transition:transform var(--t-d) var(--e-o) .3s}
  .motion .mb i.rg::before{transition-delay:.5s}
- .motion .s:not(.in) .pb-t i,.motion .s.bld .pbar[data-s]:not(.vis) .pb-t i,.motion .s:not(.in) .mb i::after,.motion .s:not(.in) .mb i.rg::before,.motion .s.bld [data-s]:not(.vis) .mb i.rg::before,.motion .s:not(.in) .tvs i::after{transform:scaleX(0)}
+ .motion .s:not(.in) .pb-t i,.motion .s.bld .pbar[data-s]:not(.vis) .pb-t i,.motion .s:not(.in) .mb i::after,.motion .s:not(.in) .mb i.rg::before,.motion .s.bld [data-s]:not(.vis) .mb i.rg::before{transform:scaleX(0)}
  .motion .agx li{transition:opacity var(--t-f) ease calc(var(--t0) + var(--i,0) * 90ms),transform var(--t-m) var(--e-o) calc(var(--t0) + var(--i,0) * 90ms)}
  .motion .s:not(.in) .agx li{opacity:0;transform:translateY(16px)}
  .motion .s:not(.in) .tocf li{transform:translateY(16px)}
@@ -1714,8 +1699,6 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .tn2{display:grid;grid-template-columns:1fr;gap:10px}.tn2 .col{padding:12px}
  .tn3{display:grid;grid-template-columns:1fr;gap:6px}.tn-h{display:none}.tn-r{display:grid;grid-template-columns:1fr;gap:4px}.tn3 .ico{display:none}
  .tn3 p{margin:0;padding:10px 12px;border-radius:8px}.tn3 p.o{background:var(--pane)}.tn3 p.n{background:var(--ink);color:var(--paper-hi)}
- .tvs{display:grid;gap:10px;margin-top:16px}.tvs .row{display:grid;grid-template-columns:1fr auto;gap:6px}.tvs .kq .lic{display:none}.tvs i{grid-column:1/-1;position:relative;display:block;height:12px;border-radius:3px;background:var(--track)}
- .tvs i::after{content:"";position:absolute;left:0;top:0;bottom:0;width:calc(var(--v) * 1%);min-width:6px;background:var(--data)}
 }
 
 /* ---- s60-motion.css ---- */
@@ -2283,17 +2266,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <div class="card" data-s="2"><figure><img src="/photos/isb-2026/pitch-podium-1600.webp" alt="ISB 学生上台展示"></figure><div class="pb"><span class="lab">动手做</span><h3>一款记录进度、睡眠和工作时长的工具</h3><p class="where">摄于 ISB，2026年</p></div></div>
   <div class="card" data-s="3"><figure class="vframe"><video autoplay muted loop playsinline preload="metadata" poster="/decks/img/conversation/hands-stage-poster.webp" src="/decks/img/conversation/hands-stage.mp4" aria-label="学生在笔记本电脑上测试手语应用"></video><img class="vposter" src="/decks/img/conversation/hands-stage-poster.webp" alt=""></figure><div class="pb"><span class="lab">反馈 · 发布</span><h3>一个手语翻译应用，正在测试</h3><p class="where">还在上学，就已经碰到真实用户</p></div></div>
  </div></div>
-</div><aside class="notes">第一版很快就能做出来，创业就是这个过程：找到真问题，动手做，听真实用户的诚实反馈，再发布。所以主动性、审美与匠心——选题、判断、做完——现在比做出第一稿更要紧。ISB 的学生用了AI编程工具；选题、判断哪个版本更好、把作品做完，都是他们自己。</aside></section
-
-<!-- 40 · Tools and skills -->
-<section class="s ae st alt"><div class="w">
- <p class="kick r">建议三 · 为什么现在就开始</p>
- <h2 class="r" style="--d:.1s">学会AI工具只要一个下午；<br>三种能力要练很多年，<em>现在就开始。</em></h2>
- <div class="tvs" role="img" aria-label="学会一个工具只要一个下午；三种能力要练很多年">
-  <div class="row" data-s="1"><span class="kq"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" /><path d="M20 2v4" /><path d="M22 4h-4" /><circle cx="4" cy="20" r="2" /></svg>学会任何一个AI工具</span><i style="--v:3"></i><b>一个下午</b></div>
-  <div class="row hl" data-s="2"><span class="kq"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10" /><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" /></svg>主动性、审美与匠心</span><i style="--v:100"></i><b>很多年</b></div>
- </div>
-</div><aside class="notes">工具几个月就换一批。选问题、判断结果、把事做完，这些能力会带进任何工作；早几年开始，优势会一点点累积。十二岁就开始的孩子，到第一份工作时已经练了很多年。这份先发优势，就是孩子的比较优势。</aside></section>
+</div><aside class="notes">第一版很快就能做出来，创业就是这个过程：找到真问题，动手做，听真实用户的诚实反馈，再发布。所以主动性、审美与匠心——选题、判断、做完——现在比做出第一稿更要紧。ISB 的学生用了AI编程工具；选题、判断哪个版本更好、把作品做完，都是他们自己。</aside></section>
 
 <!-- Recap 3 -->
 <section class="s alt ae"><div class="w">
@@ -2304,9 +2277,9 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <li data-s="2"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m15 12-9.373 9.373a1 1 0 0 1-3.001-3L12 9" /><path d="m18 15 4-4" /><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172v-.344a2 2 0 0 0-.586-1.414l-1.657-1.657A6 6 0 0 0 12.516 3H9l1.243 1.243A6 6 0 0 1 12 8.485V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5" /></svg></span><b>用在真实的任务上</b><span>学校项目、申请、社团</span></li>
   <li data-s="3"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" /><path d="m16 9-5.5 5.5L8 12" /></svg></span><b>把作品拿出来</b><span>Kimi 的候选人带着自己做的工具来面试</span></li>
   <li data-s="4"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M13 21h8" /><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" /></svg></span><b>想法可以变成真东西</b><span>还在上学，就能碰到真实的用户</span></li>
-  <li data-s="5"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10" /><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" /></svg></span><b>现在就开始</b><span>能力要练很多年，工具一个下午就能上手</span></li>
+  <li data-s="5"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z" /><path d="M8 10v4" /><path d="M12 10v2" /><path d="M16 10v6" /></svg></span><b>优势在于这个过程</b><span>发现问题、动手做、反馈、发布</span></li>
  </ol></div>
-</div><aside class="notes">三点建议合成一句：了解工具，用在真正要紧的事上，现在就开始。下一页用一二三收住。</aside></section>
+</div><aside class="notes">三点建议合成一句：了解工具，用在真正要紧的事上，现在就开始，趁第一版还容易做出来。下一页用一二三收住。</aside></section>
 
 <!-- 41 · Close -->
 <section class="s ae st nv cl"><div class="w">

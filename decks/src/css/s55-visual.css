@@ -1,6 +1,6 @@
 /* ===== Oct 11 · visual first: icons (Lucide line icons, inlined by build.py), a proportion bar, stat tiles with
    mini charts, a two-panel comparison, ranked tiles, step flows, paired then/now rows, and the tools in two slides.
-   Every bar is drawn to the source's own numbers (--v in %); the one schematic (tools vs skills) carries no numbers. ===== */
+   Every bar is drawn to the source's own numbers (--v in %). ===== */
 .lic{display:block;width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .ico{display:grid;place-items:center;flex:none;width:76px;height:76px;border-radius:50%;background:var(--paper-hi);border:1px solid var(--edge);color:var(--ink2)}
 .ico .lic{width:36px;height:36px}
@@ -209,21 +209,6 @@
  .ae .bd .tn3 p.n{background:var(--ink);color:var(--paper-hi)}
  .tn3 .ico{position:relative;justify-self:center;align-self:center}
  .tn3 .ico::after{content:"";position:absolute;right:-26px;top:50%;width:10px;height:10px;margin-top:-5px;border-top:1.5px solid var(--ink2);border-right:1.5px solid var(--ink2);transform:rotate(45deg)}
-
- /* tools vs skills: a schematic on one time axis, no numbers */
- .st .tvs{display:grid;gap:34px;margin-top:var(--gap-l)}
- .st .tvs{gap:40px;margin-top:72px}
- .tvs .row{display:grid;grid-template-columns:minmax(0,1fr) 250px;grid-template-rows:auto auto;align-items:center;gap:18px 34px}
- .tvs .kq{grid-column:1/-1}
- :lang(zh-CN) .tvs .row{grid-template-columns:minmax(0,1fr) 190px}
- .tvs .kq{display:flex;align-items:center;gap:18px;font:500 32px/1.2 var(--serif);color:var(--ink)}
- .tvs .kq .lic{flex:none;width:40px;height:40px;color:var(--ink2)}
- .tvs i{position:relative;display:block;height:46px;border-radius:4px;background:var(--track)}
- .tvs i::after{content:"";position:absolute;left:0;top:0;bottom:0;width:calc(var(--v) * 1%);min-width:12px;border-radius:4px;background:var(--data-2);transform-origin:left}
- .tvs .hl i::after{background:var(--data)}
- .tvs b{font:italic 400 42px/1 var(--serif);color:var(--muted)}
- .tvs .hl b{color:var(--ink2)}
- :lang(zh-CN) .tvs b{font-style:normal;font-size:38px}
 }
 
 /* motion for these layouts (see s60-motion.css for the timing system) */
@@ -237,9 +222,9 @@
  :lang(zh-CN) .ae .bd .spine li>span:last-child{font-size:18px;line-height:1.5}
 
 @media screen{
- .motion .pb-t i,.motion .mb i::after,.motion .mb i.rg::before,.motion .tvs i::after{transition:transform var(--t-d) var(--e-o) .3s}
+ .motion .pb-t i,.motion .mb i::after,.motion .mb i.rg::before{transition:transform var(--t-d) var(--e-o) .3s}
  .motion .mb i.rg::before{transition-delay:.5s}
- .motion .s:not(.in) .pb-t i,.motion .s.bld .pbar[data-s]:not(.vis) .pb-t i,.motion .s:not(.in) .mb i::after,.motion .s:not(.in) .mb i.rg::before,.motion .s.bld [data-s]:not(.vis) .mb i.rg::before,.motion .s:not(.in) .tvs i::after{transform:scaleX(0)}
+ .motion .s:not(.in) .pb-t i,.motion .s.bld .pbar[data-s]:not(.vis) .pb-t i,.motion .s:not(.in) .mb i::after,.motion .s:not(.in) .mb i.rg::before,.motion .s.bld [data-s]:not(.vis) .mb i.rg::before{transform:scaleX(0)}
  .motion .agx li{transition:opacity var(--t-f) ease calc(var(--t0) + var(--i,0) * 90ms),transform var(--t-m) var(--e-o) calc(var(--t0) + var(--i,0) * 90ms)}
  .motion .s:not(.in) .agx li{opacity:0;transform:translateY(16px)}
  .motion .s:not(.in) .tocf li{transform:translateY(16px)}
@@ -266,6 +251,4 @@
  .tn2{display:grid;grid-template-columns:1fr;gap:10px}.tn2 .col{padding:12px}
  .tn3{display:grid;grid-template-columns:1fr;gap:6px}.tn-h{display:none}.tn-r{display:grid;grid-template-columns:1fr;gap:4px}.tn3 .ico{display:none}
  .tn3 p{margin:0;padding:10px 12px;border-radius:8px}.tn3 p.o{background:var(--pane)}.tn3 p.n{background:var(--ink);color:var(--paper-hi)}
- .tvs{display:grid;gap:10px;margin-top:16px}.tvs .row{display:grid;grid-template-columns:1fr auto;gap:6px}.tvs .kq .lic{display:none}.tvs i{grid-column:1/-1;position:relative;display:block;height:12px;border-radius:3px;background:var(--track)}
- .tvs i::after{content:"";position:absolute;left:0;top:0;bottom:0;width:calc(var(--v) * 1%);min-width:6px;background:var(--data)}
 }
