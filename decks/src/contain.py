@@ -7,6 +7,7 @@ A slide that fits 1920×1080 can still have a number running past its card, so e
 Usage:  python3 decks/src/contain.py              (EN and CN; export mode, then live with count-ups, sampled mid-count)
         python3 decks/src/contain.py --georgia    (also with Georgia's wider metrics, as on a phone that missed the web
                                                    fonts; downloads Gelasio, a Georgia-metric font, from Google Fonts)
+        python3 decks/src/contain.py --phone      (390×844 portrait player, letterboxed 16:9 stage; default with the rest)
 """
 import functools, http.server, os, re, sys, threading, urllib.request
 
@@ -45,19 +46,20 @@ JS = r"""([idx, tol, onlyNums]) => {
   /* a photo cropped by a frame that hides its overflow (the slow zoom on project photos) is cropped by design */
   if(media&&/hidden|clip/.test(getComputedStyle(boxOf(e,false)).overflow))return;
   if(media||isBox(e)&&e!==w)test([e.getBoundingClientRect()],'<'+nm(e)+'>',e,false)});
- /* sibling / cousin collisions: a logo sitting on a line of text in the same row, two images covering each other */
+ /* sibling / cousin collisions across every element type: text on text, a footnote on a number,
+    a bar on its label, a logo on a line. Designed stacks (donut + figure, crop frames) stay skipped. */
  if(!onlyNums){
   const skip=e=>!shown(e)||e.closest('.notes')||e.closest('svg')&&e.tagName.toLowerCase()!=='svg';
   const media=e=>/^(img|video|svg|canvas)$/i.test(e.tagName);
   const texty=e=>{if(media(e)||e.closest('svg'))return false;const c=getComputedStyle(e);if(c.display==='inline'||c.position==='fixed')return false;return[...e.childNodes].some(n=>n.nodeType===3&&n.nodeValue.trim())};
-  const items=[...w.querySelectorAll('img,video,svg,span,b,small,h3,p,dt,dd,li,div')].filter(e=>!skip(e)&&(media(e)||texty(e)));
+  const bar=e=>e.matches&&e.matches('.hb i,.mb i,.pb-t i,.pb-t');
+  const items=[...w.querySelectorAll('img,video,svg,span,b,small,h1,h2,h3,p,dt,dd,li,div,i')].filter(e=>!skip(e)&&(media(e)||texty(e)||bar(e)));
   for(let i=0;i<items.length;i++)for(let j=i+1;j<items.length;j++){
    const a=items[i],b=items[j];
    if(a.contains(b)||b.contains(a))continue;
    if(a.closest('figure')&&a.closest('figure')===b.closest('figure'))continue;
    if(a.closest('.ring2,.dn,.pg-m')&&a.closest('.ring2,.dn,.pg-m')===b.closest('.ring2,.dn,.pg-m'))continue;
    if(a.closest('.lr')&&a.closest('.lr')===b.closest('.lr')&&media(a)&&media(b))continue;
-   if(!(media(a)||media(b)))continue;
    const A=a.getBoundingClientRect(),B=b.getBoundingClientRect();
    if(A.width<2||B.width<2||A.height<2||B.height<2)continue;
    const ix=Math.min(A.right,B.right)-Math.max(A.left,B.left),iy=Math.min(A.bottom,B.bottom)-Math.max(A.top,B.top);
@@ -110,6 +112,31 @@ def serve(root):
     return f'http://127.0.0.1:{srv.server_address[1]}'
 
 
+def phone_stage(pg):
+    """The 1920×1080 stage must sit fully inside the 390×844 player, letterboxed, not clipped."""
+    box = pg.evaluate("""() => {
+      const f=document.getElementById('frame'); if(!f) return {err:'no frame'};
+      const r=f.getBoundingClientRect();
+      return {w:r.width,h:r.height,t:r.top,l:r.left,b:r.bottom,r:r.right,vw:innerWidth,vh:innerHeight};
+    }""")
+    if box.get('err'): return [('player', 'stage', box['err'], '')]
+    out = []
+    if box['l'] < -TOL or box['t'] < -TOL or box['r'] > box['vw'] + TOL or box['b'] > box['vh'] + TOL:
+        out.append(('player', 'stage', 'clipped by the phone viewport',
+                    f"{round(box['w'])}×{round(box['h'])} at {round(box['l'])},{round(box['t'])}"))
+    if abs(box['w'] / max(box['h'], 1) - 1920 / 1080) > 0.02:
+        out.append(('player', 'stage', 'not 16:9 letterbox',
+                    f"{round(box['w'])}×{round(box['h'])}"))
+    return out
+
+
+def stage_frame(pg):
+    for fr in pg.frames:
+        if fr is pg.main_frame: continue
+        if 'stage' in (fr.url or ''): return fr
+    return None
+
+
 if __name__ == '__main__':
     import subprocess
     from playwright.sync_api import sync_playwright
@@ -117,6 +144,7 @@ if __name__ == '__main__':
     subprocess.run([sys.executable, os.path.join(SRC, 'build.py')], check=True, stdout=subprocess.DEVNULL)
     base = serve(os.path.abspath(os.path.join(SRC, '..', '..')))
     fonts = ['web'] + (['georgia'] if '--georgia' in sys.argv else [])
+    run_phone = '--phone' in sys.argv or '--no-phone' not in sys.argv
     total = 0
     with sync_playwright() as p:
         b = p.chromium.launch()
@@ -133,5 +161,26 @@ if __name__ == '__main__':
                     print(f"{deck}  {font} fonts  {'live, with count-ups' if motion else 'export'}: {len(F)} outside their container")
                     for f in F: print('   slide %d  in %s  %s  %s' % f)
                     total += len(F); pg.close()
+            if run_phone:
+                pg = b.new_page(viewport={'width': 390, 'height': 844}, is_mobile=True, has_touch=True)
+                pg.goto(f'{base}/decks/{deck}.html', wait_until='networkidle')
+                pg.wait_for_function("() => { const f=document.getElementById('frame'); return f && f.contentDocument && f.contentDocument.querySelectorAll('#deck section.s').length }")
+                pg.wait_for_timeout(400)
+                P = phone_stage(pg)
+                print(f"{deck}  phone 390×844 player: {len(P)} stage problems")
+                for f in P: print('   %s  %s  %s  %s' % f)
+                total += len(P)
+                fr = stage_frame(pg)
+                if fr:
+                    fr.evaluate("document.documentElement.classList.add('export');window.__space&&window.__space()")
+                    fr.wait_for_timeout(400)
+                    F = check(fr, False)
+                    print(f"{deck}  phone letterbox stage: {len(F)} outside their container")
+                    for f in F: print('   slide %d  in %s  %s  %s' % f)
+                    total += len(F)
+                else:
+                    print(f"{deck}  phone 390×844 player: no ?stage iframe")
+                    total += 1
+                pg.close()
         b.close()
     sys.exit(1 if total else 0)
