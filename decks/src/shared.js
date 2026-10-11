@@ -1,24 +1,132 @@
 <script>
-if(!matchMedia('(max-width:700px)').matches)[].forEach.call(document.querySelectorAll('video'),function(v){v.preload='auto'});
+/* player: every screen shows the real 1920×1080 slide, scaled uniformly and letterboxed. The page loads itself
+   into a fixed 1920×1080 frame (?stage), so vw, vh, and media queries resolve exactly as on desktop and in the PDF. */
+(function(){var H=document.documentElement;if(!H.classList.contains('player'))return;
+ var f=document.getElementById('frame'),st=document.getElementById('stage'),ph=document.querySelector('.phint'),q=location.search.replace(/^\?/,'');
+ f.src=location.pathname+'?stage'+(q?'&'+q:'')+location.hash;
+ function fw(){try{return f.contentWindow.__step?f.contentWindow:null}catch(e){return null}}
+ function fit(){var v=window.visualViewport,W=innerWidth,Hh=innerHeight,s=Math.min(W/1920,Hh/1080);
+  f.style.transform='translate(-50%,-50%) scale('+s+')';window.__ps=s;
+  /* no letterbox above or below for the language pill: stand it in the side letterbox if the upright pill (about 40px) fits there,
+     otherwise dock it in the slide's right margin, clear of the corner logo */
+  var band=(Hh-1080*s)/2,side=(W-1920*s)/2,low=band<45;H.classList.toggle('side',low&&side>=56);H.classList.toggle('dock',low&&side<56);
+  H.style.setProperty('--ps',s);H.style.setProperty('--pk',Math.max(s,.8));H.style.setProperty('--band',band+'px');H.style.setProperty('--side',side+'px');
+  ph.classList.toggle('on',matchMedia('(pointer:coarse)').matches&&(Hh-1080*s)/2>=48);
+  var w=fw();if(w){w.__ps=s;w.document.documentElement.classList.toggle('tiny',s<.6)}}
+ f.addEventListener('load',function(){fit();try{f.contentWindow.focus()}catch(e){}});
+ fit();addEventListener('resize',fit);addEventListener('orientationchange',function(){setTimeout(fit,120)});
+ addEventListener('keydown',function(e){var w=fw();if(!w)return;
+  if(['ArrowDown','ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();w.__step(1)}if(['ArrowUp','ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();w.__step(-1)}});
+ /* swipes and taps on the letterbox around the slide */
+ var t0=null;st.addEventListener('touchstart',function(e){t0=e.touches.length===1?{x:e.touches[0].clientX,y:e.touches[0].clientY}:null},{passive:true});
+ st.addEventListener('touchend',function(e){if(!t0)return;var t=e.changedTouches[0],dx=t.clientX-t0.x,dy=t.clientY-t0.y,w=fw();t0=null;
+  if(!w||(window.visualViewport&&visualViewport.scale>1.05))return;
+  var d=Math.abs(dx)>Math.abs(dy)?dx:dy;if(Math.abs(d)>30)w.__step(d<0?1:-1);else w.__step(t.clientX>innerWidth/3?1:-1)});
+})();
+if(!document.documentElement.classList.contains('player')&&!matchMedia('(max-width:700px)').matches)[].forEach.call(document.querySelectorAll('video'),function(v){v.preload='auto'});
 if(/[?&]read\b/.test(location.search))document.documentElement.classList.add('noqr');
+if(/[?&]notes\b/.test(location.search))document.documentElement.classList.add('shownotes');
 /* navigation: dot nav, arrow keys, agenda links */
 var deck=document.getElementById('deck'),S=[].slice.call(document.querySelectorAll('.s')),nav=document.getElementById('nav');
 S.forEach(function(s,i){var a=document.createElement('a');a.href='#';a.setAttribute('aria-label','Slide '+(i+1));a.onclick=function(e){e.preventDefault();go(i)};nav.appendChild(a)});
 function cur(){var y=deck.scrollTop+innerHeight/2;for(var i=0;i<S.length;i++){if(S[i].offsetTop+S[i].offsetHeight>y)return i}return S.length-1}
-function go(i){i=Math.max(0,Math.min(S.length-1,i));deck.scrollTo({top:S[i].offsetTop,behavior:'smooth'})}
+/* with motion on, moving between slides is choreographed rather than scrolled (css/s60-motion.css), with nothing but opacity and
+   transform so a phone composites every frame: the slide's content fades out, the deck jumps, and the next slide's content settles in.
+   Going into a navy chapter slide, a navy panel rises over the page first; leaving one, the panel lifts away.
+   Only one move runs at a time. A new press finishes the current jump immediately (no stacked curtains or half-fades),
+   then starts the next. Images are decoded up front so the arriving slide never paints empty. */
+var gT=[],moving=false,dest=-1;
+function land(i){if(i<0||i>=S.length)return;deck.scrollTop=S[i].offsetTop;S[i].classList.add('in');warmSlide(i);warmSlide(i+1)}
+function finishMove(){gT.forEach(function(t){clearTimeout(t)});gT=[];[].forEach.call(document.querySelectorAll('.curtain'),function(c){c.remove()});S.forEach(function(s){s.classList.remove('out')});if(dest>=0)land(dest);dest=-1;moving=false}
+function go(i){i=Math.max(0,Math.min(S.length-1,i));var H=document.documentElement;
+ if(!H.classList.contains('motion')){deck.scrollTo({top:S[i].offsetTop,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});return}
+ if(moving)finishMove();
+ var from=cur();if(from===i)return;
+ moving=true;dest=i;var t=S[i],f=S[from],nv=function(s){return s.classList.contains('nv')};
+ function jump(keep){var n=dest;dest=-1;moving=false;S.forEach(function(s){s.classList.remove('out')});if(!keep)[].forEach.call(document.querySelectorAll('.curtain'),function(c){c.remove()});if(n>=0)land(n)}
+ function panel(cls){var c=document.createElement('div');c.className='curtain'+cls;document.body.appendChild(c);void c.offsetWidth;return c}
+ f.classList.add('out');warmSlide(i);
+ if(i>from&&nv(t)&&!nv(f)){var c=panel('');c.classList.add('up');gT.push(setTimeout(jump,680));return}
+ if(i>from&&nv(f)&&!nv(t)){gT.push(setTimeout(function(){var c=panel(' on');jump(true);c.classList.add('lift');gT.push(setTimeout(function(){c.remove()},720))},220));return}
+ gT.push(setTimeout(jump,i<from?150:t.matches('.st,.bq')?320:230))}
 [].forEach.call(document.querySelectorAll('[data-go]'),function(a){a.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();go(+a.dataset.go)})});
-deck.addEventListener('scroll',function(){var c=cur();[].forEach.call(nav.children,function(a,i){a.classList.toggle('on',i===c)})});
-addEventListener('keydown',function(e){if(e.target.closest&&e.target.closest('.rv,.step,[data-go]')&&(e.key===' '||e.key==='Enter'))return;
- if(['ArrowDown','ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();go(cur()+1)}if(['ArrowUp','ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();go(cur()-1)}});
-nav.children[0].classList.add('on');
-/* entrance + stat count-up */
-var still=function(){var h=document.documentElement.classList;return h.contains('export')||h.contains('still')||matchMedia('(prefers-reduced-motion: reduce)').matches};
-function countUp(s){if(still())return;[].forEach.call(s.querySelectorAll('.count'),function(el){if(el.dataset.done)return;el.dataset.done=1;
- var t=el.textContent,m=t.match(/^(\D*)(\d+(?:\.\d+)?)(.*)$/);if(!m)return;var to=parseFloat(m[2]),dec=(m[2].split('.')[1]||'').length,t0=0;
- el.style.minWidth=el.offsetWidth+'px';
- (function f(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/900),e=1-Math.pow(1-p,3);el.textContent=m[1]+(to*e).toFixed(dec)+m[3];if(p<1)requestAnimationFrame(f);else el.textContent=t})(performance.now())})}
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');setTimeout(function(){countUp(e.target)},350)}})},{threshold:.35});
+/* builds: a slide reached with the keys opens on its title, and each press shows its next [data-s] step; back hides them again.
+   Slides reached any other way (scroll, dots, agenda, export, phone, ?read) are always fully built. */
+var B=S.map(function(s){return [].reduce.call(s.querySelectorAll('[data-s]'),function(m,e){return Math.max(m,+e.dataset.s)},0)}),armed=-1;
+function canBuild(){return !document.documentElement.classList.contains('export')&&!/[?&]read\b/.test(location.search)&&!matchMedia('(max-width:700px)').matches}
+function build(i,k,quiet){var s=S[i];s.dataset.k=k;if(quiet)s.classList.add('nt');s.classList.toggle('bld',k<B[i]);
+ [].forEach.call(s.querySelectorAll('[data-s]'),function(e){e.classList.toggle('vis',+e.dataset.s<=k)});if(quiet){void s.offsetWidth;s.classList.remove('nt')}
+ else if(window.__count)setTimeout(function(){__count(s)},150)}
+function step(d){if(moving)finishMove();
+ var c=armed>=0&&Math.abs(S[armed].offsetTop-deck.scrollTop)<innerHeight*.75?armed:cur();
+ if(!canBuild()){go(c+d);return}
+ var k=S[c].dataset.k===undefined?B[c]:+S[c].dataset.k;
+ if(d>0){if(k<B[c]){build(c,k+1);return}if(c<S.length-1){armed=c+1;build(c+1,0,true);go(c+1)}}
+ else{if(k>0){build(c,k-1);return}if(c>0){armed=c-1;build(c-1,B[c-1],true);go(c-1)}}}
+deck.addEventListener('scroll',function(){var c=cur();[].forEach.call(nav.children,function(a,i){a.classList.toggle('on',i===c)});document.body.classList.toggle('nvon',S[c].classList.contains('nv'));
+ if(armed>=0&&Math.abs(S[armed].offsetTop-deck.scrollTop)>innerHeight*1.5)armed=-1;
+ S.forEach(function(s,j){if(j!==armed&&s.classList.contains('bld')&&Math.abs(s.offsetTop-deck.scrollTop)>=innerHeight)build(j,B[j],true)})},{passive:true});
+window.__step=step;
+addEventListener('keydown',function(e){if(document.documentElement.classList.contains('player'))return;if(e.target.closest&&e.target.closest('.rv,.step,[data-go]')&&(e.key===' '||e.key==='Enter'))return;
+ if(['ArrowDown','ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();step(1)}if(['ArrowUp','ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();step(-1)}});
+nav.children[0].classList.add('on');document.body.classList.toggle('nvon',S[cur()].classList.contains('nv'));
+/* touch, inside the player's frame: a swipe either way or a tap moves one step (left third of the slide goes back).
+   The frame never scrolls by touch, so a slide never slides half away. Links, videos, and the agenda keep their own taps. */
+if(self!==top&&matchMedia('(pointer:coarse)').matches){document.documentElement.classList.add('touch');var t0=null;
+ deck.addEventListener('touchstart',function(e){t0=e.touches.length===1?{x:e.touches[0].clientX,y:e.touches[0].clientY}:null},{passive:true});
+ deck.addEventListener('touchmove',function(e){var z=1;try{z=parent.visualViewport?parent.visualViewport.scale:1}catch(x){}if(z<1.05&&e.touches.length===1&&e.cancelable)e.preventDefault()},{passive:false});
+ deck.addEventListener('touchend',function(e){if(!t0)return;var t=e.changedTouches[0],dx=t.clientX-t0.x,dy=t.clientY-t0.y,z=1,k=30/(window.__ps||1);t0=null;
+  try{z=parent.visualViewport?parent.visualViewport.scale:1}catch(x){}if(z>1.05)return;
+  var d=Math.abs(dx)>Math.abs(dy)?dx:dy;if(Math.abs(d)>k){step(d<0?1:-1);return}
+  if(e.target.closest('a,button,video,[data-go],.rv,.step'))return;e.preventDefault();step(t.clientX>innerWidth/3?1:-1)},{passive:false})}
+/* motion (see css/s60-motion.css): on only on screen, never for export, ?read, the player shell, or reduced motion.
+   The HTML always holds the final text, so a counter or a split headline that never runs still reads correctly. */
+var HM=document.documentElement;
+if(!HM.classList.contains('player')&&!HM.classList.contains('export')&&!/[?&]read\b/.test(location.search)&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+ HM.classList.add('motion');
+ new MutationObserver(function(){if(HM.classList.contains('export')&&HM.classList.contains('motion')){HM.classList.remove('motion');
+  /* a transition already under way keeps running when its rule goes away, so jump every one to its end */
+  if(document.getAnimations)document.getAnimations().forEach(function(a){try{a.finish()}catch(e){}})}}).observe(HM,{attributes:true,attributeFilter:['class']});
+ /* hero headlines (statements, quotes, chapters, takeaways, the cover) build word by word in English and phrase by phrase in Chinese;
+    content-slide titles rise as one block so they read at once */
+ var HERO='.ae.st h2,.ae.bq h2,.ae.sec h2,.ae.tk h2,.cover h1';
+ if(HM.lang==='en')[].forEach.call(document.querySelectorAll(HERO),function(h){var i=0;
+  (function walk(n){[].slice.call(n.childNodes).forEach(function(c){
+   if(c.nodeType===3){var f=document.createDocumentFragment();c.nodeValue.split(/(\s+)/).forEach(function(p){if(!p)return;
+     if(/^\s+$/.test(p)){f.appendChild(document.createTextNode(p));return}var w=document.createElement('span');w.className='wd';w.style.setProperty('--i',i++);w.textContent=p;f.appendChild(w)});
+    n.replaceChild(f,c)}else if(c.nodeType===1&&c.tagName!=='BR')walk(c)})})(h);h.classList.add('wsplit')});
+ else [].forEach.call(document.querySelectorAll(HERO),function(h){var i=0;
+  /* phrases stay inline (opacity only), so the Chinese line breaks are exactly those of the static slide */
+  (function walk(n){[].slice.call(n.childNodes).forEach(function(c){
+   if(c.nodeType===3){var f=document.createDocumentFragment();c.nodeValue.replace(/([，。、：；？！])/g,'$1\u0001').split('\u0001').forEach(function(p){if(!p)return;
+     var w=document.createElement('span');w.className='phr';w.style.setProperty('--i',i++);w.textContent=p;f.appendChild(w)});
+    n.replaceChild(f,c)}else if(c.nodeType===1&&c.tagName!=='BR')walk(c)})})(h);h.classList.add('psplit')});
+}
+[].forEach.call(document.querySelectorAll('.mmap'),function(g){[].forEach.call(g.querySelectorAll('.mm-c'),function(c,k){c.style.setProperty('--c',k)});[].forEach.call(g.querySelectorAll('.mm li'),function(c,k){c.style.setProperty('--i',k)})});
+[].forEach.call(document.querySelectorAll('.tln,.apps,.tbl,.trk,.paths,.tk-prog,.pg-m,.trio,.proj,.agx,.spine'),function(g){
+ [].slice.call(g.children).forEach(function(c,i){c.style.setProperty('--i',i);if(g.classList.contains('tbl'))[].forEach.call(c.children,function(x){x.style.setProperty('--i',i)})});
+ if(g.classList.contains('pg-m')){var j=0;[].forEach.call(g.children,function(c){if(c.classList.contains('f'))c.style.setProperty('--i',j++)})}});
+/* counters: the first number in each .big or .cnt counts up from zero, keeping its prefix, commas, decimals, and unit */
+function firstNum(el){var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);while(w.nextNode())if(/\d/.test(w.currentNode.nodeValue))return w.currentNode;return null}
+function countUp(s){if(!HM.classList.contains('motion'))return;
+ [].forEach.call(s.querySelectorAll('.big,.cnt'),function(el){if(el.dataset.run||el.classList.contains('nc')||(s.classList.contains('bld')&&el.closest('[data-s]:not(.vis)')))return;
+  var t=firstNum(el);if(!t)return;var full=t.nodeValue,m=full.match(/^([^\d]*)(\d[\d,]*(?:\.\d+)?)([\s\S]*)$/);if(!m)return;
+  var raw=m[2],to=parseFloat(raw.replace(/,/g,'')),dec=(raw.split('.')[1]||'').length,cm=raw.indexOf(',')>=0,t0=0,D=to>=1000?1500:1200;
+  el.dataset.run=1;el.style.minWidth=getComputedStyle(el).width;
+  requestAnimationFrame(function f(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/D),v=to*(1-Math.pow(1-p,4));
+   if(p>=1||!HM.classList.contains('motion')){t.nodeValue=full;el.style.minWidth='';return}
+   t.nodeValue=m[1]+(cm?Math.round(v).toLocaleString('en-US'):v.toFixed(dec))+m[3];requestAnimationFrame(f)})})}
+window.__count=countUp;
+var io=new IntersectionObserver(function(es){es.forEach(function(e){var s=e.target;
+ if(e.intersectionRatio>=.35){if(!s.classList.contains('in')){s.classList.add('in');setTimeout(function(){countUp(s)},420)}}
+ else if(!e.isIntersecting&&HM.classList.contains('motion')){s.classList.remove('in');[].forEach.call(s.querySelectorAll('[data-run]'),function(x){delete x.dataset.run})}})},{threshold:[0,.35]});
 S.forEach(function(s){io.observe(s)});
+/* decode every slide image (and the next slide's) so a transition never paints an empty box */
+function warmSlide(i){if(i<0||i>=S.length)return;[].forEach.call(S[i].querySelectorAll('img[src]'),function(img){
+  if(img.decode)img.decode().catch(function(){});else{var x=new Image();x.src=img.currentSrc||img.src}})}
+function warmAll(){S.forEach(function(_,i){warmSlide(i)})}
+if(document.readyState==='complete')warmAll();else addEventListener('load',warmAll);
+if(document.fonts)document.fonts.ready.then(warmAll);
 </script><script>
 /* detail on demand: hover, click, or Enter/Space opens the detail inside its own card; Esc closes */
 (function(){var R=[].slice.call(document.querySelectorAll('.rv'));
@@ -46,7 +154,7 @@ window.__close=close})();
    fit the screenshots to the height, then spread spare height into the gaps (type size never changes) */
 (function(){
 function lay(){var X=document.documentElement.classList.contains('export');if(matchMedia('(max-width:700px)').matches&&!X){[].forEach.call(document.querySelectorAll('#deck *'),function(e){if(e.style.minHeight)e.style.minHeight='';if(e.style.marginTop&&e.dataset&&e.dataset.mt!==undefined)e.style.marginTop='';if(e.style.marginBottom==='auto')e.style.marginBottom=''});return}
- S.forEach(function(s){var w=s.querySelector('.w');if(!w)return;var kids=[].slice.call(w.children);
+ S.forEach(function(s){var w=s.querySelector('.w');if(!w||s.classList.contains('ae'))return;var kids=[].slice.call(w.children);
   kids.forEach(function(k){k.style.marginTop='';k.style.marginBottom=''});w.style.minHeight='';w.style.paddingTop=w.style.paddingBottom='';
   var RG=[].slice.call(s.querySelectorAll('.pillars,.habits'));RG.forEach(function(g){[].forEach.call(g.children,function(c){c.style.minHeight=''})});
   var vx=s.querySelector('.vx');if(vx){vx.style.removeProperty('--vw');

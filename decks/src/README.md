@@ -19,6 +19,8 @@ Source for the Oct 14, 2026 ISB PTA Parent Coffee deck, "Our Kids' Jobs Don't Ex
 5. Check locally:
    - From the repo root, run `python3 -m http.server 8780` and open http://127.0.0.1:8780/decks/conversation.html.
    - Keys: arrows or space to move. The EN · 中文 pill at top right switches language.
+   - Every screen shows the real 1920×1080 slide, scaled to fit and letterboxed: the page loads itself at `?stage` into a fixed 1920×1080 frame, so phones never reflow. On touch screens a swipe or a tap moves one step (a tap on the left third goes back). Open `?stage` to see the bare deck at the window's own size (export.py uses it); add `?read` to show every step at once.
+   - Speaker notes live in each slide's `<aside class="notes">`. Add `?notes` to show them in a bar along the bottom; they never appear otherwise or in the PDF.
 6. Commit the source and the rebuilt HTML together, then push to `main`. Vercel deploys within about a minute.
 
 House rules (full detail in `/DESIGN.md` and `/CONTENT-RULES.md`):
@@ -41,7 +43,8 @@ python3 decks/src/export.py
 The script:
 - rebuilds the deck;
 - aborts if any slide is taller than 1080px in export mode;
-- writes `talk/Arena-Parent-Conversation-EN.pdf` and `talk/Arena-Parent-Conversation-CN.pdf` (no QR, about 5MB each);
+- aborts if any text, image, or card sits outside its own card, pane, or pill (`contain.py`; run it alone with `python3 decks/src/contain.py`, add `--georgia` to also test the wider Georgia metrics a phone shows when the web fonts fail to load);
+- writes `talk/Arena-Parent-Conversation-EN.pdf` and `talk/Arena-Parent-Conversation-CN.pdf` (no QR); each PDF is kept under 6 MB for phones and WeChat by lowering the JPEG quality step by step (it prints the quality used);
 - regenerates the /talk swipe gallery (`talk/slides/{en,cn}/NN.jpg`) and its slide counts;
 - writes a presenting copy with the QR to `decks/src/exports/` (git-ignored, not deployed).
 

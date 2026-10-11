@@ -6,10 +6,18 @@ import glob
 css=R('shared.css')+''.join('\n/* ---- '+os.path.basename(f)+' ---- */\n'+open(f,encoding='utf-8').read() for f in sorted(glob.glob(os.path.join(H,'css','*.css'))))
 js=R('shared.js')+''.join('\n'+open(f,encoding='utf-8').read() for f in sorted(glob.glob(os.path.join(H,'js','*.html'))))
 GUARD=R('guard.js')
-bodies={'en':R('body-en.html'),'cn':R('body-cn.html')}
-V=[('en','en','conversation.html','Our Kids’ Jobs Don’t Exist Yet. So Which Skills Will Matter?','↓ / → next · ↑ / ← back',''),
-   ('cn','zh-CN','conversation-cn.html','孩子们未来的工作还不存在，那么，哪些能力最重要？','↓ / → 下一页 · ↑ / ← 上一页','h1,h2,h3,p,li,.quote,.cap,.step b,.t,.mc b')]
-for key,lang,fn,title,hint,gsel in V:
+# {{ic:name}} inlines a Lucide line icon (decks/src/icons, ISC licence) so the deck stays one self-contained file
+def icon(m):
+    s=re.sub(r'<!--.*?-->','',R('icons/'+m.group(1)+'.svg'),flags=re.S)
+    s=re.sub(r'\s*class="[^"]*"|\s*width="24"|\s*height="24"|\s*xmlns="[^"]*"','',s)
+    return re.sub(r'\s+',' ',s).replace('> <','><').strip().replace('<svg','<svg class="lic" aria-hidden="true"',1)
+bodies={k:re.sub(r'\{\{ic:([\w-]+)\}\}',icon,R(f)) for k,f in (('en','body-en.html'),('cn','body-cn.html'))}
+V=[('en','en','conversation.html','Our Kids’ Jobs Don’t Exist Yet. So Which Skills Will Matter?','↓ / → next · ↑ / ← back','Swipe or tap to go on','Slides',''),
+   ('cn','zh-CN','conversation-cn.html','孩子们未来的工作还不存在，那么，哪些能力最重要？','↓ / → 下一页 · ↑ / ← 上一页','轻点或滑动翻页','幻灯片','h1,h2,h3,p,li,dd,.quote,.cap,.step b,.t,.mc b')]
+# without ?stage the page is the player: it loads itself at ?stage into a 1920×1080 frame (see the player in shared.js).
+# export.py and the frame use ?stage directly; without JavaScript the page falls back to the phone reading layout.
+MODE="<script>(function(h){if(self!==top)h.classList.add('framed');else if(!/[?&]stage\\b/.test(location.search))h.classList.add('player')})(document.documentElement)</script>"
+for key,lang,fn,title,hint,phint,ftitle,gsel in V:
     ON=' class="on"'
     pill=''.join('<a href="/decks/%s"%s>%s</a>'%(f,ON if f==fn else '',lab) for f,lab in [('conversation.html','EN'),('conversation-cn.html','中文')])
     guard=GUARD.replace('__SEL__',gsel) if gsel else ''
@@ -18,8 +26,10 @@ for key,lang,fn,title,hint,gsel in V:
 <meta name="robots" content="noindex">
 <title>{title}</title>
 <link rel="icon" href="/favicon.svg">
+{MODE}
 <style>{css}</style></head><body>
 <div class="lang">{pill}</div><nav class="nav" id="nav"></nav><div class="hint">{hint}</div>
+<div class="stage" id="stage"><iframe id="frame" title="{ftitle}" allow="autoplay; fullscreen"></iframe></div><div class="phint">{phint}</div>
 <main class="deck" id="deck">
 {bodies[key]}
 </main>

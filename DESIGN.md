@@ -80,6 +80,11 @@ Last full audit: 2026-10-01. That covers the live site at `7ef560c` (computed in
 | `#3B4C7E` | One-pager CTA card: a muted navy, after "way too bright… lessen the opacity" (09-28). See D3. |
 | `rgba(47,85,168,.13)` | One-pager keyword highlight |
 | `#C9D2EC` | Placeholder under video and screenshot frames |
+| `rgba(11,26,74,.16)` (`--edge`) | Hairline edge on parent-talk deck cards, rows, and the ivory pair card (10-11) |
+| `#2F55A8` / `#B3BFDB` (`--data` / `--data-2`) | Chart bars: the bar that makes the point / context bars (10-11) |
+| `rgba(11,26,74,.07)` (`--track`) | The 0–100% track behind share bars (10-11) |
+| `rgba(11,26,74,.15)` (`--dots`) | Deck dot grid, lighter than the web grid so charts stay calm (10-11) |
+| `#A9BEEA` / `#C9D6F2` | Light blue on navy: kickers, italic key words, big numbers, and agenda subtitles on navy slides (10-11) |
 
 ### 3.4 Brand-package colors (logo files and social art)
 Navy `#152636`, beige `#EFE3D4`, ivory `#F6F0E5`, bronze `#7E6238` (meander border). These are the colors of the logo artwork itself. The website and print ink is `#0B1A4A` (see D1). Social riso art pairs navy ink and cream paper with **one** coral accent.
@@ -136,6 +141,8 @@ Fonts are always self-hosted. Google Fonts and other CDNs are blocked in mainlan
 | Card body | 15.5 / 1.6; opened detail 15 / 1.55 |
 | Source | italic 13 / 1.45, muted |
 | Labels | **uppercase serif**, 600, 11.5–12.5px, 0.14–0.15em tracking. Never mono. |
+
+**Parent-talk deck (`.ae` slides, 10-11):** kicker 16 caps / 600 / 0.14em, `--ink-2` (Chinese 18); action title 50 / 1.12 (Chinese 46 / 1.3); statement-slide title 72 / 1.08 (Chinese 62 / 1.32; the closing line 62, Chinese 56); statement subline 30 / 1.45; card heading 32; body 26; labels and sources 15; big numbers 128–168 at **weight 300**, `--ink-2` (light blue on navy). Chinese emphasis is color only, never a slanted fake italic.
 
 ### 4.4 One-pager type scale [Print] (pt, English / Chinese)
 | Role | English | Chinese |
@@ -225,7 +232,7 @@ Chinese body runs about 1.12× the English size, labels about 1.16×. Chinese tr
 |---|---|
 | **Web inner-page card** (`.pg` / `.pc`) | `#FCF3ED`, 1px border (`#D4C0AA` or `rgba(11,26,74,.16)`), **radius 12**, padding about 26px, no shadow. Hover: the border darkens (`.pc` → `#2F55A8`), with **no lift**. |
 | **Web homepage card** (program, pillar, co-founder) | `#FBF6EF` (co-founder white), 1px `#D4C0AA`, **radius 16**. Hover: −2 to −3px lift plus a soft shadow (§7.2). |
-| **Deck card** [Print] | `#FCF3ED`, **1px navy border**, radius 12, padding `clamp(22..30px)`, no shadow. Open or hover: `#2F55A8` border and `#FFF9F4` fill. |
+| **Deck card** [Print] | `#FCF3ED`, **1px navy border**, radius 12, padding `clamp(22..30px)`, no shadow. Open or hover: `#2F55A8` border and `#FFF9F4` fill. The parent-talk deck has no open/hover cards, so its cards use the hairline `--edge` instead of navy (10-11). |
 | **Expandable card** [Print] (`.rv`) | A "+" (24px, `--ink-2`) top-right rotates 45° when open. Detail opens with a 0fr→1fr grid animation after a 28×3px dot rule. Closed cards in a row share a height. Opening pushes following content down (it slides), never covers it (10-01). |
 | **One-pager card** [Print] | `#FCF3ED`, radius 6, **no border**, no shadow, padding 2.6×3.2mm (borders removed to save space, 09-28) |
 | **Sub-card** | Must look subordinate: smaller, lighter fill (`#EFE3D4`), and visually inside its parent (09-28) |
@@ -274,6 +281,8 @@ See §4.5. This is the sanctioned way to make agency, taste, and craft stand out
 
 ### 6.6 Stats and numbers
 Stats are a plain row with thin 1px rules, **never boxed**. Numbers: Newsreader 400, `--ink` (web) or `--ink-2` (print). Logos can stand in for numbers (judges' institutions).
+- **Deck big numbers** (parent talk, 10-11): weight 300, 128–168px, one per slide; an earlier value beside it is muted `#5B5B6B`, and the change is drawn as an arrow with the time span under it ("Six months").
+- **Deck charts:** horizontal bars only. Shares sit on a 0–100% track and counts on a zero baseline with no track, so bar length is the value itself. Every bar is labeled with its exact value. Only the bar that makes the title's point uses `--data`; the rest use `--data-2`. A reference line (such as "Half of jobs") is one 1.5px navy tick across the bars, labeled once.
 
 ### 6.7 Sequences: steps, timelines, and grade map
 - **Horizontal tracks**, never vertical lists (09-27). One schedule per program.
@@ -335,7 +344,17 @@ Stats are a plain row with thin 1px rules, **never boxed**. Numbers: Newsreader 
 QR on a `#FCF3ED` square with 10px padding, inside a pane. Caps caption, with the URL in italic below on a single unbroken line.
 
 ### 6.14 Icons
-**No decorative icons.** The line-drawing curriculum icons were retired ("really low quality… we don't need icons", 09-28). Allowed: functional glyphs (→, +, chevrons, the LinkedIn and email icons on founder links), and the small 22px label icons on deck comparison cards.
+**No decorative icons.** The line-drawing curriculum icons were retired ("really low quality… we don't need icons", 09-28). Allowed: functional glyphs (→, +, chevrons, the LinkedIn and email icons on founder links), the small 22px label icons on deck comparison cards, and an 18px line person glyph before a role label ("Doctor", "Lawyer") in deck workflows, where it separates the person's step from AI's (10-11).
+
+### 6.15 Parent-talk deck layouts [Print] (10-11)
+Modeled on Phillip's showcase-wrap deck (portal.arenaschool.org/decks/showcase-wrap.html). Each layout does one job; reuse it rather than inventing a new one.
+- **Kicker:** one uppercase serif line above every title. It is concrete context or a mini-takeaway ("149 US employers, spring 2026", "Other companies retrain first"), never a topic label. It replaces the section tracker.
+- **Statement slide (`.st.nv`):** navy `#0B1A4A`, no dots, the ivory seal at 5% cropped bottom right. Kicker, one large title with one light-blue italic phrase, and at most one subline or one big number. Used to open each part, for the question that frames the talk, the quote, and the close. Text sits directly on navy: the pane rule (§6.2) is for patterned backgrounds.
+- **Rows (`.rows`):** one ivory row per example. Logo plus field label, AI's step, an arrow, the person's step, and a navy date pill on the right.
+- **Flow:** before and after for one workplace. The old step on a pane, a dashed divider, AI's draft in a dashed-blue box, an arrow, and the person's check on ivory.
+- **Chain:** three steps in order with arrows, each labeled with when it happens ("First", "Then", "Only if needed").
+- **Arc:** two big numbers with the time between them, each with its own 0–100% bar.
+- **Pair:** the same tool used two ways. An ivory card and a navy card, each with a pill label, a quoted request in large italic, and one line on what happens.
 
 ---
 
@@ -388,7 +407,8 @@ QR on a `#FCF3ED` square with 10px padding, inside a pane. Caps caption, with th
 
   | Medium | Dots |
   |---|---|
-  | Web and deck | `radial-gradient(rgba(11,26,74,.22–.28) 1.1px, transparent 1.4px)` on a 24px grid |
+  | Web | `radial-gradient(rgba(11,26,74,.22–.28) 1.1px, transparent 1.4px)` on a 24px grid |
+  | Deck | the same at 0.15 opacity (`--dots`, 10-11) |
   | One-pager | 0.16 opacity, 0.9px dots, 14px grid |
 
   Plus the seal watermark: about 7–8.5% opacity, large, partly cropped.
@@ -401,7 +421,7 @@ QR on a `#FCF3ED` square with 10px padding, inside a pane. Caps caption, with th
   - Current direction: slow, gentle flowing dots with **no cursor reaction** (09-30, supersedes the 09-27 cursor ombré). The code still reacts to the cursor; see Known drift.
 - **Behind anything the reader must parse** (timelines, steps, stats, forms, tables): plain paper, no dots (09-27).
 - **Dots stay on the halftone grid.** Never random speckle or splatter ("looks like Pollock", 09-27). No speckle on darker beige.
-- **Deck slides alternate** between dotted `#F3E9DD` and plain `#EFE3D4`.
+- **Deck slides alternate** between dotted `#F3E9DD` and plain `#EFE3D4`. In the parent talk, navy statement slides (§6.15) sit between the parts and carry no dots (10-11).
 - **Midjourney riso art** (Drive › 04 › social-media-resources) is used **as still images only**: social covers and occasional illustrations. Never animated, never as a moving website background (09-27).
 
 ---
@@ -419,6 +439,7 @@ QR on a `#FCF3ED` square with 10px padding, inside a pane. Caps caption, with th
 - **Deck:**
   - Cards open in place and push following content down with a 300ms ease (10-01).
   - Count-up stats on screen only.
+  - **Step builds** (parent talk, 10-11): when a slide is reached with the arrow keys it opens on its title, and each press reveals the next part (`data-s`), fading up 10px over about 0.5s while bars grow from zero. Back hides them again. Slides reached any other way (scroll, dots, agenda, phone, `?read`, export, and PDF) always show in full, and reduced motion keeps the steps but drops the movement.
   - Use transitions or interactivity to lighten text-heavy slides (09-30).
 - **Banned:** morphing or "AI reshaping" art, animated Midjourney images, jittery timelines, spinning or bouncing decorative elements. The inner-header seal turns once every 4 minutes, which is the only allowed rotation (see D7).
 
@@ -444,9 +465,15 @@ QR on a `#FCF3ED` square with 10px padding, inside a pane. Caps caption, with th
   - Every slide must fit 1080px in export mode; `pdf.py` aborts otherwise.
   - Check at both 1920×1080 and 1440×900, with every card opened.
 - **Type:** serif only (§4.1). The parent-talk deck is lightly branded.
-- **Wording:** no first or third person on slides (09-30). Contact info is neutral ("Contact information").
+- **Wording:** no first or third person on slides (09-30). Contact info is neutral ("Contact information"). Exception (10-11, Phillip): the parent-talk speakers slide may say why the speakers are credible in the first person ("We use AI at work…"), within CONTENT-RULES (no builder or startup vocabulary).
 - **Appendix:** appendix slides (such as Sources) come after the contact/Q&A slide.
-- **Text with no home:** every floating sentence goes into a pane or card (09-30).
+- **Every screen shows the real slide (10-11, Phillip):** the deck never reflows. In a top-level window it runs as a player: the 1920×1080 slide loads in a frame (`?stage`), is scaled uniformly to fit, and is letterboxed in navy, on phones exactly as on desktop. Swipe or tap advances on touch screens. Export and the /talk thumbnails load `?stage` directly.
+- **Speaker notes:** each slide may carry an `<aside class="notes">`. Hidden on screen and in the PDF; shown in a bar along the bottom with `?notes`.
+- **PDF size:** each exported PDF stays under 6 MB (`export.py` steps JPEG quality down until it fits).
+- **Pacing (parent talk, 10-11):** one main point per slide, and a single big number or quote gets its own slide. This is a judgment call, not a rule: keep evidence and comparisons on screen when parents should read or photograph them.
+- **Text with no home:** every floating sentence goes into a pane or card (09-30), except on navy statement slides, which have no pattern behind the text (§6.15).
+- **Agenda:** the title-slide agenda is a solid navy pane with ivory text; its links jump to each part's statement slide.
+- **Licensed photos:** a stock photo is allowed only when no program photo fits the slide. The credit goes on the slide's source line and in the appendix (photographer, site, and photo link).
 
 ### 10.3 One-pagers and infographics [Print]
 - **Source:** `riso-v2/site-preview/_kit/onepager.html` / `onepager-cn.html` (canonical).

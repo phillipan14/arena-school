@@ -5,14 +5,15 @@
  --serif:'Newsreader','Songti SC','Noto Serif SC','Source Han Serif SC',Georgia,serif;
  --r:12px;--ease:cubic-bezier(.2,.7,.2,1);--z:1;--gut:150px;--vh:calc(1vh / var(--z));
  --cp:clamp(22px,calc(3 * var(--vh)),30px) clamp(22px,1.9vw,30px);
- --pane:rgba(255,255,255,.45);--pp:clamp(24px,calc(3.4 * var(--vh)),34px) clamp(26px,2.4vw,40px)}
+ --pane:rgba(255,255,255,.45);--pp:clamp(24px,calc(3.4 * var(--vh)),34px) clamp(26px,2.4vw,40px);
+ --edge:rgba(11,26,74,.16);--data:#2F55A8;--data-2:#B3BFDB;--track:rgba(11,26,74,.07);--dots:rgba(11,26,74,.15)}
 @media (min-width:1700px) and (min-height:950px){:root{--z:1.32}}
 *{box-sizing:border-box}html,body{margin:0;height:100%}
 body{font-family:var(--serif);color:var(--ink);background:var(--paper);overflow:hidden;-webkit-font-smoothing:antialiased;font-variant-numeric:lining-nums}
 button{font:inherit;color:inherit}
 .deck{height:100vh;overflow-y:auto;scroll-snap-type:y mandatory;scroll-behavior:smooth}
 .s{position:relative;min-height:100vh;scroll-snap-align:start;display:flex;align-items:center;overflow:hidden;
- background:var(--paper) radial-gradient(rgba(11,26,74,.22) 1.1px,transparent 1.4px) 12px 12px/24px 24px}
+ background:var(--paper) radial-gradient(var(--dots) 1.1px,transparent 1.4px) 12px 12px/24px 24px}
 .s.alt{background-color:var(--beige);background-image:none}
 .w{position:relative;z-index:2;zoom:var(--z);width:calc((100vw - var(--gut)) / var(--z));margin:0 auto;
  padding:clamp(26px,calc(5.5 * var(--vh)),64px) 0;display:flex;flex-direction:column;align-items:stretch}
@@ -229,6 +230,27 @@ figcaption.rv.open>.rv-d,figcaption.rv:focus-visible>.rv-d{transform:none}
 .nav{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:9;display:flex;flex-direction:column;gap:9px}
 .nav a{width:9px;height:9px;border-radius:50%;background:rgba(11,26,74,.25);transition:background-color .2s ease}.nav a.on{background:var(--ink2);box-shadow:0 0 0 3px rgba(47,85,168,.25)}
 .hint{position:fixed;left:22px;bottom:16px;z-index:9;font:italic 400 13px/1 var(--serif);color:var(--muted)}
+
+/* player (Oct 11): the real 1920×1080 slide on every screen, scaled to fit and letterboxed in navy, never reflowed.
+   The outer page keeps the language pill; the frame keeps its dots and key hint only while they are big enough to use. */
+.stage,.phint{display:none}
+.player body{background:var(--ink)}
+.player .deck,.player .nav,.player .hint{display:none}
+.player .stage{display:block;position:fixed;inset:0;overflow:hidden;background:var(--ink)}
+.stage iframe{position:absolute;left:50%;top:50%;width:1920px;height:1080px;border:0;transform-origin:50% 50%;background:var(--paper)}
+.player .phint.on{display:block;position:fixed;z-index:9;left:0;right:0;bottom:calc(16px + env(safe-area-inset-bottom));text-align:center;font:italic 400 15px/1 var(--serif);color:rgba(252,243,237,.72);pointer-events:none}
+.player .lang{border-color:rgba(252,243,237,.6)}.player .lang a+a{border-left-color:rgba(252,243,237,.6)}
+/* no letterbox above or below: stand upright in the side letterbox, foot level with the slide's bottom margin (72 × 1.32).
+   Only when that letterbox is too narrow too does it dock inside the frame's right margin, centred in it (half of 6.25% of 1920). */
+.player.side .lang{flex-direction:column;top:auto;right:calc(var(--side) / 2);bottom:calc(var(--band) + 95px * var(--ps));transform:translateX(50%)}
+.player.dock .lang{flex-direction:column;top:auto;right:calc(var(--side) + 60px * var(--ps));bottom:calc(var(--band) + 95px * var(--ps));transform:translateX(50%) scale(var(--pk));transform-origin:50% 100%;border-color:var(--ink)}
+.player:is(.dock,.side) .lang a{text-align:center;padding:7px 6px 6px;font-size:11px}.player:is(.dock,.side) .lang a+a{border-left:0;border-top:1.5px solid var(--ink)}
+.player.side .lang a+a{border-top-color:rgba(252,243,237,.6)}
+@media (min-width:701px){html:not(.player) .lang{flex-direction:column;top:auto;right:calc(var(--margin-x) / 2);bottom:calc(var(--pad-bot) * var(--z));transform:translateX(50%)}
+ html:not(.player) .lang a{text-align:center;padding:7px 6px 6px;font-size:11px}html:not(.player) .lang a+a{border-left:0;border-top:1.5px solid var(--ink)}}
+.framed .lang,.tiny .nav,.tiny .hint{display:none}
+.touch .deck{overflow:hidden;scroll-snap-type:none}
+@media print{.player .stage,.player .phint{display:none}.player .deck{display:block}}
 
 /* export / print: every detail expanded, in place */
 .export .r{opacity:1!important;transform:none!important;transition:none!important}.export .m::after{transform:scaleX(1)!important;transition:none!important}

@@ -21,9 +21,12 @@ ROOT = os.path.abspath(os.path.join(SRC, '..', '..'))
 OUT = sys.argv[sys.argv.index('--out') + 1] if '--out' in sys.argv else None
 TALK = OUT or os.path.join(ROOT, 'talk')
 PRESENT = OUT or os.path.join(SRC, 'exports')
-MAX_MB = 6
+MAX_MB = 5.9
+MIN_Q = 56
 
 subprocess.run([sys.executable, os.path.join(SRC, 'build.py')], check=True)
+sys.path.insert(0, SRC)
+import contain
 
 # serve the repo root so the deck's absolute paths (/fonts, /logos, /photos) resolve
 class Quiet(http.server.SimpleHTTPRequestHandler):
@@ -44,7 +47,7 @@ with sync_playwright() as p:
     for deck, out, noqr, gal, q in JOBS:
         os.makedirs(os.path.dirname(out), exist_ok=True)
         pg = b.new_page(viewport={'width': 1920, 'height': 1080}, device_scale_factor=1.5)
-        pg.goto(f'{BASE}/decks/{deck}.html', wait_until='networkidle')
+        pg.goto(f'{BASE}/decks/{deck}.html?stage', wait_until='networkidle')
         pg.evaluate('document.fonts.ready'); pg.wait_for_timeout(500)
         pg.evaluate("document.documentElement.classList.add('export')" + (";document.documentElement.classList.add('noqr')" if noqr else '') + ';window.__space()')
         pg.wait_for_timeout(400)
@@ -52,14 +55,28 @@ with sync_playwright() as p:
         tall = pg.evaluate("[...document.querySelectorAll('section.s')].map((s,i)=>[i+1,Math.max(s.offsetHeight,s.scrollHeight)]).filter(x=>x[1]>1080)")
         if tall:
             b.close(); sys.exit(f'ABORT {deck}: slides taller than 1080px in export mode (slide, px): {tall}')
+        # fitting the page is not enough: every line of text, image, and card must also stay inside its own card or pill
+        loose = contain.check(pg)
+        if loose:
+            b.close(); sys.exit(f'ABORT {deck}: outside their container (slide, container, item, overflow in px): {loose}')
         n = pg.evaluate("document.querySelectorAll('section.s').length"); pages = []
         for i in range(n):
             pg.evaluate(f"document.getElementById('deck').scrollTop=document.querySelectorAll('section.s')[{i}].offsetTop"); pg.wait_for_timeout(200)
             pages.append(Image.open(io.BytesIO(pg.screenshot())).convert('RGB'))
-        pages[0].save(out, save_all=True, append_images=pages[1:], resolution=216.0, quality=q)
-        mb = os.path.getsize(out) / 1e6
-        print(f'{os.path.relpath(out, ROOT) if not OUT else out}: {len(PdfReader(out).pages)} pages, {mb:.1f} MB')
-        if gal and mb > MAX_MB: print(f'  WARNING: over {MAX_MB} MB, slow on phones / WeChat')
+        # every PDF must stay under MAX_MB for phones and WeChat: step the JPEG quality down, then the resolution
+        q0 = q
+        for scale in (1, .85, .72):
+            w, h = round(2880 * scale), round(1620 * scale)
+            imgs = pages if scale == 1 else [im.resize((w, h), Image.LANCZOS) for im in pages]
+            q = q0
+            while True:
+                imgs[0].save(out, save_all=True, append_images=imgs[1:], resolution=216.0 * scale, quality=q, subsampling=2, optimize=True)
+                mb = os.path.getsize(out) / 1e6
+                if mb < MAX_MB or q <= MIN_Q: break
+                q -= 4
+            if mb < MAX_MB: break
+        print(f'{os.path.relpath(out, ROOT) if not OUT else out}: {len(PdfReader(out).pages)} pages, {mb:.1f} MB, JPEG quality {q}, {w}×{h}')
+        if mb >= MAX_MB: print(f'  WARNING: over {MAX_MB} MB even at quality {MIN_Q}, slow on phones / WeChat')
         if gal:
             d = os.path.join(TALK, 'slides', gal); os.makedirs(d, exist_ok=True)
             for f in os.listdir(d):

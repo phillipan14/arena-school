@@ -1,0 +1,76 @@
+/* ===== Oct 11 · motion. Everything here is scoped to html.motion, which shared.js sets only on screen, never for
+   export, print, ?read, or prefers-reduced-motion. Without it every element sits in its final state, so the PDF and the
+   /talk gallery always show the finished slide. Only opacity and transform animate (plus SVG dashes on the two rings),
+   so every frame stays on the compositor on a phone. One timing system for the whole deck:
+   fades .5s, moves .7s, draws 1.2s, ease-out for arrivals, ease-in-out for wipes and curtains, never an overshoot;
+   items in a group follow one another 120ms apart, after the title has settled. ===== */
+:root{--t-f:.5s;--t-m:.7s;--t-d:1.2s;--e-o:cubic-bezier(.2,.7,.2,1);--e-io:cubic-bezier(.65,0,.35,1);--e-x:cubic-bezier(.4,0,.2,1);--st:120ms;--t0:.3s}
+@media screen{
+ /* slide to slide (shared.js go()): the leaving slide's content lifts away and fades; the arriving slide's content settles a short
+    way up as it fades in. Statements and quotes wait a beat longer on the empty page; going back is quicker. */
+ .motion .s>.w{transition:opacity var(--t-f) ease,transform var(--t-m) var(--e-o)}
+ .motion .s:not(.in)>.w{opacity:0;transform:translateY(16px)}
+ .motion .s.out>.w{opacity:0;transform:translateY(-10px);transition:opacity .22s var(--e-x),transform .3s var(--e-x)}
+ /* navy chapter slides (sections, the stakes, the close): a navy panel rises over the page, and lifts away again when leaving */
+ .curtain{position:fixed;inset:0;z-index:8;background:var(--ink);transform:translateY(100%);pointer-events:none;will-change:transform}
+ .curtain.up{transform:none;transition:transform .66s var(--e-io)}
+ .curtain.on{transform:none}
+ .curtain.on.lift{transform:translateY(-100%);transition:transform .7s var(--e-io)}
+
+ /* titles: one block on content slides (shared .r), word by word (English) or phrase by phrase (Chinese) on hero slides */
+ .motion .wsplit.r,.motion .psplit.r{opacity:1;transform:none;transition:none}
+ .motion .wsplit .wd{display:inline-block;transition:opacity var(--t-f) ease calc(var(--d,0s) + var(--i) * 34ms),transform var(--t-m) var(--e-o) calc(var(--d,0s) + var(--i) * 34ms)}
+ .motion .s:not(.in) .wsplit .wd{opacity:0;transform:translateY(.36em)}
+ .motion .psplit .phr{transition:opacity .6s ease calc(var(--d,0s) + var(--i) * 140ms)}
+ .motion .s:not(.in) .psplit .phr{opacity:0}
+
+ /* step builds ([data-s], s30-system.css) use the same fade and move */
+ .motion [data-s]{transition:opacity var(--t-f) ease,transform var(--t-m) var(--e-o)}
+
+ /* bars draw from the axis; rings sweep; dots fill in turn */
+ .motion .hb i::after{transition:transform var(--t-d) var(--e-o) .2s}
+ .motion .s:not(.in) .hb i::after{transform:scaleX(0)}
+ .motion .hb .row:nth-child(2) i::after{transition-delay:.32s}.motion .hb .row:nth-child(3) i::after{transition-delay:.44s}.motion .hb .row:nth-child(4) i::after{transition-delay:.56s}
+ .motion .dn .vl{transition:stroke-dasharray 1.4s var(--e-o) .35s}
+ .motion .s:not(.in) .dn .vl,.motion .s.bld [data-s]:not(.vis) .dn .vl,.motion .s.bld .dn[data-s]:not(.vis) .vl{stroke-dasharray:0 100}
+ .motion .pg-m i.f{transition:background-color var(--t-f) ease calc(.45s + var(--i) * .2s),transform var(--t-m) var(--e-o) calc(.45s + var(--i) * .2s)}
+ .motion .s:not(.in) .pg-m i.f{background-color:transparent;transform:scale(.8)}
+
+ /* groups: rows, tiles, and cards arrive one after another */
+ .motion .tbl>div>*,.motion .paths li,.motion .trio .card,.motion .proj .card,.motion .mm-c,.motion .mm li{transition:opacity var(--t-f) ease calc(var(--t0) + var(--i,0) * var(--st)),transform var(--t-m) var(--e-o) calc(var(--t0) + var(--i,0) * var(--st))}
+ .motion .s:not(.in) .tbl>div>*,.motion .s:not(.in) .paths li,.motion .s:not(.in) .trio .card,.motion .s:not(.in) .proj .card,.motion .s:not(.in) .mm-c{opacity:0;transform:translateY(16px)}
+ .motion .paths li{--t0:.55s}
+ .motion .mm-c{--i:var(--c)}
+ .motion .mm li{--t0:.5s;--st:40ms}
+ .motion .s:not(.in) .mm li{opacity:0;transform:translateY(8px)}
+
+ /* timelines: the line draws across, then each point lands on it */
+ .motion .tln::before{transition:transform 1.5s var(--e-io) .3s}
+ .motion .s:not(.in) .tln::before{transform:scaleX(0)}
+ .motion .tln li{transition:opacity var(--t-f) ease calc(.45s + var(--i) * .32s),transform var(--t-m) var(--e-o) calc(.45s + var(--i) * .32s)}
+ .motion .s:not(.in) .tln li{opacity:0;transform:translateY(12px)}
+ .motion .tln .dot{transition:transform var(--t-f) var(--e-o) calc(.45s + var(--i) * .32s)}
+ .motion .s:not(.in) .tln .dot{transform:scale(.3)}
+
+ .motion .story3 .punch{transition:opacity var(--t-m) ease,transform .9s var(--e-o),border-color var(--t-d) ease .2s}
+ .motion .hab3 .no{transition:opacity var(--t-f) ease .2s,transform var(--t-m) var(--e-o) .2s}
+ .motion .s:not(.in) .hab3 .no{opacity:0;transform:translateY(16px)}
+
+ /* chapters: the big numeral rises, the tracker rows slide in, and the current chapter's bar grows */
+ .motion .trk li{transition:opacity var(--t-f) ease calc(.4s + var(--i) * var(--st)),transform var(--t-m) var(--e-o) calc(.4s + var(--i) * var(--st))}
+ .motion .s:not(.in) .trk li{opacity:0;transform:translateX(18px)}
+ .motion .sec .trk li.on::before{transition:transform var(--t-m) var(--e-o) .9s}
+ .motion .s:not(.in) .sec .trk li.on::before{transform:scaleY(0)}
+ .motion .sec-k b,.motion .tk-n b{transition:opacity .8s ease .1s,transform 1s var(--e-o) .1s}
+ .motion .s:not(.in) .sec-k b,.motion .s:not(.in) .tk-n b{opacity:0;transform:translateY(30px)}
+ .motion .tk-prog li{transition:opacity var(--t-f) ease calc(.7s + var(--i) * .1s)}
+ .motion .s:not(.in) .tk-prog li{opacity:0}
+
+ /* the three skills: each ring settles into place as it appears */
+ .motion .model li .ring{transition:transform var(--t-m) var(--e-o)}
+ .motion .s:not(.in) .model li .ring,.motion .s.bld .model li[data-s]:not(.vis) .ring{transform:scale(.88)}
+ .motion .proj figure img{transition:transform 6s ease-out}
+ .motion .s:not(.in) .proj figure img{transform:scale(1.06)}
+ .motion .cv-top,.motion .cv-foot{transition:opacity .8s ease .6s}
+ .motion .s:not(.in) .cv-top,.motion .s:not(.in) .cv-foot{opacity:0}
+}
