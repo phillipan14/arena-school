@@ -138,6 +138,16 @@
  .ae .bd .m4 .mm b{font-size:25px}
  .ae .bd .m4 .mm small,:lang(zh-CN) .ae .bd .m4 .mm small{font-size:19px}
 
+ /* Kimi hiring story: Jing Jing's original wording beside the interview-kit walkthrough */
+ .kimi{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:var(--gap);align-items:stretch;flex:1;min-height:0}
+ .kimi .pane{display:flex;flex-direction:column;justify-content:center;gap:22px;padding:var(--pad-m)!important}
+ .ae .bd .kimi .story{font-size:28px;line-height:1.4;color:var(--ink)}
+ :lang(zh-CN) .ae .bd .kimi .story{font-size:26px;line-height:1.55}
+ .kimi .punch{margin:0;padding-top:16px;border-top:1.5px solid var(--ink2);font:italic 400 28px/1.3 var(--serif);color:var(--ink)}
+ :lang(zh-CN) .kimi .punch{font-style:normal}
+ .kimi .vframe{height:100%;min-height:0}
+ .kimi .vframe video,.kimi .vframe img{width:100%;height:100%;object-fit:cover}
+
  /* a story as three steps, then the line that lands it */
  .story4{display:flex;flex-direction:column;justify-content:space-between;gap:var(--gap);padding:var(--pad-m)!important}
  .story4 .lr{gap:22px;height:40px}.story4 .brand.km{height:32px}
@@ -215,7 +225,7 @@
  .spk .lgx dd img{width:auto;max-height:16px;border-radius:0;box-shadow:none}.lgx .nw2{font-size:14px}
  .pb-t{height:14px;margin-top:12px;border-radius:3px;background:var(--data-2);position:relative;overflow:hidden}.pb-t i{position:absolute;left:0;top:0;bottom:0;width:calc(var(--v) * 1%);background:var(--data)}
  .pb-l{display:flex;justify-content:space-between;gap:10px;margin-top:6px;font-size:13px;color:var(--muted)}
- .st3,.cmp2,.rk3,.agx,.fl3,.ic3,.spine{display:grid;grid-template-columns:1fr;gap:12px;list-style:none;margin:12px 0 0;padding:0}
+ .st3,.cmp2,.rk3,.agx,.fl3,.ic3,.spine,.kimi{display:grid;grid-template-columns:1fr;gap:12px;list-style:none;margin:12px 0 0;padding:0}
  .st3 .big,.cmp2 .big{font-size:48px}
  .mb{display:grid;gap:6px;margin-top:10px}.mb .row{display:grid;grid-template-columns:72px minmax(0,1fr) auto;gap:8px;align-items:center;font-size:12px}
  .mb i{position:relative;display:block;height:10px;border-radius:2px;background:var(--track)}.mb i::after{content:"";position:absolute;left:0;top:0;bottom:0;width:calc(var(--v) * 1%);background:var(--data)}

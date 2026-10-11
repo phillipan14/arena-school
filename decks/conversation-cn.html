@@ -1586,6 +1586,16 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .ae .bd .m4 .mm b{font-size:25px}
  .ae .bd .m4 .mm small,:lang(zh-CN) .ae .bd .m4 .mm small{font-size:19px}
 
+ /* Kimi hiring story: Jing Jing's original wording beside the interview-kit walkthrough */
+ .kimi{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:var(--gap);align-items:stretch;flex:1;min-height:0}
+ .kimi .pane{display:flex;flex-direction:column;justify-content:center;gap:22px;padding:var(--pad-m)!important}
+ .ae .bd .kimi .story{font-size:28px;line-height:1.4;color:var(--ink)}
+ :lang(zh-CN) .ae .bd .kimi .story{font-size:26px;line-height:1.55}
+ .kimi .punch{margin:0;padding-top:16px;border-top:1.5px solid var(--ink2);font:italic 400 28px/1.3 var(--serif);color:var(--ink)}
+ :lang(zh-CN) .kimi .punch{font-style:normal}
+ .kimi .vframe{height:100%;min-height:0}
+ .kimi .vframe video,.kimi .vframe img{width:100%;height:100%;object-fit:cover}
+
  /* a story as three steps, then the line that lands it */
  .story4{display:flex;flex-direction:column;justify-content:space-between;gap:var(--gap);padding:var(--pad-m)!important}
  .story4 .lr{gap:22px;height:40px}.story4 .brand.km{height:32px}
@@ -2167,15 +2177,16 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 
 <!-- 34 · A hiring story -->
 <section class="s ae"><div class="w">
- <p class="kick r">建议二 · 来自 Kimi 招聘的真实故事</p>
- <h2 class="r" style="--d:.1s">一位应聘 Kimi 的候选人，带着<em>自己用AI做的工具</em>来面试。</h2>
- <div class="bd r" style="--d:.25s"><div class="pane story4">
-  <div class="lr"><img class="brand km" src="/logos/deck/kimi.png" alt="Kimi"><span class="lab">为增长团队招人</span></div>
-  <ol class="fl3"><li data-s="1"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m15 12-9.373 9.373a1 1 0 0 1-3.001-3L12 9" /><path d="m18 15 4-4" /><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172v-.344a2 2 0 0 0-.586-1.414l-1.657-1.657A6 6 0 0 0 12.516 3H9l1.243 1.243A6 6 0 0 1 12 8.485V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5" /></svg></span><b>先做了个小工具</b><span>用于团队的社交媒体工作</span></li><li data-s="2"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2 3h20" /><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3" /><path d="m7 21 5-5 5 5" /></svg></span><b>当场演示</b><span>在面试中</span></li><li data-s="3"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" /><path d="m16 9-5.5 5.5L8 12" /></svg></span><b>拿到了 offer</b><span>一个非技术岗位</span></li></ol>
-  <p class="punch" data-s="4">没人要求这么做，<em>关键恰恰就在这里。</em></p>
+ <p class="kick r">筱涵在 Kimi 如何评估非技术岗位候选人</p>
+ <h2 class="r" style="--d:.1s">在 Kimi，面试前就动手做出东西的候选人，<em>拿到了 offer。</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="kimi">
+  <div class="pane" data-s="1"><div class="lr"><img class="brand km" src="/logos/deck/kimi.png" alt="Kimi"></div>
+   <p class="story">筱涵在 Kimi 招增长团队的人时，有位候选人面试前先给团队的社交媒体工作做了个小工具，当场演示，拿到了 offer。</p>
+   <p class="punch">没人要求这么做，<em>关键恰恰就在这里。</em></p></div>
+  <figure class="vframe" data-s="2"><video autoplay muted loop playsinline preload="auto" poster="/decks/img/conversation/interview-kit-zh-poster.png" src="/decks/img/conversation/interview-kit-zh.mp4" aria-label="面试准备工具演示"></video><img class="vposter" src="/decks/img/conversation/interview-kit-zh-poster.png" alt=""></figure>
  </div></div>
- <p class="fn" data-s="1"><span>来自 Kimi（月之暗面）的亲身招聘经历，讲述人：羊筱涵，当时在为 Kimi 增长团队招人</span></p>
-</div><aside class="notes">这是筱涵亲历的故事。求职面试几乎是日常生活里最重要的场合之一，这位候选人带来了自己用AI做的东西。这个岗位并不是技术岗。鼓励孩子把AI用在真实的事情上：学校项目、社团活动、各种申请。</aside></section>
+ <p class="fn" data-s="1"><span>来自 Kimi（月之暗面）的亲身招聘经历，讲述人：羊筱涵，当时在为 Kimi 增长团队招人。画面：初版讲义里的面试准备工具演示</span></p>
+</div><aside class="notes">筱涵当初的原文。求职面试几乎是日常生活里最重要的场合之一。候选人面试前先给团队的社交媒体工作做了个小工具，当场演示，拿到了非技术岗位的 offer。没人要求这么做，关键恰恰就在这里。视频是初版讲义里的面试准备工具演示。</aside></section>
 
 <!-- 35 · At home -->
 <section class="s ae"><div class="w">
