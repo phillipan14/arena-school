@@ -2090,7 +2090,9 @@ if(self!==top&&matchMedia('(pointer:coarse)').matches){document.documentElement.
 var HM=document.documentElement;
 if(!HM.classList.contains('player')&&!HM.classList.contains('export')&&!/[?&]read\b/.test(location.search)&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
  HM.classList.add('motion');
- new MutationObserver(function(){if(HM.classList.contains('export')&&HM.classList.contains('motion'))HM.classList.remove('motion')}).observe(HM,{attributes:true,attributeFilter:['class']});
+ new MutationObserver(function(){if(HM.classList.contains('export')&&HM.classList.contains('motion')){HM.classList.remove('motion');
+  /* a transition already under way keeps running when its rule goes away, so jump every one to its end */
+  if(document.getAnimations)document.getAnimations().forEach(function(a){try{a.finish()}catch(e){}})}}).observe(HM,{attributes:true,attributeFilter:['class']});
  if(HM.lang==='en')[].forEach.call(document.querySelectorAll('.ae h2,.cover h1'),function(h){var i=0;
   (function walk(n){[].slice.call(n.childNodes).forEach(function(c){
    if(c.nodeType===3){var f=document.createDocumentFragment();c.nodeValue.split(/(\s+)/).forEach(function(p){if(!p)return;
