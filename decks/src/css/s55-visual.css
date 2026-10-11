@@ -187,6 +187,15 @@
 }
 
 /* motion for these layouts (see s60-motion.css for the timing system) */
+ /* one-line recap at the end of each section: five connected beats of the story just told */
+ .spine{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--gap-s);align-items:stretch}
+ .ae .bd .spine li{display:flex;flex-direction:column;gap:12px;padding:var(--pad-s);background:var(--paper-hi);border:1px solid var(--edge);border-radius:var(--r)}
+ .spine .ico{width:64px;height:64px}.spine .ico .lic{width:30px;height:30px}
+ .ae .bd .spine b{font:500 26px/1.2 var(--serif);color:var(--ink)}
+ .ae .bd .spine li>span:last-child{font:400 20px/1.35 var(--serif);color:var(--muted)}
+ :lang(zh-CN) .ae .bd .spine b{font-size:24px;line-height:1.35}
+ :lang(zh-CN) .ae .bd .spine li>span:last-child{font-size:18px;line-height:1.5}
+
 @media screen{
  .motion .pb-t i,.motion .mb i::after,.motion .mb i.rg::before,.motion .tvs i::after{transition:transform var(--t-d) var(--e-o) .3s}
  .motion .mb i.rg::before{transition-delay:.5s}
@@ -206,7 +215,7 @@
  .spk .lgx dd img{width:auto;max-height:16px;border-radius:0;box-shadow:none}.lgx .nw2{font-size:14px}
  .pb-t{height:14px;margin-top:12px;border-radius:3px;background:var(--data-2);position:relative;overflow:hidden}.pb-t i{position:absolute;left:0;top:0;bottom:0;width:calc(var(--v) * 1%);background:var(--data)}
  .pb-l{display:flex;justify-content:space-between;gap:10px;margin-top:6px;font-size:13px;color:var(--muted)}
- .st3,.cmp2,.rk3,.agx,.fl3,.ic3{display:grid;grid-template-columns:1fr;gap:12px;list-style:none;margin:12px 0 0;padding:0}
+ .st3,.cmp2,.rk3,.agx,.fl3,.ic3,.spine{display:grid;grid-template-columns:1fr;gap:12px;list-style:none;margin:12px 0 0;padding:0}
  .st3 .big,.cmp2 .big{font-size:48px}
  .mb{display:grid;gap:6px;margin-top:10px}.mb .row{display:grid;grid-template-columns:72px minmax(0,1fr) auto;gap:8px;align-items:center;font-size:12px}
  .mb i{position:relative;display:block;height:10px;border-radius:2px;background:var(--track)}.mb i::after{content:"";position:absolute;left:0;top:0;bottom:0;width:calc(var(--v) * 1%);background:var(--data)}
