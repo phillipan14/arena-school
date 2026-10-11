@@ -1012,13 +1012,13 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  :lang(zh-CN) .st .by{font-style:normal}
  .st .sl{margin:var(--body-gap) 0 0;max-width:34em;font-size:30px;line-height:1.45;text-wrap:pretty}
  :lang(zh-CN) .st .sl{max-width:30em;line-height:1.6}
- .st>.w>.fn{position:absolute;left:0;bottom:var(--pad-bot)}
- .st .nst{display:flex;align-items:flex-end;gap:var(--gap-l);margin-top:var(--body-gap)}
+ .st>.w>.fn{position:static;margin-top:auto;flex:none}
+ .st .nst{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:64px;align-items:center;flex:1;min-height:0;margin-top:var(--body-gap)}
  .st .nst .nstx .lr{height:44px}
  .st .nst .nstx .brand.pwc{height:34px}
- .st .nst .big{font-size:168px}
+ .st .nst .big{margin:0;font-size:168px;line-height:.85;white-space:nowrap}
  :lang(zh-CN) .st .nst .big{font-size:150px}
- .st .nst p{margin:0 0 16px;max-width:19em;font-size:30px;line-height:1.4}
+ .st .nst p{margin:0 0 16px;max-width:none;font-size:30px;line-height:1.4}
 
  .rows{display:grid;gap:var(--gap-s)}
  .rw{display:grid;grid-template-columns:236px minmax(0,1fr) 40px minmax(0,1fr) auto;align-items:center;column-gap:26px;padding:var(--pad-s)}
@@ -1195,26 +1195,26 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .toc .trk a:hover b,.toc .trk a:focus-visible b{color:var(--ink2)}
  .toc .trk a:focus-visible{outline:none}
 
- /* section dividers: "Section N", the claim, and the tracker with this section lit */
- .sec-g{display:grid;grid-template-columns:minmax(0,1fr) 400px;column-gap:88px;align-items:start}
+ /* section dividers: full-width claim, then the three-part tracker as a row so it cannot squeeze the headline */
+ .sec-g{display:flex;flex-direction:column;justify-content:space-between;flex:1;min-height:0;width:100%;gap:40px}
  .sec-k{display:flex;align-items:baseline;gap:22px;margin:0}
  .sec-k span{font:600 18px/1 var(--serif);letter-spacing:.2em;text-transform:uppercase;color:#A9BEEA}
  :lang(zh-CN) .sec-k span{font-size:22px;letter-spacing:.12em}
  .sec-k b{font:300 132px/.8 var(--serif);letter-spacing:-.04em;color:#A9BEEA}
- .ae.sec h2{margin-top:var(--kick-gap);font-size:64px;line-height:1.1;letter-spacing:-.026em;color:var(--paper-hi)}
- :lang(zh-CN) .ae.sec h2{font-size:56px;line-height:1.34;letter-spacing:0}
+ .ae.sec h2{margin-top:var(--kick-gap);max-width:18em;font-size:56px;line-height:1.12;letter-spacing:-.026em;color:var(--paper-hi)}
+ :lang(zh-CN) .ae.sec h2{max-width:16em;font-size:50px;line-height:1.32;letter-spacing:0}
  .sec .sl{margin:var(--body-gap) 0 0;max-width:30em;font-size:27px;line-height:1.45;color:rgba(252,243,237,.8)}
  :lang(zh-CN) .sec .sl{line-height:1.6}
- .sec .trk{border-left:1px solid rgba(252,243,237,.22)}
- .sec .trk li{padding:22px 0 22px 34px;opacity:.42}
+ .sec .trk{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:28px;margin-top:auto;padding-top:28px;border-top:1px solid rgba(252,243,237,.22)}
+ .sec .trk li{padding:0;opacity:.42}
  .sec .trk li.on{opacity:1}
- .sec .trk li::before{content:"";position:absolute;left:-2px;top:16px;bottom:16px;width:3px;border-radius:2px;background:#A9BEEA;transform:scaleY(0);transform-origin:top}
+ .sec .trk li::before{content:"";position:absolute;left:0;top:-29px;width:100%;height:3px;border-radius:2px;background:#A9BEEA;transform:scaleX(0);transform-origin:left}
  .sec .trk li.on::before{transform:none}
- .sec .trk .row{grid-template-columns:52px minmax(0,1fr)}
+ .sec .trk .row{grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:start}
  .sec .trk .tn{font-size:34px;color:#A9BEEA}
- .sec .trk b{font-size:25px;line-height:1.25;color:var(--paper-hi)}
- :lang(zh-CN) .sec .trk b{font-size:24px;line-height:1.45}
- .sec .trk small{margin-top:6px;font-size:17px;color:rgba(252,243,237,.7)}
+ .sec .trk b{font-size:22px;line-height:1.25;color:var(--paper-hi)}
+ :lang(zh-CN) .sec .trk b{font-size:21px;line-height:1.4}
+ .sec .trk small{margin-top:6px;font-size:16px;color:rgba(252,243,237,.7)}
  section.s.sec>.w{justify-content:flex-start;padding:var(--hero-top) 0 var(--pad-bot)}
 
  /* takeaway dividers: a large numeral beside the takeaway, and where it sits among the three */
@@ -1490,27 +1490,29 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .toc .tocf small{margin-top:14px;font-size:27px}
  .toc .tocf li+li::before{content:"";position:absolute;z-index:1;left:calc(var(--gap-l) / -2 - 7px);top:50%;width:13px;height:13px;border-top:1.5px solid var(--ink2);border-right:1.5px solid var(--ink2);transform:rotate(45deg)}
 
- /* speakers: two content-sized cards; logos in a wrapping row so a lockup never sits on the Now sentence */
- .ae .bd>.team.spk{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap);align-items:stretch;align-content:center;grid-auto-rows:auto}
- .spk .person,.ae .bd .spk .person{display:flex!important;flex-direction:column;gap:20px;min-width:0;height:auto}
- .spk .who-r{display:flex;align-items:center;gap:20px;min-width:0}
- .spk .who-r img{flex:none;width:88px;height:88px}
+ /* speakers: two equal cards, same header + three rows; logos large enough to read when the slide is letterboxed */
+ .ae .bd>.team.spk{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap);align-items:stretch;align-content:stretch}
+ .spk .person,.ae .bd .spk .person{display:flex!important;flex-direction:column;gap:18px;min-width:0;height:100%;padding:28px 32px}
+ .spk .who-r{display:flex;align-items:center;gap:20px;min-width:0;min-height:104px}
+ .spk .who-r img{flex:none;width:104px;height:104px;object-fit:cover;border-radius:50%}
  .spk .who{min-width:0}
  .ae .bd .spk h3{margin:0 0 6px;font-size:32px;white-space:nowrap}
- .spk .co{font:400 18px/1.4 var(--serif);letter-spacing:0;text-transform:none;color:var(--ink2)}
+ .spk .co{min-height:2.8em;font:400 18px/1.4 var(--serif);letter-spacing:0;text-transform:none;color:var(--ink2)}
  :lang(zh-CN) .spk .co{font-size:18px;line-height:1.45}
- .lgx{margin:0;display:grid;min-width:0}
- .lgx>div{display:grid;grid-template-columns:84px minmax(0,1fr);align-items:center;min-height:72px;padding:10px 0}
+ .lgx{margin:0;flex:1;display:grid;grid-template-rows:1fr 1fr 1fr;min-width:0}
+ .lgx>div{display:grid;grid-template-columns:92px minmax(0,1fr);align-items:center;min-height:88px;padding:8px 0}
  .lgx>div+div{border-top:1px solid var(--line)}
  .lgx dt{font:600 14px/1 var(--serif);letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
  :lang(zh-CN) .lgx dt{font-size:16px;letter-spacing:.06em}
- .lgx dd{margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;min-width:0}
- .spk .lgx dd img{display:block;flex:none;width:auto;height:28px;max-width:168px;object-fit:contain;opacity:.92;border-radius:0;box-shadow:none}
- .spk .lgx dd img.sm{height:14px;max-width:100px} /* Caltech, Deloitte, McKinsey: long heavy wordmarks */
- .spk .lgx dd img.md{height:26px;max-width:132px}
- .spk .lgx dd img.wide{height:38px;max-width:210px} /* ISB and Tsinghua lockups need height to stay legible */
- .ae .bd .lgx .nw2{flex:1 1 14em;min-width:0;font:400 22px/1.35 var(--serif);white-space:normal;color:var(--ink)}
- .lgx dd .nw2+img{flex:none;height:16px;max-width:68px} /* Kimi sits after the sentence; wraps under it if the row is tight */
+ .lgx dd{margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;min-width:0}
+ .spk .lgx dd img{display:block;flex:none;width:auto;height:42px;max-width:200px;object-fit:contain;opacity:.92;border-radius:0;box-shadow:none}
+ .spk .lgx dd img.sm{height:28px;max-width:180px}
+ .spk .lgx dd img.md{height:40px;max-width:190px}
+ .spk .lgx dd img.wide{height:52px;max-width:230px}
+ .now{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:8px;min-width:0}
+ .ae .bd .now b{margin:0;font:500 22px/1.3 var(--serif);color:var(--ink)}
+ .ae .bd .now small{font:400 18px/1.3 var(--serif);color:var(--ink2)}
+ .now img{display:block;height:28px;width:auto;max-width:120px;object-fit:contain}
 
  /* one number and the share of it that matters, as a proportion bar under the number */
  .bnx .pbar{grid-column:1/-1;margin-top:44px}
@@ -1544,16 +1546,16 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .mb b{justify-self:end;font:500 19px/1 var(--serif);color:var(--muted);font-variant-numeric:lining-nums tabular-nums;white-space:nowrap}
  .mb .hl span{color:var(--ink)}.mb .hl b{color:var(--ink2)}
 
- /* the stakes: the premium as two bars, comparable jobs = 100 */
- .st .nst .nstx{flex:1;display:flex;flex-direction:column;gap:26px;max-width:760px;margin-bottom:16px}
+ /* the stakes: 62% on the left, a labeled two-bar chart on the right, footnote in flow below */
+ .st .nst .nstx{display:flex;flex-direction:column;gap:20px;min-width:0;max-width:none;margin:0}
  .st .nst .nstx .lr{height:auto;min-height:36px;overflow:visible}
  .st .nst .nstx .org{font-size:22px;letter-spacing:.12em}
  .st .nst .nstx p{margin:0;max-width:none}
- .nstx .mb{gap:16px;padding-top:22px;border-top-color:rgba(252,243,237,.2)}
- .nstx .mb .row{grid-template-columns:250px minmax(0,1fr) 3em;column-gap:20px}
- :lang(zh-CN) .nstx .mb .row{grid-template-columns:170px minmax(0,1fr) 3em}
- .nstx .mb span,.nstx .mb b{font-size:24px}
- .nstx .mb i{height:26px;background:rgba(252,243,237,.08)}
+ .nstx .mb{display:grid;gap:22px;margin:0;padding-top:18px;border-top:1px solid rgba(252,243,237,.2);min-height:0}
+ .nstx .mb .row{display:grid;grid-template-columns:minmax(12em,15em) minmax(80px,1fr) 3.6em;align-items:center;column-gap:22px}
+ :lang(zh-CN) .nstx .mb .row{grid-template-columns:minmax(8em,11em) minmax(80px,1fr) 3.6em}
+ .nstx .mb span,.nstx .mb b{font-size:24px;line-height:1.2;white-space:nowrap}
+ .nstx .mb i{height:28px;background:rgba(252,243,237,.08)}
  .nv .mb span,.nv .mb b{color:rgba(252,243,237,.72)}
  .nv .mb i::after{background:rgba(169,190,234,.42)}
  .nv .mb .hl i::after{background:#A9BEEA}
@@ -1852,8 +1854,8 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <h2 class="r" style="--d:.1s">From what’s changing at work <em>to what you can do at home.</em></h2>
  <div class="bd"><ol class="trk tocf">
   <li><a href="#" data-go="4"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 12h.01" /><path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" /><path d="M22 13a18.15 18.15 0 0 1-20 0" /><rect width="20" height="14" x="2" y="6" rx="2" /></svg></span><span class="tn">1</span><span class="tt"><b>Work is being rewritten</b><small>Even in the safest careers</small></span></a></li>
-  <li><a href="#" data-go="19"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10" /><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" /></svg></span><span class="tn">2</span><span class="tt"><b>Three skills decide who <span class="nw">gets ahead</span></b><small>Agency, taste, and craft</small></span></a></li>
-  <li><a href="#" data-go="30"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg></span><span class="tn">3</span><span class="tt"><b>What families can do now</b><small>Three takeaways</small></span></a></li>
+  <li><a href="#" data-go="17"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10" /><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" /></svg></span><span class="tn">2</span><span class="tt"><b>Three skills decide who <span class="nw">gets ahead</span></b><small>Agency, taste, and craft</small></span></a></li>
+  <li><a href="#" data-go="27"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg></span><span class="tn">3</span><span class="tt"><b>What families can do now</b><small>Three takeaways</small></span></a></li>
  </ol></div>
 </div><aside class="notes">The whole talk in one line: work is being rewritten, so three skills decide who gets ahead, so start building them now. Part 1 covers doctors, lawyers, bankers, and engineers, and young people starting out. Part 2 is agency, taste, and craft, and why using AI every day won't build them on its own. Part 3 is three takeaways: know the tools, use AI for real tasks, and why this is the best time to build.</aside></section>
 
@@ -1866,14 +1868,14 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <div class="person" data-s="1"><div class="who-r"><img src="/photos/jing-jing-yang.jpg" alt=""><div class="who"><h3>Jing Jing Yang</h3><div class="co">ISB Class of 2019</div></div></div>
    <dl class="lgx"><div><dt>Studied</dt><dd><img class="wide" src="/logos/cred/isb.png" alt="ISB"><img class="md" src="/logos/cred/brown.png" alt="Brown"><img class="wide" src="/logos/cred/tsinghua.png" alt="Tsinghua University"></dd></div>
     <div><dt>Worked</dt><dd><img class="md" src="/logos/cred/apple.png" alt="Apple"><img class="sm" src="/logos/cred/deloitte.png" alt="Deloitte"><img class="md" src="/logos/cred/cicc.png" alt="CICC"></dd></div>
-    <div><dt>Now</dt><dd><span class="nw2">Advises Chinese AI firms on going global</span><img src="/logos/cred/kimi-wordmark.png" alt="Kimi"></dd></div></dl></div>
+    <div><dt>Now</dt><dd><div class="now"><b>Advises Chinese AI firms on going global</b><img src="/logos/cred/kimi-wordmark.png" alt="Kimi"></div></dd></div></dl></div>
   <div class="person" data-s="2"><div class="who-r"><img src="/photos/phillip-an.jpg" alt=""><div class="who"><h3>Phillip An</h3><div class="co">Forbes 30 Under 30<br>Y Combinator alum</div></div></div>
    <dl class="lgx"><div><dt>Studied</dt><dd><img class="sm" src="/logos/cred/caltech.png" alt="Caltech"><img class="md" src="/logos/cred/harvard.png" alt="Harvard"><img class="wide" src="/logos/cred/tsinghua.png" alt="Tsinghua University"></dd></div>
     <div><dt>Worked</dt><dd><img class="md" src="/logos/cred/goldman.png" alt="Goldman Sachs"><img class="sm" src="/logos/cred/mckinsey.png" alt="McKinsey"></dd></div>
-    <div><dt>Now</dt><dd><span class="nw2">Leads an AI company</span></dd></div></dl></div>
+    <div><dt>Now</dt><dd><div class="now"><b>Co-founder &amp; CEO, Skylarq</b><small>AI agents for sales</small></div></dd></div></dl></div>
  </div>
  </div>
-</div><aside class="notes">Jing Jing went to ISB from elementary school through graduation, then Brown and Tsinghua as a Schwarzman Scholar; she worked at Apple, Deloitte, and CICC, and now advises Chinese AI companies, including Kimi, on going global, and does research with Microsoft AI. Phillip studied computer science at Caltech, an MBA and MS at Harvard, and was a Schwarzman Scholar at Tsinghua; he worked at Goldman Sachs and McKinsey, now leads an AI company, and an earlier company of his was backed by Y Combinator. Why listen to us: we went through the schools many families here aim for, and we did the analyst, consulting, and banking work that AI now drafts in minutes. Goldman's CEO said in 2025 that AI can get an IPO filing 95% of the way there in a few minutes; that was our first job. Today we teach students the skills that still matter.</aside></section>
+</div><aside class="notes">Jing Jing went to ISB from elementary school through graduation, then Brown and Tsinghua as a Schwarzman Scholar; she worked at Apple, Deloitte, and CICC, and now advises Chinese AI companies, including Kimi, on going global, and does research with Microsoft AI. Phillip studied computer science at Caltech, an MBA and MS at Harvard, and was a Schwarzman Scholar at Tsinghua; he worked at Goldman Sachs and McKinsey, is co-founder and CEO of Skylarq, which builds AI agents for sales, and an earlier company of his was backed by Y Combinator. Why listen to us: we went through the schools many families here aim for, and we did the analyst, consulting, and banking work that AI now drafts in minutes. Goldman's CEO said in 2025 that AI can get an IPO filing 95% of the way there in a few minutes; that was our first job. Today we teach students the skills that still matter.</aside></section>
 
 <!-- 4 · The question -->
 <section class="s alt ae st"><div class="w">
@@ -1931,7 +1933,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 <!-- 10 · Law -->
 <section class="s alt ae"><div class="w">
  <p class="kick r">2 of 4 · Lawyers · a US trial, China, and US hiring</p>
- <h2 class="r" style="--d:.1s">In a randomized trial, law students using AI got <em>50% to 130% more done</em> on most legal tasks.</h2>
+ <h2 class="r" style="--d:.1s">Law students using AI got <em>50% to 130% more done</em> on most legal tasks.</h2>
  <div class="bd r" style="--d:.25s"><div class="st3">
   <div class="pane hl" data-s="1"><span class="lab">A randomized trial in the US</span><div class="big nc">+50–130%</div><p>more work done with AI, on 5 of 6 legal tasks</p>
    <div class="mb" role="img" aria-label="Work done, without AI set to 100: with AI, 150 to 230"><div class="row"><span>Without AI</span><i style="--v:43.48"></i><b>100</b></div><div class="row hl"><span>With AI</span><i class="rg" style="--v:65.22;--r:100"></i><b>150–230</b></div></div></div>
@@ -1985,23 +1987,12 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <p class="kick r">Who stays · from the same memo, June 2025</p>
  <h2 class="r" style="--d:.1s">“Those who embrace this change, become conversant in AI … will be well-positioned to <em>have high impact.</em>”</h2>
  <div class="bd r" style="--d:.25s"><div class="bqx" data-s="1"><div class="lr"><img class="brand amz" src="/logos/deck/amazon.svg" alt="Amazon"></div><div class="who2"><b>Andy Jassy, CEO of Amazon</b><span>Memo to employees, June 17, 2025</span></div></div></div>
-</div><aside class="notes">His advice to his own staff: be curious about AI, educate yourself, take the trainings, and use AI whenever you can. That is advice for our children too.</aside></section>
+</div><aside class="notes">His advice to his own staff: be curious about AI, educate yourself, take the trainings, and use AI whenever you can. That is advice for our children too. Other employers say the same thing, so they stay in these notes: Accenture is exiting staff for whom reskilling is not a viable path (Julie Sweet, Sept 25, 2025); Microsoft told every role that using AI is no longer optional (Julia Liuson, June 2025); Duolingo made AI use part of performance reviews (Luis von Ahn, April 28, 2025). Accenture's workforce shrank by more than 11,000 in one quarter while it nearly doubled its AI and data staff to 77,000.</aside></section>
 
-<!-- 15 · Average is not safe -->
-<section class="s alt ae"><div class="w">
- <p class="kick r">Three employers · 2025</p>
- <h2 class="r" style="--d:.1s">The middle is not safe: at Accenture, Microsoft, and Duolingo, <em>using AI well is now the job.</em></h2>
- <div class="bd r" style="--d:.25s"><div class="trio">
-  <div class="card"><div class="lr"><img class="brand acc" src="/logos/deck/accenture.svg" alt="Accenture"></div><p class="say">Exiting staff for whom reskilling <span class="nw">“is not</span> a viable path for the skills we need”</p><p class="who3">Julie Sweet, CEO of Accenture<br>Earnings call, Sept 25, 2025</p></div>
-  <div class="card"><div class="lr"><img class="brand msft" src="/logos/deck/microsoft.svg" alt="Microsoft"></div><p class="say">“Using AI is no longer optional — it’s core to every role and every level.”</p><p class="who3">Julia Liuson, Microsoft<br>Internal email, June 2025</p></div>
-  <div class="card"><div class="lr"><img class="brand duo" src="/logos/deck/duolingo.svg" alt="Duolingo"></div><p class="say">“AI use will be part of what we evaluate in performance reviews.”</p><p class="who3">Luis von Ahn, CEO of Duolingo<br>Memo, April 28, 2025</p></div>
- </div></div>
-</div><aside class="notes">Accenture's workforce shrank by more than 11,000 in one quarter while it nearly doubled its AI and data staff to 77,000 in two years. The message is the same everywhere: the skill protects you.</aside></section>
-
-<!-- 16 · The stakes -->
+<!-- 15 · The pay gap -->
 <section class="s ae st nv"><div class="w">
  <p class="kick r">What the skills are worth · PwC 2026 Global AI Jobs Barometer</p>
- <h2 class="r" style="--d:.1s">So children without these skills start their careers <em>far behind.</em></h2>
+ <h2 class="r" style="--d:.1s">The pay gap is already here: jobs that require AI skills pay <em>62% more.</em></h2>
  <div class="nst" data-s="1"><div class="big">62%</div><div class="nstx"><div class="lr"><span class="org">PwC</span></div><p>higher advertised pay for jobs that require AI skills</p>
   <div class="mb" role="img" aria-label="Advertised pay, comparable jobs set to 100: jobs that require AI skills, 162"><div class="row"><span>Comparable jobs</span><i style="--v:61.73"></i><b>100</b></div><div class="row hl"><span>AI skills required</span><i style="--v:100"></i><b>162</b></div></div></div></div>
  <p class="fn" data-s="1"><span>PwC 2026 Global AI Jobs Barometer, June 15, 2026: average wage premium in job ads across 27 countries; it does not control for education or experience</span></p>
@@ -2029,20 +2020,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
    <div class="an" data-s="2"><span class="lab">Of those, haven’t started learning yet</span><div class="big lo">40%</div><div class="hb"><div class="row"><i style="--v:40"></i></div></div></div>
   </div></div></div>
  <p class="fn" data-s="1"><span>MyCOS online survey, March 19–20, 2026, published April 16, 2026</span></p>
-</div><aside class="notes">They know it matters, and many still have not started. The gap opens long before the first job.</aside></section>
-
-<!-- Recap 1 -->
-<section class="s alt ae"><div class="w">
- <p class="kick r">Section 1, in one line</p>
- <h2 class="r" style="--d:.1s">So work is already being rewritten, from the safest careers <em>to the first job.</em></h2>
- <div class="bd r" style="--d:.25s"><ol class="spine">
-  <li data-s="1"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" /><path d="M20 2v4" /><path d="M22 4h-4" /><circle cx="4" cy="20" r="2" /></svg></span><b>AI is already everywhere</b><span>In about half of jobs, and in children’s hands</span></li>
-  <li data-s="2"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11 2v2" /><path d="M5 2v2" /><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1" /><path d="M8 15a6 6 0 0 0 12 0v-3" /><circle cx="20" cy="10" r="2" /></svg></span><b>Even the safest careers</b><span>Doctors, lawyers, bankers, and engineers</span></li>
-  <li data-s="3"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 12h.01" /><path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" /><path d="M22 13a18.15 18.15 0 0 1-20 0" /><rect width="20" height="14" x="2" y="6" rx="2" /></svg></span><b>Companies are acting</b><span>Amazon has cut about 30,000 corporate jobs</span></li>
-  <li data-s="4"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><path d="M16 3.128a4 4 0 0 1 0 7.744" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><circle cx="9" cy="7" r="4" /></svg></span><b>The middle is not safe</b><span>Using AI well is now part of the job</span></li>
-  <li data-s="5"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 17h6v-6" /><path d="m22 17-8.5-8.5-5 5L2 7" /></svg></span><b>Young people feel it first</b><span>Already 19% behind in the most exposed jobs</span></li>
- </ol></div>
-</div><aside class="notes">Hold this chain: AI is already at work, even in the careers families trust, companies are acting, average is not safe, and the youngest feel it first. That is why the next part is about the skills that still decide who gets ahead.</aside></section>
+</div><aside class="notes">They know it matters, and many still have not started. The gap opens long before the first job. So the next question is which skills still decide who gets ahead.</aside></section>
 
 <!-- 19 · Section 2 -->
 <section class="s ae nv sec"><div class="w"><div class="sec-g">
@@ -2158,20 +2136,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <p class="kick r">What children need</p>
  <h2 class="r" style="--d:.1s">Skills grow from practice <em>with structure.</em></h2>
  <ol class="ic3"><li data-s="1"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z" /><path d="M8 10v4" /><path d="M12 10v2" /><path d="M16 10v6" /></svg></span><b>A real project</b><span>with something at stake</span></li><li data-s="2"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m8 11 2 2 4-4" /><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg></span><b>A coach</b><span>who asks how you checked it</span></li><li data-s="3"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" /><path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1" /></svg></span><b>Honest feedback</b><span>from real people</span></li></ol>
-</div><aside class="notes">That is how everyday AI use turns into agency, taste, and craft, and it is how our programs are built. The tools are everywhere. What is scarce is the structure around them: a real problem to solve, someone who asks how you checked it, and a reason to finish.</aside></section>
-
-<!-- Recap 2 -->
-<section class="s alt ae"><div class="w">
- <p class="kick r">Section 2, in one line</p>
- <h2 class="r" style="--d:.1s">Employers want AI plus judgment. Children already have the tools. <em>What they lack is structured practice.</em></h2>
- <div class="bd r" style="--d:.25s"><ol class="spine">
-  <li data-s="1"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 7h6v6" /><path d="m22 7-8.5 8.5-5-5L2 17" /></svg></span><b>Employers are already asking</b><span>Entry-level jobs requiring AI skills hit 35%</span></li>
-  <li data-s="2"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m8 11 2 2 4-4" /><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg></span><b>They rank one skill first</b><span>Checking what AI produces</span></li>
-  <li data-s="3"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10" /><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" /></svg></span><b>That is three skills</b><span>Agency, taste, and craft</span></li>
-  <li data-s="4"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg></span><b>Home and school lag</b><span>Most families have no rules; most schools lack teachers</span></li>
-  <li data-s="5"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z" /><path d="M8 10v4" /><path d="M12 10v2" /><path d="M16 10v6" /></svg></span><b>Practice needs structure</b><span>A real project, a coach, and honest feedback</span></li>
- </ol></div>
-</div><aside class="notes">The demand is here. The tools are here. The missing piece is structured practice of agency, taste, and craft. That is what families can start now.</aside></section>
+</div><aside class="notes">That is how everyday AI use turns into agency, taste, and craft, and it is how our programs are built. The tools are everywhere. What is scarce is the structure around them: a real problem to solve, someone who asks how you checked it, and a reason to finish. So start building that structure now.</aside></section>
 
 <!-- 29 · Section 3 -->
 <section class="s ae nv sec"><div class="w"><div class="sec-g">
@@ -2242,26 +2207,14 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <figure class="vframe" data-s="2"><video autoplay muted loop playsinline preload="auto" poster="/decks/img/conversation/interview-kit-en-poster.png" src="/decks/img/conversation/interview-kit-en.mp4" aria-label="Interview Prep Kit walkthrough"></video><img class="vposter" src="/decks/img/conversation/interview-kit-en-poster.png" alt=""></figure>
  </div></div>
  <p class="fn" data-s="1"><span>A first-hand hiring story from Kimi (Moonshot AI), told by Jing Jing Yang, who was hiring for Kimi’s growth team. Visual: Arena Interview Prep Kit, the walkthrough used in the original deck</span></p>
-</div><aside class="notes">Jing Jing's original wording, restored. A job interview is about as high-stakes as everyday life gets. The candidate built a small tool for the team's social media work, showed it live, and got the offer for a non-technical role. Nobody asked for it. That was the point. The video is the Interview Prep Kit walkthrough from the original deck.</aside></section>
-
-<!-- 35 · At home -->
-<section class="s ae"><div class="w">
- <p class="kick r">Takeaway 2 · what the evidence says to do at home</p>
- <h2 class="r" style="--d:.1s">Three actions the evidence supports, <em>starting this week.</em></h2>
- <div class="bd r" style="--d:.25s"><ol class="hab3 hic">
-  <li data-s="1"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m8 11 2 2 4-4" /><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg></span><span class="lab">1 · PISA 2025</span><h3>Ask, “How did you check it?”</h3><p>Students taught to judge AI output scored higher</p></li>
-  <li data-s="2"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg></span><span class="lab">2 · 67.9% of families</span><h3>Set one family rule for AI</h3><p>Two in three families still have none</p></li>
-  <li data-s="3"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m15 12-9.373 9.373a1 1 0 0 1-3.001-3L12 9" /><path d="m18 15 4-4" /><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172v-.344a2 2 0 0 0-.586-1.414l-1.657-1.657A6 6 0 0 0 12.516 3H9l1.243 1.243A6 6 0 0 1 12 8.485V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5" /></svg></span><span class="lab">3 · The Kimi story</span><h3>Use AI on one real task</h3><p>A school project, a club, or an application</p></li>
- </ol></div>
- <p class="fn" data-s="1"><span>OECD, PISA 2025, Sept 8, 2026: frequent users taught to judge AI output did better; 中国青少年研究中心, 67.9% of families set no rules, via People’s Daily, Aug 17, 2026</span></p>
-</div><aside class="notes">These are not slogans. PISA found that students who used AI a lot and had been taught to judge its output scored higher. Two in three families in the China survey have no rules at all. And the Kimi story is what a real task looks like.</aside></section>
+</div><aside class="notes">Jing Jing's original wording, restored. A job interview is about as high-stakes as everyday life gets. The candidate built a small tool for the team's social media work, showed it live, and got the offer for a non-technical role. Nobody asked for it. That was the point: a real task, done before anyone asked. That is the kind of work this moment now makes possible.</aside></section>
 
 <!-- 36 · Takeaway 3 -->
 <section class="s alt ae st tk"><div class="w"><div class="tk-g">
  <div class="tk-n"><span>Takeaway</span><b>3</b></div>
  <div><p class="kick r">What families can do now</p><h2 class="r" style="--d:.1s">Despite all this, it’s one of the best times ever to be a kid, <em>and the best time to build.</em></h2>
  <ol class="tk-prog"><li><i>1</i><span>Know the tools</span></li><li><i>2</i><span>Use AI for real tasks</span></li><li class="on"><i>3</i><span>The best time to build</span></li></ol></div>
-</div></div><aside class="notes">Everything so far is the warning. This is the opportunity.</aside></section>
+</div></div><aside class="notes">The Kimi story is the warning and the opening: a real task, done before anyone asked. This is the opportunity that moment creates.</aside></section>
 
 <!-- 37 · Then and now -->
 <section class="s ae"><div class="w">
@@ -2308,20 +2261,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <div class="card" data-s="2"><figure><img src="/photos/isb-2026/pitch-podium-1600.webp" alt="A student presents at ISB"></figure><div class="pb"><span class="lab">Build</span><h3>A tool that tracks progress, sleep, and working time</h3><p class="where">At ISB, 2026</p></div></div>
   <div class="card" data-s="3"><figure class="vframe"><video autoplay muted loop playsinline preload="metadata" poster="/decks/img/conversation/hands-stage-poster.webp" src="/decks/img/conversation/hands-stage.mp4" aria-label="A student tests a sign-language app on a laptop"></video><img class="vposter" src="/decks/img/conversation/hands-stage-poster.webp" alt=""></figure><div class="pb"><span class="lab">Feedback · launch</span><h3>A sign-language interpreter, in testing</h3><p class="where">Real users, before they leave school</p></div></div>
  </div></div>
-</div><aside class="notes">When a first version comes together quickly, entrepreneurship is the process: find a real problem, build, get honest feedback from real users, and launch. That is why agency, taste, and craft — choosing, judging, and finishing — matter more now than making the first draft. The ISB students used AI coding tools; they chose the problems, judged the versions, and finished the work themselves.</aside></section>
-
-<!-- Recap 3 -->
-<section class="s alt ae"><div class="w">
- <p class="kick r">Section 3, in one line</p>
- <h2 class="r" style="--d:.1s">Know the tools, use them on real work, and start now, <em>while a first version is still easy to make.</em></h2>
- <div class="bd r" style="--d:.25s"><ol class="spine">
-  <li data-s="1"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 8V4H8" /><rect width="16" height="12" x="4" y="8" rx="2" /><path d="M2 14h2" /><path d="M20 14h2" /><path d="M15 13v2" /><path d="M9 13v2" /></svg></span><b>Know the latest tools</b><span>They multiply every few months</span></li>
-  <li data-s="2"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m15 12-9.373 9.373a1 1 0 0 1-3.001-3L12 9" /><path d="m18 15 4-4" /><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172v-.344a2 2 0 0 0-.586-1.414l-1.657-1.657A6 6 0 0 0 12.516 3H9l1.243 1.243A6 6 0 0 1 12 8.485V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5" /></svg></span><b>Use them on real tasks</b><span>A school project, an application, a club</span></li>
-  <li data-s="3"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" /><path d="m16 9-5.5 5.5L8 12" /></svg></span><b>Show the work</b><span>The Kimi candidate brought a tool they had made</span></li>
-  <li data-s="4"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M13 21h8" /><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" /></svg></span><b>Ideas can become real</b><span>A child can now reach real users before leaving school</span></li>
-  <li data-s="5"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z" /><path d="M8 10v4" /><path d="M12 10v2" /><path d="M16 10v6" /></svg></span><b>The process is the advantage</b><span>Problem, build, feedback, launch</span></li>
- </ol></div>
-</div><aside class="notes">Three takeaways in one breath: know the tools, use them on something that matters, and start now, while a first version is still easy to make. The last slide puts that into a 1-2-3.</aside></section>
+</div><aside class="notes">When a first version comes together quickly, entrepreneurship is the process: find a real problem, build, get honest feedback from real users, and launch. That is why agency, taste, and craft (choosing, judging, and finishing) matter more now than making the first draft. The ISB students used AI coding tools; they chose the problems, judged the versions, and finished the work themselves.</aside></section>
 
 <!-- 41 · Close -->
 <section class="s ae nv cl"><div class="w">
