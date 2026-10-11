@@ -31,7 +31,7 @@ House rules (full detail in `/DESIGN.md` and `/CONTENT-RULES.md`):
 
 ## Finalizing: publish the PDFs on /talk
 
-**Status (Oct 10, 2026): not finalized.** Phillip is reviewing. The two PDF buttons on /talk return 404 until this step runs.
+**Status (Oct 11, 2026): finalized.** Both PDFs and the /talk gallery are on main.
 
 Run this only once the slides are final:
 

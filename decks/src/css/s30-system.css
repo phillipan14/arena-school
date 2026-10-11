@@ -195,10 +195,12 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .ae .logos{margin:0}
  .ae .qa{margin:0}
  .ae .srcs{margin:0;column-count:2;column-gap:40px}
- .ae .bd .srcs.pane{padding:var(--pad-s)}
- .ae .srcs li{display:grid;grid-template-columns:minmax(0,1fr) 10.5em;column-gap:14px;align-items:start;break-inside:avoid;padding:5px 0;font-size:16px;line-height:1.35}
+ .ae .bd .srcs.pane{padding:14px 22px}
+ .ae .srcs li{display:grid;grid-template-columns:minmax(0,1fr) 10.5em;column-gap:14px;align-items:start;break-inside:avoid;padding:2px 0;font-size:16px;line-height:1.35}
  :lang(zh-CN) .ae .srcs li{grid-template-columns:minmax(0,1fr) 11.5em}
  .ae .srcs li .src{max-width:none;font-size:13.5px;margin-top:0;white-space:normal;text-align:right;line-height:1.35}
+ /* Part 1 sources is 16 rows in two columns: drop the unused title-zone slack so the list fits 1080 */
+ .s-src .bd{padding-top:16px}
 }
 
 .export .proj figure video{display:none}.export .proj figure .vposter{display:block}
