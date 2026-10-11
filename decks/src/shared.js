@@ -21,6 +21,7 @@
 })();
 if(!document.documentElement.classList.contains('player')&&!matchMedia('(max-width:700px)').matches)[].forEach.call(document.querySelectorAll('video'),function(v){v.preload='auto'});
 if(/[?&]read\b/.test(location.search))document.documentElement.classList.add('noqr');
+if(/[?&]notes\b/.test(location.search))document.documentElement.classList.add('shownotes');
 /* navigation: dot nav, arrow keys, agenda links */
 var deck=document.getElementById('deck'),S=[].slice.call(document.querySelectorAll('.s')),nav=document.getElementById('nav');
 S.forEach(function(s,i){var a=document.createElement('a');a.href='#';a.setAttribute('aria-label','Slide '+(i+1));a.onclick=function(e){e.preventDefault();go(i)};nav.appendChild(a)});

@@ -106,6 +106,51 @@
  .ae .bd .pc .say{font-size:46px;line-height:1.15;letter-spacing:-.015em}
  :lang(zh-CN) .ae .bd .pc .say{font-size:42px;line-height:1.35;letter-spacing:0}
  .ae .bd .pn2{align-self:stretch;width:auto;max-width:none;padding:22px 36px;font-size:24px;line-height:1.45}
+
+ /* one number per slide: logo, a 240px number, one line saying exactly what it counts */
+ .bnx{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:end;column-gap:72px}
+ .bnx>.lr{grid-column:1/-1;height:56px;margin-bottom:34px;gap:26px}
+ .bnx .lr .brand{height:44px}.bnx .lr .brand.an{height:28px}.bnx .lr .brand.jp{height:32px}.bnx .lr .brand.hv{height:28px}.bnx .lr .brand.aos{height:40px}.bnx .lr .brand.sf{height:60px}
+ .bnx .big{font-size:240px;line-height:.8}
+ :lang(zh-CN) .bnx .big{font-size:220px}
+ .bnx .big small{margin:0 0 22px;font-size:34px}
+ .ae .bd .bnx p{max-width:15em;padding-bottom:14px;font-size:34px;line-height:1.36;color:var(--ink)}
+ :lang(zh-CN) .ae .bd .bnx p{max-width:14em;font-size:32px;line-height:1.55}
+ .nv .bnx p{color:var(--paper-hi)!important}
+ .nv .bnx .lr .org{color:#A9BEEA}
+
+ /* one quote per slide: the words as the title, then who said it and where */
+ .ae.bq h2{max-width:21em;font-size:62px;line-height:1.16}
+ :lang(zh-CN) .ae.bq h2{max-width:20em;font-size:54px;line-height:1.42}
+ .bqx{display:flex;align-items:center;gap:28px}
+ .bqx .lr{height:48px}.bqx .brand{height:40px}.bqx .brand.jp{height:30px}.bqx .brand.sf{height:56px}
+ .bqx .who2{padding-left:28px;border-left:1.5px solid var(--edge)}
+ .ae .bd .bqx .who2 b{display:block;font:500 30px/1.25 var(--serif);color:var(--ink)}
+ .ae .bd .bqx .who2 span{display:block;margin-top:4px;font:italic 400 22px/1.35 var(--serif);color:var(--muted)}
+ :lang(zh-CN) .ae .bd .bqx .who2 span{font-style:normal}
+ .ae.bq .bd{justify-content:flex-end;padding-bottom:40px}
+
+ /* one ranked list on its own pane */
+ .ae .bd .emp1{align-self:flex-start;width:min(100%,1040px);padding:34px 48px 38px}
+ .ae .bd .emp1 .ls{margin-top:18px}
+ .ae .bd .emp1 .ls li{padding:22px 0;font-size:40px;line-height:1.2}
+ .emp1 .ls li i{font-size:32px;width:52px}
+
+ /* two numbers compared, with a word between them instead of an arrow */
+ .ar2.vs{padding-bottom:110px}
+ .ar2.vs span{font-size:30px}
+
+ /* the tools parents may not know: icons and names only, the rest is spoken */
+ .apps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:44px 28px;justify-items:center}
+ .app{display:flex;flex-direction:column;align-items:center;gap:18px}
+ .app img,.app i{display:block;width:112px;height:112px;border-radius:26px;object-fit:cover;box-shadow:0 0 0 1px var(--edge)}
+ .app i{display:grid;place-items:center;background:var(--ink);color:var(--paper-hi);font:italic 400 52px/1 var(--serif)}
+ .ae .bd .app b{font:500 28px/1.2 var(--serif);color:var(--ink)}
+ .ae .bd .app small{margin-top:-10px;font:400 18px/1.3 var(--serif);color:var(--muted)}
+
+ /* the speakers: what they studied, the work they did, what they do now */
+ .ae .bd .team .creds li b{display:inline-block;min-width:5.6em;font-weight:600;color:var(--ink2)}
+ :lang(zh-CN) .ae .bd .team .creds li b{min-width:4.6em}
 }
 
 @media (max-width:700px){
@@ -126,6 +171,14 @@
  .pair{display:grid;gap:12px}.pc{display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:18px 20px}
  .pl{padding:6px 10px 5px;font-size:11px}.pc p{margin:0}.pc .say{font-size:22px;line-height:1.3}
  .pn2{margin-top:12px}
+ .bnx .lr{margin-bottom:6px}.bnx .big,:lang(zh-CN) .bnx .big{font-size:84px;line-height:1}.bnx p{margin:8px 0 0;font-size:18px;line-height:1.45}
+ .ae.bq h2{font-size:26px;line-height:1.3}
+ .bqx{display:flex;align-items:center;gap:14px}.bqx .lr{margin:0}.bqx .who2 b{display:block}.bqx .who2 span{display:block;font-size:14px;color:var(--muted)}
 }
 :lang(zh-CN) .ae h2 em,:lang(zh-CN) .st .by{font-style:normal}
+
+/* speaker notes: in the source for the speaker, never on screen or in the PDFs; ?notes shows them for rehearsal */
+.notes{display:none!important}
+.shownotes:not(.export) .notes{display:block!important;position:absolute;z-index:20;left:0;right:0;bottom:0;max-height:34%;overflow:auto;padding:16px 30px 18px;
+ background:rgba(11,26,74,.94);color:#FCF3ED;font:400 20px/1.5 var(--serif)}
 @media (min-width:701px){:lang(zh-CN) .st .sl,:lang(zh-CN) .st .nst p,:lang(zh-CN) .ae .kick{word-break:keep-all;overflow-wrap:anywhere}}

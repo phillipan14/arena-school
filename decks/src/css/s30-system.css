@@ -4,7 +4,8 @@
    Oct 11 · calmer surfaces (hairline card edges, lighter dots), one chart style, and step builds ([data-s]). ===== */
 
 /* title agenda: the three parts, each with one plain line under it; each part opens on a navy statement slide */
-.title .agenda .t small{display:block;margin-top:6px;font:400 19px/1.35 var(--serif);color:#C9D6F2;letter-spacing:0}
+.title .agenda .t small{display:block;margin-top:8px;font:400 22px/1.35 var(--serif);color:rgba(252,243,237,.9);letter-spacing:0}
+section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
 
 /* type: title 50, card heading 32, body 26, labels and sources 15 */
 .ae h2 em{font-style:italic}

@@ -699,7 +699,8 @@ section.s.title .chip::before{position:relative;top:-1.9px}
    Oct 11 · calmer surfaces (hairline card edges, lighter dots), one chart style, and step builds ([data-s]). ===== */
 
 /* title agenda: the three parts, each with one plain line under it; each part opens on a navy statement slide */
-.title .agenda .t small{display:block;margin-top:6px;font:400 19px/1.35 var(--serif);color:#C9D6F2;letter-spacing:0}
+.title .agenda .t small{display:block;margin-top:8px;font:400 22px/1.35 var(--serif);color:rgba(252,243,237,.9);letter-spacing:0}
+section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
 
 /* type: title 50, card heading 32, body 26, labels and sources 15 */
 .ae h2 em{font-style:italic}
@@ -1038,6 +1039,28 @@ section.s.title .chip::before{position:relative;top:-1.9px}
  .ae .bd .bqx .who2 span{display:block;margin-top:4px;font:italic 400 22px/1.35 var(--serif);color:var(--muted)}
  :lang(zh-CN) .ae .bd .bqx .who2 span{font-style:normal}
  .ae.bq .bd{justify-content:flex-end;padding-bottom:40px}
+
+ /* one ranked list on its own pane */
+ .ae .bd .emp1{align-self:flex-start;width:min(100%,1040px);padding:34px 48px 38px}
+ .ae .bd .emp1 .ls{margin-top:18px}
+ .ae .bd .emp1 .ls li{padding:22px 0;font-size:40px;line-height:1.2}
+ .emp1 .ls li i{font-size:32px;width:52px}
+
+ /* two numbers compared, with a word between them instead of an arrow */
+ .ar2.vs{padding-bottom:110px}
+ .ar2.vs span{font-size:30px}
+
+ /* the tools parents may not know: icons and names only, the rest is spoken */
+ .apps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:44px 28px;justify-items:center}
+ .app{display:flex;flex-direction:column;align-items:center;gap:18px}
+ .app img,.app i{display:block;width:112px;height:112px;border-radius:26px;object-fit:cover;box-shadow:0 0 0 1px var(--edge)}
+ .app i{display:grid;place-items:center;background:var(--ink);color:var(--paper-hi);font:italic 400 52px/1 var(--serif)}
+ .ae .bd .app b{font:500 28px/1.2 var(--serif);color:var(--ink)}
+ .ae .bd .app small{margin-top:-10px;font:400 18px/1.3 var(--serif);color:var(--muted)}
+
+ /* the speakers: what they studied, the work they did, what they do now */
+ .ae .bd .team .creds li b{display:inline-block;min-width:5.6em;font-weight:600;color:var(--ink2)}
+ :lang(zh-CN) .ae .bd .team .creds li b{min-width:4.6em}
 }
 
 @media (max-width:700px){
@@ -1063,6 +1086,11 @@ section.s.title .chip::before{position:relative;top:-1.9px}
  .bqx{display:flex;align-items:center;gap:14px}.bqx .lr{margin:0}.bqx .who2 b{display:block}.bqx .who2 span{display:block;font-size:14px;color:var(--muted)}
 }
 :lang(zh-CN) .ae h2 em,:lang(zh-CN) .st .by{font-style:normal}
+
+/* speaker notes: in the source for the speaker, never on screen or in the PDFs; ?notes shows them for rehearsal */
+.notes{display:none!important}
+.shownotes:not(.export) .notes{display:block!important;position:absolute;z-index:20;left:0;right:0;bottom:0;max-height:34%;overflow:auto;padding:16px 30px 18px;
+ background:rgba(11,26,74,.94);color:#FCF3ED;font:400 20px/1.5 var(--serif)}
 @media (min-width:701px){:lang(zh-CN) .st .sl,:lang(zh-CN) .st .nst p,:lang(zh-CN) .ae .kick{word-break:keep-all;overflow-wrap:anywhere}}
 
 /* ---- snum.css ---- */
@@ -1085,281 +1113,307 @@ section.s>.pgno i{font-style:normal;opacity:.6}
    <div class="xqr pane r" style="--d:.35s"><img src="/decks/img/conversation/qr-talk-clear.png" alt="QR code for arenaschool.org/talk"><p><b>Today’s slides</b>Scan with your phone for today’s slides in <span class="nw">English and 中文.</span><span class="zh-line" lang="zh-CN">手机扫码即可查看中英文讲义。</span></p></div>
   </div>
   <nav class="agenda pane r" style="--d:.4s" aria-label="Contents">
-   <div class="k">Three parts, from work to home</div>
+   <div class="k">The argument in three parts</div>
    <ol>
-    <li><a href="#" data-go="3"><span class="n">01</span><span class="t">Work is already changing<small>Four jobs, two companies, one survey</small></span></a></li>
-    <li><a href="#" data-go="10"><span class="n">02</span><span class="t">Three skills matter more<small>Agency, taste, and craft</small></span></a></li>
-    <li><a href="#" data-go="15"><span class="n">03</span><span class="t">Small habits help at home<small>What to try this week</small></span></a></li>
+    <li><a href="#" data-go="3"><span class="n">01</span><span class="t">Work is being rewritten<small>Even the safest careers, in China and worldwide</small></span></a></li>
+    <li><a href="#" data-go="17"><span class="n">02</span><span class="t">The skills that now decide who gets ahead<small>Agency, taste, and craft</small></span></a></li>
+    <li><a href="#" data-go="22"><span class="n">03</span><span class="t">What to build now, before the gap widens<small>At home, at school, and with the latest tools</small></span></a></li>
    </ol>
   </nav>
  </div>
-</div></section>
+</div><aside class="notes">Welcome. One argument in three steps: work is being rewritten, so a few skills now decide who gets ahead, so here is what to build now. Every number today comes from a public 2025 or 2026 source, listed at the end.</aside></section>
 
 <!-- 2 · The speakers -->
 <section class="s alt ae"><div class="w">
  <p class="kick r">ISB Class of 2019 · Forbes 30 Under 30</p>
- <h2 class="r" style="--d:.1s">We use AI at work, see how companies hire for AI skills, and <em>teach those skills to students.</em></h2>
+ <h2 class="r" style="--d:.1s">We trained at ISB, Caltech, Harvard, Brown, and Tsinghua, then did <em>the jobs AI is now automating.</em></h2>
  <div class="bd r" style="--d:.25s">
  <div class="team">
   <div class="person" data-s="1"><img src="/photos/jing-jing-yang.jpg" alt=""><div class="who"><h3>Jing Jing Yang</h3><div class="co">ISB Class of 2019</div></div>
-   <ul class="creds"><li>ISB from elementary school through graduation · Brown (Economics and Behavioral Decision Sciences) · Tsinghua (Schwarzman Scholar)</li><li><b>Advises Chinese AI companies on going overseas;</b> Kimi (Moonshot AI); research with Microsoft AI.</li><li>Apple · Deloitte · CICC</li></ul></div>
+   <ul class="creds"><li><b>Studied</b>ISB, elementary school through graduation · Brown · Tsinghua (Schwarzman Scholar)</li><li><b>Worked</b>Apple · Deloitte · CICC</li><li><b>Now</b>Advises Chinese AI companies, including Kimi, on going global · research with Microsoft AI</li></ul></div>
   <div class="person" data-s="2"><img src="/photos/phillip-an.jpg" alt=""><div class="who"><h3>Phillip An</h3><div class="co">Forbes 30 Under 30</div></div>
-   <ul class="creds"><li>Caltech (Computer Science) · Harvard (MBA and MS) · Tsinghua (Schwarzman Scholar)</li><li><b>Leads an AI company;</b> an earlier company was backed by Y Combinator.</li><li>Goldman Sachs · McKinsey</li></ul></div>
+   <ul class="creds"><li><b>Studied</b>Caltech (Computer Science) · Harvard (MBA and MS) · Tsinghua (Schwarzman Scholar)</li><li><b>Worked</b>Goldman Sachs · McKinsey</li><li><b>Now</b>Leads an AI company · an earlier company was backed by Y Combinator</li></ul></div>
  </div>
  <div class="logos" data-s="3"><img class="arena" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School" style="height:23px"><img src="/logos/cred/caltech.png" alt="Caltech" style="height:19px"><img src="/logos/cred/harvard.png" alt="Harvard" style="height:21px"><img src="/logos/cred/brown.png" alt="Brown" style="height:23px"><img src="/logos/cred/tsinghua-lockup.png" alt="Tsinghua" style="height:23px"><img src="/logos/cred/goldman.png" alt="Goldman Sachs" style="height:21px"><img src="/logos/cred/mckinsey.png" alt="McKinsey" style="height:14px"><img src="/logos/cred/deloitte.png" alt="Deloitte" style="height:15px"><img src="/logos/cred/apple.png" alt="Apple" style="height:21px"><img src="/logos/cred/cicc.png" alt="CICC" style="height:20px"><img src="/logos/cred/microsoft-ai.png" alt="Microsoft AI" style="height:18px"><img src="/logos/cred/yc.png" alt="Y Combinator" style="height:20px"><img src="/logos/cred/kimi-wordmark.png" alt="Kimi" style="height:14px"></div>
  </div>
-</div></section>
+</div><aside class="notes">Why listen to us: we went through the schools many families here aim for, and we did the analyst, consulting, and banking work that AI now drafts in minutes. Goldman's CEO said in 2025 that AI can get an IPO filing 95% of the way there in a few minutes; that was our first job. Today we teach students the skills that still matter.</aside></section>
 
 <!-- 3 · The question -->
 <section class="s ae st nv"><div class="w">
- <p class="kick r">The question every parent here is asking</p>
- <h2 class="r" style="--d:.1s">When AI can draft an essay in seconds, what should children <em>still learn to do?</em></h2>
- <p class="sl" data-s="1">Nobody knows exactly what work will look like when they graduate. So today sticks to what is already happening at work, and what you can try at home this week.</p>
-</div></section>
+ <p class="kick r">The question for every family in this room</p>
+ <h2 class="r" style="--d:.1s">When AI can draft an essay in seconds, what must our children <em>still learn to do?</em></h2>
+ <p class="sl" data-s="1">The answer follows from what is already happening at work. So we start there.</p>
+</div><aside class="notes">Nobody can predict exact jobs in 2040. But we can read what is already happening, and the direction is clear.</aside></section>
 
-<!-- 4 · Part 1: the Gibson line -->
+<!-- 4 · Part 1 -->
 <section class="s ae st nv"><div class="w">
- <p class="kick r">Part 1 · At work</p>
- <h2 class="r qt" style="--d:.1s">“The future is already here. It’s just not <em>evenly distributed.</em>”</h2>
- <p class="by r" style="--d:.2s">William Gibson, novelist</p>
- <p class="sl" data-s="1">In some jobs, AI already helps with real work every day. In others, AI has barely arrived.</p>
-</div></section>
+ <p class="kick r">Part 1 · What we are seeing</p>
+ <h2 class="r" style="--d:.1s">Work is being rewritten, in China and worldwide, <em>faster than most families realize.</em></h2>
+ <p class="sl" data-s="1">First the evidence. Everything we recommend follows from it.</p>
+</div><aside class="notes">Two numbers on the scale of the change, then four careers parents have always trusted.</aside></section>
 
 <!-- 5 · Reach, measured -->
-<section class="s ae"><div class="w">
- <p class="kick r">Measured from real use, not predicted</p>
- <h2 class="r" style="--d:.1s">AI already helps with at least a quarter of the tasks in <em>about half of all jobs.</em></h2>
- <div class="bd r" style="--d:.25s"><div class="cols stat2">
-  <div class="pane" data-s="1"><div class="lr"><img class="brand an" src="/logos/deck/anthropic.svg" alt="Anthropic"></div>
-   <h3 class="ct">Jobs using AI for at least a quarter of their tasks<sup>1</sup></h3>
-   <div class="hb ref" style="--m:50">
-    <div class="row"><span class="bk">First report, January 2025 data</span><b>36%</b><i style="--v:36"></i></div>
-    <div class="row hl"><span class="bk">January 2026 report</span><b>49%</b><i style="--v:49"></i></div>
-    <div class="mk" style="--v:50"><span>Half of jobs</span></div>
-   </div></div>
-  <div class="pane" data-s="2"><div class="lr"><img class="brand an" src="/logos/deck/anthropic.svg" alt="Anthropic"></div><div class="big"><small>More than</small>1 in 3</div><p>Claude users expect AI to be able to do most of their tasks within a year.<sup>2</sup></p></div>
- </div></div>
- <p class="fn" data-s="1"><span><b>1</b>Anthropic Economic Index, Jan 15, 2026; little change by March 24, 2026. Based on how people use Claude, not a census of every worker.</span><span><b>2</b>Anthropic survey of about 9,700 Claude users, June 26, 2026.</span></p>
-</div></section>
+<section class="s ae bn"><div class="w">
+ <p class="kick r">Anthropic Economic Index · measured from real use, not predicted</p>
+ <h2 class="r" style="--d:.1s">In about half of all jobs, AI is already used for <em>at least a quarter of the tasks.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="bnx" data-s="1"><div class="lr"><img class="brand an" src="/logos/deck/anthropic.svg" alt="Anthropic"></div><div class="big">49%</div><p>of jobs, up from 36% <span class="nw">a year earlier</span></p></div></div>
+ <p class="fn" data-s="1"><span>Anthropic Economic Index, Jan 15, 2026: share of occupations using AI for at least 25% of their tasks (36% in January 2025 data). Based on how people use Claude, not a census of every worker.</span></p>
+</div><aside class="notes">This is measured from millions of real conversations, not a forecast. In a single year the share rose from about a third of jobs to about half.</aside></section>
 
-<!-- 6 · Four jobs -->
-<section class="s alt ae"><div class="w">
- <p class="kick r">Already happening, in 2025</p>
- <h2 class="r" style="--d:.1s">In four jobs you know, AI drafts first and <em>a person decides.</em></h2>
- <div class="bd r" style="--d:.25s"><div class="rows">
-  <div class="rw" data-s="1"><div class="fld"><div class="lr"><img class="brand xf" src="/logos/deck/xunfei-healthcare.png" alt="Xunfei Healthcare"></div><span class="lab">Medicine<sup>1</sup></span></div>
-   <div class="st2 ai"><span class="tg">AI</span><p>Drafts the visit note</p></div><div class="ar" aria-hidden="true"><svg viewBox="0 0 34 16"><path d="M1 8h30M25 2l6 6-6 6"/></svg></div>
-   <div class="st2 me"><span class="tg"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="6.6" r="3.4"/><path d="M3.6 17.4c.9-3.5 3.4-5.3 6.4-5.3s5.5 1.8 6.4 5.3"/></svg>Doctor</span><p>Checks and approves it</p></div><span class="pf">June 2025</span></div>
-  <div class="rw" data-s="2"><div class="fld"><div class="lr"><img class="brand aos" src="/logos/deck/aoshearman.svg" alt="A&amp;O Shearman"><img class="brand hv" src="/logos/deck/harvey.svg" alt="Harvey"></div><span class="lab">Law<sup>2</sup></span></div>
-   <div class="st2 ai"><span class="tg">AI</span><p>Compares loan agreements</p></div><div class="ar" aria-hidden="true"><svg viewBox="0 0 34 16"><path d="M1 8h30M25 2l6 6-6 6"/></svg></div>
-   <div class="st2 me"><span class="tg"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="6.6" r="3.4"/><path d="M3.6 17.4c.9-3.5 3.4-5.3 6.4-5.3s5.5 1.8 6.4 5.3"/></svg>Lawyer</span><p>Checks the result</p></div><span class="pf">April 2025</span></div>
-  <div class="rw" data-s="3"><div class="fld"><div class="lr"><img class="brand jp" src="/logos/deck/jpmorgan.svg" alt="JPMorganChase"></div><span class="lab">Finance<sup>3</sup></span></div>
-   <div class="st2 ai"><span class="tg">AI</span><p>Drafts and suggests ideas</p></div><div class="ar" aria-hidden="true"><svg viewBox="0 0 34 16"><path d="M1 8h30M25 2l6 6-6 6"/></svg></div>
-   <div class="st2 me"><span class="tg"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="6.6" r="3.4"/><path d="M3.6 17.4c.9-3.5 3.4-5.3 6.4-5.3s5.5 1.8 6.4 5.3"/></svg>Employee</span><p>Owns the result</p></div><span class="pf">June 2025</span></div>
-  <div class="rw" data-s="4"><div class="fld"><div class="lr"><img class="brand gg" src="/logos/deck/google.svg" alt="Google"></div><span class="lab">Engineering<sup>4</sup></span></div>
-   <div class="st2 ai"><span class="tg">AI</span><p>Suggests code</p></div><div class="ar" aria-hidden="true"><svg viewBox="0 0 34 16"><path d="M1 8h30M25 2l6 6-6 6"/></svg></div>
-   <div class="st2 me"><span class="tg"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="6.6" r="3.4"/><path d="M3.6 17.4c.9-3.5 3.4-5.3 6.4-5.3s5.5 1.8 6.4 5.3"/></svg>Engineer</span><p>Decides what to keep</p></div><span class="pf">April 2025</span></div>
- </div></div>
- <p class="fn" data-s="1"><span><b>1</b>Anhui Medical University First Affiliated Hospital, June 4, 2025</span><span><b>2</b>A&amp;O Shearman, April 6, 2025</span><span><b>3</b>JPMorganChase, LLM Suite, June 3, 2025</span><span><b>4</b>Alphabet earnings call, April 24, 2025</span></p>
-</div></section>
+<!-- 6 · China, users -->
+<section class="s alt ae bn"><div class="w">
+ <p class="kick r">China · CNNIC, December 2025</p>
+ <h2 class="r" style="--d:.1s">In China, 602 million people already use generative AI, and <em>the young lead the way.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="bnx" data-s="1"><div class="lr"><span class="org">China Internet Network Information Center</span></div><div class="big">602<small style="display:inline;margin:0 0 0 .18em;font-size:.3em">million</small></div><p>users. People aged 19 and under are <span class="nw">the largest group, 26.4%.</span></p></div></div>
+ <p class="fn" data-s="1"><span>CNNIC, 57th Statistical Report on China’s Internet Development, Feb 5, 2026, data as of December 2025</span></p>
+</div><aside class="notes">Our children are not waiting for permission. In China, the biggest group of generative AI users is 19 and under.</aside></section>
 
-<!-- 7 · One hospital, before and after -->
-<section class="s ae"><div class="w">
- <p class="kick r">One hospital in Hefei, before and after</p>
- <h2 class="r" style="--d:.1s">At one hospital, the doctor’s visit note now starts as <em>an AI draft.</em></h2>
- <div class="bd r" style="--d:.25s"><div class="flow one">
-  <span class="lab b" data-s="1">Before</span><span class="lab a" data-s="2">After</span><span class="dv" data-s="2" aria-hidden="true"></span>
-  <div class="who x2" data-s="1"><div class="lr"><img class="brand xf" src="/logos/deck/xunfei-healthcare.png" alt="Xunfei Healthcare"></div><h3>Hospital<sup>1</sup></h3><p>The note after a patient visit</p></div>
-  <div class="x2 nd old" data-s="1"><span class="tg"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="6.6" r="3.4"/><path d="M3.6 17.4c.9-3.5 3.4-5.3 6.4-5.3s5.5 1.8 6.4 5.3"/></svg>Doctor</span><p>Writes every note by hand</p></div>
-  <div class="x2 nd ai" data-s="2"><span class="tg">AI</span><p>Drafts the note and shows its reasoning</p></div>
-  <div class="ar x2" data-s="2" aria-hidden="true"><svg viewBox="0 0 34 16"><path d="M1 8h30M25 2l6 6-6 6"/></svg></div>
-  <div class="x2 nd me" data-s="3"><span class="tg"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="6.6" r="3.4"/><path d="M3.6 17.4c.9-3.5 3.4-5.3 6.4-5.3s5.5 1.8 6.4 5.3"/></svg>Doctor</span><p>Checks the draft and decides</p></div>
- </div></div>
- <p class="fn" data-s="1"><span><b>1</b>Anhui Medical University First Affiliated Hospital, with Xunfei Healthcare, June 4, 2025</span></p>
-</div></section>
+<!-- 7 · The safest careers -->
+<section class="s alt ae st"><div class="w">
+ <p class="kick r">Doctor · Lawyer · Banker · Engineer</p>
+ <h2 class="r" style="--d:.1s">Even the safest careers are <em>being rewritten.</em></h2>
+ <p class="sl" data-s="1">The four paths families have trusted for generations. One number from each.</p>
+</div><aside class="notes">For decades these were the safe answers. Each of the next four slides shows how much of that job AI already does, from a named hospital, court, bank, and company.</aside></section>
 
-<!-- 8 · Salesforce -->
-<section class="s alt ae"><div class="w">
- <p class="kick r">Some teams are shrinking</p>
- <h2 class="r" style="--d:.1s">Salesforce’s support team went from 9,000 people to <em>about 5,000.</em></h2>
- <div class="bd r" style="--d:.25s"><div class="pane wide-ch sf-ch" data-s="1">
-  <div class="lr"><img class="brand sf" src="/logos/deck/salesforce-navy.svg" alt="Salesforce"></div>
-  <h3 class="ct">People in customer support<sup>1</sup></h3>
-  <div class="hb wide abs">
-   <div class="row" data-s="1"><span class="bk">Before AI agents</span><b>9,000</b><i style="--v:100"></i></div>
-   <div class="row hl" data-s="2"><span class="bk">August 2025</span><b><small>about</small>5,000</b><i style="--v:55.56"></i></div>
-  </div>
-  <p class="cap" data-s="3">AI agents took on more of the support work. Hundreds of people moved to other teams.</p>
- </div></div>
- <p class="fn" data-s="1"><span><b>1</b>Marc Benioff, The Logan Bartlett Show, Aug 29, 2025; The Register, Sept 2, 2025</span></p>
-</div></section>
+<!-- 8 · Medicine -->
+<section class="s ae bn"><div class="w">
+ <p class="kick r">Safe career 1 of 4 · Medicine · a hospital in Hefei</p>
+ <h2 class="r" style="--d:.1s">At a Hefei hospital, AI now drafts the notes, saving each doctor <em>about 2.8 hours a day.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="bnx" data-s="1"><div class="lr"><img class="brand xf" src="/logos/deck/xunfei-healthcare.png" alt="Xunfei Healthcare"></div><div class="big">2.8<small style="display:inline;margin:0 0 0 .18em;font-size:.3em">hours</small></div><p>of note-writing saved per doctor, every day. The doctor checks <span class="nw">and signs each one.</span></p></div></div>
+ <p class="fn" data-s="1"><span>Anhui Medical University First Affiliated Hospital, with Xunfei Healthcare, June 4, 2025: pilot in two departments; over 80% of AI drafts were used</span></p>
+</div><aside class="notes">By August 2026 the same hospital had produced more than 140,000 AI-drafted records across about 233 outpatient rooms, and an outpatient note fell from 2.5 minutes to half a minute. The doctor still decides.</aside></section>
 
-<!-- 9 · Accenture -->
-<section class="s ae"><div class="w">
- <p class="kick r">Other companies retrain first</p>
- <h2 class="r" style="--d:.1s">Accenture retrains people first, and still expects <em>more staff</em> next year.</h2>
- <div class="bd r" style="--d:.25s">
-  <div class="lr" data-s="1"><img class="brand acc" src="/logos/deck/accenture.svg" alt="Accenture"><span class="lab">When AI changes a role<sup>1</sup></span></div>
-  <div class="chain">
-   <div class="nd old" data-s="1"><span class="tg">First</span><p>AI changes what a role needs</p></div>
-   <div class="ar" data-s="2" aria-hidden="true"><svg viewBox="0 0 34 16"><path d="M1 8h30M25 2l6 6-6 6"/></svg></div>
-   <div class="nd me" data-s="2"><span class="tg">Then</span><p>Accenture retrains the person for the new work</p></div>
-   <div class="ar" data-s="3" aria-hidden="true"><svg viewBox="0 0 34 16"><path d="M1 8h30M25 2l6 6-6 6"/></svg></div>
-   <div class="nd old" data-s="3"><span class="tg">Only if needed</span><p>People leave where retraining can’t close the gap</p></div>
-  </div>
- </div>
- <p class="fn" data-s="1"><span><b>1</b>Accenture fiscal 2025 results, Sept 25, 2025</span></p>
-</div></section>
+<!-- 9 · Law -->
+<section class="s alt ae bn"><div class="w">
+ <p class="kick r">Safe career 2 of 4 · Law · the courts of Shenzhen</p>
+ <h2 class="r" style="--d:.1s">In Shenzhen’s courts, AI has already drafted <em>145,000 legal documents</em> for judges to review.</h2>
+ <div class="bd r" style="--d:.25s"><div class="bnx" data-s="1"><div class="lr"><span class="org">Shenzhen courts</span></div><div class="big">145,000</div><p>legal documents drafted with AI by December 2024. Every draft is reviewed <span class="nw">by a judge.</span></p></div></div>
+ <p class="fn" data-s="1"><span>Guangzhou Daily, Jan 10, 2025, on the Shenzhen courts’ AI-assisted trial system, from launch to December 2024; civil and commercial cases closed 25.6% faster</span></p>
+</div><aside class="notes">The same system helped judges review 153,000 case files. China's Supreme People's Court is clear that AI assists and only judges carry responsibility, which is exactly the point: the people who stay are the ones who can judge AI's work. Law firms too: JunHe, one of China's top firms, disbanded its translation team in 2026 after adopting AI tools and moved those people to other work.</aside></section>
 
-<!-- 10 · NACE -->
-<section class="s alt ae"><div class="w">
- <p class="kick r">149 US employers, spring 2026</p>
- <h2 class="r" style="--d:.1s">Two in three employers plan around changing tasks; only <em>one in nine</em> asks whether jobs are still needed.</h2>
- <div class="bd r" style="--d:.25s"><div class="pane wide-ch" data-s="1">
-  <div class="lr" data-s="1"><span class="org">US employers surveyed by NACE</span></div>
-  <h3 class="ct" data-s="1">How employers discuss AI in workforce planning<sup>1</sup></h3>
-  <div class="hb wide">
-   <div class="row hl" data-s="1"><span class="bk">Tasks within jobs</span><b>66%</b><i style="--v:66.4"></i></div>
-   <div class="row" data-s="2"><span class="bk">In general, not tied to roles</span><b>47%</b><i style="--v:47"></i></div>
-   <div class="row" data-s="2"><span class="bk">Redesigning roles</span><b>18%</b><i style="--v:18.1"></i></div>
-   <div class="row hl" data-s="3"><span class="bk">Whether some jobs are still needed</span><b>11%</b><i style="--v:10.7"></i></div>
-  </div>
-  <p class="cap" data-s="1">Share of 149 employers; they could give more than one answer.</p>
- </div></div>
- <p class="fn" data-s="1"><span><b>1</b>NACE Job Outlook 2026 Spring Update, April 20, 2026</span></p>
-</div></section>
+<!-- 10 · Finance -->
+<section class="s ae bn"><div class="w">
+ <p class="kick r">Safe career 3 of 4 · Banking · ICBC</p>
+ <h2 class="r" style="--d:.1s">At ICBC, China’s largest bank, AI took on <em>55,000 person-years of work</em> in 2025.</h2>
+ <div class="bd r" style="--d:.25s"><div class="bnx" data-s="1"><div class="lr"><span class="org">Industrial and Commercial Bank of China</span></div><div class="big">55,000</div><p>person-years of work done by AI <span class="nw">“digital employees”</span></p></div></div>
+ <p class="fn" data-s="1"><span>ICBC 2025 Annual Report, March 27, 2026: the bank’s own estimate, across more than 500 AI applications</span></p>
+</div><aside class="notes">That is the work of tens of thousands of people for a year. China Merchants Bank reports 15.56 million hours saved. In New York, about 250,000 JPMorgan employees have access to its AI platform, and half use it roughly every day.</aside></section>
 
-<!-- 11 · Part 2 -->
+<!-- 11 · Engineering -->
+<section class="s alt ae bn"><div class="w">
+ <p class="kick r">Safe career 4 of 4 · Engineering · Google</p>
+ <h2 class="r" style="--d:.1s">At Google, <em>three quarters of all new code</em> is now written by AI and approved by engineers.</h2>
+ <div class="bd r" style="--d:.25s"><div class="bnx" data-s="1"><div class="lr"><img class="brand gg" src="/logos/deck/google.svg" alt="Google"></div><div class="big">75%</div><p>of all new code, up from 50% <span class="nw">just six months earlier</span></p></div></div>
+ <p class="fn" data-s="1"><span>Sundar Pichai, Google Cloud Next, April 22, 2026: “75% of all new code at Google is now AI-generated and approved by engineers, up from 50% last fall.”</span></p>
+</div><aside class="notes">In China the curve is the same: Tencent says 50% of its new code is generated with AI's help, and Baidu says more than 43% of the code it adds each day. Engineers now spend their time deciding what to build and checking the result.</aside></section>
+
+<!-- 12 · Layoffs -->
+<!-- LAYOFFS -->
+
+<!-- 15 · The stakes -->
 <section class="s ae st nv"><div class="w">
- <p class="kick r">Part 2 · Skills</p>
- <h2 class="r" style="--d:.1s">So which skills will our children <em>need most?</em></h2>
- <p class="sl" data-s="1">A Cornell University report put it plainly: “People must be good at deciding what to do and why.”<sup>1</sup></p>
- <p class="fn" data-s="1"><span><b>1</b>Cornell University, Report of the Committee on the Future of the American University, Sept 22, 2026</span></p>
-</div></section>
+ <p class="kick r">The stakes · PwC, more than one billion job ads</p>
+ <h2 class="r" style="--d:.1s">Children without these skills will start their careers <em>far behind.</em></h2>
+ <div class="nst" data-s="1"><div class="big">62%</div><p>higher advertised pay for jobs that require AI skills than for comparable jobs <span class="nw">that don’t</span></p></div>
+ <p class="fn" data-s="1"><span>PwC 2026 Global AI Jobs Barometer, June 15, 2026: average wage premium in job ads across 27 countries; it does not control for education or experience</span></p>
+</div><aside class="notes">Up from 57% a year earlier, and as high as 118% in some sectors. The gap is widening, not closing.</aside></section>
 
-<!-- 12 · Entry-level jobs -->
+<!-- 16 · Young workers -->
+<section class="s ae bn"><div class="w">
+ <p class="kick r">The first to feel it · Stanford, US payroll data through June 2026</p>
+ <h2 class="r" style="--d:.1s">Where AI can do the work, young workers are already <em>19% behind.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="bnx" data-s="1"><div class="lr"><span class="org">Stanford Digital Economy Lab</span></div><div class="big">−19%</div><p>employment of 22-to-25-year-olds in AI-exposed jobs, against the trend. Experienced workers show <span class="nw">no such gap.</span></p></div></div>
+ <p class="fn" data-s="1"><span>Brynjolfsson, Chandar, and Chen, “Canaries in the Coal Mine?”, revised August 2026; descriptive, not a causal estimate</span></p>
+</div><aside class="notes">The losses sit where AI replaces tasks. Where AI complements people, employment is flat or rising. Entry-level work is exactly where our children will start.</aside></section>
+
+<!-- 17 · China students -->
+<section class="s alt ae bn"><div class="w">
+ <p class="kick r">China · 3,794 university students, March 2026</p>
+ <h2 class="r" style="--d:.1s">In China, 81% of students say AI skills make them more competitive, yet <em>40% haven’t started.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="bnx" data-s="1"><div class="lr"><span class="org">MyCOS 麦可思</span></div><div class="big">40%</div><p>of university students have not yet begun learning <span class="nw">AI skills</span></p></div></div>
+ <p class="fn" data-s="1"><span>MyCOS online survey, March 19–20, 2026, published April 16, 2026</span></p>
+</div><aside class="notes">They know it matters, and many still have not started. The gap opens long before the first job.</aside></section>
+
+<!-- 18 · Part 2 -->
+<section class="s ae st nv"><div class="w">
+ <p class="kick r">Part 2 · Therefore, the essential skills</p>
+ <h2 class="r" style="--d:.1s">Therefore, three skills now decide who gets ahead: <em>agency, taste, and craft.</em></h2>
+ <p class="sl" data-s="1">Children who build them will lead. Children who don’t will start behind. Employers are already asking for them.</p>
+</div><aside class="notes">Cornell University's 2026 report put it plainly: "People must be good at deciding what to do and why." Here is what employers now ask for.</aside></section>
+
+<!-- 19 · Entry-level jobs -->
 <section class="s ae"><div class="w">
- <p class="kick r">US entry-level jobs</p>
- <h2 class="r" style="--d:.1s">In six months, entry-level jobs that require AI skills rose from 13.3% <em>to 35%.</em></h2>
+ <p class="kick r">US entry-level jobs · NACE employer surveys</p>
+ <h2 class="r" style="--d:.1s">In six months, entry-level jobs requiring AI skills jumped from 13.3% <em>to 35%.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="pane arc" data-s="1">
   <div class="lr"><span class="org">US employers surveyed by NACE</span></div>
-  <h3 class="ct">Entry-level jobs that require AI skills<sup>1</sup></h3>
+  <h3 class="ct">Entry-level jobs that require AI skills</h3>
   <div class="arow">
    <div class="an" data-s="1"><span class="lab">Fall 2025</span><div class="big lo">13.3%</div><div class="hb"><div class="row"><i style="--v:13.3"></i></div></div></div>
    <div class="ar2" data-s="2" aria-hidden="true"><svg viewBox="0 0 120 16"><path d="M1 8h116M111 2l6 6-6 6"/></svg><span>Six months</span></div>
    <div class="an" data-s="2"><span class="lab">Spring 2026</span><div class="big">35%</div><div class="hb"><div class="row hl"><i style="--v:35"></i></div></div></div>
   </div>
  </div></div>
- <p class="fn" data-s="1"><span><b>1</b>NACE Job Outlook 2026, Nov 2025; Spring Update, April 20, 2026</span></p>
-</div></section>
+ <p class="fn" data-s="1"><span>NACE Job Outlook 2026, Nov 2025; Spring Update, April 20, 2026</span></p>
+</div><aside class="notes">More than one in three entry-level jobs in the US now asks for AI skills, up from about one in eight half a year earlier.</aside></section>
 
-<!-- 13 · What employers ask for -->
-<section class="s alt ae"><div class="w">
- <p class="kick r">What employers ask for now</p>
- <h2 class="r" style="--d:.1s">As AI does more, employers want people who <em>check AI’s work</em> and think clearly.</h2>
- <div class="bd r" style="--d:.25s"><div class="cols c2 emp">
-  <div class="pane" data-s="1"><div class="lr"><img class="brand msft" src="/logos/deck/microsoft.svg" alt="Microsoft"></div><h3 class="ct">Skills that matter more as AI does more<sup>1</sup></h3>
-   <div class="hb"><div class="row hl"><span class="bk">Checking AI’s output</span><b>50%</b><i style="--v:50"></i></div><div class="row hl"><span class="bk">Critical thinking</span><b>46%</b><i style="--v:46"></i></div></div>
-   <p class="cap">Ranked first and second by AI users</p></div>
-  <div class="pane" data-s="2"><div class="lr"><span class="org">China</span></div><h3 class="ct">What employers in China ask for<sup>2</sup></h3>
-   <ol class="ls"><li><i>1</i><span>AI tools</span></li><li><i>2</i><span>Data skills</span></li><li><i>3</i><span>Clear thinking</span></li></ol></div>
- </div></div>
- <p class="fn" data-s="1"><span><b>1</b>Microsoft 2026 Work Trend Index</span><span><b>2</b>解放日报, via 上观新闻, citing 智联招聘, March 27, 2026</span></p>
-</div></section>
+<!-- 20 · Checking AI's work -->
+<section class="s alt ae bn"><div class="w">
+ <p class="kick r">Microsoft 2026 Work Trend Index · people who use AI at work</p>
+ <h2 class="r" style="--d:.1s">As AI does more, the skill that matters most is <em>judging whether AI got it right.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="bnx" data-s="1"><div class="lr"><img class="brand msft" src="/logos/deck/microsoft.svg" alt="Microsoft"></div><div class="big">50%</div><p>rank checking AI’s output first. Critical thinking <span class="nw">is next, at 46%.</span></p></div></div>
+ <p class="fn" data-s="1"><span>Microsoft 2026 Work Trend Index, survey fielded Feb 18 to April 7, 2026</span></p>
+</div><aside class="notes">That is taste: telling which version actually works. It is the skill AI cannot supply for itself.</aside></section>
 
-<!-- 14 · A hiring story -->
+<!-- 21 · What employers in China ask for -->
 <section class="s ae"><div class="w">
- <p class="kick r">A hiring story from Kimi</p>
- <h2 class="r" style="--d:.1s">At Kimi, the candidate who <em>built a tool</em> before the interview got the offer.</h2>
- <div class="bd r" style="--d:.25s"><div class="pane tl-pane" data-s="1">
-  <div class="who-row" data-s="1"><div class="lr"><img class="brand km" src="/logos/deck/kimi.png" alt="Kimi"></div><span class="lab">Growth team, a non-technical role</span></div>
-  <ol class="tl">
-   <li data-s="1"><span class="dot">1</span><h3>Built a small tool</h3><p>For the team’s social media work</p></li>
-   <li data-s="2"><span class="dot">2</span><h3>Showed it in the interview</h3><p>Nobody had asked for it</p></li>
-   <li data-s="3" class="end"><span class="dot">3</span><h3>Got the offer</h3><p>The working tool made the case</p></li>
-  </ol>
- </div></div>
- <p class="fn" data-s="1"><span>A first-hand hiring example from Kimi (Moonshot AI).</span></p>
-</div></section>
+ <p class="kick r">China · employers hiring through 智联招聘 Zhaopin</p>
+ <h2 class="r" style="--d:.1s">Employers in China want AI tools, data skills, and <em>clear thinking.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="pane emp1" data-s="1"><div class="lr"><span class="org">What employers in China ask for</span></div>
+  <ol class="ls"><li data-s="1"><i>1</i><span>Using AI tools</span></li><li data-s="2"><i>2</i><span>Working with data</span></li><li data-s="3"><i>3</i><span>Thinking clearly</span></li></ol></div></div>
+ <p class="fn" data-s="1"><span>解放日报, via 上观新闻, citing 智联招聘, March 27, 2026</span></p>
+</div><aside class="notes">The tools come first, and the thinking still matters. In 2025, Chinese job postings mentioning AI grew 74% on BOSS Zhipin, including in sales and admin roles, not only tech.</aside></section>
 
-<!-- 15 · Agency, taste, craft -->
+<!-- 22 · Agency, taste, craft -->
 <section class="s alt ae"><div class="w">
- <p class="kick r">What the stories have in common</p>
- <h2 class="r" style="--d:.1s">Those stories point to three skills: <span class="m" style="--d:.6s"><em>agency,</em></span> <span class="m" style="--d:.8s"><em>taste,</em></span> and <span class="m" style="--d:1s"><em>craft.</em></span></h2>
+ <p class="kick r">What the evidence points to</p>
+ <h2 class="r" style="--d:.1s">The skills that set children apart: <span class="m" style="--d:.6s"><em>agency,</em></span> <span class="m" style="--d:.8s"><em>taste,</em></span> and <span class="m" style="--d:1s"><em>craft.</em></span></h2>
  <div class="bd r" style="--d:.25s">
   <ol class="model">
-   <li data-s="1"><div class="ring"><i>01</i><span class="pn">Agency</span></div><p>Choosing what’s worth solving</p><p class="ex">Building the tool before anyone asks</p></li>
+   <li data-s="1"><div class="ring"><i>01</i><span class="pn">Agency</span></div><p>Choosing what’s worth solving</p><p class="ex">Deciding what to make before anyone asks</p></li>
    <li data-s="2"><div class="ring"><i>02</i><span class="pn">Taste</span></div><p>Telling which version actually works</p><p class="ex">Checking AI’s work before anyone relies on it</p></li>
    <li data-s="3"><div class="ring"><i>03</i><span class="pn">Craft</span></div><p>Finishing it well</p><p class="ex">Turning a first draft into something people trust</p></li>
   </ol>
  </div>
-</div></section>
+</div><aside class="notes">Agency is what the employers who reward initiative are paying for. Taste is the 50% who put checking AI's output first. Craft is finishing: the part AI's first draft never does.</aside></section>
 
-<!-- 16 · Part 3 -->
+<!-- 23 · Part 3 -->
 <section class="s ae st nv"><div class="w">
- <p class="kick r">Part 3 · At home</p>
- <h2 class="r" style="--d:.1s">Nearly three in four parents in China support their child <em>using AI.</em></h2>
- <div class="nst" data-s="1"><div class="big">72.6%</div><p>of 1,336 parents polled say yes to AI for their child, most with conditions.<sup>1</sup></p></div>
- <p class="fn" data-s="1"><span><b>1</b>China Youth Daily poll, n=1,336, May 28, 2026</span></p>
-</div></section>
+ <p class="kick r">Part 3 · Therefore, what to build now</p>
+ <h2 class="r" style="--d:.1s">Therefore, start building these skills now, <em>before the gap widens.</em></h2>
+ <p class="sl" data-s="1">At home, at school, and with the tools children already use.</p>
+</div><aside class="notes">Four things families can start this week, then proof from students in our programs.</aside></section>
 
-<!-- 17 · Shortcut or tutor -->
+<!-- 24 · Students and parents in China -->
 <section class="s ae"><div class="w">
- <p class="kick r">What intentional use looks like</p>
- <h2 class="r" style="--d:.1s">The same AI can be a shortcut or <em>a patient tutor.</em></h2>
+ <p class="kick r">China · National Academy of Educational Sciences, 31 provinces</p>
+ <h2 class="r" style="--d:.1s">Most students already use AI for homework. <em>Most parents don’t know it.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="pane arc" data-s="1">
+  <div class="arow">
+   <div class="an" data-s="1"><span class="lab">Students who have used AI for homework</span><div class="big">85.6%</div><div class="hb"><div class="row hl"><i style="--v:85.6"></i></div></div></div>
+   <div class="ar2 vs" data-s="2" aria-hidden="true"><span>but</span></div>
+   <div class="an" data-s="2"><span class="lab">Parents who think students commonly do</span><div class="big lo">17.8%</div><div class="hb"><div class="row"><i style="--v:17.8"></i></div></div></div>
+  </div>
+ </div></div>
+ <p class="fn" data-s="1"><span>China National Academy of Educational Sciences survey, summer 2025, reported by People’s Daily, Aug 17, 2026; only 13.8% of teachers think so</span></p>
+</div><aside class="notes">Our children are already using these tools, with or without us. The question is whether they use them as a shortcut or to build real skills. Another national survey found 67.9% of families have no rules for AI at all.</aside></section>
+
+<!-- 25 · Beijing schools -->
+<section class="s alt ae bn"><div class="w">
+ <p class="kick r">Beijing Municipal Education Commission · from fall 2025</p>
+ <h2 class="r" style="--d:.1s">Every school in Beijing must now teach AI, <em>at least 8 class hours a year.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="bnx" data-s="1"><div class="lr"><span class="org">北京市教育委员会</span></div><div class="big">8<small style="display:inline;margin:0 0 0 .18em;font-size:.3em">hours</small></div><p>of AI a year, at least, for every primary and secondary student <span class="nw">in Beijing</span></p></div></div>
+ <p class="fn" data-s="1"><span>Beijing Work Plan for AI Education in Primary and Secondary Schools (2025–2027), March 6, 2025; national AI+Education Action Plan, April 2, 2026</span></p>
+</div><aside class="notes">The national plan, issued by the Ministry of Education and four other ministries in April 2026, aims for AI education at every stage of school by 2030. The same Beijing plan warns against over-dependence and dulled thinking, so how children use AI matters as much as whether they do.</aside></section>
+
+<!-- 26 · Teachers in China -->
+<section class="s ae bn"><div class="w">
+ <p class="kick r">China · 68,792 primary and secondary teachers, 2025</p>
+ <h2 class="r" style="--d:.1s">Teachers in China are moving fast too: <em>81% have used AI</em> in their work.</h2>
+ <div class="bd r" style="--d:.25s"><div class="bnx" data-s="1"><div class="lr"><span class="org">Teachers surveyed</span></div><div class="big">81%</div><p>have used AI, up from 75% in about six months. Half use it <span class="nw">to plan lessons.</span></p></div></div>
+ <p class="fn" data-s="1"><span>China Society of Education Development Strategy with 学科网 Zxxk, June to September 2025, reported Oct 20, 2025; collected online, so it may lean toward teachers who already use AI</span></p>
+</div><aside class="notes">Teachers stay in charge of their teaching; AI gives them a faster first draft of materials. School is moving. Home is where families can set the habits.</aside></section>
+
+<!-- 27 · The tools -->
+<!-- TOOLS -->
+
+<!-- 28 · A hiring story -->
+<section class="s ae"><div class="w">
+ <p class="kick r">Build now, point 2 · use AI for real, high-stakes tasks</p>
+ <h2 class="r" style="--d:.1s">At Kimi, the candidate who <em>built a tool</em> before the interview got the offer.</h2>
+ <div class="bd r" style="--d:.25s"><div class="pane tl-pane" data-s="1">
+  <div class="who-row" data-s="1"><div class="lr"><img class="brand km" src="/logos/deck/kimi.png" alt="Kimi"></div><span class="lab">Growth team, a non-technical role</span></div>
+  <ol class="tl">
+   <li data-s="1"><span class="dot">1</span><h3>Built a small tool with AI</h3><p>For the team’s social media work</p></li>
+   <li data-s="2"><span class="dot">2</span><h3>Showed it in the interview</h3><p>Nobody had asked for it</p></li>
+   <li data-s="3" class="end"><span class="dot">3</span><h3>Got the offer</h3><p>The working tool made the case</p></li>
+  </ol>
+ </div></div>
+ <p class="fn" data-s="1"><span>A first-hand hiring example from Kimi (Moonshot AI), shared by Jing Jing Yang</span></p>
+</div><aside class="notes">Jing Jing's story. A job interview is about as high-stakes as everyday life gets, and this candidate used AI to show, not tell. Encourage children to use AI for real things: a school project, a club, a part-time job application.</aside></section>
+
+<!-- 29 · Shortcut or tutor -->
+<section class="s alt ae"><div class="w">
+ <p class="kick r">Build now, point 3 · make AI a tutor</p>
+ <h2 class="r" style="--d:.1s">The same AI can be a shortcut or <em>a patient tutor.</em> Teach the tutor.</h2>
  <div class="bd r" style="--d:.25s">
   <div class="pair">
    <div class="pc lt" data-s="1"><span class="pl">Shortcut</span><p class="say">“Just give me the answer.”</p><p>The homework gets done. The thinking gets skipped.</p></div>
    <div class="pc dk" data-s="2"><span class="pl">Tutor</span><p class="say">“Explain it until I get it.”</p><p>The child does the thinking. AI explains and checks.</p></div>
   </div>
-  <p class="pane pn2" data-s="3">In PISA 2025, moderate, intentional AI use went with stronger learning, though the study does not prove one causes the other.<sup>1</sup></p>
  </div>
- <p class="fn" data-s="1"><span><b>1</b>OECD, PISA 2025 results, Sept 8, 2026</span></p>
-</div></section>
+ <p class="fn" data-s="1"><span>OECD, PISA 2025 results, Sept 8, 2026: moderate, intentional AI use went with stronger learning, though the study does not prove one causes the other</span></p>
+</div><aside class="notes">Same tool, opposite result. The difference is the habit, and habits are built at home.</aside></section>
 
-<!-- 18 · At home -->
-<section class="s alt ae"><div class="w">
- <p class="kick r">Agency, taste, and craft at home</p>
- <h2 class="r" style="--d:.1s">Three small habits to try at home <em>this week.</em></h2>
+<!-- 30 · At home -->
+<section class="s ae"><div class="w">
+ <p class="kick r">Build now, point 4 · three habits for home</p>
+ <h2 class="r" style="--d:.1s">Start three habits at home <em>this week.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="hm">
   <figure class="ph" data-s="1"><img src="/decks/img/conversation/home-together-1600.webp" alt="A parent and a child use a laptop together"></figure>
   <ol class="pane habs" data-s="1">
-   <li data-s="1"><span class="no">1</span><div><span class="lab">Agency</span><h3>Make one small thing together</h3><p>A chore list, a trip plan, or a quiz for a younger sibling</p></div></li>
-   <li data-s="2"><span class="no">2</span><div><span class="lab">Taste</span><h3>Ask, “How did you check it?”</h3><p>Treat AI’s answer as a first draft</p></div></li>
+   <li data-s="1"><span class="no">1</span><div><span class="lab">Agency</span><h3>Make one real thing together</h3><p>A chore chart, a trip plan, or a quiz for a younger sibling</p></div></li>
+   <li data-s="2"><span class="no">2</span><div><span class="lab">Taste</span><h3>Ask, “How did you check it?”</h3><p>Treat every AI answer as a first draft</p></div></li>
    <li data-s="3"><span class="no">3</span><div><span class="lab">Craft</span><h3>Show it to a real person</h3><p>A grandparent, a teacher, or a friend</p></div></li>
   </ol>
  </div></div>
  <p class="fn" data-s="1"><span>Photo: Ksenia Chernaya, Pexels</span></p>
-</div></section>
+</div><aside class="notes">Each habit trains one of the three skills. None needs special software, and each takes minutes.</aside></section>
 
-<!-- 19 · What students make -->
+<!-- 31 · The best time to build -->
+<section class="s ae st nv"><div class="w">
+ <p class="kick r">And yet</p>
+ <h2 class="r" style="--d:.1s">This is one of the best times ever to be a child, and <em>the best time to build.</em></h2>
+ <p class="sl" data-s="1">When we were young, almost everything was done by hand. Today a child with an idea and AI can build something real, and the ones who start now pull ahead.</p>
+</div><aside class="notes">Everything so far is the warning. This is the opportunity: the same tools that rewrite jobs put real building within a child's reach.</aside></section>
+
+<!-- 32 · Cursor -->
+<section class="s alt ae bn"><div class="w">
+ <p class="kick r">Started by students · Cursor, 2022 to 2026</p>
+ <h2 class="r" style="--d:.1s">Four MIT students started Cursor in 2022. Four years later, it sold for <em>$60 billion.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="bnx" data-s="1"><div class="lr"><span class="org">Cursor · Anysphere</span></div><div class="big">$60<small style="display:inline;margin:0 0 0 .18em;font-size:.3em">billion</small></div><p>SpaceX’s acquisition of the AI coding tool <span class="nw">they built</span></p></div></div>
+ <p class="fn" data-s="1"><span>Reuters, CNBC, and Bloomberg, June 16, 2026; deal completed Aug 14, 2026 (PitchBook). Cursor’s Series D, Nov 13, 2025, valued it at $29.3 billion.</span></p>
+</div><aside class="notes">They were students when they started. They used AI to build a tool for using AI, and millions of developers now use it. Not every child will found a company, but every child can start building now.</aside></section>
+
+<!-- 33 · What students make -->
 <section class="s ae"><div class="w">
- <p class="kick r">Made by students, with AI’s help</p>
- <h2 class="r" style="--d:.1s">Students are already making games, a sleep tracker, and <em>a sign-language app.</em></h2>
+ <p class="kick r">This is what our students do · Arena at ISB, 2026</p>
+ <h2 class="r" style="--d:.1s">In our ISB course, a middle-school student built a game. Our students have also built <em>a sleep tracker and a sign-language app.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="cols c3 proj">
-  <div class="card" data-s="1"><figure><img src="/photos/isb-2026/demo-laptop-1600.webp" alt="Students demonstrate their project at ISB"></figure><div class="pb"><span class="lab">Games</span><h3>Five games, built to publish on Steam</h3><p class="where">At ISB, 2026</p></div></div>
+  <div class="card" data-s="1"><figure><img src="/photos/isb-2026/demo-laptop-1600.webp" alt="Students demonstrate their project at ISB"></figure><div class="pb"><span class="lab">Games</span><h3>Games built to publish on Steam</h3><p class="where">At ISB, 2026</p></div></div>
   <div class="card" data-s="2"><figure><img src="/photos/isb-2026/pitch-podium-1600.webp" alt="A student presents at ISB"></figure><div class="pb"><span class="lab">Productivity</span><h3>A tool that tracks progress, sleep, and working time</h3><p class="where">At ISB, 2026</p></div></div>
   <div class="card" data-s="3"><figure class="vframe"><video autoplay muted loop playsinline preload="metadata" poster="/decks/img/conversation/hands-stage-poster.webp" src="/decks/img/conversation/hands-stage.mp4" aria-label="A student tests a sign-language app on a laptop"></video><img class="vposter" src="/decks/img/conversation/hands-stage-poster.webp" alt=""></figure><div class="pb"><span class="lab">Accessibility</span><h3>A sign-language interpreter</h3><p class="where">In testing</p></div></div>
  </div></div>
-</div></section>
+</div><aside class="notes">Students used AI coding tools, and they chose the problems, judged the versions, and finished the work themselves. That is agency, taste, and craft in practice.</aside></section>
 
-<!-- 20 · Tools and skills -->
-<section class="s ae st nv"><div class="w">
+<!-- 32 · Tools and skills -->
+<section class="s ae st alt"><div class="w">
  <p class="kick r">Hold onto this</p>
- <h2 class="r" style="--d:.1s">A new AI tool takes an afternoon to learn. The three skills take <em>far longer.</em></h2>
- <p class="sl" data-s="1">Children will switch AI tools many times. Choosing a problem, judging the result, and finishing the work carry into every job.</p>
-</div></section>
+ <h2 class="r" style="--d:.1s">Any AI tool takes an afternoon to learn. The three skills take years, <em>so start now.</em></h2>
+ <p class="sl" data-s="1">Tools change every few months. Choosing a problem, judging the result, and finishing the work carry into every job, and the lead compounds.</p>
+</div><aside class="notes">A child who starts at twelve has years of practice by the first job. That head start is the comparative advantage.</aside></section>
 
-<!-- 21 · Close -->
+<!-- 33 · Close -->
 <section class="s ae st nv cl"><div class="w">
  <p class="kick r">If you remember one thing</p>
  <h2 class="r" style="--d:.1s">When AI can make almost anything, students need to know <em>what’s worth making, whether it’s good, and how to finish it.</em></h2>
-</div></section>
+ <p class="sl" data-s="1">The children who start building now will pull ahead. There has never been a better time to begin.</p>
+</div><aside class="notes">Thank you. We're happy to take questions.</aside></section>
 
-<!-- 22 · Q&A -->
+<!-- 36 · Q&A -->
 <section class="s alt ae"><div class="w">
- <p class="kick r">Your turn</p>
- <h2 class="r" style="--d:.1s">Your questions next. Today’s slides and tools are <em>free, with no sign-up.</em></h2>
+ <p class="kick r">Start here</p>
+ <h2 class="r" style="--d:.1s">Your questions now. Today’s slides and tools are <em>free, with no sign-up.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="qa qa14">
   <a class="qr pane qr-live qr-slides" href="https://arenaschool.org/talk" target="_blank" rel="noopener"><img src="/decks/img/conversation/qr-talk-clear.png" alt="QR code for arenaschool.org/talk"><span>Today’s slides</span><small>arenaschool.org/talk</small></a>
   <div class="qr pane qr-chat"><div class="qr-slot"></div><span>Parent group chat QR</span><small>(added before the session)</small></div>
@@ -1371,31 +1425,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  </div></div>
 </div></section>
 
-<!-- 23 · Appendix -->
-<section class="s ae s-src"><div class="w">
- <p class="kick r">Appendix · Sources</p>
- <h2 class="r" style="--d:.1s">Every figure in this talk comes from a <em>public 2025 or 2026 source.</em></h2>
- <div class="bd r" style="--d:.25s">
- <ul class="srcs pane">
-  <li><span><b>Anthropic</b>, Economic Index, share of jobs using AI: 36% (January 2025 data), 49% (January 2026)</span><span class="src">Jan 15, 2026 · March 24, 2026</span></li>
-  <li><span><b>Anthropic</b>, Economic Index survey of about 9,700 Claude users, on what they expect within a year</span><span class="src">June 26, 2026</span></li>
-  <li><span><b>安徽医科大学第一附属医院</b>, pilot with 讯飞医疗, from handwritten notes to a draft the doctor can cite</span><span class="src">June 4, 2025</span></li>
-  <li><span><b>A&amp;O Shearman</b>, with Harvey, on comparing loan agreements that lawyers had reviewed by hand</span><span class="src">April 6, 2025</span></li>
-  <li><span><b>JPMorganChase</b>, on LLM Suite for drafting and ideas</span><span class="src">June 3, 2025</span></li>
-  <li><span><b>Alphabet</b>, Q1 2025 earnings call, on engineers accepting code suggestions</span><span class="src">April 24, 2025</span></li>
-  <li><span><b>Marc Benioff</b>, The Logan Bartlett Show, on Salesforce support headcount; company comment in The Register</span><span class="src">Aug 29, 2025 · Sept 2, 2025</span></li>
-  <li><span><b>Accenture</b>, fiscal 2025 results, on reskilling and headcount</span><span class="src">Sept 25, 2025</span></li>
-  <li><span><b>NACE</b>, Job Outlook 2026, on jobs that require AI skills (13.3%)</span><span class="src">Nov 2025</span></li>
-  <li><span><b>NACE</b>, Job Outlook 2026 Spring Update, on AI skills in entry-level jobs (35%), and on workforce planning (n=149)</span><span class="src">April 20, 2026</span></li>
-  <li><span><b>Microsoft</b>, 2026 Work Trend Index, on quality control (50%) and critical thinking (46%)</span><span class="src">Feb 18–April 7, 2026</span></li>
-  <li><span><b>解放日报</b>, published by 上观新闻, citing 智联招聘 on employer skills</span><span class="src">March 27, 2026</span></li>
-  <li><span><b>Cornell University</b>, Report of the Committee on the Future of the American University</span><span class="src">Sept 22, 2026</span></li>
-  <li><span><b>China Youth Daily</b> poll, n=1,336</span><span class="src">May 28, 2026</span></li>
-  <li><span><b>OECD</b>, PISA 2025 results</span><span class="src">Sept 8, 2026</span></li>
-  <li><span><b>Habits photo</b>, Ksenia Chernaya, Pexels license</span><span class="src">pexels.com/photo/7295878</span></li>
- </ul>
- </div>
-</div></section>
+<!-- SOURCES -->
 
 </main>
 <script>
@@ -1421,6 +1451,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 })();
 if(!document.documentElement.classList.contains('player')&&!matchMedia('(max-width:700px)').matches)[].forEach.call(document.querySelectorAll('video'),function(v){v.preload='auto'});
 if(/[?&]read\b/.test(location.search))document.documentElement.classList.add('noqr');
+if(/[?&]notes\b/.test(location.search))document.documentElement.classList.add('shownotes');
 /* navigation: dot nav, arrow keys, agenda links */
 var deck=document.getElementById('deck'),S=[].slice.call(document.querySelectorAll('.s')),nav=document.getElementById('nav');
 S.forEach(function(s,i){var a=document.createElement('a');a.href='#';a.setAttribute('aria-label','Slide '+(i+1));a.onclick=function(e){e.preventDefault();go(i)};nav.appendChild(a)});

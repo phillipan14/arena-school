@@ -699,7 +699,8 @@ section.s.title .chip::before{position:relative;top:-1.9px}
    Oct 11 · calmer surfaces (hairline card edges, lighter dots), one chart style, and step builds ([data-s]). ===== */
 
 /* title agenda: the three parts, each with one plain line under it; each part opens on a navy statement slide */
-.title .agenda .t small{display:block;margin-top:6px;font:400 19px/1.35 var(--serif);color:#C9D6F2;letter-spacing:0}
+.title .agenda .t small{display:block;margin-top:8px;font:400 22px/1.35 var(--serif);color:rgba(252,243,237,.9);letter-spacing:0}
+section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
 
 /* type: title 50, card heading 32, body 26, labels and sources 15 */
 .ae h2 em{font-style:italic}
@@ -1038,6 +1039,28 @@ section.s.title .chip::before{position:relative;top:-1.9px}
  .ae .bd .bqx .who2 span{display:block;margin-top:4px;font:italic 400 22px/1.35 var(--serif);color:var(--muted)}
  :lang(zh-CN) .ae .bd .bqx .who2 span{font-style:normal}
  .ae.bq .bd{justify-content:flex-end;padding-bottom:40px}
+
+ /* one ranked list on its own pane */
+ .ae .bd .emp1{align-self:flex-start;width:min(100%,1040px);padding:34px 48px 38px}
+ .ae .bd .emp1 .ls{margin-top:18px}
+ .ae .bd .emp1 .ls li{padding:22px 0;font-size:40px;line-height:1.2}
+ .emp1 .ls li i{font-size:32px;width:52px}
+
+ /* two numbers compared, with a word between them instead of an arrow */
+ .ar2.vs{padding-bottom:110px}
+ .ar2.vs span{font-size:30px}
+
+ /* the tools parents may not know: icons and names only, the rest is spoken */
+ .apps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:44px 28px;justify-items:center}
+ .app{display:flex;flex-direction:column;align-items:center;gap:18px}
+ .app img,.app i{display:block;width:112px;height:112px;border-radius:26px;object-fit:cover;box-shadow:0 0 0 1px var(--edge)}
+ .app i{display:grid;place-items:center;background:var(--ink);color:var(--paper-hi);font:italic 400 52px/1 var(--serif)}
+ .ae .bd .app b{font:500 28px/1.2 var(--serif);color:var(--ink)}
+ .ae .bd .app small{margin-top:-10px;font:400 18px/1.3 var(--serif);color:var(--muted)}
+
+ /* the speakers: what they studied, the work they did, what they do now */
+ .ae .bd .team .creds li b{display:inline-block;min-width:5.6em;font-weight:600;color:var(--ink2)}
+ :lang(zh-CN) .ae .bd .team .creds li b{min-width:4.6em}
 }
 
 @media (max-width:700px){
@@ -1063,6 +1086,11 @@ section.s.title .chip::before{position:relative;top:-1.9px}
  .bqx{display:flex;align-items:center;gap:14px}.bqx .lr{margin:0}.bqx .who2 b{display:block}.bqx .who2 span{display:block;font-size:14px;color:var(--muted)}
 }
 :lang(zh-CN) .ae h2 em,:lang(zh-CN) .st .by{font-style:normal}
+
+/* speaker notes: in the source for the speaker, never on screen or in the PDFs; ?notes shows them for rehearsal */
+.notes{display:none!important}
+.shownotes:not(.export) .notes{display:block!important;position:absolute;z-index:20;left:0;right:0;bottom:0;max-height:34%;overflow:auto;padding:16px 30px 18px;
+ background:rgba(11,26,74,.94);color:#FCF3ED;font:400 20px/1.5 var(--serif)}
 @media (min-width:701px){:lang(zh-CN) .st .sl,:lang(zh-CN) .st .nst p,:lang(zh-CN) .ae .kick{word-break:keep-all;overflow-wrap:anywhere}}
 
 /* ---- snum.css ---- */
@@ -1084,280 +1112,306 @@ section.s>.pgno i{font-style:normal;opacity:.6}
    <h1 class="r" style="--d:.1s"><span class="nw">孩子们未来的工作</span><span class="m" style="--d:.6s"><em class="nw">还不存在，</em></span><span class="sub">那么，哪些能力最重要？</span></h1>
   </div>
   <nav class="agenda pane r" style="--d:.4s" aria-label="目录">
-   <div class="k">三个部分，从工作讲到家里</div>
+   <div class="k">三个部分，一条主线</div>
    <ol>
-    <li><a href="#" data-go="3"><span class="n">01</span><span class="t">工作已经在变<small>四种职业、两家公司、一份调查</small></span></a></li>
-    <li><a href="#" data-go="10"><span class="n">02</span><span class="t">三种能力更重要<small>主动性、审美与匠心</small></span></a></li>
-    <li><a href="#" data-go="15"><span class="n">03</span><span class="t">在家就能开始<small>这周就能试的小习惯</small></span></a></li>
+    <li><a href="#" data-go="3"><span class="n">01</span><span class="t">工作正在被改写<small>最稳妥的职业也不例外，中国和全世界都一样</small></span></a></li>
+    <li><a href="#" data-go="17"><span class="n">02</span><span class="t">决定孩子能否领先的能力<small>主动性、审美与匠心</small></span></a></li>
+    <li><a href="#" data-go="22"><span class="n">03</span><span class="t">现在就培养，趁差距还没拉大<small>在家、在学校，也用好最新的工具</small></span></a></li>
    </ol>
   </nav>
  </div>
-</div></section>
+</div><aside class="notes">欢迎大家。今天讲一条主线：工作正在被改写，所以有几种能力决定孩子能否领先，所以现在就要开始培养。今天的每个数字都来自2025或2026年的公开资料，最后有完整来源。</aside></section>
 
 <!-- 2 · The speakers -->
 <section class="s alt ae"><div class="w">
  <p class="kick r">ISB 2019届校友 · 福布斯30U30</p>
- <h2 class="r" style="--d:.1s">我们在工作中用AI，看到企业怎样按AI能力招人，也<em>把这些能力教给学生。</em></h2>
+ <h2 class="r" style="--d:.1s">我们在 ISB、加州理工、哈佛、布朗和清华求学，做过的正是<em>AI如今在自动化的工作。</em></h2>
  <div class="bd r" style="--d:.25s">
  <div class="team">
   <div class="person" data-s="1"><img src="/photos/jing-jing-yang.jpg" alt=""><div class="who"><h3>羊筱涵<span class="xn">Jing Jing Yang</span></h3><div class="co">ISB 2019届</div></div>
-   <ul class="creds"><li>小学至高中毕业就读 ISB · 布朗大学（经济学与行为决策科学）· 清华大学（苏世民学者）</li><li><b>为多家中国AI公司提供出海咨询；</b>Kimi（月之暗面）；与微软 AI合作研究。</li><li>苹果 · 德勤 · 中金公司</li></ul></div>
+   <ul class="creds"><li><b>求学</b>小学至高中毕业就读 ISB · 布朗大学 · 清华大学（苏世民学者）</li><li><b>工作</b>苹果 · 德勤 · 中金公司</li><li><b>现在</b>为多家中国AI公司（包括 Kimi）提供出海咨询 · 与微软 AI合作研究</li></ul></div>
   <div class="person" data-s="2"><img src="/photos/phillip-an.jpg" alt=""><div class="who"><h3>安广宁<span class="xn">Phillip An</span></h3><div class="co">福布斯30U30</div></div>
-   <ul class="creds"><li>加州理工学院（计算机科学）· 哈佛大学（MBA、理学硕士）· 清华大学（苏世民学者）</li><li><b>目前领导一家AI公司；</b>上一家公司获 Y Combinator 投资。</li><li>高盛 · 麦肯锡</li></ul></div>
+   <ul class="creds"><li><b>求学</b>加州理工学院（计算机科学）· 哈佛大学（MBA、理学硕士）· 清华大学（苏世民学者）</li><li><b>工作</b>高盛 · 麦肯锡</li><li><b>现在</b>领导一家AI公司 · 上一家公司获 Y Combinator 投资</li></ul></div>
  </div>
  <div class="logos" data-s="3"><img class="arena" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School" style="height:23px"><img src="/logos/cred/caltech.png" alt="Caltech" style="height:19px"><img src="/logos/cred/harvard.png" alt="Harvard" style="height:21px"><img src="/logos/cred/brown.png" alt="Brown" style="height:23px"><img src="/logos/cred/tsinghua-lockup.png" alt="Tsinghua" style="height:23px"><img src="/logos/cred/goldman.png" alt="Goldman Sachs" style="height:21px"><img src="/logos/cred/mckinsey.png" alt="McKinsey" style="height:14px"><img src="/logos/cred/deloitte.png" alt="Deloitte" style="height:15px"><img src="/logos/cred/apple.png" alt="Apple" style="height:21px"><img src="/logos/cred/cicc.png" alt="CICC" style="height:20px"><img src="/logos/cred/microsoft-ai.png" alt="Microsoft AI" style="height:18px"><img src="/logos/cred/yc.png" alt="Y Combinator" style="height:20px"><img src="/logos/cred/kimi-wordmark.png" alt="Kimi" style="height:14px"></div>
  </div>
-</div></section>
+</div><aside class="notes">为什么值得听：我们读过很多家庭向往的学校，也做过分析、咨询和投行的工作，而这些工作，AI如今几分钟就能起草。高盛 CEO 在2025年说，AI几分钟就能把一份上市招股书完成95%，那正是我们当年的第一份工作。</aside></section>
 
 <!-- 3 · The question -->
 <section class="s ae st nv"><div class="w">
- <p class="kick r">每位家长都在问的问题</p>
- <h2 class="r" style="--d:.1s">当AI几秒钟就能写出一篇作文，孩子<em>还需要学会什么？</em></h2>
- <p class="sl" data-s="1">没有人知道孩子毕业时，工作会是什么样子。所以今天只讲已经发生的事，以及这周在家就能试的做法。</p>
-</div></section>
+ <p class="kick r">在座每个家庭都要面对的问题</p>
+ <h2 class="r" style="--d:.1s">当AI几秒钟就能写出一篇作文，孩子<em>还必须学会什么？</em></h2>
+ <p class="sl" data-s="1">答案就藏在职场已经发生的变化里，所以我们从这里讲起。</p>
+</div><aside class="notes">没人能预测2040年的具体职业，但已经发生的变化，方向很清楚。</aside></section>
 
-<!-- 4 · Part 1: the Gibson line -->
+<!-- 4 · Part 1 -->
 <section class="s ae st nv"><div class="w">
- <p class="kick r">第一部分 · 工作</p>
- <h2 class="r qt" style="--d:.1s">“未来已经到来，只是<em>分布得还不均衡。</em>”</h2>
- <p class="by r" style="--d:.2s">威廉·吉布森，小说家</p>
- <p class="sl" data-s="1">在有些职业里，AI每天都在帮忙做实际的工作；在另一些职业里，AI才刚刚出现。</p>
-</div></section>
+ <p class="kick r">第一部分 · 我们看到了什么</p>
+ <h2 class="r" style="--d:.1s">工作正在被改写，中国和全世界都一样，<em>速度超出大多数家庭的想象。</em></h2>
+ <p class="sl" data-s="1">先看证据。我们所有的建议，都从这些证据出发。</p>
+</div><aside class="notes">先用两个数字看规模，再看家长最信赖的四种职业。</aside></section>
 
 <!-- 5 · Reach, measured -->
-<section class="s ae"><div class="w">
- <p class="kick r">来自真实使用的数据，不是预测</p>
- <h2 class="r" style="--d:.1s">在<em>大约一半的职业</em>里，AI已经在帮忙做至少四分之一的任务。</h2>
- <div class="bd r" style="--d:.25s"><div class="cols stat2">
-  <div class="pane" data-s="1"><div class="lr"><img class="brand an" src="/logos/deck/anthropic.svg" alt="Anthropic"></div>
-   <h3 class="ct">至少四分之一任务用到AI的职业<sup>1</sup></h3>
-   <div class="hb ref" style="--m:50">
-    <div class="row"><span class="bk">第一份报告（2025年1月数据）</span><b>36%</b><i style="--v:36"></i></div>
-    <div class="row hl"><span class="bk">2026年1月报告</span><b>49%</b><i style="--v:49"></i></div>
-    <div class="mk" style="--v:50"><span>一半的职业</span></div>
-   </div></div>
-  <div class="pane" data-s="2"><div class="lr"><img class="brand an" src="/logos/deck/anthropic.svg" alt="Anthropic"></div><div class="big"><small>超过</small>三分之一</div><p>的 Claude 用户预计，一年之内AI就能完成自己的大部分任务。<sup>2</sup></p></div>
- </div></div>
- <p class="fn" data-s="1"><span><b>1</b>Anthropic 经济指数，2026年1月15日；2026年3月24日更新时变化不大。统计的是人们使用 Claude 的情况，不是对所有劳动者的普查。</span><span><b>2</b>Anthropic 对约9700名 Claude 用户的调查，2026年6月26日。</span></p>
-</div></section>
+<section class="s ae bn"><div class="w">
+ <p class="kick r">Anthropic 经济指数 · 来自真实使用，不是预测</p>
+ <h2 class="r" style="--d:.1s">在<em>大约一半的职业</em>里，至少四分之一的任务已经用上了AI。</h2>
+ <div class="bd r" style="--d:.25s"><div class="bnx" data-s="1"><div class="lr"><img class="brand an" src="/logos/deck/anthropic.svg" alt="Anthropic"></div><div class="big">49%</div><p>的职业已经如此，一年前还是36%。</p></div></div>
+ <p class="fn" data-s="1"><span>Anthropic 经济指数，2026年1月15日：至少25%的任务用到AI的职业占比（2025年1月数据为36%）。统计的是人们使用 Claude 的情况，不是对所有劳动者的普查。</span></p>
+</div><aside class="notes">这是从数百万次真实对话里测出来的，不是预测。一年之内，从三分之一左右的职业升到了一半左右。</aside></section>
 
-<!-- 6 · Four jobs -->
-<section class="s alt ae"><div class="w">
- <p class="kick r">2025年，已经在发生</p>
- <h2 class="r" style="--d:.1s">在四种熟悉的职业里，AI先起草，<em>拍板的还是人。</em></h2>
- <div class="bd r" style="--d:.25s"><div class="rows">
- <div class="rw" data-s="1"><div class="fld"><div class="lr"><img class="brand xf" src="/logos/deck/xunfei-healthcare.png" alt="讯飞医疗"></div><span class="lab">医疗<sup>1</sup></span></div>
-   <div class="st2 ai"><span class="tg">AI</span><p>起草病历</p></div><div class="ar" aria-hidden="true"><svg viewBox="0 0 34 16"><path d="M1 8h30M25 2l6 6-6 6"/></svg></div>
-   <div class="st2 me"><span class="tg"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="6.6" r="3.4"/><path d="M3.6 17.4c.9-3.5 3.4-5.3 6.4-5.3s5.5 1.8 6.4 5.3"/></svg>医生</span><p>核对并确认</p></div><span class="pf">2025年6月</span></div>
- <div class="rw" data-s="2"><div class="fld"><div class="lr"><img class="brand aos" src="/logos/deck/aoshearman.svg" alt="A&amp;O Shearman"><img class="brand hv" src="/logos/deck/harvey.svg" alt="Harvey"></div><span class="lab">法律<sup>2</sup></span></div>
-   <div class="st2 ai"><span class="tg">AI</span><p>比对贷款协议</p></div><div class="ar" aria-hidden="true"><svg viewBox="0 0 34 16"><path d="M1 8h30M25 2l6 6-6 6"/></svg></div>
-   <div class="st2 me"><span class="tg"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="6.6" r="3.4"/><path d="M3.6 17.4c.9-3.5 3.4-5.3 6.4-5.3s5.5 1.8 6.4 5.3"/></svg>律师</span><p>核对结果</p></div><span class="pf">2025年4月</span></div>
- <div class="rw" data-s="3"><div class="fld"><div class="lr"><img class="brand jp" src="/logos/deck/jpmorgan.svg" alt="摩根大通"></div><span class="lab">金融<sup>3</sup></span></div>
-   <div class="st2 ai"><span class="tg">AI</span><p>起草文稿、出主意</p></div><div class="ar" aria-hidden="true"><svg viewBox="0 0 34 16"><path d="M1 8h30M25 2l6 6-6 6"/></svg></div>
-   <div class="st2 me"><span class="tg"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="6.6" r="3.4"/><path d="M3.6 17.4c.9-3.5 3.4-5.3 6.4-5.3s5.5 1.8 6.4 5.3"/></svg>员工</span><p>对结果负责</p></div><span class="pf">2025年6月</span></div>
- <div class="rw" data-s="4"><div class="fld"><div class="lr"><img class="brand gg" src="/logos/deck/google.svg" alt="Google"></div><span class="lab">工程<sup>4</sup></span></div>
-   <div class="st2 ai"><span class="tg">AI</span><p>建议代码</p></div><div class="ar" aria-hidden="true"><svg viewBox="0 0 34 16"><path d="M1 8h30M25 2l6 6-6 6"/></svg></div>
-   <div class="st2 me"><span class="tg"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="6.6" r="3.4"/><path d="M3.6 17.4c.9-3.5 3.4-5.3 6.4-5.3s5.5 1.8 6.4 5.3"/></svg>工程师</span><p>决定留下哪些</p></div><span class="pf">2025年4月</span></div>
- </div></div>
- <p class="fn" data-s="1"><span><b>1</b>安徽医科大学第一附属医院，2025年6月4日</span><span><b>2</b>A&amp;O Shearman，2025年4月6日</span><span><b>3</b>摩根大通，LLM Suite，2025年6月3日</span><span><b>4</b>Alphabet 财报电话会，2025年4月24日</span></p>
-</div></section>
+<!-- 6 · China, users -->
+<section class="s alt ae bn"><div class="w">
+ <p class="kick r">中国 · CNNIC，2025年12月</p>
+ <h2 class="r" style="--d:.1s">在中国，6.02亿人已经在用生成式AI，<em>年轻人走在最前面。</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="bnx" data-s="1"><div class="lr"><span class="org">中国互联网络信息中心</span></div><div class="big">6.02<small style="display:inline;margin:0 0 0 .12em;font-size:.3em">亿</small></div><p>用户中，19岁及以下的人群占比最高，达26.4%。</p></div></div>
+ <p class="fn" data-s="1"><span>CNNIC 第57次《中国互联网络发展状况统计报告》，2026年2月5日，数据截至2025年12月</span></p>
+</div><aside class="notes">孩子们不会等我们批准。在中国，生成式AI最大的用户群体是19岁及以下。</aside></section>
 
-<!-- 7 · One hospital, before and after -->
-<section class="s ae"><div class="w">
- <p class="kick r">合肥一家医院的前后对比</p>
- <h2 class="r" style="--d:.1s">在一家医院，医生的病历现在<em>从AI草稿开始。</em></h2>
- <div class="bd r" style="--d:.25s"><div class="flow one">
-  <span class="lab b" data-s="1">之前</span><span class="lab a" data-s="2">之后</span><span class="dv" data-s="2" aria-hidden="true"></span>
-  <div class="who x2" data-s="1"><div class="lr"><img class="brand xf" src="/logos/deck/xunfei-healthcare.png" alt="讯飞医疗"></div><h3>医院<sup>1</sup></h3><p>看诊后的病历</p></div>
-  <div class="x2 nd old" data-s="1"><span class="tg"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="6.6" r="3.4"/><path d="M3.6 17.4c.9-3.5 3.4-5.3 6.4-5.3s5.5 1.8 6.4 5.3"/></svg>医生</span><p>每份病历都亲手写</p></div>
-  <div class="x2 nd ai" data-s="2"><span class="tg">AI</span><p>起草病历，并列出推理过程</p></div>
-  <div class="ar x2" data-s="2" aria-hidden="true"><svg viewBox="0 0 34 16"><path d="M1 8h30M25 2l6 6-6 6"/></svg></div>
-  <div class="x2 nd me" data-s="3"><span class="tg"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="6.6" r="3.4"/><path d="M3.6 17.4c.9-3.5 3.4-5.3 6.4-5.3s5.5 1.8 6.4 5.3"/></svg>医生</span><p>核对草稿，拿主意</p></div>
- </div></div>
- <p class="fn" data-s="1"><span><b>1</b>安徽医科大学第一附属医院，与讯飞医疗合作，2025年6月4日</span></p>
-</div></section>
+<!-- 7 · The safest careers -->
+<section class="s alt ae st"><div class="w">
+ <p class="kick r">医生 · 律师 · 银行家 · 工程师</p>
+ <h2 class="r" style="--d:.1s">即使是最稳妥的职业，<em>也正在被改写。</em></h2>
+ <p class="sl" data-s="1">这是几代家庭最信赖的四条路。每条路，只看一个数字。</p>
+</div><aside class="notes">几十年来，这些都是“稳妥”的答案。接下来四页，分别来自一家医院、一个法院系统、一家银行和一家公司，看AI已经承担了多少工作。</aside></section>
 
-<!-- 8 · Salesforce -->
-<section class="s alt ae"><div class="w">
- <p class="kick r">有的团队在缩小</p>
- <h2 class="r" style="--d:.1s">Salesforce 的客服团队，从9000人减到<em>约5000人。</em></h2>
- <div class="bd r" style="--d:.25s"><div class="pane wide-ch sf-ch" data-s="1">
-  <div class="lr"><img class="brand sf" src="/logos/deck/salesforce-navy.svg" alt="Salesforce"></div>
-  <h3 class="ct">客服人员数量<sup>1</sup></h3>
-  <div class="hb wide abs">
-   <div class="row" data-s="1"><span class="bk">引入AI智能体之前</span><b>9000</b><i style="--v:100"></i></div>
-   <div class="row hl" data-s="2"><span class="bk">2025年8月</span><b><small>约</small>5000</b><i style="--v:55.56"></i></div>
-  </div>
-  <p class="cap" data-s="3">AI智能体接手了更多客服工作，几百人转到了其他团队。</p>
- </div></div>
- <p class="fn" data-s="1"><span><b>1</b>Marc Benioff，The Logan Bartlett Show，2025年8月29日；The Register，2025年9月2日</span></p>
-</div></section>
+<!-- 8 · Medicine -->
+<section class="s ae bn"><div class="w">
+ <p class="kick r">稳妥职业 1/4 · 医疗 · 合肥的一家医院</p>
+ <h2 class="r" style="--d:.1s">在合肥一家医院，AI起草病历，每位医生每天<em>节省约2.8小时。</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="bnx" data-s="1"><div class="lr"><img class="brand xf" src="/logos/deck/xunfei-healthcare.png" alt="讯飞医疗"></div><div class="big">2.8<small style="display:inline;margin:0 0 0 .12em;font-size:.3em">小时</small></div><p>每位医生每天省下的病历书写时间。每份病历都由医生核对、签字。</p></div></div>
+ <p class="fn" data-s="1"><span>安徽医科大学第一附属医院，与讯飞医疗合作，2025年6月4日：两个科室试点；超过80%的AI草稿被采用</span></p>
+</div><aside class="notes">到2026年8月，这家医院已在约233个门诊诊室生成超过14万份AI病历，单份门诊病历从2.5分钟缩短到0.5分钟。拍板的仍然是医生。</aside></section>
 
-<!-- 9 · Accenture -->
-<section class="s ae"><div class="w">
- <p class="kick r">也有公司先做再培训</p>
- <h2 class="r" style="--d:.1s">埃森哲先给员工再培训，并预计明年<em>员工人数还会增加。</em></h2>
- <div class="bd r" style="--d:.25s">
-  <div class="lr" data-s="1"><img class="brand acc" src="/logos/deck/accenture.svg" alt="埃森哲"><span class="lab">当AI改变一个岗位<sup>1</sup></span></div>
-  <div class="chain">
-   <div class="nd old" data-s="1"><span class="tg">先</span><p>AI来了，岗位要求变了</p></div>
-   <div class="ar" data-s="2" aria-hidden="true"><svg viewBox="0 0 34 16"><path d="M1 8h30M25 2l6 6-6 6"/></svg></div>
-   <div class="nd me" data-s="2"><span class="tg">然后</span><p>埃森哲为员工再培训，去做新的工作</p></div>
-   <div class="ar" data-s="3" aria-hidden="true"><svg viewBox="0 0 34 16"><path d="M1 8h30M25 2l6 6-6 6"/></svg></div>
-   <div class="nd old" data-s="3"><span class="tg">只有必要时</span><p>再培训补不上的地方，才有人离开</p></div>
-  </div>
- </div>
- <p class="fn" data-s="1"><span><b>1</b>埃森哲2025财年业绩，2025年9月25日</span></p>
-</div></section>
+<!-- 9 · Law -->
+<section class="s alt ae bn"><div class="w">
+ <p class="kick r">稳妥职业 2/4 · 法律 · 深圳法院</p>
+ <h2 class="r" style="--d:.1s">在深圳法院，AI已经起草了<em>14.5万份法律文书</em>，交由法官审核。</h2>
+ <div class="bd r" style="--d:.25s"><div class="bnx" data-s="1"><div class="lr"><span class="org">深圳法院</span></div><div class="big">14.5<small style="display:inline;margin:0 0 0 .12em;font-size:.3em">万份</small></div><p>截至2024年12月，AI辅助生成的法律文书。每一份都由法官审核。</p></div></div>
+ <p class="fn" data-s="1"><span>广州日报，2025年1月10日，深圳法院AI辅助审判系统，上线至2024年12月；民商事案件平均结案时间同比缩短25.6%</span></p>
+</div><aside class="notes">同一套系统还辅助法官阅卷15.3万件。最高人民法院明确：AI只是“辅助”，司法责任主体只能是法官。这正说明，留下来的是能判断AI结果的人。律所也一样：君合律师事务所在2026年引入AI翻译工具后，解散了原有的专业翻译团队，人员转到其他岗位。</aside></section>
 
-<!-- 10 · NACE -->
-<section class="s alt ae"><div class="w">
- <p class="kick r">149家美国雇主，2026年春</p>
- <h2 class="r" style="--d:.1s">三分之二的雇主在规划岗位里的任务怎么变；只有<em>九分之一</em>在问岗位还要不要。</h2>
- <div class="bd r" style="--d:.25s"><div class="pane wide-ch" data-s="1">
-  <div class="lr" data-s="1"><span class="org">NACE 调查的美国雇主</span></div>
-  <h3 class="ct" data-s="1">雇主在人员规划中怎样讨论AI<sup>1</sup></h3>
-  <div class="hb wide">
-   <div class="row hl" data-s="1"><span class="bk">岗位里的具体任务</span><b>66%</b><i style="--v:66.4"></i></div>
-   <div class="row" data-s="2"><span class="bk">泛泛而谈，不针对岗位</span><b>47%</b><i style="--v:47"></i></div>
-   <div class="row" data-s="2"><span class="bk">重新设计岗位</span><b>18%</b><i style="--v:18.1"></i></div>
-   <div class="row hl" data-s="3"><span class="bk">某些岗位是否还需要</span><b>11%</b><i style="--v:10.7"></i></div>
-  </div>
-  <p class="cap" data-s="1">149家雇主中的占比；可多选。</p>
- </div></div>
- <p class="fn" data-s="1"><span><b>1</b>NACE《2026就业展望》春季更新，2026年4月20日</span></p>
-</div></section>
+<!-- 10 · Finance -->
+<section class="s ae bn"><div class="w">
+ <p class="kick r">稳妥职业 3/4 · 银行 · 工商银行</p>
+ <h2 class="r" style="--d:.1s">在中国最大的银行工商银行，AI在2025年承担了<em>5.5万人年的工作量。</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="bnx" data-s="1"><div class="lr"><span class="org">中国工商银行</span></div><div class="big">5.5<small style="display:inline;margin:0 0 0 .12em;font-size:.3em">万人年</small></div><p>由AI“数字员工”承担的工作量</p></div></div>
+ <p class="fn" data-s="1"><span>中国工商银行2025年年度报告，2026年3月27日：银行自己的测算，覆盖500多个AI应用</span></p>
+</div><aside class="notes">相当于几万人一年的工作量。招商银行报告节约人工1556万小时。在纽约，摩根大通约25万名员工可以使用其AI平台，其中一半几乎每天都在用。</aside></section>
 
-<!-- 11 · Part 2 -->
+<!-- 11 · Engineering -->
+<section class="s alt ae bn"><div class="w">
+ <p class="kick r">稳妥职业 4/4 · 工程 · Google</p>
+ <h2 class="r" style="--d:.1s">在 Google，<em>四分之三的新代码</em>已由AI生成、经工程师批准。</h2>
+ <div class="bd r" style="--d:.25s"><div class="bnx" data-s="1"><div class="lr"><img class="brand gg" src="/logos/deck/google.svg" alt="Google"></div><div class="big">75%</div><p>的新代码由AI生成，半年前还是50%。</p></div></div>
+ <p class="fn" data-s="1"><span>Sundar Pichai，Google Cloud Next，2026年4月22日：Google 75%的新代码现在由AI生成，并经工程师批准，去年秋天是50%</span></p>
+</div><aside class="notes">中国也是同一条曲线：腾讯说50%的新增代码由AI辅助生成，百度说每天新增代码中超过43%由AI生成。工程师的时间，越来越多花在决定做什么、检查做得对不对上。</aside></section>
+
+<!-- 12 · Layoffs -->
+<!-- LAYOFFS -->
+
+<!-- 15 · The stakes -->
 <section class="s ae st nv"><div class="w">
- <p class="kick r">第二部分 · 能力</p>
- <h2 class="r" style="--d:.1s">那么，孩子最需要<em>哪些能力？</em></h2>
- <p class="sl" data-s="1">康奈尔大学的一份报告说得很直接：“人必须善于判断该做什么、<wbr>为什么做。”<sup>1</sup></p>
- <p class="fn" data-s="1"><span><b>1</b>康奈尔大学《美国大学未来委员会报告》，2026年9月22日</span></p>
-</div></section>
+ <p class="kick r">代价 · 普华永道，超过10亿条招聘广告</p>
+ <h2 class="r" style="--d:.1s">没有这些能力的孩子，职业起点就会<em>落后一大截。</em></h2>
+ <div class="nst" data-s="1"><div class="big">62%</div><p>要求AI技能的岗位，招聘薪资比同类岗位高出的幅度</p></div>
+ <p class="fn" data-s="1"><span>普华永道《2026全球AI就业晴雨表》，2026年6月15日：27个国家和地区招聘广告中的平均薪资溢价，未控制学历、经验等因素</span></p>
+</div><aside class="notes">一年前是57%，有些行业高达118%。差距在扩大，而不是缩小。</aside></section>
 
-<!-- 12 · Entry-level jobs -->
+<!-- 16 · Young workers -->
+<section class="s ae bn"><div class="w">
+ <p class="kick r">最先受影响的人 · 斯坦福，美国薪资数据截至2026年6月</p>
+ <h2 class="r" style="--d:.1s">在AI能接手的工作里，年轻人已经<em>落后了19%。</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="bnx" data-s="1"><div class="lr"><span class="org">斯坦福数字经济实验室</span></div><div class="big">−19%</div><p>受AI影响大的岗位上，22至25岁年轻人的就业低于原有趋势。资深员工没有这样的落差。</p></div></div>
+ <p class="fn" data-s="1"><span>Brynjolfsson、Chandar、Chen，《矿井里的金丝雀？》，2026年8月修订版；描述性结果，不是因果估计</span></p>
+</div><aside class="notes">流失集中在AI替代任务的岗位；在AI帮人做事的岗位，就业持平甚至上升。而初级岗位，正是孩子们起步的地方。</aside></section>
+
+<!-- 17 · China students -->
+<section class="s alt ae bn"><div class="w">
+ <p class="kick r">中国 · 3794名大学生，2026年3月</p>
+ <h2 class="r" style="--d:.1s">81%的大学生认为AI技能能提升竞争力，但<em>40%还没开始学。</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="bnx" data-s="1"><div class="lr"><span class="org">麦可思 MyCOS</span></div><div class="big">40%</div><p>的大学生还没开始学习AI技能</p></div></div>
+ <p class="fn" data-s="1"><span>麦可思网络调查，2026年3月19日至20日，2026年4月16日发布</span></p>
+</div><aside class="notes">他们知道这很重要，很多人却还没开始。差距在第一份工作之前就已经拉开了。</aside></section>
+
+<!-- 18 · Part 2 -->
+<section class="s ae st nv"><div class="w">
+ <p class="kick r">第二部分 · 因此，最关键的能力</p>
+ <h2 class="r" style="--d:.1s">因此，决定孩子能否领先的，是三种能力：<em>主动性、审美与匠心。</em></h2>
+ <p class="sl" data-s="1">具备这些能力的孩子会领先，缺少它们的孩子会落后。雇主已经在这样挑人了。</p>
+</div><aside class="notes">康奈尔大学2026年的报告说得很直接：“人必须善于判断该做什么、为什么做。”下面看雇主现在要什么。</aside></section>
+
+<!-- 19 · Entry-level jobs -->
 <section class="s ae"><div class="w">
- <p class="kick r">美国的初级岗位</p>
- <h2 class="r" style="--d:.1s">半年里，要求AI技能的初级岗位，从13.3%升到<em>35%。</em></h2>
+ <p class="kick r">美国初级岗位 · NACE 雇主调查</p>
+ <h2 class="r" style="--d:.1s">半年里，要求AI技能的初级岗位，从13.3%猛增到<em>35%。</em></h2>
  <div class="bd r" style="--d:.25s"><div class="pane arc" data-s="1">
   <div class="lr"><span class="org">NACE 调查的美国雇主</span></div>
-  <h3 class="ct">要求AI技能的初级岗位<sup>1</sup></h3>
+  <h3 class="ct">要求AI技能的初级岗位</h3>
   <div class="arow">
    <div class="an" data-s="1"><span class="lab">2025年秋</span><div class="big lo">13.3%</div><div class="hb"><div class="row"><i style="--v:13.3"></i></div></div></div>
    <div class="ar2" data-s="2" aria-hidden="true"><svg viewBox="0 0 120 16"><path d="M1 8h116M111 2l6 6-6 6"/></svg><span>半年</span></div>
    <div class="an" data-s="2"><span class="lab">2026年春</span><div class="big">35%</div><div class="hb"><div class="row hl"><i style="--v:35"></i></div></div></div>
   </div>
  </div></div>
- <p class="fn" data-s="1"><span><b>1</b>NACE《2026就业展望》，2025年11月；春季更新，2026年4月20日</span></p>
-</div></section>
+ <p class="fn" data-s="1"><span>NACE《2026就业展望》，2025年11月；春季更新，2026年4月20日</span></p>
+</div><aside class="notes">在美国，超过三分之一的初级岗位已经要求AI技能，半年前大约是八分之一。</aside></section>
 
-<!-- 13 · What employers ask for -->
-<section class="s alt ae"><div class="w">
- <p class="kick r">雇主现在看重什么</p>
- <h2 class="r" style="--d:.1s">AI做得越多，雇主越想要<em>会核对AI</em>、也会独立思考的人。</h2>
- <div class="bd r" style="--d:.25s"><div class="cols c2 emp">
-  <div class="pane" data-s="1"><div class="lr"><img class="brand msft" src="/logos/deck/microsoft.svg" alt="微软"></div><h3 class="ct">AI做得越多，越重要的能力<sup>1</sup></h3>
-   <div class="hb"><div class="row hl"><span class="bk">核对AI的结果</span><b>50%</b><i style="--v:50"></i></div><div class="row hl"><span class="bk">批判性思维</span><b>46%</b><i style="--v:46"></i></div></div>
-   <p class="cap">用AI的人排在前两位</p></div>
-  <div class="pane" data-s="2"><div class="lr"><span class="org">中国</span></div><h3 class="ct">中国雇主看重什么<sup>2</sup></h3>
-   <ol class="ls"><li><i>1</i><span>AI工具</span></li><li><i>2</i><span>数据能力</span></li><li><i>3</i><span>清晰的思考</span></li></ol></div>
- </div></div>
- <p class="fn" data-s="1"><span><b>1</b>微软《2026工作趋势指数》</span><span><b>2</b>解放日报（上观新闻）援引智联招聘，2026年3月27日</span></p>
-</div></section>
+<!-- 20 · Checking AI's work -->
+<section class="s alt ae bn"><div class="w">
+ <p class="kick r">微软《2026工作趋势指数》· 在工作中用AI的人</p>
+ <h2 class="r" style="--d:.1s">AI做得越多，最重要的能力就是<em>判断AI做得对不对。</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="bnx" data-s="1"><div class="lr"><img class="brand msft" src="/logos/deck/microsoft.svg" alt="微软"></div><div class="big">50%</div><p>的人把核对AI的结果排在第一位。批判性思维紧随其后，占46%。</p></div></div>
+ <p class="fn" data-s="1"><span>微软《2026工作趋势指数》，调查时间2026年2月18日至4月7日</span></p>
+</div><aside class="notes">这就是审美：分辨哪个版本真正行得通。这是AI自己补不上的能力。</aside></section>
 
-<!-- 14 · A hiring story -->
+<!-- 21 · What employers in China ask for -->
 <section class="s ae"><div class="w">
- <p class="kick r">来自 Kimi 的招聘故事</p>
- <h2 class="r" style="--d:.1s">在 Kimi，面试前就<em>做出一个工具</em>的候选人，拿到了 offer。</h2>
- <div class="bd r" style="--d:.25s"><div class="pane tl-pane" data-s="1">
-  <div class="who-row" data-s="1"><div class="lr"><img class="brand km" src="/logos/deck/kimi.png" alt="Kimi"></div><span class="lab">增长团队，非技术岗位</span></div>
-  <ol class="tl">
-   <li data-s="1"><span class="dot">1</span><h3>做了个小工具</h3><p>为团队的社交媒体工作而做</p></li>
-   <li data-s="2"><span class="dot">2</span><h3>在面试中展示</h3><p>没人要求这么做</p></li>
-   <li data-s="3" class="end"><span class="dot">3</span><h3>拿到 offer</h3><p>能用的工具，就是最好的证明</p></li>
-  </ol>
- </div></div>
- <p class="fn" data-s="1"><span>来自 Kimi（月之暗面）的亲身招聘经历。</span></p>
-</div></section>
+ <p class="kick r">中国 · 通过智联招聘招人的雇主</p>
+ <h2 class="r" style="--d:.1s">中国雇主想要的是：会用AI工具、会处理数据，还要<em>思路清晰。</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="pane emp1" data-s="1"><div class="lr"><span class="org">中国雇主看重什么</span></div>
+  <ol class="ls"><li data-s="1"><i>1</i><span>会用AI工具</span></li><li data-s="2"><i>2</i><span>会处理数据</span></li><li data-s="3"><i>3</i><span>思路清晰</span></li></ol></div></div>
+ <p class="fn" data-s="1"><span>解放日报（上观新闻）援引智联招聘，2026年3月27日</span></p>
+</div><aside class="notes">工具排第一，思考依然重要。2025年，BOSS直聘上与AI相关的新发岗位增长74.1%，销售、行政等岗位也在要求AI，不只是技术岗。</aside></section>
 
-<!-- 15 · Agency, taste, craft -->
+<!-- 22 · Agency, taste, craft -->
 <section class="s alt ae"><div class="w">
- <p class="kick r">这些故事的共同点</p>
- <h2 class="r" style="--d:.1s">这些故事，指向三种能力：<span class="m" style="--d:.6s"><em>主动性</em></span>、<span class="m" style="--d:.8s"><em>审美</em></span>与<span class="m" style="--d:1s"><em>匠心</em></span>。</h2>
+ <p class="kick r">证据指向的方向</p>
+ <h2 class="r" style="--d:.1s">让孩子脱颖而出的能力：<span class="m" style="--d:.6s"><em>主动性</em></span>、<span class="m" style="--d:.8s"><em>审美</em></span>与<span class="m" style="--d:1s"><em>匠心</em></span>。</h2>
  <div class="bd r" style="--d:.25s">
   <ol class="model">
-   <li data-s="1"><div class="ring"><i>01</i><span class="pn">主动性</span></div><p>选出真正值得解决的问题</p><p class="ex">没人要求，也先把工具做出来</p></li>
+   <li data-s="1"><div class="ring"><i>01</i><span class="pn">主动性</span></div><p>选出真正值得解决的问题</p><p class="ex">没人要求，也先想好要做什么</p></li>
    <li data-s="2"><div class="ring"><i>02</i><span class="pn">审美</span></div><p>分辨哪个版本真正行得通</p><p class="ex">在别人依赖之前，先核对AI的结果</p></li>
    <li data-s="3"><div class="ring"><i>03</i><span class="pn">匠心</span></div><p>把事情做完，并且做好</p><p class="ex">把第一版，打磨成别人信得过的成果</p></li>
   </ol>
  </div>
-</div></section>
+</div><aside class="notes">主动性，是雇主愿意为之付费的主动出击。审美，是那50%把核对AI排在第一位的人。匠心，是把事做完，这正是AI第一稿做不到的部分。</aside></section>
 
-<!-- 16 · Part 3 -->
+<!-- 23 · Part 3 -->
 <section class="s ae st nv"><div class="w">
- <p class="kick r">第三部分 · 在家</p>
- <h2 class="r" style="--d:.1s">将近四分之三的中国家长，支持孩子<em>使用AI。</em></h2>
- <div class="nst" data-s="1"><div class="big">72.6%</div><p>的受访家长（共1336人）支持孩子用AI，大多附带条件。<sup>1</sup></p></div>
- <p class="fn" data-s="1"><span><b>1</b>中国青年报民调，n=1,336，2026年5月28日</span></p>
-</div></section>
+ <p class="kick r">第三部分 · 因此，现在就要培养什么</p>
+ <h2 class="r" style="--d:.1s">因此，现在就开始培养这些能力，<em>趁差距还没拉大。</em></h2>
+ <p class="sl" data-s="1">在家里、在学校，也在孩子已经在用的工具里。</p>
+</div><aside class="notes">四件这周就能开始做的事，再看我们项目里学生的成果。</aside></section>
 
-<!-- 17 · Shortcut or tutor -->
+<!-- 24 · Students and parents in China -->
 <section class="s ae"><div class="w">
- <p class="kick r">有目的地使用，是什么样子</p>
- <h2 class="r" style="--d:.1s">同一个AI，可以是捷径，也可以是<em>耐心的家教。</em></h2>
+ <p class="kick r">中国 · 中国教育科学研究院，覆盖31个省份</p>
+ <h2 class="r" style="--d:.1s">大多数学生已经在用AI写作业，<em>大多数家长却不知道。</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="pane arc" data-s="1">
+  <div class="arow">
+   <div class="an" data-s="1"><span class="lab">用过AI完成作业的学生</span><div class="big">85.6%</div><div class="hb"><div class="row hl"><i style="--v:85.6"></i></div></div></div>
+   <div class="ar2 vs" data-s="2" aria-hidden="true"><span>而</span></div>
+   <div class="an" data-s="2"><span class="lab">认为学生普遍在用的家长</span><div class="big lo">17.8%</div><div class="hb"><div class="row"><i style="--v:17.8"></i></div></div></div>
+  </div>
+ </div></div>
+ <p class="fn" data-s="1"><span>中国教育科学研究院调查，2025年夏，人民日报2026年8月17日报道；这样认为的教师仅占13.8%</span></p>
+</div><aside class="notes">不管我们知不知道，孩子已经在用这些工具了。问题是把它当捷径，还是用它练出真本事。另一项全国调查发现，67.9%的家庭对AI使用没有任何规则。</aside></section>
+
+<!-- 25 · Beijing schools -->
+<section class="s alt ae bn"><div class="w">
+ <p class="kick r">北京市教育委员会 · 2025年秋季学期起</p>
+ <h2 class="r" style="--d:.1s">北京每所中小学都要开AI课，<em>每学年不少于8课时。</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="bnx" data-s="1"><div class="lr"><span class="org">北京市教育委员会</span></div><div class="big">8<small style="display:inline;margin:0 0 0 .12em;font-size:.3em">课时</small></div><p>每位北京中小学生每学年至少要上的AI课</p></div></div>
+ <p class="fn" data-s="1"><span>《北京市推进中小学人工智能教育工作方案（2025—2027年）》，2025年3月6日；教育部等五部门“人工智能+教育”行动计划，2026年4月2日</span></p>
+</div><aside class="notes">教育部等五部门2026年4月的行动计划提出，到2030年构建覆盖各学段的人工智能教育体系。北京的方案也提醒要防止“师生过度依赖、思维钝化”，所以怎么用，和用不用一样重要。</aside></section>
+
+<!-- 26 · Teachers in China -->
+<section class="s ae bn"><div class="w">
+ <p class="kick r">中国 · 68792名中小学教师，2025年</p>
+ <h2 class="r" style="--d:.1s">中国的老师也在快速跟上：<em>81%用过AI。</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="bnx" data-s="1"><div class="lr"><span class="org">受访教师</span></div><div class="big">81%</div><p>的老师用过AI，约半年前是75%。一半的老师用它来备课。</p></div></div>
+ <p class="fn" data-s="1"><span>中国教育发展战略学会区域教育专业委员会与学科网，2025年6月至9月，2025年10月20日报道；网络收集，可能偏向已在用AI的老师</span></p>
+</div><aside class="notes">老师依然主导自己的教学，AI帮他们更快拿到教学材料的初稿。学校在动，家里正是养成习惯的地方。</aside></section>
+
+<!-- 27 · The tools -->
+<!-- TOOLS -->
+
+<!-- 28 · A hiring story -->
+<section class="s ae"><div class="w">
+ <p class="kick r">现在就培养 · 第二点 · 把AI用在真实、重要的事上</p>
+ <h2 class="r" style="--d:.1s">在 Kimi，面试前就<em>做出一个工具</em>的候选人，拿到了 offer。</h2>
+ <div class="bd r" style="--d:.25s"><div class="pane tl-pane" data-s="1">
+  <div class="who-row" data-s="1"><div class="lr"><img class="brand km" src="/logos/deck/kimi.png" alt="Kimi"></div><span class="lab">增长团队，非技术岗位</span></div>
+  <ol class="tl">
+   <li data-s="1"><span class="dot">1</span><h3>用AI做了个小工具</h3><p>为团队的社交媒体工作而做</p></li>
+   <li data-s="2"><span class="dot">2</span><h3>在面试中展示</h3><p>没人要求这么做</p></li>
+   <li data-s="3" class="end"><span class="dot">3</span><h3>拿到 offer</h3><p>能用的工具，就是最好的证明</p></li>
+  </ol>
+ </div></div>
+ <p class="fn" data-s="1"><span>来自 Kimi（月之暗面）的亲身招聘经历，由羊筱涵分享</span></p>
+</div><aside class="notes">这是筱涵亲历的故事。求职面试，几乎是日常生活里最重要的场合之一，这位候选人用AI展示实力，而不只是嘴上说。鼓励孩子把AI用在真实的事情上：学校项目、社团活动、实习申请。</aside></section>
+
+<!-- 29 · Shortcut or tutor -->
+<section class="s alt ae"><div class="w">
+ <p class="kick r">现在就培养 · 第三点 · 让AI当家教</p>
+ <h2 class="r" style="--d:.1s">同一个AI，可以是捷径，也可以是<em>耐心的家教。</em>要教孩子用后者。</h2>
  <div class="bd r" style="--d:.25s">
   <div class="pair">
    <div class="pc lt" data-s="1"><span class="pl">捷径</span><p class="say">“直接告诉我答案。”</p><p>作业做完了，思考却跳过了。</p></div>
    <div class="pc dk" data-s="2"><span class="pl">家教</span><p class="say">“讲到我真正弄懂为止。”</p><p>思考的是孩子，AI负责讲解和检查。</p></div>
   </div>
-  <p class="pane pn2" data-s="3">在 PISA 2025 中，适度、有目的地使用AI的学生学得更好，但研究不能证明两者是因果。<sup>1</sup></p>
  </div>
- <p class="fn" data-s="1"><span><b>1</b>OECD，PISA 2025结果，2026年9月8日</span></p>
-</div></section>
+ <p class="fn" data-s="1"><span>OECD，PISA 2025结果，2026年9月8日：适度、有目的地使用AI的学生学得更好，但研究不能证明两者是因果关系</span></p>
+</div><aside class="notes">同样的工具，相反的结果。区别在于习惯，而习惯是在家里养成的。</aside></section>
 
-<!-- 18 · At home -->
-<section class="s alt ae"><div class="w">
- <p class="kick r">把三种能力带回家</p>
- <h2 class="r" style="--d:.1s">这周在家，可以试试<em>三个小习惯。</em></h2>
+<!-- 30 · At home -->
+<section class="s ae"><div class="w">
+ <p class="kick r">现在就培养 · 第四点 · 在家养成三个习惯</p>
+ <h2 class="r" style="--d:.1s">这周就在家，<em>养成三个习惯。</em></h2>
  <div class="bd r" style="--d:.25s"><div class="hm">
   <figure class="ph" data-s="1"><img src="/decks/img/conversation/home-together-1600.webp" alt="一位家长和孩子一起用笔记本电脑"></figure>
   <ol class="pane habs" data-s="1">
-   <li data-s="1"><span class="no">1</span><div><span class="lab">主动性</span><h3>和孩子一起做个小东西</h3><p>一张家务清单、一份旅行计划，或给弟弟妹妹出的小测验</p></div></li>
-   <li data-s="2"><span class="no">2</span><div><span class="lab">审美</span><h3>问一句：“你是怎么核对的？”</h3><p>把AI的回答当作初稿</p></div></li>
+   <li data-s="1"><span class="no">1</span><div><span class="lab">主动性</span><h3>和孩子一起做一个真东西</h3><p>一张家务表、一份旅行计划，或给弟弟妹妹出的小测验</p></div></li>
+   <li data-s="2"><span class="no">2</span><div><span class="lab">审美</span><h3>问一句：“你是怎么核对的？”</h3><p>把AI的每个回答都当作初稿</p></div></li>
    <li data-s="3"><span class="no">3</span><div><span class="lab">匠心</span><h3>拿给真人看看</h3><p>爷爷奶奶、老师或朋友都行</p></div></li>
   </ol>
  </div></div>
  <p class="fn" data-s="1"><span>图片：Ksenia Chernaya，Pexels</span></p>
-</div></section>
+</div><aside class="notes">每个习惯练一种能力，都不需要特别的软件，几分钟就能做。</aside></section>
 
-<!-- 19 · What students make -->
+<!-- 31 · The best time to build -->
+<section class="s ae st nv"><div class="w">
+ <p class="kick r">但是</p>
+ <h2 class="r" style="--d:.1s">这是孩子成长最好的时代之一，也是<em>动手创造的最好时机。</em></h2>
+ <p class="sl" data-s="1">我们小时候，几乎一切都靠手工完成。今天，一个有想法的孩子借助AI，就能做出真正的东西；现在就开始的孩子，会走在前面。</p>
+</div><aside class="notes">前面讲的是警示，这里是机会：改写工作的那些工具，也让孩子真正动手创造成为可能。</aside></section>
+
+<!-- 32 · Cursor -->
+<section class="s alt ae bn"><div class="w">
+ <p class="kick r">由学生创办 · Cursor，2022至2026年</p>
+ <h2 class="r" style="--d:.1s">2022年，四名麻省理工学生创办了 Cursor；四年后，它以<em>600亿美元</em>被收购。</h2>
+ <div class="bd r" style="--d:.25s"><div class="bnx" data-s="1"><div class="lr"><span class="org">Cursor · Anysphere</span></div><div class="big">600<small style="display:inline;margin:0 0 0 .12em;font-size:.3em">亿美元</small></div><p>SpaceX 收购了他们打造的AI编程工具</p></div></div>
+ <p class="fn" data-s="1"><span>路透社、CNBC、彭博社，2026年6月16日；交易于2026年8月14日完成（PitchBook）。Cursor 在2025年11月13日的 D 轮融资中估值293亿美元。</span></p>
+</div><aside class="notes">他们创业时还是学生，用AI做出了一个帮人用AI编程的工具，如今有数百万开发者在用。不是每个孩子都要创业，但每个孩子都可以现在就开始动手。</aside></section>
+
+<!-- 33 · What students make -->
 <section class="s ae"><div class="w">
- <p class="kick r">学生借助AI做出来的</p>
- <h2 class="r" style="--d:.1s">学生已经做出了游戏、睡眠记录工具和<em>手语翻译应用。</em></h2>
+ <p class="kick r">这就是我们的学生在做的事 · Arena 在 ISB，2026年</p>
+ <h2 class="r" style="--d:.1s">在我们的 ISB 课程里，一位初中生做出了一款游戏；我们的学生还做出了<em>睡眠记录工具和手语翻译应用。</em></h2>
  <div class="bd r" style="--d:.25s"><div class="cols c3 proj">
-  <div class="card" data-s="1"><figure><img src="/photos/isb-2026/demo-laptop-1600.webp" alt="ISB 学生演示自己的作品"></figure><div class="pb"><span class="lab">游戏</span><h3>五款游戏，准备上架 Steam</h3><p class="where">摄于 ISB，2026年</p></div></div>
+  <div class="card" data-s="1"><figure><img src="/photos/isb-2026/demo-laptop-1600.webp" alt="ISB 学生演示自己的作品"></figure><div class="pb"><span class="lab">游戏</span><h3>准备上架 Steam 的游戏</h3><p class="where">摄于 ISB，2026年</p></div></div>
   <div class="card" data-s="2"><figure><img src="/photos/isb-2026/pitch-podium-1600.webp" alt="ISB 学生上台展示"></figure><div class="pb"><span class="lab">效率工具</span><h3>一款记录进度、睡眠和工作时长的工具</h3><p class="where">摄于 ISB，2026年</p></div></div>
   <div class="card" data-s="3"><figure class="vframe"><video autoplay muted loop playsinline preload="metadata" poster="/decks/img/conversation/hands-stage-poster.webp" src="/decks/img/conversation/hands-stage.mp4" aria-label="学生在笔记本电脑上测试手语应用"></video><img class="vposter" src="/decks/img/conversation/hands-stage-poster.webp" alt=""></figure><div class="pb"><span class="lab">无障碍</span><h3>一个手语翻译应用</h3><p class="where">测试中</p></div></div>
  </div></div>
-</div></section>
+</div><aside class="notes">学生用AI编程工具，但选题、判断哪个版本更好、把作品做完，都是他们自己。这就是主动性、审美与匠心。</aside></section>
 
-<!-- 20 · Tools and skills -->
-<section class="s ae st nv"><div class="w">
+<!-- 34 · Tools and skills -->
+<section class="s ae st alt"><div class="w">
  <p class="kick r">记住这一点</p>
- <h2 class="r" style="--d:.1s">一个新的AI工具，一个下午就能学会；这三种能力，要<em>练得久得多。</em></h2>
- <p class="sl" data-s="1">孩子会换很多次AI工具。选问题、判断结果、把事做完，这些能力会带进每一份工作。</p>
-</div></section>
+ <h2 class="r" style="--d:.1s">任何AI工具，一个下午就能学会；这三种能力要练很多年，<em>所以现在就开始。</em></h2>
+ <p class="sl" data-s="1">工具几个月就换一批。选问题、判断结果、把事做完，这些能力会带进每一份工作，领先也会越滚越大。</p>
+</div><aside class="notes">十二岁就开始的孩子，到第一份工作时已经练了很多年。这份先发优势，就是孩子的比较优势。</aside></section>
 
-<!-- 21 · Close -->
+<!-- 35 · Close -->
 <section class="s ae st nv cl"><div class="w">
  <p class="kick r">如果只记住一句话</p>
  <h2 class="r" style="--d:.1s">当AI几乎什么都能做出来，学生需要知道<em>什么值得做、做得好不好，以及怎样把它做完。</em></h2>
-</div></section>
+ <p class="sl" data-s="1">现在就开始动手的孩子，会走在前面。没有比现在更好的开始时机。</p>
+</div><aside class="notes">谢谢大家，欢迎提问。</aside></section>
 
-<!-- 22 · Q&A -->
+<!-- 36 · Q&A -->
 <section class="s alt ae"><div class="w">
- <p class="kick r">轮到你们</p>
+ <p class="kick r">从这里开始</p>
  <h2 class="r" style="--d:.1s">接下来请大家提问。今天的讲义和工具<em>都免费，无需注册。</em></h2>
  <div class="bd r" style="--d:.25s"><div class="qa qa14">
   <a class="qr pane qr-live qr-slides" href="https://arenaschool.org/talk" target="_blank" rel="noopener"><img src="/decks/img/conversation/qr-talk-clear.png" alt="arenaschool.org/talk 二维码"><span>今天的讲义</span><small>arenaschool.org/talk</small></a>
@@ -1370,31 +1424,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  </div></div>
 </div></section>
 
-<!-- 23 · Appendix -->
-<section class="s ae s-src"><div class="w">
- <p class="kick r">附录 · 资料来源</p>
- <h2 class="r" style="--d:.1s">这场分享里的每个数字，都来自<em>2025或2026年的公开资料。</em></h2>
- <div class="bd r" style="--d:.25s">
- <ul class="srcs pane">
-  <li><span><b>Anthropic</b>, Economic Index, share of jobs using AI: 36% (January 2025 data), 49% (January 2026)</span><span class="src">Jan 15, 2026 · March 24, 2026</span></li>
-  <li><span><b>Anthropic</b>, Economic Index survey of about 9,700 Claude users, on what they expect within a year</span><span class="src">June 26, 2026</span></li>
-  <li><span><b>安徽医科大学第一附属医院</b>, pilot with 讯飞医疗, from handwritten notes to a draft the doctor can cite</span><span class="src">June 4, 2025</span></li>
-  <li><span><b>A&amp;O Shearman</b>, with Harvey, on comparing loan agreements that lawyers had reviewed by hand</span><span class="src">April 6, 2025</span></li>
-  <li><span><b>JPMorganChase</b>, on LLM Suite for drafting and ideas</span><span class="src">June 3, 2025</span></li>
-  <li><span><b>Alphabet</b>, Q1 2025 earnings call, on engineers accepting code suggestions</span><span class="src">April 24, 2025</span></li>
-  <li><span><b>Marc Benioff</b>, The Logan Bartlett Show, on Salesforce support headcount; company comment in The Register</span><span class="src">Aug 29, 2025 · Sept 2, 2025</span></li>
-  <li><span><b>Accenture</b>, fiscal 2025 results, on reskilling and headcount</span><span class="src">Sept 25, 2025</span></li>
-  <li><span><b>NACE</b>, Job Outlook 2026, on jobs that require AI skills (13.3%)</span><span class="src">Nov 2025</span></li>
-  <li><span><b>NACE</b>, Job Outlook 2026 Spring Update, on AI skills in entry-level jobs (35%), and on workforce planning (n=149)</span><span class="src">April 20, 2026</span></li>
-  <li><span><b>Microsoft</b>, 2026 Work Trend Index, on quality control (50%) and critical thinking (46%)</span><span class="src">Feb 18–April 7, 2026</span></li>
-  <li><span><b>解放日报</b>, published by 上观新闻, citing 智联招聘 on employer skills</span><span class="src">March 27, 2026</span></li>
-  <li><span><b>Cornell University</b>, Report of the Committee on the Future of the American University</span><span class="src">Sept 22, 2026</span></li>
-  <li><span><b>China Youth Daily</b> poll, n=1,336</span><span class="src">May 28, 2026</span></li>
-  <li><span><b>OECD</b>, PISA 2025 results</span><span class="src">Sept 8, 2026</span></li>
-  <li><span><b>Habits photo</b>, Ksenia Chernaya, Pexels license</span><span class="src">pexels.com/photo/7295878</span></li>
- </ul>
- </div>
-</div></section>
+<!-- SOURCES -->
 
 </main>
 <script>
@@ -1420,6 +1450,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 })();
 if(!document.documentElement.classList.contains('player')&&!matchMedia('(max-width:700px)').matches)[].forEach.call(document.querySelectorAll('video'),function(v){v.preload='auto'});
 if(/[?&]read\b/.test(location.search))document.documentElement.classList.add('noqr');
+if(/[?&]notes\b/.test(location.search))document.documentElement.classList.add('shownotes');
 /* navigation: dot nav, arrow keys, agenda links */
 var deck=document.getElementById('deck'),S=[].slice.call(document.querySelectorAll('.s')),nav=document.getElementById('nav');
 S.forEach(function(s,i){var a=document.createElement('a');a.href='#';a.setAttribute('aria-label','Slide '+(i+1));a.onclick=function(e){e.preventDefault();go(i)};nav.appendChild(a)});
