@@ -1,0 +1,20 @@
+/* ===== spacing tokens: the one set every slide is laid out with (slide px; the stage zooms them 1.32× at 1920×1080).
+   Frame: every kicker sits on the brand mark's line, every content title starts at the same y, its evidence starts at
+   the same y below a two-line title zone, and every footnote sits the same distance above the bottom edge.
+   Statement, section, and takeaway slides share one anchor instead of being centered, so their kickers line up too.
+   /tmp/audit.py checks each slide against these values. ===== */
+:root{
+ --pad-top:40px;     /* slide top to the kicker */
+ --pad-bot:28px;     /* footnote (or last block) to the slide bottom */
+ --kick-gap:14px;    /* kicker to title, on every slide type */
+ --title-zone:120px; /* room for a two-line content title; the evidence starts below it */
+ --body-gap:36px;    /* title zone to evidence */
+ --fn-gap:28px;      /* evidence to footnote, at least */
+ --hero-top:200px;   /* statement, section, and takeaway slides: slide top to the kicker */
+ --gap:28px;         /* between blocks: columns, cards, stacked panes */
+ --gap-s:16px;       /* between items of one list or a dense grid */
+ --gap-l:48px;       /* between columns inside one pane (timelines, paths) */
+ --pad-l:48px 56px;  /* a pane that carries the slide */
+ --pad-m:36px 40px;  /* a pane or card in a row of two to four */
+ --pad-s:24px 28px   /* a small card, node, or row */
+}

@@ -11,17 +11,17 @@ section.s .qa.qa14 a.qr-slides small{color:var(--ink2);text-decoration:underline
 
 @media (min-width:701px){
  section.s .qa.qa14{--qrw:clamp(250px,calc(36 * var(--vh)),320px);width:100%;
-  grid-template-columns:var(--qrw) minmax(0,1fr)!important;gap:clamp(24px,2.4vw,36px);align-items:stretch;justify-content:stretch}
- section.s .qa.qa14 a.qr-slides{align-self:stretch;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:clamp(20px,calc(3 * var(--vh)),30px)}
+  grid-template-columns:var(--qrw) minmax(0,1fr)!important;gap:var(--gap);align-items:stretch;justify-content:stretch}
+ section.s .qa.qa14 a.qr-slides{align-self:stretch;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:var(--pad-s)}
  section.s .qa.qa14 a.qr-slides img{width:100%;max-width:236px;height:auto}
  section.s .qa.qa14 a.qr-slides>span{font-size:13px;margin-top:16px}
  section.s .qa.qa14 a.qr-slides>small{font-size:14px}
- section.s .qa.qa14 .qa-links.pane{display:grid;grid-template-columns:1fr 1fr;align-content:center;gap:clamp(18px,calc(2.8 * var(--vh)),28px) clamp(28px,3vw,52px);
-  padding:clamp(26px,calc(4 * var(--vh)),42px) clamp(32px,3.2vw,52px);font-size:clamp(16px,1.25vw,18px);line-height:1.55;max-width:none}
+ section.s .qa.qa14 .qa-links.pane{display:grid;grid-template-columns:1fr 1fr;align-content:center;gap:var(--gap) var(--gap-l);
+  padding:var(--pad-m);font-size:clamp(16px,1.25vw,18px);line-height:1.55;max-width:none}
  section.s .qa.qa14 .qa-intro,section.s .qa.qa14 .qa-foot{grid-column:1/-1}
  section.s .qa.qa14 .qa-intro{font-family:var(--serif);font-size:1.3em;line-height:1.35;color:var(--ink)!important}
  section.s .qa.qa14 .qa-url{font-size:1.18em;margin:0 0 8px;word-break:break-word}
- section.s .qa.qa14 .qa-foot{padding-top:clamp(14px,calc(2 * var(--vh)),20px);border-top:1px solid var(--line);color:var(--muted)!important}
+ section.s .qa.qa14 .qa-foot{padding-top:var(--gap-s);border-top:1px solid var(--line);color:var(--muted)!important}
 }
 @media (max-width:700px){
  section.s .qa.qa14 .qa-links.pane{display:grid;gap:18px;padding:22px 20px;font-size:16px;line-height:1.55}

@@ -2,7 +2,7 @@
    and four evidence layouts (rows, chain, arc, pair). Statement slides carry no dots, so their text needs no pane. ===== */
 
 .kick{margin:0;font:600 16px/1.3 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
-:lang(zh-CN) .kick{font-size:18px;letter-spacing:.08em}
+:lang(zh-CN) .kick{font-size:18px;line-height:1.15;letter-spacing:.08em}
 
 /* statement slides: navy, one large line, a quiet seal in the corner */
 .s.nv{background:var(--ink);color:var(--paper-hi)}
@@ -38,25 +38,24 @@
 .dk p{color:rgba(252,243,237,.82)!important}
 
 @media (min-width:701px){
- section.s.st>.w{justify-content:center;padding:40px 0 112px}
- .ae .kick+h2{margin-top:14px}
- .st .kick+h2{margin-top:28px}
+ section.s.st>.w{justify-content:flex-start;padding:var(--hero-top) 0 112px}
+ .ae .kick+h2{margin-top:var(--kick-gap)}
  .ae.st h2{font-size:72px;line-height:1.08;letter-spacing:-.028em;max-width:17.5em}
  :lang(zh-CN) .ae.st h2{font-size:62px;line-height:1.32;letter-spacing:0;max-width:18em}
  .ae.st.cl h2{font-size:62px;line-height:1.14;max-width:19.5em}
  :lang(zh-CN) .ae.st.cl h2{font-size:56px;line-height:1.36}
- .st .by{margin:24px 0 0;font:italic 400 26px/1.3 var(--serif)}
+ .st .by{margin:var(--gap) 0 0;font:italic 400 26px/1.3 var(--serif)}
  :lang(zh-CN) .st .by{font-style:normal}
- .st .sl{margin:40px 0 0;max-width:34em;font-size:30px;line-height:1.45;text-wrap:pretty}
+ .st .sl{margin:var(--body-gap) 0 0;max-width:34em;font-size:30px;line-height:1.45;text-wrap:pretty}
  :lang(zh-CN) .st .sl{max-width:30em;line-height:1.6}
- .st>.w>.fn{position:absolute;left:0;bottom:28px}
- .st .nst{display:flex;align-items:flex-end;gap:44px;margin-top:52px}
+ .st>.w>.fn{position:absolute;left:0;bottom:var(--pad-bot)}
+ .st .nst{display:flex;align-items:flex-end;gap:var(--gap-l);margin-top:var(--body-gap)}
  .st .nst .big{font-size:168px}
  :lang(zh-CN) .st .nst .big{font-size:150px}
  .st .nst p{margin:0 0 16px;max-width:19em;font-size:30px;line-height:1.4}
 
- .rows{display:grid;gap:16px}
- .rw{display:grid;grid-template-columns:236px minmax(0,1fr) 40px minmax(0,1fr) auto;align-items:center;column-gap:26px;padding:20px 30px}
+ .rows{display:grid;gap:var(--gap-s)}
+ .rw{display:grid;grid-template-columns:236px minmax(0,1fr) 40px minmax(0,1fr) auto;align-items:center;column-gap:26px;padding:var(--pad-s)}
  .rw .fld{display:flex;flex-direction:column;align-items:flex-start;gap:8px}
  .rw .fld .lr{height:34px;gap:12px}
  .rw .brand.aos{height:24px}.rw .brand.hv{height:16px}.rw .brand.xf{height:30px}.rw .brand.gg{height:30px}
@@ -67,7 +66,7 @@
  .rw .pf{min-width:132px;padding:10px 16px 9px;text-align:center}
 
  .flow.one .dv{grid-row:1/3}
- .flow.one .nd{min-height:290px;padding:34px 32px}
+ .flow.one .nd{min-height:290px;padding:var(--pad-m)}
  .ae .bd .flow.one .nd p{font-size:31px;line-height:1.3}
  .ae .bd .flow.one .who h3{font-size:36px}
 
@@ -81,12 +80,12 @@
 
  .ae .bd>.lr{gap:24px}
  .chain{display:grid;grid-template-columns:minmax(0,1fr) 64px minmax(0,1fr) 64px minmax(0,1fr);align-items:stretch}
- .chain .nd{justify-content:flex-start;gap:20px;min-height:270px;padding:34px 34px}
+ .chain .nd{justify-content:flex-start;gap:20px;min-height:270px;padding:var(--pad-m)}
  .ae .bd .chain .nd p{font-size:32px;line-height:1.3}
  .ae .bd .chain .nd.old p{color:var(--text)!important}
  .chain .ar{display:grid;place-items:center}
 
- .ae .bd .arc{padding:36px 52px 44px}
+ .ae .bd .arc{padding:var(--pad-l)}
  .arow{display:grid;grid-template-columns:minmax(0,1fr) 200px minmax(0,1fr);align-items:end;column-gap:44px;margin-top:6px}
  .an .big{margin:16px 0 30px;font-size:168px}
  :lang(zh-CN) .an .big{font-size:150px}
@@ -100,12 +99,12 @@
  .ae .bd .model p.ex{margin-top:14px;max-width:14em;font:italic 400 22px/1.4 var(--serif);color:var(--muted)}
  :lang(zh-CN) .ae .bd .model p.ex{font-style:normal;line-height:1.55}
 
- .pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
- .pc{display:flex;flex-direction:column;align-items:flex-start;gap:22px;padding:38px 44px 42px}
+ .pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap)}
+ .pc{display:flex;flex-direction:column;align-items:flex-start;gap:22px;padding:var(--pad-l)}
  .pl{padding:9px 16px 8px}
  .ae .bd .pc .say{font-size:46px;line-height:1.15;letter-spacing:-.015em}
  :lang(zh-CN) .ae .bd .pc .say{font-size:42px;line-height:1.35;letter-spacing:0}
- .ae .bd .pn2{align-self:stretch;width:auto;max-width:none;padding:22px 36px;font-size:24px;line-height:1.45}
+ .ae .bd .pn2{align-self:stretch;width:auto;max-width:none;padding:var(--pad-s);font-size:24px;line-height:1.45}
 
  /* one number per slide: logo, a 240px number, one line saying exactly what it counts */
  .bnx{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:end;column-gap:72px}
@@ -128,10 +127,10 @@
  .ae .bd .bqx .who2 b{display:block;font:500 30px/1.25 var(--serif);color:var(--ink)}
  .ae .bd .bqx .who2 span{display:block;margin-top:4px;font:italic 400 22px/1.35 var(--serif);color:var(--muted)}
  :lang(zh-CN) .ae .bd .bqx .who2 span{font-style:normal}
- .ae.bq .bd{justify-content:flex-end;padding-bottom:40px}
+ .ae.bq .bd{justify-content:flex-end}
 
  /* one ranked list on its own pane */
- .ae .bd .emp1{align-self:flex-start;width:min(100%,1040px);padding:34px 48px 38px}
+ .ae .bd .emp1{align-self:flex-start;width:min(100%,1040px);padding:var(--pad-l)}
  .ae .bd .emp1 .ls{margin-top:18px}
  .ae .bd .emp1 .ls li{padding:22px 0;font-size:40px;line-height:1.2}
  .emp1 .ls li i{font-size:32px;width:52px}
