@@ -77,11 +77,16 @@
  .motion .cv-top,.motion .cv-foot{transition:opacity .8s ease .6s}
  .motion .s:not(.in) .cv-top,.motion .s:not(.in) .cv-foot{opacity:0}
 
- /* tool flood: curated tiles stay put; fill tiles land faster and faster */
- .motion .ag-fill .ag-tile{opacity:0;transform:scale(.86);transition:opacity .28s ease calc(40ms + var(--i) * (18ms - var(--i) * .04ms)),transform .4s var(--e-o) calc(40ms + var(--i) * (18ms - var(--i) * .04ms))}
- .motion .s.in .ag-fill .ag-tile,.motion .ag-fill.done .ag-tile{opacity:.55;transform:none}
- .motion .ag-fill.done .ag-tile{transition:none}
- .motion .s.in .agx li{transition-delay:calc(80ms + var(--i,0) * 70ms)}
+ /* market map: six agents arrive and settle, recede, then a field of tools floods in, then the six lift again.
+    Only opacity and transform. Delays for the field are set in JS (--d) so the stagger can accelerate. */
+ .motion .ag-flood .agx li{opacity:0;transform:translateY(18px) scale(.96);transition:opacity .48s ease,transform .56s var(--e-o),box-shadow .4s ease;transition-delay:calc(80ms + var(--i,0) * 155ms)}
+ .motion .s.in .ag-flood .agx li{opacity:1;transform:none}
+ .motion .ag-flood.recede:not(.focus):not(.done) .agx li{opacity:.62;transform:scale(.975);transition-delay:0s}
+ .motion .ag-flood.focus .agx li,.motion .ag-flood.done .agx li{opacity:1;transform:none;transition-delay:0s}
+ .motion .ag-flood.done .agx li{transition:none}
+ .motion .ag-fill .ag-tile{opacity:0;transform:scale(.84);transition:opacity .3s ease var(--d,0s),transform .4s var(--e-o) var(--d,0s)}
+ .motion .ag-flood.flood .ag-tile,.motion .ag-flood.done .ag-tile,.motion .ag-fill.done .ag-tile{opacity:.42;transform:none}
+ .motion .ag-flood.done .ag-tile,.motion .ag-fill.done .ag-tile{transition:none}
 
  /* Cursor growth: the line draws, then nodes climb */
  .motion .grow-line path{stroke-dasharray:1400;stroke-dashoffset:1400;transition:stroke-dashoffset 1.6s var(--e-io) .2s}
