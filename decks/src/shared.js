@@ -30,7 +30,21 @@ if(/[?&]notes\b/.test(location.search))document.documentElement.classList.add('s
 var deck=document.getElementById('deck'),S=[].slice.call(document.querySelectorAll('.s')),nav=document.getElementById('nav');
 S.forEach(function(s,i){var a=document.createElement('a');a.href='#';a.setAttribute('aria-label','Slide '+(i+1));a.onclick=function(e){e.preventDefault();go(i)};nav.appendChild(a)});
 function cur(){var y=deck.scrollTop+innerHeight/2;for(var i=0;i<S.length;i++){if(S[i].offsetTop+S[i].offsetHeight>y)return i}return S.length-1}
-function go(i){i=Math.max(0,Math.min(S.length-1,i));deck.scrollTo({top:S[i].offsetTop,behavior:'smooth'})}
+/* with motion on, moving between slides is choreographed rather than scrolled (css/s60-motion.css), with nothing but opacity and
+   transform so a phone composites every frame: the slide's content fades out, the deck jumps, and the next slide's content settles in.
+   Going into a navy chapter slide, a navy panel rises over the page first; leaving one, the panel lifts away. A new press finishes
+   whatever is still running. */
+var gT=[];
+function settle(){gT.forEach(function(t){clearTimeout(t)});gT=[];[].forEach.call(document.querySelectorAll('.curtain'),function(c){c.remove()});S.forEach(function(s){s.classList.remove('out')})}
+function go(i){i=Math.max(0,Math.min(S.length-1,i));var y=S[i].offsetTop,from=cur(),H=document.documentElement;
+ if(!H.classList.contains('motion')||from===i){deck.scrollTo({top:y,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});return}
+ settle();var t=S[i],f=S[from],nv=function(s){return s.classList.contains('nv')};
+ function jump(){deck.scrollTop=y;f.classList.remove('out')}
+ function panel(cls){var c=document.createElement('div');c.className='curtain'+cls;document.body.appendChild(c);void c.offsetWidth;return c}
+ f.classList.add('out');
+ if(i>from&&nv(t)&&!nv(f)){var c=panel('');c.classList.add('up');gT.push(setTimeout(function(){jump();c.remove()},680));return}
+ if(i>from&&nv(f)&&!nv(t)){gT.push(setTimeout(function(){var c=panel(' on');jump();void c.offsetWidth;c.classList.add('lift');gT.push(setTimeout(function(){c.remove()},720))},220));return}
+ gT.push(setTimeout(jump,i<from?150:t.matches('.st,.bq')?320:230))}
 [].forEach.call(document.querySelectorAll('[data-go]'),function(a){a.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();go(+a.dataset.go)})});
 /* builds: a slide reached with the keys opens on its title, and each press shows its next [data-s] step; back hides them again.
    Slides reached any other way (scroll, dots, agenda, export, phone, ?read) are always fully built. */
@@ -68,15 +82,23 @@ if(!HM.classList.contains('player')&&!HM.classList.contains('export')&&!/[?&]rea
  new MutationObserver(function(){if(HM.classList.contains('export')&&HM.classList.contains('motion')){HM.classList.remove('motion');
   /* a transition already under way keeps running when its rule goes away, so jump every one to its end */
   if(document.getAnimations)document.getAnimations().forEach(function(a){try{a.finish()}catch(e){}})}}).observe(HM,{attributes:true,attributeFilter:['class']});
- if(HM.lang==='en')[].forEach.call(document.querySelectorAll('.ae h2,.cover h1'),function(h){var i=0;
+ /* hero headlines (statements, quotes, chapters, takeaways, the cover) build word by word in English and phrase by phrase in Chinese;
+    content-slide titles rise as one block so they read at once */
+ var HERO='.ae.st h2,.ae.bq h2,.ae.sec h2,.ae.tk h2,.cover h1';
+ if(HM.lang==='en')[].forEach.call(document.querySelectorAll(HERO),function(h){var i=0;
   (function walk(n){[].slice.call(n.childNodes).forEach(function(c){
    if(c.nodeType===3){var f=document.createDocumentFragment();c.nodeValue.split(/(\s+)/).forEach(function(p){if(!p)return;
      if(/^\s+$/.test(p)){f.appendChild(document.createTextNode(p));return}var w=document.createElement('span');w.className='wd';w.style.setProperty('--i',i++);w.textContent=p;f.appendChild(w)});
     n.replaceChild(f,c)}else if(c.nodeType===1&&c.tagName!=='BR')walk(c)})})(h);h.classList.add('wsplit')});
- else [].forEach.call(document.querySelectorAll('.ae h2,.cover h1'),function(h){h.classList.add('wipe')});
+ else [].forEach.call(document.querySelectorAll(HERO),function(h){var i=0;
+  /* phrases stay inline (opacity only), so the Chinese line breaks are exactly those of the static slide */
+  (function walk(n){[].slice.call(n.childNodes).forEach(function(c){
+   if(c.nodeType===3){var f=document.createDocumentFragment();c.nodeValue.replace(/([，。、：；？！])/g,'$1\u0001').split('\u0001').forEach(function(p){if(!p)return;
+     var w=document.createElement('span');w.className='phr';w.style.setProperty('--i',i++);w.textContent=p;f.appendChild(w)});
+    n.replaceChild(f,c)}else if(c.nodeType===1&&c.tagName!=='BR')walk(c)})})(h);h.classList.add('psplit')});
 }
 [].forEach.call(document.querySelectorAll('.mmap'),function(g){[].forEach.call(g.querySelectorAll('.mm-c'),function(c,k){c.style.setProperty('--c',k)});[].forEach.call(g.querySelectorAll('.mm li'),function(c,k){c.style.setProperty('--i',k)})});
-[].forEach.call(document.querySelectorAll('.tln,.apps,.tbl,.trk,.paths,.tk-prog,.pg-m,.trio,.proj'),function(g){
+[].forEach.call(document.querySelectorAll('.tln,.apps,.tbl,.trk,.paths,.tk-prog,.pg-m,.trio,.proj,.agx'),function(g){
  [].slice.call(g.children).forEach(function(c,i){c.style.setProperty('--i',i);if(g.classList.contains('tbl'))[].forEach.call(c.children,function(x){x.style.setProperty('--i',i)})});
  if(g.classList.contains('pg-m')){var j=0;[].forEach.call(g.children,function(c){if(c.classList.contains('f'))c.style.setProperty('--i',j++)})}});
 /* counters: the first number in each .big or .cnt counts up from zero, keeping its prefix, commas, decimals, and unit */
