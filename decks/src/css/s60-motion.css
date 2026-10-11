@@ -1,0 +1,71 @@
+/* ===== Oct 11 · motion. Everything here is scoped to html.motion, which shared.js sets only on screen, never for
+   export, print, ?read, or prefers-reduced-motion. Without it every element sits in its final state, so the PDF and the
+   /talk gallery always show the finished slide. Only opacity, transform, clip-path, and SVG dashes animate. ===== */
+@media screen{
+ /* slide to slide: the arriving slide rises into place; the one leaving has already faded */
+ .motion .s>.w{transition:opacity .55s ease,transform .8s var(--ease)}
+ .motion .s:not(.in)>.w{opacity:0;transform:translateY(26px) scale(.985)}
+
+ /* headlines: English words rise in one after another; Chinese titles wipe in from the left */
+ .motion .wsplit.r{opacity:1;transform:none;transition:none}
+ .motion .wsplit .wd{display:inline-block;transition:opacity .5s ease calc(var(--d,0s) + var(--i) * 32ms),transform .75s var(--ease) calc(var(--d,0s) + var(--i) * 32ms)}
+ .motion .s:not(.in) .wsplit .wd{opacity:0;transform:translateY(.42em)}
+ .motion .wipe.r{opacity:1;transform:none;transition:clip-path 1s cubic-bezier(.65,.05,.25,1) var(--d,0s)}
+ .motion .s:not(.in) .wipe.r{clip-path:inset(0 100% 0 0)}
+ .motion .wipe.r{clip-path:inset(-.2em -.2em -.3em 0)}
+
+ /* bars and rings draw in; table rows and grid tiles arrive one by one */
+ .motion .s:not(.in) .hb i::after{transform:scaleX(0)}
+ .motion .hb .row:nth-child(2) i::after{transition-delay:.24s}.motion .hb .row:nth-child(3) i::after{transition-delay:.36s}.motion .hb .row:nth-child(4) i::after{transition-delay:.48s}
+ .motion .dn .vl{transition:stroke-dasharray 1.4s cubic-bezier(.3,.7,.2,1) .35s}
+ .motion .s:not(.in) .dn .vl,.motion .s.bld [data-s]:not(.vis) .dn .vl,.motion .s.bld .dn[data-s]:not(.vis) .vl{stroke-dasharray:0 100}
+ .motion .pg-m i.f{transition:background-color .5s ease calc(.4s + var(--i) * .22s),transform .6s var(--ease) calc(.4s + var(--i) * .22s)}
+ .motion .s:not(.in) .pg-m i.f{background-color:transparent;transform:scale(.7)}
+ .motion .tbl>div>*{transition:opacity .5s ease calc(.25s + var(--i,0) * .14s),transform .6s var(--ease) calc(.25s + var(--i,0) * .14s)}
+ .motion .s:not(.in) .tbl>div>*{opacity:0;transform:translateY(12px)}
+ .motion .app{transition:opacity .5s ease calc(.3s + var(--i) * 55ms),transform .7s cubic-bezier(.2,1.25,.4,1) calc(.3s + var(--i) * 55ms)}
+ .motion .s:not(.in) .app{opacity:0;transform:translateY(26px) scale(.82)}
+ .motion .paths li{transition:opacity .45s ease calc(.6s + var(--i) * .12s),transform .55s var(--ease) calc(.6s + var(--i) * .12s)}
+ .motion .s:not(.in) .paths li{opacity:0;transform:translateY(10px)}
+
+ /* timelines: the line draws across, then each point lands */
+ .motion .tln::before{transition:transform 1.5s cubic-bezier(.6,.05,.3,1) .3s}
+ .motion .s:not(.in) .tln::before{transform:scaleX(0)}
+ .motion .tln li{transition:opacity .5s ease calc(.45s + var(--i) * .32s),transform .6s var(--ease) calc(.45s + var(--i) * .32s)}
+ .motion .s:not(.in) .tln li{opacity:0;transform:translateY(10px)}
+ .motion .tln .dot{transition:transform .5s cubic-bezier(.2,1.4,.4,1) calc(.45s + var(--i) * .32s)}
+ .motion .s:not(.in) .tln .dot{transform:scale(0)}
+ .motion .tl::before{transform-origin:left;transition:transform 1.2s cubic-bezier(.6,.05,.3,1) .3s}
+ .motion .s:not(.in) .tl::before{transform:scaleX(0)}
+
+ .motion .story3 .punch{transition:opacity .7s ease,transform .9s var(--ease),border-color 1.2s ease .2s}
+ .motion .hab3 .no{transition:opacity .6s ease .2s,transform .8s var(--ease) .2s}
+ .motion .s:not(.in) .hab3 .no{opacity:0;transform:translateY(16px)}
+
+ /* before / after: the second panel wipes across the first */
+ .motion .ba-p.new{transition:clip-path 1.1s cubic-bezier(.65,.05,.25,1) .5s,opacity .3s ease .5s}
+ .motion .s:not(.in) .ba-p.new,.motion .s.bld .ba-p.new[data-s]:not(.vis){clip-path:inset(0 0 0 100%)}
+ .motion .ba-p.new{clip-path:inset(0)}
+ .motion .s.bld .ba-p.new[data-s]{transform:none!important;opacity:1!important}
+ .motion .s.bld .ba-p.new[data-s].vis{transition-delay:0s}
+
+ /* dividers: the tracker rows slide in and the current section's bar grows */
+ .motion .trk li{transition:opacity .5s ease calc(.35s + var(--i) * .12s),transform .6s var(--ease) calc(.35s + var(--i) * .12s)}
+ .motion .s:not(.in) .trk li{opacity:0;transform:translateX(18px)}
+ .motion .sec .trk li.on::before{transition:transform .7s var(--ease) .9s}
+ .motion .s:not(.in) .sec .trk li.on::before{transform:scaleY(0)}
+ .motion .sec-k b,.motion .tk-n b{transition:opacity .8s ease .05s,transform 1s var(--ease) .05s}
+ .motion .s:not(.in) .sec-k b,.motion .s:not(.in) .tk-n b{opacity:0;transform:translateY(30px)}
+ .motion .tk-prog li{transition:opacity .45s ease calc(.7s + var(--i) * .1s)}
+ .motion .s:not(.in) .tk-prog li{opacity:0}
+
+ /* rings on the skills slide pop in turn; cards in a row arrive left to right */
+ .motion .model li .ring{transition:transform .7s cubic-bezier(.2,1.3,.4,1)}
+ .motion .s:not(.in) .model li .ring,.motion .s.bld .model li[data-s]:not(.vis) .ring{transform:scale(.6)}
+ .motion .trio .card,.motion .proj .card{transition:opacity .5s ease calc(.3s + var(--i,0) * .15s),transform .7s var(--ease) calc(.3s + var(--i,0) * .15s)}
+ .motion .s:not(.in) .trio .card,.motion .s:not(.in) .proj .card{opacity:0;transform:translateY(22px)}
+ .motion .proj figure img{transition:transform 6s ease-out}
+ .motion .s:not(.in) .proj figure img{transform:scale(1.06)}
+ .motion .cv-top,.motion .cv-foot{transition:opacity .8s ease .6s}
+ .motion .s:not(.in) .cv-top,.motion .s:not(.in) .cv-foot{opacity:0}
+}

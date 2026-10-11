@@ -33,7 +33,8 @@ function go(i){i=Math.max(0,Math.min(S.length-1,i));deck.scrollTo({top:S[i].offs
 var B=S.map(function(s){return [].reduce.call(s.querySelectorAll('[data-s]'),function(m,e){return Math.max(m,+e.dataset.s)},0)}),armed=-1;
 function canBuild(){return !document.documentElement.classList.contains('export')&&!/[?&]read\b/.test(location.search)&&!matchMedia('(max-width:700px)').matches}
 function build(i,k,quiet){var s=S[i];s.dataset.k=k;if(quiet)s.classList.add('nt');s.classList.toggle('bld',k<B[i]);
- [].forEach.call(s.querySelectorAll('[data-s]'),function(e){e.classList.toggle('vis',+e.dataset.s<=k)});if(quiet){void s.offsetWidth;s.classList.remove('nt')}}
+ [].forEach.call(s.querySelectorAll('[data-s]'),function(e){e.classList.toggle('vis',+e.dataset.s<=k)});if(quiet){void s.offsetWidth;s.classList.remove('nt')}
+ else if(window.__count)setTimeout(function(){__count(s)},150)}
 function step(d){var c=armed>=0&&Math.abs(S[armed].offsetTop-deck.scrollTop)<innerHeight*.75?armed:cur();
  if(!canBuild()){go(c+d);return}
  var k=S[c].dataset.k===undefined?B[c]:+S[c].dataset.k;
@@ -55,13 +56,36 @@ if(self!==top&&matchMedia('(pointer:coarse)').matches){document.documentElement.
   try{z=parent.visualViewport?parent.visualViewport.scale:1}catch(x){}if(z>1.05)return;
   var d=Math.abs(dx)>Math.abs(dy)?dx:dy;if(Math.abs(d)>k){step(d<0?1:-1);return}
   if(e.target.closest('a,button,video,[data-go],.rv,.step'))return;e.preventDefault();step(t.clientX>innerWidth/3?1:-1)},{passive:false})}
-/* entrance + stat count-up */
-var still=function(){var h=document.documentElement.classList;return h.contains('export')||h.contains('still')||matchMedia('(prefers-reduced-motion: reduce)').matches};
-function countUp(s){if(still())return;[].forEach.call(s.querySelectorAll('.count'),function(el){if(el.dataset.done)return;el.dataset.done=1;
- var t=el.textContent,m=t.match(/^(\D*)(\d+(?:\.\d+)?)(.*)$/);if(!m)return;var to=parseFloat(m[2]),dec=(m[2].split('.')[1]||'').length,t0=0;
- el.style.minWidth=el.offsetWidth+'px';
- (function f(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/900),e=1-Math.pow(1-p,3);el.textContent=m[1]+(to*e).toFixed(dec)+m[3];if(p<1)requestAnimationFrame(f);else el.textContent=t})(performance.now())})}
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');setTimeout(function(){countUp(e.target)},350)}})},{threshold:.35});
+/* motion (see css/s60-motion.css): on only on screen, never for export, ?read, the player shell, or reduced motion.
+   The HTML always holds the final text, so a counter or a split headline that never runs still reads correctly. */
+var HM=document.documentElement;
+if(!HM.classList.contains('player')&&!HM.classList.contains('export')&&!/[?&]read\b/.test(location.search)&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+ HM.classList.add('motion');
+ new MutationObserver(function(){if(HM.classList.contains('export')&&HM.classList.contains('motion'))HM.classList.remove('motion')}).observe(HM,{attributes:true,attributeFilter:['class']});
+ if(HM.lang==='en')[].forEach.call(document.querySelectorAll('.ae h2,.cover h1'),function(h){var i=0;
+  (function walk(n){[].slice.call(n.childNodes).forEach(function(c){
+   if(c.nodeType===3){var f=document.createDocumentFragment();c.nodeValue.split(/(\s+)/).forEach(function(p){if(!p)return;
+     if(/^\s+$/.test(p)){f.appendChild(document.createTextNode(p));return}var w=document.createElement('span');w.className='wd';w.style.setProperty('--i',i++);w.textContent=p;f.appendChild(w)});
+    n.replaceChild(f,c)}else if(c.nodeType===1&&c.tagName!=='BR')walk(c)})})(h);h.classList.add('wsplit')});
+ else [].forEach.call(document.querySelectorAll('.ae h2,.cover h1'),function(h){h.classList.add('wipe')});
+}
+[].forEach.call(document.querySelectorAll('.tln,.apps,.tbl,.trk,.paths,.tk-prog,.pg-m,.trio,.proj'),function(g){
+ [].slice.call(g.children).forEach(function(c,i){c.style.setProperty('--i',i);if(g.classList.contains('tbl'))[].forEach.call(c.children,function(x){x.style.setProperty('--i',i)})});
+ if(g.classList.contains('pg-m')){var j=0;[].forEach.call(g.children,function(c){if(c.classList.contains('f'))c.style.setProperty('--i',j++)})}});
+/* counters: the first number in each .big or .cnt counts up from zero, keeping its prefix, commas, decimals, and unit */
+function firstNum(el){var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);while(w.nextNode())if(/\d/.test(w.currentNode.nodeValue))return w.currentNode;return null}
+function countUp(s){if(!HM.classList.contains('motion'))return;
+ [].forEach.call(s.querySelectorAll('.big,.cnt'),function(el){if(el.dataset.run||(s.classList.contains('bld')&&el.closest('[data-s]:not(.vis)')))return;
+  var t=firstNum(el);if(!t)return;var full=t.nodeValue,m=full.match(/^([^\d]*)(\d[\d,]*(?:\.\d+)?)([\s\S]*)$/);if(!m)return;
+  var raw=m[2],to=parseFloat(raw.replace(/,/g,'')),dec=(raw.split('.')[1]||'').length,cm=raw.indexOf(',')>=0,t0=0,D=to>=1000?1500:1200;
+  el.dataset.run=1;el.style.minWidth=getComputedStyle(el).width;
+  requestAnimationFrame(function f(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/D),v=to*(1-Math.pow(1-p,4));
+   if(p>=1||!HM.classList.contains('motion')){t.nodeValue=full;el.style.minWidth='';return}
+   t.nodeValue=m[1]+(cm?Math.round(v).toLocaleString('en-US'):v.toFixed(dec))+m[3];requestAnimationFrame(f)})})}
+window.__count=countUp;
+var io=new IntersectionObserver(function(es){es.forEach(function(e){var s=e.target;
+ if(e.intersectionRatio>=.35){if(!s.classList.contains('in')){s.classList.add('in');setTimeout(function(){countUp(s)},420)}}
+ else if(!e.isIntersecting&&HM.classList.contains('motion')){s.classList.remove('in');[].forEach.call(s.querySelectorAll('[data-run]'),function(x){delete x.dataset.run})}})},{threshold:[0,.35]});
 S.forEach(function(s){io.observe(s)});
 </script><script>
 /* detail on demand: hover, click, or Enter/Space opens the detail inside its own card; Esc closes */
