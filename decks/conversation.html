@@ -1615,7 +1615,18 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .hab3.hic .ico{width:96px;height:96px;margin:0 0 auto}.hab3.hic .ico .lic{width:44px;height:44px}
  .hab3.hic .lab{margin-top:26px}
 
- /* then and now as three paired rows: then on the left, what changed in the middle, now on the right */
+ /* then and now as two equal columns, both visible in the final state */
+ .tn2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap);align-items:stretch;flex:1}
+ .tn2 .col{display:flex;flex-direction:column;gap:var(--gap-s);padding:var(--pad-m);border-radius:var(--r)}
+ .tn2 .col.o{background:var(--pane)}
+ .tn2 .col.n{background:var(--ink)}
+ .tn2 .pl{align-self:flex-start;margin-bottom:8px;padding:9px 16px 8px}
+ .tn2 .pl.o{background:var(--paper-hi);color:var(--ink);box-shadow:inset 0 0 0 1px var(--edge)}
+ .tn2 .pl.n{background:rgba(252,243,237,.12);color:var(--paper-hi)}
+ .ae .bd .tn2 p{flex:1;display:flex;align-items:center;min-height:88px;padding:0;font-size:29px;line-height:1.3}
+ :lang(zh-CN) .ae .bd .tn2 p{font-size:26px;line-height:1.5}
+ .tn2 .col.o p{color:var(--text)}
+ .ae .bd .tn2 .col.n p{color:var(--paper-hi)}
  .tn3{display:grid;grid-template-columns:minmax(0,1fr) 120px minmax(0,1fr);row-gap:var(--gap-s)}
  .tn-h,.tn-r{display:contents}
  .tn-h .pl{justify-self:start;padding:9px 16px 8px}
@@ -1681,6 +1692,7 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .rk3 li{display:flex;align-items:center;gap:12px}.rk3 .ico{width:40px;height:40px}.rk3 .ico .lic{width:20px;height:20px}
  .agx li{display:flex;align-items:center;gap:12px}.agx img{width:40px;height:40px;border-radius:10px}.agx li>span{display:flex;flex-direction:column}
  .fl3 li{display:flex;align-items:center;gap:12px}.fl3 .ico{width:40px;height:40px}.fl3 .ico .lic{width:20px;height:20px}
+ .tn2{display:grid;grid-template-columns:1fr;gap:10px}.tn2 .col{padding:12px}
  .tn3{display:grid;grid-template-columns:1fr;gap:6px}.tn-h{display:none}.tn-r{display:grid;grid-template-columns:1fr;gap:4px}.tn3 .ico{display:none}
  .tn3 p{margin:0;padding:10px 12px;border-radius:8px}.tn3 p.o{background:var(--pane)}.tn3 p.n{background:var(--ink);color:var(--paper-hi)}
  .tvs{display:grid;gap:10px;margin-top:16px}.tvs .row{display:grid;grid-template-columns:1fr auto;gap:6px}.tvs .kq .lic{display:none}.tvs i{grid-column:1/-1;position:relative;display:block;height:12px;border-radius:3px;background:var(--track)}
@@ -2211,11 +2223,15 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 <section class="s ae"><div class="w">
  <p class="kick r">Takeaway 3 · then and now</p>
  <h2 class="r" style="--d:.1s">When we were young, most ideas stayed in a notebook. Today a child can use AI to <em>turn one into something real.</em></h2>
- <div class="bd r" style="--d:.25s"><div class="tn3">
-  <div class="tn-h"><span class="pl o">When we were young</span><span></span><span class="pl n">Today</span></div>
-  <div class="tn-r"><p class="o">Almost everything was done by hand</p><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M13 21h8" /><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" /></svg></span><p class="n" data-s="1">AI helps build a first version quickly</p></div>
-  <div class="tn-r"><p class="o">Software took a team and years</p><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg></span><p class="n" data-s="1">Real people can try it the same week</p></div>
-  <div class="tn-r"><p class="o">Only the family saw what you made</p><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><path d="M16 3.128a4 4 0 0 1 0 7.744" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><circle cx="9" cy="7" r="4" /></svg></span><p class="n" data-s="1">Real users, before they leave school</p></div>
+ <div class="bd r" style="--d:.25s"><div class="tn2">
+  <div class="col o"><span class="pl o">When we were young</span>
+   <p>Almost everything was done by hand</p>
+   <p>Software took a team and years</p>
+   <p>Only the family saw what you made</p></div>
+  <div class="col n"><span class="pl n">Today</span>
+   <p>AI helps build a first version quickly</p>
+   <p>Real people can try it the same week</p>
+   <p>Real users, before they leave school</p></div>
  </div></div>
 </div><aside class="notes">Building software used to take a team and years of training, and few people outside the family ever saw what you made. With AI as a helper, a first working version comes together quickly, and a child's idea can reach real users before they leave school. We wrote essays by hand and waited years to build anything real. Our children can build, test, and improve in a week. The ones who start now compound that advantage.</aside></section>
 

@@ -167,7 +167,18 @@
  .hab3.hic .ico{width:96px;height:96px;margin:0 0 auto}.hab3.hic .ico .lic{width:44px;height:44px}
  .hab3.hic .lab{margin-top:26px}
 
- /* then and now as three paired rows: then on the left, what changed in the middle, now on the right */
+ /* then and now as two equal columns, both visible in the final state */
+ .tn2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap);align-items:stretch;flex:1}
+ .tn2 .col{display:flex;flex-direction:column;gap:var(--gap-s);padding:var(--pad-m);border-radius:var(--r)}
+ .tn2 .col.o{background:var(--pane)}
+ .tn2 .col.n{background:var(--ink)}
+ .tn2 .pl{align-self:flex-start;margin-bottom:8px;padding:9px 16px 8px}
+ .tn2 .pl.o{background:var(--paper-hi);color:var(--ink);box-shadow:inset 0 0 0 1px var(--edge)}
+ .tn2 .pl.n{background:rgba(252,243,237,.12);color:var(--paper-hi)}
+ .ae .bd .tn2 p{flex:1;display:flex;align-items:center;min-height:88px;padding:0;font-size:29px;line-height:1.3}
+ :lang(zh-CN) .ae .bd .tn2 p{font-size:26px;line-height:1.5}
+ .tn2 .col.o p{color:var(--text)}
+ .ae .bd .tn2 .col.n p{color:var(--paper-hi)}
  .tn3{display:grid;grid-template-columns:minmax(0,1fr) 120px minmax(0,1fr);row-gap:var(--gap-s)}
  .tn-h,.tn-r{display:contents}
  .tn-h .pl{justify-self:start;padding:9px 16px 8px}
@@ -233,6 +244,7 @@
  .rk3 li{display:flex;align-items:center;gap:12px}.rk3 .ico{width:40px;height:40px}.rk3 .ico .lic{width:20px;height:20px}
  .agx li{display:flex;align-items:center;gap:12px}.agx img{width:40px;height:40px;border-radius:10px}.agx li>span{display:flex;flex-direction:column}
  .fl3 li{display:flex;align-items:center;gap:12px}.fl3 .ico{width:40px;height:40px}.fl3 .ico .lic{width:20px;height:20px}
+ .tn2{display:grid;grid-template-columns:1fr;gap:10px}.tn2 .col{padding:12px}
  .tn3{display:grid;grid-template-columns:1fr;gap:6px}.tn-h{display:none}.tn-r{display:grid;grid-template-columns:1fr;gap:4px}.tn3 .ico{display:none}
  .tn3 p{margin:0;padding:10px 12px;border-radius:8px}.tn3 p.o{background:var(--pane)}.tn3 p.n{background:var(--ink);color:var(--paper-hi)}
  .tvs{display:grid;gap:10px;margin-top:16px}.tvs .row{display:grid;grid-template-columns:1fr auto;gap:6px}.tvs .kq .lic{display:none}.tvs i{grid-column:1/-1;position:relative;display:block;height:12px;border-radius:3px;background:var(--track)}
