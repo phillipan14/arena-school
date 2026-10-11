@@ -1771,32 +1771,32 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
 
  /* Section 2 chain: execution → shift diagram → named skills */
  .dn>.big{display:grid;place-items:center;font-size:120px;line-height:.85}
- .shx{display:grid;grid-template-columns:minmax(0,1fr) 72px minmax(0,1fr);gap:18px;align-items:stretch}
- .sh-col{display:flex;flex-direction:column;gap:14px;padding:var(--pad-m);border-radius:var(--r);min-width:0}
+ .shx{display:grid;grid-template-columns:minmax(0,1fr) 72px minmax(0,1fr);gap:16px;align-items:stretch}
+ .sh-col{display:flex;flex-direction:column;gap:10px;padding:28px 32px;border-radius:var(--r);min-width:0}
  .sh-col.o{background:var(--pane)}
  .sh-col.n{background:var(--ink);color:var(--paper-hi)}
  .shx .hd{font:600 15px/1 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
  :lang(zh-CN) .shx .hd{font-size:16px;letter-spacing:.08em}
  .sh-col.n .hd{color:#A9BEEA}
  .shx ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
- .ae .bd .shx li{margin:0;font-size:28px;line-height:1.3;color:var(--ink)}
+ .ae .bd .shx li{margin:0;font-size:26px;line-height:1.25;color:var(--ink)}
  .ae .bd .sh-col.n li{color:var(--paper-hi)}
  :lang(zh-CN) .ae .bd .shx li{font-size:26px;line-height:1.45}
  .sh-arr{display:grid;place-items:center;align-self:center}
  .sh-arr span{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:var(--paper-hi);box-shadow:inset 0 0 0 1px var(--edge);font:400 26px/1 var(--serif);color:var(--ink2)}
- .wef4{list-style:none;margin:var(--gap) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap-s)}
- .ae .bd .wef4 li{display:flex;flex-direction:column;gap:6px;padding:18px 20px;background:var(--paper-hi);border:1px solid var(--edge);border-radius:var(--r)}
- .wef4 b{font:300 44px/.9 var(--serif);color:var(--ink2);letter-spacing:-.03em}
- .ae .bd .wef4 span{font:500 22px/1.25 var(--serif);color:var(--ink)}
+ .wef4{list-style:none;margin:20px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap-s)}
+ .ae .bd .wef4 li{display:flex;flex-direction:column;gap:4px;padding:14px 16px;background:var(--paper-hi);border:1px solid var(--edge);border-radius:var(--r)}
+ .wef4 b{font:300 40px/.9 var(--serif);color:var(--ink2);letter-spacing:-.03em}
+ .ae .bd .wef4 span{font:500 20px/1.2 var(--serif);color:var(--ink)}
  :lang(zh-CN) .ae .bd .wef4 span{font-size:20px;line-height:1.4}
- .why5{list-style:none;margin:0;padding:0;display:grid;gap:12px}
- .ae .bd .why5 li{display:grid;grid-template-columns:64px 220px minmax(0,1fr);align-items:baseline;column-gap:28px;padding:18px 8px;border-top:1px solid var(--line)}
+ .why5{list-style:none;margin:0;padding:0;display:grid;gap:0}
+ .ae .bd .why5 li{display:grid;grid-template-columns:56px 200px minmax(0,1fr);align-items:baseline;column-gap:24px;padding:12px 8px;border-top:1px solid var(--line)}
  .why5 li:last-child{border-bottom:1px solid var(--line)}
- .why5 i{font:300 28px/1 var(--serif);color:var(--ink2)}
- .ae .bd .why5 b{font:500 32px/1.2 var(--serif);color:var(--ink)}
- .ae .bd .why5 span{font:400 28px/1.35 var(--serif);color:var(--text)}
- :lang(zh-CN) .ae .bd .why5 b{font-size:28px;line-height:1.35}
- :lang(zh-CN) .ae .bd .why5 span{font-size:26px;line-height:1.5}
+ .why5 i{font:300 26px/1 var(--serif);color:var(--ink2)}
+ .ae .bd .why5 b{font:500 30px/1.2 var(--serif);color:var(--ink)}
+ .ae .bd .why5 span{font:400 26px/1.3 var(--serif);color:var(--text)}
+ :lang(zh-CN) .ae .bd .why5 b{font-size:26px;line-height:1.3}
+ :lang(zh-CN) .ae .bd .why5 span{font-size:24px;line-height:1.45}
 }
 
 /* motion for these layouts (see s60-motion.css for the timing system) */
@@ -2151,7 +2151,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <p class="kick r">谷歌 · GitHub · 工作是怎么做出来的</p>
  <h2 class="r" style="--d:.1s">AI正在让“怎么做”变便宜：写代码、写稿、<em>做分析。</em></h2>
  <div class="bd r" style="--d:.25s"><div class="dns">
-  <div class="pane dn" data-s="1"><div class="big">75%</div><div><div class="lr"><img class="brand gg" src="/logos/deck/google.svg" alt="谷歌"></div><p>谷歌的新代码，现在由AI先写，再由工程师审过</p></div></div>
+  <div class="pane dn" data-s="1"><div class="big">75%</div><div><div class="lr"><span class="org">Google</span></div><p>新代码现在由AI先写，再由工程师审过</p></div></div>
   <div class="pane dn" data-s="2"><div class="big">80%</div><div><div class="lr"><span class="org">GitHub</span></div><p>新开发者第一周就用 Copilot，写代码本身不再稀缺</p></div></div>
  </div></div>
  <p class="fn" data-s="1"><span>Sundar Pichai，比去年秋天的50%上升，Google Cloud Next / 公司博客，2026年4月22日。GitHub Octoverse 2025：近80%的新开发者第一周就用了 Copilot</span></p>
@@ -2174,7 +2174,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
    <li data-s="2"><b>57%</b><span>创造性思维</span></li>
   </ol>
  </div>
- <p class="fn" data-s="1"><span>世界经济论坛《2025年未来就业报告》，2025年1月7日，图3.3：认为该能力现在就必要的雇主占比；图3.4：这些能力到2030年还会上升。微软《2026工作趋势指数》：核对产出50%，批判性思维46%。LinkedIn《2026年上升技能》</span></p>
+ <p class="fn" data-s="1"><span>世界经济论坛《2025年未来就业报告》，2025年1月7日，图3.3现在必要；图3.4到2030年继续上升。微软《2026工作趋势指数》；LinkedIn《2026年上升技能》</span></p>
 </div><aside class="notes">雇主已经把判断、创造、韧性和领导力看成必要能力，并且预期还会更重要。微软调查里，用AI的人自己也这么说：工作从生成答案，变成判断答案。</aside></section>
 
 <!-- 22 · Each skill, one-line why -->
