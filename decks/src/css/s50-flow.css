@@ -245,4 +245,28 @@
  /* the safest careers: four paths named under the statement */
  .paths{display:flex;gap:16px;margin:52px 0 0;padding:0;list-style:none}
  .paths li{padding:14px 26px 12px;border:1px solid var(--edge);border-radius:999px;background:var(--paper-hi);font:500 26px/1 var(--serif);color:var(--ink)}
+
+ /* scale: slides whose evidence is one or two short blocks get type large enough to fill the stage */
+ .toc .trk li{padding:38px 0}
+ :lang(zh-CN) .toc .trk li{padding:34px 0}
+ .toc .trk .tn{font-size:76px}
+ .toc .trk b{font-size:46px}
+ :lang(zh-CN) .toc .trk b{font-size:42px}
+ .toc .trk small{margin-top:12px;font-size:25px}
+ .pair .pc{gap:28px;padding:52px 60px 58px}
+ .ae .bd .pair .pc .say{font-size:60px;line-height:1.12}
+ :lang(zh-CN) .ae .bd .pair .pc .say{font-size:54px;line-height:1.35}
+ .ae .bd .pair .pc p:not(.say){font-size:32px;line-height:1.4}
+ .ba-p{gap:24px;padding:52px 60px 58px}
+ .ba-p ul{gap:22px}
+ .ae .bd .ba-p li{font-size:34px;line-height:1.3}
+ :lang(zh-CN) .ae .bd .ba-p li{font-size:32px;line-height:1.5}
+ .ae .bd .hab3 h3{font-size:40px;line-height:1.18}
+ :lang(zh-CN) .ae .bd .hab3 h3{font-size:36px;line-height:1.4}
+ .ae .bd .hab3 p{font-size:27px}
+ .hab3 li{padding:40px 40px 46px}
+ .hab3 .no{font-size:120px}
+ .ae .bd .emp1{width:100%;padding:40px 56px 44px}
+ .ae .bd .emp1 .ls li{padding:28px 0;font-size:48px}
+ .emp1 .ls li i{font-size:38px;width:64px}
 }

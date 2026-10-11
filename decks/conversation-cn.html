@@ -1341,6 +1341,30 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  /* the safest careers: four paths named under the statement */
  .paths{display:flex;gap:16px;margin:52px 0 0;padding:0;list-style:none}
  .paths li{padding:14px 26px 12px;border:1px solid var(--edge);border-radius:999px;background:var(--paper-hi);font:500 26px/1 var(--serif);color:var(--ink)}
+
+ /* scale: slides whose evidence is one or two short blocks get type large enough to fill the stage */
+ .toc .trk li{padding:38px 0}
+ :lang(zh-CN) .toc .trk li{padding:34px 0}
+ .toc .trk .tn{font-size:76px}
+ .toc .trk b{font-size:46px}
+ :lang(zh-CN) .toc .trk b{font-size:42px}
+ .toc .trk small{margin-top:12px;font-size:25px}
+ .pair .pc{gap:28px;padding:52px 60px 58px}
+ .ae .bd .pair .pc .say{font-size:60px;line-height:1.12}
+ :lang(zh-CN) .ae .bd .pair .pc .say{font-size:54px;line-height:1.35}
+ .ae .bd .pair .pc p:not(.say){font-size:32px;line-height:1.4}
+ .ba-p{gap:24px;padding:52px 60px 58px}
+ .ba-p ul{gap:22px}
+ .ae .bd .ba-p li{font-size:34px;line-height:1.3}
+ :lang(zh-CN) .ae .bd .ba-p li{font-size:32px;line-height:1.5}
+ .ae .bd .hab3 h3{font-size:40px;line-height:1.18}
+ :lang(zh-CN) .ae .bd .hab3 h3{font-size:36px;line-height:1.4}
+ .ae .bd .hab3 p{font-size:27px}
+ .hab3 li{padding:40px 40px 46px}
+ .hab3 .no{font-size:120px}
+ .ae .bd .emp1{width:100%;padding:40px 56px 44px}
+ .ae .bd .emp1 .ls li{padding:28px 0;font-size:48px}
+ .emp1 .ls li i{font-size:38px;width:64px}
 }
 
 /* ---- s60-motion.css ---- */
@@ -1491,7 +1515,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 <section class="s ae bn"><div class="w">
  <p class="kick r">Anthropic 经济指数 · 来自真实使用，不是预测</p>
  <h2 class="r" style="--d:.1s">在<em>大约一半的职业</em>里，至少四分之一的任务已经用上了AI。</h2>
- <div class="bd r" style="--d:.25s"><div class="pane wide-ch" data-s="1"><div class="lr"><img class="brand an" src="/logos/deck/anthropic.svg" alt="Anthropic"></div><h3 class="ct">至少四分之一的任务用到AI的职业占比</h3>
+ <div class="bd r" style="--d:.25s"><div class="pane wide-ch ch-xl" data-s="1"><div class="lr"><img class="brand an" src="/logos/deck/anthropic.svg" alt="Anthropic"></div><h3 class="ct">至少四分之一的任务用到AI的职业占比</h3>
   <div class="hb wide"><div class="row"><span class="bk">2025年1月</span><i style="--v:36"></i><b class="cnt">36%</b></div><div class="row hl"><span class="bk">2026年1月</span><i style="--v:49"></i><b class="cnt">49%</b></div></div></div></div>
  <p class="fn" data-s="1"><span>Anthropic 经济指数，2026年1月15日：至少25%的任务用到AI的职业占比（2025年1月数据为36%）。统计的是人们使用 Claude 的情况，不是对所有劳动者的普查。</span></p>
 </div><aside class="notes">这是从数百万次真实对话里测出来的，不是预测。一年之内，从三分之一左右的职业升到了一半左右。</aside></section>
@@ -1527,9 +1551,9 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <h2 class="r" style="--d:.1s">在随机对照试验中，使用AI的法学生，<em>工作效率提高了50%至130%。</em></h2>
  <div class="bd r" style="--d:.25s"><div class="pane tbl-wrap"><div class="tbl">
   <div><span class="th">在哪里</span><span class="th">数字</span><span class="th">衡量的是什么</span></div>
-  <div class="hl"><span class="org2">美国随机对照试验</span><span class="cnt nc">+50–130%</span><p>6项法律任务中，有5项借助AI效率更高，4项质量更好</p></div>
-  <div><span class="org2">中国大陆律师</span><span class="cnt">93%</span><p>的律师和实习律师已在工作中使用AI</p></div>
-  <div><span class="org2">美国大型律所</span><span class="cnt">−7.5%</span><p>2025年新招应届律师人数，为2014年以来首次下降</p></div>
+  <div class="hl"><span class="org2">美国随机对照试验</span><span class="cnt nc">+50–130%</span><p><span>6项法律任务中，有5项借助AI效率更高，4项质量更好</span></p></div>
+  <div><span class="org2">中国大陆律师</span><span class="cnt">93%</span><p><span>的律师和实习律师已在工作中使用AI</span></p></div>
+  <div><span class="org2">美国大型律所</span><span class="cnt">−7.5%</span><p><span>2025年新招应届律师人数，为2014年以来首次下降</span></p></div>
  </div></div></div>
  <p class="fn" data-s="1"><span>Schwarcz、Manning、Prescott 等，《AI赋能的律师工作》，127名法学生，2026年；律商联讯对中国大陆404名法律从业者的调查，财新，2025年8月29日；美国全国法律就业协会（NALP）2025届报告，2026年8月5日，未将下降仅归因于AI</span></p>
 </div><aside class="notes">法学生正是和我们孩子最接近的对照：会用AI的那一组，就是做得更多，而且大多做得更好。试验也发现AI会出错，所以判断AI的结果才这么重要。在中国，几乎每位律师都已经在用AI，不用才是风险。而在美国最大的律所，2025年新招的应届生十多年来第一次减少。</aside></section>
@@ -1652,7 +1676,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 <section class="s alt ae bn"><div class="w">
  <p class="kick r">微软《2026工作趋势指数》· 在工作中用AI的人</p>
  <h2 class="r" style="--d:.1s">AI做得越多，最重要的能力就是<em>判断AI做得对不对。</em></h2>
- <div class="bd r" style="--d:.25s"><div class="pane wide-ch" data-s="1"><div class="lr"><img class="brand msft" src="/logos/deck/microsoft.svg" alt="微软"></div><h3 class="ct">在工作中用AI的人认为最重要的能力</h3>
+ <div class="bd r" style="--d:.25s"><div class="pane wide-ch ch-xl" data-s="1"><div class="lr"><img class="brand msft" src="/logos/deck/microsoft.svg" alt="微软"></div><h3 class="ct">在工作中用AI的人认为最重要的能力</h3>
   <div class="hb wide"><div class="row hl"><span class="bk">核对AI的结果</span><i style="--v:50"></i><b class="cnt">50%</b></div><div class="row"><span class="bk">批判性思维</span><i style="--v:46"></i><b class="cnt">46%</b></div></div></div></div>
  <p class="fn" data-s="1"><span>微软《2026工作趋势指数》，调查时间2026年2月18日至4月7日</span></p>
 </div><aside class="notes">这就是审美：分辨哪个版本真正行得通。这是AI自己补不上的能力。</aside></section>
@@ -1815,7 +1839,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 <section class="s ae"><div class="w">
  <p class="kick r">建议二 · 在家养成三个习惯</p>
  <h2 class="r" style="--d:.1s">这周就在家，<em>养成三个习惯。</em></h2>
- <div class="bd r" style="--d:.25s"><ol class="hab3"><li data-s="1"><span class="no">1</span><span class="lab">主动性</span><h3>和孩子一起做一个真东西</h3><p>一张家务表、一份旅行计划，或给弟弟妹妹出的小测验</p></li><li data-s="2"><span class="no">2</span><span class="lab">审美</span><h3>问一句：“你是怎么核对的？”</h3><p>把AI的每个回答都当作初稿</p></li><li data-s="3"><span class="no">3</span><span class="lab">匠心</span><h3>拿给真人看看</h3><p>爷爷奶奶、老师或朋友都行</p></li></ol></div>
+ <div class="bd r" style="--d:.25s"><ol class="hab3"><li data-s="1"><span class="no">1</span><span class="lab">主动性</span><h3>和孩子做个真东西</h3><p>一张家务表、一份旅行计划，或给弟弟妹妹出的小测验</p></li><li data-s="2"><span class="no">2</span><span class="lab">审美</span><h3>问一句：“你是怎么核对的？”</h3><p>把AI的每个回答都当作初稿</p></li><li data-s="3"><span class="no">3</span><span class="lab">匠心</span><h3>拿给真人看看</h3><p>爷爷奶奶、老师或朋友都行</p></li></ol></div>
 </div><aside class="notes">每个习惯练一种能力，都不需要特别的软件，几分钟就能做。</aside></section>
 
 <!-- 35 · Takeaway 3 -->
@@ -1830,8 +1854,8 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <p class="kick r">建议三 · 过去与现在</p>
  <h2 class="r" style="--d:.1s">我们小时候，想法只能停留在纸上；今天，有想法的孩子借助AI，<em>就能做出真正的东西。</em></h2>
  <div class="bd r" style="--d:.25s"><div class="ba">
-  <div class="ba-p old"><span class="pl">我们小时候</span><ul><li>几乎一切都靠手工完成</li><li>做一个软件，需要一个团队和多年训练</li><li>大多数想法只能留在笔记本里</li></ul></div>
-  <div class="ba-p new" data-s="1"><span class="pl">今天</span><ul><li>有了AI的帮助，很快就能做出能运行的第一版</li><li>当周就能拿给真实的人试用</li><li>现在就开始的孩子，会走在前面</li></ul></div>
+  <div class="ba-p old"><span class="pl">我们小时候</span><ul><li><span>几乎一切都靠手工完成</span></li><li><span>做一个软件，需要一个团队和多年训练</span></li><li><span>大多数想法只能留在笔记本里</span></li></ul></div>
+  <div class="ba-p new" data-s="1"><span class="pl">今天</span><ul><li><span>有了AI的帮助，很快就能做出能运行的第一版</span></li><li><span>当周就能拿给真实的人试用</span></li><li><span>现在就开始的孩子，会走在前面</span></li></ul></div>
  </div></div>
 </div><aside class="notes">我们那时候手写作文，要等很多年才能做出真正的东西。我们的孩子一周之内就能做、能测、能改。现在开始的孩子，会不断放大这份优势。</aside></section>
 
