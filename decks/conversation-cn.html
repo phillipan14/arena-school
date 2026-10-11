@@ -761,7 +761,7 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
 .brand.an{height:19px}.brand.acc{height:31px}.brand.msft{height:27px}.brand.km{height:30px}
 .brand.sf{height:44px;filter:none;opacity:.9}
 .brand.amz{height:28px}.brand.duo{height:26px}.brand.icbc{height:32px}.brand.sc{height:36px}
-.brand.pwc{height:36px}.brand.sx{height:18px}.brand.cur{height:28px}
+.brand.pwc{height:56px}.brand.sx{height:18px}.brand.cur{height:28px}
 .pane.dk .brand,.nv .brand,.cmp2 .dk .brand{filter:brightness(0) invert(1);opacity:.88}
 .org{font:600 15px/1 var(--serif);letter-spacing:.13em;text-transform:uppercase;color:var(--ink)}
 :lang(zh-CN) .org{font-size:17px;letter-spacing:.06em}
@@ -925,8 +925,9 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .ae .qa{margin:0}
  .ae .srcs{margin:0;column-count:2;column-gap:40px}
  .ae .bd .srcs.pane{padding:var(--pad-s)}
- .ae .srcs li{break-inside:avoid;padding:2px 0;font-size:16.5px}
- .ae .srcs li .src{max-width:15em;font-size:14px;margin-top:2px;white-space:normal;text-align:right}
+ .ae .srcs li{display:grid;grid-template-columns:minmax(0,1fr) 10.5em;column-gap:14px;align-items:start;break-inside:avoid;padding:5px 0;font-size:16px;line-height:1.35}
+ :lang(zh-CN) .ae .srcs li{grid-template-columns:minmax(0,1fr) 11.5em}
+ .ae .srcs li .src{max-width:none;font-size:13.5px;margin-top:0;white-space:normal;text-align:right;line-height:1.35}
 }
 
 .export .proj figure video{display:none}.export .proj figure .vposter{display:block}
@@ -1046,14 +1047,14 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
 
  .ae .bd .arc{padding:var(--pad-m)}
  .arc>.lr{height:auto}
- .arow{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:end;column-gap:var(--gap);margin-top:6px}
+ .arow{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;column-gap:var(--gap);margin-top:6px}
  .an .big{margin:12px 0 20px;font-size:168px}
  :lang(zh-CN) .an .big{font-size:150px}
  .an .big.lo{color:var(--muted)}
  .an .hb i{height:30px}
- .ar2{display:flex;flex-direction:column;align-items:center;gap:14px;padding-bottom:96px}
+ .ar2{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:0 8px}
  .ar2 svg{width:120px;height:16px;fill:none;stroke:var(--ink2);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
- .ar2 span{font:italic 400 22px/1 var(--serif);color:var(--ink2)}
+ .ar2 span{font:italic 400 28px/1 var(--serif);color:var(--ink2)}
  :lang(zh-CN) .ar2 span{font-style:normal}
 
  .ae .bd .model p.ex{margin-top:14px;max-width:14em;font:italic 400 22px/1.4 var(--serif);color:var(--muted)}
@@ -1096,8 +1097,8 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .emp1 .ls li i{font-size:32px;width:52px}
 
  /* two numbers compared, with a word between them instead of an arrow */
- .ar2.vs{padding-bottom:110px}
- .ar2.vs span{font-size:30px}
+ .ar2.vs{padding:0 12px}
+ .ar2.vs span{font-size:28px}
 
  /* the tools parents may not know: icons and names only, the rest is spoken */
  .apps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:44px 28px;justify-items:center}
@@ -1279,6 +1280,11 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .accx{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:var(--gap);align-items:stretch;flex:1;min-height:0}
  .accx .pane{padding:var(--pad-m)!important}
  .accx .hb{gap:16px}
+ .accx .hb.wide .row{grid-template-columns:210px minmax(0,1fr) 5.6em;column-gap:18px}
+ :lang(zh-CN) .accx .hb.wide .row{grid-template-columns:200px minmax(0,1fr) 5.6em}
+ .accx .hb.wide .bk{font-size:20px}
+ .accx .hb.wide i{height:26px}
+ .accx .hb.wide b{font-size:24px}
  .accx .tln{grid-template-columns:1fr;gap:0;align-content:center}
  .accx .tln::before{left:10px;right:auto;top:12px;bottom:12px;width:0;border-top:0;border-left:1.5px solid var(--ink2);transform-origin:top}
  .accx .tln li{display:grid;grid-template-columns:22px minmax(0,1fr);grid-template-rows:auto auto auto;column-gap:14px;padding:0}
@@ -1358,7 +1364,7 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  /* a quote that carries the slide, with two supporting figures stacked beside it */
  .qx{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:var(--gap)}
  .qx-q{display:flex;flex-direction:column;gap:20px;padding:var(--pad-m)!important}
- .qx-q .lr{height:48px;margin:0}.qx-q .brand.sf{height:48px}
+ .qx-q .lr{height:56px;margin:0}.qx-q .brand.sf{height:56px}
  .ae .bd .qx-q .say{margin-top:auto;font:400 44px/1.34 var(--serif);letter-spacing:-.01em;color:var(--ink);text-wrap:pretty}
  :lang(zh-CN) .ae .bd .qx-q .say{font-size:40px;line-height:1.5;letter-spacing:0}
  .ae .bd .qx-q .who3{margin-top:auto;font:italic 400 21px/1.45 var(--serif);color:var(--muted)}
@@ -1404,7 +1410,7 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .kick i.cn{margin:0 8px 2px 0;vertical-align:middle}
 
  /* three habits as three equal columns, numbered */
- .hab3{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap)}
+ .hab3{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap);align-items:stretch;align-content:center}
  .hab3 li{display:flex;flex-direction:column;gap:14px;padding:var(--pad-m);border-radius:var(--r);background:var(--paper-hi);border:1px solid var(--edge)}
  .hab3 .no{font:300 96px/.85 var(--serif);letter-spacing:-.04em;color:var(--ink2);margin:0 0 auto;padding-bottom:18px}
  .ae .bd .hab3 h3{font-size:33px}
@@ -1477,24 +1483,27 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .toc .tocf small{margin-top:14px;font-size:27px}
  .toc .tocf li+li::before{content:"";position:absolute;z-index:1;left:calc(var(--gap-l) / -2 - 7px);top:50%;width:13px;height:13px;border-top:1.5px solid var(--ink2);border-right:1.5px solid var(--ink2);transform:rotate(45deg)}
 
- /* speakers: photo and name, then where each studied, worked, and works now, as logos */
- .spk .person{grid-template-columns:minmax(0,.62fr) minmax(0,1fr);column-gap:var(--gap-l)}
- .spk .who-r{display:flex;align-items:center;gap:30px}
- .spk .who-r img{flex:none;width:118px;height:118px}
- .ae .bd .spk h3{margin:0 0 10px;font-size:38px}
- .spk .co{font-size:15px;line-height:1.4}
- :lang(zh-CN) .spk .co{font-size:16px}
- .lgx{margin:0;display:grid}
- /* logo heights are set per logo (inline) so each carries the same optical weight. Every row has the same height and
-    the logos sit on one three-column grid on its centre line, so columns line up across rows and across both cards */
- .lgx>div{display:grid;grid-template-columns:104px minmax(0,1fr);align-items:center;height:56px}
+ /* speakers: two content-sized cards; logos in a wrapping row so a lockup never sits on the Now sentence */
+ .ae .bd>.team.spk{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap);align-items:stretch;align-content:center;grid-auto-rows:auto}
+ .spk .person,.ae .bd .spk .person{display:flex!important;flex-direction:column;gap:20px;min-width:0;height:auto}
+ .spk .who-r{display:flex;align-items:center;gap:20px;min-width:0}
+ .spk .who-r img{flex:none;width:88px;height:88px}
+ .spk .who{min-width:0}
+ .ae .bd .spk h3{margin:0 0 6px;font-size:32px;white-space:nowrap}
+ .spk .co{font:400 18px/1.4 var(--serif);letter-spacing:0;text-transform:none;color:var(--ink2)}
+ :lang(zh-CN) .spk .co{font-size:18px;line-height:1.45}
+ .lgx{margin:0;display:grid;min-width:0}
+ .lgx>div{display:grid;grid-template-columns:84px minmax(0,1fr);align-items:center;min-height:72px;padding:10px 0}
  .lgx>div+div{border-top:1px solid var(--line)}
  .lgx dt{font:600 14px/1 var(--serif);letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
  :lang(zh-CN) .lgx dt{font-size:16px;letter-spacing:.06em}
- .lgx dd{margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:center;justify-items:start;column-gap:var(--gap)}
- .spk .lgx dd img{display:block;width:auto;max-width:none;border-radius:0;box-shadow:none;object-fit:contain;opacity:.9}
- .lgx dd .w2,.lgx .nw2{grid-column:span 2}
- .ae .bd .lgx .nw2{font:400 24px/1.25 var(--serif);white-space:nowrap;color:var(--ink)}
+ .lgx dd{margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;min-width:0}
+ .spk .lgx dd img{display:block;flex:none;width:auto;height:28px;max-width:168px;object-fit:contain;opacity:.92;border-radius:0;box-shadow:none}
+ .spk .lgx dd img.sm{height:16px;max-width:118px} /* Caltech, Deloitte, McKinsey: long heavy wordmarks */
+ .spk .lgx dd img.md{height:26px;max-width:132px}
+ .spk .lgx dd img.wide{height:38px;max-width:210px} /* ISB and Tsinghua lockups need height to stay legible */
+ .ae .bd .lgx .nw2{flex:1 1 14em;min-width:0;font:400 22px/1.35 var(--serif);white-space:normal;color:var(--ink)}
+ .lgx dd .nw2+img{flex:none;height:16px;max-width:68px} /* Kimi sits after the sentence; wraps under it if the row is tight */
 
  /* one number and the share of it that matters, as a proportion bar under the number */
  .bnx .pbar{grid-column:1/-1;margin-top:44px}
@@ -1517,7 +1526,7 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  :lang(zh-CN) .st3 .big{font-size:70px}:lang(zh-CN) .st3 .big.nc{font-size:58px}
  .ae .bd .st3 p{font-size:24px;line-height:1.4;color:var(--ink)}
  :lang(zh-CN) .ae .bd .st3 p{line-height:1.55}
- .mb{display:grid;gap:12px;margin-top:auto;padding-top:14px;border-top:1px solid var(--line)}
+ .mb{display:grid;gap:12px;margin-top:auto;padding-top:14px;border-top:1px solid var(--line);min-height:78px;align-content:end}
  .mb .row{display:grid;grid-template-columns:104px minmax(0,1fr) 5.2em;align-items:center;column-gap:14px}
  .mb span{font:400 19px/1.2 var(--serif);color:var(--muted)}
  .mb i{position:relative;display:block;height:18px;border-radius:3px;background:var(--track)}
@@ -1561,7 +1570,7 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .rk3 .rk{align-self:flex-start;margin-bottom:-36px;font:300 64px/1 var(--serif);letter-spacing:-.03em;color:var(--ink2);opacity:.45}
  .rk3 .ico{width:148px;height:148px}.rk3 .ico .lic{width:66px;height:66px}
  .rk3 li:first-child .ico{background:var(--ink);border-color:var(--ink);color:var(--paper-hi)}
- .ae .bd .rk3 b{font:500 42px/1.2 var(--serif);color:var(--ink)}
+ .ae .bd .rk3 b{display:flex;align-items:center;justify-content:center;min-height:2.4em;font:500 42px/1.2 var(--serif);color:var(--ink)}
 
  /* what structure means: three icons under the statement */
  .st .ic3{list-style:none;margin:var(--gap-l) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap-l)}
@@ -1578,7 +1587,7 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .agx{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:1fr;gap:var(--gap)}
  .ae .bd .agx li{display:flex;align-items:center;gap:26px;padding:var(--pad-s)}
  .agx img{flex:none;display:block;width:88px;height:88px;border-radius:22px;object-fit:cover;background:#fff;box-shadow:0 0 0 1px var(--edge)}
- .agx img.t{padding:12px;object-fit:contain;box-sizing:border-box}
+ .agx img.t{padding:16px;object-fit:contain;box-sizing:border-box}
  .agx li>span{display:flex;flex-direction:column;gap:8px;min-width:0}
  .ae .bd .agx b{display:block;font:500 34px/1.15 var(--serif);color:var(--ink)}
  .agx b i.cn{width:10px;height:10px;margin-left:10px;vertical-align:.3em}
@@ -1597,7 +1606,8 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
 
  /* entrepreneurial process: problem, build, feedback, launch */
  .proc4{list-style:none;margin:0 0 var(--gap-s);padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap-s)}
- .ae .bd .proc4 li{display:flex;flex-direction:row;align-items:baseline;gap:10px;padding:10px 0;border-top:1.5px solid var(--ink)}
+ .ae .bd .proc4 li{position:relative;display:flex;flex-direction:row;align-items:baseline;gap:10px;padding:10px 0;border-top:1.5px solid var(--ink)}
+ .proc4 li+li::before{content:"";position:absolute;left:calc(var(--gap-s) / -2 - 5px);top:50%;width:10px;height:10px;margin-top:-6px;border-top:1.5px solid var(--ink2);border-right:1.5px solid var(--ink2);transform:rotate(45deg)}
  .proc4 i{font:italic 400 18px/1 var(--serif);color:var(--ink2)}
  .ae .bd .proc4 b{font:500 26px/1.2 var(--serif);color:var(--ink)}
  :lang(zh-CN) .ae .bd .proc4 b{font-size:22px;line-height:1.35}
@@ -1624,8 +1634,8 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  :lang(zh-CN) .ae .bd .kimi .story{font-size:26px;line-height:1.55}
  .kimi .punch{margin:0;padding-top:16px;border-top:1.5px solid var(--ink2);font:italic 400 28px/1.3 var(--serif);color:var(--ink)}
  :lang(zh-CN) .kimi .punch{font-style:normal}
- .kimi .vframe{width:100%;min-width:0;height:100%;margin:0;aspect-ratio:auto;overflow:hidden}
- .kimi .vframe video,.kimi .vframe img{width:100%;height:100%;object-fit:cover}
+ .kimi .vframe{width:100%;min-width:0;height:100%;margin:0;aspect-ratio:auto;overflow:hidden;background:var(--paper-hi);border-radius:var(--r);box-shadow:inset 0 0 0 1px var(--edge)}
+ .kimi .vframe video,.kimi .vframe img{width:100%;height:100%;object-fit:contain;object-position:center}
 
  /* a story as three steps, then the line that lands it */
  .story4{display:flex;flex-direction:column;justify-content:space-between;gap:var(--gap);padding:var(--pad-m)!important}
@@ -1674,8 +1684,8 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
 
 /* motion for these layouts (see s60-motion.css for the timing system) */
  /* one-line recap at the end of each section: five connected beats of the story just told */
- .spine{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--gap-s);align-items:stretch}
- .ae .bd .spine li{display:flex;flex-direction:column;gap:12px;padding:var(--pad-s);background:var(--paper-hi);border:1px solid var(--edge);border-radius:var(--r)}
+ .spine{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--gap-s);align-items:start;align-content:center}
+ .ae .bd .spine li{display:flex;flex-direction:column;gap:12px;min-height:0;padding:var(--pad-s);background:var(--paper-hi);border:1px solid var(--edge);border-radius:var(--r)}
  .spine .ico{width:64px;height:64px}.spine .ico .lic{width:30px;height:30px}
  .ae .bd .spine b{font:500 26px/1.2 var(--serif);color:var(--ink)}
  .ae .bd .spine li>span:last-child{font:400 20px/1.35 var(--serif);color:var(--muted)}
@@ -1695,10 +1705,21 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
 
 @media (max-width:700px){
  .toc .tocf li{padding:14px 0}.toc .tocf .ico,.paths.ip .ico,.hab3.hic .ico,.cm-h .ico,.ic3 .ico{display:none}
- .spk .who-r{display:flex;align-items:center;gap:12px}.spk .who-r img{width:64px;height:64px}
- .lgx{grid-column:1/-1;margin:8px 0 0}.lgx>div{display:flex;gap:12px;align-items:center;padding:6px 0;border-top:1px solid var(--line)}
- .lgx dt{flex:none;width:5em;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}.lgx dd{margin:0;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
- .spk .lgx dd img{width:auto;max-height:16px;border-radius:0;box-shadow:none}.lgx .nw2{font-size:14px}
+ .ae .bd>.team.spk{display:grid;grid-template-columns:1fr;gap:16px}
+ .spk .person,.ae .bd .spk .person,.team.spk .person{display:flex!important;flex-direction:column;grid-template-columns:unset;gap:14px;padding:16px;height:auto}
+ .spk .who-r{display:flex;flex-direction:row;align-items:center;gap:14px;min-width:0}
+ .spk .who-r img,.spk .person .who-r img{flex:none;width:64px;height:64px}
+ .spk .who{min-width:0}
+ .ae .bd .spk h3{font-size:20px;margin:0 0 4px;white-space:nowrap}
+ .spk .co{font:400 14px/1.4 var(--serif);letter-spacing:0;text-transform:none}
+ .lgx{display:grid;grid-column:unset;margin:4px 0 0;width:100%}
+ .lgx>div{display:grid;grid-template-columns:4.4em minmax(0,1fr);gap:10px;align-items:center;min-height:0;padding:10px 0;border-top:1px solid var(--line)}
+ .lgx dt{flex:none;width:auto;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+ .lgx dd{margin:0;display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;min-width:0}
+ .spk .lgx dd img,.spk .lgx dd img.sm,.spk .lgx dd img.md,.spk .lgx dd img.wide{flex:none;width:auto!important;height:auto!important;max-height:24px!important;max-width:108px!important;border-radius:0;box-shadow:none;object-fit:contain}
+ .spk .lgx dd img.wide{max-width:128px!important;max-height:30px!important}
+ .lgx .nw2{flex:1 1 12em;font-size:15px;line-height:1.4;white-space:normal;max-width:none}
+ .lgx dd .nw2+img{max-width:56px!important;max-height:14px!important}
  .pb-t{height:14px;margin-top:12px;border-radius:3px;background:var(--data-2);position:relative;overflow:hidden}.pb-t i{position:absolute;left:0;top:0;bottom:0;width:calc(var(--v) * 1%);background:var(--data)}
  .pb-l{display:flex;justify-content:space-between;gap:10px;margin-top:6px;font-size:13px;color:var(--muted)}
  .st3,.cmp2,.rk3,.agx,.fl3,.ic3,.spine,.kimi,.proc4,.c123,.accx{display:grid;grid-template-columns:1fr;gap:12px;list-style:none;margin:12px 0 0;padding:0}
@@ -1835,13 +1856,13 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <div class="bd r" style="--d:.25s">
  <div class="team spk">
   <div class="person" data-s="1"><div class="who-r"><img src="/photos/jing-jing-yang.jpg" alt=""><div class="who"><h3>羊筱涵<span class="xn">Jing Jing Yang</span></h3><div class="co">ISB 2019届</div></div></div>
-   <dl class="lgx"><div><dt>求学</dt><dd><img src="/logos/cred/isb.png" alt="ISB" style="height:40px"><img src="/logos/cred/brown.png" alt="Brown" style="height:44px"><img src="/logos/cred/tsinghua.png" alt="清华大学" style="height:44px"></dd></div>
-    <div><dt>工作</dt><dd><img src="/logos/cred/apple.png" alt="Apple" style="height:38px"><img src="/logos/cred/deloitte.png" alt="Deloitte" style="height:23px"><img src="/logos/cred/cicc.png" alt="CICC" style="height:38px"></dd></div>
-    <div><dt>现在</dt><dd class="nw"><span class="nw2">为中国AI公司提供出海咨询</span><img src="/logos/cred/kimi-wordmark.png" alt="Kimi" style="height:28px"></dd></div></dl></div>
+   <dl class="lgx"><div><dt>求学</dt><dd><img class="wide" src="/logos/cred/isb.png" alt="ISB"><img class="md" src="/logos/cred/brown.png" alt="Brown"><img class="wide" src="/logos/cred/tsinghua.png" alt="清华大学"></dd></div>
+    <div><dt>工作</dt><dd><img class="md" src="/logos/cred/apple.png" alt="Apple"><img class="sm" src="/logos/cred/deloitte.png" alt="Deloitte"><img class="md" src="/logos/cred/cicc.png" alt="CICC"></dd></div>
+    <div><dt>现在</dt><dd><span class="nw2">为中国AI公司提供出海咨询</span><img src="/logos/cred/kimi-wordmark.png" alt="Kimi"></dd></div></dl></div>
   <div class="person" data-s="2"><div class="who-r"><img src="/photos/phillip-an.jpg" alt=""><div class="who"><h3>安广宁<span class="xn">Phillip An</span></h3><div class="co">福布斯30U30<br>Y Combinator 校友</div></div></div>
-   <dl class="lgx"><div><dt>求学</dt><dd><img src="/logos/cred/caltech.png" alt="Caltech" style="height:27px"><img src="/logos/cred/harvard.png" alt="Harvard" style="height:42px"><img src="/logos/cred/tsinghua.png" alt="清华大学" style="height:44px"></dd></div>
-    <div><dt>工作</dt><dd><img src="/logos/cred/goldman.png" alt="Goldman Sachs" style="height:38px"><img src="/logos/cred/mckinsey.png" alt="McKinsey" class="w2" style="height:24px"></dd></div>
-    <div><dt>现在</dt><dd class="nw"><span class="nw2">领导一家AI公司</span></dd></div></dl></div>
+   <dl class="lgx"><div><dt>求学</dt><dd><img class="sm" src="/logos/cred/caltech.png" alt="Caltech"><img class="md" src="/logos/cred/harvard.png" alt="Harvard"><img class="wide" src="/logos/cred/tsinghua.png" alt="清华大学"></dd></div>
+    <div><dt>工作</dt><dd><img class="md" src="/logos/cred/goldman.png" alt="Goldman Sachs"><img class="sm" src="/logos/cred/mckinsey.png" alt="McKinsey"></dd></div>
+    <div><dt>现在</dt><dd><span class="nw2">领导一家AI公司</span></dd></div></dl></div>
  </div>
  </div>
 </div><aside class="notes">筱涵从小学到高中毕业都在 ISB 读书，之后就读布朗大学，并作为苏世民学者就读清华；她在苹果、德勤和中金公司工作过，现在为多家中国AI公司（包括 Kimi）提供出海咨询，并与微软 AI合作研究。广宁在加州理工学院读计算机科学，在哈佛读MBA和理学硕士，也是清华苏世民学者；他在高盛和麦肯锡工作过，现在领导一家AI公司，他的上一家公司获得了 Y Combinator 投资。为什么值得听：我们读过很多家庭向往的学校，也做过分析、咨询和投行的工作，而这些工作，AI如今几分钟就能起草。高盛 CEO 在2025年说，AI几分钟就能把一份上市招股书完成95%，那正是我们当年的第一份工作。</aside></section>
@@ -2089,7 +2110,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
    <div class="an" data-s="2"><span class="lab">认为学生普遍在用的家长</span><div class="big lo">17.8%</div><div class="hb"><div class="row"><i style="--v:17.8"></i></div></div></div>
   </div>
  </div></div>
- <p class="fn" data-s="1"><span>中国教育科学研究院对中西部地区学生的调查，2025年夏，人民日报2026年8月17日报道；这样认为的教师仅占13.8%</span></p>
+ <p class="fn" data-s="1"><span>中国教育科学研究院，2025年夏，人民日报2026年8月17日报道。这样认为的教师仅占13.8%</span></p>
 </div><aside class="notes">不管我们知不知道，孩子已经在用这些工具了。问题是把它当捷径，还是用它练出真本事。另一项覆盖7个省份、8563名学生的调查发现，67.9%的家庭对AI使用没有任何规则。</aside></section>
 
 <!-- 25 · Families -->
@@ -2336,10 +2357,10 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <li><span><b>财新</b>报道律商联讯调查（93%）；<b>NALP</b> 2025届报告（−7.5%）</span><span class="src">2025年8月29日 · 2026年8月5日</span></li>
   <li><span><b>中国工商银行</b>2025年年度报告：5.5万人年，员工409,758人</span><span class="src">2026年3月27日</span></li>
   <li><span><b>渣打银行</b>投资者活动；<b>《卫报》</b>报道 Bill Winters</span><span class="src">2026年5月19日、22日</span></li>
-  <li><span><b>《财富》</b>与<b>雅虎财经</b>报道 Salesforce；<b>Google</b>，Sundar Pichai（75%）；<b>SignalFire</b> 人才报告</span><span class="src">2026年5月27日至28日 · 2026年4月22日 · 2025年5月</span></li>
+  <li><span><b>《财富》</b>与<b>雅虎财经</b>报道 Salesforce；<b>Google</b>，Sundar Pichai（75%）；<b>SignalFire</b> 人才报告</span><span class="src">2025年5月 · 2026年4–5月</span></li>
   <li><span><b>界面新闻</b>援引脉脉：AI岗位与基础开发岗位招聘</span><span class="src">2025年8月</span></li>
   <li><span><b>Business Insider</b> 报道高盛 David Solomon 在思科AI峰会的发言</span><span class="src">2025年1月17日</span></li>
-  <li><span><b>亚马逊</b>：Andy Jassy 致员工信；裁员内部信（1.4万、1.6万个职位）</span><span class="src">2025年6月17日 · 2025年10月28日 · 2026年1月28日</span></li>
+  <li><span><b>亚马逊</b>：Andy Jassy 致员工信；裁员内部信（1.4万、1.6万个职位）</span><span class="src">2025年6月–2026年1月</span></li>
   <li><span><b>CNBC</b> 报道 Salesforce 客服（9000人减至约5000人）；<b>CNN</b> 报道 Block</span><span class="src">2025年9月2日 · 2026年2月26日</span></li>
   <li><span><b>埃森哲</b> 2025财年第四季度财报电话会；<b>Irish Times</b> 报道员工人数</span><span class="src">2025年9月25日至26日</span></li>
   <li><span><b>Business Insider</b> 报道微软 Julia Liuson 邮件；<b>The Verge</b> 报道多邻国内部信</span><span class="src">2025年6月27日 · 2025年4月28日</span></li>
@@ -2365,10 +2386,10 @@ section.s>.pgno i{font-style:normal;opacity:.6}
     <li><span><b>中国教育科学研究院</b>学校与教师调查（88%、54%）；<b>盖洛普</b>与沃尔顿家族基金会（68%）</span><span class="src">2026年8月19日 · 2025年</span></li>
   <li><span><b>中国教育新闻网</b>报道中国教育发展战略学会与学科网的教师调查（68792人）</span><span class="src">2025年10月20日</span></li>
   <li><span><b>METR</b>《时间视野 1.1》：50%时间视野大约每7个月翻一倍；GPT-4约4分钟，Claude 3.7约1小时，Opus 4.5约5小时</span><span class="src">2026年1月29日</span></li>
-  <li><span><b>AI工具</b>：Meta 官方发布（Muse）；TechCrunch（Instinct）；路透社（OpenClaw）；manus.im、kimi.com 及各工具官网</span><span class="src">2026年9月8日、28日 · 2026年3月19日 · 2026年10月11日核对</span></li>
+  <li><span><b>AI工具</b>：Meta 官方发布（Muse）；TechCrunch（Instinct）；路透社（OpenClaw）；manus.im、kimi.com 及各工具官网</span><span class="src">2026年 · 10月11日核对</span></li>
   <li><span><b>Kimi</b>（月之暗面）招聘经历，亲身所见</span><span class="src">2026年</span></li>
   <li><span><b>OECD</b> PISA 2025结果</span><span class="src">2026年9月8日</span></li>
-  <li><span><b>Cursor</b>：D 轮融资公告；路透社、CNBC、彭博社报道 SpaceX 收购；SpaceX 8-K 文件与 PitchBook 报道交易完成</span><span class="src">2025年11月13日 · 2026年6月16日、8月14日</span></li>
+  <li><span><b>Cursor</b>：D 轮融资公告；路透社、CNBC、彭博社报道 SpaceX 收购；SpaceX 8-K 文件与 PitchBook 报道交易完成</span><span class="src">2025年11月 · 2026年6–8月</span></li>
  </ul>
  </div>
 </div></section>

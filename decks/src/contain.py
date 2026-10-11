@@ -45,6 +45,24 @@ JS = r"""([idx, tol, onlyNums]) => {
   /* a photo cropped by a frame that hides its overflow (the slow zoom on project photos) is cropped by design */
   if(media&&/hidden|clip/.test(getComputedStyle(boxOf(e,false)).overflow))return;
   if(media||isBox(e)&&e!==w)test([e.getBoundingClientRect()],'<'+nm(e)+'>',e,false)});
+ /* sibling / cousin collisions: a logo sitting on a line of text in the same row, two images covering each other */
+ if(!onlyNums){
+  const skip=e=>!shown(e)||e.closest('.notes')||e.closest('svg')&&e.tagName.toLowerCase()!=='svg';
+  const media=e=>/^(img|video|svg|canvas)$/i.test(e.tagName);
+  const texty=e=>{if(media(e)||e.closest('svg'))return false;const c=getComputedStyle(e);if(c.display==='inline'||c.position==='fixed')return false;return[...e.childNodes].some(n=>n.nodeType===3&&n.nodeValue.trim())};
+  const items=[...w.querySelectorAll('img,video,svg,span,b,small,h3,p,dt,dd,li,div')].filter(e=>!skip(e)&&(media(e)||texty(e)));
+  for(let i=0;i<items.length;i++)for(let j=i+1;j<items.length;j++){
+   const a=items[i],b=items[j];
+   if(a.contains(b)||b.contains(a))continue;
+   if(a.closest('figure')&&a.closest('figure')===b.closest('figure'))continue;
+   if(a.closest('.lr')&&a.closest('.lr')===b.closest('.lr')&&media(a)&&media(b))continue;
+   if(!(media(a)||media(b)))continue;
+   const A=a.getBoundingClientRect(),B=b.getBoundingClientRect();
+   if(A.width<2||B.width<2||A.height<2||B.height<2)continue;
+   const ix=Math.min(A.right,B.right)-Math.max(A.left,B.left),iy=Math.min(A.bottom,B.bottom)-Math.max(A.top,B.top);
+   const k=A.width/Math.max(a.offsetWidth||A.width,1);
+   if(ix>tol*k&&iy>tol*k){const key='overlap|'+nm(a)+'|'+nm(b);if(!seen.has(key)){seen.add(key);out.push([nm(a),'overlaps '+nm(b),Math.round(ix/k)+'×'+Math.round(iy/k)])}}}
+ }
  return out}"""
 
 GEORGIA = None

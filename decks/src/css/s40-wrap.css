@@ -87,14 +87,14 @@
 
  .ae .bd .arc{padding:var(--pad-m)}
  .arc>.lr{height:auto}
- .arow{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:end;column-gap:var(--gap);margin-top:6px}
+ .arow{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;column-gap:var(--gap);margin-top:6px}
  .an .big{margin:12px 0 20px;font-size:168px}
  :lang(zh-CN) .an .big{font-size:150px}
  .an .big.lo{color:var(--muted)}
  .an .hb i{height:30px}
- .ar2{display:flex;flex-direction:column;align-items:center;gap:14px;padding-bottom:96px}
+ .ar2{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:0 8px}
  .ar2 svg{width:120px;height:16px;fill:none;stroke:var(--ink2);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
- .ar2 span{font:italic 400 22px/1 var(--serif);color:var(--ink2)}
+ .ar2 span{font:italic 400 28px/1 var(--serif);color:var(--ink2)}
  :lang(zh-CN) .ar2 span{font-style:normal}
 
  .ae .bd .model p.ex{margin-top:14px;max-width:14em;font:italic 400 22px/1.4 var(--serif);color:var(--muted)}
@@ -137,8 +137,8 @@
  .emp1 .ls li i{font-size:32px;width:52px}
 
  /* two numbers compared, with a word between them instead of an arrow */
- .ar2.vs{padding-bottom:110px}
- .ar2.vs span{font-size:30px}
+ .ar2.vs{padding:0 12px}
+ .ar2.vs span{font-size:28px}
 
  /* the tools parents may not know: icons and names only, the rest is spoken */
  .apps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:44px 28px;justify-items:center}
