@@ -231,6 +231,19 @@ figcaption.rv.open>.rv-d,figcaption.rv:focus-visible>.rv-d{transform:none}
 .nav a{width:9px;height:9px;border-radius:50%;background:rgba(11,26,74,.25);transition:background-color .2s ease}.nav a.on{background:var(--ink2);box-shadow:0 0 0 3px rgba(47,85,168,.25)}
 .hint{position:fixed;left:22px;bottom:16px;z-index:9;font:italic 400 13px/1 var(--serif);color:var(--muted)}
 
+/* player (Oct 11): the real 1920×1080 slide on every screen, scaled to fit and letterboxed in navy, never reflowed.
+   The outer page keeps the language pill; the frame keeps its dots and key hint only while they are big enough to use. */
+.stage,.phint{display:none}
+.player body{background:var(--ink)}
+.player .deck,.player .nav,.player .hint{display:none}
+.player .stage{display:block;position:fixed;inset:0;overflow:hidden;background:var(--ink)}
+.stage iframe{position:absolute;left:50%;top:50%;width:1920px;height:1080px;border:0;transform-origin:50% 50%;background:var(--paper)}
+.player .phint.on{display:block;position:fixed;z-index:9;left:0;right:0;bottom:calc(16px + env(safe-area-inset-bottom));text-align:center;font:italic 400 15px/1 var(--serif);color:rgba(252,243,237,.72);pointer-events:none}
+.player .lang{border-color:rgba(252,243,237,.6)}.player .lang a+a{border-left-color:rgba(252,243,237,.6)}
+.framed .lang,.tiny .nav,.tiny .hint{display:none}
+.touch .deck{overflow:hidden;scroll-snap-type:none}
+@media print{.player .stage,.player .phint{display:none}.player .deck{display:block}}
+
 /* export / print: every detail expanded, in place */
 .export .r{opacity:1!important;transform:none!important;transition:none!important}.export .m::after{transform:scaleX(1)!important;transition:none!important}
 .export .lang,.export .nav,.export .hint{display:none}.export .deck{scroll-snap-type:none;scroll-behavior:auto}

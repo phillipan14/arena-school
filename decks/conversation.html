@@ -3,6 +3,7 @@
 <meta name="robots" content="noindex">
 <title>Our Kids’ Jobs Don’t Exist Yet. So Which Skills Will Matter?</title>
 <link rel="icon" href="/favicon.svg">
+<script>(function(h){if(self!==top)h.classList.add('framed');else if(!/[?&]stage\b/.test(location.search))h.classList.add('player')})(document.documentElement)</script>
 <style>@import url('/fonts/fonts.css');
 @import url('/fonts/zh/zh-fallback.css'); /* self-hosted Noto Serif SC slices: Chinese serif on phones without Songti (iPhone, Android); loads only the characters used */
 /* round 5: one serif family (Newsreader for Latin, Songti SC for Chinese), one radius, one card padding */
@@ -235,6 +236,19 @@ figcaption.rv.open>.rv-d,figcaption.rv:focus-visible>.rv-d{transform:none}
 .nav{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:9;display:flex;flex-direction:column;gap:9px}
 .nav a{width:9px;height:9px;border-radius:50%;background:rgba(11,26,74,.25);transition:background-color .2s ease}.nav a.on{background:var(--ink2);box-shadow:0 0 0 3px rgba(47,85,168,.25)}
 .hint{position:fixed;left:22px;bottom:16px;z-index:9;font:italic 400 13px/1 var(--serif);color:var(--muted)}
+
+/* player (Oct 11): the real 1920×1080 slide on every screen, scaled to fit and letterboxed in navy, never reflowed.
+   The outer page keeps the language pill; the frame keeps its dots and key hint only while they are big enough to use. */
+.stage,.phint{display:none}
+.player body{background:var(--ink)}
+.player .deck,.player .nav,.player .hint{display:none}
+.player .stage{display:block;position:fixed;inset:0;overflow:hidden;background:var(--ink)}
+.stage iframe{position:absolute;left:50%;top:50%;width:1920px;height:1080px;border:0;transform-origin:50% 50%;background:var(--paper)}
+.player .phint.on{display:block;position:fixed;z-index:9;left:0;right:0;bottom:calc(16px + env(safe-area-inset-bottom));text-align:center;font:italic 400 15px/1 var(--serif);color:rgba(252,243,237,.72);pointer-events:none}
+.player .lang{border-color:rgba(252,243,237,.6)}.player .lang a+a{border-left-color:rgba(252,243,237,.6)}
+.framed .lang,.tiny .nav,.tiny .hint{display:none}
+.touch .deck{overflow:hidden;scroll-snap-type:none}
+@media print{.player .stage,.player .phint{display:none}.player .deck{display:block}}
 
 /* export / print: every detail expanded, in place */
 .export .r{opacity:1!important;transform:none!important;transition:none!important}.export .m::after{transform:scaleX(1)!important;transition:none!important}
@@ -1001,6 +1015,29 @@ section.s.title .chip::before{position:relative;top:-1.9px}
  .ae .bd .pc .say{font-size:46px;line-height:1.15;letter-spacing:-.015em}
  :lang(zh-CN) .ae .bd .pc .say{font-size:42px;line-height:1.35;letter-spacing:0}
  .ae .bd .pn2{align-self:stretch;width:auto;max-width:none;padding:22px 36px;font-size:24px;line-height:1.45}
+
+ /* one number per slide: logo, a 240px number, one line saying exactly what it counts */
+ .bnx{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:end;column-gap:72px}
+ .bnx>.lr{grid-column:1/-1;height:56px;margin-bottom:34px;gap:26px}
+ .bnx .lr .brand{height:44px}.bnx .lr .brand.an{height:28px}.bnx .lr .brand.jp{height:32px}.bnx .lr .brand.hv{height:28px}.bnx .lr .brand.aos{height:40px}.bnx .lr .brand.sf{height:60px}
+ .bnx .big{font-size:240px;line-height:.8}
+ :lang(zh-CN) .bnx .big{font-size:220px}
+ .bnx .big small{margin:0 0 22px;font-size:34px}
+ .ae .bd .bnx p{max-width:15em;padding-bottom:14px;font-size:34px;line-height:1.36;color:var(--ink)}
+ :lang(zh-CN) .ae .bd .bnx p{max-width:14em;font-size:32px;line-height:1.55}
+ .nv .bnx p{color:var(--paper-hi)!important}
+ .nv .bnx .lr .org{color:#A9BEEA}
+
+ /* one quote per slide: the words as the title, then who said it and where */
+ .ae.bq h2{max-width:21em;font-size:62px;line-height:1.16}
+ :lang(zh-CN) .ae.bq h2{max-width:20em;font-size:54px;line-height:1.42}
+ .bqx{display:flex;align-items:center;gap:28px}
+ .bqx .lr{height:48px}.bqx .brand{height:40px}.bqx .brand.jp{height:30px}.bqx .brand.sf{height:56px}
+ .bqx .who2{padding-left:28px;border-left:1.5px solid var(--edge)}
+ .ae .bd .bqx .who2 b{display:block;font:500 30px/1.25 var(--serif);color:var(--ink)}
+ .ae .bd .bqx .who2 span{display:block;margin-top:4px;font:italic 400 22px/1.35 var(--serif);color:var(--muted)}
+ :lang(zh-CN) .ae .bd .bqx .who2 span{font-style:normal}
+ .ae.bq .bd{justify-content:flex-end;padding-bottom:40px}
 }
 
 @media (max-width:700px){
@@ -1021,6 +1058,9 @@ section.s.title .chip::before{position:relative;top:-1.9px}
  .pair{display:grid;gap:12px}.pc{display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:18px 20px}
  .pl{padding:6px 10px 5px;font-size:11px}.pc p{margin:0}.pc .say{font-size:22px;line-height:1.3}
  .pn2{margin-top:12px}
+ .bnx .lr{margin-bottom:6px}.bnx .big,:lang(zh-CN) .bnx .big{font-size:84px;line-height:1}.bnx p{margin:8px 0 0;font-size:18px;line-height:1.45}
+ .ae.bq h2{font-size:26px;line-height:1.3}
+ .bqx{display:flex;align-items:center;gap:14px}.bqx .lr{margin:0}.bqx .who2 b{display:block}.bqx .who2 span{display:block;font-size:14px;color:var(--muted)}
 }
 :lang(zh-CN) .ae h2 em,:lang(zh-CN) .st .by{font-style:normal}
 @media (min-width:701px){:lang(zh-CN) .st .sl,:lang(zh-CN) .st .nst p,:lang(zh-CN) .ae .kick{word-break:keep-all;overflow-wrap:anywhere}}
@@ -1033,6 +1073,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 @media (max-width:700px){section.s>.pgno{display:none}}
 </style></head><body>
 <div class="lang"><a href="/decks/conversation.html" class="on">EN</a><a href="/decks/conversation-cn.html">中文</a></div><nav class="nav" id="nav"></nav><div class="hint">↓ / → next · ↑ / ← back</div>
+<div class="stage" id="stage"><iframe id="frame" title="Slides" allow="autoplay; fullscreen"></iframe></div><div class="phint">Swipe or tap to go on</div>
 <main class="deck" id="deck">
 <!-- 1 · Title -->
 <section class="s title split-s"><div class="w">
@@ -1358,7 +1399,27 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 
 </main>
 <script>
-if(!matchMedia('(max-width:700px)').matches)[].forEach.call(document.querySelectorAll('video'),function(v){v.preload='auto'});
+/* player: every screen shows the real 1920×1080 slide, scaled uniformly and letterboxed. The page loads itself
+   into a fixed 1920×1080 frame (?stage), so vw, vh, and media queries resolve exactly as on desktop and in the PDF. */
+(function(){var H=document.documentElement;if(!H.classList.contains('player'))return;
+ var f=document.getElementById('frame'),st=document.getElementById('stage'),ph=document.querySelector('.phint'),q=location.search.replace(/^\?/,'');
+ f.src=location.pathname+'?stage'+(q?'&'+q:'')+location.hash;
+ function fw(){try{return f.contentWindow.__step?f.contentWindow:null}catch(e){return null}}
+ function fit(){var v=window.visualViewport,W=innerWidth,Hh=innerHeight,s=Math.min(W/1920,Hh/1080);
+  f.style.transform='translate(-50%,-50%) scale('+s+')';window.__ps=s;
+  ph.classList.toggle('on',matchMedia('(pointer:coarse)').matches&&(Hh-1080*s)/2>=48);
+  var w=fw();if(w){w.__ps=s;w.document.documentElement.classList.toggle('tiny',s<.6)}}
+ f.addEventListener('load',function(){fit();try{f.contentWindow.focus()}catch(e){}});
+ fit();addEventListener('resize',fit);addEventListener('orientationchange',function(){setTimeout(fit,120)});
+ addEventListener('keydown',function(e){var w=fw();if(!w)return;
+  if(['ArrowDown','ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();w.__step(1)}if(['ArrowUp','ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();w.__step(-1)}});
+ /* swipes and taps on the letterbox around the slide */
+ var t0=null;st.addEventListener('touchstart',function(e){t0=e.touches.length===1?{x:e.touches[0].clientX,y:e.touches[0].clientY}:null},{passive:true});
+ st.addEventListener('touchend',function(e){if(!t0)return;var t=e.changedTouches[0],dx=t.clientX-t0.x,dy=t.clientY-t0.y,w=fw();t0=null;
+  if(!w||(window.visualViewport&&visualViewport.scale>1.05))return;
+  var d=Math.abs(dx)>Math.abs(dy)?dx:dy;if(Math.abs(d)>30)w.__step(d<0?1:-1);else w.__step(t.clientX>innerWidth/3?1:-1)});
+})();
+if(!document.documentElement.classList.contains('player')&&!matchMedia('(max-width:700px)').matches)[].forEach.call(document.querySelectorAll('video'),function(v){v.preload='auto'});
 if(/[?&]read\b/.test(location.search))document.documentElement.classList.add('noqr');
 /* navigation: dot nav, arrow keys, agenda links */
 var deck=document.getElementById('deck'),S=[].slice.call(document.querySelectorAll('.s')),nav=document.getElementById('nav');
@@ -1380,9 +1441,19 @@ function step(d){var c=armed>=0&&Math.abs(S[armed].offsetTop-deck.scrollTop)<inn
 deck.addEventListener('scroll',function(){var c=cur();[].forEach.call(nav.children,function(a,i){a.classList.toggle('on',i===c)});document.body.classList.toggle('nvon',S[c].classList.contains('nv'));
  if(armed>=0&&Math.abs(S[armed].offsetTop-deck.scrollTop)>innerHeight*1.5)armed=-1;
  S.forEach(function(s,j){if(j!==armed&&s.classList.contains('bld')&&Math.abs(s.offsetTop-deck.scrollTop)>=innerHeight)build(j,B[j],true)})},{passive:true});
-addEventListener('keydown',function(e){if(e.target.closest&&e.target.closest('.rv,.step,[data-go]')&&(e.key===' '||e.key==='Enter'))return;
+window.__step=step;
+addEventListener('keydown',function(e){if(document.documentElement.classList.contains('player'))return;if(e.target.closest&&e.target.closest('.rv,.step,[data-go]')&&(e.key===' '||e.key==='Enter'))return;
  if(['ArrowDown','ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();step(1)}if(['ArrowUp','ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();step(-1)}});
 nav.children[0].classList.add('on');document.body.classList.toggle('nvon',S[cur()].classList.contains('nv'));
+/* touch, inside the player's frame: a swipe either way or a tap moves one step (left third of the slide goes back).
+   The frame never scrolls by touch, so a slide never slides half away. Links, videos, and the agenda keep their own taps. */
+if(self!==top&&matchMedia('(pointer:coarse)').matches){document.documentElement.classList.add('touch');var t0=null;
+ deck.addEventListener('touchstart',function(e){t0=e.touches.length===1?{x:e.touches[0].clientX,y:e.touches[0].clientY}:null},{passive:true});
+ deck.addEventListener('touchmove',function(e){var z=1;try{z=parent.visualViewport?parent.visualViewport.scale:1}catch(x){}if(z<1.05&&e.touches.length===1&&e.cancelable)e.preventDefault()},{passive:false});
+ deck.addEventListener('touchend',function(e){if(!t0)return;var t=e.changedTouches[0],dx=t.clientX-t0.x,dy=t.clientY-t0.y,z=1,k=30/(window.__ps||1);t0=null;
+  try{z=parent.visualViewport?parent.visualViewport.scale:1}catch(x){}if(z>1.05)return;
+  var d=Math.abs(dx)>Math.abs(dy)?dx:dy;if(Math.abs(d)>k){step(d<0?1:-1);return}
+  if(e.target.closest('a,button,video,[data-go],.rv,.step'))return;e.preventDefault();step(t.clientX>innerWidth/3?1:-1)},{passive:false})}
 /* entrance + stat count-up */
 var still=function(){var h=document.documentElement.classList;return h.contains('export')||h.contains('still')||matchMedia('(prefers-reduced-motion: reduce)').matches};
 function countUp(s){if(still())return;[].forEach.call(s.querySelectorAll('.count'),function(el){if(el.dataset.done)return;el.dataset.done=1;
