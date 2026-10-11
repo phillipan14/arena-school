@@ -1304,6 +1304,33 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .ae .bd .qx-f p{font-size:22px;line-height:1.4;color:var(--ink)}
  :lang(zh-CN) .ae .bd .qx-f p{font-size:21px;line-height:1.55}
 
+ /* the tools market map: personal agents across the top, four categories beneath */
+ .mmap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+ .mm-c{display:flex;flex-direction:column;gap:16px;padding:22px 24px 24px!important}
+ .mm-c.ag{grid-column:1/-1;flex-direction:row;align-items:center;gap:28px;padding:24px 28px!important;background:var(--ink);border-color:var(--ink)}
+ .ae .bd .mm-h{display:flex;flex-direction:column;gap:5px;margin:0;font:600 15px/1.2 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
+ :lang(zh-CN) .ae .bd .mm-h{font-size:18px;letter-spacing:.06em}
+ .mm-h small{font:italic 400 17px/1.3 var(--serif);letter-spacing:0;text-transform:none;color:var(--muted)}
+ :lang(zh-CN) .mm-h small{font-style:normal;font-size:16px}
+ .ae .bd .ag .mm-h{flex:none;width:118px;color:#A9BEEA}
+ .ag .mm-h small{color:rgba(252,243,237,.7)}
+ .mm{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+ .ag .mm{flex:1;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}
+ .ae .bd .mm li{display:flex;align-items:center;gap:13px;font-size:inherit;line-height:1}
+ .ae .bd .ag .mm li{align-items:flex-start;gap:12px}
+ .mm img{flex:none;display:block;width:46px;height:46px;border-radius:12px;object-fit:cover;background:#fff;box-shadow:0 0 0 1px var(--edge)}
+ .ag .mm img{width:46px;height:46px;border-radius:12px;box-shadow:none}
+ .mm img.t{padding:6px;object-fit:contain;box-sizing:border-box}
+ .mm li>span{display:flex;flex-direction:column;gap:3px;min-width:0}
+ .ae .bd .mm b{display:block;font:500 20px/1.2 var(--serif);color:var(--ink)}
+ .mm b i.cn{margin-left:7px;vertical-align:.18em}
+ .ae .bd .mm small{font:400 15.5px/1.32 var(--serif);color:var(--muted)}
+ :lang(zh-CN) .ae .bd .mm small{font-size:15.5px;line-height:1.45}
+ .ae .bd .ag .mm b{font-size:22px;color:var(--paper-hi)}
+ .ae .bd .ag .mm small{font-size:16px;color:rgba(252,243,237,.72)}
+ i.cn{flex:none;display:inline-block;width:8px;height:8px;border-radius:50%;background:#C8553D}
+ .fn i.cn{margin:0 4px 1px 0;vertical-align:middle}
+
  /* three habits as three equal columns, numbered */
  .hab3{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
  .hab3 li{display:flex;flex-direction:column;gap:14px;padding:36px 36px 40px;border-radius:var(--r);background:var(--paper-hi);border:1px solid var(--edge)}
@@ -1344,6 +1371,10 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .motion .s:not(.in) .tbl>div>*{opacity:0;transform:translateY(12px)}
  .motion .app{transition:opacity .5s ease calc(.3s + var(--i) * 55ms),transform .7s cubic-bezier(.2,1.25,.4,1) calc(.3s + var(--i) * 55ms)}
  .motion .s:not(.in) .app{opacity:0;transform:translateY(26px) scale(.82)}
+ .motion .mm-c{transition:opacity .5s ease calc(.2s + var(--c) * .16s),transform .7s var(--ease) calc(.2s + var(--c) * .16s)}
+ .motion .s:not(.in) .mm-c{opacity:0;transform:translateY(18px)}
+ .motion .mm li{transition:opacity .45s ease calc(.45s + var(--i) * 45ms),transform .6s cubic-bezier(.2,1.25,.4,1) calc(.45s + var(--i) * 45ms)}
+ .motion .s:not(.in) .mm li{opacity:0;transform:translateY(10px) scale(.94)}
  .motion .paths li{transition:opacity .45s ease calc(.6s + var(--i) * .12s),transform .55s var(--ease) calc(.6s + var(--i) * .12s)}
  .motion .s:not(.in) .paths li{opacity:0;transform:translateY(10px)}
 
@@ -1724,22 +1755,43 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 
 <!-- 31 · The tools -->
 <section class="s alt ae"><div class="w">
- <p class="kick r">建议一 · 了解最新的工具</p>
- <h2 class="r" style="--d:.1s">孩子必须了解最新的AI工具。<em>这些您听说过几个？</em></h2>
- <div class="bd r" style="--d:.25s"><div class="apps">
-  <div class="app"><img src="/logos/tools/doubao.png" alt=""><b>豆包</b><small>字节跳动</small></div>
-  <div class="app"><img src="/logos/tools/deepseek.png" alt=""><b>DeepSeek</b><small>深度求索</small></div>
-  <div class="app"><i aria-hidden="true">Q</i><b>千问</b><small>阿里巴巴</small></div>
-  <div class="app"><img src="/logos/tools/kimi.png" alt=""><b>Kimi</b><small>月之暗面</small></div>
-  <div class="app"><i aria-hidden="true">O</i><b>OpenClaw</b><small>开源“龙虾”</small></div>
-  <div class="app"><img src="/logos/tools/openai.png" alt=""><b>ChatGPT</b><small>OpenAI</small></div>
-  <div class="app"><img src="/logos/tools/claude.png" alt=""><b>Claude</b><small>Anthropic</small></div>
-  <div class="app"><img src="/logos/tools/gemini.png" alt=""><b>Gemini</b><small>Google</small></div>
-  <div class="app"><i aria-hidden="true">M</i><b>Muse</b><small>Meta，2026年9月</small></div>
-  <div class="app"><i aria-hidden="true">I</i><b>Instinct</b><small>2026年9月</small></div>
+ <p class="kick r">建议一 · 最新AI工具一览，2026年10月</p>
+ <h2 class="r" style="--d:.1s">聊天机器人之外，还有能直接干活的AI工具。<em>这些您听说过几个？</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="mmap">
+  <div class="pane mm-c ag"><h3 class="mm-h"><span>个人AI智能体</span><small>替你把事办完</small></h3><ul class="mm">
+   <li><img src="/logos/tools/kimi.png" alt=""><span><b>Kimi<i class="cn" aria-label="中国大陆可用"></i></b><small>智能体模式，自动做网站、PPT和报告</small></span></li>
+   <li><img class="t" src="/logos/tools/muse.png" alt=""><span><b>Muse</b><small>Meta 出品，替你发邮件、订行程</small></span></li>
+   <li><img src="/logos/tools/instinct.png" alt=""><span><b>Instinct</b><small>发条短信，就能替你办事</small></span></li>
+   <li><img src="/logos/tools/manus.png" alt=""><span><b>Manus</b><small>自主完成多步骤的复杂任务</small></span></li>
+   <li><img src="/logos/tools/genspark.png" alt=""><span><b>Genspark</b><small>一站式AI办公</small></span></li>
+   <li><img class="t" src="/logos/tools/openclaw.png" alt=""><span><b>OpenClaw<i class="cn" aria-label="中国大陆可用"></i></b><small>开源“龙虾”，替你操作电脑</small></span></li>
+  </ul></div>
+  <div class="pane mm-c cd"><h3 class="mm-h"><span>编程</span></h3><ul class="mm">
+   <li><img src="/logos/tools/cursor.png" alt=""><span><b>Cursor</b><small>专业的AI代码编辑器</small></span></li>
+   <li><img src="/logos/tools/claude.png" alt=""><span><b>Claude Code</b><small>从头搭建整个软件项目</small></span></li>
+   <li><img class="t" src="/logos/tools/lovable.png" alt=""><span><b>Lovable</b><small>一句话生成网站应用</small></span></li>
+   <li><img src="/logos/tools/trae.png" alt=""><span><b>TRAE<i class="cn" aria-label="中国大陆可用"></i></b><small>字节跳动的编程助手</small></span></li>
+  </ul></div>
+  <div class="pane mm-c rs"><h3 class="mm-h"><span>研究</span></h3><ul class="mm">
+   <li><img src="/logos/tools/perplexity.png" alt=""><span><b>Perplexity</b><small>带引用的AI搜索</small></span></li>
+   <li><img src="/logos/tools/gemini-notebook.png" alt=""><span><b>Gemini Notebook</b><small>读懂并讲解你的资料</small></span></li>
+   <li><img src="/logos/tools/metaso.png" alt=""><span><b>秘塔AI搜索<i class="cn" aria-label="中国大陆可用"></i></b><small>无广告、有出处的搜索</small></span></li>
+  </ul></div>
+  <div class="pane mm-c ds"><h3 class="mm-h"><span>设计</span></h3><ul class="mm">
+   <li><img src="/logos/tools/lovart.png" alt=""><span><b>Lovart<i class="cn" aria-label="中国大陆可用"></i></b><small>一句话做出品牌设计</small></span></li>
+   <li><img src="/logos/tools/canva.png" alt=""><span><b>Canva AI</b><small>对话生成可编辑的设计</small></span></li>
+   <li><img src="/logos/tools/figma.png" alt=""><span><b>Figma Make</b><small>把想法变成可用的原型</small></span></li>
+   <li><img src="/logos/tools/gemini.png" alt=""><span><b>Nano Banana</b><small>谷歌的聊天改图工具</small></span></li>
+  </ul></div>
+  <div class="pane mm-c vd"><h3 class="mm-h"><span>视频与声音</span></h3><ul class="mm">
+   <li><img src="/logos/tools/kling.png" alt=""><span><b>可灵<i class="cn" aria-label="中国大陆可用"></i></b><small>快手的电影级AI视频</small></span></li>
+   <li><img src="/logos/tools/dreamina.png" alt=""><span><b>即梦 Seedance<i class="cn" aria-label="中国大陆可用"></i></b><small>字节跳动的有声视频</small></span></li>
+   <li><img src="/logos/tools/suno.png" alt=""><span><b>Suno</b><small>一句话生成一整首歌</small></span></li>
+   <li><img src="/logos/tools/elevenlabs.png" alt=""><span><b>ElevenLabs</b><small>逼真的AI配音</small></span></li>
+  </ul></div>
  </div></div>
- <p class="fn" data-s="1"><span>截至2026年10月。Muse 和 Instinct 是2026年9月在美国推出的个人AI助理；ChatGPT、Claude、Gemini 和 Muse 未在中国大陆提供服务。</span></p>
-</div><aside class="notes">豆包是中国用户最多的AI助手，现在还能订机票、叫车。千问一句话就能点外卖。Kimi 的智能体模式能做幻灯片、做网站。OpenClaw“龙虾”是2026年3月的全民热潮。Meta 的 Muse 能替你发邮件、订餐厅；Instinct 是一个发短信就能帮你跑腿办事的助理，今年9月估值100亿美元。如果我们自己不了解这些工具，就没办法引导孩子，而这正是我们在教的。</aside></section>
+ <p class="fn"><span><i class="cn" aria-hidden="true"></i> 中国大陆可用。截至2026年10月，其余大多未在中国大陆提供服务。Lovart 在国内的版本是星流，Seedance 属于即梦。</span></p>
+</div><aside class="notes">大多数家庭都知道 DeepSeek、豆包和 ChatGPT。这里是下一波：不只回答问题，而是直接把事做完的工具。Kimi 的智能体模式一句话就能做出网站或PPT。OpenClaw“龙虾”是今年3月国内的全民热潮。Meta 在9月推出 Muse，替你处理邮件和预订。孩子可以用 Lovable 做一个应用，用 Suno 写一首歌，用可灵拍一部短片。如果我们不知道这些工具的存在，就没办法引导孩子，而这正是我们在教的。</aside></section>
 
 <!-- 32 · Takeaway 2 -->
 <section class="s alt ae st tk"><div class="w"><div class="tk-g">
@@ -1879,7 +1931,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <li><span><b>教育部</b>等五部门“人工智能+教育”行动计划</span><span class="src">2026年4月2日</span></li>
   <li><span><b>中国教育科学研究院</b>学校与教师调查（88%、54%）；<b>盖洛普</b>与沃尔顿家族基金会（68%）</span><span class="src">2026年8月19日 · 2025年</span></li>
   <li><span><b>中国教育新闻网</b>报道中国教育发展战略学会与学科网的教师调查（68792人）</span><span class="src">2025年10月20日</span></li>
-  <li><span><b>AI工具</b>：Meta 官方发布 Muse；instinct.com 与 TechCrunch 报道 Instinct；新华社报道 OpenClaw</span><span class="src">2026年9月8日、28日 · 2026年3月10日</span></li>
+  <li><span><b>AI工具</b>：Meta 官方发布（Muse）；TechCrunch（Instinct）；路透社（OpenClaw）；manus.im、kimi.com 及各工具官网</span><span class="src">2026年9月8日、28日 · 2026年3月19日 · 2026年10月11日核对</span></li>
   <li><span><b>Kimi</b>（月之暗面）招聘经历，亲身所见</span><span class="src">2026年</span></li>
   <li><span><b>OECD</b> PISA 2025结果</span><span class="src">2026年9月8日</span></li>
   <li><span><b>Cursor</b>：D 轮融资公告；路透社、CNBC、彭博社报道 SpaceX 收购；PitchBook 报道交易完成</span><span class="src">2025年11月13日 · 2026年6月16日、8月14日</span></li>
@@ -1959,6 +2011,7 @@ if(!HM.classList.contains('player')&&!HM.classList.contains('export')&&!/[?&]rea
     n.replaceChild(f,c)}else if(c.nodeType===1&&c.tagName!=='BR')walk(c)})})(h);h.classList.add('wsplit')});
  else [].forEach.call(document.querySelectorAll('.ae h2,.cover h1'),function(h){h.classList.add('wipe')});
 }
+[].forEach.call(document.querySelectorAll('.mmap'),function(g){[].forEach.call(g.querySelectorAll('.mm-c'),function(c,k){c.style.setProperty('--c',k)});[].forEach.call(g.querySelectorAll('.mm li'),function(c,k){c.style.setProperty('--i',k)})});
 [].forEach.call(document.querySelectorAll('.tln,.apps,.tbl,.trk,.paths,.tk-prog,.pg-m,.trio,.proj'),function(g){
  [].slice.call(g.children).forEach(function(c,i){c.style.setProperty('--i',i);if(g.classList.contains('tbl'))[].forEach.call(c.children,function(x){x.style.setProperty('--i',i)})});
  if(g.classList.contains('pg-m')){var j=0;[].forEach.call(g.children,function(c){if(c.classList.contains('f'))c.style.setProperty('--i',j++)})}});

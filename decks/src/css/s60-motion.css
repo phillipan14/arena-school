@@ -25,6 +25,10 @@
  .motion .s:not(.in) .tbl>div>*{opacity:0;transform:translateY(12px)}
  .motion .app{transition:opacity .5s ease calc(.3s + var(--i) * 55ms),transform .7s cubic-bezier(.2,1.25,.4,1) calc(.3s + var(--i) * 55ms)}
  .motion .s:not(.in) .app{opacity:0;transform:translateY(26px) scale(.82)}
+ .motion .mm-c{transition:opacity .5s ease calc(.2s + var(--c) * .16s),transform .7s var(--ease) calc(.2s + var(--c) * .16s)}
+ .motion .s:not(.in) .mm-c{opacity:0;transform:translateY(18px)}
+ .motion .mm li{transition:opacity .45s ease calc(.45s + var(--i) * 45ms),transform .6s cubic-bezier(.2,1.25,.4,1) calc(.45s + var(--i) * 45ms)}
+ .motion .s:not(.in) .mm li{opacity:0;transform:translateY(10px) scale(.94)}
  .motion .paths li{transition:opacity .45s ease calc(.6s + var(--i) * .12s),transform .55s var(--ease) calc(.6s + var(--i) * .12s)}
  .motion .s:not(.in) .paths li{opacity:0;transform:translateY(10px)}
 

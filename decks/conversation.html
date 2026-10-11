@@ -1304,6 +1304,33 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .ae .bd .qx-f p{font-size:22px;line-height:1.4;color:var(--ink)}
  :lang(zh-CN) .ae .bd .qx-f p{font-size:21px;line-height:1.55}
 
+ /* the tools market map: personal agents across the top, four categories beneath */
+ .mmap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+ .mm-c{display:flex;flex-direction:column;gap:16px;padding:22px 24px 24px!important}
+ .mm-c.ag{grid-column:1/-1;flex-direction:row;align-items:center;gap:28px;padding:24px 28px!important;background:var(--ink);border-color:var(--ink)}
+ .ae .bd .mm-h{display:flex;flex-direction:column;gap:5px;margin:0;font:600 15px/1.2 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
+ :lang(zh-CN) .ae .bd .mm-h{font-size:18px;letter-spacing:.06em}
+ .mm-h small{font:italic 400 17px/1.3 var(--serif);letter-spacing:0;text-transform:none;color:var(--muted)}
+ :lang(zh-CN) .mm-h small{font-style:normal;font-size:16px}
+ .ae .bd .ag .mm-h{flex:none;width:118px;color:#A9BEEA}
+ .ag .mm-h small{color:rgba(252,243,237,.7)}
+ .mm{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+ .ag .mm{flex:1;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}
+ .ae .bd .mm li{display:flex;align-items:center;gap:13px;font-size:inherit;line-height:1}
+ .ae .bd .ag .mm li{align-items:flex-start;gap:12px}
+ .mm img{flex:none;display:block;width:46px;height:46px;border-radius:12px;object-fit:cover;background:#fff;box-shadow:0 0 0 1px var(--edge)}
+ .ag .mm img{width:46px;height:46px;border-radius:12px;box-shadow:none}
+ .mm img.t{padding:6px;object-fit:contain;box-sizing:border-box}
+ .mm li>span{display:flex;flex-direction:column;gap:3px;min-width:0}
+ .ae .bd .mm b{display:block;font:500 20px/1.2 var(--serif);color:var(--ink)}
+ .mm b i.cn{margin-left:7px;vertical-align:.18em}
+ .ae .bd .mm small{font:400 15.5px/1.32 var(--serif);color:var(--muted)}
+ :lang(zh-CN) .ae .bd .mm small{font-size:15.5px;line-height:1.45}
+ .ae .bd .ag .mm b{font-size:22px;color:var(--paper-hi)}
+ .ae .bd .ag .mm small{font-size:16px;color:rgba(252,243,237,.72)}
+ i.cn{flex:none;display:inline-block;width:8px;height:8px;border-radius:50%;background:#C8553D}
+ .fn i.cn{margin:0 4px 1px 0;vertical-align:middle}
+
  /* three habits as three equal columns, numbered */
  .hab3{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
  .hab3 li{display:flex;flex-direction:column;gap:14px;padding:36px 36px 40px;border-radius:var(--r);background:var(--paper-hi);border:1px solid var(--edge)}
@@ -1344,6 +1371,10 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .motion .s:not(.in) .tbl>div>*{opacity:0;transform:translateY(12px)}
  .motion .app{transition:opacity .5s ease calc(.3s + var(--i) * 55ms),transform .7s cubic-bezier(.2,1.25,.4,1) calc(.3s + var(--i) * 55ms)}
  .motion .s:not(.in) .app{opacity:0;transform:translateY(26px) scale(.82)}
+ .motion .mm-c{transition:opacity .5s ease calc(.2s + var(--c) * .16s),transform .7s var(--ease) calc(.2s + var(--c) * .16s)}
+ .motion .s:not(.in) .mm-c{opacity:0;transform:translateY(18px)}
+ .motion .mm li{transition:opacity .45s ease calc(.45s + var(--i) * 45ms),transform .6s cubic-bezier(.2,1.25,.4,1) calc(.45s + var(--i) * 45ms)}
+ .motion .s:not(.in) .mm li{opacity:0;transform:translateY(10px) scale(.94)}
  .motion .paths li{transition:opacity .45s ease calc(.6s + var(--i) * .12s),transform .55s var(--ease) calc(.6s + var(--i) * .12s)}
  .motion .s:not(.in) .paths li{opacity:0;transform:translateY(10px)}
 
@@ -1724,22 +1755,43 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 
 <!-- 31 · The tools -->
 <section class="s alt ae"><div class="w">
- <p class="kick r">Takeaway 1 · know the latest tools</p>
- <h2 class="r" style="--d:.1s">Children need to know the latest AI tools. <em>How many of these have you heard of?</em></h2>
- <div class="bd r" style="--d:.25s"><div class="apps">
-  <div class="app"><img src="/logos/tools/doubao.png" alt=""><b>Doubao 豆包</b><small>ByteDance</small></div>
-  <div class="app"><img src="/logos/tools/deepseek.png" alt=""><b>DeepSeek</b><small>DeepSeek</small></div>
-  <div class="app"><i aria-hidden="true">Q</i><b>Qwen 千问</b><small>Alibaba</small></div>
-  <div class="app"><img src="/logos/tools/kimi.png" alt=""><b>Kimi</b><small>Moonshot AI</small></div>
-  <div class="app"><i aria-hidden="true">O</i><b>OpenClaw</b><small>Open source</small></div>
-  <div class="app"><img src="/logos/tools/openai.png" alt=""><b>ChatGPT</b><small>OpenAI</small></div>
-  <div class="app"><img src="/logos/tools/claude.png" alt=""><b>Claude</b><small>Anthropic</small></div>
-  <div class="app"><img src="/logos/tools/gemini.png" alt=""><b>Gemini</b><small>Google</small></div>
-  <div class="app"><i aria-hidden="true">M</i><b>Muse</b><small>Meta, Sept 2026</small></div>
-  <div class="app"><i aria-hidden="true">I</i><b>Instinct</b><small>Sept 2026</small></div>
+ <p class="kick r">Takeaway 1 · a map of the latest AI tools, October 2026</p>
+ <h2 class="r" style="--d:.1s">Beyond the chatbots, there are AI tools that do the work. <em>How many have you heard of?</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="mmap">
+  <div class="pane mm-c ag"><h3 class="mm-h"><span>Personal AI agents</span><small>They carry out tasks for you</small></h3><ul class="mm">
+   <li><img src="/logos/tools/kimi.png" alt=""><span><b>Kimi<i class="cn" aria-label="Available in mainland China"></i></b><small>Agent mode builds websites, slides, and reports</small></span></li>
+   <li><img class="t" src="/logos/tools/muse.png" alt=""><span><b>Muse</b><small>Meta’s agent for email, travel, and shopping</small></span></li>
+   <li><img src="/logos/tools/instinct.png" alt=""><span><b>Instinct</b><small>Text it, and it runs your errands</small></span></li>
+   <li><img src="/logos/tools/manus.png" alt=""><span><b>Manus</b><small>Finishes long, many-step tasks on its own</small></span></li>
+   <li><img src="/logos/tools/genspark.png" alt=""><span><b>Genspark</b><small>An all-in-one AI workspace</small></span></li>
+   <li><img class="t" src="/logos/tools/openclaw.png" alt=""><span><b>OpenClaw<i class="cn" aria-label="Available in mainland China"></i></b><small>Open-source agent that runs your computer</small></span></li>
+  </ul></div>
+  <div class="pane mm-c cd"><h3 class="mm-h"><span>Coding</span></h3><ul class="mm">
+   <li><img src="/logos/tools/cursor.png" alt=""><span><b>Cursor</b><small>The AI code editor</small></span></li>
+   <li><img src="/logos/tools/claude.png" alt=""><span><b>Claude Code</b><small>Builds whole projects</small></span></li>
+   <li><img class="t" src="/logos/tools/lovable.png" alt=""><span><b>Lovable</b><small>Describe an app, get it built</small></span></li>
+   <li><img src="/logos/tools/trae.png" alt=""><span><b>TRAE<i class="cn" aria-label="Available in mainland China"></i></b><small>ByteDance’s coding agent</small></span></li>
+  </ul></div>
+  <div class="pane mm-c rs"><h3 class="mm-h"><span>Research</span></h3><ul class="mm">
+   <li><img src="/logos/tools/perplexity.png" alt=""><span><b>Perplexity</b><small>Cited search, plus a browser</small></span></li>
+   <li><img src="/logos/tools/gemini-notebook.png" alt=""><span><b>Gemini Notebook</b><small>Explains your documents</small></span></li>
+   <li><img src="/logos/tools/metaso.png" alt=""><span><b>Metaso 秘塔<i class="cn" aria-label="Available in mainland China"></i></b><small>Ad-free search with sources</small></span></li>
+  </ul></div>
+  <div class="pane mm-c ds"><h3 class="mm-h"><span>Design</span></h3><ul class="mm">
+   <li><img src="/logos/tools/lovart.png" alt=""><span><b>Lovart<i class="cn" aria-label="Available in mainland China"></i></b><small>A brief becomes a brand kit</small></span></li>
+   <li><img src="/logos/tools/canva.png" alt=""><span><b>Canva AI</b><small>Chat to make editable designs</small></span></li>
+   <li><img src="/logos/tools/figma.png" alt=""><span><b>Figma Make</b><small>Ideas into working prototypes</small></span></li>
+   <li><img src="/logos/tools/gemini.png" alt=""><span><b>Nano Banana</b><small>Google’s image editing by chat</small></span></li>
+  </ul></div>
+  <div class="pane mm-c vd"><h3 class="mm-h"><span>Video and voice</span></h3><ul class="mm">
+   <li><img src="/logos/tools/kling.png" alt=""><span><b>Kling<i class="cn" aria-label="Available in mainland China"></i></b><small>Kuaishou’s cinematic AI video</small></span></li>
+   <li><img src="/logos/tools/dreamina.png" alt=""><span><b>Seedance<i class="cn" aria-label="Available in mainland China"></i></b><small>ByteDance’s video, with sound</small></span></li>
+   <li><img src="/logos/tools/suno.png" alt=""><span><b>Suno</b><small>A full song from one prompt</small></span></li>
+   <li><img src="/logos/tools/elevenlabs.png" alt=""><span><b>ElevenLabs</b><small>Lifelike AI voices and dubbing</small></span></li>
+  </ul></div>
  </div></div>
- <p class="fn" data-s="1"><span>As of October 2026. Muse and Instinct are personal AI agents launched in the US in September 2026; ChatGPT, Claude, Gemini, and Muse are not offered in mainland China.</span></p>
-</div><aside class="notes">Doubao is China's most-used assistant and now books flights and taxis. Qwen orders takeout from one sentence. Kimi's agent mode builds slides and websites. OpenClaw, the "lobster", was the March 2026 craze. Meta's Muse sends emails and books restaurants for you; Instinct is an assistant you simply text to run errands, valued at $10 billion this September. If we don't know these tools, we can't guide our children through them, and this is exactly what we teach.</aside></section>
+ <p class="fn"><span><i class="cn" aria-hidden="true"></i> Available in mainland China. As of October 2026; most of the others are not offered there. Lovart is offered in China as 星流; Seedance is part of 即梦.</span></p>
+</div><aside class="notes">Most families know DeepSeek, Doubao, and ChatGPT. These are the next wave: tools that do the work, not just answer. Kimi's agent mode builds a website or a slide deck from one request. OpenClaw, the "lobster", was China's craze this March. Meta launched Muse in September to handle email and bookings. Children can build an app with Lovable, a song with Suno, or a short film with Kling. If we don't know these tools exist, we can't guide our children through them, and this is exactly what we teach.</aside></section>
 
 <!-- 32 · Takeaway 2 -->
 <section class="s alt ae st tk"><div class="w"><div class="tk-g">
@@ -1879,7 +1931,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <li><span><b>Ministry of Education</b> and four ministries, AI+Education action plan</span><span class="src">April 2, 2026</span></li>
   <li><span><b>中国教育科学研究院</b> survey of schools and teachers (88%, 54%); <b>Gallup</b> and <b>Walton Family Foundation</b> (68%)</span><span class="src">Aug 19, 2026 · 2025</span></li>
   <li><span><b>中国教育新闻网</b> on the teacher survey by 中国教育发展战略学会 and 学科网 (n=68,792)</span><span class="src">Oct 20, 2025</span></li>
-  <li><span><b>AI tools</b>: Meta newsroom on Muse; instinct.com and TechCrunch on Instinct; Xinhua on OpenClaw</span><span class="src">Sept 8 and 28, 2026 · March 10, 2026</span></li>
+  <li><span><b>AI tools</b>: Meta newsroom (Muse); TechCrunch (Instinct); Reuters (OpenClaw); manus.im, kimi.com, and each tool’s own site</span><span class="src">Sept 8 and 28, 2026 · March 19, 2026 · checked Oct 11, 2026</span></li>
   <li><span><b>Kimi</b> (Moonshot AI) hiring story, first-hand</span><span class="src">2026</span></li>
   <li><span><b>OECD</b>, PISA 2025 results</span><span class="src">Sept 8, 2026</span></li>
   <li><span><b>Cursor</b>: Series D post; Reuters, CNBC, and Bloomberg on SpaceX; PitchBook on the close</span><span class="src">Nov 13, 2025 · June 16 and Aug 14, 2026</span></li>
@@ -1959,6 +2011,7 @@ if(!HM.classList.contains('player')&&!HM.classList.contains('export')&&!/[?&]rea
     n.replaceChild(f,c)}else if(c.nodeType===1&&c.tagName!=='BR')walk(c)})})(h);h.classList.add('wsplit')});
  else [].forEach.call(document.querySelectorAll('.ae h2,.cover h1'),function(h){h.classList.add('wipe')});
 }
+[].forEach.call(document.querySelectorAll('.mmap'),function(g){[].forEach.call(g.querySelectorAll('.mm-c'),function(c,k){c.style.setProperty('--c',k)});[].forEach.call(g.querySelectorAll('.mm li'),function(c,k){c.style.setProperty('--i',k)})});
 [].forEach.call(document.querySelectorAll('.tln,.apps,.tbl,.trk,.paths,.tk-prog,.pg-m,.trio,.proj'),function(g){
  [].slice.call(g.children).forEach(function(c,i){c.style.setProperty('--i',i);if(g.classList.contains('tbl'))[].forEach.call(c.children,function(x){x.style.setProperty('--i',i)})});
  if(g.classList.contains('pg-m')){var j=0;[].forEach.call(g.children,function(c){if(c.classList.contains('f'))c.style.setProperty('--i',j++)})}});
