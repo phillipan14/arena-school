@@ -33,14 +33,14 @@ JS = r"""([idx, tol, onlyNums]) => {
    const over=Object.entries({left:cb.l-q.left,right:q.right-cb.r,top:cb.t-q.top,bottom:q.bottom-cb.b}).filter(([,v])=>v>tol*cb.k).map(([k,v])=>k+' '+Math.round(v/cb.k));
    if(over.length){seen.add(key);out.push([nm(B),label,over.join(', ')])}})}
  const tw=document.createTreeWalker(w,NodeFilter.SHOW_TEXT);
- while(tw.nextNode()){const t=tw.currentNode,p=t.parentElement;if(!t.nodeValue.trim()||!p||p.closest('.notes,svg')||!shown(p))continue;
+ while(tw.nextNode()){const t=tw.currentNode,p=t.parentElement;if(!t.nodeValue.trim()||!p||p.closest('.notes,.ag-fill,svg')||!shown(p))continue;
   if(onlyNums&&!p.closest('.big,.cnt'))continue;
   const c=getComputedStyle(p),k=p.offsetWidth?p.getBoundingClientRect().width/p.offsetWidth:1,lh=(parseFloat(c.lineHeight)||parseFloat(c.fontSize)*1.2)*k;
   const rg=document.createRange();rg.selectNodeContents(t);
   /* vertically a line occupies its line box, not the font's taller content area */
   test([...rg.getClientRects()].map(q=>{const h=Math.min(q.height,lh),y=q.top+(q.height-h)/2;return {left:q.left,right:q.right,width:q.width,height:h,top:y,bottom:y+h}}),
        '"'+t.nodeValue.trim().slice(0,30)+'"',p,true)}
- if(!onlyNums)w.querySelectorAll('*').forEach(e=>{if(e.closest('.notes')||(e.closest('svg')&&e.tagName.toLowerCase()!=='svg')||!shown(e))return;
+ if(!onlyNums)w.querySelectorAll('*').forEach(e=>{if(e.closest('.notes,.ag-fill')||(e.closest('svg')&&e.tagName.toLowerCase()!=='svg')||!shown(e))return;
   const c=getComputedStyle(e);if(c.position==='fixed'||c.display==='inline'||c.display==='contents')return;
   const media=/^(img|video|svg|canvas)$/i.test(e.tagName);
   /* a photo cropped by a frame that hides its overflow (the slow zoom on project photos) is cropped by design */
@@ -49,7 +49,7 @@ JS = r"""([idx, tol, onlyNums]) => {
  /* sibling / cousin collisions across every element type: text on text, a footnote on a number,
     a bar on its label, a logo on a line. Designed stacks (donut + figure, crop frames) stay skipped. */
  if(!onlyNums){
-  const skip=e=>!shown(e)||e.closest('.notes')||e.closest('svg')&&e.tagName.toLowerCase()!=='svg';
+  const skip=e=>!shown(e)||e.closest('.notes,.ag-fill')||e.closest('svg')&&e.tagName.toLowerCase()!=='svg';
   const media=e=>/^(img|video|svg|canvas)$/i.test(e.tagName);
   const texty=e=>{if(media(e)||e.closest('svg'))return false;const c=getComputedStyle(e);if(c.display==='inline'||c.position==='fixed')return false;return[...e.childNodes].some(n=>n.nodeType===3&&n.nodeValue.trim())};
   const bar=e=>e.matches&&e.matches('.hb i,.mb i,.pb-t i,.pb-t');
@@ -60,6 +60,8 @@ JS = r"""([idx, tol, onlyNums]) => {
    if(a.closest('figure')&&a.closest('figure')===b.closest('figure'))continue;
    if(a.closest('.ring2,.dn,.pg-m')&&a.closest('.ring2,.dn,.pg-m')===b.closest('.ring2,.dn,.pg-m'))continue;
    if(a.closest('.lr')&&a.closest('.lr')===b.closest('.lr')&&media(a)&&media(b))continue;
+   if(a.closest('.ag-fill')||b.closest('.ag-fill'))continue;
+   if(a.closest('.grow-line')||b.closest('.grow-line'))continue;
    const A=a.getBoundingClientRect(),B=b.getBoundingClientRect();
    if(A.width<2||B.width<2||A.height<2||B.height<2)continue;
    const ix=Math.min(A.right,B.right)-Math.max(A.left,B.left),iy=Math.min(A.bottom,B.bottom)-Math.max(A.top,B.top);
