@@ -967,13 +967,14 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
 /* statement slides: navy, one large line, a quiet seal in the corner */
 .s.nv{background:var(--ink);color:var(--paper-hi)}
 .s.nv::before{content:"";position:absolute;z-index:0;inset:0;background:url(/logos/arena/seal-ivory-1024.png) right -5vw bottom -16vh/min(54vw,96vh) no-repeat;opacity:.05;pointer-events:none}
-.s.nv.cl::before{opacity:.025;background-position:right -14vw bottom -32vh}
+.s.nv.cl::before{display:none}
 .s.nv>.pgno{color:rgba(252,243,237,.6)}
 .nv .kick,.nv h2 em,.nv .by,.nv sup,.nv .big{color:#A9BEEA}
 .nv h2{color:var(--paper-hi)}
 .nv .sl,.nv .nst p{color:rgba(252,243,237,.82)}
 .nv .fn{background:rgba(252,243,237,.07);color:rgba(252,243,237,.7)}
 .nv .fn b{color:#A9BEEA}
+.nv .org{color:#A9BEEA}
 .nvon .nav a{background:rgba(252,243,237,.3)}
 .nvon .nav a.on{background:#A9BEEA;box-shadow:0 0 0 3px rgba(169,190,234,.28)}
 .nvon .hint{color:rgba(252,243,237,.62)}
@@ -1543,8 +1544,8 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
 
  /* the stakes: the premium as two bars, comparable jobs = 100 */
  .st .nst .nstx{flex:1;display:flex;flex-direction:column;gap:26px;max-width:760px;margin-bottom:16px}
- .st .nst .nstx .lr{height:48px;overflow:visible}
- .st .nst .nstx .brand.pwc{height:40px;max-width:160px}
+ .st .nst .nstx .lr{height:auto;min-height:36px;overflow:visible}
+ .st .nst .nstx .org{font-size:22px;letter-spacing:.12em}
  .st .nst .nstx p{margin:0;max-width:none}
  .nstx .mb{gap:16px;padding-top:22px;border-top-color:rgba(252,243,237,.2)}
  .nstx .mb .row{grid-template-columns:250px minmax(0,1fr) 3em;column-gap:20px}
@@ -1999,7 +2000,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 <section class="s ae st nv"><div class="w">
  <p class="kick r">这些能力值多少 · 普华永道《2026年全球AI就业晴雨表》</p>
  <h2 class="r" style="--d:.1s">所以，没有这些能力的孩子，职业起点就会<em>落后一大截。</em></h2>
- <div class="nst" data-s="1"><div class="big">62%</div><div class="nstx"><div class="lr"><img class="brand pwc" src="/logos/deck/pwc.svg" alt="普华永道"></div><p>要求AI技能的岗位，招聘薪资高出的幅度</p>
+ <div class="nst" data-s="1"><div class="big">62%</div><div class="nstx"><div class="lr"><span class="org">普华永道</span></div><p>要求AI技能的岗位，招聘薪资高出的幅度</p>
   <div class="mb" role="img" aria-label="招聘薪资，同类岗位记为100：要求AI技能的岗位为162"><div class="row"><span>同类岗位</span><i style="--v:61.73"></i><b>100</b></div><div class="row hl"><span>要求AI技能</span><i style="--v:100"></i><b>162</b></div></div></div></div>
  <p class="fn" data-s="1"><span>普华永道《2026全球AI就业晴雨表》，2026年6月15日：27个国家和地区招聘广告中的平均薪资溢价，未控制学历、经验等因素</span></p>
 </div><aside class="notes">一年前是57%，有些行业高达118%。差距还在扩大。</aside></section>
