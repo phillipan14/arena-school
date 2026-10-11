@@ -22,6 +22,8 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
 
 /* footnote band: numbered short sources, the full list is the appendix */
 .fn{display:flex;flex-wrap:wrap;gap:3px 28px;margin:0;padding:11px 20px 10px;border-radius:var(--r);background:var(--pane);font:400 15px/1.45 var(--serif);color:var(--muted)}
+.ae:has(.st3)>.w>.fn{font-size:18px;line-height:1.35;padding:10px 20px}
+.ae:has(.st3):not(.st):not(.bq)>.w>h2{min-height:0}
 .fn b{font-weight:600;color:var(--ink2);margin-right:6px}
 
 /* logos: one row height, one centre line, monochrome navy, never stretched */

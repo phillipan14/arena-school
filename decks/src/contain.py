@@ -130,6 +130,52 @@ def phone_stage(pg):
     return out
 
 
+PHONE_JS = r"""([idx, scale]) => {
+ const s=document.querySelectorAll('#deck section.s')[idx], w=s.querySelector(':scope>.w');
+ const shown=e=>e.checkVisibility?e.checkVisibility({opacityProperty:true,visibilityProperty:true}):true;
+ const nm=e=>(e.tagName.toLowerCase()+(typeof e.className==='string'&&e.className.trim()?'.'+e.className.trim().split(/\s+/).filter(x=>!/^(r|vis|in|bld|nt)$/.test(x)).join('.'):'')).slice(0,40);
+ const out=[];
+ /* titles, evidence paragraphs, big numbers, and footnotes — not chrome, dates, or pills */
+ const tw=document.createTreeWalker(w,NodeFilter.SHOW_TEXT);
+ while(tw.nextNode()){
+  const t=tw.currentNode,p=t.parentElement;if(!t.nodeValue.trim()||!p||!shown(p)||p.closest('.notes,svg'))continue;
+  let min=0,kind='';
+  if(p.closest('.fn')){min=3.0;kind='footnote'}
+  else if(p.closest('h1,h2')){min=8.0;kind='title'}
+  else if(p.closest('.st3 .big, .cmp2 .big, .bnx .big, .an .big, .nst .big')&&!p.closest('small')){min=11.5;kind='number'}
+  else if(p.matches('p')&&p.closest('.bd')&&!p.closest('.tln,.who3,.agx,.qa,.c123,.qx,.who2,.mb,.where')){min=4.8;kind='body'}
+  else continue;
+  const vis=parseFloat(getComputedStyle(p).fontSize)*scale;
+  if(vis+0.08<min)out.push([nm(p),'too small ('+kind+')',vis.toFixed(1)+'px rendered, min '+min]);
+ }
+ /* large empty column: evidence children should span the body (quotes and statement slides skipped) */
+ const bd=s.querySelector(':scope>.w>.bd');
+ if(bd&&shown(bd)&&!s.matches('.bq,.tk,.cover,.toc,.s-src')){
+  const R=bd.getBoundingClientRect();
+  if(R.width>200&&R.height>80){
+   const kids=[...bd.children].filter(e=>shown(e)&&e.getBoundingClientRect().width>2);
+   if(kids.length){
+    let L=1e9,Rr=-1e9;
+    kids.forEach(e=>{const q=e.getBoundingClientRect();L=Math.min(L,q.left);Rr=Math.max(Rr,q.right)});
+    const span=(Rr-L)/R.width;
+    if(span<0.74)out.push([nm(bd),'empty region','evidence uses '+Math.round(span*100)+'% of body width']);
+   }
+  }
+ }
+ return out}"""
+
+
+def phone_quality(fr, scale):
+    """[(slide, item, reason, detail)] for tiny type and unused columns at phone letterbox scale."""
+    n = fr.evaluate("document.querySelectorAll('#deck section.s').length")
+    found = []
+    for i in range(n):
+        fr.evaluate(f"document.getElementById('deck').scrollTop=document.querySelectorAll('section.s')[{i}].offsetTop")
+        for row in fr.evaluate(PHONE_JS, [i, scale]):
+            found.append((i + 1,) + tuple(row))
+    return found
+
+
 def stage_frame(pg):
     for fr in pg.frames:
         if fr is pg.main_frame: continue
@@ -178,6 +224,11 @@ if __name__ == '__main__':
                     print(f"{deck}  phone letterbox stage: {len(F)} outside their container")
                     for f in F: print('   slide %d  in %s  %s  %s' % f)
                     total += len(F)
+                    scale = pg.evaluate("window.__ps||0")
+                    Q = phone_quality(fr, scale)
+                    print(f"{deck}  phone 390×844 quality (scale {scale:.3f}): {len(Q)} size/empty problems")
+                    for f in Q: print('   slide %d  %s  %s  %s' % f)
+                    total += len(Q)
                 else:
                     print(f"{deck}  phone 390×844 player: no ?stage iframe")
                     total += 1
