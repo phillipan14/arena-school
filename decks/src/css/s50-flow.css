@@ -156,6 +156,7 @@
  /* donuts and a pictogram: shares drawn as rings or filled marks */
  .dns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap)}
  .dn{display:grid;grid-template-columns:220px minmax(0,1fr);align-items:center;column-gap:var(--gap-l);padding:var(--pad-m)!important}
+ .dn>.big{min-height:160px}
  .dn svg{width:220px;height:220px;transform:rotate(-90deg)}
  .dn circle{fill:none;stroke-width:12}
  .dn .tr{stroke:var(--track)}

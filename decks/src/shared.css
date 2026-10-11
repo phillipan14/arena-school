@@ -2,6 +2,7 @@
 @import url('/fonts/zh/zh-fallback.css'); /* self-hosted Noto Serif SC slices: Chinese serif on phones without Songti (iPhone, Android); loads only the characters used */
 /* round 5: one serif family (Newsreader for Latin, Songti SC for Chinese), one radius, one card padding */
 :root{--ink:#0B1A4A;--ink2:#2F55A8;--paper:#F3E9DD;--paper-hi:#FCF3ED;--beige:#EFE3D4;--muted:#5B5B6B;--line:#D4C0AA;--text:#26304F;
+ --sai-t:env(safe-area-inset-top,0px);--sai-r:env(safe-area-inset-right,0px);--sai-b:env(safe-area-inset-bottom,0px);--sai-l:env(safe-area-inset-left,0px);
  --serif:'Newsreader','Songti SC','Noto Serif SC','Source Han Serif SC',Georgia,serif;
  --r:12px;--ease:cubic-bezier(.2,.7,.2,1);--z:1;--gut:150px;--vh:calc(1vh / var(--z));
  --cp:clamp(22px,calc(3 * var(--vh)),30px) clamp(22px,1.9vw,30px);
@@ -238,6 +239,9 @@ figcaption.rv.open>.rv-d,figcaption.rv:focus-visible>.rv-d{transform:none}
 .player .deck,.player .nav,.player .hint{display:none}
 .player .stage{display:block;position:fixed;inset:0;overflow:hidden;background:var(--ink)}
 .stage iframe{position:absolute;left:50%;top:50%;width:1920px;height:1080px;border:0;transform-origin:50% 50%;background:var(--paper)}
+html.framed,html.framed body{width:1920px;height:1080px;overflow:hidden}
+html.framed .deck{width:1920px;height:1080px}
+html.framed .s{min-height:1080px;height:1080px}
 .player .phint.on{display:block;position:fixed;z-index:9;left:0;right:0;bottom:calc(16px + env(safe-area-inset-bottom));text-align:center;font:italic 400 15px/1 var(--serif);color:rgba(252,243,237,.72);pointer-events:none}
 .player .lang{border-color:rgba(252,243,237,.6)}.player .lang a+a{border-left-color:rgba(252,243,237,.6)}
 /* no letterbox above or below: stand upright in the side letterbox, foot level with the slide's bottom margin (72 × 1.32).

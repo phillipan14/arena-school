@@ -5,16 +5,22 @@
  var f=document.getElementById('frame'),st=document.getElementById('stage'),ph=document.querySelector('.phint'),q=location.search.replace(/^\?/,'');
  f.src=location.pathname+'?stage'+(q?'&'+q:'')+location.hash;
  function fw(){try{return f.contentWindow.__step?f.contentWindow:null}catch(e){return null}}
- function fit(){var v=window.visualViewport,W=innerWidth,Hh=innerHeight,s=Math.min(W/1920,Hh/1080);
+ function box(){var v=window.visualViewport,cs=getComputedStyle(H),n=function(p){return parseFloat(cs.getPropertyValue(p))||0};
+  var L=n('--sai-l'),T=n('--sai-t'),R=n('--sai-r'),B=n('--sai-b');
+  var W=(v?v.width:innerWidth)-L-R,Hh=(v?v.height:innerHeight)-T-B;
+  return {W:Math.max(W,1),Hh:Math.max(Hh,1),x:(v?v.offsetLeft:0)+L+W/2,y:(v?v.offsetTop:0)+T+Hh/2}}
+ function fit(){var b=box(),s=Math.min(b.W/1920,b.Hh/1080);
+  f.style.left=b.x+'px';f.style.top=b.y+'px';
   f.style.transform='translate(-50%,-50%) scale('+s+')';window.__ps=s;
   /* no letterbox above or below for the language pill: stand it in the side letterbox if the upright pill (about 40px) fits there,
      otherwise dock it in the slide's right margin, clear of the corner logo */
-  var band=(Hh-1080*s)/2,side=(W-1920*s)/2,low=band<45;H.classList.toggle('side',low&&side>=56);H.classList.toggle('dock',low&&side<56);
+  var band=(b.Hh-1080*s)/2,side=(b.W-1920*s)/2,low=band<45;H.classList.toggle('side',low&&side>=56);H.classList.toggle('dock',low&&side<56);
   H.style.setProperty('--ps',s);H.style.setProperty('--pk',Math.max(s,.8));H.style.setProperty('--band',band+'px');H.style.setProperty('--side',side+'px');
-  ph.classList.toggle('on',matchMedia('(pointer:coarse)').matches&&(Hh-1080*s)/2>=48);
+  ph.classList.toggle('on',matchMedia('(pointer:coarse)').matches&&band>=48);
   var w=fw();if(w){w.__ps=s;w.document.documentElement.classList.toggle('tiny',s<.6)}}
  f.addEventListener('load',function(){fit();try{f.contentWindow.focus()}catch(e){}});
  fit();addEventListener('resize',fit);addEventListener('orientationchange',function(){setTimeout(fit,120)});
+ if(window.visualViewport){visualViewport.addEventListener('resize',fit);visualViewport.addEventListener('scroll',fit)}
  addEventListener('keydown',function(e){var w=fw();if(!w)return;
   if(['ArrowDown','ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();w.__step(1)}if(['ArrowUp','ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();w.__step(-1)}});
  /* swipes and taps on the letterbox around the slide */
