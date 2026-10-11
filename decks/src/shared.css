@@ -240,9 +240,13 @@ figcaption.rv.open>.rv-d,figcaption.rv:focus-visible>.rv-d{transform:none}
 .stage iframe{position:absolute;left:50%;top:50%;width:1920px;height:1080px;border:0;transform-origin:50% 50%;background:var(--paper)}
 .player .phint.on{display:block;position:fixed;z-index:9;left:0;right:0;bottom:calc(16px + env(safe-area-inset-bottom));text-align:center;font:italic 400 15px/1 var(--serif);color:rgba(252,243,237,.72);pointer-events:none}
 .player .lang{border-color:rgba(252,243,237,.6)}.player .lang a+a{border-left-color:rgba(252,243,237,.6)}
-.player.dock .lang{flex-direction:column;top:auto;right:calc(var(--side) + 37.5px * var(--ps));bottom:calc(var(--band) + 66px * var(--ps));transform:translateX(50%) scale(var(--pk));transform-origin:50% 100%;border-color:var(--ink)}
-.player.dock .lang a{text-align:center;padding:7px 6px 6px;font-size:11px}.player.dock .lang a+a{border-left:0;border-top:1.5px solid var(--ink)}
-@media (min-width:701px){html:not(.player) .lang{flex-direction:column;top:auto;right:calc(var(--gut) / 4);bottom:66px;transform:translateX(50%)}
+/* no letterbox above or below: stand upright in the side letterbox, foot level with the slide's bottom margin (72 × 1.32).
+   Only when that letterbox is too narrow too does it dock inside the frame's right margin, centred in it (half of 6.25% of 1920). */
+.player.side .lang{flex-direction:column;top:auto;right:calc(var(--side) / 2);bottom:calc(var(--band) + 95px * var(--ps));transform:translateX(50%)}
+.player.dock .lang{flex-direction:column;top:auto;right:calc(var(--side) + 60px * var(--ps));bottom:calc(var(--band) + 95px * var(--ps));transform:translateX(50%) scale(var(--pk));transform-origin:50% 100%;border-color:var(--ink)}
+.player:is(.dock,.side) .lang a{text-align:center;padding:7px 6px 6px;font-size:11px}.player:is(.dock,.side) .lang a+a{border-left:0;border-top:1.5px solid var(--ink)}
+.player.side .lang a+a{border-top-color:rgba(252,243,237,.6)}
+@media (min-width:701px){html:not(.player) .lang{flex-direction:column;top:auto;right:calc(var(--margin-x) / 2);bottom:calc(var(--pad-bot) * var(--z));transform:translateX(50%)}
  html:not(.player) .lang a{text-align:center;padding:7px 6px 6px;font-size:11px}html:not(.player) .lang a+a{border-left:0;border-top:1.5px solid var(--ink)}}
 .framed .lang,.tiny .nav,.tiny .hint{display:none}
 .touch .deck{overflow:hidden;scroll-snap-type:none}

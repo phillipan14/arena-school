@@ -7,8 +7,9 @@
  function fw(){try{return f.contentWindow.__step?f.contentWindow:null}catch(e){return null}}
  function fit(){var v=window.visualViewport,W=innerWidth,Hh=innerHeight,s=Math.min(W/1920,Hh/1080);
   f.style.transform='translate(-50%,-50%) scale('+s+')';window.__ps=s;
-  /* no letterbox room for the language pill: dock it in the slide's right gutter, clear of the corner logo */
-  var band=(Hh-1080*s)/2,side=(W-1920*s)/2;H.classList.toggle('dock',band<45&&side<120);
+  /* no letterbox above or below for the language pill: stand it in the side letterbox if the upright pill (about 40px) fits there,
+     otherwise dock it in the slide's right margin, clear of the corner logo */
+  var band=(Hh-1080*s)/2,side=(W-1920*s)/2,low=band<45;H.classList.toggle('side',low&&side>=56);H.classList.toggle('dock',low&&side<56);
   H.style.setProperty('--ps',s);H.style.setProperty('--pk',Math.max(s,.8));H.style.setProperty('--band',band+'px');H.style.setProperty('--side',side+'px');
   ph.classList.toggle('on',matchMedia('(pointer:coarse)').matches&&(Hh-1080*s)/2>=48);
   var w=fw();if(w){w.__ps=s;w.document.documentElement.classList.toggle('tiny',s<.6)}}
