@@ -760,6 +760,9 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
 .brand.xf{height:32px}.brand.aos{height:30px}.brand.hv{height:20px}.brand.jp{height:22px}.brand.gg{height:32px}
 .brand.an{height:19px}.brand.acc{height:31px}.brand.msft{height:27px}.brand.km{height:30px}
 .brand.sf{height:44px;filter:none;opacity:.9}
+.brand.amz{height:28px}.brand.duo{height:26px}.brand.icbc{height:32px}.brand.sc{height:36px}
+.brand.pwc{height:36px}.brand.sx{height:18px}.brand.cur{height:28px}
+.pane.dk .brand,.nv .brand,.cmp2 .dk .brand{filter:brightness(0) invert(1);opacity:.88}
 .org{font:600 15px/1 var(--serif);letter-spacing:.13em;text-transform:uppercase;color:var(--ink)}
 :lang(zh-CN) .org{font-size:17px;letter-spacing:.06em}
 
@@ -1273,13 +1276,14 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .tln .big small{display:inline;margin-left:.12em;font-size:.36em;color:var(--ink)}
  .ae .bd .tln h3{font-size:30px;margin-bottom:10px}
  .ae .bd .tln p{font-size:23px;line-height:1.4}
- .tln-pane{padding:var(--pad-l)!important}
+ .tln-pane{padding:var(--pad-l)!important;display:flex;flex-direction:column;gap:22px}
+ .tln-pane>.lr{height:36px;margin:0}
 
  /* three short cards side by side, each with its source on top */
  .trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap)}
  .trio .card{gap:22px;padding:var(--pad-m)}
  .trio .lr{height:40px;margin:0}
- .trio .brand.acc{height:30px}.trio .brand.msft{height:28px}
+ .trio .brand.acc{height:30px}.trio .brand.msft{height:28px}.trio .brand.duo{height:26px}
  .ae .bd .trio .say{font-size:31px;line-height:1.3;color:var(--ink);font-weight:500;text-wrap:balance}
  .ae .bd .trio .who3{margin-top:auto;font:italic 400 19px/1.4 var(--serif);color:var(--muted)}
  :lang(zh-CN) .ae .bd .trio .who3{font-style:normal}
@@ -1516,6 +1520,7 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
 
  /* the stakes: the premium as two bars, comparable jobs = 100 */
  .st .nst .nstx{flex:1;display:flex;flex-direction:column;gap:26px;max-width:760px;margin-bottom:16px}
+ .st .nst .nstx .lr{height:36px}
  .st .nst .nstx p{margin:0;max-width:none}
  .nstx .mb{gap:16px;padding-top:22px;border-top-color:rgba(252,243,237,.2)}
  .nstx .mb .row{grid-template-columns:250px minmax(0,1fr) 3em;column-gap:20px}
@@ -1867,8 +1872,8 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <p class="kick r">3/4 · 银行家 · 工商银行与渣打银行</p>
  <h2 class="r" style="--d:.1s">在中国最大的银行工商银行，AI在2025年承担的工作量<em>约相当于全行员工的13%。</em></h2>
  <div class="bd r" style="--d:.25s"><div class="duo">
-  <div class="pane" data-s="1"><div class="lr"><span class="org">中国工商银行</span></div><div class="big">5.5<small>万人年</small></div><p>由AI“数字员工”承担的工作量；全行员工约41万人</p></div>
-  <div class="pane dk" data-s="2"><div class="lr"><span class="org">渣打银行</span></div><div class="big">7800<small>个岗位</small></div><p>企业职能岗位将在2030年前削减，CEO 称之为替换“价值较低的人力资本”。</p></div>
+  <div class="pane" data-s="1"><div class="lr"><img class="brand icbc" src="/logos/deck/icbc.svg" alt="中国工商银行"></div><div class="big">5.5<small>万人年</small></div><p>由AI“数字员工”承担的工作量；全行员工约41万人</p></div>
+  <div class="pane dk" data-s="2"><div class="lr"><img class="brand sc" src="/logos/deck/standard-chartered.svg" alt="渣打银行"></div><div class="big">7800<small>个岗位</small></div><p>企业职能岗位将在2030年前削减，CEO 称之为替换“价值较低的人力资本”。</p></div>
  </div></div>
  <p class="fn" data-s="1"><span>中国工商银行2025年年度报告，2026年3月27日（13%为我们的估算）；渣打银行投资者活动，2026年5月19日：削减15%的企业职能岗位；CEO Bill Winters 事后为这一措辞道歉</span></p>
 </div><aside class="notes">工商银行把这算作工作量，而不是裁员，但方向很清楚：同样的工作，需要的人少得多。招商银行和中信银行也报告了类似的数字。摩根大通在2025年5月告诉投资者，未来五年消费者银行运营部门人数将减少约10%，而业务量还要增长25%以上。</aside></section>
@@ -1891,7 +1896,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 <section class="s ae"><div class="w">
  <p class="kick r">亚马逊 · 从内部信到裁员</p>
  <h2 class="r" style="--d:.1s">亚马逊 CEO 说过，AI会让公司职位变少；此后，亚马逊已裁掉<em>约3万个公司职位。</em></h2>
- <div class="bd r" style="--d:.25s"><div class="pane tln-pane"><ol class="tln" style="--n:3">
+ <div class="bd r" style="--d:.25s"><div class="pane tln-pane"><div class="lr"><img class="brand amz" src="/logos/deck/amazon.svg" alt="亚马逊"></div><ol class="tln" style="--n:3">
   <li><span class="dt">2025年6月17日</span><span class="dot"></span><h3>CEO 致员工信</h3><p>AI“将减少我们公司员工的总数”</p></li>
   <li><span class="dt">2025年10月28日</span><span class="dot"></span><div class="big">1.4<small>万</small></div><p>公司职位被裁</p></li>
   <li class="end"><span class="dt">2026年1月28日</span><span class="dot"></span><div class="big">1.6<small>万</small></div><p>公司职位再被裁</p></li>
@@ -1903,7 +1908,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 <section class="s alt ae bq"><div class="w">
  <p class="kick r">谁会留下 · 出自同一封内部信，2025年6月</p>
  <h2 class="r" style="--d:.1s">“那些拥抱这场变化、熟练掌握AI的人……将处在<em>能发挥重大影响</em>的位置。”</h2>
- <div class="bd r" style="--d:.25s"><div class="bqx" data-s="1"><div class="lr"><span class="org">亚马逊 Amazon</span></div><div class="who2"><b>Andy Jassy，亚马逊 CEO</b><span>致员工信，2025年6月17日</span></div></div></div>
+ <div class="bd r" style="--d:.25s"><div class="bqx" data-s="1"><div class="lr"><img class="brand amz" src="/logos/deck/amazon.svg" alt="亚马逊"></div><div class="who2"><b>Andy Jassy，亚马逊 CEO</b><span>致员工信，2025年6月17日</span></div></div></div>
 </div><aside class="notes">他给自己员工的建议是：对AI保持好奇，主动学习，参加培训，能用AI的时候就用。这对我们的孩子同样适用。</aside></section>
 
 <!-- 15 · Average is not safe -->
@@ -1913,7 +1918,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <div class="bd r" style="--d:.25s"><div class="trio">
   <div class="card"><div class="lr"><img class="brand acc" src="/logos/deck/accenture.svg" alt="埃森哲"></div><p class="say"><span class="nw">再培训走不通的员工，</span>“我们正在加快让他们离开”</p><p class="who3">Julie Sweet，埃森哲 CEO<br>财报电话会，2025年9月25日</p></div>
   <div class="card"><div class="lr"><img class="brand msft" src="/logos/deck/microsoft.svg" alt="微软"></div><p class="say"><span class="nw">“用AI不再是可选项，</span>它是每个岗位、每个层级的核心。”</p><p class="who3">Julia Liuson，微软<br>内部邮件，2025年6月</p></div>
-  <div class="card"><div class="lr"><span class="org">多邻国 Duolingo</span></div><p class="say">“AI使用会纳入绩效考核。”</p><p class="who3">Luis von Ahn，多邻国 CEO<br>内部信，2025年4月28日</p></div>
+  <div class="card"><div class="lr"><img class="brand duo" src="/logos/deck/duolingo.svg" alt="多邻国"></div><p class="say">“AI使用会纳入绩效考核。”</p><p class="who3">Luis von Ahn，多邻国 CEO<br>内部信，2025年4月28日</p></div>
  </div></div>
 </div><aside class="notes">一个季度里，埃森哲员工减少了1.1万多人，同时AI和数据人才在两年里接近翻倍，达到7.7万人。各地雇主传递的信息是一样的：能力就是保护。</aside></section>
 
@@ -1921,7 +1926,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 <section class="s ae st nv"><div class="w">
  <p class="kick r">这些能力值多少 · 普华永道《2026年全球AI就业晴雨表》</p>
  <h2 class="r" style="--d:.1s">没有这些能力的孩子，职业起点就会<em>落后一大截。</em></h2>
- <div class="nst" data-s="1"><div class="big">62%</div><div class="nstx"><p>要求AI技能的岗位，招聘薪资高出的幅度</p>
+ <div class="nst" data-s="1"><div class="big">62%</div><div class="nstx"><div class="lr"><img class="brand pwc" src="/logos/deck/pwc.svg" alt="普华永道"></div><p>要求AI技能的岗位，招聘薪资高出的幅度</p>
   <div class="mb" role="img" aria-label="招聘薪资，同类岗位记为100：要求AI技能的岗位为162"><div class="row"><span>同类岗位</span><i style="--v:61.73"></i><b>100</b></div><div class="row hl"><span>要求AI技能</span><i style="--v:100"></i><b>162</b></div></div></div></div>
  <p class="fn" data-s="1"><span>普华永道《2026全球AI就业晴雨表》，2026年6月15日：27个国家和地区招聘广告中的平均薪资溢价，未控制学历、经验等因素</span></p>
 </div><aside class="notes">一年前是57%，有些行业高达118%。差距还在扩大。</aside></section>
@@ -2180,7 +2185,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 <section class="s alt ae"><div class="w">
  <p class="kick r">建议三 · Cursor，2022至2026年</p>
  <h2 class="r" style="--d:.1s"><span class="nw">2022年，四位在麻省理工相识的朋友创办了 Cursor；</span><br>四年后，SpaceX 以<em>600亿美元的股票</em>将其收购。</h2>
- <div class="bd r" style="--d:.25s"><div class="pane tln-pane"><ol class="tln" style="--n:4">
+ <div class="bd r" style="--d:.25s"><div class="pane tln-pane"><div class="lr"><img class="brand cur" src="/logos/tools/cursor.png" alt="Cursor"><img class="brand sx" src="/logos/deck/spacex.svg" alt="SpaceX"></div><ol class="tln" style="--n:4">
   <li><span class="dt">2022年</span><span class="dot"></span><h3>四位麻省理工校友</h3><p>创办公司，做一款AI编程工具</p></li>
   <li><span class="dt">2023年</span><span class="dot"></span><h3>Cursor 发布</h3><p>一款面向程序员的AI代码编辑器</p></li>
   <li><span class="dt">2025年11月</span><span class="dot"></span><div class="big">293<small>亿美元</small></div><p>投后估值；年化收入超过10亿美元</p></li>

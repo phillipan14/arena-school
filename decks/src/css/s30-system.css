@@ -31,6 +31,9 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
 .brand.xf{height:32px}.brand.aos{height:30px}.brand.hv{height:20px}.brand.jp{height:22px}.brand.gg{height:32px}
 .brand.an{height:19px}.brand.acc{height:31px}.brand.msft{height:27px}.brand.km{height:30px}
 .brand.sf{height:44px;filter:none;opacity:.9}
+.brand.amz{height:28px}.brand.duo{height:26px}.brand.icbc{height:32px}.brand.sc{height:36px}
+.brand.pwc{height:36px}.brand.sx{height:18px}.brand.cur{height:28px}
+.pane.dk .brand,.nv .brand,.cmp2 .dk .brand{filter:brightness(0) invert(1);opacity:.88}
 .org{font:600 15px/1 var(--serif);letter-spacing:.13em;text-transform:uppercase;color:var(--ink)}
 :lang(zh-CN) .org{font-size:17px;letter-spacing:.06em}
 
