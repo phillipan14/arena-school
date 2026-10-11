@@ -6,7 +6,7 @@
 
 @media (min-width:701px){
  /* cover: title, date, logos, QR, and room */
- section.s.cover>.w{justify-content:space-between;padding:23px 0 54px} /* the PTA logo's midline sits on the brand mark's */
+ section.s.cover>.w{justify-content:space-between;padding:23px 0 var(--pad-bot)} /* the PTA logo's midline sits on the brand mark's */
  .cv-top{display:flex;align-items:center;gap:28px}
  .cv-top .pta{display:block;height:50px;width:auto}
  .cv-top .arena{display:block;height:34px;width:auto;padding:7px 0 7px 28px;border-left:1px solid var(--line);box-sizing:content-box}
@@ -218,7 +218,7 @@
  :lang(zh-CN) .mm-h small{font-style:normal;font-size:16px}
  .ae .bd .ag .mm-h{flex:none;width:118px;color:#A9BEEA}
  .ag .mm-h small{color:rgba(252,243,237,.7)}
- .mm{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+ .mm{list-style:none;margin:0;padding:0;display:grid;gap:10px}
  .ag .mm{flex:1;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}
  .ae .bd .mm li{display:flex;align-items:center;gap:13px;font-size:inherit;line-height:1}
  .ae .bd .ag .mm li{align-items:flex-start;gap:12px}

@@ -801,7 +801,8 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .ae:not(.st):not(.bq) .bd>.pane:last-child:not(.story3):not(.srcs){display:flex;flex-direction:column;justify-content:center}
  .ae:not(.st):not(.bq) .bd>.pane:last-child>.cap{margin-top:0!important}
  .ae:not(.st):not(.bq) .bd>:last-child:is(.bnx,.model,.story3){align-content:center}
- .ae .bd>.logos:last-child{align-items:flex-end}
+ .ae .bd>.team{flex-grow:1;grid-auto-rows:1fr}
+ .ae .bd>.logos:last-child{flex-grow:0}
  .ae .bd>.srcs:last-child{flex-grow:0}
  .ae .bd p,.ae .bd li,.ae .bd dd{margin:0;font-size:26px;line-height:1.42;color:var(--text);text-wrap:pretty}
  :lang(zh-CN) .ae .bd p,:lang(zh-CN) .ae .bd li,:lang(zh-CN) .ae .bd dd{line-height:1.55}
@@ -922,6 +923,7 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
 @media (max-width:700px){
  .ae h2{margin-top:18px}
  .ae .bd{display:flex;flex-direction:column;gap:14px;margin-top:22px}
+ .ae .team,.ae .logos,.ae .qa,.ae .srcs{margin:0}
  .cols,.stat2,.hm,.tl,.model{display:grid;grid-template-columns:1fr!important;gap:14px}
  .flow{display:grid;grid-template-columns:1fr;gap:10px}.flow>.lab,.flow .dv{display:none}.flow .who{margin-top:12px}
  .flow .ar{height:22px}.ar svg{width:28px;height:12px;transform:rotate(90deg);fill:none;stroke:var(--ink2);stroke-width:1.8}
@@ -1141,7 +1143,7 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
 
 @media (min-width:701px){
  /* cover: title, date, logos, QR, and room */
- section.s.cover>.w{justify-content:space-between;padding:23px 0 54px} /* the PTA logo's midline sits on the brand mark's */
+ section.s.cover>.w{justify-content:space-between;padding:23px 0 var(--pad-bot)} /* the PTA logo's midline sits on the brand mark's */
  .cv-top{display:flex;align-items:center;gap:28px}
  .cv-top .pta{display:block;height:50px;width:auto}
  .cv-top .arena{display:block;height:34px;width:auto;padding:7px 0 7px 28px;border-left:1px solid var(--line);box-sizing:content-box}
@@ -1353,7 +1355,7 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  :lang(zh-CN) .mm-h small{font-style:normal;font-size:16px}
  .ae .bd .ag .mm-h{flex:none;width:118px;color:#A9BEEA}
  .ag .mm-h small{color:rgba(252,243,237,.7)}
- .mm{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+ .mm{list-style:none;margin:0;padding:0;display:grid;gap:10px}
  .ag .mm{flex:1;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}
  .ae .bd .mm li{display:flex;align-items:center;gap:13px;font-size:inherit;line-height:1}
  .ae .bd .ag .mm li{align-items:flex-start;gap:12px}
@@ -1843,7 +1845,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <h2 class="r" style="--d:.1s">Beyond the chatbots are agents and tools for coding, research, design, and video. <em>How many have you heard of?</em></h2>
  <div class="bd r" style="--d:.25s"><div class="mmap">
   <div class="pane mm-c ag"><h3 class="mm-h"><span>Personal AI agents</span><small>They carry out tasks for you</small></h3><ul class="mm">
-   <li><img src="/logos/tools/kimi.png" alt=""><span><b>Kimi<i class="cn" aria-label="Available in mainland China"></i></b><small>Agent mode builds websites, slides, and reports</small></span></li>
+   <li><img src="/logos/tools/kimi.png" alt=""><span><b>Kimi<i class="cn" aria-label="Available in mainland China"></i></b><small>Makes websites, slides, and reports</small></span></li>
    <li><img class="t" src="/logos/tools/muse.png" alt=""><span><b>Muse</b><small>Meta’s agent for email, travel, and shopping</small></span></li>
    <li><img src="/logos/tools/instinct.png" alt=""><span><b>Instinct</b><small>Text it, and it runs your errands</small></span></li>
    <li><img src="/logos/tools/manus.png" alt=""><span><b>Manus</b><small>Finishes long, many-step tasks on its own</small></span></li>
