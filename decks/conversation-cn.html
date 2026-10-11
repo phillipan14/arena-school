@@ -246,6 +246,10 @@ figcaption.rv.open>.rv-d,figcaption.rv:focus-visible>.rv-d{transform:none}
 .stage iframe{position:absolute;left:50%;top:50%;width:1920px;height:1080px;border:0;transform-origin:50% 50%;background:var(--paper)}
 .player .phint.on{display:block;position:fixed;z-index:9;left:0;right:0;bottom:calc(16px + env(safe-area-inset-bottom));text-align:center;font:italic 400 15px/1 var(--serif);color:rgba(252,243,237,.72);pointer-events:none}
 .player .lang{border-color:rgba(252,243,237,.6)}.player .lang a+a{border-left-color:rgba(252,243,237,.6)}
+.player.dock .lang{flex-direction:column;top:auto;right:calc(var(--side) + 37.5px * var(--ps));bottom:calc(var(--band) + 66px * var(--ps));transform:translateX(50%) scale(var(--pk));transform-origin:50% 100%;border-color:var(--ink)}
+.player.dock .lang a{text-align:center;padding:7px 6px 6px;font-size:11px}.player.dock .lang a+a{border-left:0;border-top:1.5px solid var(--ink)}
+@media (min-width:701px){html:not(.player) .lang{flex-direction:column;top:auto;right:calc(var(--gut) / 4);bottom:66px;transform:translateX(50%)}
+ html:not(.player) .lang a{text-align:center;padding:7px 6px 6px;font-size:11px}html:not(.player) .lang a+a{border-left:0;border-top:1.5px solid var(--ink)}}
 .framed .lang,.tiny .nav,.tiny .hint{display:none}
 .touch .deck{overflow:hidden;scroll-snap-type:none}
 @media print{.player .stage,.player .phint{display:none}.player .deck{display:block}}
@@ -1084,6 +1088,7 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .bnx .lr{margin-bottom:6px}.bnx .big,:lang(zh-CN) .bnx .big{font-size:84px;line-height:1}.bnx p{margin:8px 0 0;font-size:18px;line-height:1.45}
  .ae.bq h2{font-size:26px;line-height:1.3}
  .bqx{display:flex;align-items:center;gap:14px}.bqx .lr{margin:0}.bqx .who2 b{display:block}.bqx .who2 span{display:block;font-size:14px;color:var(--muted)}
+ .creds li b{display:block;font-weight:600;color:var(--ink2)}
  .paths{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:22px 0 0;padding:0;list-style:none}
  .paths li{display:flex;flex-direction:column;gap:4px;padding-top:10px;border-top:1px solid var(--ink)}
  .paths li i{font-style:italic;font-size:13px;color:var(--ink2)}.paths li b{font-weight:500;font-size:19px}.paths li span{font-size:13px;line-height:1.4;color:var(--muted)}
@@ -1106,9 +1111,9 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
 
 @media (min-width:701px){
  /* cover: title, date, logos, QR, and room */
- section.s.cover>.w{justify-content:space-between;padding:60px 0 54px}
+ section.s.cover>.w{justify-content:space-between;padding:23px 0 54px}
  .cv-top{display:flex;align-items:center;gap:28px}
- .cv-top .pta{display:block;height:60px;width:auto}
+ .cv-top .pta{display:block;height:50px;width:auto}
  .cv-top .arena{display:block;height:34px;width:auto;padding:7px 0 7px 28px;border-left:1px solid var(--line);box-sizing:content-box}
  .cv-mid{max-width:1060px}
  .cover h1{margin-top:30px;font-size:98px;line-height:1.02;letter-spacing:-.032em}
@@ -1464,6 +1469,12 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .motion .s:not(.in) .cv-top,.motion .s:not(.in) .cv-foot{opacity:0}
 }
 
+/* ---- s70-brand.css ---- */
+/* brand mark: aligned to the content's right edge, centered on the kicker line */
+section.s>.brandmk{position:absolute;z-index:3;top:calc(37px * var(--z));right:calc(var(--gut) / 2);height:calc(22px * var(--z));width:auto;pointer-events:none;user-select:none}
+/* the reflowed phone page keeps its fixed language pill top-right, so the mark sits above each kicker on the left */
+@media (max-width:700px){section.s>.brandmk{top:22px;right:auto;left:20px;height:15px}}
+
 /* ---- snum.css ---- */
 /* slide numbers (snum): quiet folio in the bottom-right gutter of every slide except the title */
 section.s>.pgno{position:absolute;right:24px;bottom:16px;z-index:3;pointer-events:none;user-select:none;
@@ -1476,7 +1487,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 <main class="deck" id="deck">
 <!-- 1 · Cover -->
 <section class="s ae cover"><div class="w">
- <div class="cv-top"><img class="pta" src="/decks/img/conversation/pta-logo.png" alt="ISB 家长教师协会（PTA）"><img class="arena" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School"></div>
+ <div class="cv-top"><img class="pta" src="/decks/img/conversation/pta-logo.png" alt="ISB 家长教师协会（PTA）"></div>
  <div class="cv-mid">
   <p class="kick r">家长咖啡会 · 2026年10月14日</p>
   <h1 class="r" style="--d:.1s">孩子们未来的工作<br><span class="m" style="--d:1s"><em>还不存在，</em></span><span class="sub">那么，哪些能力最重要？</span></h1>
@@ -1993,6 +2004,9 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  function fw(){try{return f.contentWindow.__step?f.contentWindow:null}catch(e){return null}}
  function fit(){var v=window.visualViewport,W=innerWidth,Hh=innerHeight,s=Math.min(W/1920,Hh/1080);
   f.style.transform='translate(-50%,-50%) scale('+s+')';window.__ps=s;
+  /* no letterbox room for the language pill: dock it in the slide's right gutter, clear of the corner logo */
+  var band=(Hh-1080*s)/2,side=(W-1920*s)/2;H.classList.toggle('dock',band<45&&side<120);
+  H.style.setProperty('--ps',s);H.style.setProperty('--pk',Math.max(s,.8));H.style.setProperty('--band',band+'px');H.style.setProperty('--side',side+'px');
   ph.classList.toggle('on',matchMedia('(pointer:coarse)').matches&&(Hh-1080*s)/2>=48);
   var w=fw();if(w){w.__ps=s;w.document.documentElement.classList.toggle('tiny',s<.6)}}
  f.addEventListener('load',function(){fit();try{f.contentWindow.focus()}catch(e){}});
@@ -2154,6 +2168,19 @@ lay();addEventListener('resize',lay);[].forEach.call(document.querySelectorAll('
   var d=h.offsetTop-c.offsetTop; if(!(h.offsetParent&&h.offsetParent===c.offsetParent))d=(h.getBoundingClientRect().top-c.getBoundingClientRect().top)/z; a.style.marginTop=Math.max(0,d)+'px'; }
  fit(); addEventListener('resize',fit); addEventListener('load',fit); if(document.fonts)document.fonts.ready.then(fit);
  var sp=window.__space; if(sp)window.__space=function(){sp.apply(this,arguments);fit()};
+})();
+</script>
+
+<script>
+/* brand mark: the Arena lockup in the top-right corner of every slide, ivory on navy slides */
+(function(){
+  var ss=document.querySelectorAll('#deck section.s');
+  for(var i=0;i<ss.length;i++){
+    if(ss[i].querySelector(':scope>.brandmk'))continue;
+    var m=document.createElement('img');m.className='brandmk';m.alt='';m.setAttribute('aria-hidden','true');
+    m.src='/logos/arena/wordmark-'+(ss[i].classList.contains('nv')?'ivory':'navy')+'-1600.png';
+    ss[i].appendChild(m);
+  }
 })();
 </script>
 

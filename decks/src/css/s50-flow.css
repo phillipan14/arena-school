@@ -6,9 +6,9 @@
 
 @media (min-width:701px){
  /* cover: title, date, logos, QR, and room */
- section.s.cover>.w{justify-content:space-between;padding:60px 0 54px}
+ section.s.cover>.w{justify-content:space-between;padding:23px 0 54px}
  .cv-top{display:flex;align-items:center;gap:28px}
- .cv-top .pta{display:block;height:60px;width:auto}
+ .cv-top .pta{display:block;height:50px;width:auto}
  .cv-top .arena{display:block;height:34px;width:auto;padding:7px 0 7px 28px;border-left:1px solid var(--line);box-sizing:content-box}
  .cv-mid{max-width:1060px}
  .cover h1{margin-top:30px;font-size:98px;line-height:1.02;letter-spacing:-.032em}

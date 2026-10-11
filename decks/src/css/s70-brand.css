@@ -1,0 +1,4 @@
+/* brand mark: aligned to the content's right edge, centered on the kicker line */
+section.s>.brandmk{position:absolute;z-index:3;top:calc(37px * var(--z));right:calc(var(--gut) / 2);height:calc(22px * var(--z));width:auto;pointer-events:none;user-select:none}
+/* the reflowed phone page keeps its fixed language pill top-right, so the mark sits above each kicker on the left */
+@media (max-width:700px){section.s>.brandmk{top:22px;right:auto;left:20px;height:15px}}
