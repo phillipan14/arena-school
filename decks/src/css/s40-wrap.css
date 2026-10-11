@@ -7,6 +7,7 @@
 /* statement slides: navy, one large line, a quiet seal in the corner */
 .s.nv{background:var(--ink);color:var(--paper-hi)}
 .s.nv::before{content:"";position:absolute;z-index:0;inset:0;background:url(/logos/arena/seal-ivory-1024.png) right -5vw bottom -16vh/min(54vw,96vh) no-repeat;opacity:.05;pointer-events:none}
+.s.nv.cl::before{background-position:right -10vw bottom -28vh;opacity:.035}
 .s.nv>.pgno{color:rgba(252,243,237,.6)}
 .nv .kick,.nv h2 em,.nv .by,.nv sup,.nv .big{color:#A9BEEA}
 .nv h2{color:var(--paper-hi)}
@@ -50,6 +51,8 @@
  :lang(zh-CN) .st .sl{max-width:30em;line-height:1.6}
  .st>.w>.fn{position:absolute;left:0;bottom:var(--pad-bot)}
  .st .nst{display:flex;align-items:flex-end;gap:var(--gap-l);margin-top:var(--body-gap)}
+ .st .nst .nstx .lr{height:44px}
+ .st .nst .nstx .brand.pwc{height:34px}
  .st .nst .big{font-size:168px}
  :lang(zh-CN) .st .nst .big{font-size:150px}
  .st .nst p{margin:0 0 16px;max-width:19em;font-size:30px;line-height:1.4}
@@ -94,7 +97,7 @@
  .an .hb i{height:30px}
  .ar2{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:0 8px}
  .ar2 svg{width:120px;height:16px;fill:none;stroke:var(--ink2);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
- .ar2 span{font:italic 400 28px/1 var(--serif);color:var(--ink2)}
+ .ar2 span{font:italic 400 22px/1 var(--serif);color:var(--ink2)}
  :lang(zh-CN) .ar2 span{font-style:normal}
 
  .ae .bd .model p.ex{margin-top:14px;max-width:14em;font:italic 400 22px/1.4 var(--serif);color:var(--muted)}
@@ -137,8 +140,9 @@
  .emp1 .ls li i{font-size:32px;width:52px}
 
  /* two numbers compared, with a word between them instead of an arrow */
- .ar2.vs{padding:0 12px}
- .ar2.vs span{font-size:28px}
+ .ar2.vs{padding:0 10px}
+ .ar2.vs span{display:inline-block;padding:8px 16px 7px;border:1.5px solid var(--ink2);border-radius:999px;font:600 16px/1 var(--serif);letter-spacing:.08em;text-transform:uppercase;font-style:normal}
+ :lang(zh-CN) .ar2.vs span{letter-spacing:.04em}
 
  /* the tools parents may not know: icons and names only, the rest is spoken */
  .apps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:44px 28px;justify-items:center}
