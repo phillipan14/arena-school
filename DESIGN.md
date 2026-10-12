@@ -355,6 +355,9 @@ Modeled on Phillip's showcase-wrap deck (portal.arenaschool.org/decks/showcase-w
 - **Chain:** three steps in order with arrows, each labeled with when it happens ("First", "Then", "Only if needed").
 - **Arc:** two big numbers with the time between them, each with its own 0–100% bar.
 - **Pair:** the same tool used two ways. An ivory card and a navy card, each with a pill label, a quoted request in large italic, and one line on what happens.
+- **Growth columns (10-13):** a value over time is a column chart on one navy baseline. Bar height is the value; a year with no value is a ring on the axis. The value sits above its bar, the date, name, and one line below the axis. Only the title's bar uses `--data` (Cursor, slide 30).
+- **Grouped row (10-13):** when some items in a set are ours and some come from a source, they share one row and a labeled rule groups them above; the sourced group uses dashed card edges and a muted label (five skills, slide 18).
+- **Photo cards (10-13):** project photos run edge to edge across the card top; the project name leads, and the skill it shows sits under a hairline at the card foot, aligned across the row.
 
 ---
 
@@ -441,6 +444,8 @@ Modeled on Phillip's showcase-wrap deck (portal.arenaschool.org/decks/showcase-w
   - Count-up stats on screen only.
   - **Step builds** (parent talk, 10-11): when a slide is reached with the arrow keys it opens on its title, and each press reveals the next part (`data-s`), fading up 10px over about 0.5s while bars grow from zero. Back hides them again. Slides reached any other way (scroll, dots, agenda, phone, `?read`, export, and PDF) always show in full, and reduced motion keeps the steps but drops the movement.
   - Use transitions or interactivity to lighten text-heavy slides (09-30).
+  - **One build per card (10-13):** a step (`data-s`) always sits on the element that fades, never on a `display:contents` wrapper, which cannot animate. Then/now builds old card → arrow draws → new card slides across; growth columns rise from the axis, then the value lands; how → what lists the old work, turns the arrow, then slides the new work across.
+  - **Market map (10-13):** six agents arrive 130ms apart and settle, recede to 95.5%, the field of tool tiles floods in with an accelerating stagger and fills the whole area, then the six lift back to full size (animated) while the field steps back to 30%. About 4s; a tap finishes it at once.
 - **Banned:** morphing or "AI reshaping" art, animated Midjourney images, jittery timelines, spinning or bouncing decorative elements. The inner-header seal turns once every 4 minutes, which is the only allowed rotation (see D7).
 
 ---
