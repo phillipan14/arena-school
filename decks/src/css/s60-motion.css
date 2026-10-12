@@ -80,7 +80,7 @@
  /* market map: six agents arrive and settle, the cluster recedes, the field floods in, then the six lift again.
     Cards stay opaque (never fade) so the field cannot show through them. Only opacity and transform. */
  .motion .ag-flood .agx{transition:transform .5s var(--e-o)}
- .motion .ag-flood .agx li{opacity:0;transform:translateY(16px) scale(.96);transition:opacity .46s ease,transform .54s var(--e-o),box-shadow .4s ease;transition-delay:calc(70ms + var(--i,0) * 150ms)}
+ .motion .ag-flood .agx li{opacity:0;transform:translateY(16px) scale(.96);transition:opacity .46s ease,transform .54s var(--e-o),box-shadow .4s ease;transition-delay:calc(70ms + var(--i,0) * 130ms)}
  .motion .s.in .ag-flood .agx li{opacity:1;transform:none}
  .motion .ag-flood.recede:not(.focus):not(.done) .agx{transform:scale(.955)}
  .motion .ag-flood.recede:not(.focus):not(.done) .agx li{box-shadow:0 4px 14px rgba(20,28,45,.08),inset 0 0 0 1px var(--edge);transition-delay:0s}
@@ -88,8 +88,13 @@
  .motion .ag-flood.focus .agx li,.motion .ag-flood.done .agx li{opacity:1;transform:none;transition-delay:0s}
  .motion .ag-flood.done .agx,.motion .ag-flood.done .agx li{transition:none}
  .motion .ag-fill .ag-tile{opacity:0;transform:scale(.82);transition:opacity .28s ease var(--d,0s),transform .38s var(--e-o) var(--d,0s)}
- .motion .ag-flood.flood .ag-tile,.motion .ag-flood.done .ag-tile,.motion .ag-fill.done .ag-tile{opacity:.36;transform:none}
+ .motion .ag-flood.flood .ag-tile{opacity:.42;transform:none}
+ /* the lift: the six return to full size above the field, and the field steps back so they read first */
+ .motion .ag-flood.focus .ag-tile,.motion .ag-flood.done .ag-tile,.motion .ag-fill.done .ag-tile{opacity:.3;transform:none;transition:opacity .6s ease}
+ .motion .ag-flood.focus .agx{transition:transform .6s var(--e-o)}
+ .motion .ag-flood.focus .agx li{transition:transform .6s var(--e-o),box-shadow .6s ease}
  .motion .ag-flood.done .ag-tile,.motion .ag-fill.done .ag-tile{transition:none}
+ .motion .ag-fill{contain:layout paint}
 
  /* Cursor growth: the line draws, then nodes climb */
  .motion .grow-line path{stroke-dasharray:1400;stroke-dashoffset:1400;transition:stroke-dashoffset 1.6s var(--e-io) .2s}

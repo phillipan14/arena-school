@@ -1715,7 +1715,7 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  /* personal agents: curated six sit on a filling field of real tools */
  .ag-flood{position:relative;flex:1;min-height:0;display:grid}
  .ag-fill{position:absolute;inset:-4px;display:grid;grid-template-columns:repeat(24,minmax(0,1fr));grid-auto-rows:28px;gap:5px;align-content:start;overflow:hidden;pointer-events:none;z-index:0}
- .ag-tile{display:grid;place-items:center;min-width:0;overflow:hidden;padding:0;border-radius:6px;background:var(--paper-hi);box-shadow:inset 0 0 0 1px var(--edge);opacity:.38}
+ .ag-tile{display:grid;place-items:center;min-width:0;overflow:hidden;padding:0;border-radius:6px;background:var(--paper-hi);box-shadow:inset 0 0 0 1px var(--edge);opacity:.3}
  .ag-tile img{width:18px;height:18px;border-radius:5px;object-fit:cover;background:#fff}
  .ag-flood .agx{position:relative;z-index:2;align-self:center;width:100%;padding:28px 12px;box-sizing:border-box}
  .ag-flood .agx li,.ag-flood .agx .pane{background:var(--paper-hi);box-shadow:0 12px 32px rgba(20,28,45,.14),inset 0 0 0 1.5px var(--ink)}
@@ -1962,7 +1962,7 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  /* market map: six agents arrive and settle, the cluster recedes, the field floods in, then the six lift again.
     Cards stay opaque (never fade) so the field cannot show through them. Only opacity and transform. */
  .motion .ag-flood .agx{transition:transform .5s var(--e-o)}
- .motion .ag-flood .agx li{opacity:0;transform:translateY(16px) scale(.96);transition:opacity .46s ease,transform .54s var(--e-o),box-shadow .4s ease;transition-delay:calc(70ms + var(--i,0) * 150ms)}
+ .motion .ag-flood .agx li{opacity:0;transform:translateY(16px) scale(.96);transition:opacity .46s ease,transform .54s var(--e-o),box-shadow .4s ease;transition-delay:calc(70ms + var(--i,0) * 130ms)}
  .motion .s.in .ag-flood .agx li{opacity:1;transform:none}
  .motion .ag-flood.recede:not(.focus):not(.done) .agx{transform:scale(.955)}
  .motion .ag-flood.recede:not(.focus):not(.done) .agx li{box-shadow:0 4px 14px rgba(20,28,45,.08),inset 0 0 0 1px var(--edge);transition-delay:0s}
@@ -1970,8 +1970,13 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
  .motion .ag-flood.focus .agx li,.motion .ag-flood.done .agx li{opacity:1;transform:none;transition-delay:0s}
  .motion .ag-flood.done .agx,.motion .ag-flood.done .agx li{transition:none}
  .motion .ag-fill .ag-tile{opacity:0;transform:scale(.82);transition:opacity .28s ease var(--d,0s),transform .38s var(--e-o) var(--d,0s)}
- .motion .ag-flood.flood .ag-tile,.motion .ag-flood.done .ag-tile,.motion .ag-fill.done .ag-tile{opacity:.36;transform:none}
+ .motion .ag-flood.flood .ag-tile{opacity:.42;transform:none}
+ /* the lift: the six return to full size above the field, and the field steps back so they read first */
+ .motion .ag-flood.focus .ag-tile,.motion .ag-flood.done .ag-tile,.motion .ag-fill.done .ag-tile{opacity:.3;transform:none;transition:opacity .6s ease}
+ .motion .ag-flood.focus .agx{transition:transform .6s var(--e-o)}
+ .motion .ag-flood.focus .agx li{transition:transform .6s var(--e-o),box-shadow .6s ease}
  .motion .ag-flood.done .ag-tile,.motion .ag-fill.done .ag-tile{transition:none}
+ .motion .ag-fill{contain:layout paint}
 
  /* Cursor growth: the line draws, then nodes climb */
  .motion .grow-line path{stroke-dasharray:1400;stroke-dashoffset:1400;transition:stroke-dashoffset 1.6s var(--e-io) .2s}
@@ -1993,6 +1998,141 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
 section.s>.brandmk{position:absolute;z-index:3;top:calc((var(--pad-top) - 3px) * var(--z));right:var(--margin-x);height:calc(22px * var(--z));width:auto;pointer-events:none;user-select:none}
 /* the reflowed phone page keeps its fixed language pill top-right, so the mark sits above each kicker on the left */
 @media (max-width:700px){section.s>.brandmk{top:22px;right:auto;left:20px;height:15px}}
+
+/* ---- s80-pass.css ---- */
+/* ===== Oct 13 · design and motion pass. Loaded last, so these rules win. One section per slide or component. ===== */
+@media (min-width:701px){
+
+ /* Cursor (30): a column chart on a zero baseline. Valuation is the bar; years with no valuation sit as a dot on the axis.
+    Only the $60B bar, the title's point, uses --data. */
+ .grow.gcol{display:flex;flex-direction:column;justify-content:flex-end;padding:0}
+ .gcol .grow-n{grid-template-columns:repeat(4,minmax(0,1fr));gap:0;align-items:stretch}
+ .gcol .grow-n li{gap:0;padding:0 28px 0 0}
+ .gcol .gc{position:relative;display:flex;flex-direction:column;justify-content:flex-end;height:300px;border-bottom:2px solid var(--ink);margin-bottom:22px}
+ .gcol .gv{display:flex;flex-direction:column;gap:12px;margin-bottom:16px}
+ .gcol .gb{display:block;width:58%;height:calc(var(--v,0) * 1.6px);border-radius:4px 4px 0 0;background:var(--data-2);transform-origin:bottom}
+ .gcol li.end .gb{background:var(--data)}
+ .gcol .gb.dot{width:18px;height:18px;margin:0 0 -10px;border-radius:50%;background:var(--paper);box-shadow:inset 0 0 0 2px var(--ink)}
+ .s.alt .gcol .gb.dot{background:var(--beige)}
+ .gcol .gl{display:block;width:44px;height:44px;border-radius:12px;object-fit:cover;background:#fff;box-shadow:0 0 0 1px var(--edge)}
+ .gcol .acq{display:flex;align-items:center;gap:12px}
+ .gcol .acq img{display:block;width:40px;height:40px;border-radius:10px;object-fit:cover;background:#fff;box-shadow:0 0 0 1px var(--edge)}
+ .gcol .acq img.sx{width:auto;height:18px;border-radius:0;background:none;box-shadow:none}
+ .gcol .acq .to{font:400 22px/1 var(--serif);color:var(--muted)}
+ .gcol .big{font-size:80px;line-height:.9}
+ :lang(zh-CN) .gcol .big{font-size:72px}
+ .gcol .big small{font-size:.3em;margin-left:.14em;letter-spacing:0}
+ .gcol .dt{margin-bottom:10px}
+ .ae .bd .gcol h3{font-size:28px;line-height:1.2;margin-bottom:6px}
+ .ae .bd .gcol p{font-size:24px;line-height:1.35}
+ :lang(zh-CN) .ae .bd .gcol h3{font-size:26px;line-height:1.35}
+ :lang(zh-CN) .ae .bd .gcol p{font-size:24px;line-height:1.45}
+
+ /* five skills (18): one row of five, grouped: Arena's three, then the two employers also name */
+ .why5g{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px 22px;align-content:center;flex:1}
+ .why5g .why5{display:contents}
+ .why5g .w5h{position:relative;padding-bottom:14px;font:600 15px/1 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
+ :lang(zh-CN) .why5g .w5h{font-size:17px;letter-spacing:.06em}
+ .why5g .w5h::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--ink2);transform-origin:left}
+ .why5g .w5h.a{grid-column:1/4}
+ .why5g .w5h.b{grid-column:4/6;color:var(--muted)}
+ .why5g .w5h.b::after{background:var(--line)}
+ .ae .bd .why5g .why5 li,.ae .bd .why5g .why5 li:nth-child(n){grid-column:auto;grid-row:2;justify-content:flex-start;gap:14px;padding:30px 26px 32px;min-height:270px}
+ .ae .bd .why5g .why5 li:nth-child(n+4){background:transparent;border-style:dashed;border-color:rgba(11,26,74,.28)}
+ .why5g .why5 i{font-size:16px}
+ .ae .bd .why5g .why5 b{font-size:38px}
+ .ae .bd .why5g .why5 span{font-size:24px;line-height:1.38}
+ :lang(zh-CN) .ae .bd .why5g .why5 b{font-size:36px}
+ :lang(zh-CN) .ae .bd .why5g .why5 span{font-size:22px;line-height:1.6}
+ :lang(zh-CN) .ae .bd .why5g .why5 li{padding-left:22px;padding-right:20px}
+
+ /* skills map (31): two panes with labels; tiles size to their content */
+ .skmap{grid-template-columns:minmax(0,1.18fr) minmax(0,.82fr);align-items:stretch}
+ .ae .bd .skmap .pane{display:flex;flex-direction:column;gap:20px;padding:30px 34px}
+ .skmap .sk-h{font:600 15px/1 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
+ :lang(zh-CN) .skmap .sk-h{font-size:17px;letter-spacing:.06em}
+ .sk-l .sk-tools{flex:1;grid-template-columns:repeat(7,minmax(0,1fr));grid-auto-rows:auto;align-content:center;gap:14px}
+ .ae .bd .sk-l .sk-tools li{justify-content:center;gap:12px;padding:22px 4px 18px;background:var(--paper)}
+ .sk-l .sk-tools img{width:62px;height:62px;border-radius:15px}
+ .ae .bd .sk-l .sk-tools b{font-size:18px}
+ .ae .bd .sk-l .sk-tools b{white-space:nowrap}
+ :lang(zh-CN) .ae .bd .sk-l .sk-tools b{font-size:16px;letter-spacing:-.01em}
+ .ae .bd .sk-l .sk-tools li{padding-left:2px;padding-right:2px}
+ .sk-side .sk-proc{flex:none;gap:10px}
+ .ae .bd .sk-side .sk-proc li{padding:10px 18px}
+ .ae .bd .sk-side .sk-proc b{font-size:24px}
+ .ae .bd .sk-side .sk-note{margin-top:auto;padding-top:18px;border-top:1px solid var(--edge);font-size:24px;line-height:1.36;color:var(--text)}
+ :lang(zh-CN) .ae .bd .sk-side .sk-note{font-size:24px;line-height:1.5}
+
+ /* ISB projects (32): photos run edge to edge across the top of each card; the project name leads, the skill follows */
+ .ae .bd .proj4 .card{padding:0}
+ .proj4 figure{height:250px;border-radius:0}
+ .ae .bd .proj4 .pb{display:flex;flex-direction:column;gap:8px;flex:1;padding:22px 24px 24px}
+ .ae .bd .proj4 .pb .lab{margin:0}
+ .ae .bd .proj4 h3{margin:0;font-size:26px;line-height:1.25}
+ .ae .bd .proj4 .where{margin:auto 0 0;min-height:calc(2.8em + 14px);padding-top:14px;border-top:1px solid var(--edge);font:italic 400 21px/1.4 var(--serif);color:var(--muted)}
+ :lang(zh-CN) .ae .bd .proj4 h3{font-size:24px;line-height:1.4}
+ :lang(zh-CN) .ae .bd .proj4 .where{font-style:normal;font-size:20px}
+
+ /* METR (25): bars fill their pane, the four launches spread down the full height */
+ .accx .pane{justify-content:center}
+ .accx .hb{gap:34px}
+ .accx .hb.wide i{height:34px}
+ .accx .hb.wide .bk{font-size:22px}
+ .accx .hb.wide b{font-size:28px}
+ .accx .tln{display:flex;flex-direction:column;justify-content:space-between;padding:0 0 0 6px}
+ .ae .bd .accx .tln h3{font-size:28px;margin:2px 0 0}
+ .ae .bd .accx .tln p{font-size:22px;line-height:1.3}
+ .accx .tln .dt{font-size:14px}
+
+ /* then and now (29): plain column labels (the card fills no longer leak onto them) and a drawn arrow between cards */
+ .ae .bd .tn-pair .hd.o,.ae .bd .tn-pair .hd.n{background:none;padding:0 0 4px}
+ .ae .bd .tn-pair .hd.n{color:var(--ink2)}
+ .tn-pair .arr{width:72px;height:auto;border-radius:0;background:none;box-shadow:none;display:grid;place-items:center}
+ .tn-pair .arr i{position:relative;display:block;width:52px;height:2px;background:var(--ink2);transform-origin:left}
+ .tn-pair .arr i::after{content:"";position:absolute;right:-1px;top:-6px;width:12px;height:12px;border-top:2px solid var(--ink2);border-right:2px solid var(--ink2);transform:rotate(45deg)}
+
+ /* close (33): the three points sit mid-slide, the line that sums up the talk anchors the foot */
+ .ae.cl .bd{gap:0;justify-content:flex-start}
+ .ae.cl .c123{margin-top:24px}
+ .ae.cl .endline{margin-top:64px;padding-top:30px;border-top:1.5px solid rgba(252,243,237,.35)}
+
+ /* the Jassy quote (11): set at statement size so it carries the slide */
+ .ae.bq h2{font-size:72px;line-height:1.1;max-width:19.5em}
+ .ae.bq .bd{justify-content:flex-start;padding-top:64px}
+ :lang(zh-CN) .ae.bq h2{font-size:60px;line-height:1.36}
+
+}
+
+@media screen and (min-width:701px){
+ /* motion for the pieces above: same timing system as s60-motion.css */
+ .motion .gcol .gb{transition:transform 1s var(--e-o) calc(.25s + var(--i,0) * .3s)}
+ .motion .s:not(.in) .gcol .gb,.motion .s.bld .gcol[data-s]:not(.vis) .gb{transform:scaleY(0)}
+ .motion .gcol .gb.dot{transition:transform .5s var(--e-o) calc(.25s + var(--i,0) * .3s)}
+ .motion .gcol .gv{transition:opacity var(--t-f) ease calc(.75s + var(--i,0) * .3s),transform var(--t-m) var(--e-o) calc(.75s + var(--i,0) * .3s)}
+ .motion .s:not(.in) .gcol .gv,.motion .s.bld .gcol[data-s]:not(.vis) .gv{opacity:0;transform:translateY(12px)}
+ .motion .gcol .grow-n li{opacity:1;transform:none;transition:none}
+ .motion .gcol .grow-n li>:not(.gc){transition:opacity var(--t-f) ease calc(.35s + var(--i,0) * .3s),transform var(--t-m) var(--e-o) calc(.35s + var(--i,0) * .3s)}
+ .motion .s:not(.in) .gcol .grow-n li>:not(.gc),.motion .s.bld .gcol[data-s]:not(.vis) .grow-n li>:not(.gc){opacity:0;transform:translateY(10px)}
+
+ .motion .why5g .w5h::after{transition:transform .8s var(--e-io) .15s}
+ .motion .s.bld .why5g .w5h[data-s]:not(.vis)::after{transform:scaleX(0)}
+ .motion .why5g .why5 li[data-s]{transition:opacity var(--t-f) ease,transform var(--t-m) var(--e-o)}
+ .motion .s.bld .why5g .why5 li[data-s]:not(.vis){transform:translateY(22px)}
+
+ .motion .sk-l .sk-tools li{transition:opacity .4s ease calc(.15s + var(--i,0) * 55ms),transform .55s var(--e-o) calc(.15s + var(--i,0) * 55ms)}
+ .motion .s:not(.in) .sk-l .sk-tools li,.motion .s.bld .sk-l[data-s]:not(.vis) .sk-tools li{opacity:0;transform:translateY(12px) scale(.94)}
+ .motion .sk-side .sk-proc li{transition:opacity .45s ease calc(.15s + var(--i,0) * .14s),transform .6s var(--e-o) calc(.15s + var(--i,0) * .14s)}
+ .motion .s.bld .sk-side[data-s]:not(.vis) .sk-proc li{opacity:0;transform:translateX(-14px)}
+
+ .motion .tn-pair .arr i{transition:transform .5s var(--e-io)}
+ .motion .s.bld .tn-pair .arr[data-s]:not(.vis) i{transform:scaleX(0)}
+ .motion .tn-pair p.n[data-s]{transition:opacity var(--t-f) ease .22s,transform var(--t-m) var(--e-o) .22s}
+ .motion .s.bld .tn-pair p.n[data-s]:not(.vis){transform:translateX(-28px)}
+ .motion .s.bld .tn-pair p.o[data-s]:not(.vis){transform:translateX(-16px)}
+ .motion .tn-pair .o,.motion .tn-pair .n{transition-delay:0s}
+ .motion .s:not(.in) .tn-pair .o,.motion .s:not(.in) .tn-pair .n{opacity:1;transform:none}
+}
 
 /* ---- snum.css ---- */
 /* slide numbers (snum): quiet folio in the bottom-right gutter of every slide except the title */
@@ -2210,13 +2350,14 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <p class="kick r">Name the scarce skills</p>
  <h2 class="r" style="--d:.1s">Agency, taste, and craft, plus creativity and leadership, <em>each have a job.</em></h2>
  <div class="bd r" style="--d:.25s">
+  <div class="why5g"><span class="w5h a" data-s="1">Arena’s three skills</span><span class="w5h b" data-s="4">Also on employers’ lists · WEF</span>
   <ol class="why5">
    <li data-s="1"><i>01</i><b>Agency</b><span>Decide what is worth building before anyone assigns it</span></li>
    <li data-s="2"><i>02</i><b>Taste</b><span>Judge whether the output is actually good</span></li>
    <li data-s="3"><i>03</i><b>Craft</b><span>Finish it so people can trust it</span></li>
    <li data-s="4"><i>04</i><b>Creativity</b><span>Find a new answer when the obvious one is cheap</span></li>
    <li data-s="5"><i>05</i><b>Leadership</b><span>Direct people and AI toward the same goal</span></li>
-  </ol>
+  </ol></div>
  </div>
 </div><aside class="notes">Three names we use, plus the two employers already pay for. Agency is deciding and leading. Taste is judging, including the creative call. Craft is finishing. Creativity and leadership are how the WEF writes the same shift.</aside></section>
 
@@ -2338,9 +2479,9 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <h2 class="r" style="--d:.1s">When we were young, ideas stayed in a notebook. Today a child can <em>make one real.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="tn-pair">
   <span class="hd o">When we were young</span><span aria-hidden="true"></span><span class="hd n">Today</span>
-  <div class="row" data-s="1"><p class="o">Built by hand, and slowly</p><span class="arr ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 7h6v6" /><path d="m22 7-8.5 8.5-5-5L2 17" /></svg></span><p class="n">AI builds a first version in an afternoon</p></div>
-  <div class="row" data-s="2"><p class="o">A team, and years of training</p><span class="arr ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 7h6v6" /><path d="m22 7-8.5 8.5-5-5L2 17" /></svg></span><p class="n">One kid can ship a first version in a week</p></div>
-  <div class="row" data-s="3"><p class="o">Only the family saw what you made</p><span class="arr ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 7h6v6" /><path d="m22 7-8.5 8.5-5-5L2 17" /></svg></span><p class="n">Real users, before they leave school</p></div>
+  <div class="row"><p class="o" data-s="1">Built by hand, and slowly</p><span class="arr" data-s="2" aria-hidden="true"><i></i></span><p class="n" data-s="2">AI builds a first version in an afternoon</p></div>
+  <div class="row"><p class="o" data-s="3">A team, and years of training</p><span class="arr" data-s="4" aria-hidden="true"><i></i></span><p class="n" data-s="4">One kid can ship a first version in a week</p></div>
+  <div class="row"><p class="o" data-s="5">Only the family saw what you made</p><span class="arr" data-s="6" aria-hidden="true"><i></i></span><p class="n" data-s="6">Real users, before they leave school</p></div>
  </div></div>
 </div><aside class="notes">Building software used to take a team and years of training, and few people outside the family ever saw what you made. With AI as a helper, a first working version comes together quickly, and a child's idea can reach real users before they leave school. We wrote essays by hand and waited years to build anything real. Our children can build, test, and improve in a week. The ones who start now compound that advantage.</aside></section>
 
@@ -2348,13 +2489,12 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 <section class="s alt ae"><div class="w">
  <p class="kick r">Takeaway 3 · Cursor, 2022 to 2026</p>
  <h2 class="r" style="--d:.1s">Four MIT friends started Cursor in 2022. SpaceX bought it for <em>$60 billion.</em></h2>
- <div class="bd r" style="--d:.25s"><div class="grow" data-s="1">
-  <svg class="grow-line" viewBox="0 0 1000 180" preserveAspectRatio="none" aria-hidden="true"><path d="M40 158 C 200 150, 260 142, 300 128 S 480 96, 540 72 S 720 36, 780 28 S 920 14, 960 8"/></svg>
+ <div class="bd r" style="--d:.25s"><div class="grow gcol" data-s="1">
   <ol class="grow-n">
-   <li><span class="bar"></span><div class="pair"><img src="/logos/tools/cursor.png" alt="Cursor"></div><span class="dt">2022</span><h3>Four MIT friends</h3><p>start an AI coding tool</p></li>
-   <li><span class="bar"></span><div class="pair"></div><span class="dt">2023</span><h3>Cursor launches</h3><p>an AI code editor</p></li>
-   <li><span class="bar"></span><div class="pair"></div><span class="dt">Nov 2025</span><div class="big">$29.3<small>billion</small></div><p>Series D, over $1B annualized revenue</p></li>
-   <li class="end"><span class="bar"></span><div class="pair"><img src="/logos/tools/cursor.png" alt="Cursor"><span class="to">→</span><img class="sx" src="/logos/deck/spacex.svg" alt="SpaceX"></div><span class="dt">Aug 2026</span><div class="big">$60<small>billion</small></div><p>SpaceX all-stock acquisition</p></li>
+   <li><div class="gc"><div class="gv"><img class="gl" src="/logos/tools/cursor.png" alt="Cursor"></div><span class="gb dot"></span></div><span class="dt">2022</span><h3>Four MIT friends</h3><p>start an AI coding tool</p></li>
+   <li><div class="gc"><span class="gb dot"></span></div><span class="dt">2023</span><h3>Cursor launches</h3><p>an AI code editor</p></li>
+   <li style="--v:48.83"><div class="gc"><div class="gv"><div class="big">$29.3<small>billion</small></div></div><span class="gb"></span></div><span class="dt">Nov 2025</span><h3>Series D</h3><p>valuation, with over $1B annualized revenue</p></li>
+   <li class="end" style="--v:100"><div class="gc"><div class="gv"><div class="acq"><img class="gl" src="/logos/tools/cursor.png" alt="Cursor"><span class="to">→</span><img class="sx" src="/logos/deck/spacex.svg" alt="SpaceX"></div><div class="big">$60<small>billion</small></div></div><span class="gb"></span></div><span class="dt">Aug 2026</span><h3>Acquired by SpaceX</h3><p>an all-stock deal</p></li>
   </ol>
  </div></div>
  <p class="fn" data-s="1"><span>Cursor, Series D post, Nov 13, 2025; Reuters, CNBC, and Bloomberg, June 16, 2026; SpaceX Form 8-K and PitchBook, Aug 14, 2026</span></p>
@@ -2366,7 +2506,8 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <h2 class="r" style="--d:.1s">Arena teaches the 14 tools and four skills <em>the earlier gaps require.</em></h2>
  <div class="bd r" style="--d:.25s">
   <div class="skmap">
-   <ul class="sk-tools" data-s="1">
+   <div class="pane sk-l" data-s="1"><span class="sk-h">Fluency · 14 tools from Arena programs</span>
+   <ul class="sk-tools">
     <li><img src="/logos/tools/openai.png" alt=""><b>ChatGPT</b></li>
     <li><img src="/logos/tools/claude.png" alt=""><b>Claude</b></li>
     <li><img src="/logos/tools/kimi.png" alt=""><b>Kimi</b></li>
@@ -2381,8 +2522,8 @@ section.s>.pgno i{font-style:normal;opacity:.6}
     <li><img src="/logos/tools/github.png" alt=""><b>GitHub</b></li>
     <li><img src="/logos/tools/vercel.png" alt=""><b>Vercel</b></li>
     <li><img src="/logos/tools/stripe.png" alt=""><b>Stripe</b></li>
-   </ul>
-   <div class="sk-side" data-s="2">
+   </ul></div>
+   <div class="pane sk-side" data-s="2">
     <span class="sk-h">Entrepreneurship</span>
     <ol class="sk-proc">
      <li><i>01</i><b>Find a problem</b></li>
@@ -2573,9 +2714,11 @@ function snapFx(s){[].forEach.call(s.querySelectorAll('.ag-flood'),snapFlood);[]
 function clearPlay(){playT.forEach(function(t){clearTimeout(t)});playT=[]}
 function armFlood(s){[].forEach.call(s.querySelectorAll('.ag-flood'),function(el){
   el.classList.remove('recede','flood','focus','done');var f=el.querySelector('.ag-fill');if(f)f.classList.remove('done');
-  playT.push(setTimeout(function(){el.classList.add('recede')},1520));
-  playT.push(setTimeout(function(){el.classList.add('flood')},1680));
-  playT.push(setTimeout(function(){snapFlood(el)},3650))})}
+  /* settle (six cards, 130ms apart) → recede → the field floods in, accelerating → the six lift back on top → done */
+  playT.push(setTimeout(function(){el.classList.add('recede')},1380));
+  playT.push(setTimeout(function(){el.classList.add('flood')},1560));
+  playT.push(setTimeout(function(){el.classList.add('focus')},3420));
+  playT.push(setTimeout(function(){snapFlood(el)},4150))})}
 function finishSlide(i){clearPlay();build(i,B[i]);snapFx(S[i]);if(window.__count)__count(S[i])}
 function startPlay(i){if(i<0||i>=S.length)return;clearPlay();playing=i;
  if(!shouldPlay()){build(i,B[i],true);snapFx(S[i]);return}
@@ -2632,14 +2775,16 @@ if(!HM.classList.contains('player')&&!HM.classList.contains('export')&&!/[?&]rea
     n.replaceChild(f,c)}else if(c.nodeType===1&&c.tagName!=='BR')walk(c)})})(h);h.classList.add('psplit')});
 }
 [].forEach.call(document.querySelectorAll('.mmap'),function(g){[].forEach.call(g.querySelectorAll('.mm-c'),function(c,k){c.style.setProperty('--c',k)});[].forEach.call(g.querySelectorAll('.mm li'),function(c,k){c.style.setProperty('--i',k)})});
-[].forEach.call(document.querySelectorAll('.tln,.apps,.tbl,.trk,.paths,.tk-prog,.pg-m,.trio,.proj,.agx,.spine,.tn-r,.grow-n,.sk-tools,.proj4'),function(g){
+[].forEach.call(document.querySelectorAll('.tln,.apps,.tbl,.trk,.paths,.tk-prog,.pg-m,.trio,.proj,.agx,.spine,.tn-r,.grow-n,.sk-tools,.proj4,.sk-proc'),function(g){
  [].slice.call(g.children).forEach(function(c,i){c.style.setProperty('--i',i);if(g.classList.contains('tbl'))[].forEach.call(c.children,function(x){x.style.setProperty('--i',i)})});
  if(g.classList.contains('pg-m')){var j=0;[].forEach.call(g.children,function(c){if(c.classList.contains('f'))c.style.setProperty('--i',j++)})}});
 (function(){var FILL=[['openai','ChatGPT'],['claude','Claude'],['gemini','Gemini'],['deepseek','DeepSeek'],['doubao','Doubao'],['qwen','Qwen'],['perplexity','Perplexity'],['metaso','Metaso'],['notion','Notion'],['canva','Canva'],['figma','Figma'],['cursor','Cursor'],['lovable','Lovable'],['replit','Replit'],['trae','TRAE'],['github','GitHub'],['vercel','Vercel'],['midjourney','Midjourney'],['ideogram','Ideogram'],['kling','Kling'],['hailuo','Hailuo'],['dreamina','Dreamina'],['suno','Suno'],['elevenlabs','ElevenLabs'],['heygen','HeyGen'],['capcut','CapCut'],['flow','Flow'],['comet','Comet'],['lovart','Lovart'],['workbuddy','WorkBuddy'],['cue','Cue'],['gemini-notebook','NotebookLM'],['stripe','Stripe'],['kimi','Kimi'],['manus','Manus'],['genspark','Genspark']];
- [].forEach.call(document.querySelectorAll('.ag-fill'),function(box){var n=260,frag=document.createDocumentFragment();
+ [].forEach.call(document.querySelectorAll('.ag-fill'),function(box){
+  /* enough tiles to fill the whole field: 24 columns of 28px rows with 5px gaps, at the box's laid-out height */
+  var rows=Math.max(11,Math.ceil(((box.clientHeight||560)+5)/33)+1),n=24*rows,frag=document.createDocumentFragment();
   for(var i=0;i<n;i++){var t=FILL[i%FILL.length],el=document.createElement('span');el.className='ag-tile';
    /* ease-in stagger: early tiles wait longer between arrivals, then the field packs in */
-   var p=n<2?1:i/(n-1),d=(p*p)*1850;
+   var p=n<2?1:i/(n-1),d=Math.pow(p,2.2)*1650;
    el.style.setProperty('--i',i);el.style.setProperty('--d',d+'ms');
    el.innerHTML='<img alt="" src="/logos/tools/'+t[0]+'.png">';el.title=t[1];frag.appendChild(el)}
   box.appendChild(frag)})})();
