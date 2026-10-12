@@ -2134,6 +2134,18 @@ section.s>.brandmk{position:absolute;z-index:3;top:calc((var(--pad-top) - 3px) *
  .motion .s:not(.in) .tn-pair .o,.motion .s:not(.in) .tn-pair .n{opacity:1;transform:none}
 }
 
+@media screen and (min-width:701px){
+ /* how → what (17): the old work lists in, the arrow turns, the new work slides across item by item */
+ .motion .shx .sh-col li{transition:opacity .45s ease,transform .6s var(--e-o)}
+ .motion .shx .sh-col.o li:nth-child(2){transition-delay:.1s}.motion .shx .sh-col.o li:nth-child(3){transition-delay:.2s}
+ .motion .shx .sh-arr i{transition:transform .6s var(--e-o) .35s,opacity .4s ease .35s}
+ .motion .shx .sh-col.n{transition:opacity .5s ease .5s,transform .7s var(--e-o) .5s}
+ .motion .shx .sh-col.n li:nth-child(1){transition-delay:.75s}.motion .shx .sh-col.n li:nth-child(2){transition-delay:.87s}.motion .shx .sh-col.n li:nth-child(3){transition-delay:.99s}
+ .motion .s.bld .shx[data-s]:not(.vis) .sh-col li{opacity:0;transform:translateY(8px)}
+ .motion .s.bld .shx[data-s]:not(.vis) .sh-arr i{opacity:0;transform:translateX(-16px) scale(.8)}
+ .motion .s.bld .shx[data-s]:not(.vis) .sh-col.n{opacity:0;transform:translateX(-24px)}
+}
+
 /* ---- snum.css ---- */
 /* slide numbers (snum): quiet folio in the bottom-right gutter of every slide except the title */
 section.s>.pgno{position:absolute;right:var(--margin-x);bottom:calc(var(--pad-bot) * var(--z) / 2 - 6px);z-index:3;pointer-events:none;user-select:none;
@@ -2225,7 +2237,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <p class="kick r">Lawyers · a US trial, China, and US hiring</p>
  <h2 class="r" style="--d:.1s">Law students using AI got <em>50% to 130% more done</em> on most legal tasks.</h2>
  <div class="bd r" style="--d:.25s"><div class="st3">
-  <div class="pane hl" data-s="1"><span class="lab">A randomized trial in the US</span><div class="big nc">+50–130%</div><p>more work done with AI, on 5 of 6 legal tasks</p>
+  <div class="pane hl" data-s="1"><span class="lab">A US randomized trial</span><div class="big nc">+50–130%</div><p>more work done with AI, on 5 of 6 legal tasks</p>
    <div class="mb" role="img" aria-label="Work done, without AI set to 100: with AI, 150 to 230"><div class="row"><span>Without AI</span><i style="--v:43.48"></i><b>100</b></div><div class="row hl"><span>With AI</span><i class="rg" style="--v:65.22;--r:100"></i><b>150–230</b></div></div></div>
   <div class="pane" data-s="2"><span class="lab">Lawyers in mainland China</span><div class="big">93%</div><p>of lawyers and trainees already use AI at work</p>
    <div class="mb" role="img" aria-label="93% use AI"><div class="row hl"><span>Use AI</span><i style="--v:93"></i><b>93%</b></div></div></div>
