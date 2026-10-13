@@ -646,10 +646,12 @@ i.rg::before{width:calc(var(--r) * 1%);background:linear-gradient(90deg,var(--da
 .xg-lb{position:absolute;left:calc(var(--x) * 1%);bottom:calc(var(--y) * 1%);font:400 12px/1 var(--sans);color:var(--text);white-space:nowrap}
 .xg-lb.hl{color:var(--ink2);font-weight:600}
 .xg-lb.p0{translate:-8px -16px}.xg-lb.p1{translate:calc(-100% + 4px) -26px}.xg-lb.p2{translate:calc(-100% - 1px) -18px}.xg-lb.p3{translate:calc(-100% - 12px) 50%}
-.xg-il .xg-plot{height:150px}.xg-il .xg-area{left:2px;right:2px;top:6px;bottom:4px}
+.xg-il .xg-plot{height:170px}.xg-il .xg-area{left:0;right:2px;top:4px;bottom:22px}
+.xg-il .ax{stroke:rgba(11,26,74,.3);stroke-width:1}
+.xg-axl{position:absolute;font:400 11px/1 var(--sans);color:var(--muted);white-space:nowrap}.xg-axl.x{right:0;top:calc(100% + 8px)}.xg-axl.y{left:8px;top:0}
 .xg-il .gp{fill:rgba(47,85,168,.12)}.xg-il .cf{fill:none;stroke:var(--muted);stroke-width:2;stroke-linecap:round}
 .xg-ll,.xg-gl{position:absolute;white-space:nowrap;font:400 12.5px/1.2 var(--sans)}
-.xg-ll.up{right:21%;bottom:62%;color:var(--ink2);font-weight:600}.xg-ll.fl{right:0;bottom:2%;color:var(--muted)}
+.xg-ll.up{right:21%;bottom:62%;color:var(--ink2);font-weight:600}.xg-ll.fl{right:0;bottom:calc(7.8% + 5px);color:var(--muted);padding:1px 4px;background:var(--hi);border-radius:3px}
 .xg-gl{left:87%;bottom:41%;translate:-50% 50%;font-style:italic;color:var(--ink2)}
-.xg-cap{margin:10px 0 0;font:italic 400 12.5px/1.45 var(--sans);color:var(--muted)}
+.xg-cap{margin:6px 0 0;font:italic 400 12px/1.45 var(--sans);color:var(--muted)}
 :lang(zh-CN) .xg-gl,:lang(zh-CN) .xg-cap{font-style:normal}
