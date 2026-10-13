@@ -2485,6 +2485,69 @@ section.s .pbr figure{height:196px}
 section.s.ae.cl .bd .endline{flex:none}
 section.s.ae.cl .bd{justify-content:center;gap:72px}
 
+/* ---- s98-r3a.css ---- */
+/* Round 3a (JJ, Oct 13): optical alignment on slides 2, 8, 9, and 10. */
+
+/* s2 agenda: center the numeral's ink (figure height, no descenders) on the icon circle, not its line box */
+.toc .tocf .tn{position:relative;top:11px}
+
+/* s8: bar rows sit centered between the divider and the card's bottom edge, the same in all three cards.
+   The bar block replaces the card's 36px bottom padding and keeps one height, so the dividers stay level. */
+.st3 > .pane{padding-bottom:0!important}
+.st3 > .pane > .mb{height:122px;min-height:0;margin-bottom:0;padding:0;align-content:center}
+
+/* s9: the logo + caption block in each card sits optically centered (logo ink top to last text line equals the card's top and bottom space).
+   The text's half-leading below the last line made each block read high; nudge per card (CSS px; the stage renders ×1.32). */
+.duo .pane:not(.dk) .lr,.duo .pane:not(.dk) p{transform:translateY(5.5px)}
+.duo .pane.dk .lr,.duo .pane.dk p{transform:translateY(3.7px)}
+:lang(zh-CN) .duo .pane:not(.dk) .lr,:lang(zh-CN) .duo .pane:not(.dk) p{transform:translateY(5.1px)}
+:lang(zh-CN) .duo .pane.dk .lr,:lang(zh-CN) .duo .pane.dk p{transform:translateY(5.6px)}
+
+/* Optical left edge: a big serif figure starts with side bearing, so its ink sat right of the caption, label, or bar below it.
+   Pull each figure left so its leftmost ink lines up with the caption's (measured per glyph, CSS px; stage renders ×1.32). */
+/* s10 Amazon */
+.tln li:nth-child(2) .big{margin-left:-8.3px}
+.tln li.end .big{margin-left:-9.1px}
+:lang(zh-CN) .tln li:nth-child(2) .big,:lang(zh-CN) .tln li.end .big{margin-left:-6.8px}
+/* s8 lawyers */
+.st3 > .pane:nth-child(1) .big{margin-left:-4.5px}
+.st3 > .pane:nth-child(2) .big{margin-left:-2.3px}
+.st3 > .pane:nth-child(3) .big{margin-left:-4.5px}
+:lang(zh-CN) .st3 > .pane:nth-child(1) .big{margin-left:-3px}
+:lang(zh-CN) .st3 > .pane:nth-child(2) .big{margin-left:-.8px}
+:lang(zh-CN) .st3 > .pane:nth-child(3) .big{margin-left:-3.8px}
+/* s13 young workers */
+.cmp2 > .pane.dk .big{margin-left:-11.4px}
+.cmp2 > .pane:not(.dk) .big.lo{margin-left:-4.5px}
+:lang(zh-CN) .cmp2 > .pane.dk .big{margin-left:-8.3px}
+:lang(zh-CN) .cmp2 > .pane:not(.dk) .big.lo{margin-left:-.8px}
+/* s14 China students: figures over their bars */
+.arc .an:first-child .big{margin-left:-9.8px}
+.arc .an:last-child .big{margin-left:-3.8px}
+:lang(zh-CN) .arc .an:first-child .big{margin-left:-9.1px}
+:lang(zh-CN) .arc .an:last-child .big{margin-left:-3.8px}
+
+/* ---- s98-r3b.css ---- */
+/* Round 3 (JJ screenshots, Oct 13): optical centering fixes. Scoped per slide. */
+
+/* Slide 25: the vertical timeline line runs through the exact center of each dot
+   (dots are 16px wide and start 6px in, so their center sits at 14px). */
+.accx .tln::before{left:13.75px}
+
+/* Slide 27: logo, rule, and quote centered on the band by cap height, not by line box */
+.cs-foot .brand{top:0}
+.ae .bd .cs-foot p{top:4px;line-height:1}
+:lang(zh-CN) .ae .bd .cs-foot p{line-height:1.2}
+:lang(zh-CN) .ae .bd .cs-foot p{top:3px}
+.ae .bd .cs-foot p::before{transform:translateY(calc(-56% - 1.5px))}
+:lang(zh-CN) .ae .bd .cs-foot p::before{transform:translateY(calc(-56% - .5px))}
+
+/* Takeaway pills (slides 23, 26, 28): center by cap height (ascenders run 0.7px above caps),
+   and pull the "1" in by its side bearing so ink-to-border is equal left and right */
+.tk-prog li{padding:10.55px 16px 6.45px}
+.tk-prog li:first-child i{margin-left:-1.35px}
+:lang(zh-CN) .tk-prog li:first-child i{margin-left:-.8px}
+
 /* ---- snum.css ---- */
 /* slide numbers (snum): quiet folio in the bottom-right gutter of every slide except the title */
 section.s>.pgno{position:absolute;right:var(--margin-x);bottom:calc(var(--pad-bot) * var(--z) / 2 - 6px);z-index:3;pointer-events:none;user-select:none;
@@ -2823,7 +2886,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  </div>
  <div class="cs-foot pane" data-s="4"><img class="brand km" src="/logos/deck/kimi.png" alt="Kimi"><p>没人要求这么做，<em>关键恰恰就在这里。</em></p></div>
  </div>
- <p class="fn"><span>羊筱涵在 Kimi（月之暗面）为增长和产品团队招人时的亲身经历</span></p>
+ <p class="fn"><span>亲历的招聘故事：Kimi（月之暗面）增长/产品团队</span></p>
 </div><aside class="notes">筱涵用第一人称讲这段。“我当时在为 Kimi 增长和产品团队招非技术岗位。有位候选人在面试前，用AI给我们的社交媒体工作做了个小工具。没人要求这么做。面试时他当场演示给我看，最后拿到了 offer。关键恰恰就在这里：一件真实的任务，在被要求之前就做了。”求职面试几乎是日常生活里最重要的场合之一。鼓励孩子把AI用在真事上：学校项目、社团、申请材料。</aside></section>
 
 <!-- 36 · Takeaway 3 -->
@@ -2903,7 +2966,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <h2 class="r" style="--d:.1s">一周之内，ISB 的学生从真实问题出发，<em>做出了评委亲手测试的产品。</em></h2>
  <div class="bd r" style="--d:.25s">
   <div class="pbr">
-   <div class="card" data-s="1"><figure><img src="/photos/isb-hq/isb-team-slide-1400.webp" alt="团队成果展示日的幻灯片：学生用自己的话说出问题" style="object-position:30% 22%"></figure><div class="pb"><span class="lab">发现问题 <i>第1至2天 · 选题、访谈用户</i></span><h3>一份作业，要开好几个应用</h3><p class="q">“光是完成一份作业，我就要同时开着 Notion、日历、Forest 和 Google Docs。”</p><p class="where">主动性 · 选出真正值得解决的问题</p></div></div>
+   <div class="card" data-s="1"><figure><img src="/photos/isb-hq/isb-team-slide-crop-940.webp" alt="团队成果展示日的幻灯片：学生用自己的话说出问题" style="object-position:50% 50%"></figure><div class="pb"><span class="lab">发现问题 <i>第1至2天 · 选题、访谈用户</i></span><h3>一份作业，要开好几个应用</h3><p class="q">“光是完成一份作业，我就要同时开着 Notion、日历、Forest 和 Google Docs。”</p><p class="where">主动性 · 选出真正值得解决的问题</p></div></div>
    <div class="card" data-s="2"><figure><img src="/photos/isb-2026/mentor-feedback-1600.webp" alt="大人在制作现场给学生反馈" style="object-position:50% 30%"></figure><div class="pb"><span class="lab">动手做 <i>第2至4天 · 做出能打开的版本</i></span><h3>一个地方，就能计划、专注、休息，还能和朋友比拼</h3><p class="q">用AI编程工具搭建，旁边的大人不断追问：每一版是怎么核对的？</p><p class="where">审美 · 分辨哪个版本真正行得通</p></div></div>
    <div class="card" data-s="3"><figure><img src="/photos/isb-hq/isb-podium-duo-1400.webp" alt="两位学生在成果展示日路演" style="object-position:50% 35%"></figure><div class="pb"><span class="lab">结果 <i>第5天 · 成果展示日</i></span><h3>当着家长的面现场路演</h3><p class="q">来自哈佛、斯坦福、Y Combinator 和AI实验室的评委，先亲手试用，再打分。</p><p class="where">匠心 · 把事情做完，并且做好</p></div></div>
   </div>
@@ -2927,7 +2990,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 <!-- 42 · Q&A -->
 <section class="s alt ae"><div class="w">
  <p class="kick r">ISB PTA 家长咖啡会 · 2026年10月14日</p>
- <h2 class="r" style="--d:.1s">谢谢大家。<em>欢迎提问。</em></h2>
+ <h2 class="r" style="--d:.1s">谢谢大家！<em>欢迎提问。</em></h2>
  <div class="bd r" style="--d:.25s"><div class="qa qa14">
   <a class="qr pane qr-live qr-slides" href="https://arenaschool.org/talk" target="_blank" rel="noopener"><img src="/decks/img/conversation/qr-talk-clear.png" alt="arenaschool.org/talk 二维码"><span>今天的讲义</span><small>arenaschool.org/talk</small></a>
   <div class="qr pane qr-chat"><div class="qr-slot"></div><span>家长群二维码</span><small>（活动前补上）</small></div>
