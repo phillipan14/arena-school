@@ -5,6 +5,15 @@ description: Strict formatting and design audit for Arena School work (the arena
 
 # Format audit
 
+## Non-negotiables (read first)
+1. Every element, every slide or page, both languages, every step or breakpoint, two full loops. No sampling.
+2. Center by ink, vertically and horizontally, within 1px. Vertical centering is the one most often missed.
+3. No needless line breaks, no orphans, no awkward empty space, no cramped cards (at least 24px inside).
+4. No cut-off, blurry, or haloed logos. Theme colors and borders only.
+5. One fact, one value, everywhere: slides, notes, sources, English, and Chinese.
+6. Nothing redundant, salesy, arrogant, or disparaging; every name is one the audience knows (or it gets a short label).
+7. Show proof (before and after crops) for every fix. Never present work that hasn't passed this audit, and state plainly anything held, skipped, or unverified.
+
 JJ is extremely detail-oriented. She has rejected work for misalignments of 2–5px, text that wraps when it doesn't need to, cramped cards, cut-off logos, and awkward empty space. This checklist is the standard: every item, every element, every time. "Looks fine" is not a result; measurements are.
 
 ## 0. Scope and setup
@@ -36,6 +45,8 @@ JJ is extremely detail-oriented. She has rejected work for misalignments of 2–
 - [ ] Big numbers: their optical left edge (the ink, after side bearing) lines up with the caption or heading below. The number is centered on any pill or shape beside it.
 - [ ] Rows of logos or icons share one optical center line and equal spacing.
 - [ ] Multi-column blocks: each column's content is centered in the card on its own; the label block and the body text are both centered.
+
+- [ ] Automated centering check: if the repo has an ink-centering checker (planned: `decks/src/ink_check.py` / `tools/ink_check.py`), run it and fix every flag. Until it exists, do the pixel scan by hand for every element.
 
 ## 4. Negative space (no awkward blank areas)
 - [ ] No large empty band that reads as a mistake: between the title and the content, at the bottom of a card, beside short text in a wide card, or under a one-line title in space reserved for two lines.
@@ -70,6 +81,28 @@ JJ is extremely detail-oriented. She has rejected work for misalignments of 2–
 - [ ] The final state is the clean, intended layout. Export/PDF, `?read`, reduced motion, and the phone view all show the final state.
 - [ ] Click gates and reveals: arrival state, each click, going back, and rapid clicks all behave. No page errors (listen for `pageerror` while stepping through everything and back).
 
+## 8a. Content
+- [ ] **No redundant or self-evident elements.** Nothing that repeats what the speaker will say or what another element already says: no "I'll show you now" cards, no "first-hand story" strips for the speaker's own story, no duplicate links or labels.
+- [ ] **Audience recognizability.** Every company, tool, and term is one this audience knows; otherwise swap it for a better-known equivalent or add a short label (e.g. "Hugging Face, the world's largest AI model library").
+- [ ] **Tone.** Facts only: not arrogant (no self-praise adjectives), never disparaging of anyone (people, schools, employers), not salesy, and never implying the organization taught a child something unless that is the point and approved.
+- [ ] **One message per slide or section.** Cut "useless bits and bobs" that don't serve the title (side facts, availability tags, extra list items).
+
+## 8b. Consistency
+- [ ] **One fact, one value.** Every number, name, age, date, title, and claim is identical everywhere it appears: slides, speaker notes, sources, pages, English, and Chinese. List each repeated fact and check every occurrence.
+- [ ] **Language parity.** English and Chinese versions have the same structure (same cards, order, and meaning), each reading naturally.
+- [ ] **A series looks like a series.** Multi-slide or multi-section groups share layout, labels, rhythm, and one through-line message.
+- [ ] **Theme only.** Every highlight, tint, border, and shadow comes from the theme tokens; no ad hoc lighter or darker variants unless explicitly requested.
+
+## 8c. Storyline and interaction
+- [ ] After any added, removed, or reordered slide or section: re-check the agenda, section openers, page numbers, speaker-note handoffs ("next slide…"), and the sources list (no orphan or missing sources).
+- [ ] Click reveals and held states: the state before each click looks intentional and finished, not broken or half-empty by accident.
+- [ ] The phone version is first-class: audit it with the same rigor as desktop (audiences often read it there).
+
+## 8d. Process
+- [ ] **Re-audit the neighbors.** Every fix triggers a re-check of the elements around it and of sibling slides or components that share its styles.
+- [ ] **Calibrate against past mistakes.** If a mistakes gallery exists (planned: `.claude/skills/format-audit/gallery/`, before and after crops of real rejected issues), review it before starting and look for each pattern.
+- [ ] **Never present unaudited work.** Don't show a preview or claim "done" until both loops pass; if something was held (e.g. waiting on an answer), say so explicitly at the top of the report.
+
 ## 9. Tools (arena-school repo)
 - **Deck:**
   - `python3 decks/src/build.py`
@@ -92,5 +125,7 @@ For each loop, a table with one row per issue:
 After the tables:
 - **Not fixed, and why:** intentional space, deck-wide conventions, out of scope.
 - **Wording changes:** each one with its reason.
+- **Proof crops:** a zoomed before and after crop for every fix (not just numbers).
 - **Contact sheets:** screenshots of every slide or page after loop 2.
+- **"What would JJ circle?"** After the measurements, look at each slide or page fresh as JJ would and list anything that still looks off, even if every check passes (wrong in substance, awkward, off-tone). Fix or flag each one.
 - **Checks:** the commit hash and the result of every check.
