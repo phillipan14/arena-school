@@ -1,42 +1,19 @@
-/* promo.css: site-wide announcement banner + program popup (promo.js). Nav offset reuses newsletter.css (html.nl-bar-on / --nlb-off). */
+/* promo.css: site-wide ISB winter program banner (promo.js); the popup uses newsletter.css. Nav offset reuses newsletter.css (html.nl-bar-on / --nlb-off). */
 .promo-bar{position:relative;z-index:1001;display:flex;align-items:center;height:38px;background:#0B1A4A;color:#F6F0E5}
-.promo-slides{position:relative;flex:1;min-width:0;height:100%}
-.promo-slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:10px;padding:0 8px 0 44px;color:inherit !important;text-decoration:none !important;white-space:nowrap;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .45s ease,transform .45s ease,visibility 0s .45s;font:500 13.5px/1.2 var(--font-body,'Geist'),system-ui,sans-serif;letter-spacing:.01em}
-.promo-slide.on{opacity:1;visibility:visible;transform:none;transition:opacity .45s ease,transform .45s ease}
-.promo-slide b{flex:none;font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:12px;color:#C9D6F2}
-html[lang="zh-CN"] .promo-slide b{letter-spacing:.04em;text-transform:none;font-size:13px}
+.promo-link{flex:1;min-width:0;height:100%;display:flex;align-items:center;justify-content:center;gap:10px;padding:0 8px 0 44px;color:inherit !important;text-decoration:none !important;white-space:nowrap;font:500 13.5px/1.2 var(--font-body,'Geist'),system-ui,sans-serif;letter-spacing:.01em}
+.promo-link b{flex:none;font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:12px;color:#C9D6F2}
+html[lang="zh-CN"] .promo-link b{letter-spacing:.04em;text-transform:none;font-size:13px}
 .promo-t{min-width:0;overflow:hidden;text-overflow:ellipsis}
 .promo-go{flex:none;padding:4px 10px;border:1px solid rgba(246,240,229,.4);border-radius:999px;font-weight:600;font-size:12.5px}
-.promo-slide:hover .promo-go{background:rgba(246,240,229,.12)}
+.promo-link:hover .promo-go{background:rgba(246,240,229,.12)}
 .promo-x{flex:none;display:grid;place-items:center;width:44px;height:38px;border:0;background:none;color:rgba(246,240,229,.75);cursor:pointer}
 .promo-x svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
-@media (prefers-reduced-motion:reduce){.promo-slide{transition:none;transform:none}}
 @media (max-width:760px){
   .promo-bar{height:auto;min-height:48px}
-  .promo-slide{justify-content:flex-start;padding:6px 4px 6px 14px;white-space:normal;font-size:12.5px;line-height:1.3;gap:8px}
-  .promo-slide b{display:none}
+  .promo-link{justify-content:flex-start;padding:6px 4px 6px 14px;white-space:normal;font-size:12.5px;line-height:1.3;gap:8px}
+  .promo-link b{display:none}
   .promo-t{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
   .promo-go{font-size:11.5px;padding:4px 8px}
   .promo-x{height:48px;width:40px}
 }
 html.promo-bar-on.nav-open .promo-bar{display:none}
-/* popup */
-.promo-pop{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;padding:20px}
-.promo-pop[hidden]{display:none}
-.promo-bg{position:absolute;inset:0;background:rgba(11,26,74,.45);opacity:0;transition:opacity .25s}
-.promo-panel{position:relative;width:min(520px,100%);max-height:calc(100dvh - 40px);overflow:auto;background:#F6F0E5;color:#0B1A4A;border-radius:18px;padding:30px 28px 18px;box-shadow:0 24px 60px rgba(11,26,74,.3);opacity:0;transform:translateY(14px);transition:opacity .25s,transform .25s;outline:none}
-.promo-pop.on .promo-bg{opacity:1}.promo-pop.on .promo-panel{opacity:1;transform:none}
-.promo-px{position:absolute;top:10px;right:10px;width:40px;height:40px;display:grid;place-items:center;border:0;background:none;color:inherit;cursor:pointer;opacity:.7}
-.promo-px svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
-.promo-k{display:block;font:600 12px/1.3 var(--font-body,'Geist'),system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#3B5BA9;margin-bottom:10px;padding-right:36px}
-html[lang="zh-CN"] .promo-k{letter-spacing:.04em;text-transform:none;font-size:13px}
-.promo-h{font-size:clamp(22px,4.6vw,28px);line-height:1.2;margin:0 0 12px}
-.promo-p{font-size:15.5px;line-height:1.55;margin:0 0 20px;opacity:.85}
-.promo-ctas{display:flex;flex-wrap:wrap;gap:10px}
-.promo-notnow{display:block;margin:14px auto 0;border:0;background:none;color:inherit;opacity:.65;font-size:14px;padding:10px;cursor:pointer}
-html.promo-lock{overflow:hidden}
-@media (max-width:760px){
-  .promo-pop{align-items:flex-end;padding:0}
-  .promo-panel{width:100%;border-radius:18px 18px 0 0;padding:26px 20px calc(14px + env(safe-area-inset-bottom));transform:translateY(40px)}
-  .promo-ctas .btn{flex:1 1 100%;justify-content:center}
-}

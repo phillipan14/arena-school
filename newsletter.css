@@ -121,3 +121,13 @@ html.nl-bar-on.nav-open body .nav{top:0 !important}
 .nl-bar-track{font-size:13px}
 html.nl-bar-on.ph-nav-hide:not(.nav-open) body .nav{transform:translateY(calc(-100% - var(--nlb-off,0px)))}
 }
+
+/* program promo inside the sheet (promo.js supplies the copy; newsletter.js shows it on the timed open) */
+.nl-promo{display:none}
+.nl-sheet.nl-is-promo .nl-promo{display:block}
+.nl-sheet.nl-is-promo .nl-std{display:none}
+.nl-promo-cta{display:flex;flex-direction:column;gap:10px;margin:0 0 4px}
+.nl-promo-cta .btn{width:100%;justify-content:center;border-radius:999px;height:54px}
+.nl-promo-or{margin:18px 0 10px;padding-top:16px;border-top:1px solid rgba(11,26,74,.12);font:500 14px/1.4 var(--font-body,'Geist'),system-ui,sans-serif;color:#4A5470}
+.nl-sheet:not(.nl-is-promo) .nl-promo-or{display:none}
+.nl-sheet.nl-is-promo .nl-roles{display:none}
