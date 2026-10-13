@@ -590,10 +590,13 @@ i.rg::before{width:calc(var(--r) * 1%);background:linear-gradient(90deg,var(--da
 @media (max-height:500px) and (orientation:landscape) and (min-width:600px){
  .top,.bot{padding-left:max(var(--gx),calc(50% - 380px + var(--gx)));padding-right:max(var(--gx),calc(50% - 380px + var(--gx)))}
 }
-/* slide 4: the rotating task shows only its final phrase on phones, in the lighter accent */
+/* slide 4: the rotating task shows only its final phrase on phones, in the title accent, with the riso highlight band */
 .rot,.rot-t,.rot-t>span.fin{display:inline}
 .rot-t>span:not(.fin){display:none}
-.rot{color:#5B7FD1}
+.rot{color:var(--ink2)}
+.rot-hl{position:relative;z-index:0}
+:lang(en) .rot-hl{white-space:nowrap}
+.rot-hl::after{content:"";position:absolute;left:-.03em;right:-.03em;bottom:.06em;height:.3em;z-index:-1;background:url(/art/riso-hl.png) 0 0/6px 6px repeat}
 .rot .rot-pc{color:var(--ink)}
 .rot-h br{display:none}
 :lang(zh-CN) .rot-h br{display:inline}
