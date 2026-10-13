@@ -80,13 +80,24 @@ html[lang="zh-CN"] .nl-h{font-size:21px;line-height:1.5}
 .nl-email{flex:0 0 auto;width:100%}
 .nl-email{height:52px}
 .nl-btn{width:100%;height:56px;border-radius:999px;justify-content:center;font-size:16.5px}
-/* bottom sheet */
-.nl-sheet{place-items:end stretch}
-.nl-sheet-panel{width:100%;max-height:82vh;border-radius:20px 20px 0 0;padding:10px 20px calc(18px + env(safe-area-inset-bottom,0px));transform:translateY(100%);opacity:1}
-.nl-sheet.on .nl-sheet-panel{transform:none}
-.nl-sheet-top{justify-content:space-between;align-items:center;margin:0 -8px 6px 0}
-.nl-grab{display:block;width:40px;height:5px;margin-left:calc(50% - 20px);border-radius:3px;background:rgba(11,26,74,.18)}
-.nl-sheet .nl-h{font-size:23px}
+/* centered modal card (no bottom sheet): margins, dimmed backdrop, fade + scale in */
+.nl-sheet{place-items:center;padding:16px}
+.nl-sheet-panel{width:100%;max-width:420px;max-height:calc(100dvh - 32px);border-radius:18px;padding:18px 18px 12px;transform:scale(.96);opacity:0;transition:opacity .2s ease,transform .2s ease}
+.nl-sheet.on .nl-sheet-panel{transform:none;opacity:1}
+.nl-sheet-top{position:sticky;top:-18px;z-index:2;height:0;margin:0;justify-content:flex-end}
+.nl-sheet-top .nl-x{margin:-10px -10px 0 0;background:#FCF3ED;border-radius:999px}
+.nl-grab{display:none}
+.nl-sheet .nl-k{padding-right:36px;font-size:11.5px;letter-spacing:.12em}
+.nl-sheet .nl-h{font-size:21px;margin:8px 0 6px;line-height:1.22}
+html[lang="zh-CN"] .nl-sheet .nl-h{font-size:20px;line-height:1.4}
+.nl-sheet .nl-p{font-size:14.5px;line-height:1.5;margin-bottom:14px}
+.nl-sheet .nl-btn,.nl-promo-cta .btn{height:46px;font-size:15.5px}
+.nl-sheet .nl-email{height:46px}
+.nl-sheet .nl-row{gap:8px}
+.nl-promo-cta{gap:8px}
+.nl-promo-or{margin:14px 0 8px;padding-top:12px;font-size:13.5px}
+.nl-sheet .nl-fine{margin-top:6px;font-size:12.5px}
+.nl-notnow{min-height:38px;margin-top:2px;font-size:14px}
 }
 
 /* hidden until /api/subscribe reports Resend is configured (newsletter.js adds html.nl-on) */
@@ -131,3 +142,4 @@ html.nl-bar-on.ph-nav-hide:not(.nav-open) body .nav{transform:translateY(calc(-1
 .nl-promo-or{margin:18px 0 10px;padding-top:16px;border-top:1px solid rgba(11,26,74,.12);font:500 14px/1.4 var(--font-body,'Geist'),system-ui,sans-serif;color:#4A5470}
 .nl-sheet:not(.nl-is-promo) .nl-promo-or{display:none}
 .nl-sheet.nl-is-promo .nl-roles{display:none}
+.nl-sheet.nl-is-promo .nl-fine,.nl-sheet.nl-is-promo .nl-notnow{display:none}

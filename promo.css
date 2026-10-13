@@ -8,12 +8,17 @@ html[lang="zh-CN"] .promo-link b{letter-spacing:.04em;text-transform:none;font-s
 .promo-link:hover .promo-go{background:rgba(246,240,229,.12)}
 .promo-x{flex:none;display:grid;place-items:center;width:44px;height:38px;border:0;background:none;color:rgba(246,240,229,.75);cursor:pointer}
 .promo-x svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
+.promo-arr{display:none}
+.promo-tm{display:none}
 @media (max-width:760px){
-  .promo-bar{height:auto;min-height:48px}
-  .promo-link{justify-content:flex-start;padding:6px 4px 6px 14px;white-space:normal;font-size:12.5px;line-height:1.3;gap:8px}
-  .promo-link b{display:none}
-  .promo-t{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
-  .promo-go{font-size:11.5px;padding:4px 8px}
-  .promo-x{height:48px;width:40px}
+  .promo-bar{height:40px}
+  .promo-link{justify-content:center;padding:0 0 0 40px;font-size:13.5px;font-weight:600}
+  .promo-go{display:none}
+  .promo-arr{display:inline}
+  .promo-td{display:none}
+  .promo-tm{display:inline}
+  .promo-t{white-space:nowrap}
+  .promo-x{height:40px;width:40px}
+}
 }
 html.promo-bar-on.nav-open .promo-bar{display:none}

@@ -132,14 +132,14 @@
   function build() {
     sheet = h('div', 'nl-sheet'); sheet.hidden = true;
     sheet.setAttribute('role', 'dialog'); sheet.setAttribute('aria-modal', 'true'); sheet.setAttribute('aria-labelledby', 'nl-sheet-h');
-    sheet.innerHTML = '<div class="nl-sheet-bg"></div><div class="nl-sheet-panel" tabindex="-1"><div class="nl-sheet-top"><span class="nl-grab"></span>' +
+    sheet.innerHTML = '<div class="nl-sheet-bg"></div><div class="nl-sheet-panel" tabindex="-1"><div class="nl-sheet-top">' +
       '<button type="button" class="nl-x" aria-label="' + esc(T.close) + '"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>' +
       '<div class="nl-std"><span class="nl-k">' + esc(T.name) + '</span><h2 class="nl-h" id="nl-sheet-h">' + esc(T.sheetH) + '</h2><p class="nl-p">' + esc(T.promise) + '</p></div></div>';
     var pn = sheet.querySelector('.nl-sheet-panel');
     if (P) {
       /* program promo (promo.js): kicker, heading, copy, two links, then a compact Arena Notes field */
       var pb = h('div', 'nl-promo', '<span class="nl-k">' + esc(P.k) + '</span><h2 class="nl-h" id="nl-promo-h">' + esc(P.h) + '</h2><p class="nl-p">' + esc(P.p) + '</p>' +
-        '<div class="nl-promo-cta"><a class="btn btn-primary nl-btn" href="' + esc(P.regHref) + '">' + esc(P.reg) + ' <span class="arr">→</span></a><a class="btn btn-ghost nl-btn" href="' + esc(P.moreHref) + '">' + esc(P.more) + '</a></div>' +
+        '<div class="nl-promo-cta"><a class="btn btn-primary nl-btn" href="' + esc(P.regHref) + '">' + esc(P.reg) + ' <span class="arr">→</span></a></div>' +
         (cfg ? '<p class="nl-promo-or">' + esc(P.or) + '</p>' : ''));
       pn.insertBefore(pb, pn.querySelector('.nl-std'));
       pb.querySelectorAll('.nl-promo-cta a').forEach(function (a) { a.addEventListener('click', function () { P.done() }) });
@@ -155,9 +155,6 @@
       if (e.key === 'Tab') { var f = [].filter.call(pn.querySelectorAll('button,input,a[href]'), function (x) { return !x.disabled && x.offsetParent !== null && x.tabIndex !== -1 }); if (!f.length) return;
         var a = f[0], z = f[f.length - 1]; if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus() } else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus() } }
     });
-    // swipe down to close (phones)
-    var y0 = null; pn.addEventListener('touchstart', function (e) { y0 = pn.scrollTop <= 0 ? e.touches[0].clientY : null }, { passive: true });
-    pn.addEventListener('touchmove', function (e) { if (y0 != null && e.touches[0].clientY - y0 > 70) { y0 = null; dismiss() } }, { passive: true });
   }
   function busy() { return doc.classList.contains('nav-open') || doc.classList.contains('php-lock') || (document.activeElement && /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName)) }
   var mode = 'nl';
