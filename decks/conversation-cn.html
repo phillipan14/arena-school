@@ -2624,6 +2624,61 @@ section.s.ae.cl .bd{justify-content:center;gap:72px}
 .mk-plus{transition:opacity .3s ease}
 .motion .mk:not(.done) .mk-plus{opacity:0}
 
+/* ---- s99-s24d.css ---- */
+.ae .bd .mk-stat .mk-d{margin:-4px 0 0;font:italic 400 24px/1.3 var(--serif);color:rgba(252,243,237,.8)}
+:lang(zh-CN) .ae .bd .mk-stat .mk-d{font-style:normal;font-size:24px;letter-spacing:.02em}
+
+/* ---- s99-s25.css ---- */
+/* Slide 25 (round 4): METR exponential chart (real data, left) and the widening-gap illustration (right). */
+.xg2{display:grid;grid-template-columns:minmax(0,1.32fr) minmax(0,.68fr);gap:var(--gap);align-items:stretch;flex:1;min-height:0}
+.xg2>.pane{display:flex;flex-direction:column;padding:var(--pad-m)!important;min-height:0}
+.xg2 .lr{height:auto;margin:0}
+
+.xg-plot{position:relative;flex:1;min-height:205px;margin:16px 0 0}
+.xg-area{position:absolute;left:104px;right:18px;top:16px;bottom:46px}
+:lang(zh-CN) .xg-area{left:92px}
+.xg-grid,.xg-draw{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible}
+.xg .gl{stroke:var(--edge);stroke-width:1}
+.xg .gl:first-child{stroke:rgba(11,26,74,.32)}
+.xg .ar{fill:rgba(47,85,168,.08)}
+.xg .cv{fill:none;stroke:var(--ink2);stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round}
+.xg-yl,.xg-xl{position:absolute;font:400 17px/1 var(--serif);color:var(--muted);white-space:nowrap;font-variant-numeric:lining-nums tabular-nums}
+.xg-yl{right:calc(100% + 16px);bottom:calc(var(--y) * 1%);translate:0 50%}
+.xg-xl{top:calc(100% + 16px);left:calc(var(--x) * 1%);translate:-50% 0}
+:lang(zh-CN) .xg-yl,:lang(zh-CN) .xg-xl{font-size:18px}
+.xg-pt{position:absolute;left:calc(var(--x) * 1%);bottom:calc(var(--y) * 1%);width:18px;height:18px;margin:0 0 -9px -9px;border-radius:50%;background:var(--paper-hi);border:3px solid var(--ink2);box-sizing:border-box}
+.xg-pt.hl{background:var(--ink2)}
+.xg-lb{position:absolute;left:calc(var(--x) * 1%);bottom:calc(var(--y) * 1%);font:400 21px/1 var(--serif);color:var(--text);white-space:nowrap;padding:3px 8px;background:#F7F0E7;border-radius:4px}
+.xg-lb.hl{color:var(--ink2);font-weight:600}
+:lang(zh-CN) .xg-lb{font-size:21px}
+.xg-lb.p0{translate:-24px -26px}
+.xg-lb.p1{translate:calc(-100% + 16px) -20px}
+.xg-lb.p2{translate:calc(-100% - 2px) -26px}
+.xg-lb.p3{translate:calc(-100% - 16px) 50%}
+/* illustration */
+.xg-il .xg-plot{margin:18px 0 0}
+.xg-il .xg-area{left:4px;right:4px;top:10px;bottom:6px}
+.xg-il .gp{fill:rgba(47,85,168,.12)}
+.xg-il .cf{fill:none;stroke:var(--muted);stroke-width:3;stroke-linecap:round}
+.xg-ll,.xg-gl{position:absolute;white-space:nowrap;font:400 19px/1.15 var(--serif)}
+.xg-ll.up{right:21%;bottom:62%;color:var(--ink2);font-weight:600}
+.xg-ll.fl{right:0;bottom:0;color:var(--muted)}
+.xg-gl{left:87%;bottom:41%;translate:-50% 50%;font-style:italic;color:var(--ink2)}
+:lang(zh-CN) .xg-ll,:lang(zh-CN) .xg-gl{font-size:20px}
+:lang(zh-CN) .xg-gl{font-style:normal}
+.ae .bd .xg2 .xg-cap{margin:20px 0 0;font:italic 400 16px/1.35 var(--serif);color:var(--muted);text-wrap:balance}
+:lang(zh-CN) .ae .bd .xg2 .xg-cap{font-style:normal;font-size:16px;line-height:1.5}
+/* motion: the curve draws left to right, each point and label arrives as the line reaches it */
+.motion .xg .xg-draw{clip-path:inset(-20px -20px -20px -20px);transition:clip-path 1.6s linear .2s}
+.motion .s:not(.in) .xg .xg-draw,.motion .s.bld .xg[data-s]:not(.vis) .xg-draw{clip-path:inset(-20px calc(100% + 20px) -20px -20px);transition:none}
+.motion .xg .xg-pt{transition:scale .45s var(--e-o) calc(.2s + var(--x) * .016s),opacity .3s ease calc(.2s + var(--x) * .016s)}
+.motion .xg .xg-lb{transition:opacity .45s ease calc(.3s + var(--x) * .016s)}
+.motion .s:not(.in) .xg .xg-pt,.motion .s.bld .xg[data-s]:not(.vis) .xg-pt{scale:.2;opacity:0;transition:none}
+.motion .s:not(.in) .xg .xg-lb,.motion .s.bld .xg[data-s]:not(.vis) .xg-lb{opacity:0;transition:none}
+.motion .xg-il .xg-ll,.motion .xg-il .xg-gl,.motion .xg-il .xg-cap{transition:opacity .5s ease 1.3s}
+.motion .s:not(.in) .xg-il .xg-ll,.motion .s:not(.in) .xg-il .xg-gl,.motion .s:not(.in) .xg-il .xg-cap,
+.motion .s.bld .xg-il[data-s]:not(.vis) .xg-ll,.motion .s.bld .xg-il[data-s]:not(.vis) .xg-gl,.motion .s.bld .xg-il[data-s]:not(.vis) .xg-cap{opacity:0;transition:none}
+
 /* ---- s99-s31.css ---- */
 /* Slide 31 (round 4): a child's project, agency / taste / craft in motion.
    Video left, three beats right, example tools along the foot. */
@@ -2839,14 +2894,14 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 
 <!-- 20 · Execution is getting cheap -->
 <section class="s ae"><div class="w">
- <p class="kick r">谷歌 · GitHub · 工作是怎么做出来的</p>
+ <p class="kick r">谷歌 · 百度 · 工作是怎么做出来的</p>
  <h2 class="r" style="--d:.1s">AI正在让“怎么做”变便宜：写代码、写稿、<em>做分析。</em></h2>
  <div class="bd r" style="--d:.25s"><div class="dns">
   <div class="pane dn" data-s="1"><div class="big">75%</div><div><div class="lr"><span class="org">Google</span></div><p>新代码现在由AI先写，再由工程师审过</p></div></div>
-  <div class="pane dn" data-s="2"><div class="big">80%</div><div><div class="lr"><span class="org">GitHub</span></div><p>新开发者第一周<span class="nw">就用 Copilot，</span><br>写代码本身不再稀缺</p></div></div>
+  <div class="pane dn" data-s="2"><div class="big">52%</div><div><div class="lr"><span class="org">百度</span></div><p>新增代码由AI生成，<br>CEO的目标是<span class="nw">八到九成</span></p></div></div>
  </div></div>
- <p class="fn" data-s="1"><span>Sundar Pichai，比去年秋天的50%上升，Google Cloud Next / 公司博客，2026年4月22日。GitHub Octoverse 2025：近80%的新开发者第一周就用了 Copilot</span></p>
-</div><aside class="notes">“怎么做”不再稀缺：谷歌大部分新代码是AI草稿、工程师审过；新开发者第一周就用Copilot。写稿和分析走同一条路。下一页讲，什么反而变得稀缺。</aside></section>
+ <p class="fn" data-s="1"><span>Sundar Pichai，比去年秋天的50%上升，Google Cloud Next / 公司博客，2026年4月22日。李彦宏，百度世界大会2025，2025年11月13日</span></p>
+</div><aside class="notes">“怎么做”不再稀缺：谷歌大部分新代码是AI草稿、工程师审过；百度52%的新增代码由AI生成，2023年是20%，2024年是27%，李彦宏的目标是80%至90%。写稿和分析走同一条路。下一页讲，什么反而变得稀缺。</aside></section>
 
 <!-- 21 · The scarce work shifts -->
 <section class="s alt ae"><div class="w">
@@ -2954,7 +3009,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   </ul>
   <div class="mk-low" data-s="1">
    <div class="mk-map pane"><p class="lab">今天就能试用的另外 <b><span class="mk-n">200</span><span class="mk-plus">+</span></b> 个AI工具</p><div class="mk-field" aria-hidden="true"></div></div>
-   <div class="mk-stat pane"><p class="lab">Hugging Face</p><b class="mk-big">4,386</b><p class="mk-l">2026年10月12日（周一）一天之内新发布的AI模型</p><p class="mk-r"><span>大约每分钟3个</span><span>累计超过310万个</span></p></div>
+   <div class="mk-stat pane"><p class="lab">Hugging Face</p><p class="mk-d">全球最大的公开AI模型库</p><b class="mk-big">4,386</b><p class="mk-l">2026年10月12日（周一）一天之内新发布的AI模型</p><p class="mk-r"><span>大约每分钟3个</span><span>累计超过310万个</span></p></div>
   </div>
  </div></div>
  <p class="fn" data-s="1"><span>Hugging Face Hub API：2026年10月12日（UTC）新建公开模型4,386个；huggingface.co/models 共列出3,145,598个。均于2026年10月13日核对。工具信息：各工具官网</span></p>
@@ -2963,19 +3018,15 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 <!-- 32 · Tools multiply -->
 <section class="s alt ae"><div class="w">
  <p class="kick r">建议一 · METR 时间视野 1.1 · 2026年1月29日</p>
- <h2 class="r" style="--d:.1s">AI能独立完成的工作，大约<em>每7个月翻一倍。</em></h2>
- <div class="bd r" style="--d:.25s"><div class="accx">
-  <div class="pane wide-ch" data-s="1"><div class="lr"><span class="org">METR · 50%时间视野</span></div><h3 class="ct">前沿模型能独立完成的工作时长</h3>
-   <div class="hb wide"><div class="row"><span class="bk">GPT-4，2023年</span><i style="--v:0.56"></i><b>4分钟</b></div><div class="row"><span class="bk">Claude 3.7，2025年</span><i style="--v:8.33"></i><b>1小时</b></div><div class="row hl"><span class="bk">Opus 4.6，2026年初</span><i style="--v:100"></i><b>12小时</b></div></div></div>
-  <ol class="tln" style="--n:4" data-s="2">
-   <li><span class="dt">2023年</span><span class="dot"></span><h3>Cursor</h3><p>AI代码编辑器发布</p></li>
-   <li><span class="dt">2024年6月</span><span class="dot"></span><h3>可灵</h3><p>快手的AI视频</p></li>
-   <li><span class="dt">2025年3月</span><span class="dot"></span><h3>Manus</h3><p>能独立做完多步任务的智能体</p></li>
-   <li class="end"><span class="dt">2026年9月</span><span class="dot"></span><h3>Muse</h3><p>Meta 出品，替你发邮件、订行程</p></li>
-  </ol>
- </div></div>
- <p class="fn" data-s="1"><span>METR《时间视野 1.1》，2026年1月29日：大约每7个月翻一倍。METR 数据（2026年10月13日核对）：GPT-4约4分钟，Claude 3.7约1小时，Claude Opus 4.6约12小时。Cursor 2023年；可灵2024年6月；Manus 2025年3月；Muse 2026年9月</span></p>
-</div><aside class="notes">所以孩子必须持续用这些工具。工具地图变得太快，记不住也没关系。编程、研究、设计和视频工具，比如 Claude Code、Lovable、TRAE、Perplexity、星流、Figma Make、即梦和 Suno，还在不断出来。持续使用新工具的孩子跟得上，停下来的就会落在下一波后面。</aside></section>
+ <h2 class="r" style="--d:.1s">AI的能力大约每7个月翻一倍，<em><span class="nw">会用它的人，</span>优势也在复利增长。</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="xg2">
+   <div class="pane xg" data-s="1"><div class="lr"><span class="org">METR · AI能独立完成的任务时长</span></div>
+    <figure class="xg-plot"><div class="xg-area"><svg class="xg-grid" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true"><line class="gl" x1="0" x2="1000" y1="1000" y2="1000" vector-effect="non-scaling-stroke"/><line class="gl" x1="0" x2="1000" y1="500" y2="500" vector-effect="non-scaling-stroke"/><line class="gl" x1="0" x2="1000" y1="0" y2="0" vector-effect="non-scaling-stroke"/></svg><svg class="xg-draw" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true"><path class="ar" d="M61.8,994.4 L65.3,994.3 L68.9,994.3 L72.5,994.2 L76.0,994.1 L79.6,993.9 L83.2,993.8 L86.7,993.7 L90.3,993.6 L93.9,993.5 L97.4,993.4 L101.0,993.3 L104.6,993.2 L108.1,993.1 L111.7,993.0 L115.3,992.8 L118.8,992.7 L122.4,992.6 L126.0,992.5 L129.5,992.4 L133.1,992.2 L136.7,992.1 L140.2,992.0 L143.8,991.9 L147.4,991.7 L150.9,991.6 L154.5,991.4 L158.1,991.3 L161.6,991.2 L165.2,991.0 L168.8,990.9 L172.3,990.7 L175.9,990.6 L179.4,990.4 L183.0,990.3 L186.6,990.1 L190.1,990.0 L193.7,989.8 L197.3,989.6 L200.8,989.5 L204.4,989.3 L208.0,989.1 L211.5,989.0 L215.1,988.8 L218.7,988.6 L222.2,988.4 L225.8,988.2 L229.4,988.0 L232.9,987.9 L236.5,987.7 L240.1,987.5 L243.6,987.3 L247.2,987.1 L250.8,986.9 L254.3,986.7 L257.9,986.4 L261.5,986.2 L265.0,986.0 L268.6,985.8 L272.2,985.6 L275.7,985.3 L279.3,985.1 L282.9,984.9 L286.4,984.6 L290.0,984.4 L293.6,984.1 L297.1,983.9 L300.7,983.6 L304.3,983.3 L307.8,983.1 L311.4,982.8 L315.0,982.5 L318.5,982.2 L322.1,982.0 L325.7,981.7 L329.2,981.4 L332.8,981.1 L336.4,980.8 L339.9,980.5 L343.5,980.1 L347.1,979.8 L350.6,979.5 L354.2,979.1 L357.8,978.8 L361.3,978.5 L364.9,978.1 L368.5,977.7 L372.0,977.4 L375.6,977.0 L379.2,976.6 L382.7,976.2 L386.3,975.8 L389.9,975.4 L393.4,975.0 L397.0,974.6 L400.6,974.2 L404.1,973.7 L407.7,973.3 L411.2,972.8 L414.8,972.4 L418.4,971.9 L421.9,971.4 L425.5,970.9 L429.1,970.4 L432.6,969.9 L436.2,969.4 L439.8,968.9 L443.3,968.3 L446.9,967.8 L450.5,967.2 L454.0,966.6 L457.6,966.1 L461.2,965.5 L464.7,964.8 L468.3,964.2 L471.9,963.6 L475.4,962.9 L479.0,962.2 L482.6,961.6 L486.1,960.9 L489.7,960.1 L493.3,959.4 L496.8,958.7 L500.4,957.9 L504.0,957.1 L507.5,956.3 L511.1,955.5 L514.7,954.7 L518.2,953.8 L521.8,953.0 L525.4,952.1 L528.9,951.1 L532.5,950.2 L536.1,949.3 L539.6,948.3 L543.2,947.3 L546.8,946.2 L550.3,945.2 L553.9,944.1 L557.5,943.0 L561.0,941.9 L564.6,940.7 L568.2,939.5 L571.7,938.3 L575.3,937.1 L578.9,935.8 L582.4,934.5 L586.0,933.1 L589.6,931.7 L593.1,930.3 L596.7,928.9 L600.3,927.4 L603.8,925.9 L607.4,924.3 L611.0,922.7 L614.5,921.0 L618.1,919.3 L621.7,917.6 L625.2,915.8 L628.8,914.0 L632.4,912.1 L635.9,910.2 L639.5,908.3 L643.1,906.3 L646.6,904.2 L650.2,902.2 L653.7,900.0 L657.3,897.8 L660.9,895.6 L664.4,893.3 L668.0,891.0 L671.6,888.5 L675.1,886.1 L678.7,883.5 L682.3,880.9 L685.8,878.2 L689.4,875.5 L693.0,872.6 L696.5,869.7 L700.1,866.7 L703.7,863.6 L707.2,860.4 L710.8,857.2 L714.4,853.8 L717.9,850.3 L721.5,846.7 L725.1,843.0 L728.6,839.1 L732.2,835.2 L735.8,831.1 L739.3,826.8 L742.9,822.5 L746.5,817.9 L750.0,813.2 L753.6,808.4 L757.2,803.3 L760.7,798.1 L764.3,792.7 L767.9,787.1 L771.4,781.2 L775.0,775.2 L778.6,768.9 L782.1,762.3 L785.7,755.5 L789.3,748.5 L792.8,741.1 L796.4,733.4 L800.0,725.4 L803.5,717.1 L807.1,708.4 L810.7,699.3 L814.2,689.9 L817.8,680.0 L821.4,669.7 L824.9,658.9 L828.5,647.6 L832.1,635.8 L835.6,623.5 L839.2,610.5 L842.8,597.0 L846.3,582.7 L849.9,567.2 L853.5,550.5 L857.0,532.5 L860.6,513.1 L864.2,492.4 L867.7,470.2 L871.3,446.6 L874.9,421.4 L878.4,394.8 L882.0,366.5 L885.6,336.8 L889.1,305.4 L892.7,272.4 L896.2,237.9 L899.8,201.8 L903.4,164.2 L906.9,125.1 L910.5,84.6 L914.1,42.9 L917.6,-0.0 L917.6,1000 L61.8,1000 Z"/><path class="cv" d="M61.8,994.4 L65.3,994.3 L68.9,994.3 L72.5,994.2 L76.0,994.1 L79.6,993.9 L83.2,993.8 L86.7,993.7 L90.3,993.6 L93.9,993.5 L97.4,993.4 L101.0,993.3 L104.6,993.2 L108.1,993.1 L111.7,993.0 L115.3,992.8 L118.8,992.7 L122.4,992.6 L126.0,992.5 L129.5,992.4 L133.1,992.2 L136.7,992.1 L140.2,992.0 L143.8,991.9 L147.4,991.7 L150.9,991.6 L154.5,991.4 L158.1,991.3 L161.6,991.2 L165.2,991.0 L168.8,990.9 L172.3,990.7 L175.9,990.6 L179.4,990.4 L183.0,990.3 L186.6,990.1 L190.1,990.0 L193.7,989.8 L197.3,989.6 L200.8,989.5 L204.4,989.3 L208.0,989.1 L211.5,989.0 L215.1,988.8 L218.7,988.6 L222.2,988.4 L225.8,988.2 L229.4,988.0 L232.9,987.9 L236.5,987.7 L240.1,987.5 L243.6,987.3 L247.2,987.1 L250.8,986.9 L254.3,986.7 L257.9,986.4 L261.5,986.2 L265.0,986.0 L268.6,985.8 L272.2,985.6 L275.7,985.3 L279.3,985.1 L282.9,984.9 L286.4,984.6 L290.0,984.4 L293.6,984.1 L297.1,983.9 L300.7,983.6 L304.3,983.3 L307.8,983.1 L311.4,982.8 L315.0,982.5 L318.5,982.2 L322.1,982.0 L325.7,981.7 L329.2,981.4 L332.8,981.1 L336.4,980.8 L339.9,980.5 L343.5,980.1 L347.1,979.8 L350.6,979.5 L354.2,979.1 L357.8,978.8 L361.3,978.5 L364.9,978.1 L368.5,977.7 L372.0,977.4 L375.6,977.0 L379.2,976.6 L382.7,976.2 L386.3,975.8 L389.9,975.4 L393.4,975.0 L397.0,974.6 L400.6,974.2 L404.1,973.7 L407.7,973.3 L411.2,972.8 L414.8,972.4 L418.4,971.9 L421.9,971.4 L425.5,970.9 L429.1,970.4 L432.6,969.9 L436.2,969.4 L439.8,968.9 L443.3,968.3 L446.9,967.8 L450.5,967.2 L454.0,966.6 L457.6,966.1 L461.2,965.5 L464.7,964.8 L468.3,964.2 L471.9,963.6 L475.4,962.9 L479.0,962.2 L482.6,961.6 L486.1,960.9 L489.7,960.1 L493.3,959.4 L496.8,958.7 L500.4,957.9 L504.0,957.1 L507.5,956.3 L511.1,955.5 L514.7,954.7 L518.2,953.8 L521.8,953.0 L525.4,952.1 L528.9,951.1 L532.5,950.2 L536.1,949.3 L539.6,948.3 L543.2,947.3 L546.8,946.2 L550.3,945.2 L553.9,944.1 L557.5,943.0 L561.0,941.9 L564.6,940.7 L568.2,939.5 L571.7,938.3 L575.3,937.1 L578.9,935.8 L582.4,934.5 L586.0,933.1 L589.6,931.7 L593.1,930.3 L596.7,928.9 L600.3,927.4 L603.8,925.9 L607.4,924.3 L611.0,922.7 L614.5,921.0 L618.1,919.3 L621.7,917.6 L625.2,915.8 L628.8,914.0 L632.4,912.1 L635.9,910.2 L639.5,908.3 L643.1,906.3 L646.6,904.2 L650.2,902.2 L653.7,900.0 L657.3,897.8 L660.9,895.6 L664.4,893.3 L668.0,891.0 L671.6,888.5 L675.1,886.1 L678.7,883.5 L682.3,880.9 L685.8,878.2 L689.4,875.5 L693.0,872.6 L696.5,869.7 L700.1,866.7 L703.7,863.6 L707.2,860.4 L710.8,857.2 L714.4,853.8 L717.9,850.3 L721.5,846.7 L725.1,843.0 L728.6,839.1 L732.2,835.2 L735.8,831.1 L739.3,826.8 L742.9,822.5 L746.5,817.9 L750.0,813.2 L753.6,808.4 L757.2,803.3 L760.7,798.1 L764.3,792.7 L767.9,787.1 L771.4,781.2 L775.0,775.2 L778.6,768.9 L782.1,762.3 L785.7,755.5 L789.3,748.5 L792.8,741.1 L796.4,733.4 L800.0,725.4 L803.5,717.1 L807.1,708.4 L810.7,699.3 L814.2,689.9 L817.8,680.0 L821.4,669.7 L824.9,658.9 L828.5,647.6 L832.1,635.8 L835.6,623.5 L839.2,610.5 L842.8,597.0 L846.3,582.7 L849.9,567.2 L853.5,550.5 L857.0,532.5 L860.6,513.1 L864.2,492.4 L867.7,470.2 L871.3,446.6 L874.9,421.4 L878.4,394.8 L882.0,366.5 L885.6,336.8 L889.1,305.4 L892.7,272.4 L896.2,237.9 L899.8,201.8 L903.4,164.2 L906.9,125.1 L910.5,84.6 L914.1,42.9 L917.6,-0.0" vector-effect="non-scaling-stroke"/></svg><span class="xg-yl" style="--y:0">0</span><span class="xg-yl" style="--y:50">6小时</span><span class="xg-yl" style="--y:100">12小时</span><span class="xg-xl" style="--x:0.00">2023年</span><span class="xg-xl" style="--x:29.41">2024年</span><span class="xg-xl" style="--x:58.82">2025年</span><span class="xg-xl" style="--x:88.24">2026年</span><span class="xg-pt p0" style="--x:6.18;--y:0.56"></span><span class="xg-lb p0" style="--x:6.18;--y:0.56">GPT-4 · 4分钟</span><span class="xg-pt p1" style="--x:62.35;--y:8.33"></span><span class="xg-lb p1" style="--x:62.35;--y:8.33">Claude 3.7 · 1小时</span><span class="xg-pt p2" style="--x:84.41;--y:40.83"></span><span class="xg-lb p2" style="--x:84.41;--y:40.83">Opus 4.5 · 4.9小时</span><span class="xg-pt p3 hl" style="--x:91.76;--y:100.00"></span><span class="xg-lb p3 hl" style="--x:91.76;--y:100.00">Opus 4.6 · 12小时</span></div></figure></div>
+   <div class="pane xg xg-il" data-s="2"><div class="lr"><span class="org">对使用者意味着什么</span></div>
+    <figure class="xg-plot"><div class="xg-area"><svg class="xg-draw" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true"><path class="gp" d="M0.0,900.0 L16.7,897.3 L33.3,894.4 L50.0,891.5 L66.7,888.4 L83.3,885.1 L100.0,881.7 L116.7,878.1 L133.3,874.4 L150.0,870.4 L166.7,866.3 L183.3,862.0 L200.0,857.5 L216.7,852.8 L233.3,847.8 L250.0,842.7 L266.7,837.2 L283.3,831.6 L300.0,825.6 L316.7,819.4 L333.3,812.9 L350.0,806.0 L366.7,798.9 L383.3,791.4 L400.0,783.5 L416.7,775.3 L433.3,766.7 L450.0,757.7 L466.7,748.2 L483.3,738.4 L500.0,728.0 L516.7,717.2 L533.3,705.8 L550.0,693.9 L566.7,681.4 L583.3,668.4 L600.0,654.7 L616.7,640.4 L633.3,625.4 L650.0,609.7 L666.7,593.3 L683.3,576.1 L700.0,558.0 L716.7,539.2 L733.3,519.4 L750.0,498.7 L766.7,477.0 L783.3,454.3 L800.0,430.5 L816.7,405.5 L833.3,379.4 L850.0,352.1 L866.7,323.5 L883.3,293.5 L900.0,262.1 L916.7,229.2 L933.3,194.8 L950.0,158.7 L966.7,121.0 L983.3,81.4 L1000.0,40.0 L1000.0,830.0 L983.3,831.2 L966.7,832.3 L950.0,833.5 L933.3,834.7 L916.7,835.8 L900.0,837.0 L883.3,838.2 L866.7,839.3 L850.0,840.5 L833.3,841.7 L816.7,842.8 L800.0,844.0 L783.3,845.2 L766.7,846.3 L750.0,847.5 L733.3,848.7 L716.7,849.8 L700.0,851.0 L683.3,852.2 L666.7,853.3 L650.0,854.5 L633.3,855.7 L616.7,856.8 L600.0,858.0 L583.3,859.2 L566.7,860.3 L550.0,861.5 L533.3,862.7 L516.7,863.8 L500.0,865.0 L483.3,866.2 L466.7,867.3 L450.0,868.5 L433.3,869.7 L416.7,870.8 L400.0,872.0 L383.3,873.2 L366.7,874.3 L350.0,875.5 L333.3,876.7 L316.7,877.8 L300.0,879.0 L283.3,880.2 L266.7,881.3 L250.0,882.5 L233.3,883.7 L216.7,884.8 L200.0,886.0 L183.3,887.2 L166.7,888.3 L150.0,889.5 L133.3,890.7 L116.7,891.8 L100.0,893.0 L83.3,894.2 L66.7,895.3 L50.0,896.5 L33.3,897.7 L16.7,898.8 L0.0,900.0 Z"/><path class="cf" d="M0.0,900.0 L16.7,898.8 L33.3,897.7 L50.0,896.5 L66.7,895.3 L83.3,894.2 L100.0,893.0 L116.7,891.8 L133.3,890.7 L150.0,889.5 L166.7,888.3 L183.3,887.2 L200.0,886.0 L216.7,884.8 L233.3,883.7 L250.0,882.5 L266.7,881.3 L283.3,880.2 L300.0,879.0 L316.7,877.8 L333.3,876.7 L350.0,875.5 L366.7,874.3 L383.3,873.2 L400.0,872.0 L416.7,870.8 L433.3,869.7 L450.0,868.5 L466.7,867.3 L483.3,866.2 L500.0,865.0 L516.7,863.8 L533.3,862.7 L550.0,861.5 L566.7,860.3 L583.3,859.2 L600.0,858.0 L616.7,856.8 L633.3,855.7 L650.0,854.5 L666.7,853.3 L683.3,852.2 L700.0,851.0 L716.7,849.8 L733.3,848.7 L750.0,847.5 L766.7,846.3 L783.3,845.2 L800.0,844.0 L816.7,842.8 L833.3,841.7 L850.0,840.5 L866.7,839.3 L883.3,838.2 L900.0,837.0 L916.7,835.8 L933.3,834.7 L950.0,833.5 L966.7,832.3 L983.3,831.2 L1000.0,830.0" vector-effect="non-scaling-stroke"/><path class="cv" d="M0.0,900.0 L16.7,897.3 L33.3,894.4 L50.0,891.5 L66.7,888.4 L83.3,885.1 L100.0,881.7 L116.7,878.1 L133.3,874.4 L150.0,870.4 L166.7,866.3 L183.3,862.0 L200.0,857.5 L216.7,852.8 L233.3,847.8 L250.0,842.7 L266.7,837.2 L283.3,831.6 L300.0,825.6 L316.7,819.4 L333.3,812.9 L350.0,806.0 L366.7,798.9 L383.3,791.4 L400.0,783.5 L416.7,775.3 L433.3,766.7 L450.0,757.7 L466.7,748.2 L483.3,738.4 L500.0,728.0 L516.7,717.2 L533.3,705.8 L550.0,693.9 L566.7,681.4 L583.3,668.4 L600.0,654.7 L616.7,640.4 L633.3,625.4 L650.0,609.7 L666.7,593.3 L683.3,576.1 L700.0,558.0 L716.7,539.2 L733.3,519.4 L750.0,498.7 L766.7,477.0 L783.3,454.3 L800.0,430.5 L816.7,405.5 L833.3,379.4 L850.0,352.1 L866.7,323.5 L883.3,293.5 L900.0,262.1 L916.7,229.2 L933.3,194.8 L950.0,158.7 L966.7,121.0 L983.3,81.4 L1000.0,40.0" vector-effect="non-scaling-stroke"/></svg><span class="xg-ll up">会用AI工具的人</span><span class="xg-ll fl">不用的人</span><span class="xg-gl">差距</span></div></figure><div class="xg-cap">示意图，不是数据：工具越强，差距越大。</div></div>
+  </div></div>
+ <p class="fn" data-s="1"><span>METR《时间视野 1.1》，2026年1月29日：大约每7个月翻一倍。METR 数据（2026年10月13日核对）：GPT-4约4分钟，Claude 3.7约1小时，Claude Opus 4.5约4.9小时，Claude Opus 4.6约12小时。右侧为示意图，不是数据</span></p>
+</div><aside class="notes">两张图。左边是 METR 的真实数据：前沿模型能独立完成的任务时长，从2023年 GPT-4 的大约4分钟，涨到2026年初 Claude Opus 4.6 的大约12小时，大约每7个月翻一倍，最近还更快。右边是这对一个人意味着什么，是示意图，不是数据：会用这些工具的人跟着这条曲线往上走，不用的人原地不动，差距每年都在变大。新工具还在不断出来，从2023年的 Cursor，到可灵、Manus，再到今年9月 Meta 的 Muse，所以孩子必须持续用这些工具。工具地图变得太快，记不住也没关系。</aside></section>
 
 <!-- 33 · Takeaway 2 -->
 <section class="s alt ae st tk"><div class="w"><div class="tk-g">
@@ -3108,11 +3159,11 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <ul class="srcs pane">
   <li><span><b>Anthropic</b> 经济指数：至少25%的任务用到AI的职业，从36%到49%</span><span class="src">2026年1月15日</span></li>
   <li><span><b>《自然·医学》</b> EyeFM 随机对照试验：92.2%对75.4%</span><span class="src">2025年8月28日</span></li>
-  <li><span><b>Schwarcz、Manning、Prescott 等</b>，《AI赋能的律师工作》：50%至130%</span><span class="src">2026年</span></li>
+  <li><span><b>Schwarcz、Manning、Prescott 等</b>，《AI赋能的律师工作》：34%至140%</span><span class="src">2026年</span></li>
   <li><span><b>财新</b>报道律商联讯调查（93%）；<b>NALP</b> 2025届报告（−7.5%）</span><span class="src">2025年8月29日&nbsp;· 2026年8月5日</span></li>
   <li><span><b>中国工商银行</b>2025年年度报告：5.5万人年，员工409,758人</span><span class="src">2026年3月27日</span></li>
   <li><span><b>渣打银行</b>投资者活动；<b>《卫报》</b>报道 Bill Winters</span><span class="src">2026年5月19日、22日</span></li>
-  <li><span><b>《财富》</b>与<b>雅虎财经</b>报道 Salesforce；<b>Google</b>，Sundar Pichai（75%）；<b>SignalFire</b> 人才报告</span><span class="src">2025年5月&nbsp;· 2026年4–5月</span></li>
+  <li><span><b>《财富》</b>与<b>雅虎财经</b>报道 Salesforce</span><span class="src">2025年5月</span></li>
   <li><span><b>界面新闻</b>援引脉脉：AI岗位与大厂招聘</span><span class="src">2025年8月</span></li>
   <li><span><b>Business Insider</b> 报道高盛 David Solomon 在思科AI峰会的发言</span><span class="src">2025年1月17日</span></li>
   <li><span><b>亚马逊</b>：Andy Jassy 致员工信；裁员内部信（1.4万、1.6万个职位）</span><span class="src">2025年6月–2026年1月</span></li>
@@ -3133,18 +3184,17 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <div class="bd r" style="--d:.25s">
  <ul class="srcs pane">
   <li><span><b>Sundar Pichai</b>：谷歌75%的新代码由AI生成、工程师审过，去年秋天为50%</span><span class="src">2026年4月22日</span></li>
-  <li><span><b>GitHub</b> Octoverse 2025：近80%的新开发者第一周就用了 Copilot</span><span class="src">2025年</span></li>
+  <li><span><b>李彦宏</b>，百度世界大会2025：百度52%的新增代码由AI生成</span><span class="src">2025年11月13日</span></li>
   <li><span><b>世界经济论坛</b>《2025年未来就业报告》图3.3、3.4：分析性思维69%，韧性67%，领导力61%，创造性思维57%</span><span class="src">2025年1月7日</span></li>
   <li><span><b>微软</b>《2026工作趋势指数》：核对AI结果（50%）、批判性思维（46%）；工作从生成答案转向判断答案</span><span class="src">2026年2月18日至4月7日</span></li>
   <li><span><b>LinkedIn</b>《2026年上升技能》：领导力与带人，和AI一起在涨</span><span class="src">2026年</span></li>
-  <li><span><b>NACE</b>《2026就业展望》（13.3%）及春季更新（35%）</span><span class="src">2025年11月&nbsp;· 2026年4月20日</span></li>
-  <li><span><b>解放日报</b>（上观新闻）援引智联招聘：雇主看重的能力</span><span class="src">2026年3月27日</span></li>
   <li><span><b>央广网</b>报道BOSS直聘AI岗位（2025年增长74.1%）</span><span class="src">2026年1月23日</span></li>
   <li><span><b>北京市教育委员会</b>《北京市推进中小学人工智能教育工作方案<span class="nw">（2025—2027年）</span>》，京教办〔2025〕2号</span><span class="src">2025年3月6日</span></li>
     <li><span><b>中国教育科学研究院</b>学校与教师调查（88%、54%）；<b>盖洛普</b>与沃尔顿家族基金会（68%）</span><span class="src">2026年8月19日&nbsp;· 2025年</span></li>
-  <li><span><b>METR</b>《时间视野 1.1》：50%时间视野大约每7个月翻一倍；GPT-4约4分钟，Claude 3.7约1小时，Claude Opus 4.6约12小时（METR 数据，2026年10月13日核对）</span><span class="src">2026年1月29日</span></li>
+  <li><span><b>METR</b>《时间视野 1.1》：50%时间视野大约每7个月翻一倍；GPT-4约4分钟，Claude 3.7约1小时，Claude Opus 4.5约4.9小时，Claude Opus 4.6约12小时（METR 数据，2026年10月13日核对）</span><span class="src">2026年1月29日</span></li>
   <li><span><b>AI工具</b>：Meta 官方发布（Muse）；TechCrunch（Instinct）；路透社（OpenClaw）；manus.im、kimi.com 及各工具官网</span><span class="src">2026年&nbsp;· 10月11日核对</span></li>
   <li><span><b>Hugging Face</b>：10月12日新建公开模型4,386个；共列出3,145,598个</span><span class="src">2026年10月13日核对</span></li>
+  <li><span><b>手语转语音项目</b>：香港一名十岁孩子，2025年夏：arenaschool.org/results</span><span class="src">2025年</span></li>
   <li><span><b>Kimi</b>（月之暗面）招聘经历，亲身所见</span><span class="src">2026年</span></li>
   <li><span><b>Cursor</b>：D 轮融资公告；路透社、CNBC、彭博社报道 SpaceX 收购；SpaceX 8-K 文件与 PitchBook 报道交易完成</span><span class="src">2025年11月&nbsp;· 2026年6–8月</span></li>
  </ul>
