@@ -1,0 +1,26 @@
+/* s96: spacing and centering pass, slides 1–12 (Oct 13). Slide-scoped; loads after s90. */
+@media (min-width:701px){
+ /* s01 CN: the highlight band stopped past the full-width comma; end it at the comma's ink */
+ :lang(zh-CN) .cover h1 .m::after{right:.55em}
+ /* s02 agenda: cards fill the slide body but their content sat at the top over a deep empty band; center the content block */
+ .toc .tocf{grid-template-rows:1fr auto auto 1fr}
+ .toc .tocf li{grid-row:1/5;display:grid;grid-template-rows:subgrid}
+ .toc .tocf a{grid-row:1/5;grid-template-rows:subgrid;row-gap:0}
+ .toc .tocf .ico,.toc .tocf .tn{grid-row:2}
+ .toc .tocf .tt{grid-row:3;align-self:start;margin-top:30px}
+ /* s03 speakers: the WORKED row sat high with a deep empty band below; balance the card's bottom */
+ .ae .bd .spk2 .sp{padding-bottom:0}
+ /* s08: one number size for all three cards so the body text and dividers line up */
+ .st3 .big,.st3 .big.nc{font-size:62px;letter-spacing:-.02em}
+ :lang(zh-CN) .st3 .big,:lang(zh-CN) .st3 .big.nc{font-size:62px}
+ .st3 .mb{min-height:86px}
+ .st3 .mb .row{grid-template-columns:minmax(6.5em,8.5em) minmax(56px,1fr) auto}
+ /* s09: the big numbers sat high in their cards (line box vs digit ink); center the digits */
+ .duo .big{line-height:.76;transform:translateY(.126em)}
+}
+@media (min-width:701px){
+ /* s10: the memo heading sat lower than the 14,000 / 16,000 digits; align their tops */
+ .ae .bd .tln-pane .tln h3{margin-top:-9px}
+ /* s12: 62% sat high against the PwC block beside it; center it on that block */
+ .st .nst .big{transform:translateY(.13em)}
+}
