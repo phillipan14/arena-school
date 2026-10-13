@@ -17,6 +17,7 @@ BANDS = {
 }
 def ver(n): return hashlib.sha1(open(os.path.join(ROOT, n), 'rb').read()).hexdigest()[:8]
 VC, VJ = ver('newsletter.css'), ver('newsletter.js')
+PC, PJ = ver('promo.css'), ver('promo.js')
 n = 0
 for page in PAGES:
     p = os.path.join(ROOT, page); s = open(p, encoding='utf-8').read(); o = s
@@ -24,10 +25,12 @@ for page in PAGES:
     s = re.sub(r'\n?<link rel="stylesheet" href="/newsletter\.css[^"]*" data-nl>', '', s)
     s = re.sub(r'\n?<script src="/newsletter\.js[^"]*" defer data-nl></script>', '', s)
     s = re.sub(r'<section class="nl-band" data-nl="[a-z]+"></section>\n', '', s)
-    link = '<link rel="stylesheet" href="/newsletter.css?v=%s" data-nl>' % VC
+    s = re.sub(r'\n?<link rel="stylesheet" href="/promo\.css[^"]*" data-promo>', '', s)
+    s = re.sub(r'\n?<script src="/promo\.js[^"]*" defer data-promo></script>', '', s)
+    link = '<link rel="stylesheet" href="/newsletter.css?v=%s" data-nl>\n<link rel="stylesheet" href="/promo.css?v=%s" data-promo>' % (VC, PC)
     i = s.find('<link rel="stylesheet" href="/phone.css'); i = i if i >= 0 else s.lower().find('</head>')
     s = s[:i] + link + '\n' + s[i:]
-    scr = '<script src="/newsletter.js?v=%s" defer data-nl></script>' % VJ
+    scr = '<script src="/promo.js?v=%s" defer data-promo></script>\n<script src="/newsletter.js?v=%s" defer data-nl></script>' % (PJ, VJ)
     i = s.find('<!-- phone:start -->'); i = i if i >= 0 else s.lower().rfind('</body>')
     s = s[:i] + scr + '\n' + s[i:]
     if key in BANDS:

@@ -2,7 +2,7 @@
    - Bands: fills every <section class="nl-band" data-nl="KEY"> placeholder (inserted by tools/newsletter_markup.py).
    - Footer: a slim email field under the desktop footer tagline.
    - Program closing blocks: adds a quiet "Get Arena Notes" button (phones turn it into a row).
-   - Sheet: one dialog (centered card on desktop, bottom sheet on phones) opened by any a[href="#nl"],
+   - Sheet: one dialog (a centered modal card at every width) opened by any a[href="#nl"],
      and once on the homepage when the programs section is reached after 15s (rules in maybeAuto()).
    Loaded before phone.js so the phone layer can restyle what this adds. */
 (function () {
@@ -52,7 +52,7 @@
       var v = (em.value || '').trim();
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) { msg.textContent = T.bad; msg.className = 'nl-msg nl-err'; em.focus(); return }
       var r = f.querySelector('input[name=role]:checked');
-      if (f.querySelector('.nl-roles') && !r) { msg.textContent = T.pick; msg.className = 'nl-msg nl-err'; f.querySelector('input[name=role]').focus(); return }
+      var rl = f.querySelector('.nl-roles'); if (rl && rl.offsetParent !== null && !r) { msg.textContent = T.pick; msg.className = 'nl-msg nl-err'; f.querySelector('input[name=role]').focus(); return }
       b.disabled = true; b.textContent = T.sending; msg.textContent = ''; msg.className = 'nl-msg';
       fetch('/api/subscribe', { method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: v, role: r ? r.value : '', lang: L, source: source, page: location.pathname, _honey: f.querySelector('.nl-hp').value }) })
@@ -62,7 +62,8 @@
           store.set('sub', '1'); removeBar();
           var okBox = h('div', 'nl-done', '<p class="nl-ok">' + esc(T.ok) + '</p>');
           f.replaceWith(okBox);
-          if (okBox.closest('.nl-sheet')) { var d = h('button', 'btn btn-primary nl-btn nl-donebtn', esc(T.done)); d.type = 'button'; d.addEventListener('click', closeSheet); okBox.appendChild(d); d.focus() }
+          if (okBox.closest('.nl-sheet.nl-is-promo')) { okBox.tabIndex = -1; okBox.focus({ preventScroll: true }) } // promo: closes with the X only
+          else if (okBox.closest('.nl-sheet')) { var d = h('button', 'btn btn-primary nl-btn nl-donebtn', esc(T.done)); d.type = 'button'; d.addEventListener('click', closeSheet); okBox.appendChild(d); d.focus() }
         })
         .catch(function (err) { msg.textContent = (err && err.message) || T.fail; msg.className = 'nl-msg nl-err'; b.disabled = false; b.textContent = T.btn });
     });
@@ -76,7 +77,7 @@
     var a = h('a', 'btn btn-ghost nl-cta', esc(T.closing)); a.href = '#nl'; cta.appendChild(a);
   });
   var preview = /[?&]nl=(now|reset)\b/.test(location.search);
-  fetch('/api/subscribe', { cache: 'no-store' }).then(function (r) { return r.json() }).then(function (o) { if (o && o.configured) start() }).catch(function () {});
+  fetch('/api/subscribe', { cache: 'no-store' }).then(function (r) { return r.json() }).then(function (o) { if (o && o.configured) start(true); else if (window.__arenaPromo) start(false) }).catch(function () {});
 
   /* homepage top banner: thin navy strip above the nav; the whole strip opens the sheet.
      If the text doesn't fit, it scrolls as a ticker (still under reduced motion). */
@@ -84,7 +85,7 @@
   function removeBar() { if (!bar) return; bar.remove(); bar = null; doc.classList.remove('nl-bar-on'); doc.style.removeProperty('--nlb-off') }
   function placeNav() { if (!bar) return; var off = Math.max(0, barH - window.scrollY); doc.style.setProperty('--nlb-off', off + 'px') }
   function buildBar() {
-    if (!doc.querySelector('body.home') || store.get('sub') === '1') return;
+    if (!doc.querySelector('body.home') || store.get('sub') === '1' || document.querySelector('.promo-bar')) return; // promo.js owns the top strip while it runs
     var bd = +store.get('bar') || 0; if (bd && Date.now() - bd < 30 * 864e5) return;
     bar = h('div', 'nl-bar'); bar.setAttribute('role', 'region'); bar.setAttribute('aria-label', T.name);
     var item = '<span class="nl-bar-item"><b>' + esc(T.name) + '</b><span class="nl-bar-dot" aria-hidden="true">·</span>' + esc(T.bar) + '<span class="nl-bar-go">' + esc(T.barGo) + ' →</span></span>';
@@ -106,7 +107,10 @@
     window.addEventListener('scroll', function () { requestAnimationFrame(placeNav) }, { passive: true });
   }
 
-  function start() {
+  /* cfg=false: sign-up is not configured but a program is being promoted, so only the popup runs (without the email field). */
+  function start(cfg) {
+  var P = window.__arenaPromo || null;
+  if (cfg) {
   doc.classList.add('nl-on');
   buildBar();
   /* bands */
@@ -122,17 +126,29 @@
   var fb = document.querySelector('footer.footer .footer-brand');
   if (fb && !fb.querySelector('.nl-foot')) { var ff = h('div', 'nl-foot', '<span class="nl-foot-k">' + esc(T.footer) + '</span>'); ff.appendChild(form('footer', true)); fb.appendChild(ff) }
 
+  }
 
   /* the sheet */
   var sheet = null, lastFocus = null;
   function build() {
     sheet = h('div', 'nl-sheet'); sheet.hidden = true;
     sheet.setAttribute('role', 'dialog'); sheet.setAttribute('aria-modal', 'true'); sheet.setAttribute('aria-labelledby', 'nl-sheet-h');
-    sheet.innerHTML = '<div class="nl-sheet-bg"></div><div class="nl-sheet-panel" tabindex="-1"><div class="nl-sheet-top"><span class="nl-grab"></span>' +
+    sheet.innerHTML = '<div class="nl-sheet-bg"></div><div class="nl-sheet-panel" tabindex="-1"><div class="nl-sheet-top">' +
       '<button type="button" class="nl-x" aria-label="' + esc(T.close) + '"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>' +
-      '<span class="nl-k">' + esc(T.name) + '</span><h2 class="nl-h" id="nl-sheet-h">' + esc(T.sheetH) + '</h2><p class="nl-p">' + esc(T.promise) + '</p></div>';
+      '<div class="nl-std"><span class="nl-k">' + esc(T.name) + '</span><h2 class="nl-h" id="nl-sheet-h">' + esc(T.sheetH) + '</h2><p class="nl-p">' + esc(T.promise) + '</p></div></div>';
     var pn = sheet.querySelector('.nl-sheet-panel');
-    pn.appendChild(form('sheet'));
+    if (P) {
+      /* program promo (promo.js): seal, label, heading, date line, copy, one primary link, then a compact Arena Notes field */
+      var pb = h('div', 'nl-promo', '<img class="nl-seal" src="/logos/arena/seal-navy-256.png" alt="" width="48" height="48">' +
+        '<span class="nl-k">' + esc(P.k) + '</span><h2 class="nl-h" id="nl-promo-h">' + esc(P.h) + '</h2>' +
+        (P.d ? '<p class="nl-promo-d"><span>' + esc(P.d) + '</span></p>' : '') + '<p class="nl-p">' + esc(P.p) + '</p>' +
+        (P.note ? '<p class="nl-promo-note">' + esc(P.note) + '</p>' : '') +
+        '<div class="nl-promo-cta"><a class="btn btn-primary nl-btn" href="' + esc(P.regHref) + '">' + esc(P.reg) + ' <span class="arr">→</span></a></div>' +
+        (cfg ? '<p class="nl-promo-or">' + esc(P.or) + '</p>' : ''));
+      pn.insertBefore(pb, pn.querySelector('.nl-std'));
+      pb.querySelectorAll('.nl-promo-cta a').forEach(function (a) { a.addEventListener('click', function () { P.done() }) });
+    }
+    if (cfg) pn.appendChild(form('sheet'));
     var nn = h('button', 'nl-notnow', esc(T.notnow)); nn.type = 'button'; pn.appendChild(nn);
     document.body.appendChild(sheet);
     sheet.querySelector('.nl-sheet-bg').addEventListener('click', dismiss);
@@ -143,13 +159,15 @@
       if (e.key === 'Tab') { var f = [].filter.call(pn.querySelectorAll('button,input,a[href]'), function (x) { return !x.disabled && x.offsetParent !== null && x.tabIndex !== -1 }); if (!f.length) return;
         var a = f[0], z = f[f.length - 1]; if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus() } else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus() } }
     });
-    // swipe down to close (phones)
-    var y0 = null; pn.addEventListener('touchstart', function (e) { y0 = pn.scrollTop <= 0 ? e.touches[0].clientY : null }, { passive: true });
-    pn.addEventListener('touchmove', function (e) { if (y0 != null && e.touches[0].clientY - y0 > 70) { y0 = null; dismiss() } }, { passive: true });
   }
   function busy() { return doc.classList.contains('nav-open') || doc.classList.contains('php-lock') || (document.activeElement && /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName)) }
-  function openSheet() {
+  var mode = 'nl';
+  function openSheet(m) {
     if (!sheet) build(); if (!sheet.hidden) return;
+    mode = (m === 'promo' && P) ? 'promo' : 'nl';
+    sheet.classList.toggle('nl-is-promo', mode === 'promo');
+    sheet.setAttribute('aria-labelledby', mode === 'promo' ? 'nl-promo-h' : 'nl-sheet-h');
+    if (!cfg && mode === 'nl') return;
     lastFocus = document.activeElement; sheet.hidden = false; doc.classList.add('nl-lock');
     requestAnimationFrame(function () { requestAnimationFrame(function () { sheet.classList.add('on'); sheet.querySelector('.nl-sheet-panel').focus({ preventScroll: true }) }) });
   }
@@ -159,13 +177,15 @@
     if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
   }
   var forced = /[?&]nl=now\b/.test(location.search);
-  function dismiss() { if (!forced && store.get('sub') !== '1') store.set('dismissed', String(Date.now())); closeSheet() }
-  document.addEventListener('click', function (e) { var a = e.target.closest && e.target.closest('a[href="#nl"]'); if (!a) return; e.preventDefault(); openSheet() });
+  function dismiss() { if (mode === 'promo') P.dismissed(); else if (!forced && store.get('sub') !== '1') store.set('dismissed', String(Date.now())); closeSheet() }
+  document.addEventListener('click', function (e) { var a = e.target.closest && e.target.closest('a[href="#nl"]'); if (!a) return; e.preventDefault(); openSheet('nl') });
 
   /* homepage: once, when the programs section is reached after 15s; never after subscribing; 60 days after "Not now" */
   function maybeAuto() {
     if (/[?&]nl=reset\b/.test(location.search)) { try { localStorage.removeItem('arena.nl.sub'); localStorage.removeItem('arena.nl.dismissed') } catch (e) {} }
     if (forced) { setTimeout(openSheet, 400); return }
+    if (P) { P.schedule(function () { if (busy() || (sheet && !sheet.hidden)) return false; openSheet('promo'); return true }); return } // 30s, 5 min, 10 min (promo.js)
+    if (!cfg) return;
     if (!doc.querySelector('body.home') || /[?&]nl=0\b/.test(location.search)) return;
     if (store.get('sub') === '1') return;
     var d = +store.get('dismissed') || 0; if (d && Date.now() - d < 60 * 864e5) return;

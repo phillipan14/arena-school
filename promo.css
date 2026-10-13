@@ -1,0 +1,24 @@
+/* promo.css: site-wide ISB winter program banner (promo.js); the popup uses newsletter.css. Nav offset reuses newsletter.css (html.nl-bar-on / --nlb-off).
+   One line at every width: program name · dates, then a small cream "Register" pill. The whole strip (except the X) is the link. */
+.promo-bar{position:relative;z-index:1001;display:flex;align-items:center;height:40px;background:#0B1A4A;color:#F6F0E5}
+.promo-link{flex:1;min-width:0;height:100%;display:flex;align-items:center;justify-content:center;gap:12px;padding:0 4px 0 44px;color:inherit !important;text-decoration:none !important;white-space:nowrap;font:500 13.5px/1.2 var(--font-body,'Geist'),system-ui,sans-serif;letter-spacing:.01em}
+.promo-t{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.promo-go{flex:none;display:inline-flex;align-items:center;height:24px;padding:0 11px;border-radius:999px;background:#F6F0E5;color:#0B1A4A;font-weight:600;font-size:12.5px;letter-spacing:.01em;transition:background-color .15s}
+.promo-arr{display:inline-block;margin-left:5px;transition:transform .2s}
+.promo-link:hover .promo-go{background:#fff}
+.promo-link:hover .promo-arr{transform:translateX(2px)}
+.promo-link:focus-visible{outline:2px solid #C9D6F2;outline-offset:-4px}
+.promo-x{flex:none;display:grid;place-items:center;width:44px;height:40px;border:0;background:none;color:rgba(246,240,229,.7);cursor:pointer}
+.promo-x:hover{color:#F6F0E5}
+.promo-x svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
+.promo-tm{display:none}
+@media (max-width:760px){
+  .promo-link{gap:10px;padding:0 0 0 14px;font-size:13px;font-weight:600;letter-spacing:0}
+  .promo-td{display:none}
+  .promo-tm{display:inline}
+  .promo-go{height:24px;padding:0 10px;font-size:12px}
+  .promo-arr{display:none}
+  .promo-x{width:40px}
+}
+@media (max-width:350px){.promo-link{font-size:12px;gap:8px;padding-left:10px}.promo-go{padding:0 8px;font-size:11.5px}}
+html.promo-bar-on.nav-open .promo-bar{display:none}
