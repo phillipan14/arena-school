@@ -16,7 +16,6 @@ V=[('en','en','conversation.html','Our Kids’ Jobs Don’t Exist Yet. So Which 
    ('cn','zh-CN','conversation-cn.html','孩子们未来的工作还不存在，那么，哪些能力最重要？','↓ / → 下一页 · ↑ / ← 上一页','轻点或滑动翻页','幻灯片','h1,h2,h3,p,li,dd,.quote,.cap,.step b,.t,.mc b')]
 # without ?stage the page is the player: it loads itself at ?stage into a 1920×1080 frame (see the player in shared.js).
 # export.py and the frame use ?stage directly; without JavaScript the page falls back to the phone reading layout.
-PROMO='<link rel="stylesheet" href="/promo.css" data-promo><script src="/promo.js" defer data-promo="banner-only" data-promo-layout="contain"></script>'  # site-wide program banner (no popup); promo.js docks it above the deck
 MODE="<script>(function(h){var m=document.querySelector('meta[name=viewport]');if(self!==top){h.classList.add('framed');if(m)m.setAttribute('content','width=1920,initial-scale=1')}else if(!/[?&]stage\\b/.test(location.search)){h.classList.add('player');if(m)m.setAttribute('content','width=device-width,initial-scale=1,viewport-fit=cover')}else if(m)m.setAttribute('content','width=1920,initial-scale=1')})(document.documentElement)</script>"
 for key,lang,fn,title,hint,phint,ftitle,gsel in V:
     ON=' class="on"'
@@ -28,7 +27,6 @@ for key,lang,fn,title,hint,phint,ftitle,gsel in V:
 <title>{title}</title>
 <link rel="icon" href="/favicon.svg">
 {MODE}
-{PROMO}
 <style>{css}</style></head><body>
 <div class="lang">{pill}</div><nav class="nav" id="nav"></nav><div class="hint">{hint}</div>
 <div class="stage" id="stage"><iframe id="frame" title="{ftitle}" allow="autoplay; fullscreen"></iframe></div><div class="phint">{phint}</div>
@@ -65,7 +63,7 @@ for key,lang,fn,other,olab,oname,lprev,lnext,lall,lclose,lhome,zh,title in RV:
 <meta name="format-detection" content="telephone=no">
 <title>{title}</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3"><link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=2">
-<link rel="stylesheet" href="/fonts/fonts.css">{zh}{PROMO}
+<link rel="stylesheet" href="/fonts/fonts.css">{zh}
 <style>{rcss}</style></head><body>
 <header class="top"><a class="home" href="/talk" aria-label="{lhome}"><img class="wm n" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School" width="1600" height="242"><img class="wm i" src="/logos/arena/wordmark-ivory-1600.png" alt="" width="1600" height="242"></a>
  <div class="tools"><a class="lng" href="{other}" data-base="{other}" hreflang="{'zh-CN' if key=='en' else 'en'}" aria-label="{oname}">{olab}</a><button type="button" class="lst" aria-label="{lall}">{ICO['list']}</button></div>
