@@ -3048,6 +3048,23 @@ section.s.ae.cl .bd{justify-content:center;gap:72px}
 /* CN sign-language slide: title fits one line, so drop the two-line title reserve (same fix as slides 19 and 29) */
 :lang(zh-CN) .ae:has(.cs31):not(.st):not(.bq)>.w>h2{min-height:0}
 
+/* ---- s99zzzzz-cn.css ---- */
+/* r6 CN format audit */
+/* Kimi slides 28-30: CN glyph metrics sat card content 1-2.5px low; nudge up ~1.6 rendered px */
+:lang(zh-CN) .kimi3.ae .bd .case3 .cs>*{position:relative;top:-1.2px}
+:lang(zh-CN) .kimi3.k3a.ae .bd .case3 .cs>*{top:-2px}
+/* Slide 13 (JJ review): smaller numbers, clear of the divider, baseline on the caption's last line */
+:lang(zh-CN) .hbx .hb-num{align-items:last baseline;padding-top:22px}
+:lang(zh-CN) .hbx .hb-num b{font-size:56px}
+:lang(zh-CN) .hbx .hb-num b small{font-size:22px}
+:lang(zh-CN) .hbx .hb-now .hb-num b{position:relative;top:3.4px}
+
+/* ---- s99zzzzz-hb.css ---- */
+/* round-6 audit, slide 13 (JJ review): smaller anchor numbers with clear space under the divider; number baseline = last caption line baseline (both cards, EN and CN) */
+.hbx .hb-num{align-items:last baseline;padding-top:20px}
+.hbx .hb-num b{font-size:56px}
+.hbx .hb-num b small{font-size:22px}
+
 /* ---- snum.css ---- */
 /* slide numbers (snum): quiet folio in the bottom-right gutter of every slide except the title */
 section.s>.pgno{position:absolute;right:var(--margin-x);bottom:calc(var(--pad-bot) * var(--z) / 2 - 6px);z-index:3;pointer-events:none;user-select:none;
@@ -3210,10 +3227,10 @@ section.s>.pgno i{font-style:normal;opacity:.6}
    <div class="hb-top"><span class="lab">Now · co-founder and CEO</span><img class="hb-co" src="/decks/img/conversation/co-skylarq-light.png" alt="Skylarq"></div>
    <div class="hb-roles"><ul><li>Product</li><li>Design</li><li>Marketing</li><li>Social media</li><li>Sales</li></ul><p>Once separate hires, now two or three of us using AI.</p></div>
    <div class="hb-num"><b>&lt;5</b><p>people on the whole team</p></div>
-   <p class="hb-what">Helps teams with sales and <span class="nw">go-to-market.</span></p>
+   <p class="hb-what">Building AI agents that run sales and <span class="nw">go-to-market</span>.</p>
   </div>
  </div>
- <div class="cs-foot pane hb-foot" data-s="3"><p>“If I hire again, I’ll only hire people who are <em><span class="nw">AI‑native</span> and highly leveraged with AI.</em>”</p></div>
+ <div class="cs-foot pane hb-foot" data-s="3"><p>If I hire again, I’ll only hire people who are <em><span class="nw">AI‑native</span> and highly leveraged with AI.</em></p></div>
  </div>
 </div><aside class="notes">Phillip: This one is mine. Before Skylarq, I co-founded Homebase in Vietnam and was its COO. We went through Y Combinator, and TechCrunch covered our $30 million raise in equity and debt in 2021, with investors like Partech and Goodwater Capital. At one point we had about 120 people across sales, marketing, product, design, and operations. (Click.) Today I run Skylarq, an AI-native company that helps teams with sales and go-to-market. We are fewer than five people. Roles that used to be separate hires, a product manager, a designer, a marketer, a social media lead, are now covered by two or three of us using AI. So I've seen it firsthand. If I hire again, I'll only hire people who are AI-native and highly leveraged with AI, not someone for one narrow role.</aside></section>
 
@@ -3406,7 +3423,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <span class="cs-ar" data-s="2" aria-hidden="true">→</span>
   <div class="cs pane" data-s="2"><span class="lab">In the interview</span><h3>Both tools, <span class="nw">shown live</span> <span class="nw">in the interview</span></h3><p>My AI skills, and my view of Kimi and the global market.</p></div>
   <span class="cs-ar" data-s="3" aria-hidden="true">→</span>
-  <div class="cs cs-out" data-s="3"><span class="lab">Live demo</span><h3><a class="k3-link" href="https://arenaschool.org/case-study-examples" target="_blank" rel="noopener"><span>arenaschool.org/</span><span>case-study-examples</span></a></h3><p>Both tools are on this site. I’ll show you now.</p></div>
+  <div class="cs cs-out" data-s="3"><span class="lab">Live demo</span><h3><a class="k3-link" href="https://arenaschool.org/case-study-examples" target="_blank" rel="noopener"><span>arenaschool.org/</span><span>case-study-examples</span></a></h3><p>Both tools are on this site.</p></div>
  </div>
  <div class="cs-foot pane" data-s="4"><img class="brand km" src="/logos/deck/kimi.png" alt="Kimi"><p>For a non‑technical role, <em>what I had built with AI made the case.</em></p></div>
  </div>

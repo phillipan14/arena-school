@@ -3048,6 +3048,23 @@ section.s.ae.cl .bd{justify-content:center;gap:72px}
 /* CN sign-language slide: title fits one line, so drop the two-line title reserve (same fix as slides 19 and 29) */
 :lang(zh-CN) .ae:has(.cs31):not(.st):not(.bq)>.w>h2{min-height:0}
 
+/* ---- s99zzzzz-cn.css ---- */
+/* r6 CN format audit */
+/* Kimi slides 28-30: CN glyph metrics sat card content 1-2.5px low; nudge up ~1.6 rendered px */
+:lang(zh-CN) .kimi3.ae .bd .case3 .cs>*{position:relative;top:-1.2px}
+:lang(zh-CN) .kimi3.k3a.ae .bd .case3 .cs>*{top:-2px}
+/* Slide 13 (JJ review): smaller numbers, clear of the divider, baseline on the caption's last line */
+:lang(zh-CN) .hbx .hb-num{align-items:last baseline;padding-top:22px}
+:lang(zh-CN) .hbx .hb-num b{font-size:56px}
+:lang(zh-CN) .hbx .hb-num b small{font-size:22px}
+:lang(zh-CN) .hbx .hb-now .hb-num b{position:relative;top:3.4px}
+
+/* ---- s99zzzzz-hb.css ---- */
+/* round-6 audit, slide 13 (JJ review): smaller anchor numbers with clear space under the divider; number baseline = last caption line baseline (both cards, EN and CN) */
+.hbx .hb-num{align-items:last baseline;padding-top:20px}
+.hbx .hb-num b{font-size:56px}
+.hbx .hb-num b small{font-size:22px}
+
 /* ---- snum.css ---- */
 /* slide numbers (snum): quiet folio in the bottom-right gutter of every slide except the title */
 section.s>.pgno{position:absolute;right:var(--margin-x);bottom:calc(var(--pad-bot) * var(--z) / 2 - 6px);z-index:3;pointer-events:none;user-select:none;
@@ -3210,12 +3227,12 @@ section.s>.pgno i{font-style:normal;opacity:.6}
    <div class="hb-top"><span class="lab">现在 · 联合创始人兼CEO</span><img class="hb-co" src="/decks/img/conversation/co-skylarq-light.png" alt="Skylarq"></div>
    <div class="hb-roles"><ul><li>产品</li><li>设计</li><li>市场</li><li>社媒</li><li>销售</li></ul><p>以前要分别招人，现在两三个人借助AI一起完成。</p></div>
    <div class="hb-num"><b>&lt;5</b><p>人，就是整个团队</p></div>
-   <p class="hb-what">帮团队做销售与市场增长。</p>
+   <p class="hb-what">打造为其他公司跑销售与市场增长的AI智能体。</p>
   </div>
  </div>
- <div class="cs-foot pane hb-foot" data-s="3"><p>“如果再招人，<em>我只招AI原生、能用AI放大产出的人。</em>”</p></div>
+ <div class="cs-foot pane hb-foot" data-s="3"><p>如果再招人，<em>我只招AI原生、能用AI放大产出的人。</em></p></div>
  </div>
-</div><aside class="notes">广宁：这一页讲我自己的经历。在 Skylarq 之前，我在越南联合创办了 Homebase，担任COO。我们进了 Y Combinator，2021年 TechCrunch 报道了我们3000万美元的股权与债务融资，投资方包括 Partech 和 Goodwater Capital。最多的时候，我们大约有120人，分布在销售、市场、产品、设计和运营。（点击）现在我在做 Skylarq，一家AI原生公司，帮团队做销售和市场增长。我们不到5个人。以前要分别招的岗位，产品经理、设计师、市场、社媒，现在由我们两三个人借助AI一起完成。所以这是我亲眼看到的。如果再招人，我只会招AI原生、能用AI放大产出的人，而不是只做一件事的岗位。</aside></section>
+</div><aside class="notes">广宁：这一页讲我自己的经历。在 Skylarq 之前，我在越南联合创办了 Homebase，担任COO。我们进了 Y Combinator，2021年 TechCrunch 报道了我们3000万美元的股权与债务融资，投资方包括 Partech 和 Goodwater Capital。最多的时候，我们大约有120人，分布在销售、市场、产品、设计和运营。（点击）现在我在做 Skylarq，一家AI原生公司，打造为其他公司跑销售与市场增长的AI智能体。我们不到5个人。以前要分别招的岗位，产品经理、设计师、市场、社媒，现在由我们两三个人借助AI一起完成。所以这是我亲眼看到的。如果再招人，我只会招AI原生、能用AI放大产出的人，而不是只做一件事的岗位。</aside></section>
 
 <!-- 17 · Young workers -->
 <section class="s ae bn"><div class="w">
