@@ -34,7 +34,7 @@ img{display:block;max-width:100%}
 .s::-webkit-scrollbar{display:none}
 .s.alt{background:var(--beige)}
 .s.nv{background:var(--ink);color:var(--on)}
-.s.nv::before{content:"";position:absolute;right:0;bottom:0;width:210px;height:240px;background:url(/logos/arena/seal-ivory-512.png) 0 0/300px 300px no-repeat;opacity:.05;pointer-events:none}
+
 .w{position:relative;z-index:1;min-height:100%;max-width:640px;margin:0 auto;display:flex;flex-direction:column;
  padding:calc(var(--tb) + 20px) var(--gx) calc(var(--bb) + 16px)}
 .bd{margin-top:22px;display:flex;flex-direction:column;gap:12px}

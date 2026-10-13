@@ -1,8 +1,9 @@
 <script>
-/* brand mark: the Arena lockup in the top-right corner of every slide, ivory on navy slides */
+/* brand mark: the Arena lockup in the top-right corner of the cover and the speakers slide only, ivory on navy slides */
 (function(){
   var ss=document.querySelectorAll('#deck section.s');
   for(var i=0;i<ss.length;i++){
+    if(i!==0&&i!==2)continue;
     if(ss[i].querySelector(':scope>.brandmk'))continue;
     var m=document.createElement('img');m.className='brandmk';m.alt='';m.setAttribute('aria-hidden','true');
     m.src='/logos/arena/wordmark-'+(ss[i].classList.contains('nv')?'ivory':'navy')+'-1600.png';
