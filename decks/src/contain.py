@@ -37,8 +37,12 @@ JS = r"""([idx, tol, onlyNums]) => {
   if(onlyNums&&!p.closest('.big,.cnt'))continue;
   const c=getComputedStyle(p),k=p.offsetWidth?p.getBoundingClientRect().width/p.offsetWidth:1,lh=(parseFloat(c.lineHeight)||parseFloat(c.fontSize)*1.2)*k;
   const rg=document.createRange();rg.selectNodeContents(t);
+  /* horizontally a line starts at its first glyph's ink, not its advance box: a big serif figure pulled left by its own
+     side bearing (optical alignment) keeps its ink inside the card */
+  const ch=t.nodeValue.trimStart()[0],cv=test.cv||(test.cv=document.createElement('canvas').getContext('2d'));
+  cv.font=c.fontStyle+' '+c.fontWeight+' '+c.fontSize+' '+c.fontFamily;const bear=Math.max(0,-cv.measureText(ch).actualBoundingBoxLeft)*k;
   /* vertically a line occupies its line box, not the font's taller content area */
-  test([...rg.getClientRects()].map(q=>{const h=Math.min(q.height,lh),y=q.top+(q.height-h)/2;return {left:q.left,right:q.right,width:q.width,height:h,top:y,bottom:y+h}}),
+  test([...rg.getClientRects()].map((q,i)=>{const h=Math.min(q.height,lh),y=q.top+(q.height-h)/2,l=q.left+(i?0:bear);return {left:l,right:q.right,width:q.right-l,height:h,top:y,bottom:y+h}}),
        '"'+t.nodeValue.trim().slice(0,30)+'"',p,true)}
  if(!onlyNums)w.querySelectorAll('*').forEach(e=>{if(e.closest('.notes,.ag-fill')||(e.closest('svg')&&e.tagName.toLowerCase()!=='svg')||!shown(e))return;
   const c=getComputedStyle(e);if(c.position==='fixed'||c.display==='inline'||c.display==='contents')return;
