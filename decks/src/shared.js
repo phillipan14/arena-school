@@ -93,9 +93,9 @@ function clearPlay(){playT.forEach(function(t){clearTimeout(t)});playT=[]}
 var mkRaf=0;
 function mkSet(el,n,v){var c=el.querySelector('.mk-n'),b=el.querySelector('.mk-big');if(c)c.textContent=n;if(b)b.textContent=v.toLocaleString('en-US')}
 function snapMk(el){cancelAnimationFrame(mkRaf);el.classList.add('go','stat','done');var f=el.querySelectorAll('.mk-field span').length;mkSet(el,f,+el.dataset.big||0)}
-function armMk(s){[].forEach.call(s.querySelectorAll('.mk'),function(el){
+function armMk(s,t0){[].forEach.call(s.querySelectorAll('.mk'),function(el){
   cancelAnimationFrame(mkRaf);el.classList.remove('go','stat','done');var sp=[].slice.call(el.querySelectorAll('.mk-field span')),N=sp.length,big=+el.dataset.big||0;mkSet(el,0,0);
-  var T0=900,TF=+el.dataset.tf||2200,TS=T0+TF+150,TB=700,t0=performance.now();
+  var T0=t0===undefined?900:t0,TF=+el.dataset.tf||2200,TS=T0+TF+150,TB=700,t0=performance.now();
   function f(now){var e=now-t0,n=0;for(var i=0;i<N;i++)if(+sp[i].dataset.t<=e-T0)n++;
    var b=e<TS?0:Math.min(1,(e-TS)/TB);mkSet(el,n,Math.round(big*(1-Math.pow(1-b,3))));
    if(e<TS+TB+50)mkRaf=requestAnimationFrame(f);else snapMk(el)}
@@ -109,10 +109,14 @@ function armFlood(s){[].forEach.call(s.querySelectorAll('.ag-flood'),function(el
   playT.push(setTimeout(function(){el.classList.add('flood')},1560));
   playT.push(setTimeout(function(){el.classList.add('focus')},3420));
   playT.push(setTimeout(function(){snapFlood(el)},4150))})}
-function finishSlide(i){clearPlay();build(i,B[i]);snapFx(S[i]);if(window.__count)__count(S[i])}
-function startPlay(i){if(i<0||i>=S.length)return;clearPlay();playing=i;
+function finishSlide(i){clearPlay();delete S[i].dataset.held;build(i,B[i]);snapFx(S[i]);if(window.__count)__count(S[i])}
+function startPlay(i){if(i<0||i>=S.length)return;clearPlay();playing=i;delete S[i].dataset.held;
  if(!shouldPlay()){build(i,B[i],true);snapFx(S[i]);return}
  build(i,0,true);S[i].classList.remove('done');
+ /* a .hold slide arrives with only its unstepped content; the next press plays the rest (slide 24) */
+ var bk=S[i].dataset.back;delete S[i].dataset.back;
+ if(bk&&S[i].classList.contains('hold')){build(i,B[i],true);snapFx(S[i]);return}
+ if(S[i].classList.contains('hold')&&B[i]){[].forEach.call(S[i].querySelectorAll('.mk'),function(el){cancelAnimationFrame(mkRaf);el.classList.remove('go','stat','done');mkSet(el,0,0)});S[i].dataset.held=1;return}
  [].forEach.call(S[i].querySelectorAll('.ag-flood'),function(el){el.classList.remove('recede','flood','focus','done');var f=el.querySelector('.ag-fill');if(f)f.classList.remove('done')});
  [].forEach.call(S[i].querySelectorAll('.grow,.skmap'),function(el){el.classList.remove('done')});
  var k=0,n=B[i],gap=n<=1?380:Math.min(480,Math.max(300,2000/n)),flood=S[i].querySelector('.ag-flood,.mk,.rot');
@@ -123,8 +127,10 @@ function step(d){if(moving)finishMove();
  var c=armed>=0&&Math.abs(S[armed].offsetTop-deck.scrollTop)<innerHeight*.75?armed:cur();
  if(!canBuild()){go(c+d);return}
  var k=S[c].dataset.k===undefined?B[c]:+S[c].dataset.k;
- if(d>0){if(k<B[c]||S[c].querySelector('.ag-flood:not(.done),.ag-fill:not(.done),.grow:not(.done),.mk:not(.done),.rot:not(.done)')){finishSlide(c);return}if(c<S.length-1){armed=c+1;go(c+1)}}
- else{if(c>0){armed=c-1;finishSlide(c-1);go(c-1)}}}
+ if(d>0){if(S[c].dataset.held&&k<B[c]){delete S[c].dataset.held;clearPlay();var hs=S[c];playing=c;
+   (function hk(){var nk=(+hs.dataset.k||0)+1;build(c,nk);if(nk<B[c])playT.push(setTimeout(hk,380))})();armMk(hs,350);return}
+  if(k<B[c]||S[c].querySelector('.ag-flood:not(.done),.ag-fill:not(.done),.grow:not(.done),.mk:not(.done),.rot:not(.done)')){finishSlide(c);return}if(c<S.length-1){armed=c+1;go(c+1)}}
+ else{if(c>0){armed=c-1;S[c-1].dataset.back=1;finishSlide(c-1);go(c-1)}}}
 deck.addEventListener('scroll',function(){if(moving)return;var c=cur();[].forEach.call(nav.children,function(a,i){a.classList.toggle('on',i===c)});document.body.classList.toggle('nvon',S[c].classList.contains('nv'));
  if(armed>=0&&Math.abs(S[armed].offsetTop-deck.scrollTop)>innerHeight*1.5)armed=-1;
  S.forEach(function(s,j){if(j!==armed&&j!==playing&&s.classList.contains('bld')&&Math.abs(s.offsetTop-deck.scrollTop)>=innerHeight)build(j,B[j],true)})},{passive:true});
