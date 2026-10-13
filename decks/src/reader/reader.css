@@ -582,3 +582,10 @@ i.rg::before{width:calc(var(--r) * 1%);background:linear-gradient(90deg,var(--da
 @media (max-height:500px) and (orientation:landscape) and (min-width:600px){
  .top,.bot{padding-left:max(var(--gx),calc(50% - 380px + var(--gx)));padding-right:max(var(--gx),calc(50% - 380px + var(--gx)))}
 }
+/* slide 4: the rotating task shows only its final phrase on phones, in the lighter accent */
+.rot,.rot-t,.rot-t>span.fin{display:inline}
+.rot-t>span:not(.fin){display:none}
+.rot{color:#5B7FD1}
+.rot .rot-pc{color:var(--ink)}
+.rot-h br{display:none}
+:lang(zh-CN) .rot-h br{display:inline}
