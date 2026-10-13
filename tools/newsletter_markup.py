@@ -5,7 +5,7 @@ phone block; and on the pages below, an empty <section class="nl-band" data-nl="
 newsletter.js fills. Program pages get a closing-block button from newsletter.js instead of a band."""
 import hashlib, os, re
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PAGES = sorted([f for f in os.listdir(ROOT) if f.endswith('.html')] + ['programs/' + f for f in os.listdir(os.path.join(ROOT, 'programs')) if f.endswith('.html')])
+PAGES = sorted([f for f in os.listdir(ROOT) if f.endswith('.html')] + ['programs/' + f for f in os.listdir(os.path.join(ROOT, 'programs')) if f.endswith('.html')] + (['events/' + f for f in os.listdir(os.path.join(ROOT, 'events')) if f.endswith('.html')] if os.path.isdir(os.path.join(ROOT, 'events')) else []))
 # page (without -cn) -> (band key, regex of the element the band goes BEFORE)
 BANDS = {
     'index': ('home', r'<section class="partners" id="contact"'),

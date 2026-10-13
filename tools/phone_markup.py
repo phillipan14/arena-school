@@ -16,7 +16,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 import subprocess; subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'phone_build.py')], check=True)
 CHECK = '--check' in sys.argv
 PAGES = sorted([f for f in os.listdir(ROOT) if f.endswith('.html')] +
-               ['programs/' + f for f in os.listdir(os.path.join(ROOT, 'programs')) if f.endswith('.html')])
+               ['programs/' + f for f in os.listdir(os.path.join(ROOT, 'programs')) if f.endswith('.html')] + (['events/' + f for f in os.listdir(os.path.join(ROOT, 'events')) if f.endswith('.html')] if os.path.isdir(os.path.join(ROOT, 'events')) else []))
 CFG = json.load(open(os.path.join(ROOT, 'tools', 'phone_pages.json'), encoding='utf-8'))
 
 def ver(*names):
