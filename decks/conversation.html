@@ -2618,6 +2618,12 @@ section.s.ae.cl .bd{justify-content:center;gap:72px}
 :lang(zh-CN) .ae .bd .pair.prac .tri-r p{font-size:26px;line-height:1.5}
 :lang(zh-CN) .ae .bd .pair.prac .pc.lt .say{font-size:44px;line-height:1.35}
 
+/* ---- s99-s19b.css ---- */
+/* Slide 19 round 5: example text on the deck body size (26 EN / 24 CN), so each section has more room around it (JJ, Oct 13). */
+.ae .bd .pair.prac .tri-r{gap:12px}
+.ae .bd .pair.prac .tri-r p{font-size:26px;line-height:1.4}
+:lang(zh-CN) .ae .bd .pair.prac .tri-r p{font-size:24px;line-height:1.5}
+
 /* ---- s99-s2124.css ---- */
 /* Round 4 · slides 21 and 24 (Oct 13) */
 /* slide 24: the "+" after the tool counter waits until the count lands */
@@ -2630,12 +2636,12 @@ section.s.ae.cl .bd{justify-content:center;gap:72px}
 
 /* ---- s99-s25.css ---- */
 /* Slide 25 (round 4): METR exponential chart (real data, left) and the widening-gap illustration (right). */
-.xg2{display:grid;grid-template-columns:minmax(0,1.32fr) minmax(0,.68fr);gap:var(--gap);align-items:stretch;flex:1;min-height:0}
+.xg2{display:grid;grid-template-columns:minmax(0,1.28fr) minmax(0,.72fr);gap:var(--gap);align-items:stretch;flex:1;min-height:0}
 .xg2>.pane{display:flex;flex-direction:column;padding:var(--pad-m)!important;min-height:0}
 .xg2 .lr{height:auto;margin:0}
 
 .xg-plot{position:relative;flex:1;min-height:205px;margin:16px 0 0}
-.xg-area{position:absolute;left:104px;right:18px;top:16px;bottom:46px}
+.xg-area{position:absolute;left:104px;right:18px;top:16px;bottom:33px}
 :lang(zh-CN) .xg-area{left:92px}
 .xg-grid,.xg-draw{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible}
 .xg .gl{stroke:var(--edge);stroke-width:1}
@@ -2656,17 +2662,22 @@ section.s.ae.cl .bd{justify-content:center;gap:72px}
 .xg-lb.p2{translate:calc(-100% - 2px) -26px}
 .xg-lb.p3{translate:calc(-100% - 16px) 50%}
 /* illustration */
-.xg-il .xg-plot{margin:18px 0 0}
-.xg-il .xg-area{left:4px;right:4px;top:10px;bottom:6px}
+.xg-il .xg-plot{margin:14px 0 0}
+.xg-il .xg-area{left:0;right:4px;top:8px;bottom:33px}
+.xg-il .ax{stroke:rgba(11,26,74,.32);stroke-width:1}
+.xg-axl{position:absolute;font:400 17px/1 var(--serif);color:var(--muted)}
+.xg-axl.x{right:0;top:calc(100% + 16px)}
+.xg-axl.y{left:14px;top:0}
+:lang(zh-CN) .xg-axl{font-size:18px}
 .xg-il .gp{fill:rgba(47,85,168,.12)}
 .xg-il .cf{fill:none;stroke:var(--muted);stroke-width:3;stroke-linecap:round}
 .xg-ll,.xg-gl{position:absolute;white-space:nowrap;font:400 19px/1.15 var(--serif)}
 .xg-ll.up{right:21%;bottom:62%;color:var(--ink2);font-weight:600}
-.xg-ll.fl{right:0;bottom:0;color:var(--muted)}
+.xg-ll.fl{right:0;bottom:calc(7.8% + 3px);color:var(--muted);padding:2px 6px;background:#F7F0E7;border-radius:4px}
 .xg-gl{left:87%;bottom:41%;translate:-50% 50%;font-style:italic;color:var(--ink2)}
 :lang(zh-CN) .xg-ll,:lang(zh-CN) .xg-gl{font-size:20px}
 :lang(zh-CN) .xg-gl{font-style:normal}
-.ae .bd .xg2 .xg-cap{margin:20px 0 0;font:italic 400 16px/1.35 var(--serif);color:var(--muted);text-wrap:balance}
+.ae .bd .xg2 .xg-cap{margin:10px 0 0;font:italic 400 16px/1.35 var(--serif);color:var(--muted)}
 :lang(zh-CN) .ae .bd .xg2 .xg-cap{font-style:normal;font-size:16px;line-height:1.5}
 /* motion: the curve draws left to right, each point and label arrives as the line reaches it */
 .motion .xg .xg-draw{clip-path:inset(-20px -20px -20px -20px);transition:clip-path 1.6s linear .2s}
@@ -2675,9 +2686,27 @@ section.s.ae.cl .bd{justify-content:center;gap:72px}
 .motion .xg .xg-lb{transition:opacity .45s ease calc(.3s + var(--x) * .016s)}
 .motion .s:not(.in) .xg .xg-pt,.motion .s.bld .xg[data-s]:not(.vis) .xg-pt{scale:.2;opacity:0;transition:none}
 .motion .s:not(.in) .xg .xg-lb,.motion .s.bld .xg[data-s]:not(.vis) .xg-lb{opacity:0;transition:none}
-.motion .xg-il .xg-ll,.motion .xg-il .xg-gl,.motion .xg-il .xg-cap{transition:opacity .5s ease 1.3s}
-.motion .s:not(.in) .xg-il .xg-ll,.motion .s:not(.in) .xg-il .xg-gl,.motion .s:not(.in) .xg-il .xg-cap,
-.motion .s.bld .xg-il[data-s]:not(.vis) .xg-ll,.motion .s.bld .xg-il[data-s]:not(.vis) .xg-gl,.motion .s.bld .xg-il[data-s]:not(.vis) .xg-cap{opacity:0;transition:none}
+.motion .xg-il .xg-ll,.motion .xg-il .xg-gl{transition:opacity .5s ease 1.3s}
+.motion .s:not(.in) .xg-il .xg-ll,.motion .s:not(.in) .xg-il .xg-gl,
+.motion .s.bld .xg-il[data-s]:not(.vis) .xg-ll,.motion .s.bld .xg-il[data-s]:not(.vis) .xg-gl{opacity:0;transition:none}
+
+/* ---- s99-s27.css ---- */
+/* Slides 27-29: Kimi case study in three parts (JJ, Oct 13) */
+.ae.kimi3:not(.st):not(.bq) .bd>.cs-foot.pane{flex:0 0 auto;height:auto;min-height:0;padding:24px 34px}
+.ae .bd .case3 .cs-out h3 a.k3-link{display:inline-flex;flex-direction:column;color:var(--paper-hi);text-decoration:none;font:500 28px/1.25 var(--serif);letter-spacing:-.005em}
+.k3-link span{white-space:nowrap;display:block}
+.k3-link span:last-child{text-decoration:underline;text-decoration-color:#A9BEEA;text-decoration-thickness:2px;text-underline-offset:6px}
+.k3-link span:first-child{color:#C9D6F2}
+/* center each card's content block vertically, rows still shared across the three cards */
+.kimi3.ae .bd .case3{grid-template-rows:1fr auto auto auto 1fr}
+.kimi3.ae .bd .case3 .cs{grid-row:1/6}
+.kimi3.ae .bd .case3 .cs-ar{grid-row:1/6}
+.kimi3.ae .bd .case3 .cs>.lab{grid-row:2}
+.kimi3.ae .bd .case3 .cs>h3{grid-row:3}
+.kimi3.ae .bd .case3 .cs>p{grid-row:4}
+/* same optical nudge as the deck's foot band, as padding so the line box stays inside the band */
+.kimi3.ae .bd .cs-foot p{top:0;padding-top:8px}
+:lang(zh-CN) .kimi3.ae .bd .cs-foot p{top:0;padding-top:6px}
 
 /* ---- s99-s31.css ---- */
 /* Slide 31 (round 4): a child's project, agency / taste / craft in motion.
@@ -2699,7 +2728,7 @@ section.s.ae.cl .bd{justify-content:center;gap:72px}
 .cs31 .cs-note em{font-style:italic;color:var(--ink2)}
 .ae .bd .cs31 .cs-tools{grid-row:2;grid-column:1/-1;display:flex;align-items:center;gap:28px;padding:12px 26px}
 .cs31 .cs-th{flex:none;font:600 15px/1 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
-.cs31 .cs-tools ul{list-style:none;margin:0;padding:0;flex:1;display:grid;grid-template-columns:repeat(14,minmax(0,1fr));gap:6px;align-items:start}
+.cs31 .cs-tools ul{list-style:none;margin:0;padding:0;flex:1;display:flex;justify-content:space-between;align-items:flex-start;gap:6px;min-width:0}
 .ae .bd .cs31 .cs-tools li{display:flex;flex-direction:column;align-items:center;gap:5px;min-width:0}
 .cs31 .cs-tools img{width:30px;height:30px;border-radius:8px;object-fit:cover;background:#fff;box-shadow:0 0 0 1px var(--edge)}
 .ae .bd .cs31 .cs-tools b{font:500 13px/1.1 var(--serif);color:var(--ink);white-space:nowrap}
@@ -2709,6 +2738,52 @@ section.s.ae.cl .bd{justify-content:center;gap:72px}
 :lang(zh-CN) .ae .bd .cs31 .cs-note{font-size:24px;line-height:1.45}
 :lang(zh-CN) .cs31 .cs-th{font-size:17px;letter-spacing:.06em}
 :lang(zh-CN) .ae .bd .cs31 .cs-cap{font-style:normal;font-size:15px}
+
+/* round 5: ink-centered beats and tool row (js/s99-s31.html sets --ky per element from the font in use) */
+.cs31 .cs-k,.cs31 .cs-beats p,.cs31 .cs-tools ul,.cs31 .cs-th{transform:translateY(var(--ky,0px))}
+/* calibrated ink offsets (measured from rendered pixels at 1920×1080, round 5): each beat's label block and text,
+   and the tool row, sit on the optical center of their card. Phone reader has its own layout. */
+:lang(en) .cs31 .cs-beats li:nth-child(1) .cs-k{--ky:2.59px}
+:lang(en) .cs31 .cs-beats li:nth-child(1) p{--ky:0.69px}
+:lang(en) .cs31 .cs-beats li:nth-child(2) .cs-k{--ky:2.59px}
+:lang(en) .cs31 .cs-beats li:nth-child(2) p{--ky:0.33px}
+:lang(en) .cs31 .cs-beats li:nth-child(3) .cs-k{--ky:3.34px}
+:lang(en) .cs31 .cs-beats li:nth-child(3) p{--ky:0.69px}
+:lang(en) .cs31 .cs-tools ul{--ky:0.7px}
+:lang(en) .cs31 .cs-tools .cs-th{--ky:1.55px}
+:lang(zh-CN) .cs31 .cs-beats li:nth-child(1) .cs-k{--ky:1.74px}
+:lang(zh-CN) .cs31 .cs-beats li:nth-child(1) p{--ky:2.12px}
+:lang(zh-CN) .cs31 .cs-beats li:nth-child(2) .cs-k{--ky:1.74px}
+:lang(zh-CN) .cs31 .cs-beats li:nth-child(2) p{--ky:2.51px}
+:lang(zh-CN) .cs31 .cs-beats li:nth-child(3) .cs-k{--ky:0.98px}
+:lang(zh-CN) .cs31 .cs-beats li:nth-child(3) p{--ky:2.12px}
+:lang(zh-CN) .cs31 .cs-tools ul{--ky:0.7px}
+:lang(zh-CN) .cs31 .cs-tools .cs-th{--ky:0.81px}
+
+/* ---- s99-t14.css ---- */
+/* Slide 14 (China Youth Daily survey): optical alignment for the new figures 91.1% / 56.6% */
+.arc .an:last-child .big{margin-left:-13.6px}
+:lang(zh-CN) .arc .an:last-child .big{margin-left:-11.4px}
+:lang(zh-CN) .arc .an:first-child .big{margin-left:-6.6px}
+.arc .ar2.vs span{transform:translate(-33.3px,-23px)}
+:lang(zh-CN) .arc .ar2.vs span{transform:translate(-54.3px,-18px)}
+.arc .an .big{width:max-content;max-width:100%}
+
+/* ---- s99-t33.css ---- */
+/* Q&A (JJ, Oct 13): narrow QR card, wide link card, everything left-aligned on one shared inset */
+@media (min-width:701px){
+ section.s .bd .qa.qa14{--qa-in:64px;grid-template-columns:calc(262px + 2 * var(--qa-in)) minmax(0,1fr)!important}
+ section.s .bd .qa.qa14 a.qr-slides{align-items:flex-start;text-align:left;padding:48px var(--qa-in)}
+ section.s .bd .qa.qa14 a.qr-slides img{width:262px;max-width:262px} /* qr-talk-tight.png: quiet zone cropped so the code's ink sits on the shared left edge; the paper card is the scan margin */
+ section.s .bd .qa.qa14 .qa-links.pane{align-items:flex-start;text-align:left;padding:48px var(--qa-in)}
+ section.s .bd .qa.qa14 .qa-item{align-items:flex-start}
+}
+/* optical centering, ink-measured at 1920×1080 (glyph line boxes and the QR's quiet zone are uneven) */
+@media (min-width:701px){
+ section.s .bd .qa.qa14 a.qr-slides{padding:52.5px var(--qa-in) 48px}
+ section.s .bd .qa.qa14 .qa-links.pane{padding:51.8px var(--qa-in) 48px}
+ :lang(zh-CN) section.s .bd .qa.qa14 .qa-links.pane{padding:57px var(--qa-in) 48px}
+}
 
 /* ---- snum.css ---- */
 /* slide numbers (snum): quiet folio in the bottom-right gutter of every slide except the title */
@@ -2868,16 +2943,16 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 
 <!-- 18 · China students -->
 <section class="s alt ae bn"><div class="w">
- <p class="kick r">China · 3,794 students and recent graduates, March 2026</p>
- <h2 class="r" style="--d:.1s">In China, 81% of students say AI skills make them more competitive, yet <em>40% of them haven’t started.</em></h2>
- <div class="bd r" style="--d:.25s"><div class="pane arc" data-s="1"><div class="lr"><span class="org">MyCOS 麦可思</span></div>
+ <p class="kick r">China · 1,333 graduating students, May 2026</p>
+ <h2 class="r" style="--d:.1s">In China, 91% of graduating students changed their job plans because of AI, but <em>only 57% are learning AI skills.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="pane arc" data-s="1"><div class="lr"><span class="org">China Youth Daily</span></div>
   <div class="arow">
-   <div class="an" data-s="1"><span class="lab">Say AI skills make them more competitive</span><div class="big">81%</div><div class="hb"><div class="row hl"><i style="--v:81"></i></div></div></div>
-   <div class="ar2 vs" data-s="2" aria-hidden="true"><span>yet</span></div>
-   <div class="an" data-s="2"><span class="lab">Of those, haven’t started learning yet</span><div class="big lo">40%</div><div class="hb"><div class="row"><i style="--v:40"></i></div></div></div>
+   <div class="an" data-s="1"><span class="lab">Adjusted job plans because of AI</span><div class="big">91.1%</div><div class="hb"><div class="row hl"><i style="--v:91.1"></i></div></div></div>
+   <div class="ar2 vs" data-s="2" aria-hidden="true"><span>yet only</span></div>
+   <div class="an" data-s="2"><span class="lab">Actively learning AI skills</span><div class="big lo">56.6%</div><div class="hb"><div class="row"><i style="--v:56.6"></i></div></div></div>
   </div></div></div>
- <p class="fn" data-s="1"><span>MyCOS online survey, March 19–20, 2026, published April 16, 2026</span></p>
-</div><aside class="notes">They know it matters, and many still have not started. The gap opens long before the first job. So the next question is which skills still decide who gets ahead.</aside></section>
+ <p class="fn" data-s="1"><span>China Youth Daily Social Survey Center and wenjuan.com, survey of 1,333 graduating students, published May 14, 2026</span></p>
+</div><aside class="notes">Nine in ten graduating students in China have already changed their job plans because of AI. They know work is changing. But only a little over half are actually learning AI skills. The gap opens before the first job, not after. So the next question is which skills still decide who gets ahead.</aside></section>
 
 <!-- 19 · Section 2 -->
 <section class="s ae nv sec"><div class="w"><div class="sec-g">
@@ -2949,12 +3024,12 @@ section.s>.pgno i{font-style:normal;opacity:.6}
    <div class="pc lt" data-s="1"><span class="pl">Before</span><p class="say">“Just give me <span class="nw">the answer.”</span></p><p><span class="nw">The homework gets done.</span> <span class="nw">The thinking gets skipped.</span></p></div>
    <div class="pc dk tri">
     <div class="tri-r" data-s="2"><span class="pl">Agency</span><p>Sees a younger brother stuck on fractions and builds him a practice game with AI, without <span class="nw">being asked.</span></p></div>
-    <div class="tri-r" data-s="3"><span class="pl">Taste</span><p>Gets three AI drafts of a university essay opening, picks the one in their own voice, and can <span class="nw">say why.</span></p></div>
+    <div class="tri-r" data-s="3"><span class="pl">Taste</span><p>Builds a deck for a class talk and keeps reworking it, not just the design but the clearest way to <span class="nw">say it.</span></p></div>
     <div class="tri-r" data-s="4"><span class="pl">Craft</span><p>Tests the club website on Grandma’s phone, fixes the tiny text and the broken sign-up form, then <span class="nw">shares it.</span></p></div>
    </div>
   </div>
  </div>
-</div><aside class="notes">Here is what the three skills look like in an ordinary week. Before: AI hands over the answer, the homework gets done, and the thinking gets skipped. Agency is seeing a problem nobody assigned, like a younger brother stuck on fractions, and making something for it. Taste is choosing between drafts and knowing why one is better, like the opening of a university essay that actually sounds like you. Craft is testing the work on a real person, like a grandparent’s phone, and fixing what breaks before sharing it. None of this needs a special class. It needs a real reason to make something.</aside></section>
+</div><aside class="notes">Here is what the three skills look like in an ordinary week. Before: AI hands over the answer, the homework gets done, and the thinking gets skipped. Agency is seeing a problem nobody assigned, like a younger brother stuck on fractions, and making something for it. Taste is knowing when something is not good enough yet, like reworking a class presentation until the idea comes across clearly, not just until the slides look nice. Craft is testing the work on a real person, like a grandparent’s phone, and fixing what breaks before sharing it. None of this needs a special class. It needs a real reason to make something.</aside></section>
 
 <!-- 28 · Structure -->
 <section class="s alt ae st"><div class="w">
@@ -3022,8 +3097,8 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <div class="bd r" style="--d:.25s"><div class="xg2">
    <div class="pane xg" data-s="1"><div class="lr"><span class="org">METR · length of task AI can finish alone</span></div>
     <figure class="xg-plot"><div class="xg-area"><svg class="xg-grid" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true"><line class="gl" x1="0" x2="1000" y1="1000" y2="1000" vector-effect="non-scaling-stroke"/><line class="gl" x1="0" x2="1000" y1="500" y2="500" vector-effect="non-scaling-stroke"/><line class="gl" x1="0" x2="1000" y1="0" y2="0" vector-effect="non-scaling-stroke"/></svg><svg class="xg-draw" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true"><path class="ar" d="M61.8,994.4 L65.3,994.3 L68.9,994.3 L72.5,994.2 L76.0,994.1 L79.6,993.9 L83.2,993.8 L86.7,993.7 L90.3,993.6 L93.9,993.5 L97.4,993.4 L101.0,993.3 L104.6,993.2 L108.1,993.1 L111.7,993.0 L115.3,992.8 L118.8,992.7 L122.4,992.6 L126.0,992.5 L129.5,992.4 L133.1,992.2 L136.7,992.1 L140.2,992.0 L143.8,991.9 L147.4,991.7 L150.9,991.6 L154.5,991.4 L158.1,991.3 L161.6,991.2 L165.2,991.0 L168.8,990.9 L172.3,990.7 L175.9,990.6 L179.4,990.4 L183.0,990.3 L186.6,990.1 L190.1,990.0 L193.7,989.8 L197.3,989.6 L200.8,989.5 L204.4,989.3 L208.0,989.1 L211.5,989.0 L215.1,988.8 L218.7,988.6 L222.2,988.4 L225.8,988.2 L229.4,988.0 L232.9,987.9 L236.5,987.7 L240.1,987.5 L243.6,987.3 L247.2,987.1 L250.8,986.9 L254.3,986.7 L257.9,986.4 L261.5,986.2 L265.0,986.0 L268.6,985.8 L272.2,985.6 L275.7,985.3 L279.3,985.1 L282.9,984.9 L286.4,984.6 L290.0,984.4 L293.6,984.1 L297.1,983.9 L300.7,983.6 L304.3,983.3 L307.8,983.1 L311.4,982.8 L315.0,982.5 L318.5,982.2 L322.1,982.0 L325.7,981.7 L329.2,981.4 L332.8,981.1 L336.4,980.8 L339.9,980.5 L343.5,980.1 L347.1,979.8 L350.6,979.5 L354.2,979.1 L357.8,978.8 L361.3,978.5 L364.9,978.1 L368.5,977.7 L372.0,977.4 L375.6,977.0 L379.2,976.6 L382.7,976.2 L386.3,975.8 L389.9,975.4 L393.4,975.0 L397.0,974.6 L400.6,974.2 L404.1,973.7 L407.7,973.3 L411.2,972.8 L414.8,972.4 L418.4,971.9 L421.9,971.4 L425.5,970.9 L429.1,970.4 L432.6,969.9 L436.2,969.4 L439.8,968.9 L443.3,968.3 L446.9,967.8 L450.5,967.2 L454.0,966.6 L457.6,966.1 L461.2,965.5 L464.7,964.8 L468.3,964.2 L471.9,963.6 L475.4,962.9 L479.0,962.2 L482.6,961.6 L486.1,960.9 L489.7,960.1 L493.3,959.4 L496.8,958.7 L500.4,957.9 L504.0,957.1 L507.5,956.3 L511.1,955.5 L514.7,954.7 L518.2,953.8 L521.8,953.0 L525.4,952.1 L528.9,951.1 L532.5,950.2 L536.1,949.3 L539.6,948.3 L543.2,947.3 L546.8,946.2 L550.3,945.2 L553.9,944.1 L557.5,943.0 L561.0,941.9 L564.6,940.7 L568.2,939.5 L571.7,938.3 L575.3,937.1 L578.9,935.8 L582.4,934.5 L586.0,933.1 L589.6,931.7 L593.1,930.3 L596.7,928.9 L600.3,927.4 L603.8,925.9 L607.4,924.3 L611.0,922.7 L614.5,921.0 L618.1,919.3 L621.7,917.6 L625.2,915.8 L628.8,914.0 L632.4,912.1 L635.9,910.2 L639.5,908.3 L643.1,906.3 L646.6,904.2 L650.2,902.2 L653.7,900.0 L657.3,897.8 L660.9,895.6 L664.4,893.3 L668.0,891.0 L671.6,888.5 L675.1,886.1 L678.7,883.5 L682.3,880.9 L685.8,878.2 L689.4,875.5 L693.0,872.6 L696.5,869.7 L700.1,866.7 L703.7,863.6 L707.2,860.4 L710.8,857.2 L714.4,853.8 L717.9,850.3 L721.5,846.7 L725.1,843.0 L728.6,839.1 L732.2,835.2 L735.8,831.1 L739.3,826.8 L742.9,822.5 L746.5,817.9 L750.0,813.2 L753.6,808.4 L757.2,803.3 L760.7,798.1 L764.3,792.7 L767.9,787.1 L771.4,781.2 L775.0,775.2 L778.6,768.9 L782.1,762.3 L785.7,755.5 L789.3,748.5 L792.8,741.1 L796.4,733.4 L800.0,725.4 L803.5,717.1 L807.1,708.4 L810.7,699.3 L814.2,689.9 L817.8,680.0 L821.4,669.7 L824.9,658.9 L828.5,647.6 L832.1,635.8 L835.6,623.5 L839.2,610.5 L842.8,597.0 L846.3,582.7 L849.9,567.2 L853.5,550.5 L857.0,532.5 L860.6,513.1 L864.2,492.4 L867.7,470.2 L871.3,446.6 L874.9,421.4 L878.4,394.8 L882.0,366.5 L885.6,336.8 L889.1,305.4 L892.7,272.4 L896.2,237.9 L899.8,201.8 L903.4,164.2 L906.9,125.1 L910.5,84.6 L914.1,42.9 L917.6,-0.0 L917.6,1000 L61.8,1000 Z"/><path class="cv" d="M61.8,994.4 L65.3,994.3 L68.9,994.3 L72.5,994.2 L76.0,994.1 L79.6,993.9 L83.2,993.8 L86.7,993.7 L90.3,993.6 L93.9,993.5 L97.4,993.4 L101.0,993.3 L104.6,993.2 L108.1,993.1 L111.7,993.0 L115.3,992.8 L118.8,992.7 L122.4,992.6 L126.0,992.5 L129.5,992.4 L133.1,992.2 L136.7,992.1 L140.2,992.0 L143.8,991.9 L147.4,991.7 L150.9,991.6 L154.5,991.4 L158.1,991.3 L161.6,991.2 L165.2,991.0 L168.8,990.9 L172.3,990.7 L175.9,990.6 L179.4,990.4 L183.0,990.3 L186.6,990.1 L190.1,990.0 L193.7,989.8 L197.3,989.6 L200.8,989.5 L204.4,989.3 L208.0,989.1 L211.5,989.0 L215.1,988.8 L218.7,988.6 L222.2,988.4 L225.8,988.2 L229.4,988.0 L232.9,987.9 L236.5,987.7 L240.1,987.5 L243.6,987.3 L247.2,987.1 L250.8,986.9 L254.3,986.7 L257.9,986.4 L261.5,986.2 L265.0,986.0 L268.6,985.8 L272.2,985.6 L275.7,985.3 L279.3,985.1 L282.9,984.9 L286.4,984.6 L290.0,984.4 L293.6,984.1 L297.1,983.9 L300.7,983.6 L304.3,983.3 L307.8,983.1 L311.4,982.8 L315.0,982.5 L318.5,982.2 L322.1,982.0 L325.7,981.7 L329.2,981.4 L332.8,981.1 L336.4,980.8 L339.9,980.5 L343.5,980.1 L347.1,979.8 L350.6,979.5 L354.2,979.1 L357.8,978.8 L361.3,978.5 L364.9,978.1 L368.5,977.7 L372.0,977.4 L375.6,977.0 L379.2,976.6 L382.7,976.2 L386.3,975.8 L389.9,975.4 L393.4,975.0 L397.0,974.6 L400.6,974.2 L404.1,973.7 L407.7,973.3 L411.2,972.8 L414.8,972.4 L418.4,971.9 L421.9,971.4 L425.5,970.9 L429.1,970.4 L432.6,969.9 L436.2,969.4 L439.8,968.9 L443.3,968.3 L446.9,967.8 L450.5,967.2 L454.0,966.6 L457.6,966.1 L461.2,965.5 L464.7,964.8 L468.3,964.2 L471.9,963.6 L475.4,962.9 L479.0,962.2 L482.6,961.6 L486.1,960.9 L489.7,960.1 L493.3,959.4 L496.8,958.7 L500.4,957.9 L504.0,957.1 L507.5,956.3 L511.1,955.5 L514.7,954.7 L518.2,953.8 L521.8,953.0 L525.4,952.1 L528.9,951.1 L532.5,950.2 L536.1,949.3 L539.6,948.3 L543.2,947.3 L546.8,946.2 L550.3,945.2 L553.9,944.1 L557.5,943.0 L561.0,941.9 L564.6,940.7 L568.2,939.5 L571.7,938.3 L575.3,937.1 L578.9,935.8 L582.4,934.5 L586.0,933.1 L589.6,931.7 L593.1,930.3 L596.7,928.9 L600.3,927.4 L603.8,925.9 L607.4,924.3 L611.0,922.7 L614.5,921.0 L618.1,919.3 L621.7,917.6 L625.2,915.8 L628.8,914.0 L632.4,912.1 L635.9,910.2 L639.5,908.3 L643.1,906.3 L646.6,904.2 L650.2,902.2 L653.7,900.0 L657.3,897.8 L660.9,895.6 L664.4,893.3 L668.0,891.0 L671.6,888.5 L675.1,886.1 L678.7,883.5 L682.3,880.9 L685.8,878.2 L689.4,875.5 L693.0,872.6 L696.5,869.7 L700.1,866.7 L703.7,863.6 L707.2,860.4 L710.8,857.2 L714.4,853.8 L717.9,850.3 L721.5,846.7 L725.1,843.0 L728.6,839.1 L732.2,835.2 L735.8,831.1 L739.3,826.8 L742.9,822.5 L746.5,817.9 L750.0,813.2 L753.6,808.4 L757.2,803.3 L760.7,798.1 L764.3,792.7 L767.9,787.1 L771.4,781.2 L775.0,775.2 L778.6,768.9 L782.1,762.3 L785.7,755.5 L789.3,748.5 L792.8,741.1 L796.4,733.4 L800.0,725.4 L803.5,717.1 L807.1,708.4 L810.7,699.3 L814.2,689.9 L817.8,680.0 L821.4,669.7 L824.9,658.9 L828.5,647.6 L832.1,635.8 L835.6,623.5 L839.2,610.5 L842.8,597.0 L846.3,582.7 L849.9,567.2 L853.5,550.5 L857.0,532.5 L860.6,513.1 L864.2,492.4 L867.7,470.2 L871.3,446.6 L874.9,421.4 L878.4,394.8 L882.0,366.5 L885.6,336.8 L889.1,305.4 L892.7,272.4 L896.2,237.9 L899.8,201.8 L903.4,164.2 L906.9,125.1 L910.5,84.6 L914.1,42.9 L917.6,-0.0" vector-effect="non-scaling-stroke"/></svg><span class="xg-yl" style="--y:0">0</span><span class="xg-yl" style="--y:50">6 hours</span><span class="xg-yl" style="--y:100">12 hours</span><span class="xg-xl" style="--x:0.00">2023</span><span class="xg-xl" style="--x:29.41">2024</span><span class="xg-xl" style="--x:58.82">2025</span><span class="xg-xl" style="--x:88.24">2026</span><span class="xg-pt p0" style="--x:6.18;--y:0.56"></span><span class="xg-lb p0" style="--x:6.18;--y:0.56">GPT-4 · 4 min</span><span class="xg-pt p1" style="--x:62.35;--y:8.33"></span><span class="xg-lb p1" style="--x:62.35;--y:8.33">Claude 3.7 · 1 hour</span><span class="xg-pt p2" style="--x:84.41;--y:40.83"></span><span class="xg-lb p2" style="--x:84.41;--y:40.83">Opus 4.5 · 4.9 hours</span><span class="xg-pt p3 hl" style="--x:91.76;--y:100.00"></span><span class="xg-lb p3 hl" style="--x:91.76;--y:100.00">Opus 4.6 · 12 hours</span></div></figure></div>
-   <div class="pane xg xg-il" data-s="2"><div class="lr"><span class="org">For people who use it</span></div>
-    <figure class="xg-plot"><div class="xg-area"><svg class="xg-draw" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true"><path class="gp" d="M0.0,900.0 L16.7,897.3 L33.3,894.4 L50.0,891.5 L66.7,888.4 L83.3,885.1 L100.0,881.7 L116.7,878.1 L133.3,874.4 L150.0,870.4 L166.7,866.3 L183.3,862.0 L200.0,857.5 L216.7,852.8 L233.3,847.8 L250.0,842.7 L266.7,837.2 L283.3,831.6 L300.0,825.6 L316.7,819.4 L333.3,812.9 L350.0,806.0 L366.7,798.9 L383.3,791.4 L400.0,783.5 L416.7,775.3 L433.3,766.7 L450.0,757.7 L466.7,748.2 L483.3,738.4 L500.0,728.0 L516.7,717.2 L533.3,705.8 L550.0,693.9 L566.7,681.4 L583.3,668.4 L600.0,654.7 L616.7,640.4 L633.3,625.4 L650.0,609.7 L666.7,593.3 L683.3,576.1 L700.0,558.0 L716.7,539.2 L733.3,519.4 L750.0,498.7 L766.7,477.0 L783.3,454.3 L800.0,430.5 L816.7,405.5 L833.3,379.4 L850.0,352.1 L866.7,323.5 L883.3,293.5 L900.0,262.1 L916.7,229.2 L933.3,194.8 L950.0,158.7 L966.7,121.0 L983.3,81.4 L1000.0,40.0 L1000.0,830.0 L983.3,831.2 L966.7,832.3 L950.0,833.5 L933.3,834.7 L916.7,835.8 L900.0,837.0 L883.3,838.2 L866.7,839.3 L850.0,840.5 L833.3,841.7 L816.7,842.8 L800.0,844.0 L783.3,845.2 L766.7,846.3 L750.0,847.5 L733.3,848.7 L716.7,849.8 L700.0,851.0 L683.3,852.2 L666.7,853.3 L650.0,854.5 L633.3,855.7 L616.7,856.8 L600.0,858.0 L583.3,859.2 L566.7,860.3 L550.0,861.5 L533.3,862.7 L516.7,863.8 L500.0,865.0 L483.3,866.2 L466.7,867.3 L450.0,868.5 L433.3,869.7 L416.7,870.8 L400.0,872.0 L383.3,873.2 L366.7,874.3 L350.0,875.5 L333.3,876.7 L316.7,877.8 L300.0,879.0 L283.3,880.2 L266.7,881.3 L250.0,882.5 L233.3,883.7 L216.7,884.8 L200.0,886.0 L183.3,887.2 L166.7,888.3 L150.0,889.5 L133.3,890.7 L116.7,891.8 L100.0,893.0 L83.3,894.2 L66.7,895.3 L50.0,896.5 L33.3,897.7 L16.7,898.8 L0.0,900.0 Z"/><path class="cf" d="M0.0,900.0 L16.7,898.8 L33.3,897.7 L50.0,896.5 L66.7,895.3 L83.3,894.2 L100.0,893.0 L116.7,891.8 L133.3,890.7 L150.0,889.5 L166.7,888.3 L183.3,887.2 L200.0,886.0 L216.7,884.8 L233.3,883.7 L250.0,882.5 L266.7,881.3 L283.3,880.2 L300.0,879.0 L316.7,877.8 L333.3,876.7 L350.0,875.5 L366.7,874.3 L383.3,873.2 L400.0,872.0 L416.7,870.8 L433.3,869.7 L450.0,868.5 L466.7,867.3 L483.3,866.2 L500.0,865.0 L516.7,863.8 L533.3,862.7 L550.0,861.5 L566.7,860.3 L583.3,859.2 L600.0,858.0 L616.7,856.8 L633.3,855.7 L650.0,854.5 L666.7,853.3 L683.3,852.2 L700.0,851.0 L716.7,849.8 L733.3,848.7 L750.0,847.5 L766.7,846.3 L783.3,845.2 L800.0,844.0 L816.7,842.8 L833.3,841.7 L850.0,840.5 L866.7,839.3 L883.3,838.2 L900.0,837.0 L916.7,835.8 L933.3,834.7 L950.0,833.5 L966.7,832.3 L983.3,831.2 L1000.0,830.0" vector-effect="non-scaling-stroke"/><path class="cv" d="M0.0,900.0 L16.7,897.3 L33.3,894.4 L50.0,891.5 L66.7,888.4 L83.3,885.1 L100.0,881.7 L116.7,878.1 L133.3,874.4 L150.0,870.4 L166.7,866.3 L183.3,862.0 L200.0,857.5 L216.7,852.8 L233.3,847.8 L250.0,842.7 L266.7,837.2 L283.3,831.6 L300.0,825.6 L316.7,819.4 L333.3,812.9 L350.0,806.0 L366.7,798.9 L383.3,791.4 L400.0,783.5 L416.7,775.3 L433.3,766.7 L450.0,757.7 L466.7,748.2 L483.3,738.4 L500.0,728.0 L516.7,717.2 L533.3,705.8 L550.0,693.9 L566.7,681.4 L583.3,668.4 L600.0,654.7 L616.7,640.4 L633.3,625.4 L650.0,609.7 L666.7,593.3 L683.3,576.1 L700.0,558.0 L716.7,539.2 L733.3,519.4 L750.0,498.7 L766.7,477.0 L783.3,454.3 L800.0,430.5 L816.7,405.5 L833.3,379.4 L850.0,352.1 L866.7,323.5 L883.3,293.5 L900.0,262.1 L916.7,229.2 L933.3,194.8 L950.0,158.7 L966.7,121.0 L983.3,81.4 L1000.0,40.0" vector-effect="non-scaling-stroke"/></svg><span class="xg-ll up">Knows how to use the tools</span><span class="xg-ll fl">Doesn’t use them</span><span class="xg-gl">The gap</span></div></figure><div class="xg-cap">Illustration, not data: the gap grows as the tools improve.</div></div>
+   <div class="pane xg xg-il" data-s="2"><div class="lr"><span class="org">For people who use it</span></div><div class="xg-cap">Illustration, not data: the gap grows as the tools improve.</div>
+    <figure class="xg-plot"><div class="xg-area"><svg class="xg-grid" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true"><line class="ax" x1="0" x2="1000" y1="1000" y2="1000" vector-effect="non-scaling-stroke"/><line class="ax" x1="0" x2="0" y1="0" y2="1000" vector-effect="non-scaling-stroke"/></svg><svg class="xg-draw" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true"><path class="gp" d="M0.0,1000.0 L16.7,997.0 L33.3,993.7 L50.0,990.5 L66.7,987.1 L83.3,983.4 L100.0,979.6 L116.7,975.6 L133.3,971.4 L150.0,967.0 L166.7,962.4 L183.3,957.6 L200.0,952.6 L216.7,947.3 L233.3,941.7 L250.0,936.0 L266.7,929.9 L283.3,923.6 L300.0,916.9 L316.7,910.0 L333.3,902.8 L350.0,895.1 L366.7,887.1 L383.3,878.8 L400.0,870.0 L416.7,860.8 L433.3,851.2 L450.0,841.2 L466.7,830.5 L483.3,819.6 L500.0,808.0 L516.7,795.9 L533.3,783.2 L550.0,769.9 L566.7,756.0 L583.3,741.5 L600.0,726.2 L616.7,710.2 L633.3,693.5 L650.0,675.9 L666.7,657.6 L683.3,638.4 L700.0,618.2 L716.7,597.2 L733.3,575.1 L750.0,552.0 L766.7,527.8 L783.3,502.5 L800.0,475.9 L816.7,448.0 L833.3,418.9 L850.0,388.4 L866.7,356.5 L883.3,323.0 L900.0,287.9 L916.7,251.2 L933.3,212.8 L950.0,172.5 L966.7,130.4 L983.3,86.2 L1000.0,40.0 L1000.0,921.9 L983.3,923.2 L966.7,924.4 L950.0,925.8 L933.3,927.1 L916.7,928.3 L900.0,929.7 L883.3,931.0 L866.7,932.2 L850.0,933.6 L833.3,934.9 L816.7,936.1 L800.0,937.5 L783.3,938.8 L766.7,940.1 L750.0,941.4 L733.3,942.7 L716.7,944.0 L700.0,945.3 L683.3,946.6 L666.7,947.9 L650.0,949.2 L633.3,950.5 L616.7,951.8 L600.0,953.1 L583.3,954.5 L566.7,955.7 L550.0,957.0 L533.3,958.4 L516.7,959.6 L500.0,960.9 L483.3,962.3 L466.7,963.5 L450.0,964.8 L433.3,966.2 L416.7,967.4 L400.0,968.7 L383.3,970.1 L366.7,971.3 L350.0,972.7 L333.3,974.0 L316.7,975.2 L300.0,976.6 L283.3,977.9 L266.7,979.1 L250.0,980.5 L233.3,981.8 L216.7,983.0 L200.0,984.4 L183.3,985.7 L166.7,986.9 L150.0,988.3 L133.3,989.6 L116.7,990.8 L100.0,992.2 L83.3,993.5 L66.7,994.8 L50.0,996.1 L33.3,997.4 L16.7,998.7 L0.0,1000.0 Z"/><path class="cf" d="M0.0,1000.0 L16.7,998.7 L33.3,997.4 L50.0,996.1 L66.7,994.8 L83.3,993.5 L100.0,992.2 L116.7,990.8 L133.3,989.6 L150.0,988.3 L166.7,986.9 L183.3,985.7 L200.0,984.4 L216.7,983.0 L233.3,981.8 L250.0,980.5 L266.7,979.1 L283.3,977.9 L300.0,976.6 L316.7,975.2 L333.3,974.0 L350.0,972.7 L366.7,971.3 L383.3,970.1 L400.0,968.7 L416.7,967.4 L433.3,966.2 L450.0,964.8 L466.7,963.5 L483.3,962.3 L500.0,960.9 L516.7,959.6 L533.3,958.4 L550.0,957.0 L566.7,955.7 L583.3,954.5 L600.0,953.1 L616.7,951.8 L633.3,950.5 L650.0,949.2 L666.7,947.9 L683.3,946.6 L700.0,945.3 L716.7,944.0 L733.3,942.7 L750.0,941.4 L766.7,940.1 L783.3,938.8 L800.0,937.5 L816.7,936.1 L833.3,934.9 L850.0,933.6 L866.7,932.2 L883.3,931.0 L900.0,929.7 L916.7,928.3 L933.3,927.1 L950.0,925.8 L966.7,924.4 L983.3,923.2 L1000.0,921.9" vector-effect="non-scaling-stroke"/><path class="cv" d="M0.0,1000.0 L16.7,997.0 L33.3,993.7 L50.0,990.5 L66.7,987.1 L83.3,983.4 L100.0,979.6 L116.7,975.6 L133.3,971.4 L150.0,967.0 L166.7,962.4 L183.3,957.6 L200.0,952.6 L216.7,947.3 L233.3,941.7 L250.0,936.0 L266.7,929.9 L283.3,923.6 L300.0,916.9 L316.7,910.0 L333.3,902.8 L350.0,895.1 L366.7,887.1 L383.3,878.8 L400.0,870.0 L416.7,860.8 L433.3,851.2 L450.0,841.2 L466.7,830.5 L483.3,819.6 L500.0,808.0 L516.7,795.9 L533.3,783.2 L550.0,769.9 L566.7,756.0 L583.3,741.5 L600.0,726.2 L616.7,710.2 L633.3,693.5 L650.0,675.9 L666.7,657.6 L683.3,638.4 L700.0,618.2 L716.7,597.2 L733.3,575.1 L750.0,552.0 L766.7,527.8 L783.3,502.5 L800.0,475.9 L816.7,448.0 L833.3,418.9 L850.0,388.4 L866.7,356.5 L883.3,323.0 L900.0,287.9 L916.7,251.2 L933.3,212.8 L950.0,172.5 L966.7,130.4 L983.3,86.2 L1000.0,40.0" vector-effect="non-scaling-stroke"/></svg><span class="xg-axl y">What you can do ↑</span><span class="xg-axl x">Time →</span><span class="xg-ll up">Knows how to use the tools</span><span class="xg-ll fl">Doesn’t use them</span><span class="xg-gl">The gap</span></div></figure></div>
   </div></div>
  <p class="fn" data-s="1"><span>METR, Time Horizon 1.1, Jan 29, 2026: doubled about every 7 months. METR data, checked Oct 13, 2026: GPT-4 ~4 min, Claude 3.7 ~1 hour, Claude Opus 4.5 ~4.9 hours, Claude Opus 4.6 ~12 hours. The right panel is an illustration, not data</span></p>
 </div><aside class="notes">Two panels. On the left is real data from METR: the length of task a frontier model can finish on its own went from about 4 minutes with GPT-4 in 2023 to about 12 hours with Claude Opus 4.6 in early 2026. That is doubling about every 7 months, and lately even faster. On the right is what that means for a person, drawn as an illustration rather than data: someone who knows how to use these tools rides that curve, someone who doesn’t stays flat, and the gap grows every year. New tools keep arriving, from Cursor in 2023 to Kling, Manus, and Meta’s Muse this September, so children must keep using them. The map changes too fast to memorize.</aside></section>
@@ -3035,21 +3110,53 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <ol class="tk-prog"><li><i>1</i><span>Know the tools</span></li><li class="on"><i>2</i><span>Use AI for real tasks</span></li><li><i>3</i><span>The best time to build</span></li></ol></div>
 </div></div><aside class="notes">Real tasks build real skills: a project, a club, an application. Here's what that looked like for Jing Jing, as a new grad interviewing at Kimi.</aside></section>
 
-<!-- 34 · A hiring story -->
-<section class="s ae"><div class="w">
- <p class="kick r">Case study · Kimi (Moonshot AI) · hiring for the growth and product teams</p>
- <h2 class="r" style="--d:.1s">For a non-technical role, the candidate who built something before the interview <em>got the offer.</em></h2>
+<!-- 34 · My Kimi story (1 of 3) -->
+<section class="s ae kimi3 k3a"><div class="w">
+ <p class="kick r">Case study · my Kimi story · 1 of 3</p>
+ <h2 class="r" style="--d:.1s">Two months into learning AI, <em>I applied to Kimi by building.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="case3">
-  <div class="cs pane" data-s="1"><span class="lab">The situation</span><h3>Hiring for non-technical roles on Kimi’s growth and product teams</h3><p>Jing Jing was interviewing candidates for both teams.</p></div>
+  <div class="cs pane" data-s="1"><span class="lab">How I applied</span><h3>I built an AI-powered interview prep tool</h3><p>Plus a GitHub portfolio of things I’d built with AI.</p></div>
   <span class="cs-ar" data-s="2" aria-hidden="true">→</span>
-  <div class="cs pane" data-s="2"><span class="lab">What one candidate built</span><h3>A small tool for the team’s social media work</h3><p>Made with AI, on the candidate’s own initiative, before the interview.</p></div>
+  <div class="cs pane" data-s="2"><span class="lab">In the interview</span><h3>Interview Prep Kit and Market Watcher, shown live</h3><p>To show my AI skills, what Kimi does, and the global market.</p></div>
   <span class="cs-ar" data-s="3" aria-hidden="true">→</span>
-  <div class="cs cs-out" data-s="3"><span class="lab">What happened</span><h3>Showed it live in the interview, and <em>got the offer</em></h3><p>A real task for the team, done before anyone asked.</p></div>
+  <div class="cs cs-out" data-s="3"><span class="lab">Live demo</span><h3><a class="k3-link" href="https://arenaschool.org/case-study-examples" target="_blank" rel="noopener"><span>arenaschool.org/</span><span>case-study-examples</span></a></h3><p>Both tools are on this site. I’ll show you now.</p></div>
  </div>
- <div class="cs-foot pane" data-s="4"><img class="brand km" src="/logos/deck/kimi.png" alt="Kimi"><p>Nobody asked for it. <em>That was the point.</em></p></div>
+ <div class="cs-foot pane" data-s="4"><img class="brand km" src="/logos/deck/kimi.png" alt="Kimi"><p>Two months of learning AI. <em>Two products to show for it.</em></p></div>
  </div>
- <p class="fn"><span>A first-hand story hiring for growth / product teams at Kimi (Moonshot AI)</span></p>
-</div><aside class="notes">Jing Jing tells this in the first person. "I was hiring for Kimi's growth and product teams, for non-technical roles. One candidate built a small tool with AI for our social media work before the interview. Nobody asked for it. They showed it to me live, and they got the offer. That was the point: a real task, done before anyone asked." A job interview is about as high-stakes as everyday life gets. Encourage children to use AI for real things: a school project, a club, an application.</aside></section>
+ <p class="fn"><span>A first-hand story from Jing Jing Yang, Kimi (Moonshot AI)</span></p>
+</div><aside class="notes">I'll tell this one myself. When I applied to Kimi, I had only been learning to use AI for about two months. I applied for the role by building an AI-powered interview prep tool. In the interview I showed two products: that tool, and Market Watcher, a marketing tracker for a social media platform. Together they showed my AI skills, my understanding of what Kimi does as a company, and my understanding of the global market. I also included a GitHub portfolio of things I had built with AI in my résumé, and that mattered too. Both tools are on this site, so let me show you. (Open arenaschool.org/case-study-examples and demo.)</aside></section>
+
+<!-- 35 · My Kimi story (2 of 3) -->
+<section class="s alt ae kimi3 k3b"><div class="w">
+ <p class="kick r">Case study · my Kimi story · 2 of 3</p>
+ <h2 class="r" style="--d:.1s">At Kimi, I handed AI the repetitive work <em>and kept the judgment calls.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="case3">
+  <div class="cs pane" data-s="1"><span class="lab">What I kept building</span><h3>Tools for my own workflow</h3><p>Built with AI to make my everyday work faster.</p></div>
+  <span class="cs-ar" data-s="2" aria-hidden="true">→</span>
+  <div class="cs pane" data-s="2"><span class="lab">How I used them</span><h3>AI took the repetitive work</h3><p>I chose, with taste, what to handle myself.</p></div>
+  <span class="cs-ar" data-s="3" aria-hidden="true">→</span>
+  <div class="cs cs-out" data-s="3"><span class="lab">What it did</span><h3>Good results, <em>reliably</em></h3><p>That helped me progress in my team and across teams.</p></div>
+ </div>
+ <div class="cs-foot pane" data-s="4"><img class="brand km" src="/logos/deck/kimi.png" alt="Kimi"><p>AI did the repetitive work. <em>I made the calls.</em></p></div>
+ </div>
+ <p class="fn"><span>A first-hand story from Jing Jing Yang, Kimi (Moonshot AI)</span></p>
+</div><aside class="notes">Once I joined, I kept building tools to optimize my own workflow and efficiency. The key wasn't giving AI everything. I handed it the repetitive work, reliably, and I chose, with taste, which things to handle myself. That produced good results, and it helped me progress quickly, within my team and across teams.</aside></section>
+
+<!-- 36 · My Kimi story (3 of 3) -->
+<section class="s ae kimi3 k3c"><div class="w">
+ <p class="kick r">Case study · my Kimi story · 3 of 3</p>
+ <h2 class="r" style="--d:.1s">While still doing growth work, <em>I was put in charge of HR.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="case3">
+  <div class="cs pane" data-s="1"><span class="lab">The trust</span><h3>The president trusted my taste in people</h3><p>She thought the company needed more AI‑native people.</p></div>
+  <span class="cs-ar" data-s="2" aria-hidden="true">→</span>
+  <div class="cs pane" data-s="2"><span class="lab">Who we hired</span><h3>AI‑native people, even for non-technical roles</h3><p>Fluency with the tools, plus agency, taste, and craft.</p></div>
+  <span class="cs-ar" data-s="3" aria-hidden="true">→</span>
+  <div class="cs cs-out" data-s="3"><span class="lab">Why this talk</span><h3>Agency, taste, and craft</h3><p>Used well, AI frees your energy for more creative, impactful work.</p></div>
+ </div>
+ <div class="cs-foot pane" data-s="4"><img class="brand km" src="/logos/deck/kimi.png" alt="Kimi"><p>This is what companies value now. <em>That’s why I share it.</em></p></div>
+ </div>
+ <p class="fn"><span>A first-hand story from Jing Jing Yang, Kimi (Moonshot AI)</span></p>
+</div><aside class="notes">Because it worked, I grew very fast. While I was still doing all my regular work on the growth team, I was also put in charge of HR for the department. My boss, who was also the president of the company, trusted my taste in people. She thought the company needed more AI-native people, even though the work on these teams didn't require technical skills. So when I hire, I look for two things: real fluency with the tools, and agency, taste, and craft. That's exactly why this talk is about those three skills. Used properly, AI frees up a lot of your energy and capacity for far more creative and impactful work.</aside></section>
 
 <!-- 36 · Takeaway 3 -->
 <section class="s alt ae st tk"><div class="w"><div class="tk-g">
@@ -3088,12 +3195,12 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 <!-- 39 · What children can build -->
 <section class="s ae"><div class="w">
  <p class="kick r">Takeaway 3 · what children can build</p>
- <h2 class="r" style="--d:.1s">In five days, a ten-year-old<br><em>turned sign language into speech.</em></h2>
+ <h2 class="r" style="--d:.1s">In five days, an 11-year-old<br><em>turned sign language into speech.</em></h2>
  <div class="bd r" style="--d:.25s">
   <div class="cs31">
    <div class="pane cs-vp">
     <figure class="vframe cs-v"><video autoplay muted loop playsinline preload="metadata" poster="/decks/img/conversation/hands-stage-poster.webp" src="/decks/img/conversation/hands-stage.mp4" aria-label="A student tests a sign-language app on a laptop"></video><img class="vposter" src="/decks/img/conversation/hands-stage-poster.webp" alt=""></figure>
-    <span class="cs-cap">Hong Kong · summer 2025 · built in five days</span>
+    <span class="cs-cap">Built in five days by a seventh grader</span>
    </div>
    <div class="cs-side">
     <ol class="cs-beats">
@@ -3122,7 +3229,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
     </ul></div>
   </div>
  </div>
-</div><aside class="notes">This is what the three skills look like with AI tools in a child’s hands. A ten-year-old in Hong Kong, summer 2025, had five days. He chose his own problem, sign language to speech, because his cousin is deaf. Nobody assigned it. That is agency. After the demo, he kept improving it, because his grandmother couldn’t use the first version yet. That is taste, judged by a real user. The hardest part wasn’t the AI; it was getting the audio clear enough for her to trust it. That is craft. Notice the order: find a problem, build, get real-user feedback, launch. It is the same loop a startup runs. The tools along the bottom are examples of what children can use today. The AI did the building; he did the choosing, judging, and finishing.</aside></section>
+</div><aside class="notes">This is what the three skills look like with AI tools in a child’s hands. An 11-year-old in Hong Kong, summer 2025, had five days. He chose his own problem, sign language to speech, because his cousin is deaf. Nobody assigned it. That is agency. After the demo, he kept improving it, because his grandmother couldn’t use the first version yet. That is taste, judged by a real user. The hardest part wasn’t the AI; it was getting the audio clear enough for her to trust it. That is craft. Notice the order: find a problem, build, get real-user feedback, launch. It is the same loop a startup runs. The tools along the bottom are examples of what children can use today. The AI did the building; he did the choosing, judging, and finishing.</aside></section>
 
 
 <!-- 41 · Close -->
@@ -3144,7 +3251,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <p class="kick r">ISB PTA Parent Coffee · October 14, 2026</p>
  <h2 class="r" style="--d:.1s">Thank you! <em>We&nbsp;welcome your questions.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="qa qa14">
-  <a class="qr pane qr-live qr-slides" href="https://arenaschool.org/talk" target="_blank" rel="noopener"><img src="/decks/img/conversation/qr-talk-clear.png" alt="QR code for arenaschool.org/talk"><span>Today’s slides</span><small>arenaschool.org/talk</small></a>
+  <a class="qr pane qr-live qr-slides" href="https://arenaschool.org/talk" target="_blank" rel="noopener"><img src="/decks/img/conversation/qr-talk-tight.png" alt="QR code for arenaschool.org/talk"><span>Today’s slides</span><small>arenaschool.org/talk</small></a>
   <div class="qa-links pane">
    <div class="qa-item"><span class="k">Tool walkthroughs</span><a class="qa-url" href="https://arenaschool.org/case-study-examples" target="_blank" rel="noopener">arenaschool.org/case-study-examples</a><p>Step-by-step walkthroughs to open on your own time.</p></div>
   </div>
@@ -3172,7 +3279,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <li><span><b>Business Insider</b> on Julia Liuson’s Microsoft email; <b>The Verge</b> on Duolingo’s memo</span><span class="src">June 27, 2025&nbsp;· April 28, 2025</span></li>
   <li><span><b>PwC</b>, 2026 Global AI Jobs Barometer: 62% wage premium</span><span class="src">June 15, 2026</span></li>
   <li><span><b>Stanford Digital Economy Lab</b>, “Canaries in the Coal Mine?”, revised</span><span class="src">August 2026</span></li>
-  <li><span><b>MyCOS 麦可思</b> survey of 3,794 university students, via <span class="nw">未来网</span></span><span class="src">April 16, 2026</span></li>
+  <li><span><b>China Youth Daily (中国青年报)</b> Social Survey Center and wenjuan.com: 1,333 graduating students (91.1%, 56.6%)</span><span class="src">May 14, 2026</span></li>
  </ul>
  </div>
 </div></section>
@@ -3194,8 +3301,13 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <li><span><b>METR</b>, Time Horizon 1.1: 50% time horizon doubled about every 7 months; GPT-4 ~4 min, Claude 3.7 ~1 hour, Claude Opus 4.5 ~4.9 hours, Claude Opus 4.6 ~12 hours (METR data, checked Oct 13, 2026)</span><span class="src">Jan 29, 2026</span></li>
   <li><span><b>AI tools</b>: Meta newsroom (Muse); TechCrunch (Instinct); Reuters (OpenClaw); manus.im, kimi.com, and each tool’s own site</span><span class="src">2026&nbsp;· checked Oct 11</span></li>
   <li><span><b>Hugging Face</b>: 4,386 public models created Oct 12, 2026 (Hub API, UTC); 3,145,598 listed at huggingface.co/models</span><span class="src">checked Oct 13, 2026</span></li>
-  <li><span><b>Sign-language-to-speech project</b>, a ten-year-old in Hong Kong, summer 2025: arenaschool.org/results</span><span class="src">2025</span></li>
+<<<<<<< HEAD
+  <li><span><b>Sign-language-to-speech project</b>, an 11-year-old in Hong Kong, summer 2025: arenaschool.org/results</span><span class="src">2025</span></li>
   <li><span><b>Kimi</b> (Moonshot AI) hiring story, first-hand</span><span class="src">2026</span></li>
+=======
+  <li><span><b>Sign-language-to-speech project</b>, a ten-year-old in Hong Kong, summer 2025: arenaschool.org/results</span><span class="src">2025</span></li>
+  <li><span><b>Jing Jing Yang</b>, first-hand: Kimi (Moonshot AI) application and first year</span><span class="src">2026</span></li>
+>>>>>>> d849a700ebd0f9781768d66a0ba189e79daf879d
   <li><span><b>Cursor</b>: Series D post; Reuters, CNBC, and Bloomberg on SpaceX; SpaceX Form 8-K and PitchBook on the close</span><span class="src">Nov 2025&nbsp;· June–Aug 2026</span></li>
  </ul>
  </div>
