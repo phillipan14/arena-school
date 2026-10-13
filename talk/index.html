@@ -248,13 +248,66 @@ main > section.s-tools{border-top:1px solid var(--line);margin-top:26px;padding-
 @media (orientation:landscape){.lb-tip{display:none}}
 html.lb-open,html.lb-open body{overflow:hidden}
 @media (prefers-reduced-motion:reduce){*{transition:none !important}}
+/* phone entry (QR target): a one-tap language chooser fills the first screen; resources follow below it */
+.pick{position:relative;overflow:hidden;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;
+  padding:calc(env(safe-area-inset-top) + 18px) max(22px,env(safe-area-inset-right)) calc(env(safe-area-inset-bottom) + 18px) max(22px,env(safe-area-inset-left));
+  background-color:var(--paper-h);background-image:radial-gradient(rgba(11,26,74,.16) 1.1px,transparent 1.4px);background-size:24px 24px}
+.pick::after{content:"";position:absolute;right:-70px;top:70px;width:240px;height:240px;background:url(/logos/arena/seal-navy-512.png) center/contain no-repeat;opacity:.07;pointer-events:none}
+.pick>*{position:relative;z-index:1}
+.pick .wm{width:176px !important}
+.pk-mid{margin:auto 0;padding:28px 0 20px}
+.pk-ev{margin:0 0 14px;font:500 11.5px/1.7 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+.pk-ev span{display:block}
+.pk-ev span[lang="zh-CN"]{letter-spacing:.04em;font-family:'PingFang SC','Hiragino Sans GB','Noto Sans SC',var(--sans);font-size:12.5px}
+:root .pick .pk-t{margin:0;font:400 33px/1.08 'Newsreader',Georgia,serif;letter-spacing:-.025em;color:#0B1A4A;text-wrap:balance}
+:root .pick .pk-t em{font-style:italic;color:#2F55A8}
+.pk-t2{margin:12px 0 0;font:500 19px/1.55 'Arena Serif SC','Noto Serif SC','Songti SC',serif;color:var(--ink2)}
+.pk-q{margin:30px 0 12px;font:500 12px/1.4 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.pk-l{display:flex;flex-direction:column;gap:10px}
+html[data-l="zh"] .pk-l .pk-cn{order:-1}
+.pk-b{display:grid;grid-template-columns:1fr auto;align-items:center;column-gap:14px;min-height:76px;padding:14px 22px;border-radius:16px;text-decoration:none;
+  background:var(--card);color:#0B1A4A;border:1px solid rgba(21,38,54,.22);transition:transform .15s,background-color .2s,border-color .2s}
+.pk-b b{font:400 25px/1.15 'Newsreader',Georgia,serif;letter-spacing:-.01em}
+.pk-b.pk-cn b{font:500 23px/1.2 'PingFang SC','Hiragino Sans GB','Noto Sans SC',sans-serif;letter-spacing:.04em}
+.pk-b small{grid-column:1;font:400 14px/1.4 var(--sans);color:var(--soft);margin-top:2px}
+.pk-b.pk-cn small{font-family:'PingFang SC','Hiragino Sans GB','Noto Sans SC',sans-serif}
+.pk-b .ar{grid-column:2;grid-row:1/span 2;font-size:22px;transition:transform .2s}
+.pk-b:active{transform:scale(.985)}
+html[data-l="en"] .pk-en,html[data-l="zh"] .pk-cn{background:#0B1A4A;border-color:#0B1A4A;color:#FCF3ED}
+html[data-l="en"] .pk-en small,html[data-l="zh"] .pk-cn small{color:rgba(252,243,237,.75)}
+@media (hover:hover){.pk-b:hover{border-color:#0B1A4A}.pk-b:hover .ar{transform:translateX(3px)}}
+.pk-more{align-self:center;display:inline-flex;flex-direction:column;align-items:center;gap:2px;min-height:48px;justify-content:center;padding:6px 14px;text-decoration:none;font:400 13.5px/1.45 var(--sans);color:var(--soft);text-align:center}
+.pk-more i{font-style:normal;font-size:16px;color:var(--ink);animation:pkn 2.6s 1.2s infinite}
+@keyframes pkn{0%,70%,100%{transform:none}82%{transform:translateY(4px)}}
+@media (max-height:640px){.pk-mid{padding-top:16px}.pk-t{font-size:29px}.pk-q{margin-top:20px}.pk-b{min-height:66px}}
+.rd-links{display:none}
+@media (min-width:960px){
+  .pick{display:none}
+  .rd-links{display:block;margin-top:14px;font-size:15px;color:var(--soft)}
+  .rd-links a{font-weight:500;color:var(--btn);text-underline-offset:4px;text-decoration-color:rgba(21,38,54,.3)}
+}
+@media (prefers-reduced-motion:reduce){.pk-more i{animation:none}}
 </style>
 </head>
 <body>
 <div class="page">
+<section class="pick" aria-labelledby="pk-h">
+  <a class="home" href="https://arenaschool.org/" aria-label="Arena School"><img class="wm" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School" width="1600" height="242"></a>
+  <div class="pk-mid">
+    <p class="pk-ev"><span lang="en">ISB PTA Parent Coffee · Oct 14, 2026</span><span lang="zh-CN">ISB PTA 家长咖啡会 · 2026年10月14日</span></p>
+    <h1 class="pk-t" id="pk-h" lang="en">Our Kids’ Jobs <em>Don’t Exist Yet.</em> So Which Skills Will Matter?</h1>
+    <p class="pk-t2" lang="zh-CN">孩子们未来的工作还不存在，那么，哪些能力最重要？</p>
+    <p class="pk-q">Choose a language · 选择语言</p>
+    <div class="pk-l">
+      <a class="pk-b pk-en" href="/talk/en" hreflang="en" lang="en"><b>English</b><small>Follow the talk, slide by slide</small><span class="ar" aria-hidden="true">→</span></a>
+      <a class="pk-b pk-cn" href="/talk/cn" hreflang="zh-CN" lang="zh-CN"><b>中文</b><small>逐页阅读讲座内容</small><span class="ar" aria-hidden="true">→</span></a>
+    </div>
+  </div>
+  <a class="pk-more" href="#resources"><span lang="en">PDF slides and more resources</span><span lang="zh-CN">PDF 幻灯片与更多资料</span><i aria-hidden="true">↓</i></a>
+</section>
 <div class="wxb" role="note"><span class="en" lang="en"><b>Reading in WeChat?</b> Swipe through the slides right on this page. To save the PDF, tap <b>···</b> (top right) and choose <b>Open in Browser</b>.</span><span class="zh" lang="zh-CN"><b>在微信中打开？</b>本页可直接滑动查看幻灯片。如需保存PDF，请点右上角“···”，选择“在浏览器打开”。</span></div>
 
-<header class="hd">
+<header class="hd" id="resources">
   <div class="bar">
     <a class="home" href="https://arenaschool.org/" aria-label="Arena School"><img class="wm" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School" width="1600" height="242"></a>
     <div class="lang" role="group" aria-label="Language / 语言">
@@ -278,9 +331,7 @@ html.lb-open,html.lb-open body{overflow:hidden}
       <a class="btn pri b-en" href="/talk/Arena-Parent-Conversation-EN.pdf" hreflang="en" type="application/pdf"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.75h8.2L19.25 7.8V20a1.25 1.25 0 0 1-1.25 1.25H6A1.25 1.25 0 0 1 4.75 20V4A1.25 1.25 0 0 1 6 2.75Z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M14 2.9V8h5.1" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="17.2" text-anchor="middle" font-size="5.6" font-weight="700" font-family="Arial,Helvetica,sans-serif" fill="currentColor">PDF</text></svg><span class="lbl"><span class="en" lang="en">English slides</span><span class="zh" lang="zh-CN">英文版幻灯片</span><small><span class="en" lang="en">PDF · open or save</span><span class="zh" lang="zh-CN">PDF · 打开或保存</span></small></span></a>
       <a class="btn gh b-cn" href="/talk/Arena-Parent-Conversation-CN.pdf" hreflang="zh-CN" type="application/pdf"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.75h8.2L19.25 7.8V20a1.25 1.25 0 0 1-1.25 1.25H6A1.25 1.25 0 0 1 4.75 20V4A1.25 1.25 0 0 1 6 2.75Z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M14 2.9V8h5.1" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="17.2" text-anchor="middle" font-size="5.6" font-weight="700" font-family="Arial,Helvetica,sans-serif" fill="currentColor">PDF</text></svg><span class="lbl"><span class="en" lang="en">Chinese slides</span><span class="zh" lang="zh-CN">中文版幻灯片</span><small><span class="en" lang="en">PDF · open or save</span><span class="zh" lang="zh-CN">PDF · 打开或保存</span></small></span></a>
     </div>
-
-
-    
+    <p class="rd-links"><span class="en" lang="en">Or read it slide by slide: <a href="/talk/en">English</a> · <a href="/talk/cn" lang="zh-CN">中文</a></span><span class="zh" lang="zh-CN">也可以逐页阅读：<a href="/talk/cn">中文</a> · <a href="/talk/en" lang="en">English</a></span></p>
   </section>
 
   <aside class="gal viewer" aria-label="Slides">
