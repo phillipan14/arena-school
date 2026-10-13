@@ -1,0 +1,9 @@
+/* r6 CN format audit */
+/* Kimi slides 28-30: CN glyph metrics sat card content 1-2.5px low; nudge up ~1.6 rendered px */
+:lang(zh-CN) .kimi3.ae .bd .case3 .cs>*{position:relative;top:-1.2px}
+:lang(zh-CN) .kimi3.k3a.ae .bd .case3 .cs>*{top:-2px}
+/* Slide 13 (JJ review): smaller numbers, clear of the divider, baseline on the caption's last line */
+:lang(zh-CN) .hbx .hb-num{align-items:last baseline;padding-top:22px}
+:lang(zh-CN) .hbx .hb-num b{font-size:56px}
+:lang(zh-CN) .hbx .hb-num b small{font-size:22px}
+:lang(zh-CN) .hbx .hb-now .hb-num b{position:relative;top:3.4px}
