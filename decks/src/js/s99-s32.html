@@ -1,0 +1,15 @@
+<script>
+/* s32 close: pull each big numeral left by its glyph's side bearing so its ink lines up with the heading below it.
+   Measured from the font actually in use, so a fallback font never hangs outside the column. */
+(function(){var s=document.querySelector('section.s.cl'); if(!s)return;
+ var c=document.createElement('canvas').getContext('2d');
+ function ink(e){var cs=getComputedStyle(e);c.font=cs.fontStyle+' '+cs.fontWeight+' '+cs.fontSize+' '+cs.fontFamily;return -c.measureText(e.textContent.trim().charAt(0)).actualBoundingBoxLeft}
+ function fit(){[].forEach.call(s.querySelectorAll('.c3x li'),function(li){var i=li.querySelector('i'),b=li.querySelector('b');if(!i||!b)return;
+  if(matchMedia('(max-width:900px)').matches){i.style.marginLeft='';return}
+  i.style.marginLeft=(-(Math.max(0,ink(i)-Math.max(0,ink(b)))).toFixed(2))+'px'})}
+ fit(); addEventListener('resize',fit); addEventListener('load',fit);
+ if(document.fonts){document.fonts.ready.then(fit);document.fonts.addEventListener&&document.fonts.addEventListener('loadingdone',fit)}
+ if(window.ResizeObserver)new ResizeObserver(fit).observe(s.querySelector('.c3x'));
+ var sp=window.__space; if(sp)window.__space=function(){sp.apply(this,arguments);fit()};
+})();
+</script>
