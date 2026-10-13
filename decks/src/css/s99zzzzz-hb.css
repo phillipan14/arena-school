@@ -1,0 +1,4 @@
+/* round-6 audit, slide 13 (JJ review): smaller anchor numbers with clear space under the divider; number baseline = last caption line baseline (both cards, EN and CN) */
+.hbx .hb-num{align-items:last baseline;padding-top:20px}
+.hbx .hb-num b{font-size:56px}
+.hbx .hb-num b small{font-size:22px}
