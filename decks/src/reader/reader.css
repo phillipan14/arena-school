@@ -324,6 +324,8 @@ i.rg::before{width:calc(var(--r) * 1%);background:linear-gradient(90deg,var(--da
 .mk-r{display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:8px;padding-top:10px;border-top:1px solid rgba(252,243,237,.16)}
 .mk-r span{font:italic 400 14px/1.3 var(--serif);color:var(--lb)}
 .mk-stat p{color:rgba(252,243,237,.82)}
+.mk-stat .mk-d{margin:0 0 4px;font:italic 400 16px/1.35 var(--serif);color:var(--lb)}
+:lang(zh-CN) .mk-stat .mk-d{font-style:normal;font-size:15px}
 
 /* ---------- case strip ---------- */
 .case3{display:flex;flex-direction:column;gap:6px}
