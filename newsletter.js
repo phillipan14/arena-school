@@ -84,7 +84,7 @@
   function removeBar() { if (!bar) return; bar.remove(); bar = null; doc.classList.remove('nl-bar-on'); doc.style.removeProperty('--nlb-off') }
   function placeNav() { if (!bar) return; var off = Math.max(0, barH - window.scrollY); doc.style.setProperty('--nlb-off', off + 'px') }
   function buildBar() {
-    if (!doc.querySelector('body.home') || store.get('sub') === '1') return;
+    if (!doc.querySelector('body.home') || store.get('sub') === '1' || document.querySelector('.promo-bar')) return; // promo.js owns the top strip while it runs
     var bd = +store.get('bar') || 0; if (bd && Date.now() - bd < 30 * 864e5) return;
     bar = h('div', 'nl-bar'); bar.setAttribute('role', 'region'); bar.setAttribute('aria-label', T.name);
     var item = '<span class="nl-bar-item"><b>' + esc(T.name) + '</b><span class="nl-bar-dot" aria-hidden="true">·</span>' + esc(T.bar) + '<span class="nl-bar-go">' + esc(T.barGo) + ' →</span></span>';
@@ -171,6 +171,7 @@
     var d = +store.get('dismissed') || 0; if (d && Date.now() - d < 60 * 864e5) return;
     var shown = false;
     function tryShow() { if (shown) return; if (busy()) { setTimeout(tryShow, 2000); return } shown = true; openSheet() }
+    if (window.__arenaPromo) return; // promo.js runs the timed popup (30s, 5 min, 10 min) while a program is being promoted
     setTimeout(tryShow, 3000);   // three seconds into the visit
   }
   maybeAuto();
