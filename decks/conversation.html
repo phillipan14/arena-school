@@ -972,9 +972,9 @@ section.s.title.split-s .agenda .k{font-size:15px;color:#C9D6F2}
 .kick{margin:0;font:600 16px/1.3 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
 :lang(zh-CN) .kick{font-size:18px;line-height:1.15;letter-spacing:.08em}
 
-/* statement slides: navy, one large line, a quiet seal in the corner */
+/* statement slides: navy, one large line */
 .s.nv{background:var(--ink);color:var(--paper-hi)}
-.s.nv::before{content:"";position:absolute;z-index:0;inset:0;background:url(/logos/arena/seal-ivory-1024.png) right -5vw bottom -16vh/min(54vw,96vh) no-repeat;opacity:.05;pointer-events:none}
+
 .s.nv.cl::before{display:none}
 .s.nv>.pgno{color:rgba(252,243,237,.6)}
 .nv .kick,.nv h2 em,.nv .by,.nv sup,.nv .big{color:#A9BEEA}
@@ -2299,6 +2299,155 @@ section.s>.brandmk{position:absolute;z-index:3;top:calc((var(--pad-top) - 3px) *
 .ae .bd .mk-stat{padding:16px 26px;gap:6px}
 .ae .bd .mk-stat .mk-r{flex-direction:row;flex-wrap:wrap;gap:0 18px;margin-top:4px;padding-top:10px}
 
+/* ---- s95-v3.css ---- */
+/* s95-v3: spacing and alignment pass on slides 25-36 (Oct 13 review). Loaded last; every rule is scoped to a component used on one slide. */
+
+/* 25 · METR card: title block at the top, bars centered in the space below, so the card has no empty band at the bottom */
+.ae .bd .accx .pane.wide-ch{display:flex;flex-direction:column}
+.accx .wide-ch .hb.wide{flex:1;display:grid;align-content:center;gap:34px}
+.accx .hb.wide i{height:34px}
+.accx .hb.wide .bk{font-size:22px}
+.accx .hb.wide b{font-size:27px}
+
+/* 27 · the three story cards share rows, so the dividers line up across cards whatever each heading's length */
+.case3{grid-template-rows:auto auto 1fr}
+.ae .bd .case3 .cs{display:grid;grid-row:1/4;grid-template-rows:subgrid;row-gap:12px}
+.case3 .cs-ar{grid-row:1/4;align-self:center}
+.ae .bd .case3 .cs p{margin:0;align-self:start;font-size:24px;line-height:1.38}
+.ae .bd .case3 .cs{padding:26px 30px 22px}
+.ae .bd .case3 .cs h3{font-size:29px;line-height:1.18}
+:lang(zh-CN) .ae .bd .case3 .cs h3{font-size:28px;line-height:1.38}
+:lang(zh-CN) .ae .bd .case3 .cs p{font-size:24px;line-height:1.5}
+/* 27 · quote band: logo, rule, and line all share one center line; the rule is drawn on the band, not the text's line box */
+.ae:not(.st):not(.bq) .bd>.cs-foot.pane{align-items:center;gap:0;padding:16px 34px}
+.cs-foot .brand{margin-right:32px;position:relative;top:-3px}
+.ae .bd .cs-foot p{position:relative;border-left:0;padding-left:32px;line-height:1.2}
+.ae .bd .cs-foot p::before{content:"";position:absolute;left:0;top:50%;width:1px;height:1.25em;transform:translateY(-56%);background:var(--edge)}
+
+/* 30 · Cursor -> SpaceX: icon, arrow, and the SPACEX letters on one center line, with clear space above "$60" */
+.gcol .acq{align-items:center;gap:14px;margin-bottom:22px}
+.gcol .acq .to{display:block;font-size:24px;line-height:1;transform:translateY(1px)}
+.gcol .acq img.sx{height:24px;position:relative;top:-4px}
+
+/* 31 · tools: no mini cards; logo and name sit straight on the large card, names sized so the longest fits with room */
+.sk-l .sk-tools{gap:30px 6px}
+.ae .bd .sk-l .sk-tools li{gap:12px;padding:0;background:none;border:0;box-shadow:none}
+.sk-l .sk-tools img{width:64px;height:64px;border-radius:16px}
+.ae .bd .sk-l .sk-tools b{font-size:17px}
+:lang(zh-CN) .ae .bd .sk-l .sk-tools b{font-size:16px}
+/* 31 · numbered bars: number and label centered top to bottom in each bar */
+.sk-side .sk-proc{gap:10px}
+.ae .bd .sk-side .sk-proc li{align-items:center;min-height:56px;padding:0 22px;gap:16px}
+.sk-proc i{display:block;line-height:1;transform:translateY(3px)}
+.ae .bd .sk-side .sk-proc b{display:block;line-height:1.15;transform:translateY(3px)}
+
+/* 32 · problem / build / result: smaller body so each card breathes */
+.ae .bd .pbr .pb{gap:8px;padding:16px 26px 16px}
+.ae .bd .pbr h3{font-size:25px;line-height:1.2}
+:lang(zh-CN) .ae .bd .pbr h3{font-size:23px;line-height:1.4}
+.ae .bd .pbr .q{font-size:20px;line-height:1.45;color:var(--text)}
+:lang(zh-CN) .ae .bd .pbr .q{font-size:19px;line-height:1.6}
+.ae .bd .pbr .where{font-size:17px}
+
+/* 34 · if only one link remains, it fills the pane instead of sitting in half of it */
+section.s .qa.qa14 .qa-links.pane:not(:has(.qa-item+.qa-item)){grid-template-columns:1fr}
+
+/* 35, 36 · sources: a little more air per row, dates on one line, and both columns end the same way */
+.ae .srcs li{padding:4px 0}
+:lang(zh-CN) .ae .srcs li{padding:2px 0}
+.ae .srcs li .src{text-wrap:balance}
+.srcs.pane li:last-child{border-bottom:1px solid var(--line)}
+
+/* ---- s96-v2.css ---- */
+/* QA pass, slides 13–24 and the takeaway pills (23, 26, 28), Oct 13 2026.
+   Centering, padding, and border fixes only. Type sizes are unchanged except the two
+   oversized card labels on slide 24, which now match the deck's card heading style. */
+
+/* 13 · both cards hold the same stack (header, big figure, two-line note), so their
+   centered content lines up: header to header, figure to figure */
+.ae .bd .cmp2>.pane>p{min-height:2lh}
+
+/* 14 · give the source label and the stat labels room above the big numbers */
+.ae .bd .arc>.lr{margin-bottom:14px}
+.ae .bd .arc .an .lab{display:block;margin-bottom:12px}
+.ae .bd .arc .an .big{margin-top:28px}
+
+/* 17 · the arrow sits in the gap between the two cards instead of notching both,
+   and the card text is optically centered (it sat 3px high) */
+.sh-arr i,.s.alt .sh-arr i{width:46px;height:46px;box-shadow:inset 0 0 0 1px var(--edge)}
+.sh-arr i::after{width:10px;height:10px}
+.sh-col{padding:25px 32px 19px}
+
+/* 23, 26, 28 · takeaway pills: the label sat 3px above center (cap height vs. the line box) */
+.tk-prog li{padding:11.3px 16px 5.7px}
+:lang(zh-CN) .tk-prog li{padding:10.1px 16px 6.9px}
+
+/* 24 · agent cards: the deck's paper card with a hairline edge, not a navy outline;
+   names optically centered on their icons (they sat 4px high) */
+.ae .bd .agx.six li{background:var(--paper-hi);box-shadow:inset 0 0 0 1px var(--edge)}
+.ae .bd .agx.six b{position:relative;top:3px}
+/* 24 · the two card labels drop from 26px with wide tracking to a calmer 24px
+   (about the floor contain.py sets for text in a <p> on the phone letterbox),
+   and the tool card gets even padding on all four sides */
+.ae .bd .mk-map .lab,.ae .bd .mk-stat .lab{font-size:24px;line-height:1.2;letter-spacing:.08em}
+:lang(zh-CN) .ae .bd .mk-map .lab,:lang(zh-CN) .ae .bd .mk-stat .lab{font-size:24px;letter-spacing:.04em}
+.ae .bd .mk-map{padding:14px 18px 10px;gap:4px}
+.agx.six img{width:40px;height:40px;border-radius:11px}
+.ae .bd .agx.six li,.ae .bd .agx.six li:last-child{padding:9px}
+
+/* 14 · the YET pill label sat 2.5px high (the 但 pill is already centered) */
+.ar2.vs span{padding:9.9px 16px 5.1px}
+:lang(zh-CN) .ar2.vs span{padding:8px 16px 7px}
+
+/* 16 · each big figure sat about 25px above the middle of the text beside it */
+.dns .dn>.big{position:relative;top:19px}
+
+/* 19 · Shortcut and Tutor chips: the label sat 2px high */
+.pc .pl{padding:10.5px 16px 6.5px}
+
+/* 21 · the percentage sat 7px high and 2px left of the ring's center: drop the
+   inline-SVG baseline gap, then center the figure in the ring (it sat 2.5px right) */
+.dn .ring2 svg{display:block}
+.dn .ring2 .big{padding:16px 4px 0 0}
+
+/* 18 · three equal cards: each body holds the same height, and the stack is centered,
+   so numbers and names line up across cards with even space above and below */
+.ae .bd .why5g .why5 li:nth-child(n){justify-content:center}
+.ae .bd .why5g .why5 span{min-height:3lh}
+:lang(zh-CN) .ae .bd .why5g .why5 span{min-height:2lh}
+
+/* 19 · both quotes hold two lines, so the notes below them start at the same height
+   (in Chinese the left quote is one line) */
+.pair .pc .say{min-height:2lh}
+
+/* ---- s96-vqa-s01-12.css ---- */
+/* s96: spacing and centering pass, slides 1–12 (Oct 13). Slide-scoped; loads after s90. */
+@media (min-width:701px){
+ /* s01 CN: the highlight band stopped past the full-width comma; end it at the comma's ink */
+ :lang(zh-CN) .cover h1 .m::after{right:.55em}
+ /* s02 agenda: cards fill the slide body but their content sat at the top over a deep empty band; center the content block */
+ .toc .tocf{grid-template-rows:1fr auto auto 1fr}
+ .toc .tocf li{grid-row:1/5;display:grid;grid-template-rows:subgrid}
+ .toc .tocf a{grid-row:1/5;grid-template-rows:subgrid;row-gap:0}
+ .toc .tocf .ico,.toc .tocf .tn{grid-row:2}
+ .toc .tocf .tt{grid-row:3;align-self:start;margin-top:30px}
+ /* s03 speakers: the WORKED row sat high with a deep empty band below; balance the card's bottom */
+ .ae .bd .spk2 .sp{padding-bottom:0}
+ /* s08: one number size for all three cards so the body text and dividers line up */
+ .st3 .big,.st3 .big.nc{font-size:62px;letter-spacing:-.02em}
+ :lang(zh-CN) .st3 .big,:lang(zh-CN) .st3 .big.nc{font-size:62px}
+ .st3 .mb{min-height:86px}
+ .st3 .mb .row{grid-template-columns:minmax(6.5em,8.5em) minmax(56px,1fr) auto}
+ /* s09: the big numbers sat high in their cards (line box vs digit ink); center the digits */
+ .duo .big{line-height:.76;transform:translateY(.126em)}
+}
+@media (min-width:701px){
+ /* s10: the memo heading sat lower than the 14,000 / 16,000 digits; align their tops */
+ .ae .bd .tln-pane .tln h3{margin-top:-9px}
+ /* s12: 62% sat high against the PwC block beside it; center it on that block */
+ .st .nst .big{transform:translateY(.13em)}
+}
+
 /* ---- snum.css ---- */
 /* slide numbers (snum): quiet folio in the bottom-right gutter of every slide except the title */
 section.s>.pgno{position:absolute;right:var(--margin-x);bottom:calc(var(--pad-bot) * var(--z) / 2 - 6px);z-index:3;pointer-events:none;user-select:none;
@@ -2521,9 +2670,9 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <div class="bd r" style="--d:.25s">
   <div class="why5g"><span class="w5h a" data-s="1">The three skills</span>
   <ol class="why5">
-   <li data-s="1"><i>01</i><b>Agency</b><span>Decide what is worth building before anyone assigns it</span></li>
-   <li data-s="2"><i>02</i><b>Taste</b><span>Judge whether the output is actually good</span></li>
-   <li data-s="3"><i>03</i><b>Craft</b><span>Finish it so people can trust it</span></li>
+   <li data-s="1"><i>01</i><b>Agency</b><span>Decide what is worth building before anyone assigns it.</span></li>
+   <li data-s="2"><i>02</i><b>Taste</b><span>Judge whether the output is actually good.</span></li>
+   <li data-s="3"><i>03</i><b>Craft</b><span>Finish it so people can trust it.</span></li>
   </ol></div>
  </div>
 </div><aside class="notes">Three names for what is now scarce. Agency is deciding what is worth building before anyone assigns it. Taste is judging whether the output is actually good, including the creative call. Craft is finishing it so people can trust it. Employers describe the same shift in their own words: the WEF lists creative thinking and leadership among the skills rising through 2030.</aside></section>
@@ -2546,7 +2695,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <p class="kick r">What children need</p>
  <h2 class="r" style="--d:.1s">Skills grow from practice <em>with structure.</em></h2>
  <ol class="ic3"><li data-s="1"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z" /><path d="M8 10v4" /><path d="M12 10v2" /><path d="M16 10v6" /></svg></span><b>A real project</b><span>with something at stake</span></li><li data-s="2"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m8 11 2 2 4-4" /><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg></span><b>A coach</b><span>who asks how you checked it</span></li><li data-s="3"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" /><path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1" /></svg></span><b>Honest feedback</b><span>from real people</span></li></ol>
-</div><aside class="notes">That is how everyday AI use turns into agency, taste, and craft, and it is how our programs are built. The tools are everywhere. What is scarce is the structure around them: a real problem to solve, someone who asks how you checked it, and a reason to finish. Schools cannot yet give every child that practice, which is why the next part is what families can do now.</aside></section>
+</div><aside class="notes">That is how everyday AI use turns into agency, taste, and craft. The tools are everywhere. What is scarce is the structure around them: a real problem to solve, someone who asks how you checked it, and a reason to finish. Schools cannot yet give every child that practice, which is why the next part is what families can do now.</aside></section>
 
 <!-- 26 · Teachers, last in Section 2 -->
 <section class="s ae"><div class="w">
@@ -2653,9 +2802,9 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <h2 class="r" style="--d:.1s">When we were young, ideas stayed in a notebook. Today a child can <em>make one real.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="tn-pair">
   <span class="hd o">When we were young</span><span aria-hidden="true"></span><span class="hd n">Today</span>
-  <div class="row"><p class="o" data-s="1">Built by hand, and slowly</p><span class="arr" data-s="2" aria-hidden="true"><i></i></span><p class="n" data-s="2">AI builds a first version in an afternoon</p></div>
-  <div class="row"><p class="o" data-s="3">A team, and years of training</p><span class="arr" data-s="4" aria-hidden="true"><i></i></span><p class="n" data-s="4">One child can launch a first version in a week</p></div>
-  <div class="row"><p class="o" data-s="5">Only the family saw what you made</p><span class="arr" data-s="6" aria-hidden="true"><i></i></span><p class="n" data-s="6">Real users, before they leave school</p></div>
+  <div class="row"><p class="o" data-s="1">Built by hand, and slowly.</p><span class="arr" data-s="2" aria-hidden="true"><i></i></span><p class="n" data-s="2">AI builds a first version in an afternoon.</p></div>
+  <div class="row"><p class="o" data-s="3">A team, and years of training.</p><span class="arr" data-s="4" aria-hidden="true"><i></i></span><p class="n" data-s="4">One child can launch a first version in a week.</p></div>
+  <div class="row"><p class="o" data-s="5">Only the family saw what you made.</p><span class="arr" data-s="6" aria-hidden="true"><i></i></span><p class="n" data-s="6">Real users, before they leave school.</p></div>
  </div></div>
 </div><aside class="notes">Building software used to take a team and years of training, and few people outside the family ever saw what you made. With AI as a helper, a first working version comes together quickly, and a child's idea can reach real users before they leave school. We wrote essays by hand and waited years to build anything real. Our children can build, test, and improve in a week. The ones who start now compound that advantage.</aside></section>
 
@@ -2676,11 +2825,11 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 
 <!-- 39 · What students learn -->
 <section class="s ae"><div class="w">
- <p class="kick r">Takeaway 3 · Arena’s mission</p>
- <h2 class="r" style="--d:.1s">Arena teaches 14 AI tools and three skills: <em>agency, taste, and craft.</em></h2>
+ <p class="kick r">Takeaway 3 · what we teach</p>
+ <h2 class="r" style="--d:.1s">We’ve taught 14+ AI tools based on three skills: <em>agency, taste, and craft.</em></h2>
  <div class="bd r" style="--d:.25s">
   <div class="skmap">
-   <div class="pane sk-l" data-s="1"><span class="sk-h">14 tools from Arena programs</span>
+   <div class="pane sk-l" data-s="1"><span class="sk-h">Tools we’ve taught</span>
    <ul class="sk-tools">
     <li><img src="/logos/tools/openai.png" alt=""><b>ChatGPT</b></li>
     <li><img src="/logos/tools/claude.png" alt=""><b>Claude</b></li>
@@ -2705,25 +2854,24 @@ section.s>.pgno i{font-style:normal;opacity:.6}
      <li><i>03</i><b>Get real-user feedback</b></li>
      <li><i>04</i><b>Launch</b></li>
     </ol>
-    <p class="sk-note">Agency, taste, and craft: choose, judge, and finish. Teachers are still learning these. Students practice them here.</p>
+    <p class="sk-note">Agency, taste, and craft: choose, judge, and finish.</p>
    </div>
   </div>
  </div>
-</div><aside class="notes">Fourteen tools from Arena programs, counted from the course pages: ChatGPT, Claude, Kimi, DeepSeek, Gemini, Doubao, Perplexity, Notion, Figma, Canva, Ideogram, GitHub, Vercel, and Stripe. Plus four entrepreneurship steps. This is the mission: teach the tools employers already ask for, and the agency, taste, and craft schools are still short of teachers to teach.</aside></section>
+</div><aside class="notes">Fourteen of the tools we’ve taught: ChatGPT, Claude, Kimi, DeepSeek, Gemini, Doubao, Perplexity, Notion, Figma, Canva, Ideogram, GitHub, Vercel, and Stripe. Plus four entrepreneurship steps. The point: the tools employers already ask for, built on the agency, taste, and craft that schools are still short of teachers to teach.</aside></section>
 
 <!-- 40 · Student projects -->
 <section class="s alt ae"><div class="w">
- <p class="kick r">Takeaway 3 · the proof · Arena at ISB, summer 2026</p>
- <h2 class="r" style="--d:.1s">In one week at ISB, a student team went from a real problem <em>to a product judges tested.</em></h2>
+ <p class="kick r">Takeaway 3 · real cases</p>
+ <h2 class="r" style="--d:.1s">In one week, ISB students went from a real problem <em>to a product judges tested.</em></h2>
  <div class="bd r" style="--d:.25s">
   <div class="pbr">
    <div class="card" data-s="1"><figure><img src="/photos/isb-hq/isb-team-slide-1400.webp" alt="The team’s demo-day slide: the problem in a student’s own words" style="object-position:30% 22%"></figure><div class="pb"><span class="lab">Problem <i>Days 1–2 · choose it, talk to users</i></span><h3>Too many apps for one assignment</h3><p class="q">“I have Notion, Calendar, Forest, and Google Docs open just to finish one assignment.”</p><p class="where">Agency · choosing what’s worth solving</p></div></div>
-   <div class="card" data-s="2"><figure><img src="/photos/isb-2026/mentor-feedback-1600.webp" alt="Mentors give feedback at the build tables" style="object-position:50% 30%"></figure><div class="pb"><span class="lab">Build <i>Days 2–4 · live at a link</i></span><h3>One place to plan, focus, rest, and compete with friends</h3><p class="q">Built with AI coding tools, with mentors asking how each draft was checked.</p><p class="where">Taste · telling which version works</p></div></div>
+   <div class="card" data-s="2"><figure><img src="/photos/isb-2026/mentor-feedback-1600.webp" alt="Adults give feedback at the build tables" style="object-position:50% 30%"></figure><div class="pb"><span class="lab">Build <i>Days 2–4 · live at a link</i></span><h3>One place to plan, focus, rest, and compete with friends</h3><p class="q">Built with AI coding tools, with adults asking how each draft was checked.</p><p class="where">Taste · telling which version works</p></div></div>
    <div class="card" data-s="3"><figure><img src="/photos/isb-hq/isb-podium-duo-1400.webp" alt="Two students pitch at the podium on demo day" style="object-position:50% 35%"></figure><div class="pb"><span class="lab">Result <i>Day 5 · demo day</i></span><h3>Pitched live, with families in the room</h3><p class="q">Judges from Harvard, Stanford, Y Combinator, and AI labs tested it before scoring.</p><p class="where">Craft · finishing it well</p></div></div>
   </div>
  </div>
- <p class="fn"><span>Arena at the International School of Beijing, five-day student cohort, summer 2026. Photos from the ISB program; the quote is from the team’s own demo-day slide</span></p>
-</div><aside class="notes">This is the proof that Arena closes the gaps set up earlier, from one team at ISB this summer. Day one, students pitched problems they cared about; this team picked one they lived every day: four apps open just to finish one assignment. They talked to classmates, then used AI coding tools to build one place to plan, focus, rest, and compete with friends. Mentors kept asking how they checked each version. On demo day they pitched with families in the room, and judges from Harvard, Stanford, Y Combinator, and AI labs tested the product before scoring it. Agency, taste, and craft, practiced in one week.</aside></section>
+</div><aside class="notes">Here’s what we saw ISB students do this summer. Day one, students pitched problems they cared about; this team picked one they lived every day: four apps open just to finish one assignment. They talked to classmates, then used AI coding tools to build one place to plan, focus, rest, and compete with friends. The adults in the room kept asking how they checked each version. On demo day they pitched with families in the room, and judges from Harvard, Stanford, Y Combinator, and AI labs tested the product before scoring it. Agency, taste, and craft, practiced in one week.</aside></section>
 
 <!-- 41 · Close -->
 <section class="s ae nv cl"><div class="w">
@@ -2731,13 +2879,13 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <h2 class="r" style="--d:.1s">Work is changing faster, so start teaching children <em>the AI tools and skills that still matter.</em></h2>
  <div class="bd r" style="--d:.25s">
   <ol class="c3x">
-   <li data-s="1"><i>1</i><b>Work is changing faster</b><span>AI is already used in about half of all jobs</span></li>
-   <li data-s="2"><i>2</i><b>Fluency pays</b><span>Jobs that require AI skills pay 62% more</span></li>
-   <li data-s="3"><i>3</i><b>Start now, at home</b><span>Real projects with AI build the agency colleges and careers reward</span></li>
+   <li data-s="1"><i>1</i><b>Work is changing faster</b><span>AI is already used in about half of all jobs.</span></li>
+   <li data-s="2"><i>2</i><b>Fluency pays</b><span>Jobs that require AI skills pay 62% more.</span></li>
+   <li data-s="3"><i>3</i><b>Start now, at home</b><span>Real projects with AI build agency, taste, and craft.</span></li>
   </ol>
   <p class="endline" data-s="4">When AI can make almost anything, students who choose, judge, and finish pull ahead.</p>
  </div>
-</div><aside class="notes">One chain, said with confidence. One: work is changing faster; AI is already part of the work in about half of all jobs. Two: fluency pays; PwC found jobs that require AI skills pay 62% more. Three: start now, at home; children who use AI tools on real projects build the agency that colleges and employers look for. The last line is the talk in one sentence.</aside></section>
+</div><aside class="notes">One chain, said with confidence. One: work is changing faster; AI is already part of the work in about half of all jobs. Two: fluency pays; PwC found jobs that require AI skills pay 62% more. Three: start now, at home; children who use AI tools on real projects build agency, taste, and craft, which colleges and employers look for. The last line is the talk in one sentence.</aside></section>
 
 <!-- 42 · Q&A -->
 <section class="s alt ae"><div class="w">
@@ -2748,7 +2896,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <div class="qr pane qr-chat"><div class="qr-slot"></div><span>Parent group chat QR</span><small>(added before the session)</small></div>
   <div class="qa-links pane">
    <div class="qa-item"><span class="k">Today’s slides</span><a class="qa-url" href="https://arenaschool.org/talk" target="_blank" rel="noopener">arenaschool.org/talk</a><p>A PDF in English and Chinese, or read it on your phone.</p></div>
-   <div class="qa-item"><span class="k">Tools from the programs</span><a class="qa-url" href="https://arenaschool.org/case-study-examples" target="_blank" rel="noopener">arenaschool.org/case-study-examples</a><p>Step-by-step walkthroughs to open on your own time.</p></div>
+   <div class="qa-item"><span class="k">Tool walkthroughs</span><a class="qa-url" href="https://arenaschool.org/case-study-examples" target="_blank" rel="noopener">arenaschool.org/case-study-examples</a><p>Step-by-step walkthroughs to open on your own time.</p></div>
   </div>
  </div></div>
 </div></section>
@@ -2762,16 +2910,16 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <li><span><b>Anthropic</b>, Economic Index: occupations using AI for at least 25% of tasks, 36% to 49%</span><span class="src">Jan 15, 2026</span></li>
   <li><span><b>Nature Medicine</b>, the EyeFM randomized trial: 92.2% against 75.4%</span><span class="src">Aug 28, 2025</span></li>
   <li><span><b>Schwarcz, Manning, Prescott, and others</b>, “AI-Powered Lawyering”: 50% to 130%</span><span class="src">2026</span></li>
-  <li><span><b>Caixin</b> on the LexisNexis survey (93%); <b>NALP</b>, Class of 2025 (−7.5%)</span><span class="src">Aug 29, 2025 · Aug 5, 2026</span></li>
+  <li><span><b>Caixin</b> on the LexisNexis survey (93%); <b>NALP</b>, Class of 2025 (−7.5%)</span><span class="src">Aug 29, 2025&nbsp;· Aug 5, 2026</span></li>
   <li><span><b>ICBC</b> 2025 Annual Report: 55,000 person-years, 409,758 staff</span><span class="src">March 27, 2026</span></li>
   <li><span><b>Standard Chartered</b> investor event; <b>The Guardian</b> on Bill Winters</span><span class="src">May 19 and 22, 2026</span></li>
-  <li><span><b>Fortune</b> and <b>Yahoo Finance</b> on Salesforce; <b>Google</b>, Sundar Pichai (75%); <b>SignalFire</b>, State of Talent</span><span class="src">May 2025 · April–May 2026</span></li>
+  <li><span><b>Fortune</b> and <b>Yahoo Finance</b> on Salesforce; <b>Google</b>, Sundar Pichai (75%); <b>SignalFire</b>, State of Talent</span><span class="src">May 2025&nbsp;· April–May 2026</span></li>
   <li><span><b>界面新闻</b> citing 脉脉 on AI roles and big-tech hiring</span><span class="src">August 2025</span></li>
   <li><span><b>Business Insider</b> on David Solomon, Goldman Sachs, at the Cisco AI Summit</span><span class="src">Jan 17, 2025</span></li>
   <li><span><b>Amazon</b>: Andy Jassy memo; workforce memos (14,000 and 16,000 roles)</span><span class="src">June 2025–Jan 2026</span></li>
-  <li><span><b>CNBC</b> on Salesforce support (9,000 to about 5,000); <b>CNN</b> on Block</span><span class="src">Sept 2, 2025 · Feb 26, 2026</span></li>
+  <li><span><b>CNBC</b> on Salesforce support (9,000 to about 5,000); <b>CNN</b> on Block</span><span class="src">Sept 2, 2025&nbsp;· Feb 26, 2026</span></li>
   <li><span><b>Accenture</b> Q4 fiscal 2025 earnings call; <b>Irish Times</b> on headcount</span><span class="src">Sept 25–26, 2025</span></li>
-  <li><span><b>Business Insider</b> on Julia Liuson’s Microsoft email; <b>The Verge</b> on Duolingo’s memo</span><span class="src">June 27, 2025 · April 28, 2025</span></li>
+  <li><span><b>Business Insider</b> on Julia Liuson’s Microsoft email; <b>The Verge</b> on Duolingo’s memo</span><span class="src">June 27, 2025&nbsp;· April 28, 2025</span></li>
   <li><span><b>PwC</b>, 2026 Global AI Jobs Barometer: 62% wage premium</span><span class="src">June 15, 2026</span></li>
   <li><span><b>Stanford Digital Economy Lab</b>, “Canaries in the Coal Mine?”, revised</span><span class="src">August 2026</span></li>
   <li><span><b>MyCOS 麦可思</b> survey of 3,794 university students, via 未来网</span><span class="src">April 16, 2026</span></li>
@@ -2790,17 +2938,17 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <li><span><b>World Economic Forum</b>, Future of Jobs 2025, Figures 3.3 and 3.4: analytical thinking 69%, resilience 67%, leadership 61%, creative thinking 57%</span><span class="src">Jan 7, 2025</span></li>
   <li><span><b>Microsoft</b>, 2026 Work Trend Index: checking AI’s output (50%), critical thinking (46%); role shifting from generating answers to evaluating them</span><span class="src">Feb 18–April 7, 2026</span></li>
   <li><span><b>LinkedIn</b>, Skills on the Rise 2026: leadership and people management rising with AI</span><span class="src">2026</span></li>
-  <li><span><b>NACE</b>, Job Outlook 2026 (13.3%) and Spring Update (35%)</span><span class="src">Nov 2025 · April 20, 2026</span></li>
+  <li><span><b>NACE</b>, Job Outlook 2026 (13.3%) and Spring Update (35%)</span><span class="src">Nov 2025&nbsp;· April 20, 2026</span></li>
   <li><span><b>解放日报</b>, via 上观新闻, citing 智联招聘 on employer skills</span><span class="src">March 27, 2026</span></li>
   <li><span><b>央广网</b> on BOSS直聘 AI job postings (+74.1% in 2025)</span><span class="src">Jan 23, 2026</span></li>
   <li><span><b>北京市教育委员会</b>, work plan for AI education (2025–2027), 京教办〔2025〕2号</span><span class="src">March 6, 2025</span></li>
-    <li><span><b>中国教育科学研究院</b> survey of schools and teachers (88%, 54%); <b>Gallup</b> and <b>Walton Family Foundation</b> (68%)</span><span class="src">Aug 19, 2026 · 2025</span></li>
+    <li><span><b>中国教育科学研究院</b> survey of schools and teachers (88%, 54%); <b>Gallup</b> and <b>Walton Family Foundation</b> (68%)</span><span class="src">Aug 19, 2026&nbsp;· 2025</span></li>
   <li><span><b>METR</b>, Time Horizon 1.1: 50% time horizon doubled about every 7 months; GPT-4 ~4 min, Claude 3.7 ~1 hour, Opus 4.5 ~5 hours</span><span class="src">Jan 29, 2026</span></li>
-  <li><span><b>AI tools</b>: Meta newsroom (Muse); TechCrunch (Instinct); Reuters (OpenClaw); manus.im, kimi.com, and each tool’s own site</span><span class="src">2026 · checked Oct 11</span></li>
+  <li><span><b>AI tools</b>: Meta newsroom (Muse); TechCrunch (Instinct); Reuters (OpenClaw); manus.im, kimi.com, and each tool’s own site</span><span class="src">2026&nbsp;· checked Oct 11</span></li>
   <li><span><b>Hugging Face</b>: 4,386 public models created Oct 12, 2026 (Hub API, UTC); 3,145,598 listed at huggingface.co/models</span><span class="src">checked Oct 13, 2026</span></li>
   <li><span><b>Kimi</b> (Moonshot AI) hiring story, first-hand</span><span class="src">2026</span></li>
   <li><span><b>OECD</b>, PISA 2025 results</span><span class="src">Sept 8, 2026</span></li>
-  <li><span><b>Cursor</b>: Series D post; Reuters, CNBC, and Bloomberg on SpaceX; SpaceX Form 8-K and PitchBook on the close</span><span class="src">Nov 2025 · June–Aug 2026</span></li>
+  <li><span><b>Cursor</b>: Series D post; Reuters, CNBC, and Bloomberg on SpaceX; SpaceX Form 8-K and PitchBook on the close</span><span class="src">Nov 2025&nbsp;· June–Aug 2026</span></li>
  </ul>
  </div>
 </div></section>
@@ -3093,10 +3241,11 @@ lay();addEventListener('resize',lay);[].forEach.call(document.querySelectorAll('
 </script>
 
 <script>
-/* brand mark: the Arena lockup in the top-right corner of every slide, ivory on navy slides */
+/* brand mark: the Arena lockup in the top-right corner of the cover and the speakers slide only, ivory on navy slides */
 (function(){
   var ss=document.querySelectorAll('#deck section.s');
   for(var i=0;i<ss.length;i++){
+    if(i!==0&&i!==2)continue;
     if(ss[i].querySelector(':scope>.brandmk'))continue;
     var m=document.createElement('img');m.className='brandmk';m.alt='';m.setAttribute('aria-hidden','true');
     m.src='/logos/arena/wordmark-'+(ss[i].classList.contains('nv')?'ivory':'navy')+'-1600.png';
