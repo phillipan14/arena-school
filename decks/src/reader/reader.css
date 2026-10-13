@@ -582,3 +582,12 @@ i.rg::before{width:calc(var(--r) * 1%);background:linear-gradient(90deg,var(--da
 @media (max-height:500px) and (orientation:landscape) and (min-width:600px){
  .top,.bot{padding-left:max(var(--gx),calc(50% - 380px + var(--gx)));padding-right:max(var(--gx),calc(50% - 380px + var(--gx)))}
 }
+
+/* slide 19: agency, taste, and craft in practice */
+:root{--hl-light:#5B7FD1}
+.s h2 em.hl-l{color:var(--hl-light)}
+.prac .tri{padding:4px 18px}
+.prac .tri-r{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:14px 0;border-top:1px solid rgba(252,243,237,.18)}
+.prac .tri-r:first-child{border-top:0}
+.prac .tri-r p{margin:0;font-size:14.5px;line-height:1.45;color:rgba(252,243,237,.86)}
+:lang(zh-CN) .prac .tri-r p{font-size:14px;line-height:1.6}
