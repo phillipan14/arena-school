@@ -1,0 +1,13 @@
+/* s19 (JJ, Oct 14): one-line title, so drop the two-line title reserve and let both cards grow into the space; more room per section */
+.ae:has(.pair.prac):not(.st):not(.bq)>.w>h2{min-height:0}
+.ae .bd .pair.prac .tri-r p{font-size:28px;line-height:1.4}
+:lang(zh-CN) .ae .bd .pair.prac .tri-r p{font-size:26px;line-height:1.5}
+.ae .bd .pair.prac .tri-r{gap:16px}
+.ae .bd .pair.prac .pc.tri{padding:10px 56px}
+/* ink-centering, measured in export: sections and the Before card sat slightly high */
+:lang(en) .ae .bd .pair.prac .tri-r{padding-top:18.5px;padding-bottom:13.5px}
+:lang(en) .ae .bd .pair.prac .tri-r:first-child{padding-top:19.25px;padding-bottom:12.75px}
+:lang(zh-CN) .ae .bd .pair.prac .tri-r{padding-top:20.5px;padding-bottom:11.5px}
+:lang(zh-CN) .ae .bd .pair.prac .tri-r:first-child{padding-top:20.75px;padding-bottom:11.25px}
+:lang(en) .ae .bd .pair.prac .pc.lt{padding-top:55px;padding-bottom:48px}
+:lang(zh-CN) .ae .bd .pair.prac .pc.lt{padding-top:56.1px;padding-bottom:48px}
