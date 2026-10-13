@@ -2585,11 +2585,11 @@ section.s.ae.cl .bd{justify-content:center;gap:72px}
 /* ---- s99-s04.css ---- */
 /* slide 4: the task in the question rolls up one example at a time (shared.js rotGo). The slot is one line tall and clips the
    rest; it gets extra room above and below (cancelled by negative margins) so ascenders and descenders are never cut, and its
-   width follows the phrase in view. --hl-light is the lighter accent JJ asked for on slides 4 and 19. */
-:root{--hl-light:#5B7FD1}
+   width follows the phrase in view. The phrases use the title accent (--ink2, same as "still learn to do"); when the roll lands
+   on the final phrase, .done sweeps the deck's riso highlight band in under it (same band as the cover's .m marker). */
 .ae.st h2.rot-h{max-width:none;text-wrap:wrap}
 .rot{--lh:1.08em;--pt:.1em;--pb:.12em;display:inline-block;vertical-align:top;position:relative;overflow:hidden;
- height:calc(var(--lh) + var(--pt) + var(--pb));margin:calc(-1 * var(--pt)) 0 calc(-1 * var(--pb));color:var(--hl-light);
+ height:calc(var(--lh) + var(--pt) + var(--pb));margin:calc(-1 * var(--pt)) 0 calc(-1 * var(--pb));color:var(--ink2);
  transition:width .48s cubic-bezier(.65,0,.35,1)}
 :lang(zh-CN) .rot{--lh:1.32em;--pt:.04em;--pb:.06em}
 .rot-t{display:block;transform:translateY(calc(var(--k,7) * -1 * (var(--lh) + var(--pt) + var(--pb))));transition:transform .48s cubic-bezier(.65,0,.35,1)}
@@ -2601,6 +2601,15 @@ section.s.ae.cl .bd{justify-content:center;gap:72px}
 .rot-t .rot-pc{color:var(--ink)}
 .rot.nt,.rot.nt .rot-t,.rot.nt .rot-t>span{transition:none!important}
 @media (prefers-reduced-motion:reduce){.rot,.rot-t,.rot-t>span{transition:none}}
+/* landing highlight on the final phrase */
+.rot-hl{position:relative;z-index:0}
+.rot-hl::after{content:"";position:absolute;left:-.03em;right:-.03em;bottom:.06em;height:.3em;z-index:-1;
+ background:url(/art/riso-hl.png) 0 0/6px 6px repeat;transform:scaleX(0);transform-origin:left;
+ transition:transform .8s cubic-bezier(.65,.05,.25,1) .12s}
+.rot.done .rot-hl::after{transform:scaleX(1)}
+.rot.nt .rot-hl::after,.export .rot-hl::after{transition:none!important}
+.export .rot-hl::after{transform:scaleX(1)!important}
+@media (prefers-reduced-motion:reduce){.rot-hl::after{transition:none}}
 
 /* ---- s99-s19.css ---- */
 /* Slide 19: what agency, taste, and craft look like in practice (JJ, Oct 13).
@@ -2785,6 +2794,34 @@ section.s.ae.cl .bd{justify-content:center;gap:72px}
  :lang(zh-CN) section.s .bd .qa.qa14 .qa-links.pane{padding:57px var(--qa-in) 48px}
 }
 
+/* ---- s99-u27.css ---- */
+/* Kimi slides 27-29, round 6 (JJ, Oct 14): source strip removed, so the cards take the room; slide 29 gets a context line */
+.kimi3.ae .bd .case3 .cs>.lab{font-size:17px}
+.kimi3.ae .bd .case3 .cs h3{font-size:29px;line-height:1.2}
+.kimi3.ae .bd .case3 .cs p{font-size:27px;line-height:1.42}
+.kimi3.ae .bd .case3 .cs-out h3 a.k3-link{font-size:33px}
+:lang(zh-CN) .kimi3.ae .bd .case3 .cs>.lab{font-size:18px}
+:lang(zh-CN) .kimi3.ae .bd .case3 .cs h3{font-size:32px;line-height:1.38}
+:lang(zh-CN) .kimi3.ae .bd .case3 .cs p{font-size:26px;line-height:1.55}
+.kimi3.ae .w>.k3-sub{margin:20px 0 0;max-width:1560px;font:400 26px/1.42 var(--serif);color:var(--muted);text-wrap:pretty}
+:lang(zh-CN) .kimi3.ae .w>.k3-sub{font-size:25px;line-height:1.6;letter-spacing:0}
+/* slide 29 carries a context line, so its cards keep the earlier, tighter scale */
+.kimi3.k3c.ae .bd .case3 .cs p{font-size:25px;line-height:1.42}
+:lang(zh-CN) .kimi3.k3c.ae .bd .case3 .cs h3{font-size:30px;line-height:1.38}
+:lang(zh-CN) .kimi3.k3c.ae .bd .case3 .cs p{font-size:24px;line-height:1.55}
+.kimi3.k3c.ae .w>.k3-sub{margin-top:14px;font-size:25px}
+:lang(zh-CN) .kimi3.k3c.ae .w>.k3-sub{font-size:24px}
+/* slide 29's title is one line: let the context line sit in the second title line's reserved space */
+.kimi3.k3c.ae:not(.st):not(.bq)>.w>h2{min-height:0}
+.kimi3.k3c.ae .w>.k3-sub{margin-top:18px}
+.kimi3.k3c.ae .bd .case3 .cs p{font-size:24px}
+.kimi3.ae .w>.k3-sub{text-wrap:balance}
+:lang(zh-CN) .kimi3.k3a.ae .bd .case3 .cs p{font-size:24px}
+:lang(zh-CN) .kimi3.ae .w>.k3-sub{text-wrap:wrap}
+:lang(zh-CN) .kimi3.k3b.ae .bd .case3 .cs p{font-size:25px}
+.kimi3.ae .bd .cs-foot p{transform:translateY(-1px)}
+:lang(zh-CN) .kimi3.ae .bd .cs-foot p{transform:translateY(-1.2px)}
+
 /* ---- s99zz-cn.css ---- */
 /* Final design audit, Chinese deck (Oct 13 night). Every rule is scoped to :lang(zh-CN) so the English deck is untouched. */
 
@@ -2866,6 +2903,75 @@ section.s.ae.cl .bd{justify-content:center;gap:72px}
 /* s9 title: the italic "staff" overhangs toward "in"; a small gap after the italic phrase */
 :lang(en) .s:has(.duo) h2 em{margin-right:.1em}
 
+/* ---- s99zzz-u19.css ---- */
+/* s19 (JJ, Oct 14): one-line title, so drop the two-line title reserve and let both cards grow into the space; more room per section */
+.ae:has(.pair.prac):not(.st):not(.bq)>.w>h2{min-height:0}
+.ae .bd .pair.prac .tri-r p{font-size:28px;line-height:1.4}
+:lang(zh-CN) .ae .bd .pair.prac .tri-r p{font-size:26px;line-height:1.5}
+.ae .bd .pair.prac .tri-r{gap:16px}
+.ae .bd .pair.prac .pc.tri{padding:10px 56px}
+/* ink-centering, measured in export: sections and the Before card sat slightly high */
+:lang(en) .ae .bd .pair.prac .tri-r{padding-top:18.5px;padding-bottom:13.5px}
+:lang(en) .ae .bd .pair.prac .tri-r:first-child{padding-top:19.25px;padding-bottom:12.75px}
+:lang(zh-CN) .ae .bd .pair.prac .tri-r{padding-top:20.5px;padding-bottom:11.5px}
+:lang(zh-CN) .ae .bd .pair.prac .tri-r:first-child{padding-top:20.75px;padding-bottom:11.25px}
+:lang(en) .ae .bd .pair.prac .pc.lt{padding-top:55px;padding-bottom:48px}
+:lang(zh-CN) .ae .bd .pair.prac .pc.lt{padding-top:56.1px;padding-bottom:48px}
+
+/* ---- s99zzz-u33.css ---- */
+/* Round 6 (JJ, Oct 14): sign-language slide. The beat cards plus the summary line fill exactly the video card's height;
+   example tools are icons only, larger, evenly spread, centered with their label. --ky values are ink calibrations. */
+.cs31 .cs-side{display:flex;flex-direction:column;justify-content:flex-start;gap:18px;align-self:stretch}
+.cs31 .cs-side .cs-beats{flex:1 1 0;min-height:0;grid-auto-rows:1fr;gap:14px}
+.ae .bd .cs31 .cs-beats li{padding:0 30px 0 28px;min-height:0}
+.ae .bd .cs31 .cs-side .cs-note{flex:none}
+.ae .bd .cs31 .cs-tools,:lang(zh-CN) .ae .bd .cs31 .cs-tools{gap:44px;padding:16px 34px}
+.cs31 .cs-tools ul{justify-content:space-between;align-items:center;gap:0}
+.ae .bd .cs31 .cs-tools li{display:block;line-height:0}
+.cs31 .cs-tools img,:lang(zh-CN) .cs31 .cs-tools img{display:block;width:46px;height:46px;border-radius:11px}
+.cs31 .cs-tools ul,:lang(en) .cs31 .cs-tools ul,:lang(zh-CN) .cs31 .cs-tools ul{--ky:0px}
+.ae .bd .cs31 .cs-side .cs-note{line-height:1.12}
+:lang(zh-CN) .ae .bd .cs31 .cs-side .cs-note{line-height:1.25}
+:lang(en) .cs31 .cs-beats li:nth-child(1) .cs-k{--ky:2.78px}
+:lang(en) .cs31 .cs-beats li:nth-child(1) p{--ky:0.50px}
+:lang(en) .cs31 .cs-beats li:nth-child(2) .cs-k{--ky:3.20px}
+:lang(en) .cs31 .cs-beats li:nth-child(2) p{--ky:0.94px}
+:lang(en) .cs31 .cs-beats li:nth-child(3) .cs-k{--ky:2.81px}
+:lang(en) .cs31 .cs-beats li:nth-child(3) p{--ky:0.16px}
+:lang(zh-CN) .cs31 .cs-beats li:nth-child(1) .cs-k{--ky:1.89px}
+:lang(zh-CN) .cs31 .cs-beats li:nth-child(1) p{--ky:2.27px}
+:lang(zh-CN) .cs31 .cs-beats li:nth-child(2) .cs-k{--ky:1.89px}
+:lang(zh-CN) .cs31 .cs-beats li:nth-child(2) p{--ky:2.66px}
+:lang(zh-CN) .cs31 .cs-beats li:nth-child(3) .cs-k{--ky:1.89px}
+:lang(zh-CN) .cs31 .cs-beats li:nth-child(3) p{--ky:2.27px}
+:lang(en) .cs31 .cs-tools .cs-th{--ky:1.89px}
+:lang(zh-CN) .cs31 .cs-tools .cs-th{--ky:1.15px}
+.ae .bd .cs31 .cs-side .cs-note{line-height:1.04}
+:lang(zh-CN) .ae .bd .cs31 .cs-side .cs-note{line-height:1.0}
+/* calibration pass 2 (2x ink scan) */
+:lang(en) .cs31 .cs-beats li:nth-child(1) .cs-k{--ky:1.72px}
+:lang(en) .cs31 .cs-beats li:nth-child(1) p{--ky:0.01px}
+:lang(en) .cs31 .cs-beats li:nth-child(2) .cs-k{--ky:2.14px}
+:lang(en) .cs31 .cs-beats li:nth-child(2) p{--ky:-0.12px}
+:lang(en) .cs31 .cs-beats li:nth-child(3) .cs-k{--ky:2.32px}
+:lang(en) .cs31 .cs-beats li:nth-child(3) p{--ky:0.05px}
+:lang(zh-CN) .cs31 .cs-beats li:nth-child(1) .cs-k{--ky:1.89px}
+:lang(zh-CN) .cs31 .cs-beats li:nth-child(1) p{--ky:1.70px}
+:lang(zh-CN) .cs31 .cs-beats li:nth-child(2) .cs-k{--ky:1.28px}
+:lang(zh-CN) .cs31 .cs-beats li:nth-child(2) p{--ky:2.24px}
+:lang(zh-CN) .cs31 .cs-beats li:nth-child(3) .cs-k{--ky:1.17px}
+:lang(zh-CN) .cs31 .cs-beats li:nth-child(3) p{--ky:1.93px}
+/* the summary line's ink ends on the video card's bottom edge */
+:lang(en) .ae .bd .cs31 .cs-side .cs-note{position:relative;top:1.3px}
+:lang(zh-CN) .ae .bd .cs31 .cs-side .cs-note{position:relative;top:2.2px}
+/* the summary line starts on the same ink edge as the card labels above it */
+:lang(en) .ae .bd .cs31 .cs-side .cs-note{padding-left:28.45px}
+:lang(zh-CN) .ae .bd .cs31 .cs-side .cs-note{padding-left:28.85px}
+
+/* ---- s99zzzz-cn33.css ---- */
+/* CN sign-language slide: title fits one line, so drop the two-line title reserve (same fix as slides 19 and 29) */
+:lang(zh-CN) .ae:has(.cs31):not(.st):not(.bq)>.w>h2{min-height:0}
+
 /* ---- snum.css ---- */
 /* slide numbers (snum): quiet folio in the bottom-right gutter of every slide except the title */
 section.s>.pgno{position:absolute;right:var(--margin-x);bottom:calc(var(--pad-bot) * var(--z) / 2 - 6px);z-index:3;pointer-events:none;user-select:none;
@@ -2923,7 +3029,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 <!-- 4 · The question -->
 <section class="s alt ae st"><div class="w">
  <p class="kick r">今天想回答的问题</p>
- <h2 class="r rot-h" style="--d:.1s" aria-label="当AI几秒钟就能做到所有这些，孩子还必须学会什么？">当AI几秒钟就能<span class="rot" aria-hidden="true"><span class="rot-t"><span>写一篇作文<span class="rot-pc">，</span></span><span>写代码<span class="rot-pc">，</span></span><span>总结一篇文章<span class="rot-pc">，</span></span><span>做一份研究报告<span class="rot-pc">，</span></span><span>设计一个标志<span class="rot-pc">，</span></span><span>做一个网站<span class="rot-pc">，</span></span><span>翻译一段演讲<span class="rot-pc">，</span></span><span class="fin">做到所有这些<span class="rot-pc">，</span></span></span></span><br>孩子<em>还必须学会什么？</em></h2>
+ <h2 class="r rot-h" style="--d:.1s" aria-label="当AI几秒钟就能做到所有这些，孩子还必须学会什么？">当AI几秒钟就能<span class="rot" aria-hidden="true"><span class="rot-t"><span>写一篇作文<span class="rot-pc">，</span></span><span>写代码<span class="rot-pc">，</span></span><span>总结一篇文章<span class="rot-pc">，</span></span><span>做一份研究报告<span class="rot-pc">，</span></span><span>设计一个标志<span class="rot-pc">，</span></span><span>做一个网站<span class="rot-pc">，</span></span><span>翻译一段演讲<span class="rot-pc">，</span></span><span class="fin"><span class="rot-hl">做到所有这些</span><span class="rot-pc">，</span></span></span></span><br>孩子<em>还必须学会什么？</em></h2>
 </div><aside class="notes">例子会自己一个个滚过去：作文、代码、文章摘要、研究报告、标志、网站、演讲翻译，最后是“所有这些”。没人能预测2040年的具体职业，但已经发生的变化，方向很清楚。</aside></section>
 
 <!-- 5 · Section 1 -->
@@ -2931,6 +3037,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <div>
   <p class="sec-k"><span>第</span><b>1</b><span>部分</span></p>
   <h2 class="r" style="--d:.15s">AI已经在改变工作，<em>包括家长最信赖的那些职业。</em></h2>
+  <p class="sl r" style="--d:.35s">以医学、法律和金融为例</p>
  </div>
  <ol class="trk" aria-label="三个部分">
   <li class="on"><div class="row"><span class="tn">1</span><span class="tt"><b>工作正在被改写</b><small>最稳妥的职业也不例外</small></span></div></li>
@@ -3172,7 +3279,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 </div><aside class="notes">先问大家：这六个您听说过几个？大多数家庭都知道 DeepSeek、豆包和 ChatGPT。这里是下一波：给它一个目标，它能一步步把整件事做完。Kimi 能自动做网站、PPT和报告；Muse 是 Meta 出品，替你发邮件、订行程；Instinct 发条短信就能替你办事；Manus 能自主完成多步骤的复杂任务；Genspark 是一站式AI办公；OpenClaw 能替你操作电脑。（点击）在它们背后还有两百多个工具，而这只是一小部分。全球最大的公开AI模型库 Hugging Face，光是周一一天就新增了4,386个模型，大约每分钟3个。谁也跟不上全部，所以孩子需要的是不断尝试新工具的习惯，而不是一张要背下来的清单。</aside></section>
 
 <!-- 32 · Tools multiply -->
-<section class="s alt ae"><div class="w">
+<section class="s alt ae hold" data-hold="1"><div class="w">
  <p class="kick r">建议一 · METR 时间视野 1.1 · 2026年1月29日</p>
  <h2 class="r" style="--d:.1s">AI的能力大约每7个月翻一倍，<em><span class="nw">会用它的人，</span>优势也在复利增长。</em></h2>
  <div class="bd r" style="--d:.25s"><div class="xg2">
@@ -3181,8 +3288,8 @@ section.s>.pgno i{font-style:normal;opacity:.6}
    <div class="pane xg xg-il" data-s="2"><div class="lr"><span class="org">对使用者意味着什么</span></div><div class="xg-cap">示意图，不是数据：工具越强，差距越大。</div>
     <figure class="xg-plot"><div class="xg-area"><svg class="xg-grid" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true"><line class="ax" x1="0" x2="1000" y1="1000" y2="1000" vector-effect="non-scaling-stroke"/><line class="ax" x1="0" x2="0" y1="0" y2="1000" vector-effect="non-scaling-stroke"/></svg><svg class="xg-draw" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true"><path class="gp" d="M0.0,1000.0 L16.7,997.0 L33.3,993.7 L50.0,990.5 L66.7,987.1 L83.3,983.4 L100.0,979.6 L116.7,975.6 L133.3,971.4 L150.0,967.0 L166.7,962.4 L183.3,957.6 L200.0,952.6 L216.7,947.3 L233.3,941.7 L250.0,936.0 L266.7,929.9 L283.3,923.6 L300.0,916.9 L316.7,910.0 L333.3,902.8 L350.0,895.1 L366.7,887.1 L383.3,878.8 L400.0,870.0 L416.7,860.8 L433.3,851.2 L450.0,841.2 L466.7,830.5 L483.3,819.6 L500.0,808.0 L516.7,795.9 L533.3,783.2 L550.0,769.9 L566.7,756.0 L583.3,741.5 L600.0,726.2 L616.7,710.2 L633.3,693.5 L650.0,675.9 L666.7,657.6 L683.3,638.4 L700.0,618.2 L716.7,597.2 L733.3,575.1 L750.0,552.0 L766.7,527.8 L783.3,502.5 L800.0,475.9 L816.7,448.0 L833.3,418.9 L850.0,388.4 L866.7,356.5 L883.3,323.0 L900.0,287.9 L916.7,251.2 L933.3,212.8 L950.0,172.5 L966.7,130.4 L983.3,86.2 L1000.0,40.0 L1000.0,921.9 L983.3,923.2 L966.7,924.4 L950.0,925.8 L933.3,927.1 L916.7,928.3 L900.0,929.7 L883.3,931.0 L866.7,932.2 L850.0,933.6 L833.3,934.9 L816.7,936.1 L800.0,937.5 L783.3,938.8 L766.7,940.1 L750.0,941.4 L733.3,942.7 L716.7,944.0 L700.0,945.3 L683.3,946.6 L666.7,947.9 L650.0,949.2 L633.3,950.5 L616.7,951.8 L600.0,953.1 L583.3,954.5 L566.7,955.7 L550.0,957.0 L533.3,958.4 L516.7,959.6 L500.0,960.9 L483.3,962.3 L466.7,963.5 L450.0,964.8 L433.3,966.2 L416.7,967.4 L400.0,968.7 L383.3,970.1 L366.7,971.3 L350.0,972.7 L333.3,974.0 L316.7,975.2 L300.0,976.6 L283.3,977.9 L266.7,979.1 L250.0,980.5 L233.3,981.8 L216.7,983.0 L200.0,984.4 L183.3,985.7 L166.7,986.9 L150.0,988.3 L133.3,989.6 L116.7,990.8 L100.0,992.2 L83.3,993.5 L66.7,994.8 L50.0,996.1 L33.3,997.4 L16.7,998.7 L0.0,1000.0 Z"/><path class="cf" d="M0.0,1000.0 L16.7,998.7 L33.3,997.4 L50.0,996.1 L66.7,994.8 L83.3,993.5 L100.0,992.2 L116.7,990.8 L133.3,989.6 L150.0,988.3 L166.7,986.9 L183.3,985.7 L200.0,984.4 L216.7,983.0 L233.3,981.8 L250.0,980.5 L266.7,979.1 L283.3,977.9 L300.0,976.6 L316.7,975.2 L333.3,974.0 L350.0,972.7 L366.7,971.3 L383.3,970.1 L400.0,968.7 L416.7,967.4 L433.3,966.2 L450.0,964.8 L466.7,963.5 L483.3,962.3 L500.0,960.9 L516.7,959.6 L533.3,958.4 L550.0,957.0 L566.7,955.7 L583.3,954.5 L600.0,953.1 L616.7,951.8 L633.3,950.5 L650.0,949.2 L666.7,947.9 L683.3,946.6 L700.0,945.3 L716.7,944.0 L733.3,942.7 L750.0,941.4 L766.7,940.1 L783.3,938.8 L800.0,937.5 L816.7,936.1 L833.3,934.9 L850.0,933.6 L866.7,932.2 L883.3,931.0 L900.0,929.7 L916.7,928.3 L933.3,927.1 L950.0,925.8 L966.7,924.4 L983.3,923.2 L1000.0,921.9" vector-effect="non-scaling-stroke"/><path class="cv" d="M0.0,1000.0 L16.7,997.0 L33.3,993.7 L50.0,990.5 L66.7,987.1 L83.3,983.4 L100.0,979.6 L116.7,975.6 L133.3,971.4 L150.0,967.0 L166.7,962.4 L183.3,957.6 L200.0,952.6 L216.7,947.3 L233.3,941.7 L250.0,936.0 L266.7,929.9 L283.3,923.6 L300.0,916.9 L316.7,910.0 L333.3,902.8 L350.0,895.1 L366.7,887.1 L383.3,878.8 L400.0,870.0 L416.7,860.8 L433.3,851.2 L450.0,841.2 L466.7,830.5 L483.3,819.6 L500.0,808.0 L516.7,795.9 L533.3,783.2 L550.0,769.9 L566.7,756.0 L583.3,741.5 L600.0,726.2 L616.7,710.2 L633.3,693.5 L650.0,675.9 L666.7,657.6 L683.3,638.4 L700.0,618.2 L716.7,597.2 L733.3,575.1 L750.0,552.0 L766.7,527.8 L783.3,502.5 L800.0,475.9 L816.7,448.0 L833.3,418.9 L850.0,388.4 L866.7,356.5 L883.3,323.0 L900.0,287.9 L916.7,251.2 L933.3,212.8 L950.0,172.5 L966.7,130.4 L983.3,86.2 L1000.0,40.0" vector-effect="non-scaling-stroke"/></svg><span class="xg-axl y">能做到的事 ↑</span><span class="xg-axl x">时间 →</span><span class="xg-ll up">会用AI工具的人</span><span class="xg-ll fl">不用的人</span><span class="xg-gl">差距</span></div></figure></div>
   </div></div>
- <p class="fn" data-s="1"><span>METR《时间视野 1.1》，2026年1月29日：大约每7个月翻一倍。METR 数据（2026年10月13日核对）：GPT-4约4分钟，<span class="nw">Claude 3.7</span>约1小时，<span class="nw">Claude Opus 4.5</span>约4.9小时，<span class="nw">Claude Opus 4.6</span>约12小时。右侧为示意图，不是数据</span></p>
-</div><aside class="notes">两张图。左边是 METR 的真实数据：前沿模型能独立完成的任务时长，从2023年 GPT-4 的大约4分钟，涨到2026年初 Claude Opus 4.6 的大约12小时，大约每7个月翻一倍，最近还更快。右边是这对一个人意味着什么，是示意图，不是数据：会用这些工具的人跟着这条曲线往上走，不用的人原地不动，差距每年都在变大。新工具还在不断出来，从2023年的 Cursor，到可灵、Manus，再到今年9月 Meta 的 Muse，所以孩子必须持续用这些工具。工具地图变得太快，记不住也没关系。</aside></section>
+ <p class="fn" data-s="1"><span>METR《时间视野 1.1》，2026年1月29日：大约每7个月翻一倍。METR 数据（2026年10月13日核对）：GPT-4约4分钟，<span class="nw">Claude 3.7</span>约1小时，<span class="nw">Claude Opus 4.5</span>约4.9小时，<span class="nw">Claude Opus 4.6</span>约12小时。<span class="fn-il" data-s="2">右侧为示意图，不是数据</span></span></p>
+</div><aside class="notes">两张图，一张一张看。左边是 METR 的真实数据：前沿模型能独立完成的任务时长，从2023年 GPT-4 的大约4分钟，涨到2026年初 Claude Opus 4.6 的大约12小时，大约每7个月翻一倍，最近还更快。（点击）右边是这对一个人意味着什么，是示意图，不是数据：会用这些工具的人跟着这条曲线往上走，不用的人原地不动，差距每年都在变大。新工具还在不断出来，从2023年的 Cursor，到可灵、Manus，再到今年9月 Meta 的 Muse，所以孩子必须持续用这些工具。工具地图变得太快，记不住也没关系。</aside></section>
 
 <!-- 33 · Takeaway 2 -->
 <section class="s alt ae st tk"><div class="w"><div class="tk-g">
@@ -3204,7 +3311,6 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  </div>
  <div class="cs-foot pane" data-s="4"><img class="brand km" src="/logos/deck/kimi.png" alt="Kimi"><p>应聘的是非技术岗位，<em>最有说服力的，是我用AI做出来的东西。</em></p></div>
  </div>
- <p class="fn"><span>羊筱涵的亲身经历：Kimi（月之暗面）</span></p>
 </div><aside class="notes">这段我自己来讲。我申请 Kimi 的时候，才学用AI两个月左右。我是靠做一个AI面试准备工具来申请这个岗位的。面试时我展示了两个产品：这个工具，还有市场观察器，一个社交媒体平台的营销追踪工具。它们展示了我的AI能力、我对 Kimi 这家公司在做什么的理解，以及我对全球市场的理解。我还在简历里附上了 GitHub 作品集，都是我用AI做的东西，这一点也很加分。两个工具都在这个网站上，我现在演示给大家看。（打开 arenaschool.org/case-study-examples 演示。）</aside></section>
 
 <!-- 35 · 我和 Kimi 的故事（2/3） -->
@@ -3220,24 +3326,23 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  </div>
  <div class="cs-foot pane" data-s="4"><img class="brand km" src="/logos/deck/kimi.png" alt="Kimi"><p>重复的工作交给AI，<em>我就能专注在判断上。</em></p></div>
  </div>
- <p class="fn"><span>羊筱涵的亲身经历：Kimi（月之暗面）</span></p>
 </div><aside class="notes">进了公司以后，我一直在给自己的工作流做工具，提高效率。关键不是什么都交给AI。我把重复的工作稳定地交给AI，再判断哪些事情要自己来做。结果一直很好，这让我在团队里、也在跨团队的合作里进步得很快。</aside></section>
 
 <!-- 36 · 我和 Kimi 的故事（3/3） -->
 <section class="s ae kimi3 k3c"><div class="w">
  <p class="kick r">案例 · 我在 Kimi 的经历 · 3/3</p>
  <h2 class="r" style="--d:.1s">在做增长工作的同时，<em>我还被安排负责HR。</em></h2>
+ <p class="k3-sub r" style="--d:.18s">Kimi 是一家AI公司，对员工的要求自然更高。但这也<span class="nw">预示着未来</span>：五到十年后，各行各业的入门岗位<span class="nw">很可能都会这样要求。</span></p>
  <div class="bd r" style="--d:.25s"><div class="case3">
-  <div class="cs pane" data-s="1"><span class="lab">缘由</span><h3>总裁把招人交给了我</h3><p>她希望多招<span class="nw">AI原生</span>的人。</p></div>
+  <div class="cs pane" data-s="1"><span class="lab">缘由</span><h3>领导层认为公司需要<span class="nw">更多AI原生的员工</span></h3><p><span class="nw">哪怕是市场、销售和产品</span><span class="nw">这些非技术团队。</span></p></div>
   <span class="cs-ar" data-s="2" aria-hidden="true">→</span>
-  <div class="cs pane" data-s="2"><span class="lab">我招人先看</span><h3>真正会用AI工具</h3><p>非技术岗位也一样。</p></div>
+  <div class="cs pane" data-s="2"><span class="lab">我招人先看</span><h3>真正会用AI工具</h3><p>知道哪些交给AI，哪些自己来做。</p></div>
   <span class="cs-ar" data-s="3" aria-hidden="true">→</span>
   <div class="cs cs-out" data-s="3"><span class="lab">再看</span><h3>主动性、审美与匠心</h3><p>用好AI，能腾出精力去创造。</p></div>
  </div>
  <div class="cs-foot pane" data-s="4"><img class="brand km" src="/logos/deck/kimi.png" alt="Kimi"><p>公司现在看重AI的熟练度，<em>哪怕是不需要技术背景的岗位。</em></p></div>
  </div>
- <p class="fn"><span>羊筱涵的亲身经历：Kimi（月之暗面）</span></p>
-</div><aside class="notes">因为效果好，我成长得很快。在继续做增长团队所有日常工作的同时，我还被安排负责HR。我的老板，也是公司的总裁，把招人的事交给了我，因为她信任我看人的眼光。她认为公司需要更多AI原生的人，即使这些团队的工作并不需要技术能力。所以我招人时看两样：真正会用这些工具，以及主动性、审美与匠心。这也正是这场分享强调这三项能力的原因。用好AI，能把大量精力和能力腾出来，去做更有创造力、更有影响力的事。</aside></section>
+</div><aside class="notes">因为效果好，我成长得很快。在继续做增长团队所有日常工作的同时，我还被安排负责HR。我的老板，也是公司的总裁，把招人的事交给了我，因为她信任我看人的眼光。领导层认为公司需要更多AI原生的员工，哪怕是市场、销售和产品这些非技术团队。Kimi 是一家AI公司，对员工的要求自然更高。但我觉得这也预示着未来：五到十年后，各行各业的入门岗位很可能都会这样要求。所以我招人时看两样：真正会用这些工具，知道哪些交给AI、哪些自己来做，以及主动性、审美与匠心。这也正是这场分享强调这三项能力的原因。用好AI，能把大量精力和能力腾出来，去做更有创造力、更有影响力的事。</aside></section>
 
 <!-- 36 · Takeaway 3 -->
 <section class="s alt ae st tk"><div class="w"><div class="tk-g">
@@ -3293,20 +3398,20 @@ section.s>.pgno i{font-style:normal;opacity:.6}
    </div>
    <div class="pane cs-tools" data-s="4"><span class="cs-th">示例工具</span>
     <ul>
-     <li><img src="/logos/tools/openai.png" alt=""><b>ChatGPT</b></li>
-     <li><img src="/logos/tools/claude.png" alt=""><b>Claude</b></li>
-     <li><img src="/logos/tools/kimi.png" alt=""><b>Kimi</b></li>
-     <li><img src="/logos/tools/deepseek.png" alt=""><b>DeepSeek</b></li>
-     <li><img src="/logos/tools/gemini.png" alt=""><b>Gemini</b></li>
-     <li><img src="/logos/tools/doubao.png" alt=""><b>豆包</b></li>
-     <li><img src="/logos/tools/perplexity.png" alt=""><b>Perplexity</b></li>
-     <li><img src="/logos/tools/notion.png" alt=""><b>Notion</b></li>
-     <li><img src="/logos/tools/figma.png" alt=""><b>Figma</b></li>
-     <li><img src="/logos/tools/canva.png" alt=""><b>Canva</b></li>
-     <li><img src="/logos/tools/ideogram.png" alt=""><b>Ideogram</b></li>
-     <li><img src="/logos/tools/github.png" alt=""><b>GitHub</b></li>
-     <li><img src="/logos/tools/vercel.png" alt=""><b>Vercel</b></li>
-     <li><img src="/logos/tools/stripe.png" alt=""><b>Stripe</b></li>
+     <li><img src="/logos/tools/openai.png" alt="ChatGPT"></li>
+     <li><img src="/logos/tools/claude.png" alt="Claude"></li>
+     <li><img src="/logos/tools/kimi.png" alt="Kimi"></li>
+     <li><img src="/logos/tools/deepseek.png" alt="DeepSeek"></li>
+     <li><img src="/logos/tools/gemini.png" alt="Gemini"></li>
+     <li><img src="/logos/tools/doubao.png" alt="豆包"></li>
+     <li><img src="/logos/tools/perplexity.png" alt="Perplexity"></li>
+     <li><img src="/logos/tools/notion.png" alt="Notion"></li>
+     <li><img src="/logos/tools/figma.png" alt="Figma"></li>
+     <li><img src="/logos/tools/canva.png" alt="Canva"></li>
+     <li><img src="/logos/tools/ideogram.png" alt="Ideogram"></li>
+     <li><img src="/logos/tools/github.png" alt="GitHub"></li>
+     <li><img src="/logos/tools/vercel.png" alt="Vercel"></li>
+     <li><img src="/logos/tools/stripe.png" alt="Stripe"></li>
     </ul></div>
   </div>
  </div>
@@ -3514,10 +3619,12 @@ function finishSlide(i){clearPlay();delete S[i].dataset.held;build(i,B[i]);snapF
 function startPlay(i){if(i<0||i>=S.length)return;clearPlay();playing=i;delete S[i].dataset.held;
  if(!shouldPlay()){build(i,B[i],true);snapFx(S[i]);return}
  build(i,0,true);S[i].classList.remove('done');
- /* a .hold slide arrives with only its unstepped content; the next press plays the rest (slide 24) */
+ /* a .hold slide arrives with only its unstepped content (or its first data-hold steps); the next press plays the rest (slides 24, 25) */
  var bk=S[i].dataset.back;delete S[i].dataset.back;
  if(bk&&S[i].classList.contains('hold')){build(i,B[i],true);snapFx(S[i]);return}
- if(S[i].classList.contains('hold')&&B[i]){[].forEach.call(S[i].querySelectorAll('.mk'),function(el){cancelAnimationFrame(mkRaf);el.classList.remove('go','stat','done');mkSet(el,0,0)});S[i].dataset.held=1;return}
+ if(S[i].classList.contains('hold')&&B[i]){[].forEach.call(S[i].querySelectorAll('.mk'),function(el){cancelAnimationFrame(mkRaf);el.classList.remove('go','stat','done');mkSet(el,0,0)});S[i].dataset.held=1;
+  /* data-hold="h": play steps 1..h on arrival, then wait for the press (slide 25) */
+  var hh=Math.min(+S[i].dataset.hold||0,B[i]-1),hk0=0;if(hh>0){(function ht(){hk0++;build(i,hk0);if(hk0<hh)playT.push(setTimeout(ht,380))})()}return}
  [].forEach.call(S[i].querySelectorAll('.ag-flood'),function(el){el.classList.remove('recede','flood','focus','done');var f=el.querySelector('.ag-fill');if(f)f.classList.remove('done')});
  [].forEach.call(S[i].querySelectorAll('.grow,.skmap'),function(el){el.classList.remove('done')});
  var k=0,n=B[i],gap=n<=1?380:Math.min(480,Math.max(300,2000/n)),flood=S[i].querySelector('.ag-flood,.mk,.rot');
