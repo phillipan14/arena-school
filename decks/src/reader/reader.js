@@ -114,7 +114,7 @@ addEventListener('keydown',function(e){if(sheet.classList.contains('open')){if(e
 var keep=0;addEventListener('resize',function(){var i=idx;clearTimeout(keep);deck.scrollLeft=i*w();keep=setTimeout(function(){deck.scrollLeft=i*w();moreCue()},150)});
 
 /* ---- "more below": a quiet arrow when the current slide is taller than the screen ---- */
-function moreCue(){var s=S[shown];if(!s||!cue)return;cue.classList.toggle('on',s.scrollHeight-s.clientHeight-s.scrollTop>40)}
+function moreCue(){var s=S[shown];if(!s||!cue)return;var m=s.scrollHeight-s.clientHeight-s.scrollTop>8;cue.classList.toggle('on',m);H.classList.toggle('more',m)}
 S.forEach(function(s){s.addEventListener('scroll',function(){if(S[shown]===s)moreCue()},{passive:true})});
 if(cue)cue.addEventListener('click',function(){var s=S[shown];s.scrollBy({top:s.clientHeight*.7,behavior:motion?'smooth':'instant'})});
 
