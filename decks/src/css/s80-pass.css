@@ -27,12 +27,12 @@
  :lang(zh-CN) .ae .bd .gcol p{font-size:24px;line-height:1.45}
 
  /* five skills (18): one row of five, grouped: Arena's three, then the two employers also name */
- .why5g{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px 22px;align-content:center;flex:1}
+ .why5g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px 22px;align-content:center;flex:1}
  .why5g .why5{display:contents}
  .why5g .w5h{position:relative;padding-bottom:14px;font:600 15px/1 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
  :lang(zh-CN) .why5g .w5h{font-size:17px;letter-spacing:.06em}
  .why5g .w5h::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--ink2);transform-origin:left}
- .why5g .w5h.a{grid-column:1/4}
+ .why5g .w5h.a{grid-column:1/-1}
  .why5g .w5h.b{grid-column:4/6;color:var(--muted)}
  .why5g .w5h.b::after{background:var(--line)}
  .ae .bd .why5g .why5 li,.ae .bd .why5g .why5 li:nth-child(n){grid-column:auto;grid-row:2;justify-content:flex-start;gap:14px;padding:30px 26px 32px;min-height:270px}
