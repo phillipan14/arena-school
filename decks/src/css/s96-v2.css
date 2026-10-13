@@ -1,0 +1,60 @@
+/* QA pass, slides 13–24 and the takeaway pills (23, 26, 28), Oct 13 2026.
+   Centering, padding, and border fixes only. Type sizes are unchanged except the two
+   oversized card labels on slide 24, which now match the deck's card heading style. */
+
+/* 13 · both cards hold the same stack (header, big figure, two-line note), so their
+   centered content lines up: header to header, figure to figure */
+.ae .bd .cmp2>.pane>p{min-height:2lh}
+
+/* 14 · give the source label and the stat labels room above the big numbers */
+.ae .bd .arc>.lr{margin-bottom:14px}
+.ae .bd .arc .an .lab{display:block;margin-bottom:12px}
+.ae .bd .arc .an .big{margin-top:28px}
+
+/* 17 · the arrow sits in the gap between the two cards instead of notching both,
+   and the card text is optically centered (it sat 3px high) */
+.sh-arr i,.s.alt .sh-arr i{width:46px;height:46px;box-shadow:inset 0 0 0 1px var(--edge)}
+.sh-arr i::after{width:10px;height:10px}
+.sh-col{padding:25px 32px 19px}
+
+/* 23, 26, 28 · takeaway pills: the label sat 3px above center (cap height vs. the line box) */
+.tk-prog li{padding:11.3px 16px 5.7px}
+:lang(zh-CN) .tk-prog li{padding:10.1px 16px 6.9px}
+
+/* 24 · agent cards: the deck's paper card with a hairline edge, not a navy outline;
+   names optically centered on their icons (they sat 4px high) */
+.ae .bd .agx.six li{background:var(--paper-hi);box-shadow:inset 0 0 0 1px var(--edge)}
+.ae .bd .agx.six b{position:relative;top:3px}
+/* 24 · the two card labels drop from 26px with wide tracking to a calmer 24px
+   (about the floor contain.py sets for text in a <p> on the phone letterbox),
+   and the tool card gets even padding on all four sides */
+.ae .bd .mk-map .lab,.ae .bd .mk-stat .lab{font-size:24px;line-height:1.2;letter-spacing:.08em}
+:lang(zh-CN) .ae .bd .mk-map .lab,:lang(zh-CN) .ae .bd .mk-stat .lab{font-size:24px;letter-spacing:.04em}
+.ae .bd .mk-map{padding:14px 18px 10px;gap:4px}
+.agx.six img{width:40px;height:40px;border-radius:11px}
+.ae .bd .agx.six li,.ae .bd .agx.six li:last-child{padding:9px}
+
+/* 14 · the YET pill label sat 2.5px high (the 但 pill is already centered) */
+.ar2.vs span{padding:9.9px 16px 5.1px}
+:lang(zh-CN) .ar2.vs span{padding:8px 16px 7px}
+
+/* 16 · each big figure sat about 25px above the middle of the text beside it */
+.dns .dn>.big{position:relative;top:19px}
+
+/* 19 · Shortcut and Tutor chips: the label sat 2px high */
+.pc .pl{padding:10.5px 16px 6.5px}
+
+/* 21 · the percentage sat 7px high and 2px left of the ring's center: drop the
+   inline-SVG baseline gap, then center the figure in the ring (it sat 2.5px right) */
+.dn .ring2 svg{display:block}
+.dn .ring2 .big{padding:16px 4px 0 0}
+
+/* 18 · three equal cards: each body holds the same height, and the stack is centered,
+   so numbers and names line up across cards with even space above and below */
+.ae .bd .why5g .why5 li:nth-child(n){justify-content:center}
+.ae .bd .why5g .why5 span{min-height:3lh}
+:lang(zh-CN) .ae .bd .why5g .why5 span{min-height:2lh}
+
+/* 19 · both quotes hold two lines, so the notes below them start at the same height
+   (in Chinese the left quote is one line) */
+.pair .pc .say{min-height:2lh}
