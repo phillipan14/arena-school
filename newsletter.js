@@ -2,7 +2,7 @@
    - Bands: fills every <section class="nl-band" data-nl="KEY"> placeholder (inserted by tools/newsletter_markup.py).
    - Footer: a slim email field under the desktop footer tagline.
    - Program closing blocks: adds a quiet "Get Arena Notes" button (phones turn it into a row).
-   - Sheet: one dialog (centered card on desktop, bottom sheet on phones) opened by any a[href="#nl"],
+   - Sheet: one dialog (a centered modal card at every width) opened by any a[href="#nl"],
      and once on the homepage when the programs section is reached after 15s (rules in maybeAuto()).
    Loaded before phone.js so the phone layer can restyle what this adds. */
 (function () {
@@ -62,7 +62,8 @@
           store.set('sub', '1'); removeBar();
           var okBox = h('div', 'nl-done', '<p class="nl-ok">' + esc(T.ok) + '</p>');
           f.replaceWith(okBox);
-          if (okBox.closest('.nl-sheet')) { var d = h('button', 'btn btn-primary nl-btn nl-donebtn', esc(T.done)); d.type = 'button'; d.addEventListener('click', closeSheet); okBox.appendChild(d); d.focus() }
+          if (okBox.closest('.nl-sheet.nl-is-promo')) { okBox.tabIndex = -1; okBox.focus({ preventScroll: true }) } // promo: closes with the X only
+          else if (okBox.closest('.nl-sheet')) { var d = h('button', 'btn btn-primary nl-btn nl-donebtn', esc(T.done)); d.type = 'button'; d.addEventListener('click', closeSheet); okBox.appendChild(d); d.focus() }
         })
         .catch(function (err) { msg.textContent = (err && err.message) || T.fail; msg.className = 'nl-msg nl-err'; b.disabled = false; b.textContent = T.btn });
     });
@@ -137,8 +138,11 @@
       '<div class="nl-std"><span class="nl-k">' + esc(T.name) + '</span><h2 class="nl-h" id="nl-sheet-h">' + esc(T.sheetH) + '</h2><p class="nl-p">' + esc(T.promise) + '</p></div></div>';
     var pn = sheet.querySelector('.nl-sheet-panel');
     if (P) {
-      /* program promo (promo.js): kicker, heading, copy, two links, then a compact Arena Notes field */
-      var pb = h('div', 'nl-promo', '<span class="nl-k">' + esc(P.k) + '</span><h2 class="nl-h" id="nl-promo-h">' + esc(P.h) + '</h2><p class="nl-p">' + esc(P.p) + '</p>' +
+      /* program promo (promo.js): seal, label, heading, date line, copy, one primary link, then a compact Arena Notes field */
+      var pb = h('div', 'nl-promo', '<img class="nl-seal" src="/logos/arena/seal-navy-256.png" alt="" width="48" height="48">' +
+        '<span class="nl-k">' + esc(P.k) + '</span><h2 class="nl-h" id="nl-promo-h">' + esc(P.h) + '</h2>' +
+        (P.d ? '<p class="nl-promo-d"><span>' + esc(P.d) + '</span></p>' : '') + '<p class="nl-p">' + esc(P.p) + '</p>' +
+        (P.note ? '<p class="nl-promo-note">' + esc(P.note) + '</p>' : '') +
         '<div class="nl-promo-cta"><a class="btn btn-primary nl-btn" href="' + esc(P.regHref) + '">' + esc(P.reg) + ' <span class="arr">→</span></a></div>' +
         (cfg ? '<p class="nl-promo-or">' + esc(P.or) + '</p>' : ''));
       pn.insertBefore(pb, pn.querySelector('.nl-std'));

@@ -91,11 +91,9 @@ html[lang="zh-CN"] .nl-h{font-size:21px;line-height:1.5}
 .nl-sheet .nl-h{font-size:21px;margin:8px 0 6px;line-height:1.22}
 html[lang="zh-CN"] .nl-sheet .nl-h{font-size:20px;line-height:1.4}
 .nl-sheet .nl-p{font-size:14.5px;line-height:1.5;margin-bottom:14px}
-.nl-sheet .nl-btn,.nl-promo-cta .btn{height:46px;font-size:15.5px}
+.nl-sheet .nl-btn{height:46px;font-size:15.5px}
 .nl-sheet .nl-email{height:46px}
 .nl-sheet .nl-row{gap:8px}
-.nl-promo-cta{gap:8px}
-.nl-promo-or{margin:14px 0 8px;padding-top:12px;font-size:13.5px}
 .nl-sheet .nl-fine{margin-top:6px;font-size:12.5px}
 .nl-notnow{min-height:38px;margin-top:2px;font-size:14px}
 }
@@ -133,13 +131,64 @@ html.nl-bar-on.nav-open body .nav{top:0 !important}
 html.nl-bar-on.ph-nav-hide:not(.nav-open) body .nav{transform:translateY(calc(-100% - var(--nlb-off,0px)))}
 }
 
-/* program promo inside the sheet (promo.js supplies the copy; newsletter.js shows it on the timed open) */
+/* program promo inside the sheet (promo.js supplies the copy; newsletter.js shows it on the timed open).
+   Editorial card: seal, small-caps label, serif heading, date between hairlines, copy, one navy CTA,
+   then a quiet one-row Arena Notes field. Closes with the X, the backdrop, or Esc. */
 .nl-promo{display:none}
-.nl-sheet.nl-is-promo .nl-promo{display:block}
-.nl-sheet.nl-is-promo .nl-std{display:none}
-.nl-promo-cta{display:flex;flex-direction:column;gap:10px;margin:0 0 4px}
-.nl-promo-cta .btn{width:100%;justify-content:center;border-radius:999px;height:54px}
-.nl-promo-or{margin:18px 0 10px;padding-top:16px;border-top:1px solid rgba(11,26,74,.12);font:500 14px/1.4 var(--font-body,'Geist'),system-ui,sans-serif;color:#4A5470}
+.nl-sheet.nl-is-promo .nl-promo{display:block;text-align:center}
+.nl-sheet.nl-is-promo .nl-std,.nl-sheet.nl-is-promo .nl-roles,.nl-sheet.nl-is-promo .nl-fine,.nl-sheet.nl-is-promo .nl-notnow{display:none}
 .nl-sheet:not(.nl-is-promo) .nl-promo-or{display:none}
-.nl-sheet.nl-is-promo .nl-roles{display:none}
-.nl-sheet.nl-is-promo .nl-fine,.nl-sheet.nl-is-promo .nl-notnow{display:none}
+.nl-sheet.nl-is-promo .nl-sheet-panel{width:min(480px,calc(100vw - 32px));padding:40px 44px 30px;background:#FCF3ED;border-radius:22px;
+  box-shadow:inset 0 0 0 1px rgba(11,26,74,.06),0 40px 90px -36px rgba(11,26,74,.55),0 2px 8px -4px rgba(11,26,74,.15)}
+.nl-sheet.nl-is-promo .nl-sheet-top{position:absolute;top:10px;right:10px;z-index:2;height:auto;margin:0}
+.nl-sheet.nl-is-promo .nl-x{width:44px;height:44px;margin:0;background:transparent;color:#5C6378;transition:background-color .15s,color .15s}
+.nl-sheet.nl-is-promo .nl-x:hover{background:rgba(11,26,74,.06);color:#0B1A4A}
+.nl-sheet.nl-is-promo .nl-x:focus-visible{outline:2px solid #2F55A8;outline-offset:0}
+.nl-seal{display:block;width:48px;height:48px;margin:0 auto 18px;mix-blend-mode:multiply;opacity:.9}
+.nl-sheet.nl-is-promo .nl-k{padding:0;font:600 11.5px/1.2 var(--font-body,'Geist'),system-ui,sans-serif;letter-spacing:.2em;color:#2F55A8}
+html[lang="zh-CN"] .nl-sheet.nl-is-promo .nl-k{font-size:13px;letter-spacing:.14em}
+.nl-sheet.nl-is-promo .nl-h{margin:12px auto 0;max-width:15em;font:400 31px/1.16 var(--font-display,'Newsreader'),Georgia,serif;letter-spacing:-.015em;color:#0B1A4A;text-wrap:balance;white-space:pre-line}
+html[lang="zh-CN"] .nl-sheet.nl-is-promo .nl-h{max-width:none;font-family:'Arena Serif SC','Noto Serif SC','Songti SC',serif;font-size:25px;line-height:1.42;letter-spacing:.02em}
+.nl-promo-d{display:flex;align-items:center;gap:14px;margin:16px 0 16px;font:500 12px/1 var(--font-body,'Geist'),system-ui,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#0B1A4A;font-variant-numeric:lining-nums}
+html[lang="zh-CN"] .nl-promo-d{font-size:13px;letter-spacing:.1em}
+.nl-promo-d::before,.nl-promo-d::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(11,26,74,0),rgba(11,26,74,.22))}
+.nl-promo-d::after{background:linear-gradient(90deg,rgba(11,26,74,.22),rgba(11,26,74,0))}
+.nl-sheet.nl-is-promo .nl-p{margin:0 auto;max-width:28em;font-size:15.5px;line-height:1.6;color:#3E4660;text-wrap:balance;white-space:pre-line}
+html[lang="zh-CN"] .nl-sheet.nl-is-promo .nl-p{line-height:1.8}
+.nl-promo-note{margin:10px auto 0;max-width:30em;font:italic 400 15px/1.5 var(--font-display,'Newsreader'),Georgia,serif;color:#5C6378;text-wrap:balance;hyphens:manual;white-space:pre-line}
+html[lang="zh-CN"] .nl-promo-note{font:400 13.5px/1.7 var(--font-body,'Geist'),system-ui,sans-serif}
+.nl-promo-cta{display:flex;margin:24px 0 0}
+.nl-sheet.nl-is-promo .nl-promo-cta .btn{width:100%;height:52px;justify-content:center;border-radius:999px;background:#0B1A4A;border-color:#0B1A4A;color:#FCF3ED;font-size:16px;font-weight:600;letter-spacing:.01em;box-shadow:0 10px 24px -14px rgba(11,26,74,.7)}
+.nl-sheet.nl-is-promo .nl-promo-cta .btn:hover{background:#2F55A8;border-color:#2F55A8}
+.nl-promo-cta .arr{display:inline-block;margin-left:6px;transition:transform .2s}
+.nl-promo-cta .btn:hover .arr{transform:translateX(3px)}
+.nl-promo-or{margin:26px 0 10px;padding-top:20px;border-top:1px solid rgba(11,26,74,.1);font:500 13.5px/1.4 var(--font-body,'Geist'),system-ui,sans-serif;color:#4A5470;text-align:center}
+.nl-sheet.nl-is-promo .nl-form .nl-row{flex-direction:row;gap:8px}
+.nl-sheet.nl-is-promo .nl-email{flex:1;width:auto;height:44px;padding:0 14px;border-radius:999px;background:#FFFCF8;font-size:15px}
+.nl-sheet.nl-is-promo .nl-form .nl-btn{flex:none;width:auto;height:44px;padding:0 18px;border-radius:999px;background:transparent;border:1px solid rgba(11,26,74,.3);color:#0B1A4A;font-size:14.5px;font-weight:600;box-shadow:none}
+.nl-sheet.nl-is-promo .nl-form .nl-btn:hover{background:rgba(11,26,74,.05);border-color:#0B1A4A}
+.nl-sheet.nl-is-promo .nl-msg{text-align:center}
+.nl-sheet.nl-is-promo .nl-done{padding:12px 16px;border-radius:999px;background:rgba(47,85,168,.07);border:0;text-align:center;outline:none}
+.nl-sheet.nl-is-promo .nl-ok{font-size:14.5px;line-height:1.4}
+.nl-sheet.nl-is-promo .nl-ok::before{content:"✓";display:inline-block;margin-right:8px;color:#2F55A8;font-weight:700}
+@media (max-width:760px){
+  .nl-sheet.nl-is-promo .nl-sheet-panel{max-width:400px;padding:30px 22px 22px;border-radius:20px}
+  .nl-sheet.nl-is-promo .nl-sheet-top{top:6px;right:6px}
+  .nl-seal{width:40px;height:40px;margin-bottom:12px}
+  .nl-sheet.nl-is-promo .nl-k{font-size:11px;letter-spacing:.18em}
+  html[lang="zh-CN"] .nl-sheet.nl-is-promo .nl-k{font-size:12.5px}
+  .nl-sheet.nl-is-promo .nl-h{margin-top:10px;font-size:25px;line-height:1.18}
+  html[lang="zh-CN"] .nl-sheet.nl-is-promo .nl-h{font-size:21px;line-height:1.45}
+  .nl-promo-d{margin:12px 0;gap:12px;font-size:11px}
+  html[lang="zh-CN"] .nl-promo-d{font-size:12.5px}
+  .nl-sheet.nl-is-promo .nl-p{font-size:14.5px;line-height:1.55}
+  html[lang="zh-CN"] .nl-sheet.nl-is-promo .nl-p{font-size:14.5px;line-height:1.75}
+  .nl-promo-note{margin-top:8px;font-size:14px;line-height:1.45}
+  html[lang="zh-CN"] .nl-promo-note{font-size:13px;line-height:1.65}
+  .nl-promo-cta{margin-top:18px}
+  .nl-sheet.nl-is-promo .nl-promo-cta .btn{height:50px;font-size:15.5px}
+  .nl-promo-or{margin:20px 0 10px;padding-top:16px;font-size:13px}
+  .nl-sheet.nl-is-promo .nl-email,.nl-sheet.nl-is-promo .nl-form .nl-btn{height:44px}
+  .nl-sheet.nl-is-promo .nl-form .nl-btn{padding:0 16px;font-size:14px}
+}
+@media (max-height:620px){.nl-promo-note{display:none}}
