@@ -659,3 +659,5 @@ i.rg::before{width:calc(var(--r) * 1%);background:linear-gradient(90deg,var(--da
 .xg-gl{left:87%;bottom:41%;translate:-50% 50%;font-style:italic;color:var(--ink2)}
 .xg-cap{margin:6px 0 0;font:italic 400 12px/1.45 var(--sans);color:var(--muted)}
 :lang(zh-CN) .xg-gl,:lang(zh-CN) .xg-cap{font-style:normal}
+/* Chinese word spans from the reader-only segmenter in body-cn.html: never break inside a word */
+:lang(zh-CN) .rd cj-w{white-space:nowrap}
