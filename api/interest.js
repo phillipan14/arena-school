@@ -1,9 +1,9 @@
-// POST /api/interest: one-page overview requests from program pages -> Arena Slack.
+// POST /api/interest: one-page overview requests and program interest registrations -> Arena Slack.
 // Email notification goes separately (client posts to FormSubmit), so Slack failing
 // never blocks the visitor. Env: ARENA_SLACK_BOT_TOKEN (required),
 // ARENA_SLACK_CHANNEL (optional, defaults to #schools).
 const DEFAULT_CHANNEL = 'C0C4KRP3WDR'; // #schools in the Arena School workspace
-const LIMITS = { name: 120, email: 200, role: 60, school: 160, program: 80, page: 200 };
+const LIMITS = { name: 120, email: 200, role: 60, school: 160, program: 80, page: 200, kind: 20, contact: 120, grade: 40, lang: 8 };
 const WINDOW_MS = 10 * 60 * 1000;
 const MAX_PER_WINDOW = 5;
 const hits = new Map(); // best-effort, per warm instance
@@ -26,10 +26,13 @@ function rateLimited(ip, now = Date.now()) {
 
 function slackText(d) {
   const lines = [
-    `*New one-pager request* · ${esc(d.program || 'Program page')}`,
+    `*${d.kind === 'interest' ? 'New interest registration' : 'New one-pager request'}* · ${esc(d.program || 'Program page')}`,
     `*${esc(d.name)}* · ${esc(d.email)}`,
     d.role && `Role: ${esc(d.role)}`,
     d.school && `School: ${esc(d.school)}`,
+    d.grade && `Grade: ${esc(d.grade)}`,
+    d.contact && `WeChat/phone: ${esc(d.contact)}`,
+    d.lang && `Language: ${esc(d.lang)}`,
     d.page && `From: ${esc(d.page)}`,
   ];
   return lines.filter(Boolean).join('\n');
