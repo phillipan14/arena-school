@@ -2548,6 +2548,14 @@ section.s.ae.cl .bd{justify-content:center;gap:72px}
 .tk-prog li:first-child i{margin-left:-1.35px}
 :lang(zh-CN) .tk-prog li:first-child i{margin-left:-.8px}
 
+/* ---- s99-cover.css ---- */
+/* Cover: theme line above the title, larger headline (JJ, Oct 13) */
+.cover .cv-lede{margin:22px 0 0;font:400 40px/1.25 var(--serif);letter-spacing:-.01em;color:var(--ink2)}
+:lang(zh-CN) .cover .cv-lede{font-size:38px;letter-spacing:.02em}
+.cover h1{margin-top:22px;font-size:122px;line-height:1}
+:lang(zh-CN) .cover h1{font-size:104px;line-height:1.2}
+.cover h1 .sub{margin-top:28px}
+
 /* ---- snum.css ---- */
 /* slide numbers (snum): quiet folio in the bottom-right gutter of every slide except the title */
 section.s>.pgno{position:absolute;right:var(--margin-x);bottom:calc(var(--pad-bot) * var(--z) / 2 - 6px);z-index:3;pointer-events:none;user-select:none;
@@ -2563,6 +2571,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <div class="cv-top"><img class="pta" src="/decks/img/conversation/pta-logo.png" alt="ISB PTA, Parent Teacher Association"></div>
  <div class="cv-mid">
   <p class="kick r">PTA Parent Coffee · October 14, 2026</p>
+  <p class="cv-lede r" style="--d:.05s">The future of jobs and education in the age of AI</p>
   <h1 class="r" style="--d:.1s">Our Kids’ Jobs <span class="m" style="--d:1s"><em>Don’t Exist Yet.</em></span><span class="sub" style="--d:1.3s">So Which Skills Will Matter?</span></h1>
  </div>
  <div class="cv-foot"><span class="cv-rule"></span><a class="cv-qr" href="https://arenaschool.org/talk" target="_blank" rel="noopener"><img src="/decks/img/conversation/qr-talk-clear.png" alt="QR code for arenaschool.org/talk"><span>Today’s slides, in English and 中文<small>arenaschool.org/talk</small></span></a></div>

@@ -99,6 +99,8 @@ i.cn{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(
 .cv-top{margin-bottom:auto;padding-bottom:28px}
 .pta{height:38px;width:auto}
 .cv-mid{margin-bottom:auto;padding-bottom:12vh}
+.cover .cv-lede{margin:10px 0 0;font:400 19px/1.35 var(--serif);color:var(--ink2)}
+:lang(zh-CN) .cover .cv-lede{font-size:17px;letter-spacing:.02em}
 .cover h1{font-size:clamp(42px,12.6vw,56px);line-height:1.02;letter-spacing:-.03em;font-weight:400}
 .cover h1 .m{display:block;margin-top:.04em}
 .cover h1 .m em{background:linear-gradient(rgba(47,85,168,.14),rgba(47,85,168,.14)) 0 88%/100% .34em no-repeat;padding-right:.06em;transition:background-size 1s .55s var(--ease)}
