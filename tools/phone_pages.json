@@ -1,0 +1,57 @@
+{
+  "footer": {
+    "en": {
+      "tag": "Helping students, families, educators, and schools thrive in the age of AI.",
+      "rows": [
+        {
+          "label": "Contact us",
+          "href": "/contact"
+        },
+        {
+          "label": "Email",
+          "value": "contact@arenaschool.org",
+          "href": "mailto:contact@arenaschool.org"
+        },
+        {
+          "label": "Newsletter",
+          "value": "Subscribe",
+          "href": "#nl"
+        },
+        {
+          "label": "All programs",
+          "href": "#ph-menu"
+        },
+        {
+          "label": "LinkedIn",
+          "href": "https://www.linkedin.com/company/arena-school/"
+        }
+      ],
+      "copy": "© 2026 Arena School"
+    },
+    "cn": {
+      "tag": "陪伴学生、家庭、教育者与学校，从容走进AI时代。",
+      "rows": [
+        {
+          "label": "联系我们",
+          "href": "/contact-cn"
+        },
+        {
+          "label": "邮箱",
+          "value": "contact@arenaschool.org",
+          "href": "mailto:contact@arenaschool.org"
+        },
+        {
+          "label": "Arena 通讯",
+          "value": "订阅",
+          "href": "#nl"
+        },
+        {
+          "label": "全部项目",
+          "href": "#ph-menu"
+        }
+      ],
+      "copy": "© 2026 Arena School"
+    }
+  },
+  "pages": {}
+}

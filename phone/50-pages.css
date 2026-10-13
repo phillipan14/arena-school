@@ -1,0 +1,401 @@
+/* 50-pages.css: the general pages' own components on phones (about, approach, schools,
+   partnerships, results, contact, enroll, pay-mentorship; EN + CN). Pairs with 50-pages.js.
+   Grammar: grouped rows on Arena paper, hairlines, chevrons, no hover, logos never in cards.
+   Owns .pg-proof and .pg-steps on every page they appear. */
+@media (max-width:760px){
+:root{
+  --ph-chev-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 5l7 7-7 7'/%3E%3C/svg%3E");
+  --pg-mut:#585F74;
+  --ph-check-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5.5 12.5l4.2 4.2 8.8-9.4'/%3E%3C/svg%3E");
+}
+/* shared bits */
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .ph-cv::after,
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) :is(.pg-pillar,.pg-prog,.pg-adult,.pg-route,.pg-gl > a,.pg-proof-go,.ph-xrow)::after{
+  content:"";flex:none;width:18px;height:18px;background:currentColor;opacity:.4;
+  -webkit-mask:var(--ph-chev-mask) center/18px 18px no-repeat;mask:var(--ph-chev-mask) center/18px 18px no-repeat}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-k{display:block;margin-bottom:10px !important;font:600 12.5px/1.3 'Geist',system-ui,sans-serif !important;letter-spacing:.12em !important;color:var(--pg-mut) !important;padding-left:2px}
+html[lang="zh-CN"] body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-k{font-size:13.5px !important;letter-spacing:.04em !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-note{font-size:15px !important;line-height:1.55 !important;color:var(--ph-soft) !important;margin:12px 2px 0 !important}
+/* an inline link that became a row below its paragraph: read as plain text, tap the row instead */
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .ph-inlined{color:inherit !important;text-decoration:none !important;pointer-events:none;font-weight:inherit !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .ph-xlist{margin:16px 0 0 !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .ph-xrow{display:flex;align-items:center;gap:12px;min-height:52px;padding:8px 14px 8px 16px;color:var(--ph-blue) !important;text-decoration:none !important;font:500 16px/1.3 'Geist',system-ui,sans-serif}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .ph-xrow .ph-row-t{flex:1;min-width:0}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .ph-xrow:active{background:rgba(34,69,138,.07)}
+
+/* =====================================================================
+   PROOF ROW (.pg-proof): plain hairline list on paper; logos never boxed
+   ===================================================================== */
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof{display:block !important;margin-top:32px !important;border:0 !important;border-top:1px solid var(--ph-line) !important;text-align:left !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof > *{display:flex !important;padding:16px 2px !important;border:0 !important;border-bottom:1px solid var(--ph-line) !important;text-align:left !important;align-items:flex-start !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof-judges{flex-direction:column !important;gap:12px}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof-k{margin:0 !important;font-size:15px !important;line-height:1.45 !important;color:var(--ph-soft) !important;text-align:left !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof-logos{display:flex !important;flex-wrap:wrap !important;align-items:center !important;justify-content:flex-start !important;gap:10px 16px !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof-logos img{height:26px !important;width:auto !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof-logos img.is-stanford{height:18px !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof-logos img.is-yc{height:23px !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof-logos span{font:400 17px/1 var(--font-display) !important;color:var(--ph-ink) !important;white-space:nowrap}
+/* staff training: logos, then the line */
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof-stat:not(:has(> b:not(.pg-proof-logos2))){flex-direction:column !important;gap:10px}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof-logos2,body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .ap-cred-logos{display:flex !important;align-items:center !important;justify-content:flex-start !important;gap:16px !important;min-height:0 !important;margin:0 !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof-logos2 img[alt="Tsinghua University"],body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .ap-cred-tsinghua{height:26px !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof-logos2 img[alt="Schwarzman College"],body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .ap-cred-schwarzman{height:22px !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof-stat > span span{font-size:inherit !important;color:inherit !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof-stat > span{margin:0 !important;font-size:15px !important;line-height:1.45 !important;color:var(--ph-soft) !important;text-align:left !important}
+/* the score: number left, caption right, one row */
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof-stat:has(> b:not(.pg-proof-logos2)){flex-direction:row !important;align-items:center !important;gap:16px}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof-stat > b:not(.pg-proof-logos2){flex:none;margin:0 !important;padding:0 !important;font:400 30px/1 var(--font-display) !important;color:var(--ph-ink) !important;white-space:nowrap}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof-stat > b small{font-size:16px !important}
+/* see results: a row with a chevron */
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof-go{flex-direction:row !important;align-items:center !important;justify-content:space-between !important;min-height:56px;padding:0 4px 0 2px !important;font:500 16px/1 'Geist',system-ui,sans-serif !important;color:var(--ph-blue) !important;text-decoration:none !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof-go > span{display:none !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof-go:active{background:rgba(34,69,138,.07)}
+
+/* =====================================================================
+   STEPS (.pg-steps): numbered vertical timeline; plain (.is-3) = grouped list
+   ===================================================================== */
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-steps:not(.is-3){display:block !important;position:relative;overflow:visible !important;margin:0 !important;padding:0 !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-steps:not(.is-3) > .pg-step{position:relative;display:block !important;margin:0 !important;padding:0 0 26px 52px !important;border:0 !important;background:none !important;border-radius:0 !important;box-shadow:none !important;min-height:0 !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-steps:not(.is-3) > .pg-step:last-child{padding-bottom:0 !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-steps:not(.is-3) > .pg-step:not(:last-child)::before{content:"";position:absolute;left:17px;top:38px;bottom:4px;width:2px;background:rgba(34,69,138,.22);border-radius:1px}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-steps .pg-step-n{position:absolute;left:0;top:0;display:grid !important;place-items:center;width:36px;height:36px;margin:0 !important;padding:0 !important;border:1.5px solid var(--ph-blue) !important;border-radius:50%;background:var(--ph-surface);font:500 15px/1 'Geist',system-ui,sans-serif !important;color:var(--ph-blue) !important;letter-spacing:0}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-steps .pg-step small{display:block;margin:0 0 2px;padding-top:1px;font:600 15px/1.35 'Geist',system-ui,sans-serif !important;letter-spacing:0 !important;text-transform:none !important;color:var(--ph-blue2) !important}
+html[lang="zh-CN"] body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-steps .pg-step small{font-size:15px !important;letter-spacing:.02em !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-steps .pg-step h3{margin:0 0 6px !important;padding:0 !important;border:0 !important;font:400 20px/1.25 var(--font-display) !important;color:var(--ph-ink) !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-steps .pg-step p{margin:0 !important;font-size:16px !important;line-height:1.55 !important;color:var(--ph-soft) !important}
+html[lang="zh-CN"] body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-steps .pg-step p{line-height:1.75 !important}
+/* plain steps (partnerships, the track): one grouped container */
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-steps.is-3{display:block !important;overflow:hidden !important;margin:0 !important;padding:0 !important;background:var(--ph-surface);border:1px solid var(--ph-line);border-radius:var(--ph-r)}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-steps.is-3 > .pg-step{display:block !important;margin:0 !important;padding:16px 18px 18px !important;border:0 !important;border-radius:0 !important;background:none !important;box-shadow:none !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-steps.is-3 > .pg-step + .pg-step{border-top:1px solid var(--ph-line) !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-steps.is-3 .pg-step h3{margin-bottom:4px !important}
+
+/* =====================================================================
+   ABOUT
+   ===================================================================== */
+/* team logos: whole, static, left-aligned rows on paper (marquee clones hidden) */
+body.pg-about .pg-cred{margin:0 !important;border-top:1px solid var(--ph-line) !important}
+body.pg-about .pg-cred .hp-cred-row{display:block !important;padding:18px 0 20px !important;border-bottom:1px solid var(--ph-line) !important}
+body.pg-about .pg-cred .hp-cred-lab{display:block;margin:0 0 14px;font:600 12.5px/1.2 'Geist',system-ui,sans-serif !important;letter-spacing:.12em !important;text-transform:uppercase;color:var(--pg-mut) !important;text-align:left !important}
+html[lang="zh-CN"] body.pg-about .pg-cred .hp-cred-lab{font-size:13.5px !important;letter-spacing:.04em !important}
+body.pg-about .pg-cred .hp-marq{overflow:visible !important;-webkit-mask-image:none !important;mask-image:none !important}
+body.pg-about .pg-cred ul,body.pg-about .pg-cred ul.is-marq{display:flex !important;flex-wrap:wrap !important;width:auto !important;animation:none !important;transform:none !important;justify-content:flex-start !important;align-items:center !important;gap:18px 26px !important;margin:0 !important;padding:0 !important}
+body.pg-about .pg-cred li[aria-hidden="true"]{display:none !important}
+body.pg-about .pg-cred li{padding:0 !important;min-height:34px !important;opacity:.9 !important;transform:none !important}
+body.pg-about .pg-cred img{max-height:28px !important;width:auto !important}
+/* area rule: similar ink per logo, height from aspect ratio */
+body.pg-about .pg-cred img[src*="/caltech"]{height:18px !important}
+body.pg-about .pg-cred img[src*="/harvard"]{height:24px !important}
+body.pg-about .pg-cred img[src*="/brown"]{height:28px !important}
+body.pg-about .pg-cred img[src*="/tsinghua"]{height:27px !important}
+body.pg-about .pg-cred img[src*="/isb"]{height:27px !important}
+body.pg-about .pg-cred img[src*="/mckinsey"]{height:16px !important}
+body.pg-about .pg-cred img[src*="/goldman"]{height:26px !important}
+body.pg-about .pg-cred img[src*="/yc"]{height:26px !important}
+body.pg-about .pg-cred img[src*="/apple"]{height:28px !important}
+body.pg-about .pg-cred img[src*="/microsoft"]{height:20px !important}
+body.pg-about .pg-cred img[src*="/deloitte"]{height:15px !important}
+body.pg-about .pg-cred img[src*="/kimi"]{height:17px !important}
+
+/* the lede's "Read our approach" link: the pillar rows below already go there */
+body.pg-about #future .sec-head .lede a.tlink{display:none !important}
+/* founders: profile header (photo, name, role), a logo scroll, then the bio; no card */
+body.pg-about .pg-founders{display:block !important}
+body.pg-about .pg-founder{display:block !important;padding:0 !important;border:0 !important;background:none !important;border-radius:0 !important;box-shadow:none !important}
+body.pg-about .pg-founder + .pg-founder{margin-top:44px !important;padding-top:36px !important;border-top:1px solid var(--ph-line) !important}
+body.pg-about .pg-founder-top{display:flex !important;align-items:center !important;gap:16px !important;margin:0 !important;padding:0 !important;border:0 !important}
+body.pg-about .pg-founder-top img{flex:none;width:76px !important;height:76px !important;border-radius:50% !important;border:1px solid var(--ph-line) !important;object-fit:cover}
+body.pg-about .pg-founder-top > div{min-width:0}
+body.pg-about .pg-founder h3{margin:0 !important;font:400 25px/1.15 var(--font-display) !important;color:var(--ph-ink) !important;white-space:nowrap}
+body.pg-about .pg-founder h3 .pg-founder-en{display:block;margin-top:4px !important;font:400 15px/1.3 'Geist',system-ui,sans-serif !important;color:var(--ph-soft) !important}
+body.pg-about .pg-founder-role{margin:6px 0 0 !important;font:600 12.5px/1.2 'Geist',system-ui,sans-serif !important;letter-spacing:.12em !important;text-transform:uppercase;color:var(--pg-mut) !important;white-space:nowrap}
+html[lang="zh-CN"] body.pg-about .pg-founder-role{font-size:13.5px !important;letter-spacing:.06em !important}
+body.pg-about.ph-fl .pg-founder-creds{display:none !important}
+/* the logo scroll (built by 50-pages.js) */
+body.pg-about .ph-flogos{position:relative;margin:20px calc(-1 * var(--ph-gut)) 20px;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
+body.pg-about .ph-flogos ul{display:flex;align-items:center;width:max-content;list-style:none;margin:0;padding:6px 0;animation:phFl var(--fl-dur,40s) linear infinite}
+body.pg-about .ph-flogos li{flex:none;display:flex;align-items:center;height:36px;padding:0 18px;margin:0}
+body.pg-about .ph-flogos img{display:block;width:auto;opacity:.9}
+body.pg-about .ph-flogos.is-paused ul{animation-play-state:paused}
+@keyframes phFl{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){
+  body.pg-about .ph-flogos{overflow-x:auto;-webkit-mask-image:none;mask-image:none;scrollbar-width:none;padding:0 var(--ph-gut)}
+  body.pg-about .ph-flogos ul{animation:none}
+  body.pg-about .ph-flogos li[aria-hidden="true"]{display:none}
+}
+body.pg-about .pg-founder-bio{margin:0 0 14px !important;font-size:16px !important;line-height:1.65 !important;color:var(--ph-text) !important}
+html[lang="zh-CN"] body.pg-about .pg-founder-bio{line-height:1.8 !important}
+/* LinkedIn + email as grouped rows */
+body.pg-about .pg-founder-links{display:block !important;margin:18px 0 0 !important;padding:0 !important;border:1px solid var(--ph-line) !important;border-radius:var(--ph-r);background:var(--ph-surface);overflow:hidden}
+body.pg-about .pg-founder-links a{display:flex !important;align-items:center;gap:12px;min-height:52px;padding:8px 14px 8px 16px;font:500 16px/1.3 'Geist',system-ui,sans-serif !important;color:var(--ph-blue) !important;text-decoration:none !important;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+body.pg-about .pg-founder-links a + a{border-top:1px solid var(--ph-line)}
+body.pg-about .pg-founder-links a svg{flex:none;width:18px !important;height:18px !important}
+body.pg-about .pg-founder-links a::after{content:"";margin-left:auto;flex:none;width:18px;height:18px;background:currentColor;opacity:.4;-webkit-mask:var(--ph-chev-mask) center/18px no-repeat;mask:var(--ph-chev-mask) center/18px no-repeat}
+body.pg-about .pg-founder-links a:active{background:rgba(34,69,138,.07)}
+/* pillars: one grouped list, name + line + chevron */
+body.pg-about .pg-pillars{display:block !important;margin:0 !important;padding:0 !important;background:var(--ph-surface);border:1px solid var(--ph-line);border-radius:var(--ph-r);overflow:hidden}
+body.pg-about .pg-pillars > li{margin:0 !important}
+body.pg-about .pg-pillars > li + li{border-top:1px solid var(--ph-line)}
+body.pg-about .pg-pillar{display:grid !important;grid-template-columns:1fr auto;grid-template-areas:"b a" "s a";align-items:center;column-gap:12px;row-gap:3px;min-height:68px;padding:12px 14px 12px 16px !important;border:0 !important;border-radius:0 !important;background:none !important;color:var(--ph-ink) !important}
+body.pg-about .pg-pillar::after{grid-area:a}
+body.pg-about .pg-pillar small,body.pg-about .pg-pillar i{display:none !important}
+body.pg-about .pg-pillar b{grid-area:b;font:italic 400 23px/1.1 var(--font-display) !important;color:var(--ph-blue) !important}
+html[lang="zh-CN"] body.pg-about .pg-pillar b{font-style:normal !important;font-size:21px !important}
+body.pg-about .pg-pillar span{grid-area:s;font-size:15.5px !important;line-height:1.4 !important;color:var(--ph-soft) !important}
+body.pg-about .pg-pillar:active{background:rgba(34,69,138,.07) !important}
+
+/* =====================================================================
+   APPROACH
+   ===================================================================== */
+/* segmented control (built by 50-pages.js) */
+body.pg-approach .ph-seg{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin:0 0 14px;padding:3px;border-radius:14px;background:rgba(11,26,74,.07)}
+body.pg-approach .ph-seg button{appearance:none;-webkit-appearance:none;border:0;margin:0;min-height:44px;padding:0 6px;border-radius:11px;background:none;color:var(--ph-soft);font:600 14.5px/1.1 'Geist',system-ui,sans-serif;white-space:nowrap;cursor:pointer;transition:background-color .2s,color .2s,box-shadow .2s}
+html[lang="zh-CN"] body.pg-approach .ph-seg button{font-size:15px;letter-spacing:.02em}
+body.pg-approach .ph-seg button:active{opacity:.7}
+body.pg-approach .ph-seg button[aria-selected="true"]{background:var(--ph-surface);color:var(--ph-ink);font-weight:600;box-shadow:0 1px 3px rgba(11,26,74,.14),0 0 0 .5px rgba(11,26,74,.08)}
+body.pg-approach .ap-pcards.ph-segd > .ap-pcard:not(.ph-on){display:none !important}
+body.pg-approach .ap-pcards.ph-segd > .ap-pcard{opacity:1 !important;transform:none !important;scroll-margin-top:72px}
+body.pg-approach .ap-pcard,body.pg-approach .ap-pcard:focus-within{border-radius:var(--ph-r) !important;border:1px solid var(--ph-line) !important;background:var(--ph-surface) !important;box-shadow:none !important;transform:none !important}
+body.pg-approach .ap-pcard figure{aspect-ratio:16/8.5 !important}
+body.pg-approach .ap-pcard .pg-pcard-body{padding:18px 18px 6px !important;gap:0 !important}
+body.pg-approach .ap-pcard-align{min-height:0 !important;gap:0 !important}
+body.pg-approach .ap-pcard h3{display:none !important}
+body.pg-approach .ap-pcard .pg-tag{margin:0 0 8px !important;font:400 21px/1.3 var(--font-display) !important;color:var(--ph-ink) !important}
+body.pg-approach .ap-pcard .card-p{margin:0 !important;font-size:16px !important;line-height:1.6 !important;color:var(--ph-text) !important}
+html[lang="zh-CN"] body.pg-approach .ap-pcard .card-p{line-height:1.75 !important}
+body.pg-approach .ap-pcard .gc-do{margin:16px 0 0 !important;padding:14px 0 0 !important;border-top:1px solid var(--ph-line) !important;gap:10px !important}
+body.pg-approach .ap-pcard .gc-do li{padding-left:22px !important;font-size:15.5px !important;line-height:1.5 !important;color:var(--ph-ink) !important}
+body.pg-approach .ap-pcard .gc-do li::before{content:"" !important;top:.62em !important;left:4px !important;width:6px;height:6px;border-radius:50%;background:var(--ph-blue2)}
+body.pg-approach .ap-impact{margin:16px 0 0 !important;padding:14px 0 0 !important;border-top:1px solid var(--ph-line) !important}
+body.pg-approach .ap-impact-lab{margin:0 0 10px !important;font:600 12.5px/1.3 'Geist',system-ui,sans-serif !important;letter-spacing:.12em !important;color:var(--pg-mut) !important}
+html[lang="zh-CN"] body.pg-approach .ap-impact-lab{font-size:13.5px !important;letter-spacing:.04em !important}
+body.pg-approach .ap-impact ol{gap:12px !important}
+body.pg-approach .ap-impact li{display:block !important;font-size:15.5px !important;line-height:1.5 !important;color:var(--ph-text) !important}
+html[lang="zh-CN"] body.pg-approach .ap-impact li{line-height:1.7 !important}
+body.pg-approach .ap-where{display:block;margin:0 0 2px;font:600 12.5px/1.3 'Geist',system-ui,sans-serif !important;letter-spacing:.1em !important;text-transform:uppercase;color:var(--ph-blue2) !important}
+html[lang="zh-CN"] body.pg-approach .ap-where{font-size:13px !important;letter-spacing:.04em !important}
+/* the principles: a short disclosure row (3 lines when open) */
+body.pg-approach .ap-pcard .gc-more{margin:16px -18px 0 !important;padding:0 !important;border-top:1px solid var(--ph-line)}
+body.pg-approach .ap-pcard .gc-more summary{display:flex !important;align-items:center;justify-content:space-between;min-height:52px;padding:0 16px 0 18px;font:500 15.5px/1.2 'Geist',system-ui,sans-serif !important;letter-spacing:0 !important;text-transform:none !important;color:var(--ph-blue) !important}
+body.pg-approach .ap-pcard .gc-more summary::after{content:"" !important;width:18px;height:18px;background:currentColor;opacity:.5;-webkit-mask:var(--ph-chev-mask) center/18px no-repeat;mask:var(--ph-chev-mask) center/18px no-repeat;transform:rotate(90deg);transition:transform .2s}
+body.pg-approach .ap-pcard .gc-more[open] summary::after{transform:rotate(-90deg)}
+body.pg-approach .ap-pcard .gc-more summary:active{background:rgba(34,69,138,.07)}
+body.pg-approach .ap-pcard .gc-more ol{margin:0 !important;padding:0 18px 16px !important;gap:10px !important}
+body.pg-approach .ap-pcard .gc-more li{font-size:15.5px !important;line-height:1.5 !important;color:var(--ph-soft) !important}
+body.pg-approach .ap-pcard .gc-more li b{display:none}
+body.pg-approach .ap-pcard .gc-more li strong{display:block;color:var(--ph-ink);font-weight:600}
+
+/* day timeline: time column | rail | step */
+body.pg-approach .ap-timeline{--tc:114px;display:block !important;padding:0 !important}
+body.pg-approach .ap-timeline::before,body.pg-approach .ap-timeline::after{left:calc(var(--tc) + 21px) !important;top:10px !important;width:2px !important}
+body.pg-approach .ap-timeline::before{bottom:10px !important;height:auto !important;background:rgba(34,69,138,.18) !important}
+body.pg-approach .ap-timeline-wrap.in .ap-timeline::after{height:calc(100% - 20px) !important}
+body.pg-approach .ap-tl-item{display:grid !important;grid-template-columns:var(--tc) 20px 1fr !important;grid-template-areas:"time node title" "time node desc" !important;column-gap:12px !important;padding:0 0 22px !important;opacity:1 !important}
+body.pg-approach .ap-tl-time{grid-area:time;margin:3px 0 0 !important;text-align:right;font:600 12.5px/1.35 'Geist',system-ui,sans-serif !important;letter-spacing:.06em !important;color:var(--pg-mut) !important;white-space:normal}
+html[lang="zh-CN"] body.pg-approach .ap-tl-time{font-size:13px !important;letter-spacing:.02em !important}
+body.pg-approach .ap-tl-node{grid-area:node;margin:5px 0 0 !important;width:12px !important;height:12px !important;justify-self:center}
+body.pg-approach .ap-tl-title{grid-area:title;margin:0 0 3px !important;font:400 19px/1.3 var(--font-display) !important;color:var(--ph-ink) !important}
+body.pg-approach .ap-tl-desc{grid-area:desc;margin:0 !important;font-size:15.5px !important;line-height:1.5 !important;color:var(--ph-soft) !important;opacity:1 !important}
+html[lang="zh-CN"] body.pg-approach .ap-tl-desc{line-height:1.7 !important}
+/* formats + take-home */
+body.pg-approach .ap-foot{margin-top:32px !important;border:0 !important}
+body.pg-approach .ap-foot-row{display:block !important;padding:0 !important;border:0 !important}
+body.pg-approach .ap-foot-row + .ap-foot-row{margin-top:24px}
+body.pg-approach .ap-foot-lab{display:block;margin:0 0 10px 2px;font:600 12.5px/1.3 'Geist',system-ui,sans-serif !important;letter-spacing:.12em !important;color:var(--pg-mut) !important}
+html[lang="zh-CN"] body.pg-approach .ap-foot-lab{font-size:13.5px !important;letter-spacing:.04em !important}
+body.pg-approach .ap-foot-list{display:block !important;background:var(--ph-surface);border:1px solid var(--ph-line);border-radius:var(--ph-r);overflow:hidden}
+body.pg-approach .ap-foot-list li{display:flex;align-items:center;min-height:52px;padding:8px 16px !important;font-size:16px !important;line-height:1.35;color:var(--ph-ink) !important}
+body.pg-approach .ap-foot-list li + li{border-top:1px solid var(--ph-line)}
+body.pg-approach .ap-foot-list li::before{display:none !important}
+body.pg-approach .ap-foot-text{font-size:16px !important;line-height:1.6 !important;color:var(--ph-text) !important;padding:0 2px}
+
+/* =====================================================================
+   SCHOOLS: program rows (thumbnail, title, meta, chevron)
+   ===================================================================== */
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) :is(.pg-progs,.pg-adults){display:block !important;overflow:hidden !important;margin:0 !important;padding:0 !important;list-style:none;background:var(--ph-surface);border:1px solid var(--ph-line);border-radius:var(--ph-r);scroll-snap-type:none !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-progs > li{margin:0 !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-progs > li + li,body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-adults > .pg-adult + .pg-adult{border-top:1px solid var(--ph-line) !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) :is(.pg-prog,.pg-adult){display:flex !important;flex-direction:row !important;align-items:center !important;gap:14px;min-height:84px;height:auto !important;padding:12px 14px 12px 12px !important;border:0 !important;border-radius:0 !important;background:none !important;color:var(--ph-ink) !important;text-decoration:none !important;box-shadow:none !important;opacity:1}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) :is(.pg-prog,.pg-adult):active{background:rgba(34,69,138,.07) !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) :is(.pg-prog,.pg-adult) figure{flex:none;width:60px !important;height:60px !important;aspect-ratio:auto !important;margin:0 !important;border:0 !important;border-radius:12px !important;overflow:hidden}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) :is(.pg-prog,.pg-adult) figure img{width:100%;height:100%;object-fit:cover}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) :is(.pg-prog-body,.pg-adult > div){flex:1;min-width:0;display:flex !important;flex-direction:column !important;gap:3px !important;padding:0 !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) :is(.pg-prog,.pg-adult) b{order:1;font:400 18.5px/1.25 var(--font-display) !important;color:var(--ph-ink) !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) :is(.pg-prog,.pg-adult) small{order:2;font:400 15px/1.35 'Geist',system-ui,sans-serif !important;letter-spacing:0 !important;text-transform:none !important;color:var(--pg-mut) !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) :is(.pg-prog,.pg-adult) :is(.card-p,.pg-go){display:none !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-adults{margin-top:0 !important}
+
+/* =====================================================================
+   PARTNERSHIPS: your side / our side / commercials as grouped lists
+   ===================================================================== */
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-sides{display:block !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-side{display:block !important;padding:0 !important;border:0 !important;background:none !important;border-radius:0 !important;box-shadow:none !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-side + .pg-side{margin-top:28px}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-side small{display:block;margin:0 0 2px 2px;font:600 12.5px/1.3 'Geist',system-ui,sans-serif !important;letter-spacing:.12em !important;text-transform:uppercase;color:var(--pg-mut) !important}
+html[lang="zh-CN"] body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-side small{font-size:13.5px !important;letter-spacing:.04em !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-side h3{margin:0 0 10px 2px !important;font:400 20px/1.3 var(--font-display) !important;color:var(--ph-ink) !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-side ul{display:block !important;margin:0 !important;padding:0 !important;border:1px solid var(--ph-line) !important;border-radius:var(--ph-r);background:var(--ph-surface);overflow:hidden}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-side li{display:flex;align-items:center;min-height:52px;padding:8px 16px !important;font-size:16px !important;line-height:1.35 !important;color:var(--ph-ink) !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-side li + li{border-top:1px solid var(--ph-line)}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-side li::before{display:none !important}
+
+/* =====================================================================
+   RESULTS
+   ===================================================================== */
+/* jump index in the hero: label over title, chevron */
+body.pg-results .pp-glance li.pg-gl{display:block !important;padding:0 !important;min-height:0 !important}
+body.pg-results .pg-gl > a{display:flex !important;flex-direction:row !important;align-items:center !important;justify-content:flex-start !important;text-align:left !important;gap:12px;min-height:68px;padding:10px 14px 10px 16px;color:var(--ph-ink) !important;text-decoration:none !important}
+body.pg-results .pg-gl > a:active{background:rgba(34,69,138,.07)}
+body.pg-results .pg-gl > a > b{display:none !important}
+body.pg-results .pg-gl .ph-gl-t{flex:1;min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:3px;text-align:left}
+body.pg-results .pg-gl .ph-gl-t > *{text-align:left !important}
+body.pg-results .pg-gl .ph-gl-t b{display:block;font-size:12.5px !important;letter-spacing:.12em !important}
+html[lang="zh-CN"] body.pg-results .pg-gl .ph-gl-t b{font-size:13px !important;letter-spacing:.04em !important}
+body.pg-results .pg-gl .ph-gl-t span{text-align:left !important;font:400 18px/1.25 var(--font-display) !important}
+/* case chapters */
+body.pg-results .pg-case-grid{display:flex !important;flex-direction:column;align-items:stretch !important;gap:22px !important}
+body.pg-results .pg-case-copy .eyebrow{display:block !important;background:none !important;color:var(--ph-blue2) !important;box-shadow:none !important;padding:0 !important;font:600 13px/1.3 'Geist',system-ui,sans-serif !important;letter-spacing:.14em !important;text-transform:uppercase}
+body.pg-results .pg-case-copy .eyebrow::before,body.pg-results .pg-case-copy .eyebrow::after{display:none !important}
+html[lang="zh-CN"] body.pg-results .pg-case-copy .eyebrow{font-size:13.5px !important;letter-spacing:.06em !important}
+body.pg-results .pg-case-copy .h2{margin-top:10px !important}
+body.pg-results .pg-case-media{order:1 !important;border-radius:var(--ph-r) !important;aspect-ratio:4/3 !important}
+body.pg-results .pg-case-media figcaption{font-size:13.5px !important}
+body.pg-results .pg-stats{margin-top:24px !important;border-top:1px solid var(--ph-line) !important;border-bottom:0 !important}
+body.pg-results .pg-stats > div:not(.pg-sj){display:grid !important;grid-template-columns:108px 1fr !important;column-gap:14px;align-items:baseline;padding:16px 2px !important;border:0 !important;border-bottom:1px solid var(--ph-line) !important}
+body.pg-results .pg-stats > div:not(.pg-sj) b{font-size:26px !important;line-height:1.1 !important;white-space:normal !important}
+body.pg-results .pg-stats p{margin:0 !important;font-size:15.5px !important;line-height:1.5 !important;color:var(--ph-soft) !important;max-width:none !important}
+html[lang="zh-CN"] body.pg-results .pg-stats p{line-height:1.7 !important}
+body.pg-results .pg-sj{display:block !important;padding:16px 2px !important;border-bottom:1px solid var(--ph-line) !important}
+body.pg-results .pg-sj-logos{display:flex !important;flex-wrap:wrap !important;gap:10px 16px !important;min-height:0 !important}
+body.pg-results .pg-sj-logos img{height:26px !important}
+body.pg-results .pg-sj-logos img.is-stanford{height:18px !important}
+body.pg-results .pg-sj-logos img.is-yc{height:23px !important}
+body.pg-results .pg-sj-logos em{font-size:17px !important;white-space:nowrap}
+body.pg-results .pg-sj p{margin-top:12px !important}
+/* photo strip: a swipe strip with a peek, edge to edge */
+body.pg-results .pg-strip{display:grid !important;grid-template-columns:none !important;grid-auto-flow:column !important;grid-auto-columns:76% !important;gap:10px !important;overflow-x:auto !important;scroll-snap-type:x mandatory !important;margin:20px calc(-1 * var(--ph-gut)) 0 !important;padding:0 var(--ph-gut) 2px !important;scroll-padding-inline:var(--ph-gut);scrollbar-width:none;overscroll-behavior-x:contain}
+body.pg-results .pg-strip::-webkit-scrollbar{display:none}
+body.pg-results .pg-strip > li{scroll-snap-align:start}
+body.pg-results .pg-strip figure{border-radius:14px !important;aspect-ratio:4/3 !important}
+body.pg-results .pg-strip figcaption{font-size:13.5px !important;padding:28px 12px 10px !important}
+/* Tsinghua: logo on paper, facts as grouped label/value rows (no logo in a card) */
+body.pg-results .pg-inst{display:block !important}
+body.pg-results .pg-inst h2{margin-top:10px !important}
+body.pg-results .pg-inst .eyebrow{display:block !important;background:none !important;color:var(--ph-blue2) !important;box-shadow:none !important;padding:0 !important;font:600 13px/1.3 'Geist',system-ui,sans-serif !important;letter-spacing:.14em !important;text-transform:uppercase}
+body.pg-results .pg-inst .eyebrow::before,body.pg-results .pg-inst .eyebrow::after{display:none !important}
+html[lang="zh-CN"] body.pg-results .pg-inst .eyebrow{font-size:13.5px !important;letter-spacing:.06em !important}
+body.pg-results .pg-inst-card{display:block !important;margin-top:24px;padding:0 !important;border:0 !important;background:none !important;border-radius:0 !important}
+body.pg-results .pg-inst-card > img{display:block;height:40px !important;width:auto;margin:0 0 16px 2px}
+body.pg-results .pg-inst-card dl{display:block !important;margin:0;background:var(--ph-surface);border:1px solid var(--ph-line);border-radius:var(--ph-r);overflow:hidden}
+body.pg-results .pg-inst-card .ph-dlrow{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:52px;padding:8px 16px}
+body.pg-results .pg-inst-card .ph-dlrow + .ph-dlrow{border-top:1px solid var(--ph-line)}
+body.pg-results .pg-inst-card dt{flex:none;font:600 12.5px/1.2 'Geist',system-ui,sans-serif !important;letter-spacing:.12em !important;text-transform:uppercase;color:var(--pg-mut) !important}
+html[lang="zh-CN"] body.pg-results .pg-inst-card dt{font-size:13.5px !important;letter-spacing:.04em !important}
+body.pg-results .pg-inst-card dd{margin:0;text-align:right;font-size:16px !important;line-height:1.35 !important;color:var(--ph-ink) !important}
+
+/* =====================================================================
+   CONTACT: one grouped list of routes + the email row
+   ===================================================================== */
+body.pg-contact-page .pg-routes{display:block !important;margin:28px 0 0 !important;padding:0 !important;background:var(--ph-surface);border:1px solid var(--ph-line);border-radius:var(--ph-r);overflow:hidden;text-align:left}
+body.pg-contact-page .pg-routes > li{margin:0 !important}
+body.pg-contact-page .pg-routes > li + li{border-top:1px solid var(--ph-line)}
+body.pg-contact-page .pg-route{display:grid !important;grid-template-columns:1fr auto;grid-template-areas:"k a" "b a" "s a";align-items:center;column-gap:12px;row-gap:2px;min-height:68px;padding:12px 14px 12px 16px !important;border:0 !important;border-radius:0 !important;background:none !important;box-shadow:none !important}
+body.pg-contact-page .pg-route::after{grid-area:a}
+body.pg-contact-page .pg-route .pg-route-go{display:none !important}
+body.pg-contact-page .pg-route small{grid-area:k;font:600 12.5px/1.3 'Geist',system-ui,sans-serif !important;letter-spacing:.12em !important;color:var(--pg-mut) !important}
+html[lang="zh-CN"] body.pg-contact-page .pg-route small{font-size:13px !important;letter-spacing:.04em !important}
+body.pg-contact-page .pg-route b{grid-area:b;margin:0 !important;font:400 19px/1.25 var(--font-display) !important;color:var(--ph-ink) !important}
+body.pg-contact-page .pg-route span{grid-area:s;margin:0 !important;font-size:15px !important;line-height:1.45 !important;color:var(--ph-soft) !important}
+body.pg-contact-page .pg-route:active{background:rgba(34,69,138,.07) !important}
+body.pg-contact-page .pg-route.is-on{box-shadow:inset 3px 0 0 var(--ph-blue) !important}
+body.pg-contact-page .pg-routes .ph-mailrow{display:flex;align-items:center;gap:12px;min-height:56px;padding:8px 14px 8px 16px;color:var(--ph-ink) !important;text-decoration:none !important}
+body.pg-contact-page .pg-routes .ph-mailrow:active{background:rgba(34,69,138,.07)}
+body.pg-contact-page .ph-mailrow .ph-row-t{flex:none;font:600 12.5px/1.3 'Geist',system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--pg-mut)}
+html[lang="zh-CN"] body.pg-contact-page .ph-mailrow .ph-row-t{font-size:13px;letter-spacing:.04em}
+body.pg-contact-page .ph-mailrow .ph-row-v{flex:1;min-width:0;text-align:right;max-width:none;font-size:16px;color:var(--ph-blue)}
+/* what happens next: a label, not a giant heading */
+body.pg-contact-page .pg-next-h{margin:0 0 10px 2px !important;font:600 12.5px/1.3 'Geist',system-ui,sans-serif !important;letter-spacing:.12em !important;text-transform:uppercase;color:var(--pg-mut) !important}
+html[lang="zh-CN"] body.pg-contact-page .pg-next-h{font-size:13.5px !important;letter-spacing:.04em !important}
+body.pg-contact-page .pg-next ol{background:var(--ph-surface);border:1px solid var(--ph-line) !important;border-radius:var(--ph-r);overflow:hidden}
+body.pg-contact-page .pg-next li{grid-template-columns:30px 1fr !important;padding:14px 16px !important;font-size:15.5px !important;border-bottom:0 !important}
+body.pg-contact-page .pg-next li + li{border-top:1px solid var(--ph-line)}
+html[lang="zh-CN"] body.pg-contact-page .pg-next li{line-height:1.7 !important}
+body.pg-contact-page .pg-contact-fine{font-size:15px !important;border-top:0 !important;padding:0 2px !important}
+body.pg-contact-page .pg-form-card .cohort-form{border-radius:var(--ph-r) !important;padding:22px 18px !important}
+body.pg-contact-page .pg-form-card .form-row label{font-size:12.5px !important}
+html[lang="zh-CN"] body.pg-contact-page .pg-form-card .form-row label{font-size:13.5px !important}
+
+/* =====================================================================
+   ENROLL: sections on paper, one grouped container per question,
+   a trailing check on the selected row
+   ===================================================================== */
+body.pg-enroll-page .pg-ef-steps li{font-size:12.5px !important}
+html[lang="zh-CN"] body.pg-enroll-page .pg-ef-steps li{font-size:13.5px !important;letter-spacing:.04em !important}
+body.pg-enroll-page .en-form .ef-sec{margin:0 0 32px !important;padding:0 !important;border:0 !important;background:none !important;border-radius:0 !important}
+body.pg-enroll-page .en-form legend{margin:0 0 14px !important;font-size:22px !important;gap:10px !important}
+body.pg-enroll-page .en-form legend small{font:500 14px/1 'Geist',system-ui,sans-serif !important;letter-spacing:0 !important;color:var(--ph-blue2) !important}
+body.pg-enroll-page .en-form label.f,body.pg-enroll-page .en-form p.f{margin:0 0 8px 2px !important;font:600 12.5px/1.3 'Geist',system-ui,sans-serif !important;letter-spacing:.1em !important;color:var(--pg-mut) !important}
+html[lang="zh-CN"] body.pg-enroll-page .en-form :is(label.f,p.f){font-size:13.5px !important;letter-spacing:.04em !important}
+body.pg-enroll-page .en-form .ef-grid2{gap:16px !important}
+body.pg-enroll-page .en-form input[type=text],body.pg-enroll-page .en-form textarea{min-height:52px;padding:13px 16px !important;font-size:16px !important;border:1px solid var(--ph-line) !important;border-radius:12px !important;background:var(--ph-surface) !important}
+body.pg-enroll-page .en-form .hint{margin:-6px 0 12px 2px !important;font-size:15px !important;line-height:1.5 !important;color:var(--ph-soft) !important}
+html[lang="zh-CN"] body.pg-enroll-page .en-form .hint{line-height:1.7 !important}
+body.pg-enroll-page .en-form :is(.opts2,.opts3){display:block !important;background:var(--ph-surface);border:1px solid var(--ph-line);border-radius:var(--ph-r);overflow:hidden}
+body.pg-enroll-page .en-form :is(.opts2,.opts3) + .fld{margin-top:20px !important}
+body.pg-enroll-page .en-form .chk{position:relative;display:flex !important;align-items:center !important;gap:12px !important;min-height:52px;margin:0 !important;padding:10px 16px !important;border:0 !important;border-radius:0 !important;background:none !important;font-size:16px !important;line-height:1.4 !important;color:var(--ph-ink)}
+body.pg-enroll-page .en-form :is(.opts2,.opts3) .chk + .chk{border-top:1px solid var(--ph-line) !important}
+body.pg-enroll-page .en-form .chk:active{background:rgba(34,69,138,.07) !important}
+/* the native control stays in place for validation and focus, but invisible */
+body.pg-enroll-page .en-form .chk input{position:absolute !important;right:16px;top:50%;width:24px !important;height:24px !important;margin:-12px 0 0 !important;opacity:0 !important}
+body.pg-enroll-page .en-form .chk > span{flex:1;min-width:0}
+body.pg-enroll-page .en-form .chk::after{content:"";flex:none;width:22px;height:22px;border-radius:50%;box-sizing:border-box;border:1.5px solid rgba(11,26,74,.28);background:transparent;transition:background-color .15s,border-color .15s}
+body.pg-enroll-page .en-form .chk:has(input:checked){background:rgba(34,69,138,.05) !important}
+body.pg-enroll-page .en-form .chk:has(input:checked)::after{border-color:var(--ph-blue);background:var(--ph-blue)}
+body.pg-enroll-page .en-form .chk .ph-tick{display:none}
+body.pg-enroll-page .en-form .chk:has(input:checked) .ph-tick{display:block;position:absolute;right:16px;top:50%;width:22px;height:22px;margin-top:-11px;background:#FCF3ED;-webkit-mask:var(--ph-check-mask) center/14px 14px no-repeat;mask:var(--ph-check-mask) center/14px 14px no-repeat;pointer-events:none}
+body.pg-enroll-page .en-form .chk:has(input:focus-visible){box-shadow:inset 0 0 0 2px rgba(47,85,168,.45)}
+/* confirmation: same row grammar in its own container */
+body.pg-enroll-page .en-form .ef-confirm .chk{align-items:flex-start !important;padding:14px 16px !important;background:var(--ph-surface) !important;border:1px solid var(--ph-line) !important;border-radius:var(--ph-r) !important}
+body.pg-enroll-page .en-form .ef-confirm .chk::after{margin-top:1px}
+body.pg-enroll-page .en-form .ef-confirm .chk:has(input:checked){background:#F4EFEA !important}
+body.pg-enroll-page .en-form .ef-confirm .chk .ph-tick{top:15px;margin-top:0}
+body.pg-enroll-page .en-form .ef-confirm .chk input{top:15px;margin-top:0 !important}
+body.pg-enroll-page .en-form .en-btn{min-height:56px;border-radius:999px !important;font-size:16.5px !important;font-weight:600 !important;white-space:nowrap}
+body.pg-enroll-page .en-form .ef-help{font-size:15px !important;line-height:1.55 !important}
+
+/* =====================================================================
+   PAY (EN, bilingual inline): steps as one grouped list
+   ===================================================================== */
+body:has(.pay-sec) .pay-sec .reveal[style*="display:grid"]{gap:0 !important;margin-top:28px !important;background:var(--ph-surface);border:1px solid var(--ph-line);border-radius:var(--ph-r);overflow:hidden}
+body:has(.pay-sec) .pay-sec .reveal[style*="display:grid"] > .zl-card{border:0 !important;border-radius:0 !important;background:none !important;box-shadow:none !important;padding:16px 16px !important}
+body:has(.pay-sec) .pay-sec .reveal[style*="display:grid"] > .zl-card + .zl-card{border-top:1px solid var(--ph-line) !important}
+body:has(.pay-sec) .pay-step{font-size:15.5px !important;line-height:1.55 !important}
+body:has(.pay-sec) .pay-hint{font-size:15px !important;line-height:1.55 !important}
+body:has(.pay-sec) .pay-note{font-size:15px !important;line-height:1.6 !important;color:var(--ph-soft) !important}
+body:has(.pay-sec) .pay-sec > .container > .reveal:first-child{font-size:12.5px !important}
+}
+@media (max-width:760px){
+/* list lines wrap naturally (no balanced, half-width lines) */
+html[lang="en"] body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) :is(.gc-do li,.ap-impact li,.ap-tl-desc,.pg-steps p,.pg-prog small,.pg-adult small,.pg-route span,.pg-stats p,.pg-proof-k,.pg-proof-stat > span){text-wrap:pretty !important;max-width:none !important}
+}
+@media (max-width:760px){
+html[lang="zh-CN"] body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) :is(.gc-do li,.gc-more li,.pg-side li,.ap-foot-list li,.pg-next li,.pg-route span){line-height:1.7 !important}
+}
+@media (max-width:760px){
+/* labels that live inside long list items read as small sentence-case lines (15px), not tiny caps */
+body.pg-approach .ap-where{font:600 15px/1.35 'Geist',system-ui,sans-serif !important;letter-spacing:0 !important;text-transform:none !important;margin-bottom:1px}
+html[lang="zh-CN"] body.pg-approach .ap-where{font-size:15px !important}
+body.pg-approach .ap-tl-time{font:500 15px/1.3 'Geist',system-ui,sans-serif !important;letter-spacing:0 !important;text-transform:none !important}
+html[lang="zh-CN"] body.pg-approach .ap-tl-time{font-size:15px !important}
+body.pg-approach .ap-tl-node{margin-top:4px !important}
+body.pg-contact-page .pg-route small{font:600 15px/1.3 'Geist',system-ui,sans-serif !important;letter-spacing:0 !important;text-transform:none !important;color:var(--ph-blue2) !important}
+html[lang="zh-CN"] body.pg-contact-page .pg-route small{font-size:15px !important}
+body.pg-contact-page .pg-form-card .form-row label{font-size:13px !important}
+html[lang="zh-CN"] body:is(.pg-schools,.pg-enroll-page) :is(.pg-note,.ef-help){line-height:1.75 !important}
+}
+
+/* lead: Results jump rows scroll within the page, so their chevron points down */
+@media (max-width:760px){
+body.pg-results .pg-gl > a .ph-chev,body.pg-results .pg-gl > a svg:last-child{transform:rotate(90deg)}
+}

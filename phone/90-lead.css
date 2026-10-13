@@ -1,0 +1,78 @@
+/* Lead fixes from the final EN/CN review (2026-10-10). Loaded last among the partials. */
+@media (max-width:760px){
+/* the compact footer: styles.css has [hidden]{display:none !important}, so beat it explicitly */
+.ph-foot[hidden]{display:block !important}
+/* Chinese word segments built by phone.js: a word never splits across lines */
+ph-w{white-space:nowrap}
+/* long quote-like Chinese section headings: 3 lines max at 390 */
+html[lang="zh-CN"] main .h2-md,html[lang="zh-CN"] main .sec-head .h2.h2-md{font-size:20px !important;line-height:1.5 !important}
+/* "why it matters": text uses the full row width (the chevron sits on the title line), 16px */
+main.pc .pc-why-list.has-wr > li{padding-right:0 !important}
+main.pc .pc-why-list.has-wr > li > h3{padding-right:34px !important}
+main.pc .pc-why-list.has-wr > li > p{font-size:16px !important}
+/* mentorship: the "swipe to see all four phases" hint is wrong once the phases stack vertically */
+main.pc .pc-how .pc-sel::after{content:none !important;display:none !important}
+/* enroll: multi-select groups get rounded-square checkboxes, single-choice keep circles */
+body.pg-enroll-page .en-form .chk:has(input[type=checkbox])::after{border-radius:6px}
+/* bootcamp hero co-host label */
+.zl-hero-hosted-label{font-size:12px !important}
+html[lang="zh-CN"] .zl-hero-hosted-label{font-size:13px !important;letter-spacing:.04em !important}
+}
+
+/* round 2 of the review */
+@media (max-width:760px){
+/* no-break tails are inline, whatever the component styles spans as */
+ph-nb,.nb{display:inline !important;white-space:nowrap;margin:0 !important;padding:0 !important;font:inherit;letter-spacing:inherit;text-transform:inherit;color:inherit}
+/* "why it matters": every row reads the same; the small extra lists stay on desktop */
+main.pc .pc-why-list:not(.cf-ideas) > li > .wr{display:none !important}
+main.pc .pc-why-list.has-wr:not(.cf-ideas) > li::after{display:none !important}
+main.pc .pc-why-list.has-wr:not(.cf-ideas) > li{cursor:default;padding-right:0 !important}
+main.pc .pc-why-list.has-wr:not(.cf-ideas) > li:active{background:none !important}
+main.pc .pc-why-list.has-wr > li > h3{padding-right:0 !important}
+/* community dialogues badge: one line */
+.eyebrow.cd-eb .cd-eb-sep,.eyebrow.cd-eb .cd-eb-2{display:none !important}
+/* compact hero facts */
+main :is(.pc-facts,.pp-glance) > li{min-height:44px !important;padding-top:7px !important;padding-bottom:7px !important}
+main :is(.pc-facts,.pp-glance){margin-top:20px !important}
+main section.hero .cs-h1,main section.hero h1.display{margin-bottom:12px !important}
+/* long English section headings: 3 lines max */
+html:not([lang="zh-CN"]) main .h2-md,html:not([lang="zh-CN"]) main .sec-head .h2.h2-md{font-size:22px !important;line-height:1.3 !important}
+/* dark "Next step" block above the dark footer: a hairline seam */
+.ph-foot{border-top:1px solid rgba(246,240,229,.10)}
+/* captions and source lines at a readable size */
+main figcaption,main .pc-why-src{font-size:14.5px !important}
+html[lang="zh-CN"] main figcaption{font-size:14px !important}
+}
+
+@media (max-width:760px){
+.cf-date.ph-wrap span::before{content:none !important;display:none !important;margin:0 !important}
+}
+
+@media (max-width:760px){
+html:not([data-x]) body main h2.ph-long.ph-long.ph-long.ph-long.ph-long{font-size:20px !important;line-height:1.32 !important}
+html[lang="zh-CN"]:not([data-x]) body main h2.ph-long.ph-long.ph-long.ph-long.ph-long{font-size:19px !important;line-height:1.55 !important}
+}
+
+/* homepage photo strip: its own band (user 2026-10-13), header row with a swipe cue */
+@media (max-width:760px){
+body.home section.gallery-strip.gm{background:#F1E6D8 !important;border-top:1px solid var(--ph-line) !important;border-bottom:1px solid var(--ph-line) !important;padding:18px 0 22px !important}
+.ph-gal-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:0 var(--ph-gut) 12px}
+.ph-gal-h b{font:600 12.5px/1.2 'Geist',system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--ph-blue2)}
+html[lang="zh-CN"] .ph-gal-h b{font-size:13.5px;letter-spacing:.06em;text-transform:none}
+.ph-swipe{display:inline-flex;align-items:center;gap:6px;font:500 14px/1 'Geist',system-ui,sans-serif;color:var(--ph-soft);transition:opacity .4s}
+.ph-swipe svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;animation:phNudge 1.6s ease-in-out infinite}
+.ph-swipe.gone{opacity:0}
+@keyframes phNudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+@media (prefers-reduced-motion:reduce){.ph-swipe svg{animation:none}}
+}
+
+/* user feedback 2026-10-13 */
+@media (max-width:760px){
+/* grade map: no axis header on phones (the bars already carry the grade ranges) */
+body.home .gmap .gm-axis{display:none !important}
+/* "Read our approach": no dead space under it */
+body.home section.pillars{padding-bottom:20px !important}
+body.home .pillars-more{margin-bottom:0 !important;padding-bottom:0 !important}
+/* contact: a divider so the form card reads as its own step */
+body.home .partners .partner-cta{margin-top:8px !important;padding-top:28px !important;border-top:1px solid var(--ph-line) !important}
+}

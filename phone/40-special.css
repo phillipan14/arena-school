@@ -1,0 +1,307 @@
+/* 40-special.css: phone treatments for the three special pages' own diagrams, plus the shared
+   sequence/ladder (.pg-seq) on /zero-to-launch and /mentorship. Owner: special-pages builder.
+   Pages: /zero-to-launch(-cn), /mentorship(-cn) (.pg-seq only), /programs/conferences(-cn),
+   /programs/website-portfolio-workshop(-cn). Phone-only: everything sits inside the media query.
+   Rule from the user: nothing opens into a big panel on phones. Short lines show inline; long
+   reveals are summarized in one line. */
+@media (max-width:760px){
+
+/* ======================================================================
+   A. Grouped-row index (bootcamp "Why it matters" + "Outcomes")
+   One paper surface, hairline rows, a small blue number, title, one line of body.
+   The "Why it matters" reveal (+) is dropped on phones: its chips and logo marquee
+   repeat what the week schedule and the tools list say right below.
+   ====================================================================== */
+body.pg-bootcamp .pg-outs{display:block !important;margin:0 !important;padding:0 !important;overflow:hidden !important;
+  background:var(--ph-surface) !important;border:1px solid var(--ph-line) !important;border-radius:var(--ph-r) !important}
+body.pg-bootcamp .pg-outs > li{display:grid !important;grid-template-columns:32px minmax(0,1fr);column-gap:10px;row-gap:0 !important;align-items:baseline;
+  margin:0 !important;padding:16px 16px 17px !important;background:none !important;border:0 !important;border-radius:0 !important;box-shadow:none !important;cursor:auto !important}
+body.pg-bootcamp .pg-outs > li + li{border-top:1px solid var(--ph-line) !important}
+body.pg-bootcamp .pg-outs > li::after{display:none !important}
+body.pg-bootcamp .pg-outs small{grid-row:1 / span 2;padding:0 !important;border:0 !important;font:600 15px/1.3 'Geist',system-ui,sans-serif !important;
+  letter-spacing:.02em !important;color:var(--ph-blue2) !important;font-variant-numeric:tabular-nums}
+body.pg-bootcamp .pg-outs b{margin:0 !important;font-size:19px !important;line-height:1.3 !important;color:var(--ph-ink) !important}
+body.pg-bootcamp .pg-outs .card-p{margin:5px 0 0 !important;font-size:15.5px !important;line-height:1.55 !important;color:var(--ph-soft) !important}
+html[lang="zh-CN"] body.pg-bootcamp .pg-outs .card-p{line-height:1.75 !important}
+html[lang="zh-CN"] body.pg-bootcamp .pg-outs b{font-size:18px !important;line-height:1.45 !important}
+body.pg-bootcamp .pg-outs > li > .wr{display:none !important}
+
+/* ======================================================================
+   B. Sequence / ladder (.pg-seq): one column, rail on the left.
+   Bootcamp week = dots + "Day 1" label (CN: 第1天, set by 40-special.js).
+   Mentorship milestones = numbered rungs, filled first rung.
+   ====================================================================== */
+main .pg-seq{display:block !important;margin:4px 0 0 !important;padding:0 !important;border:0 !important;list-style:none}
+main .pg-seq > li,main .pg-seq > li + li{position:relative !important;display:block !important;margin:0 !important;
+  padding:0 0 24px 40px !important;border:0 !important;min-height:0 !important}
+main .pg-seq > li:last-child{padding-bottom:0 !important}
+main .pg-seq > li::before{content:"" !important;display:block !important;position:absolute !important;left:7px !important;top:18px !important;bottom:-2px !important;
+  width:2px !important;border-radius:1px;background:rgba(34,69,138,.2) !important}
+main .pg-seq > li:last-child::before{display:none !important}
+main .pg-seq b{display:block !important;margin:4px 0 0 !important;font-size:20px !important;line-height:1.28 !important;color:var(--ph-ink) !important;text-wrap:balance}
+main .pg-seq p{margin:6px 0 0 !important;font-size:15.5px !important;line-height:1.55 !important;color:var(--ph-soft) !important;max-width:none !important}
+html[lang="zh-CN"] main .pg-seq b{font-size:18.5px !important;line-height:1.45 !important}
+html[lang="zh-CN"] main .pg-seq p{line-height:1.75 !important}
+/* week: small dot + label */
+body.pg-bootcamp #week .pg-seq > li::after{content:"" !important;position:absolute !important;left:0 !important;top:3px !important;width:16px !important;height:16px !important;
+  border-radius:50% !important;background:transparent !important;box-shadow:inset 0 0 0 2px var(--ph-blue2) !important}
+body.pg-bootcamp #week .pg-seq > li:first-child::after,body.pg-bootcamp #week .pg-seq > li:last-child::after{box-shadow:inset 0 0 0 8px var(--ph-blue2) !important}
+body.pg-bootcamp #week .pg-seq small{display:block !important;padding:0 !important;font:600 15px/22px 'Geist',system-ui,sans-serif !important;letter-spacing:.01em !important;
+  text-transform:none !important;color:var(--ph-blue2) !important;white-space:nowrap}
+html[lang="zh-CN"] body.pg-bootcamp #week .pg-seq small{letter-spacing:.02em !important}
+body.pg-bootcamp #week .pg-seq b{margin-top:2px !important}
+/* milestones: numbered rungs */
+#milestones .pg-seq > li,#milestones .pg-seq > li + li{padding-left:50px !important;padding-bottom:26px !important;min-height:34px !important}
+#milestones .pg-seq > li:last-child{padding-bottom:0 !important}
+#milestones .pg-seq > li::before{left:16px !important;top:36px !important;bottom:2px !important}
+#milestones .pg-seq small{position:absolute !important;left:0 !important;top:0 !important;width:34px !important;height:34px !important;margin:0 !important;padding:0 !important;
+  display:grid !important;place-items:center;border-radius:50% !important;background:var(--ph-paper) !important;box-shadow:inset 0 0 0 2px var(--ph-blue2) !important;
+  font:600 15px/1 'Geist',system-ui,sans-serif !important;letter-spacing:0 !important;color:var(--ph-ink) !important;font-variant-numeric:tabular-nums}
+#milestones .pg-seq > li:first-child small{background:var(--ph-blue2) !important;color:#FCF3ED !important}
+#milestones .pg-seq b{margin-top:3px !important}
+
+/* ======================================================================
+   C. Bootcamp tools: one grouped surface, a section per category, tools two-up.
+   ====================================================================== */
+body.pg-bootcamp #week .pg-tools-k{margin:40px 0 12px !important;text-align:left !important;font:500 16px/1.5 'Geist',system-ui,sans-serif !important;
+  letter-spacing:0 !important;text-transform:none !important;color:var(--ph-ink) !important;text-wrap:pretty}
+html[lang="zh-CN"] body.pg-bootcamp #week .pg-tools-k{line-height:1.7 !important}
+body.pg-bootcamp .zt-strip{display:block !important;overflow:hidden !important;padding:0 !important;margin:0 !important;
+  background:var(--ph-surface) !important;border:1px solid var(--ph-line) !important;border-radius:var(--ph-r) !important}
+body.pg-bootcamp .zt-strip .zt-col,body.pg-bootcamp .zt-strip .zt-col:last-child:nth-child(odd){display:grid !important;grid-template-columns:1fr 1fr;column-gap:12px;
+  padding:13px 16px 9px !important;margin:0 !important;background:none !important;border:0 !important;border-radius:0 !important;box-shadow:none !important;min-width:0}
+body.pg-bootcamp .zt-strip .zt-col + .zt-col,body.pg-bootcamp .zt-strip .zt-col + .zt-col:last-child:nth-child(odd){border-top:1px solid var(--ph-line) !important}
+body.pg-bootcamp .zt-strip .zt-cat{grid-column:1 / -1 !important;margin:0 0 4px !important;padding:0 !important;border:0 !important;
+  font:600 12px/1.4 'Geist',system-ui,sans-serif !important;letter-spacing:.1em !important;text-transform:uppercase;color:var(--ph-muted) !important}
+html[lang="zh-CN"] body.pg-bootcamp .zt-strip .zt-cat{font-size:13px !important;letter-spacing:.04em !important}
+body.pg-bootcamp .zt-strip .zt-tool{display:flex !important;align-items:center;gap:10px !important;min-height:38px;padding:0 !important;border:0 !important;min-width:0}
+body.pg-bootcamp .zt-strip .zt-tool img{flex:none;width:24px !important;height:24px !important;border-radius:6px !important}
+body.pg-bootcamp .zt-strip .zt-tool b{font:500 15.5px/1.2 'Geist',system-ui,sans-serif !important;color:var(--ph-ink) !important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* ======================================================================
+   D. Bootcamp program facts: grouped label/value rows on paper
+   ====================================================================== */
+body.pg-bootcamp .pg-spec{margin-top:24px !important;overflow:hidden;background:var(--ph-surface) !important;border:1px solid var(--ph-line) !important;border-radius:var(--ph-r) !important}
+body.pg-bootcamp .pg-spec .zl-spec-row{display:block !important;padding:13px 16px 14px !important;border:0 !important;background:none !important}
+body.pg-bootcamp .pg-spec .zl-spec-row + .zl-spec-row{border-top:1px solid var(--ph-line) !important}
+body.pg-bootcamp .pg-spec .zl-spec-label{display:block !important;padding:0 !important;margin:0 0 3px !important;background:none !important;border:0 !important;
+  font:600 12px/1.4 'Geist',system-ui,sans-serif !important;letter-spacing:.1em !important;text-transform:uppercase;color:var(--ph-muted) !important}
+html[lang="zh-CN"] body.pg-bootcamp .pg-spec .zl-spec-label{font-size:13px !important;letter-spacing:.04em !important}
+body.pg-bootcamp .pg-spec .zl-spec-value{display:block !important;padding:0 !important;font-size:16px !important;line-height:1.5 !important;color:var(--ph-ink) !important}
+html[lang="zh-CN"] body.pg-bootcamp .pg-spec .zl-spec-value{line-height:1.75 !important}
+
+/* ======================================================================
+   E. Conferences "Four formats": grouped rows with a square photo
+   ====================================================================== */
+main.pc-conf .pc-cards-4{display:block !important;overflow:hidden !important;margin:0 !important;padding:0 !important;
+  background:var(--ph-surface) !important;border:1px solid var(--ph-line) !important;border-radius:var(--ph-r) !important}
+main.pc-conf .pc-cards-4 .pc-card.pc-card-img{display:grid !important;grid-template-columns:76px minmax(0,1fr);column-gap:14px;align-items:start;
+  margin:0 !important;padding:14px 16px 16px 14px !important;background:none !important;border:0 !important;border-radius:0 !important;box-shadow:none !important;min-height:0 !important}
+main.pc-conf .pc-cards-4 .pc-card + .pc-card{border-top:1px solid var(--ph-line) !important}
+main.pc-conf .pc-cards-4 .pc-step-img{width:76px !important;height:76px !important;min-height:0 !important;aspect-ratio:1 !important;border-radius:12px !important;margin:2px 0 0 !important}
+main.pc-conf .pc-cards-4 .pc-step-img figcaption{display:none !important}
+main.pc-conf .pc-cards-4 .pc-card-body{padding:0 !important}
+main.pc-conf .pc-cards-4 .pc-num{display:block;font:600 12px/1.4 'Geist',system-ui,sans-serif !important;letter-spacing:.1em !important;color:var(--ph-soft) !important}
+html[lang="zh-CN"] main.pc-conf .pc-cards-4 .pc-num{font-size:13px !important;letter-spacing:.04em !important}
+main.pc-conf .pc-cards-4 .pc-card h3{margin:3px 0 4px !important;font-size:19px !important;line-height:1.3 !important}
+main.pc-conf .pc-cards-4 .card-p{margin:0 !important;font-size:15px !important;line-height:1.5 !important;color:var(--ph-soft) !important}
+html[lang="zh-CN"] main.pc-conf .pc-cards-4 .card-p{line-height:1.7 !important}
+
+/* ======================================================================
+   F. Conferences "three tracks": segmented control (built by 40-special.js) + one track at a time.
+   Every idea shows its one-line description inline; no expanding rows.
+   ====================================================================== */
+main.pc-conf .ph-seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:2px;margin:0 0 14px;padding:3px;border-radius:14px;background:rgba(11,26,74,.07)}
+main.pc-conf .ph-seg button{all:unset;box-sizing:border-box;display:flex;align-items:center;justify-content:center;min-height:44px;padding:0 6px;border-radius:11px;
+  font:600 14.5px/1.1 'Geist',system-ui,sans-serif;color:var(--ph-soft);text-align:center;white-space:nowrap;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background .18s,color .18s}
+main.pc-conf .ph-seg button[aria-selected="true"]{background:var(--ph-surface);color:var(--ph-ink);box-shadow:0 1px 3px rgba(11,26,74,.14),0 0 0 .5px rgba(11,26,74,.08)}
+main.pc-conf .ph-seg button:active{opacity:.7}
+html[lang="zh-CN"] main.pc-conf .ph-seg button{font-size:15px;letter-spacing:.02em}
+main.pc-conf .cf-cols.ph-segd{display:block !important;overflow:visible !important;margin:0 !important;padding:0 !important}
+main.pc-conf .cf-cols.ph-segd > .cf-col{display:none !important;padding:4px 16px 2px !important;background:var(--ph-surface) !important;margin:0 !important;
+  border:1px solid var(--ph-line) !important;border-radius:var(--ph-r) !important}
+main.pc-conf .cf-cols.ph-segd > .cf-col.ph-on{display:block !important}
+main.pc-conf .cf-cols.ph-segd > .cf-col{width:auto !important}
+main.pc-conf .cf-cols.ph-segd .cf-col h3{display:none !important}
+main.pc-conf .cf-cols.ph-segd .cf-col > p{margin:12px 0 4px !important;font-size:15px !important;line-height:1.5 !important;color:var(--ph-muted) !important}
+main.pc-conf .cf-ideas > li{padding:14px 0 15px !important;border-top:1px solid var(--ph-line) !important;cursor:auto !important}
+main.pc-conf .cf-ideas > li b{display:block !important;font:500 16.5px/1.35 'Geist',system-ui,sans-serif !important;color:var(--ph-ink) !important}
+main.pc-conf .cf-ideas > li b::after{display:none !important;content:none !important}
+main.pc-conf .cf-ideas > li b .cfm-br{display:none}
+main.pc-conf .cf-ideas > li > .wr{display:block !important;opacity:1 !important;padding-top:4px !important}
+main.pc-conf .cf-ideas > li > .wr .wr-in{overflow:visible}
+main.pc-conf .cf-ideas > li > .wr .wr-in > *{margin-top:0 !important}
+main.pc-conf .cf-ideas > li .wr span{display:block;font-size:15px !important;line-height:1.5 !important;color:var(--ph-soft) !important}
+html[lang="zh-CN"] main.pc-conf .cf-ideas > li .wr span{line-height:1.7 !important}
+html[lang="zh-CN"] main.pc-conf .cf-ideas > li b{line-height:1.5 !important}
+
+/* ======================================================================
+   G. Portfolio sample site: a phone-sized screen in a device frame.
+   Same sample site and the same tabs, chart, and video, at phone type sizes.
+   Pins and region highlights go (the notes sit below, not beside, on phones).
+   ====================================================================== */
+.sf-sample .sf-wrap{display:block !important}
+.sf-sample .sf-mock{margin:6px 6px 0 !important;padding:0 !important;max-width:none !important}
+.sf-sample .sf-browser{border-radius:30px !important;overflow:hidden !important;background:#fff !important;border:0 !important;
+  box-shadow:0 0 0 7px #0E1729,0 26px 44px -26px rgba(11,26,74,.55) !important}
+.sf-sample .sf-pin,.sf-sample .sf-dots,.sf-sample .sf-chrome-fill{display:none !important}
+.sf-sample .is-hl{outline:0 !important;box-shadow:none !important}
+.sf-sample [data-hl]{outline:0 !important}
+.sf-sample [data-hl]::before,.sf-sample [data-hl]::after{display:none !important}
+/* address bar, Safari-style */
+.sf-sample .sf-chrome{display:flex !important;justify-content:center;padding:12px 16px 8px !important;background:#F6F2EC !important;border:0 !important}
+.sf-sample .sf-addr{display:flex !important;align-items:center;justify-content:center;gap:6px;width:100%;max-width:none !important;height:34px;padding:0 12px !important;
+  border-radius:10px !important;background:rgba(11,26,74,.06) !important;border:0 !important;box-shadow:none !important}
+.sf-sample .sf-addr-url{font:500 14px/1 'Geist',system-ui,sans-serif !important;color:var(--ph-ink) !important}
+.sf-sample .sf-addr svg{width:12px;height:12px}
+/* site header + tabs as a segmented control */
+.sf-sample .sf-site{padding:0 !important}
+.sf-sample .sf-head{display:flex !important;flex-wrap:wrap;align-items:center;gap:10px !important;padding:14px 16px 12px !important;border-bottom:1px solid #EEE7DE !important;margin:0 !important}
+.sf-sample .sf-avatar{width:36px !important;height:36px !important;font-size:13px !important}
+.sf-sample .sf-name{font-size:18px !important}
+.sf-sample .sf-tabs{order:3;flex:1 0 100%;display:grid !important;grid-template-columns:repeat(4,1fr);gap:2px;margin:4px 0 0 !important;padding:3px !important;border-radius:12px;background:rgba(11,26,74,.07);border:0 !important}
+.sf-sample .sf-tabs button{min-height:44px !important;padding:0 4px !important;margin:0 !important;border:0 !important;border-radius:9px !important;background:none !important;box-shadow:none !important;
+  font:600 14px/1 'Geist',system-ui,sans-serif !important;font-style:normal !important;color:var(--ph-soft) !important;white-space:nowrap}
+.sf-sample .sf-tabs button::after,.sf-sample .sf-tabs button::before{display:none !important}
+.sf-sample .sf-tabs button[aria-selected="true"]{background:#fff !important;color:var(--ph-ink) !important;box-shadow:0 1px 2px rgba(11,26,74,.14) !important}
+html[lang="zh-CN"] .sf-sample .sf-tabs button{font-size:15px !important}
+.sf-sample .pp-panel{padding:14px 16px 16px !important;margin:0 !important}
+.sf-sample .ms-kicker{display:block !important;font:600 13px/1.45 'Geist',system-ui,sans-serif !important;letter-spacing:.08em !important}
+html[lang="zh-CN"] .sf-sample .ms-kicker{font-size:13.5px !important;letter-spacing:.04em !important}
+/* projects: cover */
+.sf-sample .sf-cover{margin:0 0 12px !important;padding:0 !important}
+.sf-sample .sf-cover-frame{border-radius:14px !important;min-height:0 !important}
+.sf-sample .sf-cover-copy{padding:16px !important}
+.sf-sample .sf-hero-h{font-size:21px !important;line-height:1.25 !important}
+html[lang="zh-CN"] .sf-sample .sf-hero-h{font-size:19px !important;line-height:1.5 !important}
+/* projects: work items as rows */
+.sf-sample .sf-grid{display:block !important;margin:0 0 12px !important;padding:0 !important;border:1px solid #EEE7DE !important;border-radius:14px !important;overflow:hidden}
+.sf-sample .sf-grid .ms-card{display:grid !important;grid-template-columns:60px 1fr 14px;align-items:center;column-gap:12px;width:100%;min-height:76px;padding:8px 14px 8px 8px !important;margin:0 !important;
+  border:0 !important;border-radius:0 !important;background:#fff !important;box-shadow:none !important;text-align:left;transform:none !important}
+.sf-sample .sf-grid .ms-card + .ms-card{border-top:1px solid #EEE7DE !important}
+.sf-sample .sf-grid .ms-card::after,.sf-sample .sf-grid .ms-card[data-hl]::after{content:"" !important;display:block !important;position:static !important;inset:auto !important;width:8px !important;height:8px !important;margin:0 !important;background:none !important;border:0 !important;border-radius:0 !important;box-shadow:none !important;outline:0 !important;opacity:1 !important;border-top:1.8px solid #A9A398 !important;border-right:1.8px solid #A9A398 !important;transform:rotate(45deg) !important}
+.sf-sample .sf-grid .ms-card:active{background:#F7F2EC !important}
+.sf-sample .sf-grid .ms-img{width:60px !important;height:60px !important;aspect-ratio:1 !important;margin:0 !important;border-radius:10px !important;overflow:hidden}
+.sf-sample .sf-grid .ms-img img{width:100%;height:100%;object-fit:cover}
+.sf-sample .sf-grid .ms-chip,.sf-sample .sf-grid .ms-dur{display:none !important}
+.sf-sample .sf-grid .ms-play{width:26px !important;height:26px !important;font-size:11px !important}
+.sf-sample .sf-grid .sf-seal-tile svg{width:44px !important;height:44px !important}
+.sf-sample .sf-grid .ms-card p{margin:0 !important;padding:0 !important;font:500 16px/1.4 'Geist',system-ui,sans-serif !important;color:var(--ph-ink) !important}
+html[lang="zh-CN"] .sf-sample .sf-grid .ms-card p{line-height:1.6 !important}
+.sf-sample .sf-grid .ms-card p small{display:block !important;margin-top:3px !important;font:400 14px/1.4 'Geist',system-ui,sans-serif !important;letter-spacing:0 !important;text-transform:none !important;color:var(--ph-muted) !important}
+/* projects: depth chart, uniform scale so labels stay readable */
+.sf-sample .sf-dx{margin:0 !important;padding:14px 14px 10px !important;border-radius:14px !important}
+.sf-sample .sf-dx-label{font:600 13px/1.4 'Geist',system-ui,sans-serif !important;letter-spacing:.03em !important;white-space:nowrap;margin-bottom:8px !important}
+html[lang="zh-CN"] .sf-sample .sf-dx-label{font-size:13.5px !important}
+.sf-sample .sf-dx-chart{position:relative;height:auto !important;padding:0 !important}
+.sf-sample .sf-dx-chart .dx-chart{display:block;width:100% !important;height:auto !important;aspect-ratio:342 / 174}
+.sf-sample .sf-dx-chart .dx-chart text{font-size:15px;font-family:'Geist',system-ui,sans-serif}
+.sf-sample .sf-dx-read{position:static !important;display:block !important;margin:8px 0 0 !important;padding:0 !important;background:none !important;font:500 14px/1.3 'Geist',system-ui,sans-serif !important}
+.sf-sample .sf-dx-read b,.sf-sample .sf-dx-read span{font-size:14px !important}
+.sf-sample .pp-dx-ctl{display:grid !important;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;margin:6px 0 0 !important;min-height:44px}
+.sf-sample .pp-dx-ctl > b{display:none !important}
+.sf-sample .pp-dx-ctl span,.sf-sample .pp-dx-ctl output{font:500 14.5px/1 'Geist',system-ui,sans-serif !important;white-space:nowrap}
+.sf-sample .pp-dx-ctl input{width:100% !important;height:44px;margin:0}
+/* footer of the mock */
+.sf-sample .sf-foot{margin:0 !important;padding:12px 16px 16px !important;font:400 13px/1.5 'Geist',system-ui,sans-serif !important}
+/* research */
+.sf-sample .sf-paper-h{font-size:21px !important;line-height:1.3 !important;margin-top:6px !important}
+html[lang="zh-CN"] .sf-sample .sf-paper-h{font-size:19px !important;line-height:1.5 !important}
+.sf-sample .pp-facts{display:grid !important;grid-template-columns:repeat(4,1fr);gap:6px !important;margin:12px 0 !important;padding:0 !important}
+.sf-sample .pp-facts li{display:flex !important;flex-direction:column;align-items:center;margin:0 !important;padding:9px 2px !important;border-radius:10px !important;font-size:12.5px !important;line-height:1.2 !important;text-align:center;white-space:nowrap}
+.sf-sample .pp-facts li b{font-size:19px !important;line-height:1.2 !important}
+html[lang="zh-CN"] .sf-sample .pp-facts li{font-size:13px !important}
+.sf-sample .pp-paper{display:block !important}
+.sf-sample .pp-abs{font-size:15.5px !important;line-height:1.55 !important;margin:0 0 10px !important}
+.sf-sample .pp-finding{font-size:15px !important;line-height:1.5 !important;margin:0 0 12px !important}
+.sf-sample .pp-finding span{font-size:12px !important}
+.sf-sample .pp-fig{margin:0 0 12px !important}
+.sf-sample .pp-fig figcaption{font-size:13px !important}
+.sf-sample .pp-fig svg{display:block;width:100%;height:auto;max-height:170px}
+.sf-sample .pp-fig svg text{font-size:7.2px}
+.sf-sample :is(.pp-finding,.pp-now) span.nb{display:inline !important;margin:0 !important;padding:0 !important;background:none !important;border:0 !important;font:inherit !important;letter-spacing:inherit !important;text-transform:none !important;color:inherit !important}
+.sf-sample .pp-fieldpics,.sf-sample .pp-fakebtn-soft{display:none !important}
+.sf-sample .pp-btnrow{margin:0 0 12px !important}
+.sf-sample .pp-fakebtn{font-size:14.5px !important;padding:11px 16px !important}
+/* awards */
+.sf-sample .sf-award-hero{display:grid !important;grid-template-columns:56px 1fr;gap:14px;align-items:start;padding:16px !important;margin:0 0 10px !important}
+.sf-sample .sf-seal-lg{width:56px !important;height:56px !important}
+.sf-sample .sf-seal-lg svg{width:56px !important;height:56px !important}
+.sf-sample .sf-award-title{font-size:19px !important;line-height:1.3 !important}
+.sf-sample .sf-award-quote{font-size:15px !important;line-height:1.5 !important}
+html[lang="zh-CN"] .sf-sample .sf-award-quote,html[lang="zh-CN"] .sf-sample .sf-award-quote *{font-style:normal !important;line-height:1.7 !important}
+.sf-sample .sf-award-quote small{font-size:12.5px !important}
+.sf-sample .sf-award-list{margin:0 !important;padding:0 !important}
+.sf-sample .sf-award-list li{display:grid !important;grid-template-columns:36px minmax(0,1fr) auto;gap:12px;align-items:center;padding:12px 14px !important;margin:0 0 8px !important;transform:none !important}
+.sf-sample .sf-award-list li > span:first-child,.sf-sample .sf-award-list li > span:first-child svg{width:36px !important;height:36px !important}
+.sf-sample .sf-award-list li small{display:block;line-height:1.35 !important;margin-top:2px}
+.sf-sample .sf-award-list li b{font-size:15.5px !important}
+.sf-sample .sf-award-list li small{font-size:13px !important}
+.sf-sample .pp-award-tag{font-size:12px !important;white-space:nowrap}
+/* about */
+.sf-sample .pp-about2{display:block !important}
+.sf-sample .pp-about2 figure{margin:0 0 12px !important}
+.sf-sample .pp-about2 figure img{width:100%;height:180px !important;object-fit:cover;border-radius:12px}
+.sf-sample .pp-about2 figcaption{font-size:13px !important}
+.sf-sample .pp-about-lead{font-size:17px !important;line-height:1.45 !important}
+.sf-sample .pp-now{font-size:15px !important;line-height:1.5 !important}
+.sf-sample .pp-now span{font-size:12px !important}
+/* video overlay: covers the top of the screen at a video's proportions, not the whole tall frame */
+.sf-sample .pp-video{bottom:auto !important;border-radius:0 !important}
+.sf-sample .pp-video-frame{flex:none !important;aspect-ratio:4 / 3}
+.sf-sample .pp-video-bar{min-height:52px;padding:4px 12px 4px 4px !important}
+.sf-sample .pp-video-cap{font-size:13px !important}
+.sf-sample .pp-video-t{font-size:13px !important}
+.sf-sample .pp-video-pp,.sf-sample .pp-video-x{min-width:44px;min-height:44px}
+
+/* notes: "What a list can't show" as four one-line rows (no accordion panels on phones) */
+.sf-sample .sf-notes{margin-top:36px !important;padding:0 !important;position:static !important;width:auto !important}
+.sf-sample .sf-notes > .pc-k{display:block;margin:0 0 12px !important;font:600 12.5px/1.4 'Geist',system-ui,sans-serif !important;letter-spacing:.12em !important;color:var(--ph-blue2) !important}
+html[lang="zh-CN"] .sf-sample .sf-notes > .pc-k{font-size:13.5px !important;letter-spacing:.04em !important}
+.sf-sample .sf-note-list{margin:0 !important;padding:0 !important;overflow:hidden;background:var(--ph-surface) !important;border:1px solid var(--ph-line) !important;border-radius:var(--ph-r) !important}
+.sf-sample .sf-note{margin:0 !important;padding:14px 16px 15px !important;border:0 !important;display:grid;grid-template-columns:30px minmax(0,1fr);column-gap:10px}
+.sf-sample .sf-note + .sf-note{border-top:1px solid var(--ph-line) !important}
+.sf-sample .sf-note-h{display:contents !important;pointer-events:none}
+.sf-sample .sf-note-num{grid-column:1;width:auto !important;height:auto !important;background:none !important;border:0 !important;box-shadow:none !important;place-items:start !important;
+  display:block !important;padding-top:1px;font:600 15px/1.3 'Geist',system-ui,sans-serif !important;color:var(--ph-blue2) !important}
+.sf-sample .sf-note-title{grid-column:2;font-size:18px !important;line-height:1.3 !important;color:var(--ph-ink) !important}
+html[lang="zh-CN"] .sf-sample .sf-note-title{font-size:17px !important;line-height:1.5 !important}
+.sf-sample .sf-note-plus{display:none !important}
+.sf-sample .sf-note-panel{grid-column:2;display:block !important;grid-template-rows:none !important;margin:0 !important;opacity:1 !important}
+.sf-sample .sf-note-clip{overflow:visible !important;padding:0 !important}
+.sf-sample .sf-note-in{padding:0 !important;margin:0 !important;opacity:1 !important;transform:none !important;transition:none !important;animation:none !important}
+.sf-sample .sf-note-cmp{display:block !important;margin:0 !important;padding:0 !important;border:0 !important;background:none !important}
+.sf-sample .sf-note-row{padding:0 !important;margin:0 !important;border:0 !important;background:none !important;box-shadow:none !important}
+.sf-sample .sf-note-row-list,.sf-sample .sf-note-row-k,.sf-sample .sf-note-preview,.sf-sample .sf-note-why{display:none !important}
+.sf-sample .sf-note-row-site .sf-note-row-v{display:block !important;margin:4px 0 0 !important;font:400 15.5px/1.5 'Geist',system-ui,sans-serif !important;color:var(--ph-soft) !important}
+html[lang="zh-CN"] .sf-sample .sf-note-row-site .sf-note-row-v{line-height:1.75 !important}
+
+/* more sample sites: a swipe strip of photo cards with a visible peek */
+.sf-sample .pp-range{margin-top:36px !important}
+.sf-sample .pp-range-head{display:block !important;margin:0 0 12px !important}
+.pc .sf-sample .pp-hover-hint{display:block !important;font:600 13px/1.4 'Geist',system-ui,sans-serif !important;letter-spacing:.1em !important;text-transform:uppercase;color:var(--ph-blue2) !important}
+.pc .sf-sample .pp-hover-hint::after{content:none !important;display:none !important}
+html[lang="zh-CN"] .pc .sf-sample .pp-hover-hint{font-size:13.5px !important;letter-spacing:.04em !important;text-transform:none}
+.sf-sample .pp-sites{display:flex !important;gap:12px !important;overflow-x:auto !important;scroll-snap-type:x mandatory;margin:0 calc(-1 * var(--ph-gut)) !important;
+  padding:2px var(--ph-gut) 6px !important;scroll-padding-inline:var(--ph-gut);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.sf-sample .pp-sites::-webkit-scrollbar{display:none}
+.sf-sample .pp-sites > li{flex:0 0 78% !important;scroll-snap-align:start;border-radius:var(--ph-r) !important;overflow:hidden;background:var(--ph-surface) !important;
+  border:1px solid var(--ph-line) !important;box-shadow:none !important;transform:none !important}
+.sf-sample .pp-site-card .pp-bar{display:none !important}
+.sf-sample .pp-site-frame{position:relative !important;height:auto !important;aspect-ratio:16 / 10;background:#E6DACB}
+.sf-sample .pp-site-scroll{position:absolute !important;inset:0;height:100%;transform:none !important;transition:none !important}
+.sf-sample .pp-site-scroll > *{display:none !important}
+.sf-sample .pp-site-scroll > :is(.tm-hero,.td-fig,.tb-polaroid){display:block !important;position:absolute !important;inset:0;width:auto !important;height:auto !important;margin:0 !important;padding:0 !important;border:0 !important;transform:none !important;box-shadow:none !important;background:none !important}
+.sf-sample .pp-site-scroll > :is(.tm-hero,.td-fig,.tb-polaroid) > :not(img){display:none !important}
+.sf-sample .pp-site-scroll > :is(.tm-hero,.td-fig,.tb-polaroid) img{display:block;width:100% !important;height:100% !important;object-fit:cover;border-radius:0 !important;filter:none !important;opacity:1 !important;position:static !important}
+.sf-sample .pp-site-meta{padding:12px 16px 16px !important;border:0 !important}
+.sf-sample .pp-site-meta::before{content:attr(data-url);display:block;margin:0 0 4px;font:600 16px/1.3 'Geist',system-ui,sans-serif;color:var(--ph-ink)}
+.sf-sample .pp-site-meta small{font:600 13px/1.4 'Geist',system-ui,sans-serif !important;letter-spacing:.1em !important;margin:0 0 6px !important}
+html[lang="zh-CN"] .sf-sample .pp-site-meta small{font-size:13px !important;letter-spacing:.04em !important}
+.sf-sample .pp-site-meta span{display:block;font-size:15px !important;line-height:1.5 !important;color:var(--ph-soft) !important}
+html[lang="zh-CN"] .sf-sample .pp-site-meta span{line-height:1.7 !important}
+}
+@media (max-width:374px){
+.sf-sample .sf-tabs button{font-size:13.5px !important;padding:0 2px !important}
+main.pc-conf .ph-seg button{font-size:14px;padding:0 4px}
+}

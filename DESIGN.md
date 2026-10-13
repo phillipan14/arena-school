@@ -581,3 +581,22 @@ Modeled on Phillip's showcase-wrap deck (portal.arenaschool.org/decks/showcase-w
 | Riso art for social | Drive › 04 › social-media-resources |
 | Deck source and tools | `~/Desktop/projects/arena-school-tools/deck-src/` (local, not in repo) |
 | One-pager source | `~/Desktop/projects/arena-school-tools/riso-v2/site-preview/_kit/` (local); live PDFs and JPGs in the repo at `/onepager/` |
+
+## Phones (≤760px) and Arena Notes (added 2026-10-13)
+
+**Phone layer.** Everything phone-only lives in `phone/*.css|js` partials (built by `tools/phone_build.py` into `/phone.css` + `/phone.js`, linked LAST on every page by `tools/phone_markup.py`). Every rule sits inside `@media (max-width:760px)`; desktop renders exactly as before. Edit a partial, then run `python3 tools/newsletter_markup.py && python3 tools/phone_markup.py`.
+- Grammar: the digital business card (`/card/*`): grouped rows on Arena paper (surface #FBF6EF, hairline rgba(11,26,74,.12), radius 16), 56px rows with chevrons, full-width 56px pill buttons, press (`:active`) states, one clear action per screen. No decorative icon bubbles; logos never in tiles or on white.
+- No hover on phones: phone.js removes every `:hover` rule at ≤760px and blocks mouse-hover listeners. Design every interaction tap-only.
+- Heroes: short and centered; one primary pill, the second action as a text link; "at a glance" facts as label/value rows. Homepage: crest + headline + one line + two actions, no eyebrow chip.
+- Section titles left-aligned (iOS large-title style); body and lists left-aligned.
+- Type: body 16px (EN 1.6, CN 1.75), secondary 15–15.5px, labels ≥12px EN / ≥13px CN; Chinese letter-spacing ≤ .04em, no faux italic; no `text-wrap: pretty` on Chinese pages (crashes iOS 26 WebKit on the homepage).
+- Line breaks: buttons, pills, chips, and tabs never wrap (use phone-only shorter wording, logged in `phone/WORDING-*.md`); no orphans (phone.js keeps the last words / a Chinese word together); Chinese text is segmented into words so lines never break mid-word.
+- No big expansions: anything that would open more than about half a screen of non-essential content links to the page that holds it (e.g., founder bios → /about#jing-jing-yang). FAQ answers stay inline.
+- Frame: 56px nav that hides on scroll down; bottom action bar (the page's main action) after the hero, hidden near closing forms; compact footer (`.ph-foot`) instead of the desktop footer.
+- Diagrams each have a deliberate phone form (grade map as rows without the axis header, step selectors and ladders as vertical timelines, segmented controls on Approach and Conferences, swipe strips with a visible peek).
+- Review tool: `arena-school-tools/phone-preview` (live phones, before/after, checks for wrapped labels, orphans, readability, spacing, tap targets).
+
+**Arena Notes (newsletter).** `newsletter.js` + `newsletter.css`, endpoint `api/subscribe.js` (Resend). Shows only when the deployment has `RESEND_API_KEY` and `RESEND_SEGMENT_ID` (GET /api/subscribe reports `configured`). Welcome email is sent only when `RESEND_FROM` is set (domain verified).
+- Placements: homepage band after "Upcoming programs" + a one-time sheet ~3s after the programs section comes into view (never again after subscribing; 60 days after "Not now"); bands before the closing section on About, Approach, Results, Community Dialogues, Conferences; a "Get Arena Notes" button/row in program closing blocks; desktop footer field; phone footer row. Not on Contact, Enroll, Pay, Schools, or Partnerships bodies.
+- Copy: "Programs we're opening, talks we're giving, and what we're learning about kids and AI." No cadence promise. Role is required: "I'm a…" Parent / Student / Educator / Other.
+- Testing: `?nl=now` opens the sheet; `?nl=reset` clears the remembered "Not now" / subscribed state.

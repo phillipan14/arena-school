@@ -1,0 +1,152 @@
+/* newsletter.js: "Arena Notes" sign-ups (posts to /api/subscribe -> Resend). Desktop + phone, EN + 中文.
+   - Bands: fills every <section class="nl-band" data-nl="KEY"> placeholder (inserted by tools/newsletter_markup.py).
+   - Footer: a slim email field under the desktop footer tagline.
+   - Program closing blocks: adds a quiet "Get Arena Notes" button (phones turn it into a row).
+   - Sheet: one dialog (centered card on desktop, bottom sheet on phones) opened by any a[href="#nl"],
+     and once on the homepage when the programs section is reached after 15s (rules in maybeAuto()).
+   Loaded before phone.js so the phone layer can restyle what this adds. */
+(function () {
+  var doc = document.documentElement, zh = (doc.lang || '').indexOf('zh') === 0, L = zh ? 'zh' : 'en';
+  var T = zh ? {
+    name: 'Arena 通讯',
+    promise: '我们新开的项目、即将举办的讲座，以及关于孩子与AI的观察。',
+    fine: '可随时退订，我们不会分享您的邮箱。',
+    iam: '我是', roles: [['parent', '家长'], ['student', '学生'], ['educator', '教育者'], ['other', '其他']],
+    email: '您的邮箱', btn: '订阅', sending: '正在订阅…', ok: '订阅成功，欢迎邮件马上就到。', notnow: '暂不需要', close: '关闭', done: '好的',
+    sheetH: '新项目和讲座，第一时间知道。', footer: '订阅 Arena 通讯', closing: '订阅 Arena 通讯',
+    bad: '请填写有效的邮箱。', pick: '请选择一项。', fail: '暂时无法订阅，请稍后再试。',
+    heads: { home: '新项目和讲座，第一时间知道。', about: '关注 Arena 的近况。', approach: '关注 Arena 的近况。', results: '关注下一期学员的进展。', parents: '下一场讲座开放时通知您。', conferences: '获取近期会议与工作坊信息。' }
+  } : {
+    name: 'Arena Notes',
+    promise: 'Programs we’re opening, talks we’re giving, and what we’re learning about kids and AI.',
+    fine: 'Unsubscribe anytime. We never share your email.',
+    iam: 'I’m a…', roles: [['parent', 'Parent'], ['student', 'Student'], ['educator', 'Educator'], ['other', 'Other']],
+    email: 'Your email', btn: 'Subscribe', sending: 'Subscribing…', ok: 'You’re on the list. A short welcome is on its way.', notnow: 'Not now', close: 'Close', done: 'Done',
+    sheetH: 'Hear about new programs and talks first.', footer: 'Get Arena Notes', closing: 'Get Arena Notes',
+    bad: 'Please add a valid email.', pick: 'Please choose one.', fail: 'Could not subscribe right now. Please try again.',
+    heads: { home: 'Hear about the next ones first.', about: 'Follow along with Arena.', approach: 'Follow along with Arena.', results: 'Follow the next cohorts.', parents: 'Get notified about the next talk.', conferences: 'Hear about upcoming sessions.' }
+  };
+  var store = {
+    get: function (k) { try { return localStorage.getItem('arena.nl.' + k) } catch (e) { return null } },
+    set: function (k, v) { try { localStorage.setItem('arena.nl.' + k, v) } catch (e) {} }
+  };
+  var uid = 0;
+  function h(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] }) }
+
+  /* one form, used by bands, the sheet, and (compact) the footer */
+  function form(source, compact) {
+    var id = 'nl' + (++uid), f = h('form', 'nl-form' + (compact ? ' nl-compact' : ''));
+    f.noValidate = true; f.setAttribute('data-source', source);
+    var roles = compact ? '' : '<fieldset class="nl-roles"><legend>' + esc(T.iam) + '</legend><div class="nl-chips">' +
+      T.roles.map(function (r) { return '<label class="nl-chip"><input type="radio" name="role" value="' + r[0] + '"><span>' + esc(r[1]) + '</span></label>' }).join('') + '</div></fieldset>';
+    f.innerHTML = roles +
+      '<div class="nl-row"><label class="nl-sr" for="' + id + '">' + esc(T.email) + '</label>' +
+      '<input id="' + id + '" class="nl-email" type="email" name="email" inputmode="email" autocomplete="email" placeholder="' + esc(T.email) + '" required>' +
+      '<button class="btn btn-primary nl-btn" type="submit">' + esc(T.btn) + '</button></div>' +
+      '<input class="nl-hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">' +
+      '<p class="nl-msg" role="status" aria-live="polite"></p>' + (compact ? '' : '<p class="nl-fine">' + esc(T.fine) + '</p>');
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var em = f.querySelector('.nl-email'), msg = f.querySelector('.nl-msg'), b = f.querySelector('.nl-btn');
+      var v = (em.value || '').trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) { msg.textContent = T.bad; msg.className = 'nl-msg nl-err'; em.focus(); return }
+      var r = f.querySelector('input[name=role]:checked');
+      if (f.querySelector('.nl-roles') && !r) { msg.textContent = T.pick; msg.className = 'nl-msg nl-err'; f.querySelector('input[name=role]').focus(); return }
+      b.disabled = true; b.textContent = T.sending; msg.textContent = ''; msg.className = 'nl-msg';
+      fetch('/api/subscribe', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: v, role: r ? r.value : '', lang: L, source: source, page: location.pathname, _honey: f.querySelector('.nl-hp').value }) })
+        .then(function (res) { return res.json().catch(function () { return {} }).then(function (o) { return { ok: res.ok && o.ok, o: o } }) })
+        .then(function (x) {
+          if (!x.ok) throw new Error(x.o && x.o.error);
+          store.set('sub', '1');
+          var okBox = h('div', 'nl-done', '<p class="nl-ok">' + esc(T.ok) + '</p>');
+          f.replaceWith(okBox);
+          if (okBox.closest('.nl-sheet')) { var d = h('button', 'btn btn-primary nl-btn nl-donebtn', esc(T.done)); d.type = 'button'; d.addEventListener('click', closeSheet); okBox.appendChild(d); d.focus() }
+        })
+        .catch(function (err) { msg.textContent = (err && err.message) || T.fail; msg.className = 'nl-msg nl-err'; b.disabled = false; b.textContent = T.btn });
+    });
+    return f;
+  }
+
+  /* Sign-up shows only when /api/subscribe says Resend is configured (until then nothing appears).
+     The closing-block button is added now (hidden by CSS until html.nl-on) so phone.js can turn it into a row. */
+  document.querySelectorAll('main.pc section.pp-final .pp-close-cta, body:not(.home) section.pp-final.pc-final .pp-close-cta').forEach(function (cta) {
+    if (cta.querySelector('a[href="#nl"]') || document.querySelector('section.nl-band')) return;
+    var a = h('a', 'btn btn-ghost nl-cta', esc(T.closing)); a.href = '#nl'; cta.appendChild(a);
+  });
+  var preview = /[?&]nl=(now|reset)\b/.test(location.search);
+  fetch('/api/subscribe', { cache: 'no-store' }).then(function (r) { return r.json() }).then(function (o) { if (o && o.configured) start() }).catch(function () {});
+
+  function start() {
+  doc.classList.add('nl-on');
+  /* bands */
+  document.querySelectorAll('section.nl-band[data-nl]').forEach(function (s) {
+    var key = s.getAttribute('data-nl');
+    s.setAttribute('aria-label', T.name);
+    var c = h('div', 'container'), card = h('div', 'nl-card');
+    var copy = h('div', 'nl-copy', '<span class="nl-k">' + esc(T.name) + '</span><h2 class="nl-h">' + esc(T.heads[key] || T.heads.about) + '</h2><p class="nl-p">' + esc(T.promise) + '</p>');
+    card.appendChild(copy); card.appendChild(form('band-' + key)); c.appendChild(card); s.appendChild(c);
+  });
+
+  /* desktop footer field */
+  var fb = document.querySelector('footer.footer .footer-brand');
+  if (fb && !fb.querySelector('.nl-foot')) { var ff = h('div', 'nl-foot', '<span class="nl-foot-k">' + esc(T.footer) + '</span>'); ff.appendChild(form('footer', true)); fb.appendChild(ff) }
+
+
+  /* the sheet */
+  var sheet = null, lastFocus = null;
+  function build() {
+    sheet = h('div', 'nl-sheet'); sheet.hidden = true;
+    sheet.setAttribute('role', 'dialog'); sheet.setAttribute('aria-modal', 'true'); sheet.setAttribute('aria-labelledby', 'nl-sheet-h');
+    sheet.innerHTML = '<div class="nl-sheet-bg"></div><div class="nl-sheet-panel" tabindex="-1"><div class="nl-sheet-top"><span class="nl-grab"></span>' +
+      '<button type="button" class="nl-x" aria-label="' + esc(T.close) + '"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>' +
+      '<span class="nl-k">' + esc(T.name) + '</span><h2 class="nl-h" id="nl-sheet-h">' + esc(T.sheetH) + '</h2><p class="nl-p">' + esc(T.promise) + '</p></div>';
+    var pn = sheet.querySelector('.nl-sheet-panel');
+    pn.appendChild(form('sheet'));
+    var nn = h('button', 'nl-notnow', esc(T.notnow)); nn.type = 'button'; pn.appendChild(nn);
+    document.body.appendChild(sheet);
+    sheet.querySelector('.nl-sheet-bg').addEventListener('click', dismiss);
+    sheet.querySelector('.nl-x').addEventListener('click', dismiss);
+    nn.addEventListener('click', dismiss);
+    sheet.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { e.preventDefault(); dismiss() }
+      if (e.key === 'Tab') { var f = [].filter.call(pn.querySelectorAll('button,input,a[href]'), function (x) { return !x.disabled && x.offsetParent !== null && x.tabIndex !== -1 }); if (!f.length) return;
+        var a = f[0], z = f[f.length - 1]; if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus() } else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus() } }
+    });
+    // swipe down to close (phones)
+    var y0 = null; pn.addEventListener('touchstart', function (e) { y0 = pn.scrollTop <= 0 ? e.touches[0].clientY : null }, { passive: true });
+    pn.addEventListener('touchmove', function (e) { if (y0 != null && e.touches[0].clientY - y0 > 70) { y0 = null; dismiss() } }, { passive: true });
+  }
+  function busy() { return doc.classList.contains('nav-open') || doc.classList.contains('php-lock') || (document.activeElement && /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName)) }
+  function openSheet() {
+    if (!sheet) build(); if (!sheet.hidden) return;
+    lastFocus = document.activeElement; sheet.hidden = false; doc.classList.add('nl-lock');
+    requestAnimationFrame(function () { requestAnimationFrame(function () { sheet.classList.add('on'); sheet.querySelector('.nl-sheet-panel').focus({ preventScroll: true }) }) });
+  }
+  function closeSheet() {
+    if (!sheet || sheet.hidden) return; sheet.classList.remove('on'); doc.classList.remove('nl-lock');
+    setTimeout(function () { sheet.hidden = true }, 260);
+    if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
+  }
+  var forced = /[?&]nl=now\b/.test(location.search);
+  function dismiss() { if (!forced && store.get('sub') !== '1') store.set('dismissed', String(Date.now())); closeSheet() }
+  document.addEventListener('click', function (e) { var a = e.target.closest && e.target.closest('a[href="#nl"]'); if (!a) return; e.preventDefault(); openSheet() });
+
+  /* homepage: once, when the programs section is reached after 15s; never after subscribing; 60 days after "Not now" */
+  function maybeAuto() {
+    if (/[?&]nl=reset\b/.test(location.search)) { try { localStorage.removeItem('arena.nl.sub'); localStorage.removeItem('arena.nl.dismissed') } catch (e) {} }
+    if (forced) { setTimeout(openSheet, 400); return }
+    if (!doc.querySelector('body.home') || /[?&]nl=0\b/.test(location.search)) return;
+    if (store.get('sub') === '1') return;
+    var d = +store.get('dismissed') || 0; if (d && Date.now() - d < 60 * 864e5) return;
+    var target = document.getElementById('programs'); if (!target || !('IntersectionObserver' in window)) return;
+    var shown = false;
+    function tryShow() { if (shown) return; if (busy()) { setTimeout(tryShow, 2000); return } shown = true; openSheet() }
+    // once the programs section reaches the upper 70% of the screen, wait ~3s so it never interrupts mid-scroll
+    var io = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { io.disconnect(); setTimeout(tryShow, 3000) } }, { rootMargin: '0px 0px -30% 0px' });
+    io.observe(target);
+  }
+  maybeAuto();
+  }
+})();

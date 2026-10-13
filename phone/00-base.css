@@ -1,0 +1,153 @@
+/* phone.css: the phone-native layer (see DESIGN.md "Phones"). Loaded LAST on every page.
+   Every rule lives inside @media (max-width:760px), so desktop never sees one.
+   Grammar borrowed from /card/*: grouped rows on Arena paper, full-width pills, press states,
+   short heroes, one clear action. Sizes are in CSS px at 390 wide. */
+.ph-foot,.ph-bar{display:none}
+
+@media (max-width:760px){
+:root{
+  --ph-ink:#0B1A4A; --ph-text:#1F2A44; --ph-soft:#4A5470; --ph-muted:#5C6378;
+  --ph-blue:#22458A; --ph-blue2:#2F55A8;
+  --ph-paper:#FCF3ED; --ph-sand:#F3E9DD; --ph-surface:#FBF6EF; --ph-line:rgba(11,26,74,.12);
+  --ph-gut:20px; --ph-sec:48px; --ph-r:16px; --ph-row:56px;
+  --ph-nav:56px; --ph-safe-b:env(safe-area-inset-bottom,0px);
+}
+
+/* ---------- 0. WebKit crash guard (iOS 26 / WeChat): no text-wrap:pretty on Chinese pages ---------- */
+html[lang="zh-CN"] *{text-wrap-style:auto !important}
+html[lang="zh-CN"] :is(h1,h2,h3,.h2,.display,.cs-h1,.hero-riso-h1){text-wrap-style:balance !important}
+
+/* ---------- 1. Type ---------- */
+body{-webkit-text-size-adjust:100%;text-rendering:optimizeLegibility}
+main p,main li,main dd{font-size:16px;line-height:1.6}
+html[lang="zh-CN"] main :is(p,li,dd){line-height:1.75;letter-spacing:0}
+main .lede{font-size:17px !important;line-height:1.55 !important}
+html[lang="zh-CN"] main .lede{font-size:16.5px !important;line-height:1.75 !important}
+/* secondary copy inside rows and cards */
+main :is(.pc-why-list p,.pc-intro,.prog-p,.pg-prog-body p,.pc-card-body p,.pg-pcard-body p,.faq p,.faq dd){font-size:15.5px !important;line-height:1.6 !important}
+html[lang="zh-CN"] main :is(.pc-why-list p,.pc-intro,.prog-p,.pg-prog-body p,.pc-card-body p,.pg-pcard-body p,.faq p,.faq dd){line-height:1.75 !important}
+/* headings: one clear scale, regular weight (no 300 at small sizes), never squeezed by a ch max-width */
+main :is(h1.display,.cs-h1,.hero-riso-h1){font-size:34px !important;line-height:1.12 !important;letter-spacing:-.015em !important;max-width:none !important}
+html[lang="zh-CN"] main :is(h1.display,.cs-h1,.hero-riso-h1){font-size:31px !important;line-height:1.3 !important;letter-spacing:.01em !important}
+main :is(.h2,h2){font-size:26px !important;line-height:1.2 !important;font-weight:400 !important;letter-spacing:-.01em !important;max-width:none !important}
+main .h2-md,main .sec-head .h2.h2-md{font-size:23px !important;line-height:1.3 !important}
+html[lang="zh-CN"] main :is(.h2,h2){font-size:24px !important;line-height:1.4 !important;letter-spacing:.01em !important}
+html[lang="zh-CN"] main .h2-md{font-size:21px !important;line-height:1.5 !important}
+main h3{font-size:19px !important;line-height:1.3 !important}
+/* Chinese never gets faux italic or wide tracking */
+html[lang="zh-CN"] :is(em,i,.rh,cite){font-style:normal !important}
+html[lang="zh-CN"] :is(.eyebrow,.pc-facts b,.cf-date,.prog-k,.gm-lab,.dlab,.hp-cf-k){letter-spacing:.04em !important}
+/* labels: never below 12px (13px Chinese) */
+main :is(.pc-facts b,.pp-glance b,.zl-spec-row b,.cf-date,.gm-lab,.hp-cf-k,.pc-sel-count){font-size:12px !important}
+html[lang="zh-CN"] main :is(.pc-facts b,.pp-glance b,.zl-spec-row b,.cf-date,.gm-lab,.hp-cf-k,.pc-sel-count){font-size:13px !important}
+/* phone-only no-break spans added by phone.js (orphans) */
+.nb{white-space:nowrap}
+
+/* ---------- 2. Eyebrows: a chip in the hero only; plain small caps label in sections ---------- */
+.hero-eyebrow-row .eyebrow{font-size:12px !important;padding:6px 11px !important;letter-spacing:.12em !important}
+html[lang="zh-CN"] .hero-eyebrow-row .eyebrow{font-size:13px !important;letter-spacing:.06em !important}
+main section:not(.hero):not(.hero-riso) .sec-head .eyebrow,
+main section:not(.hero):not(.hero-riso) > .container > .eyebrow{
+  background:none !important;color:var(--ph-blue2) !important;box-shadow:none !important;padding:0 !important;
+  font:600 12.5px/1.2 'Geist',system-ui,sans-serif !important;letter-spacing:.14em !important;text-transform:uppercase}
+main section:not(.hero) .sec-head .eyebrow::before,main section:not(.hero) .sec-head .eyebrow::after{display:none !important}
+html[lang="zh-CN"] main section:not(.hero) .sec-head .eyebrow{font-size:13.5px !important;letter-spacing:.06em !important}
+
+/* ---------- 3. Spacing ---------- */
+.container{padding-left:var(--ph-gut) !important;padding-right:var(--ph-gut) !important}
+main section.zl-section,main section.zl-section-md,main section.pc-sec{padding-top:var(--ph-sec) !important;padding-bottom:var(--ph-sec) !important}
+/* section heads read like iOS large titles: left-aligned */
+main section:not(.hero):not(.hero-riso) .sec-head{text-align:left !important;margin-left:0 !important;margin-right:0 !important;max-width:none !important}
+main section:not(.hero):not(.hero-riso) .sec-head :is(h2,.h2,p){text-align:left !important;margin-left:0 !important;margin-right:0 !important}
+main section:not(.hero):not(.hero-riso) .sec-head{margin-bottom:24px !important}
+main section:not(.hero):not(.hero-riso) .sec-head{justify-items:start !important;align-items:start !important}
+main section:not(.hero):not(.hero-riso) .sec-head > .eyebrow{justify-self:start !important;align-self:start !important;margin-left:0 !important;margin-right:0 !important}
+/* Chinese source text carries desktop-tuned no-break spans; on phones they force bad breaks (phone.js handles orphans) */
+html[lang="zh-CN"] main span[style*="nowrap"]{white-space:normal !important}
+
+/* ---------- 4. Press states + tap targets ---------- */
+a,button,summary,[role=button],label{-webkit-tap-highlight-color:transparent}
+.btn{transition:transform .12s ease,opacity .12s ease}
+.btn:active{transform:scale(.98);opacity:.88}
+:is(.ph-row,.faq summary,.nav-links a,.nav-dd-btn):active{background:rgba(34,69,138,.07)}
+a:not(.btn):active{opacity:.7}
+
+/* ---------- 5. Nav: 56px bar, compact language chip, hides on scroll down ---------- */
+.nav{transition:transform .25s ease,background-color .2s}
+html.ph-nav-hide:not(.nav-open) .nav{transform:translateY(-100%)}
+.nav .nav-inner{min-height:var(--ph-nav) !important;height:var(--ph-nav) !important;padding:6px var(--ph-gut) !important;padding-top:max(6px,env(safe-area-inset-top)) !important}
+.nav .nav-brand{display:flex;align-items:center;min-height:44px}
+.nav .nav-lockup{height:20px !important;width:auto !important}
+.nav .lang-switch{background:none !important;padding:0 !important;height:44px !important;width:auto !important;gap:0 !important;box-shadow:none !important;border:0 !important}
+.nav .lang-switch a.lang-active{display:none !important}
+.nav .lang-switch a:not(.lang-active){display:inline-flex !important;align-items:center;justify-content:center;min-width:44px;height:44px;padding:0 4px !important;background:none !important}
+.nav .lang-switch a:not(.lang-active)::after{content:"";position:absolute}
+.nav .lang-switch a:not(.lang-active){position:relative;font:600 13px/1 'Geist',system-ui,sans-serif !important;color:var(--ph-ink) !important;letter-spacing:.04em !important}
+.nav .lang-switch a:not(.lang-active)::before{content:"";position:absolute;inset:8px -4px;border:1px solid rgba(11,26,74,.22);border-radius:999px}
+.nav .nav-toggle{width:44px !important;height:44px !important}
+
+/* ---------- 6. Heroes: short, one primary pill, facts as a grouped list ---------- */
+main section.hero.hero-pad-md{min-height:0 !important;padding:calc(var(--ph-nav) + 36px) 0 40px !important}
+main section.hero .hero-copy{text-align:center}
+main section.hero .cs-h1,main section.hero h1.display{margin-bottom:16px !important}
+main section.hero .lede{max-width:34em;margin-left:auto !important;margin-right:auto !important;color:var(--ph-soft) !important}
+/* two hero buttons: primary = full-width pill; secondary = quiet text link */
+main :is(.pc-cta,.pp-hero-cta,.hero-cta){display:flex !important;flex-direction:column !important;align-items:stretch !important;gap:4px !important;margin-top:28px !important}
+main :is(.pc-cta,.pp-hero-cta,.hero-cta) .btn{width:100% !important;max-width:none !important;justify-content:center}
+main :is(.pc-cta,.pp-hero-cta,.hero-cta) .btn-primary{min-height:56px !important;border-radius:999px !important;font-size:16.5px !important;font-weight:600 !important}
+main :is(.pc-cta,.pp-hero-cta,.hero-cta) .btn-ghost{min-height:48px !important;border:0 !important;background:none !important;box-shadow:none !important;font-size:16px !important;font-weight:600 !important;color:var(--ph-blue) !important;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+main :is(.pc-cta,.pp-hero-cta,.hero-cta) .btn-ghost::before,main :is(.pc-cta,.pp-hero-cta,.hero-cta) .btn-ghost::after{display:none !important}
+/* at-a-glance facts: grouped label/value rows (the zero-to-launch pattern) */
+main :is(.pc-facts,.pp-glance){display:block !important;margin:24px 0 0 !important;padding:0 !important;background:var(--ph-surface) !important;border:1px solid var(--ph-line) !important;border-radius:var(--ph-r) !important;overflow:hidden;text-align:left !important}
+main :is(.pc-facts,.pp-glance) > li,main .pp-glance > div{display:flex !important;flex-direction:row !important;text-align:left !important;align-items:center !important;justify-content:space-between !important;gap:16px !important;min-height:52px !important;padding:10px 16px !important;margin:0 !important;border:0 !important;width:auto !important}
+main :is(.pc-facts,.pp-glance) > li + li,main .pp-glance > div + div{border-top:1px solid var(--ph-line) !important}
+main :is(.pc-facts,.pp-glance) > li::before,main :is(.pc-facts,.pp-glance) > li::after{display:none !important}
+main :is(.pc-facts,.pp-glance) b{flex:none;margin:0 !important;color:var(--ph-muted) !important;font-weight:600 !important;text-transform:uppercase;letter-spacing:.1em !important}
+main :is(.pc-facts,.pp-glance) span{margin:0 !important;text-align:right;font-size:16px !important;line-height:1.35 !important;color:var(--ph-ink) !important}
+html[lang="zh-CN"] main :is(.pc-facts,.pp-glance) b{text-transform:none}
+
+/* homepage hero: crest, headline, one line, two actions, then straight into the photos.
+   No eyebrow chip on phones (user: takes space, adds little). */
+body.home section.hero-riso.hero-full{min-height:0 !important;height:auto !important;padding:calc(var(--ph-nav) + 18px) 0 28px !important}
+body.home .hero-riso-grid{padding:0 var(--ph-gut) !important;gap:14px !important;row-gap:14px !important;min-height:0 !important}
+body.home .hero-art{margin:0 auto !important;padding:0 !important}
+body.home .seal-flip,body.home .seal-card{width:116px !important;height:116px !important}
+body.home .seal-card img{width:100% !important;height:auto !important}
+body.home .hero-riso-copy{margin:0 !important;padding:0 !important}
+body.home .hero-riso .hero-eyebrow-row{display:none !important}
+body.home .hero-riso-h1{margin:0 0 14px !important}
+body.home .hero-riso .hero-cta{margin-top:22px !important}
+body.home .hero-riso .hero-cta .btn-ghost{min-height:44px !important;padding-top:6px !important;padding-bottom:6px !important}
+body.home .hero-more{display:none !important}
+
+/* ---------- 7. Compact footer (phone-only markup from tools/phone_markup.py) ---------- */
+footer.footer{display:none !important}
+.ph-foot{display:block;background:#0E1729;color:#F6F0E5;padding:36px var(--ph-gut) calc(28px + var(--ph-safe-b) + var(--ph-barh,0px))}
+.ph-foot-lock{display:block;height:24px;width:auto}
+.ph-foot-tag{margin:14px 0 22px;font:400 17px/1.5 'Newsreader',Georgia,serif;color:rgba(246,240,229,.82);max-width:24em}
+html[lang="zh-CN"] .ph-foot-tag{font-family:'Arena Serif SC','Noto Serif SC','Songti SC',serif;font-size:16px;line-height:1.75}
+.ph-foot-c{margin:22px 0 0;font:400 13px/1 'Geist',system-ui,sans-serif;color:rgba(246,240,229,.55)}
+
+/* ---------- 8. Grouped rows (shared component) ---------- */
+.ph-list{list-style:none;margin:0;padding:0;background:var(--ph-surface);border:1px solid var(--ph-line);border-radius:var(--ph-r);overflow:hidden}
+.ph-list > li{margin:0;padding:0}
+.ph-list > li + li{border-top:1px solid var(--ph-line)}
+.ph-row{display:flex;align-items:center;gap:12px;min-height:var(--ph-row);padding:10px 14px 10px 16px;color:var(--ph-ink);text-decoration:none;font:500 16px/1.3 'Geist',system-ui,sans-serif}
+.ph-row-t{flex:1;min-width:0}
+.ph-row-v{color:var(--ph-muted);font-weight:400;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:62%}
+.ph-chev{flex:none;width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;opacity:.45}
+.ph-list-dark{background:rgba(246,240,229,.06);border-color:rgba(246,240,229,.12)}
+.ph-list-dark > li + li{border-top-color:rgba(246,240,229,.12)}
+.ph-list-dark .ph-row{color:#F6F0E5}
+.ph-list-dark .ph-row-v{color:rgba(246,240,229,.6)}
+.ph-list-dark .ph-row:active{background:rgba(246,240,229,.08)}
+
+/* ---------- 9. Bottom action bar (built by phone.js from the hero's primary button) ---------- */
+.ph-bar{display:block;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px var(--ph-gut) calc(10px + var(--ph-safe-b));
+  background:rgba(252,243,237,.97);border-top:1px solid var(--ph-line);transform:translateY(110%);transition:transform .25s ease;pointer-events:none}
+.ph-bar.on{transform:none;pointer-events:auto}
+html.nav-open .ph-bar{transform:translateY(110%)}
+.ph-bar-btn{display:flex;align-items:center;justify-content:center;gap:8px;min-height:52px;border-radius:999px;background:var(--ph-blue);color:#F7F1E7 !important;
+  font:600 16.5px/1 'Geist',system-ui,sans-serif;text-decoration:none}
+.ph-bar-btn:active{transform:scale(.98);opacity:.9}
+}

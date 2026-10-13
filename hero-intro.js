@@ -23,12 +23,14 @@
   if (cue) cue.addEventListener('click', (e) => { e.preventDefault(); go(); });
 
   const atTop = () => window.scrollY < 8;
-  const menuOpen = () => document.body.classList.contains('menu-open') || document.documentElement.classList.contains('menu-open');
+  const menuOpen = () => document.documentElement.classList.contains('nav-open') || document.body.classList.contains('menu-open') || document.documentElement.classList.contains('menu-open');
   window.addEventListener('wheel', (e) => {
     if (busy) { if (e.deltaY > 0 && window.scrollY < gallery.offsetTop) e.preventDefault(); return; }
     if (e.deltaY > 4 && atTop() && !menuOpen() && !e.ctrlKey) { e.preventDefault(); go(); }
   }, { passive: false });
   let y0 = null;
+  // Phones (≤760px): the hero is short there, so let the swipe scroll normally.
+  if (matchMedia('(max-width:760px)').matches) return;
   window.addEventListener('touchstart', (e) => { y0 = atTop() ? e.touches[0].clientY : null; }, { passive: true });
   window.addEventListener('touchmove', (e) => {
     if (y0 === null || busy || menuOpen()) return;
