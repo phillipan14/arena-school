@@ -5,8 +5,8 @@
 (function(){
 var H=document.documentElement,deck=document.getElementById('deck'),S=[].slice.call(deck.querySelectorAll('.s')),N=S.length;
 var ZH=H.lang!=='en',KEY=ZH?'cn':'en',T=ZH?
- {next:'下一页',start:'开始',done:'完成',prev:'上一页',all:'全部幻灯片',close:'关闭',appx:'附录',intro:'开场',tip:'左右滑动或点“下一页”翻页',slide:'第{n}页'}:
- {next:'Next',start:'Start',done:'Done',prev:'Previous slide',all:'All slides',close:'Close',appx:'Appendix',intro:'Opening',tip:'Swipe or tap Next to turn the page',slide:'Slide {n}'};
+ {next:'下一页',start:'开始',done:'完成',prev:'上一页',all:'全部幻灯片',close:'关闭',appx:'附录',end:'保持联系',intro:'开场',tip:'左右滑动或点“下一页”翻页',slide:'第{n}页'}:
+ {next:'Next',start:'Start',done:'Done',prev:'Previous slide',all:'All slides',close:'Close',appx:'Appendix',end:'Keep in touch',intro:'Opening',tip:'Swipe or tap Next to turn the page',slide:'Slide {n}'};
 var motion=!matchMedia('(prefers-reduced-motion: reduce)').matches;
 var $=function(s,r){return (r||document).querySelector(s)};
 var nx=$('.nx'),pv=$('.pv'),ctr=$('.ctr'),bar=$('.prog'),lng=$('.lng'),cue=$('.more-cue');
@@ -16,6 +16,7 @@ var part=[],cur='';
 S.forEach(function(s,i){
  if(s.classList.contains('sec')){var on=s.querySelector('.trk li.on b');cur=on?on.textContent.trim():''}
  if(s.classList.contains('s-src'))cur=T.appx;
+ if(s.classList.contains('end'))cur=T.end;
  part[i]=cur||T.intro});
 S.forEach(function(s,i){if(s.classList.contains('sec')){var t=document.createElement('b');t.style.left=(i/N*100)+'%';bar.appendChild(t)}});
 
@@ -137,6 +138,17 @@ $('.sh-x').addEventListener('click',closeList);
 sheet.addEventListener('click',function(e){if(e.target===sheet)closeList()});
 list.addEventListener('click',function(e){var a=e.target.closest('a');if(!a)return;e.preventDefault();var i=+a.dataset.i;
  if(i!==idx)finish(idx);closeList();go(i,true)});
+
+/* ---- last slide: copy the WeChat ID (clipboard API, then the old execCommand path for in-app browsers) ---- */
+function say(t){var tp=$('.tip');if(!tp)return;tp.textContent=t;tp.classList.add('on');clearTimeout(say.t);say.t=setTimeout(function(){tp.classList.remove('on')},2400)}
+function legacyCopy(t){var a=document.createElement('textarea');a.value=t;a.setAttribute('readonly','');a.style.cssText='position:fixed;top:0;left:0;opacity:0';
+ document.body.appendChild(a);a.select();a.setSelectionRange(0,t.length);var ok=false;try{ok=document.execCommand('copy')}catch(e){}a.remove();return ok}
+[].forEach.call(document.querySelectorAll('[data-copy]'),function(b){var lab=b.querySelector('span'),orig=lab.textContent,tm=0;
+ function done(){b.classList.add('ok');lab.textContent=b.dataset.done;say(b.dataset.tip);clearTimeout(tm);tm=setTimeout(function(){b.classList.remove('ok');lab.textContent=orig},2600)}
+ function fail(){var id=b.parentNode.querySelector('.ct-id');if(id){var r=document.createRange();r.selectNodeContents(id);var sl=getSelection();sl.removeAllRanges();sl.addRange(r)}say(b.dataset.fail)}
+ b.addEventListener('click',function(){var t=b.dataset.copy;
+  if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).then(done,function(){legacyCopy(t)?done():fail()});
+  else legacyCopy(t)?done():fail()})});
 
 /* ---- start: #n opens slide n; save the language for /talk ---- */
 try{localStorage.setItem('arena-talk-lang',ZH?'zh':'en')}catch(e){}

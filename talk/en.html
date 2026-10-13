@@ -427,6 +427,45 @@ i.rg::before{width:calc(var(--r) * 1%);background:linear-gradient(90deg,var(--da
 .qa-foot{padding:14px 0;font-size:14px;color:var(--muted)}
 .qa-foot a{color:var(--ink);font-weight:500}
 
+/* ---------- last slide (reader only): contact Jing Jing, download the PDF; source reader/end-en.html, end-cn.html ---------- */
+.end .bd{gap:14px}
+.end h2 em{display:block}
+.ctc{padding:0 16px}
+.ct-row{display:grid;grid-template-columns:44px 1fr auto;align-items:center;column-gap:14px;min-height:76px;padding:14px 0}
+.ct-row+.ct-row{border-top:1px solid var(--edge)}
+a.ct-row{text-decoration:none}
+a.ct-row:active .ct-go{transform:translateX(3px)}
+.ct-go{transition:transform .15s}
+.ct-ic{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:#fff}
+.ct-ic svg{width:24px;height:24px;fill:currentColor}
+.ct-wa .ct-ic{background:#25D366}
+.ct-wx .ct-ic{background:#07C160}
+.ct-t{display:flex;flex-direction:column;gap:3px;min-width:0}
+.ct-t b{font:600 11px/1.3 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+:lang(zh-CN) .ct-t b{font-size:13px;letter-spacing:.03em;text-transform:none}
+.ct-v{font:400 21px/1.2 var(--serif);color:var(--ink);font-variant-numeric:lining-nums;white-space:nowrap}
+.ct-id{font-size:25px;letter-spacing:.005em;-webkit-user-select:all;user-select:all}
+.ct-go{width:40px;height:40px;display:grid;place-items:center;color:var(--ink2)}
+.ct-go svg{width:20px;height:20px}
+.ct-copy{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:7px;height:48px;padding:0 16px;border-radius:999px;border:1.5px solid var(--ink);color:var(--ink);font:500 15px/1 var(--sans);white-space:nowrap;transition:background-color .2s,color .2s,border-color .2s,transform .15s}
+.ct-copy svg{width:18px;height:18px;flex:none}
+.ct-copy:active{transform:scale(.96)}
+.ct-copy.ok{background:#07C160;border-color:#07C160;color:#fff}
+.ct-copy.ok svg{display:none}
+.ct-copy.ok span::before{content:"✓ "}
+.ct-how{grid-column:2/-1;margin-top:8px;font:400 13.5px/1.45 var(--sans);color:var(--muted)}
+:lang(zh-CN) .ct-how{font-size:13.5px;line-height:1.6}
+.ct-how i{font-style:normal;color:var(--ink2);margin:0 2px}
+.ct-dl{display:flex;align-items:center;justify-content:center;gap:12px;min-height:60px;padding:0 20px;border-radius:14px;background:var(--ink);color:var(--on);font:500 17px/1.25 var(--sans);text-decoration:none;text-align:center;transition:background-color .2s,transform .15s}
+.ct-dl svg{width:22px;height:22px;flex:none}
+.ct-dl:active{transform:scale(.98)}
+@media (hover:hover){.ct-dl:hover{background:#12245f}.ct-copy:hover{background:rgba(11,26,74,.05)}.ct-copy.ok:hover{background:#07C160}}
+.ct-sub{margin-top:-4px;text-align:center;font:400 13.5px/1.4 var(--sans);color:var(--muted)}
+.ct-sub a{display:inline-block;padding:10px 4px;margin:-10px 0;color:var(--ink);font-weight:500;text-underline-offset:3px}
+.ct-mail{margin-top:6px;padding-top:14px;border-top:1px solid var(--edge);text-align:center;font:400 14px/1.5 var(--sans);color:var(--muted)}
+.ct-mail a{display:inline-block;padding:8px 2px;margin:-8px 0;color:var(--ink);font-weight:500;text-underline-offset:3px}
+@media (max-width:389px){.ct-row{column-gap:12px}.ct-copy{padding:0 14px}.ct-id{font-size:23px}}
+
 /* ---------- sources ---------- */
 .srcs{padding:4px 16px}
 .srcs li{display:flex;flex-direction:column;gap:3px;padding:11px 0;border-bottom:1px solid var(--edge);font:400 13.5px/1.45 var(--sans);color:var(--text)}
@@ -1093,6 +1132,23 @@ i.rg::before{width:calc(var(--r) * 1%);background:linear-gradient(90deg,var(--da
  </div>
 </div></section>
 
+
+<!-- Reader only: contact and download, the last slide of /talk/en (not in the deck; build.py appends it) -->
+<section class="s alt end"><div class="w">
+ <p class="kick">Keep in touch</p>
+ <h2>Questions about your child? <em>Message Jing Jing at Arena.</em></h2>
+ <div class="bd">
+  <div class="ctc pane">
+   <a class="ct-row ct-wa" href="https://wa.me/16177337119?text=Hi%20Jing%20Jing%2C%20I%20saw%20the%20Arena%20School%20parent%20talk%20at%20ISB." target="_blank" rel="noopener"><span class="ct-ic"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></span><span class="ct-t"><b>WhatsApp</b><span class="ct-v">+1 617 733 7119</span></span><span class="ct-go"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+   <div class="ct-row ct-wx"><span class="ct-ic"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 4.229 6.884 4.229.826 0 1.622-.12 2.361-.336a.722.722 0 0 1 .598.082l1.584.926a.272.272 0 0 0 .14.047c.134 0 .24-.111.24-.247 0-.06-.023-.12-.038-.177l-.327-1.233a.582.582 0 0 1-.023-.156.49.49 0 0 1 .201-.398C23.024 18.48 24 16.82 24 14.98c0-3.21-2.931-5.837-6.656-6.088V8.89c-.135-.01-.27-.027-.407-.03zm-2.53 3.274c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.97-.982zm4.844 0c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.969-.982z"/></svg></span><span class="ct-t"><b>WeChat ID</b><span class="ct-v ct-id">jj-xiaohan</span></span><button type="button" class="ct-copy" data-copy="jj-xiaohan" data-done="Copied" data-tip="WeChat ID copied" data-fail="Press and hold the ID to copy it"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8.5" y="8.5" width="11" height="11" rx="2.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M15.5 8.5V6.7a2.2 2.2 0 0 0-2.2-2.2H6.7a2.2 2.2 0 0 0-2.2 2.2v6.6a2.2 2.2 0 0 0 2.2 2.2h1.8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span>Copy ID</span></button>
+    <p class="ct-how">In WeChat: Add Friend <i>→</i> paste the ID</p></div>
+  </div>
+  <a class="ct-dl" href="/talk/Arena-Parent-Conversation-EN.pdf" download="Arena-Parent-Conversation-EN.pdf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Download the slides (PDF)</span></a>
+  <p class="ct-sub">English, 5.6 MB · <a href="/talk/Arena-Parent-Conversation-CN.pdf" download="Arena-Parent-Conversation-CN.pdf" lang="zh-CN" hreflang="zh-CN">中文版</a></p>
+  <p class="ct-mail">Or email <a href="mailto:contact@arenaschool.org">contact@arenaschool.org</a></p>
+ </div>
+</div></section>
+
 </main>
 <nav class="bot" aria-label="All slides"><button type="button" class="pv" aria-label="Previous slide"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" class="ctr" aria-label="All slides"><b></b><small></small></button><button type="button" class="nx"><span>Next</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></nav>
 <button type="button" class="more-cue" aria-hidden="true" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="tip" role="status"></div>
@@ -1104,8 +1160,8 @@ i.rg::before{width:calc(var(--r) * 1%);background:linear-gradient(90deg,var(--da
 (function(){
 var H=document.documentElement,deck=document.getElementById('deck'),S=[].slice.call(deck.querySelectorAll('.s')),N=S.length;
 var ZH=H.lang!=='en',KEY=ZH?'cn':'en',T=ZH?
- {next:'下一页',start:'开始',done:'完成',prev:'上一页',all:'全部幻灯片',close:'关闭',appx:'附录',intro:'开场',tip:'左右滑动或点“下一页”翻页',slide:'第{n}页'}:
- {next:'Next',start:'Start',done:'Done',prev:'Previous slide',all:'All slides',close:'Close',appx:'Appendix',intro:'Opening',tip:'Swipe or tap Next to turn the page',slide:'Slide {n}'};
+ {next:'下一页',start:'开始',done:'完成',prev:'上一页',all:'全部幻灯片',close:'关闭',appx:'附录',end:'保持联系',intro:'开场',tip:'左右滑动或点“下一页”翻页',slide:'第{n}页'}:
+ {next:'Next',start:'Start',done:'Done',prev:'Previous slide',all:'All slides',close:'Close',appx:'Appendix',end:'Keep in touch',intro:'Opening',tip:'Swipe or tap Next to turn the page',slide:'Slide {n}'};
 var motion=!matchMedia('(prefers-reduced-motion: reduce)').matches;
 var $=function(s,r){return (r||document).querySelector(s)};
 var nx=$('.nx'),pv=$('.pv'),ctr=$('.ctr'),bar=$('.prog'),lng=$('.lng'),cue=$('.more-cue');
@@ -1115,6 +1171,7 @@ var part=[],cur='';
 S.forEach(function(s,i){
  if(s.classList.contains('sec')){var on=s.querySelector('.trk li.on b');cur=on?on.textContent.trim():''}
  if(s.classList.contains('s-src'))cur=T.appx;
+ if(s.classList.contains('end'))cur=T.end;
  part[i]=cur||T.intro});
 S.forEach(function(s,i){if(s.classList.contains('sec')){var t=document.createElement('b');t.style.left=(i/N*100)+'%';bar.appendChild(t)}});
 
@@ -1236,6 +1293,17 @@ $('.sh-x').addEventListener('click',closeList);
 sheet.addEventListener('click',function(e){if(e.target===sheet)closeList()});
 list.addEventListener('click',function(e){var a=e.target.closest('a');if(!a)return;e.preventDefault();var i=+a.dataset.i;
  if(i!==idx)finish(idx);closeList();go(i,true)});
+
+/* ---- last slide: copy the WeChat ID (clipboard API, then the old execCommand path for in-app browsers) ---- */
+function say(t){var tp=$('.tip');if(!tp)return;tp.textContent=t;tp.classList.add('on');clearTimeout(say.t);say.t=setTimeout(function(){tp.classList.remove('on')},2400)}
+function legacyCopy(t){var a=document.createElement('textarea');a.value=t;a.setAttribute('readonly','');a.style.cssText='position:fixed;top:0;left:0;opacity:0';
+ document.body.appendChild(a);a.select();a.setSelectionRange(0,t.length);var ok=false;try{ok=document.execCommand('copy')}catch(e){}a.remove();return ok}
+[].forEach.call(document.querySelectorAll('[data-copy]'),function(b){var lab=b.querySelector('span'),orig=lab.textContent,tm=0;
+ function done(){b.classList.add('ok');lab.textContent=b.dataset.done;say(b.dataset.tip);clearTimeout(tm);tm=setTimeout(function(){b.classList.remove('ok');lab.textContent=orig},2600)}
+ function fail(){var id=b.parentNode.querySelector('.ct-id');if(id){var r=document.createRange();r.selectNodeContents(id);var sl=getSelection();sl.removeAllRanges();sl.addRange(r)}say(b.dataset.fail)}
+ b.addEventListener('click',function(){var t=b.dataset.copy;
+  if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).then(done,function(){legacyCopy(t)?done():fail()});
+  else legacyCopy(t)?done():fail()})});
 
 /* ---- start: #n opens slide n; save the language for /talk ---- */
 try{localStorage.setItem('arena-talk-lang',ZH?'zh':'en')}catch(e){}
