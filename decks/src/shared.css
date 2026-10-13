@@ -212,7 +212,6 @@ figcaption.rv.open>.rv-d,figcaption.rv:focus-visible>.rv-d{transform:none}
 .qa{display:grid;grid-template-columns:220px 220px minmax(0,1fr);gap:48px;align-items:center;margin-top:clamp(30px,calc(5.4 * var(--vh)),56px)}
 .qr{text-align:center;align-self:start}
 .qr img{width:100%;height:auto;display:block;background:var(--paper-hi);border:1px solid var(--ink);border-radius:var(--r);padding:12px}
-.qr-slot{aspect-ratio:1;border:2px dashed var(--ink2);border-radius:var(--r);background:rgba(255,255,255,.35)}
 .qr>span{display:block;margin-top:14px;font:600 12px/1.4 var(--serif);letter-spacing:.14em;text-transform:uppercase}
 :lang(zh-CN) .qr>span{letter-spacing:.06em}
 .qr>small{display:block;margin-top:4px;font:italic 13px/1.4 var(--serif);color:var(--muted)}
@@ -535,7 +534,6 @@ html .title .agenda .t{white-space:nowrap}
 
 /* ===== Mobile audit fixes (Oct 3) ===== */
 .nw{white-space:nowrap}
-.qr-chat{display:none}   /* parent group chat QR: show again (delete this line) once a real code is added */
 a.qr-live{color:inherit;text-decoration:none}
 @media (max-width:700px){
  .ask h2{font-size:32px!important;max-width:none!important}

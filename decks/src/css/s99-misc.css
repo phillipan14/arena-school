@@ -1,0 +1,19 @@
+/* 33 · Q&A after the group-chat slot was removed: two equal cards side by side, content centered in each */
+@media (min-width:701px){
+ section.s .bd .qa.qa14{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:var(--gap);align-items:stretch;align-content:center;height:auto}
+ section.s .bd .qa.qa14>.pane{min-height:470px;margin:0}
+ section.s .bd .qa.qa14 a.qr-slides{justify-content:center;align-items:center;padding:48px}
+ section.s .bd .qa.qa14 a.qr-slides img{max-width:260px}
+ section.s .bd .qa.qa14 a.qr-slides>span{font-size:16px;margin-top:22px}
+ section.s .bd .qa.qa14 a.qr-slides>small{font-size:18px;margin-top:6px}
+ section.s .bd .qa.qa14 .qa-links.pane{display:flex!important;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:48px}
+ section.s .bd .qa.qa14 .qa-item{display:flex;flex-direction:column;align-items:center}
+ section.s .bd .qa.qa14 .qa-links .k{font-size:16px;margin:0 0 18px}
+ section.s .bd .qa.qa14 .qa-url{font-size:32px;margin:0 0 16px}
+ section.s .bd .qa.qa14 .qa-links p{font-size:24px;line-height:1.45;max-width:20em}
+ :lang(zh-CN) section.s .bd .qa.qa14 .qa-links p{font-size:24px;line-height:1.6}
+}
+@media (min-width:701px){
+ section.s .bd .qa.qa14 .qa-links p{max-width:none}
+ section.s .bd .qa.qa14 a.qr-slides>span{color:var(--ink2)}
+}
