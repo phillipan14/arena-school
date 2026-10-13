@@ -11,7 +11,7 @@
    Primary target 390×844 portrait; landscape and tablets get a centred column. One slide per screen,
    swiped sideways (native scroll-snap), each slide scrolls on its own if it is taller than the screen. */
 :root{--ink:#0B1A4A;--ink2:#2F55A8;--paper:#F3E9DD;--hi:#FCF3ED;--beige:#EFE3D4;--text:#26304F;--muted:#5B5B6B;
- --edge:rgba(11,26,74,.14);--data:#2F55A8;--data-2:#B3BFDB;--track:rgba(11,26,74,.07);--dots:rgba(11,26,74,.13);
+ --edge:rgba(11,26,74,.14);--data:#2F55A8;--data-2:#B3BFDB;--track:rgba(11,26,74,.07);
  --lb:#A9BEEA;--lb2:#C9D6F2;--on:#FCF3ED;--red:#C8553D;--ease:cubic-bezier(.2,.7,.2,1);
  --serif:'Newsreader',Georgia,'Times New Roman',serif;
  --sans:'Geist',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
@@ -38,7 +38,7 @@ img{display:block;max-width:100%}
 .rd{position:fixed;inset:0;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;outline:0}
 .rd::-webkit-scrollbar{display:none}
 .s{position:relative;flex:0 0 100%;width:100%;height:100%;overflow-x:hidden;overflow-y:auto;scroll-snap-align:start;scroll-snap-stop:always;overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none;
- background:var(--paper) radial-gradient(var(--dots) 1px,transparent 1.3px) 12px 12px/24px 24px}
+ background:var(--paper)}
 .s::-webkit-scrollbar{display:none}
 .s.alt{background:var(--beige)}
 .s.nv{background:var(--ink);color:var(--on)}
@@ -168,7 +168,7 @@ i.cn{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(
 .hl i::before{background:var(--data)}
 .accx .hb i,.mb i{background:none}
 .hb .row:only-child,.arc .hb .row{grid-template-areas:"i"}
-i.rg::before{width:calc(var(--r) * 1%);background:linear-gradient(90deg,var(--data) 0 calc(var(--v) / var(--r) * 100%),transparent 0),repeating-linear-gradient(-45deg,var(--data) 0 2px,rgba(47,85,168,.25) 2px 5px)}
+i.rg::before{width:calc(var(--r) * 1%);background:linear-gradient(90deg,var(--data) 0 calc(var(--v) / var(--r) * 100%),rgba(47,85,168,.32) 0)}
 .mb{display:flex;flex-direction:column;gap:7px;margin-top:14px;padding-top:12px;border-top:1px solid var(--edge)}
 .mb .row{display:grid;grid-template-columns:76px 1fr auto;align-items:center;gap:10px}
 .mb .row>span{font:400 12.5px/1.2 var(--sans);color:var(--muted)}
