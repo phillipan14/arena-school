@@ -5,7 +5,14 @@
      Never on the program page itself. This file supplies the copy and the schedule via window.__arenaPromo.
    Testing: ?promo=now opens the popup at once; ?promo=reset clears the session counters. */
 (function () {
-  if (/^\/(decks|talk)(\/|$)/.test(location.pathname)) return;
+  /* Deck/talk pages load this with data-promo="banner-only": banner, never the popup. data-promo-layout="contain"
+     (deck player and phone reader) docks the banner above the page and shrinks the page box by its height, so
+     fixed slides, bars and the 16:9 scaling live below it instead of under it. */
+  var me = document.currentScript || document.querySelector('script[data-promo]');
+  var bannerOnly = !!me && me.getAttribute('data-promo') === 'banner-only';
+  var contain = bannerOnly && me.getAttribute('data-promo-layout') === 'contain';
+  if (/^\/(decks|talk)(\/|$)/.test(location.pathname) && !bannerOnly) return;
+  if (self !== top || /[?&]stage\b/.test(location.search)) return; // never inside the deck's 1920x1080 stage frame
   var doc = document.documentElement, zh = (doc.lang || '').indexOf('zh') === 0;
   var END = '2027-01-08', today = new Date(Date.now() + 8 * 3600e3).toISOString().slice(0, 10);
   if (today > END) return;
@@ -32,24 +39,35 @@
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] }) }
 
   /* ---------- banner (static, one message) ---------- */
-  var bar = null, barH = 0;
+  var bar = null, barH = 0, saiB = null;
   function placeNav() { if (bar) doc.style.setProperty('--nlb-off', Math.max(0, barH - window.scrollY) + 'px') }
+  /* contain: body becomes the containing block below the banner; the deck player's fit() subtracts --sai-b from
+     the viewport height, so it gets the banner height too (and re-fits on the resize we fire). */
+  var lastH = -1;
+  function shift() {
+    if (barH === lastH) return; lastH = barH;
+    doc.style.setProperty('--promo-h', barH + 'px');
+    if (saiB === null) { doc.style.removeProperty('--sai-b'); saiB = parseFloat(getComputedStyle(doc).getPropertyValue('--sai-b')) || 0 }
+    doc.style.setProperty('--sai-b', (saiB + barH) + 'px');
+    setTimeout(function () { window.dispatchEvent(new Event('resize')) }, 0);
+  }
+  function unshift() { lastH = -1; doc.style.removeProperty('--promo-h'); doc.style.removeProperty('--sai-b'); saiB = null; window.dispatchEvent(new Event('resize')) }
   if (ss.get('bar') !== 'x') {
     bar = document.createElement('div'); bar.className = 'promo-bar'; bar.setAttribute('role', 'region'); bar.setAttribute('aria-label', T.region);
     bar.innerHTML = '<a class="promo-link" href="' + esc(WIN) + '"><span class="promo-t"><span class="promo-td">' + esc(T.bt) + '</span><span class="promo-tm">' + esc(T.bm) + '</span></span><span class="promo-go">' + esc(T.bgo) + '<span class="promo-arr" aria-hidden="true">→</span></span></a>' +
       '<button type="button" class="promo-x" aria-label="' + esc(T.close) + '"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg></button>';
-    document.body.insertBefore(bar, document.body.firstChild);
+    if (contain) { doc.appendChild(bar); doc.classList.add('promo-contain') } else document.body.insertBefore(bar, document.body.firstChild);
     doc.classList.add('nl-bar-on', 'promo-bar-on');
     bar.querySelector('.promo-x').addEventListener('click', function () {
-      ss.set('bar', 'x'); bar.remove(); bar = null; doc.classList.remove('nl-bar-on', 'promo-bar-on'); doc.style.removeProperty('--nlb-off')
+      ss.set('bar', 'x'); bar.remove(); bar = null; doc.classList.remove('nl-bar-on', 'promo-bar-on', 'promo-contain'); doc.style.removeProperty('--nlb-off'); unshift()
     });
-    var fit = function () { if (bar) { barH = bar.offsetHeight; placeNav() } };
+    var fit = function () { if (!bar) return; barH = bar.offsetHeight; if (contain) shift(); else placeNav() };
     fit(); window.addEventListener('resize', fit);
     window.addEventListener('scroll', function () { requestAnimationFrame(placeNav) }, { passive: true });
   }
 
   /* ---------- popup copy + schedule, shown by newsletter.js ---------- */
-  if (onWin) return;
+  if (onWin || bannerOnly) return;
   var STEPS = [30, 300, 600]; // seconds of cumulative time on site this session
   window.__arenaPromo = {
     k: T.k, h: T.h, d: T.d, p: T.p, note: T.note, reg: T.reg, regHref: WIN + '#register', or: T.or,
