@@ -59,6 +59,7 @@ h2 em,h1 em{font-style:italic;color:var(--ink2)}
 :lang(zh-CN) h2 em,:lang(zh-CN) h1 em{font-style:normal}
 .st h2,.sec h2,.tk h2,.bq h2{font-size:clamp(31px,9vw,40px);line-height:1.1;letter-spacing:-.02em}
 :lang(zh-CN) .st h2,:lang(zh-CN) .sec h2,:lang(zh-CN) .tk h2,:lang(zh-CN) .bq h2{font-size:clamp(25px,7.4vw,32px);line-height:1.42;letter-spacing:0}
+.sec .sl{margin:14px 0 0;font-size:17px;line-height:1.45;color:rgba(252,243,237,.78)}
 h3{font:400 20px/1.25 var(--serif);color:var(--ink);letter-spacing:-.005em}
 :lang(zh-CN) h3{font-size:18px;line-height:1.45;font-weight:500}
 p{font-size:15.5px;line-height:1.5}
