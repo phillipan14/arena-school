@@ -285,6 +285,12 @@ html[data-l="en"] .pk-en small,html[data-l="zh"] .pk-cn small{color:rgba(252,243
   .rd-links a{font-weight:500;color:var(--btn);text-underline-offset:4px;text-decoration-color:rgba(21,38,54,.3)}
 }
 @media (prefers-reduced-motion:reduce){.pk-more i{animation:none}}
+/* Interactive deck embed (replaces the static slide gallery) */
+.dk{position:relative;width:100%;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#0B1A4A}
+.dk-f{position:absolute;left:0;top:0;width:1920px;height:1080px;border:0;display:block;transform-origin:0 0}
+.viewer:fullscreen .dk,.viewer.fs .dk,.viewer:-webkit-full-screen .dk{flex:1;align-self:center;width:min(100%,calc((100vh - 140px)*16/9));height:auto;border-radius:6px}
+.dk-m{display:none}
+@media (max-width:959px){.dk{display:none}.vnav,.gh2.mob{display:none !important}.dk-m{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:12px}}
 </style>
 <link rel="stylesheet" href="/promo.css" data-promo><script src="/promo.js" defer data-promo="banner-only"></script>
 </head>
@@ -334,11 +340,11 @@ html[data-l="en"] .pk-en small,html[data-l="zh"] .pk-cn small{color:rgba(252,243
   </section>
 
   <aside class="gal viewer" aria-label="Slides">
-      <p class="gl"><span class="en" lang="en"><span class="mob">Or swipe through them here</span><span class="desk">Browse the slides</span></span><span class="zh" lang="zh-CN"><span class="mob">也可以直接在这里滑动查看</span><span class="desk">在线浏览幻灯片</span></span><span class="cnt" aria-live="polite"></span></p>
-      <div class="track en" lang="en" data-set="en"></div>
-      <div class="track zh" lang="zh-CN" data-set="cn"></div>
+      <p class="gl"><span class="en" lang="en"><span class="mob">Read the slides on your phone</span><span class="desk">Click through the slides</span></span><span class="zh" lang="zh-CN"><span class="mob">在手机上逐页阅读幻灯片</span><span class="desk">在线翻看幻灯片</span></span><span class="cnt" aria-live="polite"></span></p>
+      <a class="btn pri dk-m" href="/talk/en" data-href-en="/talk/en" data-href-zh="/talk/cn"><span class="en" lang="en">Open the slides</span><span class="zh" lang="zh-CN">打开幻灯片</span> →</a>
+      <div class="dk"><iframe class="dk-f" title="Today’s slides / 今天的讲座幻灯片" src="/decks/conversation" allow="fullscreen" referrerpolicy="same-origin"></iframe></div>
       <div class="vnav"><button type="button" class="vfs" aria-label="Full screen / 全屏"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span class="en" lang="en">Full screen</span><span class="zh" lang="zh-CN">全屏</span></button><button type="button" class="vb" data-d="-1" aria-label="Previous slide / 上一页">←</button><button type="button" class="vb" data-d="1" aria-label="Next slide / 下一页">→</button></div>
-      <p class="gh2 mob"><span class="en" lang="en">Tap a slide to view it full screen, and turn your phone sideways for a bigger view.</span><span class="zh" lang="zh-CN">点击幻灯片即可全屏查看，横屏看得更清楚。</span></p>
+      <p class="gh2 mob"><span class="en" lang="en">Tap the right side of a slide for the next step, the left side to go back. Turn your phone sideways for a bigger view.</span><span class="zh" lang="zh-CN">点幻灯片右侧前进，左侧后退。横屏看得更清楚。</span></p>
     </aside>
 
   <section class="s-tools" aria-labelledby="h-tools">
@@ -474,6 +480,21 @@ document.addEventListener('keydown',function(e){ if(window.innerWidth<960) retur
   window.addEventListener('resize',function(){ if(!lb.hidden){ var i=cur; setTimeout(function(){go(i)},60); setTimeout(function(){go(i)},300); } });
   document.addEventListener('keydown',function(e){ if(lb.hidden) return;
     if(e.key==='Escape') close(); if(e.key==='ArrowRight') go(Math.min(n-1,cur+1)); if(e.key==='ArrowLeft') go(Math.max(0,cur-1)); });
+})();
+</script>
+<script>
+/* Embedded interactive deck: follows the page language; the arrows step the deck (builds, reveals). */
+(function(){
+  var f=document.querySelector('.dk-f'); if(!f) return; var d=document.documentElement;
+  function want(){return d.getAttribute('data-l')==='zh'?'/decks/conversation-cn':'/decks/conversation';}
+  function sync(){var w=want(); if(f.getAttribute('src')!==w) f.setAttribute('src',w);}
+  if(matchMedia('(max-width:959px)').matches){f.removeAttribute('src');return;}
+  sync(); new MutationObserver(sync).observe(d,{attributes:true,attributeFilter:['data-l']});
+  function step(n){try{var s=f.contentWindow&&f.contentWindow.__step; if(s){s(n);return true}}catch(e){} return false;}
+  document.querySelectorAll('.vb').forEach(function(b){b.addEventListener('click',function(e){ if(step(+b.getAttribute('data-d'))){e.stopImmediatePropagation();} },true);});
+  var c=document.querySelector('.gl .cnt'); if(c) c.textContent='';
+  var box=f.parentNode; function fit(){var s=box.clientWidth/1920; f.style.transform='scale('+s+')'; box.style.height=(1080*s)+'px';}
+  fit(); if(window.ResizeObserver) new ResizeObserver(fit).observe(box); window.addEventListener('resize',fit); document.addEventListener('fullscreenchange',function(){setTimeout(fit,60)});
 })();
 </script>
 </body>
