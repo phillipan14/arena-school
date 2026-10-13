@@ -113,10 +113,12 @@ function finishSlide(i){clearPlay();delete S[i].dataset.held;build(i,B[i]);snapF
 function startPlay(i){if(i<0||i>=S.length)return;clearPlay();playing=i;delete S[i].dataset.held;
  if(!shouldPlay()){build(i,B[i],true);snapFx(S[i]);return}
  build(i,0,true);S[i].classList.remove('done');
- /* a .hold slide arrives with only its unstepped content; the next press plays the rest (slide 24) */
+ /* a .hold slide arrives with only its unstepped content (or its first data-hold steps); the next press plays the rest (slides 24, 25) */
  var bk=S[i].dataset.back;delete S[i].dataset.back;
  if(bk&&S[i].classList.contains('hold')){build(i,B[i],true);snapFx(S[i]);return}
- if(S[i].classList.contains('hold')&&B[i]){[].forEach.call(S[i].querySelectorAll('.mk'),function(el){cancelAnimationFrame(mkRaf);el.classList.remove('go','stat','done');mkSet(el,0,0)});S[i].dataset.held=1;return}
+ if(S[i].classList.contains('hold')&&B[i]){[].forEach.call(S[i].querySelectorAll('.mk'),function(el){cancelAnimationFrame(mkRaf);el.classList.remove('go','stat','done');mkSet(el,0,0)});S[i].dataset.held=1;
+  /* data-hold="h": play steps 1..h on arrival, then wait for the press (slide 25) */
+  var hh=Math.min(+S[i].dataset.hold||0,B[i]-1),hk0=0;if(hh>0){(function ht(){hk0++;build(i,hk0);if(hk0<hh)playT.push(setTimeout(ht,380))})()}return}
  [].forEach.call(S[i].querySelectorAll('.ag-flood'),function(el){el.classList.remove('recede','flood','focus','done');var f=el.querySelector('.ag-fill');if(f)f.classList.remove('done')});
  [].forEach.call(S[i].querySelectorAll('.grow,.skmap'),function(el){el.classList.remove('done')});
  var k=0,n=B[i],gap=n<=1?380:Math.min(480,Math.max(300,2000/n)),flood=S[i].querySelector('.ag-flood,.mk,.rot');
