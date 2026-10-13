@@ -31,7 +31,7 @@ if(motion)[].forEach.call(document.querySelectorAll('.st h2,.sec h2,.tk h2,.bq h
   if(c.nodeType===3){var f=document.createDocumentFragment(),parts=ZH?c.nodeValue.replace(/([，。、：；？！])/g,'$1\u0001').split('\u0001'):c.nodeValue.split(/(\s+)/);
    parts.forEach(function(p){if(!p)return;if(!ZH&&/^\s+$/.test(p)){f.appendChild(document.createTextNode(p));return}
     var w=document.createElement('span');w.className=ZH?'phr':'wd';w.style.setProperty('--i',i++);w.textContent=p;f.appendChild(w)});
-   n.replaceChild(f,c)}else if(c.nodeType===1&&c.tagName!=='BR')walk(c)})})(h)});
+   n.replaceChild(f,c)}else if(c.nodeType===1&&c.tagName!=='BR'&&!c.classList.contains('rot'))walk(c)})})(h)});
 
 /* ---- market map: the same named tools as the deck, lit in a scattered order on an accelerating curve ---- */
 var TOOLS='__TOOLS__'.split('|');

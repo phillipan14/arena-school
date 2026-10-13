@@ -75,7 +75,18 @@ function build(i,k,quiet){var s=S[i];s.dataset.k=k;if(quiet)s.classList.add('nt'
  [].forEach.call(s.querySelectorAll('[data-s]'),function(e){e.classList.toggle('vis',+e.dataset.s<=k)});if(quiet){void s.offsetWidth;s.classList.remove('nt')}
  else if(window.__count)setTimeout(function(){__count(s)},150)}
 function snapFlood(el){el.classList.add('recede','flood','focus','done');var f=el.querySelector('.ag-fill');if(f)f.classList.add('done')}
-function snapFx(s){[].forEach.call(s.querySelectorAll('.ag-flood'),snapFlood);[].forEach.call(s.querySelectorAll('.mk'),snapMk);[].forEach.call(s.querySelectorAll('.ag-fill,.grow,.skmap'),function(el){el.classList.add('done')})}
+function snapFx(s){[].forEach.call(s.querySelectorAll('.rot'),snapRot);[].forEach.call(s.querySelectorAll('.ag-flood'),snapFlood);[].forEach.call(s.querySelectorAll('.mk'),snapMk);[].forEach.call(s.querySelectorAll('.ag-fill,.grow,.skmap'),function(el){el.classList.add('done')})}
+/* rotating phrase (slide 4): the task in the question rolls up one example at a time, about 1s each, and lands on the last.
+   The slot's width follows the phrase in view, so nothing after it jumps. Export, ?read, and reduced motion show the last phrase. */
+function rotGo(el,k){var it=el.querySelectorAll('.rot-t>span');k=Math.max(0,Math.min(it.length-1,k));el.style.setProperty('--k',k);el.classList.add('js');
+ [].forEach.call(it,function(x,j){x.classList.toggle('on',j===k)});
+ var w=it[k].offsetWidth,o=parseFloat(el.style.width)||0;if(w){el.style.transitionDelay=w<o?'.3s':'0s';el.style.width=w+'px'}}
+function snapRot(el){el.classList.add('done');el.classList.add('nt');rotGo(el,99);void el.offsetWidth;el.classList.remove('nt')}
+function armRot(s){[].forEach.call(s.querySelectorAll('.rot'),function(el){var n=el.querySelectorAll('.rot-t>span').length;
+  el.classList.remove('done');el.classList.add('nt');rotGo(el,0);void el.offsetWidth;el.classList.remove('nt');
+  for(var k=1;k<n;k++)(function(k){playT.push(setTimeout(function(){rotGo(el,k);if(k===n-1)playT.push(setTimeout(function(){el.classList.add('done')},520))},700+k*1050))})(k)})}
+[].forEach.call(document.querySelectorAll('.rot'),function(el){snapRot(el)});
+if(document.fonts)document.fonts.ready.then(function(){[].forEach.call(document.querySelectorAll('.rot.done'),function(el){snapRot(el)})});
 function clearPlay(){playT.forEach(function(t){clearTimeout(t)});playT=[]}
 /* market map (slide 24): the six agents arrive, then the field of other tools lights up one by one, accelerating,
    while the tool counter runs with it; the Hugging Face figure lands last. About 4s; a tap finishes it at once. */
@@ -104,15 +115,15 @@ function startPlay(i){if(i<0||i>=S.length)return;clearPlay();playing=i;
  build(i,0,true);S[i].classList.remove('done');
  [].forEach.call(S[i].querySelectorAll('.ag-flood'),function(el){el.classList.remove('recede','flood','focus','done');var f=el.querySelector('.ag-fill');if(f)f.classList.remove('done')});
  [].forEach.call(S[i].querySelectorAll('.grow,.skmap'),function(el){el.classList.remove('done')});
- var k=0,n=B[i],gap=n<=1?380:Math.min(480,Math.max(300,2000/n)),flood=S[i].querySelector('.ag-flood,.mk');
+ var k=0,n=B[i],gap=n<=1?380:Math.min(480,Math.max(300,2000/n)),flood=S[i].querySelector('.ag-flood,.mk,.rot');
  function tick(){k++;build(i,k);if(k<n)playT.push(setTimeout(tick,gap));else playT.push(setTimeout(function(){if(!flood)snapFx(S[i])},80))}
- if(flood){armFlood(S[i]);armMk(S[i])}
+ if(flood){armFlood(S[i]);armMk(S[i]);armRot(S[i])}
  if(n)playT.push(setTimeout(tick,320));else{if(window.__count)setTimeout(function(){__count(S[i])},200);if(!flood)playT.push(setTimeout(function(){snapFx(S[i])},80))}}
 function step(d){if(moving)finishMove();
  var c=armed>=0&&Math.abs(S[armed].offsetTop-deck.scrollTop)<innerHeight*.75?armed:cur();
  if(!canBuild()){go(c+d);return}
  var k=S[c].dataset.k===undefined?B[c]:+S[c].dataset.k;
- if(d>0){if(k<B[c]||S[c].querySelector('.ag-flood:not(.done),.ag-fill:not(.done),.grow:not(.done),.mk:not(.done)')){finishSlide(c);return}if(c<S.length-1){armed=c+1;go(c+1)}}
+ if(d>0){if(k<B[c]||S[c].querySelector('.ag-flood:not(.done),.ag-fill:not(.done),.grow:not(.done),.mk:not(.done),.rot:not(.done)')){finishSlide(c);return}if(c<S.length-1){armed=c+1;go(c+1)}}
  else{if(c>0){armed=c-1;finishSlide(c-1);go(c-1)}}}
 deck.addEventListener('scroll',function(){if(moving)return;var c=cur();[].forEach.call(nav.children,function(a,i){a.classList.toggle('on',i===c)});document.body.classList.toggle('nvon',S[c].classList.contains('nv'));
  if(armed>=0&&Math.abs(S[armed].offsetTop-deck.scrollTop)>innerHeight*1.5)armed=-1;
@@ -145,13 +156,13 @@ if(!HM.classList.contains('player')&&!HM.classList.contains('export')&&!/[?&]rea
   (function walk(n){[].slice.call(n.childNodes).forEach(function(c){
    if(c.nodeType===3){var f=document.createDocumentFragment();c.nodeValue.split(/(\s+)/).forEach(function(p){if(!p)return;
      if(/^\s+$/.test(p)){f.appendChild(document.createTextNode(p));return}var w=document.createElement('span');w.className='wd';w.style.setProperty('--i',i++);w.textContent=p;f.appendChild(w)});
-    n.replaceChild(f,c)}else if(c.nodeType===1&&c.tagName!=='BR')walk(c)})})(h);h.classList.add('wsplit')});
+    n.replaceChild(f,c)}else if(c.nodeType===1&&c.tagName!=='BR'&&!c.classList.contains('rot'))walk(c)})})(h);h.classList.add('wsplit')});
  else [].forEach.call(document.querySelectorAll(HERO),function(h){var i=0;
   /* phrases stay inline (opacity only), so the Chinese line breaks are exactly those of the static slide */
   (function walk(n){[].slice.call(n.childNodes).forEach(function(c){
    if(c.nodeType===3){var f=document.createDocumentFragment();c.nodeValue.replace(/([，。、：；？！])/g,'$1\u0001').split('\u0001').forEach(function(p){if(!p)return;
      var w=document.createElement('span');w.className='phr';w.style.setProperty('--i',i++);w.textContent=p;f.appendChild(w)});
-    n.replaceChild(f,c)}else if(c.nodeType===1&&c.tagName!=='BR')walk(c)})})(h);h.classList.add('psplit')});
+    n.replaceChild(f,c)}else if(c.nodeType===1&&c.tagName!=='BR'&&!c.classList.contains('rot'))walk(c)})})(h);h.classList.add('psplit')});
 }
 [].forEach.call(document.querySelectorAll('.mmap'),function(g){[].forEach.call(g.querySelectorAll('.mm-c'),function(c,k){c.style.setProperty('--c',k)});[].forEach.call(g.querySelectorAll('.mm li'),function(c,k){c.style.setProperty('--i',k)})});
 [].forEach.call(document.querySelectorAll('.tln,.apps,.tbl,.trk,.paths,.tk-prog,.pg-m,.trio,.proj,.agx,.spine,.tn-r,.grow-n,.sk-tools,.proj4,.sk-proc'),function(g){

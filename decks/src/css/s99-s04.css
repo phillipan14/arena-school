@@ -1,0 +1,18 @@
+/* slide 4: the task in the question rolls up one example at a time (shared.js rotGo). The slot is one line tall and clips the
+   rest; it gets extra room above and below (cancelled by negative margins) so ascenders and descenders are never cut, and its
+   width follows the phrase in view. --hl-light is the lighter accent JJ asked for on slides 4 and 19. */
+:root{--hl-light:#5B7FD1}
+.ae.st h2.rot-h{max-width:none;text-wrap:wrap}
+.rot{--lh:1.08em;--pt:.1em;--pb:.12em;display:inline-block;vertical-align:top;position:relative;overflow:hidden;
+ height:calc(var(--lh) + var(--pt) + var(--pb));margin:calc(-1 * var(--pt)) 0 calc(-1 * var(--pb));color:var(--hl-light);
+ transition:width .48s cubic-bezier(.65,0,.35,1)}
+:lang(zh-CN) .rot{--lh:1.32em;--pt:.04em;--pb:.06em}
+.rot-t{display:block;transform:translateY(calc(var(--k,7) * -1 * (var(--lh) + var(--pt) + var(--pb))));transition:transform .48s cubic-bezier(.65,0,.35,1)}
+.rot-t{padding-top:var(--pt)}
+.rot-t>span{display:block;width:max-content;white-space:nowrap;height:var(--lh);line-height:var(--lh)}
+.rot-t>span+span{margin-top:calc(var(--pt) + var(--pb))}
+.rot.js .rot-t>span{opacity:0;transition:opacity .34s ease}
+.rot.js .rot-t>span.on{opacity:1;transition:opacity .34s ease .14s}
+.rot-t .rot-pc{color:var(--ink)}
+.rot.nt,.rot.nt .rot-t,.rot.nt .rot-t>span{transition:none!important}
+@media (prefers-reduced-motion:reduce){.rot,.rot-t,.rot-t>span{transition:none}}
