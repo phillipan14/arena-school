@@ -17,7 +17,7 @@
 .cs31 .cs-note em{font-style:italic;color:var(--ink2)}
 .ae .bd .cs31 .cs-tools{grid-row:2;grid-column:1/-1;display:flex;align-items:center;gap:28px;padding:12px 26px}
 .cs31 .cs-th{flex:none;font:600 15px/1 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
-.cs31 .cs-tools ul{list-style:none;margin:0;padding:0;flex:1;display:grid;grid-template-columns:repeat(14,minmax(0,1fr));gap:6px;align-items:start}
+.cs31 .cs-tools ul{list-style:none;margin:0;padding:0;flex:1;display:flex;justify-content:space-between;align-items:flex-start;gap:6px;min-width:0}
 .ae .bd .cs31 .cs-tools li{display:flex;flex-direction:column;align-items:center;gap:5px;min-width:0}
 .cs31 .cs-tools img{width:30px;height:30px;border-radius:8px;object-fit:cover;background:#fff;box-shadow:0 0 0 1px var(--edge)}
 .ae .bd .cs31 .cs-tools b{font:500 13px/1.1 var(--serif);color:var(--ink);white-space:nowrap}
@@ -27,3 +27,24 @@
 :lang(zh-CN) .ae .bd .cs31 .cs-note{font-size:24px;line-height:1.45}
 :lang(zh-CN) .cs31 .cs-th{font-size:17px;letter-spacing:.06em}
 :lang(zh-CN) .ae .bd .cs31 .cs-cap{font-style:normal;font-size:15px}
+
+/* round 5: ink-centered beats and tool row (js/s99-s31.html sets --ky per element from the font in use) */
+.cs31 .cs-k,.cs31 .cs-beats p,.cs31 .cs-tools ul,.cs31 .cs-th{transform:translateY(var(--ky,0px))}
+/* calibrated ink offsets (measured from rendered pixels at 1920×1080, round 5): each beat's label block and text,
+   and the tool row, sit on the optical center of their card. Phone reader has its own layout. */
+:lang(en) .cs31 .cs-beats li:nth-child(1) .cs-k{--ky:2.59px}
+:lang(en) .cs31 .cs-beats li:nth-child(1) p{--ky:0.69px}
+:lang(en) .cs31 .cs-beats li:nth-child(2) .cs-k{--ky:2.59px}
+:lang(en) .cs31 .cs-beats li:nth-child(2) p{--ky:0.33px}
+:lang(en) .cs31 .cs-beats li:nth-child(3) .cs-k{--ky:3.34px}
+:lang(en) .cs31 .cs-beats li:nth-child(3) p{--ky:0.69px}
+:lang(en) .cs31 .cs-tools ul{--ky:0.7px}
+:lang(en) .cs31 .cs-tools .cs-th{--ky:1.55px}
+:lang(zh-CN) .cs31 .cs-beats li:nth-child(1) .cs-k{--ky:1.74px}
+:lang(zh-CN) .cs31 .cs-beats li:nth-child(1) p{--ky:2.12px}
+:lang(zh-CN) .cs31 .cs-beats li:nth-child(2) .cs-k{--ky:1.74px}
+:lang(zh-CN) .cs31 .cs-beats li:nth-child(2) p{--ky:2.51px}
+:lang(zh-CN) .cs31 .cs-beats li:nth-child(3) .cs-k{--ky:0.98px}
+:lang(zh-CN) .cs31 .cs-beats li:nth-child(3) p{--ky:2.12px}
+:lang(zh-CN) .cs31 .cs-tools ul{--ky:0.7px}
+:lang(zh-CN) .cs31 .cs-tools .cs-th{--ky:0.81px}
