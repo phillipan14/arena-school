@@ -91,3 +91,33 @@ html[lang="zh-CN"] .nl-h{font-size:21px;line-height:1.5}
 
 /* hidden until /api/subscribe reports Resend is configured (newsletter.js adds html.nl-on) */
 html:not(.nl-on) .nl-band,html:not(.nl-on) a[href="#nl"],html:not(.nl-on) li:has(> a[href="#nl"]){display:none !important}
+
+/* homepage top banner (both widths): thin navy strip above the nav */
+.nl-bar{position:relative;z-index:1001;display:flex;align-items:center;height:36px;background:#0B1A4A;color:#F6F0E5}
+.nl-bar-link{flex:1;min-width:0;height:100%;display:flex;align-items:center;justify-content:center;overflow:hidden;color:inherit !important;text-decoration:none !important;padding:0 8px 0 44px}
+.nl-bar-track{display:inline-flex;align-items:center;white-space:nowrap;font:500 13.5px/1 var(--font-body,'Geist'),system-ui,sans-serif;letter-spacing:.01em}
+html[lang="zh-CN"] .nl-bar-track{font-size:13.5px;letter-spacing:.02em}
+.nl-bar-item{display:inline-flex;align-items:center;gap:10px}
+.nl-bar-item b{font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:12px;color:#C9D6F2}
+html[lang="zh-CN"] .nl-bar-item b{letter-spacing:.04em;text-transform:none;font-size:13px}
+.nl-bar-dot{opacity:.5}
+.nl-bar-go{margin-left:6px;padding:4px 10px;border:1px solid rgba(246,240,229,.4);border-radius:999px;font-weight:600;font-size:12.5px}
+.nl-bar-gap{display:inline-block;width:56px}
+.nl-bar-link:hover .nl-bar-go{background:rgba(246,240,229,.12)}
+.nl-bar-track.nl-run{animation:nlTicker var(--nlb-dur,20s) linear infinite;justify-content:flex-start}
+.nl-bar-link:has(.nl-run){justify-content:flex-start;padding-left:12px}
+.nl-bar-link:hover .nl-run{animation-play-state:paused}
+@keyframes nlTicker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.nl-bar-track.nl-run{animation:none}}
+.nl-bar-x{flex:none;display:grid;place-items:center;width:44px;height:36px;border:0;background:none;color:rgba(246,240,229,.75);cursor:pointer}
+.nl-bar-x svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
+/* the fixed nav sits under the banner until the banner scrolls away */
+html.nl-bar-on body .nav{top:var(--nlb-off,36px) !important}
+html.nl-bar-on.nav-open .nl-bar{display:none}
+html.nl-bar-on.nav-open body .nav{top:0 !important}
+@media (max-width:760px){
+.nl-bar{height:34px}
+.nl-bar-x{height:34px}
+.nl-bar-track{font-size:13px}
+html.nl-bar-on.ph-nav-hide:not(.nav-open) body .nav{transform:translateY(calc(-100% - var(--nlb-off,0px)))}
+}
