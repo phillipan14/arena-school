@@ -160,13 +160,14 @@ i.cn{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(
 :lang(zh-CN) .sp .tag{font-size:12px;letter-spacing:.03em;text-transform:none}
 .sp .now{margin-top:14px;padding-top:12px;border-top:1px solid var(--edge);font:italic 400 16px/1.45 var(--serif);color:var(--ink)}
 :lang(zh-CN) .sp .now{font:400 15px/1.65 var(--sans)}
+.sp .now .ln{display:block}
 .lg{margin-top:12px;display:grid;gap:10px}
 .lg>div{display:grid;grid-template-columns:62px 1fr;align-items:center;gap:8px}
 .lg dt{font:600 10px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 :lang(zh-CN) .lg dt{font-size:12px;letter-spacing:.04em}
 .lg dd{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px}
 .lg img{width:auto;opacity:.9}
-.h-isb{height:25px}.h-br{height:21px}.h-ts{height:25px}.h-ap{height:20px}.h-de{height:14px}.h-ci{height:19px}.h-ct{height:16px}.h-hv{height:21px}.h-gs{height:20px}.h-mk{height:12.5px}
+.h-isb{height:25px}.h-br{height:21px}.h-ts{height:25px}.h-ap{height:20px}.h-de{height:14px}.h-ci{height:19px}.h-ct{height:16px}.h-hv{height:21px}.h-gs{height:20px}.h-mk{height:12px}.h-km{height:15px}.h-li{height:14px}
 
 /* ---------- bar charts: label and value on one line, the bar under them ---------- */
 .ct{font:500 13px/1.4 var(--sans);color:var(--muted);margin-bottom:14px}
@@ -422,6 +423,7 @@ i.rg::before{width:calc(var(--r) * 1%);background:linear-gradient(90deg,var(--da
 .qa{display:block}
 .qa-links{display:flex;flex-direction:column;gap:0;padding:4px 18px}
 .qa-item{padding:14px 0;border-bottom:1px solid var(--edge)}
+.qa-item:last-child{border-bottom:0}
 .qa-item .k{display:block;font:600 10.5px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
 :lang(zh-CN) .qa-item .k{font-size:12.5px;letter-spacing:.03em}
 .qa-url{display:inline-flex;align-items:center;min-height:40px;font:400 18px/1.3 var(--serif);color:var(--ink);text-decoration:underline;text-decoration-color:rgba(11,26,74,.3);text-underline-offset:4px;word-break:break-all}
@@ -590,6 +592,50 @@ i.rg::before{width:calc(var(--r) * 1%);background:linear-gradient(90deg,var(--da
 @media (max-height:500px) and (orientation:landscape) and (min-width:600px){
  .top,.bot{padding-left:max(var(--gx),calc(50% - 380px + var(--gx)));padding-right:max(var(--gx),calc(50% - 380px + var(--gx)))}
 }
+/* slide 4: the rotating task shows only its final phrase on phones, in the lighter accent */
+.rot,.rot-t,.rot-t>span.fin{display:inline}
+.rot-t>span:not(.fin){display:none}
+.rot{color:#5B7FD1}
+.rot .rot-pc{color:var(--ink)}
+.rot-h br{display:none}
+:lang(zh-CN) .rot-h br{display:inline}
+
+/* slide 19: agency, taste, and craft in practice */
+:root{--hl-light:#5B7FD1}
+.s h2 em.hl-l{color:var(--hl-light)}
+.prac .tri{padding:4px 18px}
+.prac .tri-r{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:14px 0;border-top:1px solid rgba(252,243,237,.18)}
+.prac .tri-r:first-child{border-top:0}
+.prac .tri-r p{margin:0;font-size:14.5px;line-height:1.45;color:rgba(252,243,237,.86)}
+:lang(zh-CN) .prac .tri-r p{font-size:14px;line-height:1.6}
+
+/* ---------- slide 31: a child's project (video, three beats, example tools) ---------- */
+.cs31{display:grid;gap:10px}
+.cs31 .cs-vp{display:flex;flex-direction:column;gap:8px;padding:10px}
+.cs31 .cs-v{position:relative;margin:0;aspect-ratio:4/3;border-radius:9px;overflow:hidden;background:var(--beige)}
+.cs31 .cs-v video,.cs31 .cs-v .vposter{display:block;width:100%;height:100%;object-fit:cover}
+.cs31 .cs-v .vposter{display:none}
+.cs31 .cs-cap{margin:0;text-align:center;font:italic 400 13px/1.3 var(--serif);color:var(--muted)}
+:lang(zh-CN) .cs31 .cs-cap{font-style:normal;font-size:12.5px}
+.cs31 .cs-side{display:grid;gap:8px}
+.cs31 .cs-beats{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.cs31 .cs-beats li{background:rgba(252,243,237,.72);border:1px solid var(--edge);border-radius:12px;padding:12px 14px;display:grid;gap:6px}
+.cs31 .cs-k{display:flex;align-items:baseline;flex-wrap:wrap;column-gap:8px;row-gap:2px}
+.cs31 .cs-k i{font:italic 400 14px/1 var(--serif);color:var(--ink2)}
+.cs31 .cs-k b{font:500 19px/1.15 var(--serif);color:var(--ink)}
+.cs31 .cs-k>span{margin-left:auto;font:600 10.5px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+:lang(zh-CN) .cs31 .cs-k>span{font-size:12px;letter-spacing:.03em}
+.cs31 .cs-beats p{margin:0;font:400 15px/1.45 var(--serif);color:var(--text)}
+:lang(zh-CN) .cs31 .cs-beats p{font-size:14.5px;line-height:1.6}
+.cs31 .cs-note{margin:2px 2px 0;font:400 15.5px/1.45 var(--serif);color:var(--ink)}
+.cs31 .cs-note em{color:var(--ink2)}
+.cs31 .cs-tools{padding:12px 12px 14px}
+.cs31 .cs-th{display:block;font:600 10.5px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);margin-bottom:10px}
+:lang(zh-CN) .cs31 .cs-th{font-size:12.5px;letter-spacing:.03em}
+.cs31 .cs-tools ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px 2px}
+.cs31 .cs-tools li{display:flex;flex-direction:column;align-items:center;gap:4px;min-width:0}
+.cs31 .cs-tools img{width:28px;height:28px;border-radius:7px;background:#fff;box-shadow:0 0 0 1px var(--edge);object-fit:cover}
+.cs31 .cs-tools b{font:500 10px/1.2 var(--sans);color:var(--text);white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
 </style></head><body>
 <header class="top"><a class="home" href="/talk" aria-label="讲座资料 · Arena School"><img class="wm n" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School" width="1600" height="242"><img class="wm i" src="/logos/arena/wordmark-ivory-1600.png" alt="" width="1600" height="242"></a>
  <div class="tools"><a class="lng" href="/talk/en" data-base="/talk/en" hreflang="en" aria-label="English">EN</a><button type="button" class="lst" aria-label="全部幻灯片"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></div>
@@ -625,15 +671,15 @@ i.rg::before{width:calc(var(--r) * 1%);background:linear-gradient(90deg,var(--da
  <div class="spk2">
   <article class="sp pane" data-s="1">
    <header><img class="ph" src="/photos/jing-jing-yang.jpg" alt=""><div><h3>羊筱涵<span class="xn">Jing Jing Yang</span></h3><div class="tag">ISB 2019届</div></div></header>
-   <p class="now">为中国AI公司提供出海咨询，包括 Kimi</p>
+   <p class="now"><span class="ln">高中起就与中国科技和AI公司合作，</span><span class="ln">帮助它们走向海外</span></p>
    <dl class="lg"><div><dt>求学</dt><dd><img class="h-isb" src="/logos/cred/isb.png" alt="ISB"><img class="h-br" src="/logos/cred/brown.png" alt="Brown"><img class="h-ts" src="/logos/cred/tsinghua.png" alt="清华大学"></dd></div>
-    <div><dt>工作</dt><dd><img class="h-ap" src="/logos/cred/apple.png" alt="Apple"><img class="h-de" src="/logos/cred/deloitte.png" alt="Deloitte"><img class="h-ci" src="/logos/cred/cicc.png" alt="CICC"></dd></div></dl>
+    <div><dt>工作</dt><dd><img class="h-ap" src="/logos/cred/apple.png" alt="Apple"><img class="h-de" src="/logos/cred/deloitte.png" alt="Deloitte"><img class="h-ci" src="/logos/cred/cicc.png" alt="CICC"><img class="h-km" src="/logos/cred/kimi-wordmark.png" alt="Kimi"></dd></div></dl>
   </article>
   <article class="sp pane" data-s="2">
-   <header><img class="ph" src="/photos/phillip-an.jpg" alt=""><div><h3>安广宁<span class="xn">Phillip An</span></h3><div class="tag">福布斯30U30<br>Y Combinator 校友</div></div></header>
-   <p class="now">Skylarq 联合创始人兼 CEO，<span class="nw">做销售AI智能体</span></p>
+   <header><img class="ph" src="/photos/phillip-an.jpg" alt=""><div><h3>安广宁<span class="xn">Phillip An</span></h3><div class="tag">福布斯30U30</div></div></header>
+   <p class="now"><span class="ln">Skylarq&nbsp;AI 联合创始人兼CEO</span><span class="ln">Homebase 联创兼前COO（融资超5000万美元）</span></p>
    <dl class="lg"><div><dt>求学</dt><dd><img class="h-ct" src="/logos/cred/caltech.png" alt="Caltech"><img class="h-hv" src="/logos/cred/harvard.png" alt="Harvard"><img class="h-ts" src="/logos/cred/tsinghua.png" alt="清华大学"></dd></div>
-    <div><dt>工作</dt><dd><img class="h-gs" src="/logos/cred/goldman.png" alt="Goldman Sachs"><img class="h-mk" src="/logos/cred/mckinsey.png" alt="McKinsey"></dd></div></dl>
+    <div><dt>工作</dt><dd><img class="h-gs" src="/logos/cred/goldman.png" alt="Goldman Sachs"><img class="h-mk" src="/logos/cred/mckinsey.png" alt="McKinsey"><img class="h-li" src="/logos/cred/linkedin.png" alt="LinkedIn"></dd></div></dl>
   </article>
  </div>
  </div>
@@ -642,7 +688,7 @@ i.rg::before{width:calc(var(--r) * 1%);background:linear-gradient(90deg,var(--da
 <!-- 4 · The question -->
 <section class="s alt ae st"><div class="w">
  <p class="kick r">今天想回答的问题</p>
- <h2 class="r" style="--d:.1s">当AI几秒钟就能写出一篇作文，孩子<em>还必须学会什么？</em></h2>
+ <h2 class="r rot-h" style="--d:.1s" aria-label="当AI几秒钟就能做到所有这些，孩子还必须学会什么？">当AI几秒钟就能<span class="rot" aria-hidden="true"><span class="rot-t"><span>写一篇作文<span class="rot-pc">，</span></span><span>写代码<span class="rot-pc">，</span></span><span>总结一篇文章<span class="rot-pc">，</span></span><span>做一份研究报告<span class="rot-pc">，</span></span><span>设计一个标志<span class="rot-pc">，</span></span><span>做一个网站<span class="rot-pc">，</span></span><span>翻译一段演讲<span class="rot-pc">，</span></span><span class="fin">做到所有这些<span class="rot-pc">，</span></span></span></span><br>孩子<em>还必须学会什么？</em></h2>
 </div></section>
 
 <!-- 5 · Section 1 -->
@@ -679,10 +725,10 @@ i.rg::before{width:calc(var(--r) * 1%);background:linear-gradient(90deg,var(--da
 <!-- 10 · Law -->
 <section class="s alt ae"><div class="w">
  <p class="kick r">律师 · 美国试验、中国调查与美国招聘</p>
- <h2 class="r" style="--d:.1s">用法学生做的试验里，用AI的人在多数法律任务上<em>多做了50%到130%。</em></h2>
+ <h2 class="r" style="--d:.1s">用法学生做的试验里，用AI的人在多数法律任务上<em>多做了34%到140%。</em></h2>
  <div class="bd r" style="--d:.25s"><div class="st3">
-  <div class="pane hl" data-s="1"><span class="lab">美国随机对照试验</span><div class="big nc">+50–130%</div><p>6项法律任务中，有5项借助AI完成得更多</p>
-   <div class="mb" role="img" aria-label="完成的工作量，不用AI记为100：用AI为150至230"><div class="row"><span>不用AI</span><i style="--v:43.48"></i><b>100</b></div><div class="row hl"><span>用AI</span><i class="rg" style="--v:65.22;--r:100"></i><b>150–230</b></div></div></div>
+  <div class="pane hl" data-s="1"><span class="lab">美国随机对照试验</span><div class="big nc">+34–140%</div><p>6项法律任务中，有5项借助AI完成得更多</p>
+   <div class="mb" role="img" aria-label="完成的工作量，不用AI记为100：用AI为134至240"><div class="row"><span>不用AI</span><i style="--v:41.67"></i><b>100</b></div><div class="row hl"><span>用AI</span><i class="rg" style="--v:55.83;--r:100"></i><b>134–240</b></div></div></div>
   <div class="pane" data-s="2"><span class="lab">中国大陆律师</span><div class="big">93%</div><p>的律师和实习律师已在工作中使用AI</p>
    <div class="mb" role="img" aria-label="93%使用AI"><div class="row hl"><span>使用AI</span><i style="--v:93"></i><b>93%</b></div></div></div>
   <div class="pane" data-s="3"><span class="lab">美国大型律所</span><div class="big">−7.5%</div><p>2025年新招应届律师人数，为2014年以来首次下降</p>
@@ -705,7 +751,7 @@ i.rg::before{width:calc(var(--r) * 1%);background:linear-gradient(90deg,var(--da
 <!-- 13 · Layoffs -->
 <section class="s ae"><div class="w">
  <p class="kick r">亚马逊 · 从内部信到裁员</p>
- <h2 class="r" style="--d:.1s">公司已经在行动。亚马逊已裁掉<em>约3万个公司职位。</em></h2>
+ <h2 class="r" style="--d:.1s">亚马逊CEO说，AI会让公司员工变少。<em>此后亚马逊已裁掉约3万个公司职位。</em></h2>
  <div class="bd r" style="--d:.25s"><div class="pane tln-pane"><div class="lr"><img class="brand amz" src="/logos/deck/amazon.svg" alt="亚马逊"></div><ol class="tln" style="--n:3">
   <li><span class="dt">2025年6月17日</span><span class="dot"></span><h3>CEO 致员工信</h3><p>AI“将减少我们公司员工的总数”</p></li>
   <li><span class="dt">2025年10月28日</span><span class="dot"></span><div class="big">1.4<small>万</small></div><p>公司职位被裁</p></li>
@@ -817,15 +863,18 @@ i.rg::before{width:calc(var(--r) * 1%);background:linear-gradient(90deg,var(--da
 
 <!-- 27 · Shortcut or tutor -->
 <section class="s alt ae"><div class="w">
- <p class="kick r">孩子怎么用 · OECD PISA 2025</p>
- <h2 class="r" style="--d:.1s">同一个AI，可以直接给孩子答案，也可以帮孩子弄懂。<em>差别在于使用习惯。</em></h2>
+ <p class="kick r">高中生的一周里</p>
+ <h2 class="r" style="--d:.1s"><em class="hl-l">主动性、审美与匠心</em>，在实际中<span class="nw">是什么样子？</span></h2>
  <div class="bd r" style="--d:.25s">
-  <div class="pair">
-   <div class="pc lt" data-s="1"><span class="pl">捷径</span><p class="say">“直接告诉我答案。”</p><p>作业做完了，思考却跳过了。</p></div>
-   <div class="pc dk" data-s="2"><span class="pl">家教</span><p class="say">“讲到我真正弄懂为止。”</p><p>思考的是孩子，AI负责讲解和检查。</p></div>
+  <div class="pair prac">
+   <div class="pc lt" data-s="1"><span class="pl">以前</span><p class="say"><span class="nw">“直接告诉我答案。”</span></p><p>作业做完了，思考却跳过了。</p></div>
+   <div class="pc dk tri">
+    <div class="tri-r" data-s="2"><span class="pl">主动性</span><p>看到弟弟卡在分数题上，没人要求，就用AI给他做了一个<span class="nw">练习小游戏。</span></p></div>
+    <div class="tri-r" data-s="3"><span class="pl">审美</span><p>让AI写出三个申请文书的开头，挑出最像自己的那一个，并且<span class="nw">说得出为什么。</span></p></div>
+    <div class="tri-r" data-s="4"><span class="pl">匠心</span><p>在奶奶的手机上试用社团网站，把太小的字和坏掉的报名表修好，<span class="nw">再分享出去。</span></p></div>
+   </div>
   </div>
  </div>
- <p class="fn" data-s="1"><span>OECD，PISA 2025结果，2026年9月8日：用AI聊天机器人做功课的学生平均得分更低；但在经常使用的学生中，学过如何判断AI输出的人表现更好。这是相关性，不能证明因果</span></p>
 </div></section>
 
 <!-- 28 · Structure -->
@@ -837,8 +886,8 @@ i.rg::before{width:calc(var(--r) * 1%);background:linear-gradient(90deg,var(--da
 
 <!-- 26 · Teachers, last in Section 2 -->
 <section class="s ae"><div class="w">
- <p class="kick r">学校 · 中国教育科学研究院，2026年</p>
- <h2 class="r" style="--d:.1s">多数学校仍然缺少能教AI的老师，<em>所以家庭现在就要开始。</em></h2>
+ <p class="kick r">全国学校调查 · 中国教育科学研究院，2026年</p>
+ <h2 class="r" style="--d:.1s">研究显示，大多数学校仍缺少能教AI的老师，<em>家庭现在就可以出一份力。</em></h2>
  <div class="bd r" style="--d:.25s"><div class="dns">
   <div class="pane dn" data-s="1"><div class="ring2"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="tr" cx="60" cy="60" r="52" pathLength="100"/><circle class="vl" cx="60" cy="60" r="52" pathLength="100" style="--v:88.12"/></svg><div class="big">88%</div></div><p>的学校反映，能教AI的老师不足</p></div>
   <div class="pane dn" data-s="2"><div class="ring2"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="tr" cx="60" cy="60" r="52" pathLength="100"/><circle class="vl" cx="60" cy="60" r="52" pathLength="100" style="--v:54.13"/></svg><div class="big">54%</div></div><p>的老师对自己的AI教学能力缺乏信心</p></div>
@@ -867,9 +916,9 @@ i.rg::before{width:calc(var(--r) * 1%);background:linear-gradient(90deg,var(--da
 </div></div></section>
 
 <!-- 31 · The agents -->
-<section class="s alt ae"><div class="w">
+<section class="s alt ae hold"><div class="w">
  <p class="kick r">建议一 · 个人AI智能体，2026年10月</p>
- <h2 class="r" style="--d:.1s">这些您听说过几个？在它们背后，<em>每天都有数千个新的AI模型发布。</em></h2>
+ <h2 class="r" style="--d:.1s">这些您听说过几个？<span class="t2" data-s="1">在它们背后，<em>每天都有数千个新的AI模型发布。</em></span></h2>
  <div class="bd r" style="--d:.25s"><div class="mk">
   <ul class="agx six">
    <li class="pane"><img src="/logos/tools/kimi.png" alt=""><span><b>Kimi</b></span></li>
@@ -879,12 +928,12 @@ i.rg::before{width:calc(var(--r) * 1%);background:linear-gradient(90deg,var(--da
    <li class="pane"><img src="/logos/tools/genspark.png" alt=""><span><b>Genspark</b></span></li>
    <li class="pane"><img class="t" src="/logos/tools/openclaw.png" alt=""><span><b>OpenClaw</b></span></li>
   </ul>
-  <div class="mk-low">
-   <div class="mk-map pane"><p class="lab">今天就能试用的另外 <b class="mk-n">200</b> 个AI工具</p><div class="mk-field" aria-hidden="true"></div></div>
+  <div class="mk-low" data-s="1">
+   <div class="mk-map pane"><p class="lab">今天就能试用的另外 <b><span class="mk-n">200</span><span class="mk-plus">+</span></b> 个AI工具</p><div class="mk-field" aria-hidden="true"></div></div>
    <div class="mk-stat pane"><p class="lab">Hugging Face</p><b class="mk-big">4,386</b><p class="mk-l">2026年10月12日（周一）一天之内新发布的AI模型</p><p class="mk-r"><span>大约每分钟3个</span><span>累计超过310万个</span></p></div>
   </div>
  </div></div>
- <p class="fn"><span>Hugging Face Hub API：2026年10月12日（UTC）新建公开模型4,386个；huggingface.co/models 共列出3,145,598个。均于2026年10月13日核对。工具信息：各工具官网</span></p>
+ <p class="fn" data-s="1"><span>Hugging Face Hub API：2026年10月12日（UTC）新建公开模型4,386个；huggingface.co/models 共列出3,145,598个。均于2026年10月13日核对。工具信息：各工具官网</span></p>
 </div></section>
 
 <!-- 32 · Tools multiply -->
@@ -961,39 +1010,41 @@ i.rg::before{width:calc(var(--r) * 1%);background:linear-gradient(90deg,var(--da
  <p class="fn" data-s="1"><span>Cursor D 轮融资公告，2025年11月13日；路透社、CNBC、彭博社，2026年6月16日；SpaceX 8-K 文件与 PitchBook，2026年8月14日</span></p>
 </div></section>
 
-<!-- 39 · What students learn -->
+<!-- 39 · What children can build -->
 <section class="s ae"><div class="w">
- <p class="kick r">建议三 · 孩子能做到什么</p>
- <h2 class="r" style="--d:.1s">孩子可以用AI工具，练出三项能力：<em>主动性、审美与匠心。</em></h2>
+ <p class="kick r">建议三 · 孩子能做出什么</p>
+ <h2 class="r" style="--d:.1s">五天里，一个十岁的孩子<br><em>把手语变成了语音。</em></h2>
  <div class="bd r" style="--d:.25s">
-  <div class="skmap">
-   <div class="pane sk-l" data-s="1"><span class="sk-h">示例工具</span>
-   <ul class="sk-tools">
-    <li><img src="/logos/tools/openai.png" alt=""><b>ChatGPT</b></li>
-    <li><img src="/logos/tools/claude.png" alt=""><b>Claude</b></li>
-    <li><img src="/logos/tools/kimi.png" alt=""><b>Kimi</b></li>
-    <li><img src="/logos/tools/deepseek.png" alt=""><b>DeepSeek</b></li>
-    <li><img src="/logos/tools/gemini.png" alt=""><b>Gemini</b></li>
-    <li><img src="/logos/tools/doubao.png" alt=""><b>豆包</b></li>
-    <li><img src="/logos/tools/perplexity.png" alt=""><b>Perplexity</b></li>
-    <li><img src="/logos/tools/notion.png" alt=""><b>Notion</b></li>
-    <li><img src="/logos/tools/figma.png" alt=""><b>Figma</b></li>
-    <li><img src="/logos/tools/canva.png" alt=""><b>Canva</b></li>
-    <li><img src="/logos/tools/ideogram.png" alt=""><b>Ideogram</b></li>
-    <li><img src="/logos/tools/github.png" alt=""><b>GitHub</b></li>
-    <li><img src="/logos/tools/vercel.png" alt=""><b>Vercel</b></li>
-    <li><img src="/logos/tools/stripe.png" alt=""><b>Stripe</b></li>
-   </ul></div>
-   <div class="pane sk-side" data-s="2">
-    <span class="sk-h">创业能力</span>
-    <ol class="sk-proc">
-     <li><i>01</i><b>找到问题</b></li>
-     <li><i>02</i><b>动手做</b></li>
-     <li><i>03</i><b>听真实用户反馈</b></li>
-     <li><i>04</i><b>发布</b></li>
-    </ol>
-    <p class="sk-note">主动性、审美与匠心：选题、判断、做完。</p>
+  <div class="cs31">
+   <div class="pane cs-vp">
+    <figure class="vframe cs-v"><video autoplay muted loop playsinline preload="metadata" poster="/decks/img/conversation/hands-stage-poster.webp" src="/decks/img/conversation/hands-stage.mp4" aria-label="学生在笔记本电脑上测试手语应用"></video><img class="vposter" src="/decks/img/conversation/hands-stage-poster.webp" alt=""></figure>
+    <span class="cs-cap">香港 · 2025年夏 · 五天做成</span>
    </div>
+   <div class="cs-side">
+    <ol class="cs-beats">
+     <li data-s="1"><span class="cs-k"><i>01</i><b>主动性</b><span>找到问题</span></span><p>他选了手语转语音，因为他的表亲是听障人士。<span class="nw">没有人布置这个题目。</span></p></li>
+     <li data-s="2"><span class="cs-k"><i>02</i><b>审美</b><span>听真实用户反馈</span></span><p>路演结束后他还在改，因为第一个版本，<span class="nw">他的奶奶还用不了。</span></p></li>
+     <li data-s="3"><span class="cs-k"><i>03</i><b>匠心</b><span>做完、发布</span></span><p>最难的不是AI，而是把音频做得足够清楚，<span class="nw">让奶奶愿意信任它。</span></p></li>
+    </ol>
+    <p class="cs-note" data-s="3">AI工具负责动手；<em>选题、判断和做完，靠他自己。</em></p>
+   </div>
+   <div class="pane cs-tools" data-s="4"><span class="cs-th">示例工具</span>
+    <ul>
+     <li><img src="/logos/tools/openai.png" alt=""><b>ChatGPT</b></li>
+     <li><img src="/logos/tools/claude.png" alt=""><b>Claude</b></li>
+     <li><img src="/logos/tools/kimi.png" alt=""><b>Kimi</b></li>
+     <li><img src="/logos/tools/deepseek.png" alt=""><b>DeepSeek</b></li>
+     <li><img src="/logos/tools/gemini.png" alt=""><b>Gemini</b></li>
+     <li><img src="/logos/tools/doubao.png" alt=""><b>豆包</b></li>
+     <li><img src="/logos/tools/perplexity.png" alt=""><b>Perplexity</b></li>
+     <li><img src="/logos/tools/notion.png" alt=""><b>Notion</b></li>
+     <li><img src="/logos/tools/figma.png" alt=""><b>Figma</b></li>
+     <li><img src="/logos/tools/canva.png" alt=""><b>Canva</b></li>
+     <li><img src="/logos/tools/ideogram.png" alt=""><b>Ideogram</b></li>
+     <li><img src="/logos/tools/github.png" alt=""><b>GitHub</b></li>
+     <li><img src="/logos/tools/vercel.png" alt=""><b>Vercel</b></li>
+     <li><img src="/logos/tools/stripe.png" alt=""><b>Stripe</b></li>
+    </ul></div>
   </div>
  </div>
 </div></section>
@@ -1002,14 +1053,14 @@ i.rg::before{width:calc(var(--r) * 1%);background:linear-gradient(90deg,var(--da
 <!-- 41 · Close -->
 <section class="s ae nv cl"><div class="w">
  <p class="kick r">如果只记住一句话</p>
- <h2 class="r" style="--d:.1s">工作在加速改变，现在就开始教孩子<em>用好AI工具，练好仍然要紧的能力。</em></h2>
+ <h2 class="r" style="--d:.1s">工作正在被改写。<br><em>会用AI选题、判断、做完的孩子，走得更远。</em></h2>
  <div class="bd r" style="--d:.25s">
   <ol class="c3x">
-   <li data-s="1"><i>1</i><b>工作在加速改变</b><span>大约一半的岗位已经在用AI。</span></li>
-   <li data-s="2"><i>2</i><b>会用AI，回报更高</b><span>要求AI技能的岗位，薪酬高出62%。</span></li>
-   <li data-s="3"><i>3</i><b>现在就在家开始</b><span>用AI做真实的项目，练出主动性、审美与匠心。</span></li>
+   <li data-s="1"><i>1</i><b>工作正在被改写</b><span>大约一半的岗位已经在用AI。</span></li>
+   <li data-s="2"><i>2</i><b>三项能力最要紧</b><span>主动性、审美与匠心：<span class="nw">选题、判断、做完。</span></span></li>
+   <li data-s="3"><i>3</i><b>成为AI原生</b><span>永远不嫌早，也永远不算晚。</span></li>
   </ol>
-  <p class="endline" data-s="4">当AI几乎什么都能做出来，会选题、会判断、能做完的学生会走在前面。</p>
+  <p class="endline" data-s="4">这些工具对每个人都是新的。所以，这是当孩子最好的时代。</p>
  </div>
 </div></section>
 
@@ -1019,9 +1070,7 @@ i.rg::before{width:calc(var(--r) * 1%);background:linear-gradient(90deg,var(--da
  <h2 class="r" style="--d:.1s">谢谢大家！<em>欢迎提问。</em></h2>
  <div class="bd r" style="--d:.25s"><div class="qa qa14">
   <a class="qr pane qr-live qr-slides" href="https://arenaschool.org/talk" target="_blank" rel="noopener"><img src="/decks/img/conversation/qr-talk-clear.png" alt="arenaschool.org/talk 二维码"><span>今天的讲义</span><small>arenaschool.org/talk</small></a>
-  <div class="qr pane qr-chat"><div class="qr-slot"></div><span>家长群二维码</span><small>（活动前补上）</small></div>
   <div class="qa-links pane">
-   <div class="qa-item"><span class="k">今天的讲义</span><a class="qa-url" href="https://arenaschool.org/talk" target="_blank" rel="noopener">arenaschool.org/talk</a><p>中英文 PDF，<span class="nw">也可以直接在手机上浏览。</span></p></div>
    <div class="qa-item"><span class="k">工具演示</span><a class="qa-url" href="https://arenaschool.org/case-study-examples" target="_blank" rel="noopener">arenaschool.org/case-study-examples</a><p>一步一步的演示，可以自己打开看。</p></div>
   </div>
  </div></div>
@@ -1073,7 +1122,6 @@ i.rg::before{width:calc(var(--r) * 1%);background:linear-gradient(90deg,var(--da
   <li><span><b>AI工具</b>：Meta 官方发布（Muse）；TechCrunch（Instinct）；路透社（OpenClaw）；manus.im、kimi.com 及各工具官网</span><span class="src">2026年&nbsp;· 10月11日核对</span></li>
   <li><span><b>Hugging Face</b>：10月12日新建公开模型4,386个；共列出3,145,598个</span><span class="src">2026年10月13日核对</span></li>
   <li><span><b>Kimi</b>（月之暗面）招聘经历，亲身所见</span><span class="src">2026年</span></li>
-  <li><span><b>OECD</b> PISA 2025结果</span><span class="src">2026年9月8日</span></li>
   <li><span><b>Cursor</b>：D 轮融资公告；路透社、CNBC、彭博社报道 SpaceX 收购；SpaceX 8-K 文件与 PitchBook 报道交易完成</span><span class="src">2025年11月&nbsp;· 2026年6–8月</span></li>
  </ul>
  </div>
@@ -1116,7 +1164,7 @@ if(motion)[].forEach.call(document.querySelectorAll('.st h2,.sec h2,.tk h2,.bq h
   if(c.nodeType===3){var f=document.createDocumentFragment(),parts=ZH?c.nodeValue.replace(/([，。、：；？！])/g,'$1\u0001').split('\u0001'):c.nodeValue.split(/(\s+)/);
    parts.forEach(function(p){if(!p)return;if(!ZH&&/^\s+$/.test(p)){f.appendChild(document.createTextNode(p));return}
     var w=document.createElement('span');w.className=ZH?'phr':'wd';w.style.setProperty('--i',i++);w.textContent=p;f.appendChild(w)});
-   n.replaceChild(f,c)}else if(c.nodeType===1&&c.tagName!=='BR')walk(c)})})(h)});
+   n.replaceChild(f,c)}else if(c.nodeType===1&&c.tagName!=='BR'&&!c.classList.contains('rot'))walk(c)})})(h)});
 
 /* ---- market map: the same named tools as the deck, lit in a scattered order on an accelerating curve ---- */
 var TOOLS='ChatGPT|Claude|Gemini|DeepSeek|Doubao:豆包|Qwen:通义千问|Yuanbao:腾讯元宝|ERNIE:文心一言|Grok|Copilot|Meta AI|Le Chat|Perplexity|Poe|Character.AI|Pi|ChatGLM:智谱清言|MiniMax|Hunyuan:混元|Spark:讯飞星火|Baichuan:百川|StepFun:阶跃AI|Skywork:天工|Metaso:秘塔AI搜索|Felo|You.com|Phind|Consensus|Elicit|Scite|NotebookLM|Notion AI|Gamma|Tome|Beautiful.ai|Pitch|Canva|Figma Make|Framer|Webflow|Lovable|Bolt|v0|Replit|Cursor|Windsurf|GitHub Copilot|TRAE|Claude Code|Codex|Devin|Tabnine|Cody|Zed|Warp|JetBrains AI|Amazon Q|Gemini CLI|Qoder|CodeBuddy|Comate:文心快码|Kiro|Midjourney|DALL·E|Ideogram|Leonardo|Firefly|Stable Diffusion|FLUX|Krea|Recraft|Playground|Lovart|Dreamina:即梦|Liblib:哩布哩布|Kolors:可图|Wanxiang:通义万相|Sora|Veo|Runway|Pika|Luma|Kling:可灵|Hailuo:海螺|Vidu|PixVerse|Seedance|HeyGen|Synthesia|D-ID|CapCut:剪映|Descript|OpusClip|Captions|Hedra|Higgsfield|InVideo|Flow|Suno|Udio|ElevenLabs|Murf|Speechify|Otter|Fireflies|Granola|Whisper|Krisp|AIVA|Comet|Dia|Atlas|Flowith|Coze:扣子|Dify|n8n|Zapier|Make|Lindy|Relevance AI|Gumloop|CrewAI|LangChain|AutoGPT|Cue|WorkBuddy|Fellou|AutoGLM|Grammarly|Jasper|Copy.ai|Writesonic|Sudowrite|QuillBot|Wordtune|DeepL|Rytr|Lex|Mem|Reflect|Superhuman|Motion|Reclaim|Clockwise|Fathom|tl;dv|Read AI|Tactiq|Zoom AI|Slack AI|Miro AI|Whimsical|Napkin|Glean|Raycast|Monica|Sider|MaxAI|Merlin|HARPA|Khanmigo|Duolingo Max|Quizlet|Photomath|Brainly|Gauth|Question.AI|Speak|Praktika|ELSA|MagicSchool|Brisk|Diffit|Curipod|SchoolAI|Squirrel AI:松鼠AI|Spline|Meshy|Tripo|Uizard|Stitch|Visily|Relume|Hugging Face|Supabase|Firebase Studio|AI Studio|OpenRouter|Ollama|LM Studio|Jan|Julius|Llama|Gemma|Adobe Express|Designer|Pictory|Lumen5|Notta|Plaud'.split('|');

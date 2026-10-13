@@ -628,3 +628,26 @@ i.rg::before{width:calc(var(--r) * 1%);background:linear-gradient(90deg,var(--da
 .cs31 .cs-tools li{display:flex;flex-direction:column;align-items:center;gap:4px;min-width:0}
 .cs31 .cs-tools img{width:28px;height:28px;border-radius:7px;background:#fff;box-shadow:0 0 0 1px var(--edge);object-fit:cover}
 .cs31 .cs-tools b{font:500 10px/1.2 var(--sans);color:var(--text);white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+/* slide 25 (round 4): METR curve and the gap illustration, static on phones */
+.xg2{display:flex;flex-direction:column;gap:12px}
+.xg2>.pane{display:flex;flex-direction:column}
+.xg-plot{position:relative;height:200px;margin:10px 0 0}
+.xg-area{position:absolute;left:54px;right:10px;top:10px;bottom:24px}
+.xg-grid,.xg-draw{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible}
+.xg .gl{stroke:var(--edge);stroke-width:1}.xg .gl:first-child{stroke:rgba(11,26,74,.3)}
+.xg .ar{fill:rgba(47,85,168,.08)}.xg .cv{fill:none;stroke:var(--ink2);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.xg-yl,.xg-xl{position:absolute;font:400 11px/1 var(--sans);color:var(--muted);white-space:nowrap}
+.xg-yl{right:calc(100% + 6px);bottom:calc(var(--y) * 1%);translate:0 50%}
+.xg-xl{top:calc(100% + 8px);left:calc(var(--x) * 1%);translate:-50% 0}
+.xg-pt{position:absolute;left:calc(var(--x) * 1%);bottom:calc(var(--y) * 1%);width:11px;height:11px;margin:0 0 -5.5px -5.5px;border-radius:50%;background:var(--hi);border:2px solid var(--ink2);box-sizing:border-box}
+.xg-pt.hl{background:var(--ink2)}
+.xg-lb{position:absolute;left:calc(var(--x) * 1%);bottom:calc(var(--y) * 1%);font:400 12px/1 var(--sans);color:var(--text);white-space:nowrap}
+.xg-lb.hl{color:var(--ink2);font-weight:600}
+.xg-lb.p0{translate:-8px -16px}.xg-lb.p1{translate:calc(-100% + 4px) -26px}.xg-lb.p2{translate:calc(-100% - 1px) -18px}.xg-lb.p3{translate:calc(-100% - 12px) 50%}
+.xg-il .xg-plot{height:150px}.xg-il .xg-area{left:2px;right:2px;top:6px;bottom:4px}
+.xg-il .gp{fill:rgba(47,85,168,.12)}.xg-il .cf{fill:none;stroke:var(--muted);stroke-width:2;stroke-linecap:round}
+.xg-ll,.xg-gl{position:absolute;white-space:nowrap;font:400 12.5px/1.2 var(--sans)}
+.xg-ll.up{right:21%;bottom:62%;color:var(--ink2);font-weight:600}.xg-ll.fl{right:0;bottom:2%;color:var(--muted)}
+.xg-gl{left:87%;bottom:41%;translate:-50% 50%;font-style:italic;color:var(--ink2)}
+.xg-cap{margin:10px 0 0;font:italic 400 12.5px/1.45 var(--sans);color:var(--muted)}
+:lang(zh-CN) .xg-gl,:lang(zh-CN) .xg-cap{font-style:normal}
