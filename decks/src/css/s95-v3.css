@@ -1,0 +1,57 @@
+/* s95-v3: spacing and alignment pass on slides 25-36 (Oct 13 review). Loaded last; every rule is scoped to a component used on one slide. */
+
+/* 25 · METR card: title block at the top, bars centered in the space below, so the card has no empty band at the bottom */
+.ae .bd .accx .pane.wide-ch{display:flex;flex-direction:column}
+.accx .wide-ch .hb.wide{flex:1;display:grid;align-content:center;gap:34px}
+.accx .hb.wide i{height:34px}
+.accx .hb.wide .bk{font-size:22px}
+.accx .hb.wide b{font-size:27px}
+
+/* 27 · the three story cards share rows, so the dividers line up across cards whatever each heading's length */
+.case3{grid-template-rows:auto auto 1fr}
+.ae .bd .case3 .cs{display:grid;grid-row:1/4;grid-template-rows:subgrid;row-gap:12px}
+.case3 .cs-ar{grid-row:1/4;align-self:center}
+.ae .bd .case3 .cs p{margin:0;align-self:start;font-size:24px;line-height:1.38}
+.ae .bd .case3 .cs{padding:26px 30px 22px}
+.ae .bd .case3 .cs h3{font-size:29px;line-height:1.18}
+:lang(zh-CN) .ae .bd .case3 .cs h3{font-size:28px;line-height:1.38}
+:lang(zh-CN) .ae .bd .case3 .cs p{font-size:24px;line-height:1.5}
+/* 27 · quote band: logo, rule, and line all share one center line; the rule is drawn on the band, not the text's line box */
+.ae:not(.st):not(.bq) .bd>.cs-foot.pane{align-items:center;gap:0;padding:16px 34px}
+.cs-foot .brand{margin-right:32px;position:relative;top:-3px}
+.ae .bd .cs-foot p{position:relative;border-left:0;padding-left:32px;line-height:1.2}
+.ae .bd .cs-foot p::before{content:"";position:absolute;left:0;top:50%;width:1px;height:1.25em;transform:translateY(-56%);background:var(--edge)}
+
+/* 30 · Cursor -> SpaceX: icon, arrow, and the SPACEX letters on one center line, with clear space above "$60" */
+.gcol .acq{align-items:center;gap:14px;margin-bottom:22px}
+.gcol .acq .to{display:block;font-size:24px;line-height:1;transform:translateY(1px)}
+.gcol .acq img.sx{height:24px;position:relative;top:-4px}
+
+/* 31 · tools: no mini cards; logo and name sit straight on the large card, names sized so the longest fits with room */
+.sk-l .sk-tools{gap:30px 6px}
+.ae .bd .sk-l .sk-tools li{gap:12px;padding:0;background:none;border:0;box-shadow:none}
+.sk-l .sk-tools img{width:64px;height:64px;border-radius:16px}
+.ae .bd .sk-l .sk-tools b{font-size:17px}
+:lang(zh-CN) .ae .bd .sk-l .sk-tools b{font-size:16px}
+/* 31 · numbered bars: number and label centered top to bottom in each bar */
+.sk-side .sk-proc{gap:10px}
+.ae .bd .sk-side .sk-proc li{align-items:center;min-height:56px;padding:0 22px;gap:16px}
+.sk-proc i{display:block;line-height:1;transform:translateY(3px)}
+.ae .bd .sk-side .sk-proc b{display:block;line-height:1.15;transform:translateY(3px)}
+
+/* 32 · problem / build / result: smaller body so each card breathes */
+.ae .bd .pbr .pb{gap:8px;padding:16px 26px 16px}
+.ae .bd .pbr h3{font-size:25px;line-height:1.2}
+:lang(zh-CN) .ae .bd .pbr h3{font-size:23px;line-height:1.4}
+.ae .bd .pbr .q{font-size:20px;line-height:1.45;color:var(--text)}
+:lang(zh-CN) .ae .bd .pbr .q{font-size:19px;line-height:1.6}
+.ae .bd .pbr .where{font-size:17px}
+
+/* 34 · if only one link remains, it fills the pane instead of sitting in half of it */
+section.s .qa.qa14 .qa-links.pane:not(:has(.qa-item+.qa-item)){grid-template-columns:1fr}
+
+/* 35, 36 · sources: a little more air per row, dates on one line, and both columns end the same way */
+.ae .srcs li{padding:4px 0}
+:lang(zh-CN) .ae .srcs li{padding:2px 0}
+.ae .srcs li .src{text-wrap:balance}
+.srcs.pane li:last-child{border-bottom:1px solid var(--line)}
