@@ -1,0 +1,26 @@
+/* Kimi slides 27-29, round 6 (JJ, Oct 14): source strip removed, so the cards take the room; slide 29 gets a context line */
+.kimi3.ae .bd .case3 .cs>.lab{font-size:17px}
+.kimi3.ae .bd .case3 .cs h3{font-size:29px;line-height:1.2}
+.kimi3.ae .bd .case3 .cs p{font-size:27px;line-height:1.42}
+.kimi3.ae .bd .case3 .cs-out h3 a.k3-link{font-size:33px}
+:lang(zh-CN) .kimi3.ae .bd .case3 .cs>.lab{font-size:18px}
+:lang(zh-CN) .kimi3.ae .bd .case3 .cs h3{font-size:32px;line-height:1.38}
+:lang(zh-CN) .kimi3.ae .bd .case3 .cs p{font-size:26px;line-height:1.55}
+.kimi3.ae .w>.k3-sub{margin:20px 0 0;max-width:1560px;font:400 26px/1.42 var(--serif);color:var(--muted);text-wrap:pretty}
+:lang(zh-CN) .kimi3.ae .w>.k3-sub{font-size:25px;line-height:1.6;letter-spacing:0}
+/* slide 29 carries a context line, so its cards keep the earlier, tighter scale */
+.kimi3.k3c.ae .bd .case3 .cs p{font-size:25px;line-height:1.42}
+:lang(zh-CN) .kimi3.k3c.ae .bd .case3 .cs h3{font-size:30px;line-height:1.38}
+:lang(zh-CN) .kimi3.k3c.ae .bd .case3 .cs p{font-size:24px;line-height:1.55}
+.kimi3.k3c.ae .w>.k3-sub{margin-top:14px;font-size:25px}
+:lang(zh-CN) .kimi3.k3c.ae .w>.k3-sub{font-size:24px}
+/* slide 29's title is one line: let the context line sit in the second title line's reserved space */
+.kimi3.k3c.ae:not(.st):not(.bq)>.w>h2{min-height:0}
+.kimi3.k3c.ae .w>.k3-sub{margin-top:18px}
+.kimi3.k3c.ae .bd .case3 .cs p{font-size:24px}
+.kimi3.ae .w>.k3-sub{text-wrap:balance}
+:lang(zh-CN) .kimi3.k3a.ae .bd .case3 .cs p{font-size:24px}
+:lang(zh-CN) .kimi3.ae .w>.k3-sub{text-wrap:wrap}
+:lang(zh-CN) .kimi3.k3b.ae .bd .case3 .cs p{font-size:25px}
+.kimi3.ae .bd .cs-foot p{transform:translateY(-1px)}
+:lang(zh-CN) .kimi3.ae .bd .cs-foot p{transform:translateY(-1.2px)}

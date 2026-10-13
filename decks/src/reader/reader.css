@@ -339,6 +339,8 @@ i.rg::before{width:calc(var(--r) * 1%);background:linear-gradient(90deg,var(--da
 .k3-link span:first-child{color:var(--lb)}
 .k3-link span:last-child{text-decoration:underline;text-decoration-color:var(--lb);text-underline-offset:4px}
 .cs-ar{align-self:center;transform:rotate(90deg);font-size:16px;line-height:1;color:var(--ink2)}
+.k3-sub{margin:10px 0 0;font:400 15px/1.5 var(--serif);color:var(--muted)}
+:lang(zh-CN) .k3-sub{font-size:14.5px;line-height:1.65}
 .cs-foot{display:flex;align-items:center;gap:14px;margin-top:4px}
 .cs-foot p{font:italic 400 17px/1.35 var(--serif);color:var(--ink)}
 :lang(zh-CN) .cs-foot p{font:500 16px/1.55 var(--serif)}
