@@ -2146,6 +2146,130 @@ section.s>.brandmk{position:absolute;z-index:3;top:calc((var(--pad-top) - 3px) *
  .motion .s.bld .shx[data-s]:not(.vis) .sh-col.n{opacity:0;transform:translateX(-24px)}
 }
 
+/* ---- s90-round2.css ---- */
+/* ===== round 2 (10-13): speakers, market map, Kimi case study, ISB proof, close ===== */
+
+/* ---- speakers: two quiet portrait cards; name and role lead, credentials sit as two even logo rows ---- */
+.spk2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto auto minmax(0,1fr);column-gap:var(--gap);row-gap:0;flex:1;min-height:0}
+.ae .bd .spk2 .sp{display:grid;grid-template-rows:subgrid;grid-row:span 3;align-content:start;min-width:0;padding:34px 40px 30px;background:var(--paper-hi);box-shadow:inset 0 0 0 1px var(--edge)}
+.sp header{display:flex;align-items:center;gap:26px}
+.sp .ph{flex:none;width:118px;height:118px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 1px var(--edge),0 0 0 6px var(--paper-hi),0 0 0 7px rgba(11,26,74,.10)}
+.ae .bd .sp h3{margin:0;font:500 38px/1.1 var(--serif);letter-spacing:-.015em;color:var(--ink);white-space:nowrap}
+.sp h3 .xn{display:block;margin-top:6px;font:400 19px/1.2 var(--serif);letter-spacing:0;color:var(--muted)}
+.ae .bd .sp .tag{margin:10px 0 0;font:600 15px/1.3 var(--serif);letter-spacing:.13em;text-transform:uppercase;color:var(--ink2)}
+:lang(zh-CN) .ae .bd .sp .tag{font-size:17px;letter-spacing:.06em}
+.ae .bd .sp .now{margin:26px 0 0;padding:0 0 22px;font:italic 400 24px/1.4 var(--serif);color:var(--ink);border-bottom:1px solid var(--edge)}
+:lang(zh-CN) .ae .bd .sp .now{font-style:normal;font-size:23px;line-height:1.5}
+.sp .lg{flex:1;display:grid;grid-template-rows:1fr 1fr;margin:0}
+.sp .lg>div{display:grid;grid-template-columns:96px minmax(0,1fr);align-items:center;min-height:0}
+.sp .lg>div+div{border-top:1px solid var(--edge)}
+.sp .lg dt{font:600 14px/1 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+:lang(zh-CN) .sp .lg dt{font-size:16px;letter-spacing:.08em}
+.sp .lg dd{margin:0;display:flex;align-items:center;justify-content:flex-start;gap:26px;min-width:0}
+.sp .lg img{display:block;flex:none;width:auto;max-width:210px;object-fit:contain;opacity:.88}
+/* optical sizes, by eye (DESIGN §6.9) */
+.sp .h-isb{height:46px}.sp .h-br{height:40px}.sp .h-ts{height:46px}.sp .h-ap{height:36px}.sp .h-de{height:26px}.sp .h-ci{height:34px}
+.sp .h-ct{height:28px}.sp .h-hv{height:38px}.sp .h-gs{height:36px}.sp .h-mk{height:22px}
+
+/* ---- market map: six known agents, then the field of other tools lights up one by one ---- */
+.mk{flex:1;min-height:0;display:flex;flex-direction:column;gap:16px}
+.ae .bd .agx.six{grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;grid-auto-rows:auto}
+.ae .bd .agx.six li{flex-direction:row;align-items:center;gap:12px;padding:14px 14px;background:var(--paper-hi);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.agx.six img{width:50px;height:50px;border-radius:13px}
+.agx.six img.t{padding:10px}
+.ae .bd .agx.six b{font-size:24px;line-height:1.1;white-space:nowrap}
+.ae .bd .agx.six small{font-size:15.5px;line-height:1.3}
+:lang(zh-CN) .ae .bd .agx.six small{font-size:15.5px;line-height:1.45}
+.agx.six b i.cn{width:8px;height:8px;margin-left:8px}
+.mk-low{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:20px}
+.ae .bd .mk-map{display:flex;flex-direction:column;gap:10px;min-height:0;padding:14px 22px 14px}
+.mk-map .lab{color:var(--muted)}
+.mk-map .lab b{font-weight:600;color:var(--ink2);font-variant-numeric:tabular-nums}
+.mk-field{flex:1;min-height:0;display:block;overflow:hidden;text-align:justify;text-align-last:left;line-height:1.28;word-spacing:6px}
+.mk-field span{display:inline-block;font:400 14.5px/1.36 var(--serif);word-spacing:0;color:var(--ink);opacity:.5;white-space:nowrap}
+.ae .bd .mk-stat{display:flex;flex-direction:column;justify-content:center;gap:8px;padding:22px 28px;background:var(--ink);color:var(--paper-hi)}
+.ae .bd .mk-stat .lab{color:#A9BEEA}
+.mk-big{display:block;font:300 84px/1 var(--serif);letter-spacing:-.02em;color:#C9D6F2;font-variant-numeric:tabular-nums}
+.ae .bd .mk-stat .mk-l{margin:0;font:400 24px/1.32 var(--serif);color:var(--paper-hi)}
+:lang(zh-CN) .ae .bd .mk-stat .mk-l{font-size:24px;line-height:1.45}
+.ae .bd .mk-stat .mk-r{margin:8px 0 0;padding-top:12px;border-top:1px solid rgba(252,243,237,.25);display:flex;flex-direction:column;gap:2px;font:italic 400 18px/1.4 var(--serif);color:rgba(252,243,237,.8)}
+:lang(zh-CN) .ae .bd .mk-stat .mk-r{font-style:normal;font-size:17px}
+/* motion: names flash ink-blue as they arrive, then settle; the counter and the big number run alongside */
+.motion .mk:not(.done) .mk-field span{opacity:0}
+.motion .mk.go .mk-field span{animation:mkon .9s ease var(--d,0s) both}
+@keyframes mkon{0%{opacity:0;color:var(--ink2)}18%{opacity:1;color:var(--ink2)}100%{opacity:.5;color:var(--ink)}}
+.motion .mk.done .mk-field span{animation:none;opacity:.5}
+.motion .mk:not(.stat):not(.done) .mk-stat{opacity:0;transform:translateY(12px)}
+.motion .mk .mk-stat{transition:opacity .5s ease,transform .7s var(--e-o)}
+
+/* ---- Kimi case study: situation → what was built → outcome (navy), then the point ---- */
+.case3{display:grid;grid-template-columns:minmax(0,1fr) 44px minmax(0,1fr) 44px minmax(0,1fr);align-items:stretch;flex:1;min-height:0}
+.ae .bd .case3 .cs{display:flex;flex-direction:column;gap:16px;min-width:0;padding:34px 34px 32px;background:var(--paper-hi);box-shadow:inset 0 0 0 1px var(--edge);border-radius:var(--r)}
+.ae .bd .case3 .cs h3{margin:0;font:500 32px/1.22 var(--serif);color:var(--ink)}
+:lang(zh-CN) .ae .bd .case3 .cs h3{font-size:30px;line-height:1.4}
+.ae .bd .case3 .cs p{margin:auto 0 0;padding-top:16px;border-top:1px solid var(--edge);font:400 24px/1.42 var(--serif);color:var(--muted)}
+:lang(zh-CN) .ae .bd .case3 .cs p{font-size:24px;line-height:1.55}
+.ae .bd .case3 .cs-out{background:var(--ink);box-shadow:none}
+.ae .bd .case3 .cs-out .lab{color:#A9BEEA}
+.ae .bd .case3 .cs-out h3{color:var(--paper-hi)}
+.ae .bd .case3 .cs-out h3 em{color:#C9D6F2}
+.ae .bd .case3 .cs-out p{color:rgba(252,243,237,.8);border-top-color:rgba(252,243,237,.25)}
+.cs-ar{display:grid;place-items:center;font:300 34px/1 var(--serif);color:var(--ink2)}
+.ae:not(.st):not(.bq) .bd>.cs-foot.pane{display:flex;flex-direction:row!important;align-items:center;justify-content:flex-start!important;gap:32px;padding:20px 34px}
+.cs-foot .brand{flex:none;height:30px;width:auto}
+.ae .bd .cs-foot p{margin:0;padding-left:32px;border-left:1px solid var(--edge);font:italic 400 30px/1.3 var(--serif);color:var(--ink)}
+:lang(zh-CN) .ae .bd .cs-foot p{font-style:normal;font-size:28px}
+.motion .s.bld .cs-ar[data-s]:not(.vis){transform:translateX(-10px)}
+
+/* ---- ISB proof: one team, problem → build → result, ISB photos only ---- */
+.pbr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap);flex:1;min-height:0}
+.ae .bd .pbr .card{display:flex;flex-direction:column;min-height:0;padding:0;overflow:hidden;background:var(--paper-hi)}
+.pbr figure{flex:none;height:184px;margin:0;overflow:hidden}
+.pbr figure img{display:block;width:100%;height:100%;object-fit:cover}
+.ae .bd .pbr .pb{display:flex;flex-direction:column;gap:9px;flex:1;padding:18px 26px 18px}
+.ae .bd .pbr .lab{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.pbr .lab i{font:italic 400 16px/1.3 var(--serif);letter-spacing:0;text-transform:none;color:var(--muted)}
+:lang(zh-CN) .pbr .lab i{font-style:normal;font-size:15px}
+.ae .bd .pbr h3{margin:0;font:500 27px/1.18 var(--serif);color:var(--ink)}
+:lang(zh-CN) .ae .bd .pbr h3{font-size:25px;line-height:1.4}
+.ae .bd .pbr .q{margin:0;font:400 24px/1.36 var(--serif);color:var(--ink)}
+:lang(zh-CN) .ae .bd .pbr .q{font-size:24px;line-height:1.5}
+.ae .bd .pbr .where{margin:auto 0 0;padding-top:12px;border-top:1px solid var(--edge);font:italic 400 18px/1.35 var(--serif);color:var(--ink2)}
+:lang(zh-CN) .ae .bd .pbr .where{font-style:normal}
+
+/* ---- close: three numbered takeaways on navy, then the line to remember ---- */
+.c3x{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+.ae .c3x li{display:flex;flex-direction:column;gap:14px;padding:6px 40px 0 0}
+.ae .c3x li+li{padding-left:40px;border-left:1px solid rgba(252,243,237,.22)}
+.c3x i{font:300 104px/.9 var(--serif);font-style:normal;color:#A9BEEA}
+.ae .c3x b{font:500 32px/1.2 var(--serif);color:var(--paper-hi)}
+.ae .c3x span{font:400 23px/1.45 var(--serif);color:rgba(252,243,237,.78)}
+:lang(zh-CN) .ae .c3x b{font-size:29px;line-height:1.4}
+:lang(zh-CN) .ae .c3x span{font-size:21px;line-height:1.6}
+.ae.cl .bd{flex:1;justify-content:center;gap:60px;padding-bottom:20px}
+.ae.cl .c3x{margin:0}
+.ae.cl .bd .endline{flex:none;margin:0;padding-top:34px;border-top:1px solid rgba(252,243,237,.22);font-size:34px}
+:lang(zh-CN) .ae.cl .bd .endline{font-size:28px}
+
+.ae .bd .mk-map .lab,.ae .bd .mk-stat .lab{white-space:nowrap}
+.ae .bd .cs h3{text-wrap:balance}
+:lang(zh-CN) .ae .bd .sp .now{font-size:24px}
+.agx.six b i.cn{margin-left:5px}
+.ae .bd .agx.six li:last-child{padding-right:10px}
+:lang(zh-CN) .ae .bd .cs h3{text-wrap:pretty}
+/* close, scaled to the room: the three takeaways read from the back */
+.ae.cl .bd{justify-content:space-evenly;gap:0;padding:40px 0 10px}
+.ae .c3x li{gap:18px}
+.c3x i{font-size:120px}
+.ae .c3x b{font-size:40px;line-height:1.15}
+.ae .c3x span{font-size:27px;line-height:1.42}
+:lang(zh-CN) .ae .c3x b{font-size:36px;line-height:1.35}
+:lang(zh-CN) .ae .c3x span{font-size:25px;line-height:1.6}
+.ae.cl .bd .endline{font-size:38px;padding-top:40px}
+:lang(zh-CN) .ae.cl .bd .endline{font-size:32px}
+.ae.cl .bd{justify-content:center;gap:64px;padding:24px 0 48px}
+.ae .c3x b{font-size:36px}
+
 /* ---- snum.css ---- */
 /* slide numbers (snum): quiet folio in the bottom-right gutter of every slide except the title */
 section.s>.pgno{position:absolute;right:var(--margin-x);bottom:calc(var(--pad-bot) * var(--z) / 2 - 6px);z-index:3;pointer-events:none;user-select:none;
@@ -2182,15 +2306,19 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <p class="kick r">主讲人 · Arena 联合创始人</p>
  <h2 class="r" style="--d:.1s">我们在 ISB、加州理工、哈佛、布朗和清华求学，做过的正是<em>AI如今在自动化的工作。</em></h2>
  <div class="bd r" style="--d:.25s">
- <div class="team spk">
-  <div class="person" data-s="1"><div class="who-r"><img src="/photos/jing-jing-yang.jpg" alt=""><div class="who"><h3>羊筱涵<span class="xn">Jing Jing Yang</span></h3><div class="co">ISB 2019届</div></div></div>
-   <dl class="lgx"><div><dt>求学</dt><dd><img class="wide" src="/logos/cred/isb.png" alt="ISB"><img class="md" src="/logos/cred/brown.png" alt="Brown"><img class="wide" src="/logos/cred/tsinghua.png" alt="清华大学"></dd></div>
-    <div><dt>工作</dt><dd><img class="md" src="/logos/cred/apple.png" alt="Apple"><img class="sm" src="/logos/cred/deloitte.png" alt="Deloitte"><img class="md" src="/logos/cred/cicc.png" alt="CICC"></dd></div>
-    <div><dt>现在</dt><dd><div class="now"><b>为中国AI公司提供出海咨询</b><img src="/logos/cred/kimi-wordmark.png" alt="Kimi"></div></dd></div></dl></div>
-  <div class="person" data-s="2"><div class="who-r"><img src="/photos/phillip-an.jpg" alt=""><div class="who"><h3>安广宁<span class="xn">Phillip An</span></h3><div class="co">福布斯30U30<br>Y Combinator 校友</div></div></div>
-   <dl class="lgx"><div><dt>求学</dt><dd><img class="sm" src="/logos/cred/caltech.png" alt="Caltech"><img class="md" src="/logos/cred/harvard.png" alt="Harvard"><img class="wide" src="/logos/cred/tsinghua.png" alt="清华大学"></dd></div>
-    <div><dt>工作</dt><dd><img class="md" src="/logos/cred/goldman.png" alt="Goldman Sachs"><img class="sm" src="/logos/cred/mckinsey.png" alt="McKinsey"></dd></div>
-    <div><dt>现在</dt><dd><div class="now"><b>Skylarq 联合创始人兼 CEO</b><small>销售 AI 智能体</small></div></dd></div></dl></div>
+ <div class="spk2">
+  <article class="sp pane" data-s="1">
+   <header><img class="ph" src="/photos/jing-jing-yang.jpg" alt=""><div><h3>羊筱涵<span class="xn">Jing Jing Yang</span></h3><div class="tag">ISB 2019届</div></div></header>
+   <p class="now">为中国AI公司提供出海咨询，包括 Kimi</p>
+   <dl class="lg"><div><dt>求学</dt><dd><img class="h-isb" src="/logos/cred/isb.png" alt="ISB"><img class="h-br" src="/logos/cred/brown.png" alt="Brown"><img class="h-ts" src="/logos/cred/tsinghua.png" alt="清华大学"></dd></div>
+    <div><dt>工作</dt><dd><img class="h-ap" src="/logos/cred/apple.png" alt="Apple"><img class="h-de" src="/logos/cred/deloitte.png" alt="Deloitte"><img class="h-ci" src="/logos/cred/cicc.png" alt="CICC"></dd></div></dl>
+  </article>
+  <article class="sp pane" data-s="2">
+   <header><img class="ph" src="/photos/phillip-an.jpg" alt=""><div><h3>安广宁<span class="xn">Phillip An</span></h3><div class="tag">福布斯30U30<br>Y Combinator 校友</div></div></header>
+   <p class="now">Skylarq 联合创始人兼 CEO，做销售AI智能体</p>
+   <dl class="lg"><div><dt>求学</dt><dd><img class="h-ct" src="/logos/cred/caltech.png" alt="Caltech"><img class="h-hv" src="/logos/cred/harvard.png" alt="Harvard"><img class="h-ts" src="/logos/cred/tsinghua.png" alt="清华大学"></dd></div>
+    <div><dt>工作</dt><dd><img class="h-gs" src="/logos/cred/goldman.png" alt="Goldman Sachs"><img class="h-mk" src="/logos/cred/mckinsey.png" alt="McKinsey"></dd></div></dl>
+  </article>
  </div>
  </div>
 </div><aside class="notes">筱涵从小学到高中毕业都在 ISB 读书，之后就读布朗大学，并作为苏世民学者就读清华；她在苹果、德勤和中金公司工作过，现在为多家中国AI公司（包括 Kimi）提供出海咨询，并与微软 AI合作研究。广宁在加州理工学院读计算机科学，在哈佛读MBA和理学硕士，也是清华苏世民学者；他在高盛和麦肯锡工作过，是 Skylarq 联合创始人兼 CEO，做销售 AI 智能体，他的上一家公司获得了 Y Combinator 投资。为什么值得听：我们读过很多家庭向往的学校，也做过分析、咨询和投行的工作，而这些工作，AI如今几分钟就能起草。高盛 CEO 在2025年说，AI几分钟就能把一份上市招股书完成95%，那正是我们当年的第一份工作。</aside></section>
@@ -2427,19 +2555,23 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 <!-- 31 · The agents -->
 <section class="s alt ae"><div class="w">
  <p class="kick r">建议一 · 个人AI智能体，2026年10月 · <i class="cn" aria-hidden="true"></i>中国大陆可用</p>
- <h2 class="r" style="--d:.1s">新的智能体还在往外冒。一年前，这些大多还不存在。<em>这些您听说过几个？</em></h2>
- <div class="bd r" style="--d:.25s"><div class="ag-flood">
-  <div class="ag-fill" aria-hidden="true"></div>
-  <ul class="agx">
-   <li class="pane"><img src="/logos/tools/kimi.png" alt=""><span><b>Kimi<i class="cn" aria-label="中国大陆可用"></i></b><small>自动做网站、PPT和报告</small></span></li>
-   <li class="pane"><img class="t" src="/logos/tools/muse.png" alt=""><span><b>Muse</b><small>Meta 出品，替你发邮件、订行程</small></span></li>
-   <li class="pane"><img src="/logos/tools/instinct.png" alt=""><span><b>Instinct</b><small>发条短信，就能替你办事</small></span></li>
-   <li class="pane"><img src="/logos/tools/manus.png" alt=""><span><b>Manus</b><small>自主完成多步骤的复杂任务</small></span></li>
-   <li class="pane"><img src="/logos/tools/genspark.png" alt=""><span><b>Genspark</b><small>一站式AI办公</small></span></li>
-   <li class="pane"><img class="t" src="/logos/tools/openclaw.png" alt=""><span><b>OpenClaw<i class="cn" aria-label="中国大陆可用"></i></b><small>开源“龙虾”，替你操作电脑</small></span></li>
+ <h2 class="r" style="--d:.1s">这些您听说过几个？在它们背后，<em>每天都有数千个新的AI模型发布。</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="mk">
+  <ul class="agx six">
+   <li class="pane"><img src="/logos/tools/kimi.png" alt=""><span><b>Kimi<i class="cn" aria-label="中国大陆可用"></i></b></span></li>
+   <li class="pane"><img class="t" src="/logos/tools/muse.png" alt=""><span><b>Muse</b></span></li>
+   <li class="pane"><img src="/logos/tools/instinct.png" alt=""><span><b>Instinct</b></span></li>
+   <li class="pane"><img src="/logos/tools/manus.png" alt=""><span><b>Manus</b></span></li>
+   <li class="pane"><img src="/logos/tools/genspark.png" alt=""><span><b>Genspark</b></span></li>
+   <li class="pane"><img class="t" src="/logos/tools/openclaw.png" alt=""><span><b>OpenClaw<i class="cn" aria-label="中国大陆可用"></i></b></span></li>
   </ul>
+  <div class="mk-low">
+   <div class="mk-map pane"><p class="lab">今天就能试用的另外 <b class="mk-n">200</b> 个AI工具</p><div class="mk-field" aria-hidden="true"></div></div>
+   <div class="mk-stat pane"><p class="lab">Hugging Face</p><b class="mk-big">4,386</b><p class="mk-l">2026年10月12日（周一）一天之内新发布的AI模型</p><p class="mk-r"><span>大约每分钟3个</span><span>累计超过310万个</span></p></div>
+  </div>
  </div></div>
-</div><aside class="notes">红点表示截至2026年10月在中国大陆可用的工具，其余大多未在中国大陆提供服务。大多数家庭都知道 DeepSeek、豆包和 ChatGPT。这里是下一波：给它一个目标，它能一步步把整件事做完。Kimi 的智能体模式一句话就能做出网站或PPT。OpenClaw“龙虾”是今年3月国内的全民热潮。Meta 在9月推出 Muse，替你处理邮件和预订。</aside></section>
+ <p class="fn"><span>Hugging Face Hub API：2026年10月12日（UTC）新建公开模型4,386个；huggingface.co/models 共列出3,145,598个。均于2026年10月13日核对。工具信息：各工具官网</span></p>
+</div><aside class="notes">先问大家：这六个您听说过几个？红点表示截至2026年10月在中国大陆可用的工具，其余大多未在中国大陆提供服务。大多数家庭都知道 DeepSeek、豆包和 ChatGPT。这里是下一波：给它一个目标，它能一步步把整件事做完。Kimi 能自动做网站、PPT和报告；Muse 是 Meta 出品，替你发邮件、订行程；Instinct 发条短信就能替你办事；Manus 能自主完成多步骤的复杂任务；Genspark 是一站式AI办公；OpenClaw 是开源的“龙虾”，替你操作电脑。接着背后亮起来的，是另外两百个工具，而这只是一小部分。全球最大的公开AI模型库 Hugging Face，光是周一一天就新增了4,386个模型，大约每分钟3个，累计已经超过三百万。谁也跟不上全部，所以孩子需要的是不断尝试新工具的习惯，而不是一张要背下来的清单。</aside></section>
 
 <!-- 32 · Tools multiply -->
 <section class="s alt ae"><div class="w">
@@ -2467,16 +2599,19 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 
 <!-- 34 · A hiring story -->
 <section class="s ae"><div class="w">
- <p class="kick r">我在 Kimi 如何评估非技术岗位候选人</p>
- <h2 class="r" style="--d:.1s">面试前就动手做出东西的候选人，<em>拿到了 offer。</em></h2>
- <div class="bd r" style="--d:.25s"><div class="kimi">
-  <div class="pane" data-s="1"><div class="lr"><img class="brand km" src="/logos/deck/kimi.png" alt="Kimi"></div>
-   <p class="story">我在 Kimi 招增长团队的人时，有位候选人面试前先给我们的社交媒体工作做了个小工具，当场演示，拿到了 offer。</p>
-   <p class="punch">没人要求这么做，<em>关键恰恰就在这里。</em></p></div>
-  <figure class="vframe" data-s="2"><video autoplay muted loop playsinline preload="auto" poster="/decks/img/conversation/interview-kit-zh-poster.png" src="/decks/img/conversation/interview-kit-zh.mp4" aria-label="面试准备工具演示"></video><img class="vposter" src="/decks/img/conversation/interview-kit-zh-poster.png" alt=""></figure>
- </div></div>
- <p class="fn" data-s="1"><span>羊筱涵在 Kimi（月之暗面）的亲身招聘经历。画面：面试准备工具演示</span></p>
-</div><aside class="notes">筱涵用第一人称讲这段。求职面试几乎是日常生活里最重要的场合之一。我当时在为 Kimi 增长团队招人。有位候选人面试前先给我们的社交媒体工作做了个小工具，当场演示，拿到了非技术岗位的 offer。没人要求这么做，关键恰恰就在这里：一件真事，在被要求之前就做了。</aside></section>
+ <p class="kick r">案例 · Kimi（月之暗面）· 增长团队招聘</p>
+ <h2 class="r" style="--d:.1s">一个非技术岗位，面试前就动手做出东西的候选人，<em>拿到了 offer。</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="case3">
+  <div class="cs pane" data-s="1"><span class="lab">当时的情况</span><h3>为 Kimi 增长团队<br>招一个非技术岗位</h3><p>筱涵负责面试这个岗位的候选人。</p></div>
+  <span class="cs-ar" data-s="2" aria-hidden="true">→</span>
+  <div class="cs pane" data-s="2"><span class="lab">一位候选人做了什么</span><h3>给团队的社交媒体工作做了个小工具</h3><p>在面试之前，用AI主动做的。</p></div>
+  <span class="cs-ar" data-s="3" aria-hidden="true">→</span>
+  <div class="cs cs-out" data-s="3"><span class="lab">结果</span><h3>面试时当场演示，<em>拿到了 offer</em></h3><p>一件团队真实的任务，在被要求之前就做了。</p></div>
+ </div>
+ <div class="cs-foot pane" data-s="4"><img class="brand km" src="/logos/deck/kimi.png" alt="Kimi"><p>没人要求这么做，<em>关键恰恰就在这里。</em></p></div>
+ </div>
+ <p class="fn"><span>羊筱涵在 Kimi（月之暗面）为增长团队招人时的亲身经历</span></p>
+</div><aside class="notes">筱涵用第一人称讲这段。“我当时在为 Kimi 增长团队招一个非技术岗位。有位候选人在面试前，用AI给我们的社交媒体工作做了个小工具。没人要求这么做。面试时他当场演示给我看，最后拿到了 offer。关键恰恰就在这里：一件真实的任务，在被要求之前就做了。”求职面试几乎是日常生活里最重要的场合之一。鼓励孩子把AI用在真事上：学校项目、社团、申请材料。</aside></section>
 
 <!-- 36 · Takeaway 3 -->
 <section class="s alt ae st tk"><div class="w"><div class="tk-g">
@@ -2551,31 +2686,31 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 
 <!-- 40 · Student projects -->
 <section class="s alt ae"><div class="w">
- <p class="kick r">建议三 · 证据 · Arena 在 ISB，2026年</p>
- <h2 class="r" style="--d:.1s">ISB 的学生走完了这一圈：问题、动手、<em>反馈、再发布。</em></h2>
+ <p class="kick r">建议三 · 证据 · Arena 在 ISB，2026年夏</p>
+ <h2 class="r" style="--d:.1s">在 ISB 的一周里，一支学生团队从真实问题出发，<em>做出了评委亲手测试的产品。</em></h2>
  <div class="bd r" style="--d:.25s">
-  <div class="proj4">
-   <div class="card" data-s="1"><figure><img src="/photos/mix/pilot-sticky-800.webp" alt="学生用便利贴梳理问题"></figure><div class="pb"><span class="lab">发现问题</span><h3>准备上架 Steam 的游戏</h3><p class="where">先选出什么值得做</p></div></div>
-   <div class="card" data-s="2"><figure><img src="/photos/isb-2026/mentors-laptop-800.webp" alt="学生在导师旁边用笔记本电脑做产品"></figure><div class="pb"><span class="lab">动手做</span><h3>睡眠与进度记录工具</h3><p class="where">用工具，再判断第一稿</p></div></div>
-   <div class="card" data-s="3"><figure><img src="/photos/isb-2026/mentor-feedback-800.webp" alt="导师在看学生作品并给反馈"></figure><div class="pb"><span class="lab">反馈</span><h3>教练会问怎么核对</h3><p class="where">审美，就在现场练</p></div></div>
-   <div class="card" data-s="4"><figure class="vframe"><video autoplay muted loop playsinline preload="metadata" poster="/decks/img/conversation/hands-stage-poster.webp" src="/decks/img/conversation/hands-stage.mp4" aria-label="学生在笔记本电脑上测试手语应用"></video><img class="vposter" src="/decks/img/conversation/hands-stage-poster.webp" alt=""></figure><div class="pb"><span class="lab">发布</span><h3>手语翻译应用，正在测试</h3><p class="where">还在上学，就有真实用户</p></div></div>
+  <div class="pbr">
+   <div class="card" data-s="1"><figure><img src="/photos/isb-hq/isb-team-slide-1400.webp" alt="团队成果展示日的幻灯片：学生用自己的话说出问题" style="object-position:30% 22%"></figure><div class="pb"><span class="lab">发现问题 <i>第1至2天 · 选题、访谈用户</i></span><h3>一份作业，要开好几个应用</h3><p class="q">“光是完成一份作业，我就要同时开着 Notion、日历、Forest 和 Google Docs。”</p><p class="where">主动性 · 选出真正值得解决的问题</p></div></div>
+   <div class="card" data-s="2"><figure><img src="/photos/isb-2026/mentor-feedback-1600.webp" alt="导师在制作现场给学生反馈" style="object-position:50% 30%"></figure><div class="pb"><span class="lab">动手做 <i>第2至4天 · 做出能打开的版本</i></span><h3>一个地方，就能计划、专注、休息，还能和朋友比拼</h3><p class="q">用AI编程工具搭建，导师不断追问：每一版是怎么核对的？</p><p class="where">审美 · 分辨哪个版本真正行得通</p></div></div>
+   <div class="card" data-s="3"><figure><img src="/photos/isb-hq/isb-podium-duo-1400.webp" alt="两位学生在成果展示日路演" style="object-position:50% 35%"></figure><div class="pb"><span class="lab">结果 <i>第5天 · 成果展示日</i></span><h3>当着家长的面现场路演</h3><p class="q">来自哈佛、斯坦福、Y Combinator 和AI实验室的评委，先亲手试用，再打分。</p><p class="where">匠心 · 把事情做完，并且做好</p></div></div>
   </div>
  </div>
-</div><aside class="notes">这就是 Arena 如何补上前面讲过的缺口。流畅度：他们用了AI编程工具。主动性：问题是他们自己选的。审美：导师会问他们怎么核对。匠心：他们做完，并且拿出来给别人看。老师还缺少这样的练习；教室里补上的，是教练和截止日期。</aside></section>
+ <p class="fn"><span>Arena 在北京顺义国际学校（ISB），五天学生项目，2026年夏。照片均来自 ISB 项目；引语出自该团队成果展示日的幻灯片</span></p>
+</div><aside class="notes">这就是 Arena 如何补上前面讲过的缺口，来自今年夏天 ISB 的一支团队。第一天，学生们各自提出关心的问题；这支团队选了一个每天都在经历的问题：为了完成一份作业，要同时开四个应用。他们先和同学聊，再用AI编程工具做出一个地方，就能计划、专注、休息，还能和朋友比拼。导师一直追问他们怎么核对每一版。成果展示日，他们当着家长的面路演，来自哈佛、斯坦福、Y Combinator 和AI实验室的评委先亲手试用产品，再打分。主动性、审美与匠心，在一周里练了一遍。</aside></section>
 
 <!-- 41 · Close -->
 <section class="s ae nv cl"><div class="w">
  <p class="kick r">如果只记住一句话</p>
- <h2 class="r" style="--d:.1s">工作变得更快了，所以现在就开始教<em>仍然要紧的能力。</em></h2>
+ <h2 class="r" style="--d:.1s">工作变得更快了，所以现在就开始教孩子<em>用好AI工具，练好仍然要紧的能力。</em></h2>
  <div class="bd r" style="--d:.25s">
-  <ol class="c123">
-   <li><i>1</i><b>工作已经在变</b><span>大约一半岗位已在用AI，也已经到了孩子手里</span></li>
-   <li><i>2</i><b>会用的人会领先</b><span>中间地带在缩小，用得好，机会就更大</span></li>
-   <li><i>3</i><b>现在就教这些工具</b><span>主动性强的孩子，升学和就业的机会都更大</span></li>
+  <ol class="c3x">
+   <li data-s="1"><i>1</i><b>工作变化更快了</b><span>大约一半的岗位已经在用AI</span></li>
+   <li data-s="2"><i>2</i><b>会用AI，回报更高</b><span>要求AI技能的岗位，薪酬高出62%</span></li>
+   <li data-s="3"><i>3</i><b>现在就在家开始</b><span>用AI做真实的项目，练出升学和就业都看重的主动性</span></li>
   </ol>
-  <p class="endline">当AI几乎什么都能做出来，会选题、会判断、能做完的学生会走在前面。</p>
+  <p class="endline" data-s="4">当AI几乎什么都能做出来，会选题、会判断、能做完的学生会走在前面。</p>
  </div>
-</div><aside class="notes">一条线，说得更有底气：工作已经在变，会用AI的人会领先，现在就教这些工具，孩子在升学和就业上的机会都更大。最后一句，就是整场分享。</aside></section>
+</div><aside class="notes">一条线，说得更有底气。第一，工作变化更快了：大约一半的岗位已经在用AI。第二，会用AI，回报更高：普华永道发现，要求AI技能的岗位薪酬高出62%。第三，现在就在家开始：用AI工具做真实项目的孩子，会练出大学和雇主都看重的主动性。最后一句，就是整场分享。</aside></section>
 
 <!-- 42 · Q&A -->
 <section class="s alt ae"><div class="w">
@@ -2637,6 +2772,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <li><span><b>中国教育新闻网</b>报道中国教育发展战略学会与学科网的教师调查（68792人）</span><span class="src">2025年10月20日</span></li>
   <li><span><b>METR</b>《时间视野 1.1》：50%时间视野大约每7个月翻一倍；GPT-4约4分钟，Claude 3.7约1小时，Opus 4.5约5小时</span><span class="src">2026年1月29日</span></li>
   <li><span><b>AI工具</b>：Meta 官方发布（Muse）；TechCrunch（Instinct）；路透社（OpenClaw）；manus.im、kimi.com 及各工具官网</span><span class="src">2026年 · 10月11日核对</span></li>
+  <li><span><b>Hugging Face</b>：2026年10月12日（UTC）新建公开模型4,386个（Hub API）；huggingface.co/models 共列出3,145,598个</span><span class="src">2026年10月13日核对</span></li>
   <li><span><b>Kimi</b>（月之暗面）招聘经历，亲身所见</span><span class="src">2026年</span></li>
   <li><span><b>OECD</b> PISA 2025结果</span><span class="src">2026年9月8日</span></li>
   <li><span><b>Cursor</b>：D 轮融资公告；路透社、CNBC、彭博社报道 SpaceX 收购；SpaceX 8-K 文件与 PitchBook 报道交易完成</span><span class="src">2025年11月 · 2026年6–8月</span></li>
@@ -2722,8 +2858,22 @@ function build(i,k,quiet){var s=S[i];s.dataset.k=k;if(quiet)s.classList.add('nt'
  [].forEach.call(s.querySelectorAll('[data-s]'),function(e){e.classList.toggle('vis',+e.dataset.s<=k)});if(quiet){void s.offsetWidth;s.classList.remove('nt')}
  else if(window.__count)setTimeout(function(){__count(s)},150)}
 function snapFlood(el){el.classList.add('recede','flood','focus','done');var f=el.querySelector('.ag-fill');if(f)f.classList.add('done')}
-function snapFx(s){[].forEach.call(s.querySelectorAll('.ag-flood'),snapFlood);[].forEach.call(s.querySelectorAll('.ag-fill,.grow,.skmap'),function(el){el.classList.add('done')})}
+function snapFx(s){[].forEach.call(s.querySelectorAll('.ag-flood'),snapFlood);[].forEach.call(s.querySelectorAll('.mk'),snapMk);[].forEach.call(s.querySelectorAll('.ag-fill,.grow,.skmap'),function(el){el.classList.add('done')})}
 function clearPlay(){playT.forEach(function(t){clearTimeout(t)});playT=[]}
+/* market map (slide 24): the six agents arrive, then the field of other tools lights up one by one, accelerating,
+   while the tool counter runs with it; the Hugging Face figure lands last. About 4s; a tap finishes it at once. */
+var mkRaf=0;
+function mkSet(el,n,v){var c=el.querySelector('.mk-n'),b=el.querySelector('.mk-big');if(c)c.textContent=n;if(b)b.textContent=v.toLocaleString('en-US')}
+function snapMk(el){cancelAnimationFrame(mkRaf);el.classList.add('go','stat','done');var f=el.querySelectorAll('.mk-field span').length;mkSet(el,f,+el.dataset.big||0)}
+function armMk(s){[].forEach.call(s.querySelectorAll('.mk'),function(el){
+  cancelAnimationFrame(mkRaf);el.classList.remove('go','stat','done');var sp=[].slice.call(el.querySelectorAll('.mk-field span')),N=sp.length,big=+el.dataset.big||0;mkSet(el,0,0);
+  var T0=900,TF=+el.dataset.tf||2200,TS=T0+TF+150,TB=700,t0=performance.now();
+  function f(now){var e=now-t0,n=0;for(var i=0;i<N;i++)if(+sp[i].dataset.t<=e-T0)n++;
+   var b=e<TS?0:Math.min(1,(e-TS)/TB);mkSet(el,n,Math.round(big*(1-Math.pow(1-b,3))));
+   if(e<TS+TB+50)mkRaf=requestAnimationFrame(f);else snapMk(el)}
+  playT.push(setTimeout(function(){el.classList.add('go')},T0));
+  playT.push(setTimeout(function(){el.classList.add('stat')},TS-200));
+  mkRaf=requestAnimationFrame(f)})}
 function armFlood(s){[].forEach.call(s.querySelectorAll('.ag-flood'),function(el){
   el.classList.remove('recede','flood','focus','done');var f=el.querySelector('.ag-fill');if(f)f.classList.remove('done');
   /* settle (six cards, 130ms apart) → recede → the field floods in, accelerating → the six lift back on top → done */
@@ -2737,15 +2887,15 @@ function startPlay(i){if(i<0||i>=S.length)return;clearPlay();playing=i;
  build(i,0,true);S[i].classList.remove('done');
  [].forEach.call(S[i].querySelectorAll('.ag-flood'),function(el){el.classList.remove('recede','flood','focus','done');var f=el.querySelector('.ag-fill');if(f)f.classList.remove('done')});
  [].forEach.call(S[i].querySelectorAll('.grow,.skmap'),function(el){el.classList.remove('done')});
- var k=0,n=B[i],gap=n<=1?380:Math.min(480,Math.max(300,2000/n)),flood=S[i].querySelector('.ag-flood');
+ var k=0,n=B[i],gap=n<=1?380:Math.min(480,Math.max(300,2000/n)),flood=S[i].querySelector('.ag-flood,.mk');
  function tick(){k++;build(i,k);if(k<n)playT.push(setTimeout(tick,gap));else playT.push(setTimeout(function(){if(!flood)snapFx(S[i])},80))}
- if(flood)armFlood(S[i]);
+ if(flood){armFlood(S[i]);armMk(S[i])}
  if(n)playT.push(setTimeout(tick,320));else{if(window.__count)setTimeout(function(){__count(S[i])},200);if(!flood)playT.push(setTimeout(function(){snapFx(S[i])},80))}}
 function step(d){if(moving)finishMove();
  var c=armed>=0&&Math.abs(S[armed].offsetTop-deck.scrollTop)<innerHeight*.75?armed:cur();
  if(!canBuild()){go(c+d);return}
  var k=S[c].dataset.k===undefined?B[c]:+S[c].dataset.k;
- if(d>0){if(k<B[c]||S[c].querySelector('.ag-flood:not(.done),.ag-fill:not(.done),.grow:not(.done)')){finishSlide(c);return}if(c<S.length-1){armed=c+1;go(c+1)}}
+ if(d>0){if(k<B[c]||S[c].querySelector('.ag-flood:not(.done),.ag-fill:not(.done),.grow:not(.done),.mk:not(.done)')){finishSlide(c);return}if(c<S.length-1){armed=c+1;go(c+1)}}
  else{if(c>0){armed=c-1;finishSlide(c-1);go(c-1)}}}
 deck.addEventListener('scroll',function(){if(moving)return;var c=cur();[].forEach.call(nav.children,function(a,i){a.classList.toggle('on',i===c)});document.body.classList.toggle('nvon',S[c].classList.contains('nv'));
  if(armed>=0&&Math.abs(S[armed].offsetTop-deck.scrollTop)>innerHeight*1.5)armed=-1;
@@ -2800,6 +2950,18 @@ if(!HM.classList.contains('player')&&!HM.classList.contains('export')&&!/[?&]rea
    el.style.setProperty('--i',i);el.style.setProperty('--d',d+'ms');
    el.innerHTML='<img alt="" src="/logos/tools/'+t[0]+'.png">';el.title=t[1];frag.appendChild(el)}
   box.appendChild(frag)})})();
+/* market-map field: real AI tools beyond the six agents, as of October 2026 (Chinese names on the Chinese deck).
+   Each name gets an arrival time on an accelerating curve in a scattered order, so the field flashes on across its whole area. */
+(function(){var L='ChatGPT|Claude|Gemini|DeepSeek|Doubao:豆包|Qwen:通义千问|Yuanbao:腾讯元宝|ERNIE:文心一言|Grok|Copilot|Meta AI|Le Chat|Perplexity|Poe|Character.AI|Pi|ChatGLM:智谱清言|MiniMax|Hunyuan:混元|Spark:讯飞星火|Baichuan:百川|StepFun:阶跃AI|Skywork:天工|Metaso:秘塔AI搜索|Felo|You.com|Phind|Consensus|Elicit|Scite|NotebookLM|Notion AI|Gamma|Tome|Beautiful.ai|Pitch|Canva|Figma Make|Framer|Webflow|Lovable|Bolt|v0|Replit|Cursor|Windsurf|GitHub Copilot|TRAE|Claude Code|Codex|Devin|Tabnine|Cody|Zed|Warp|JetBrains AI|Amazon Q|Gemini CLI|Qoder|CodeBuddy|Comate:文心快码|Kiro|Midjourney|DALL·E|Ideogram|Leonardo|Firefly|Stable Diffusion|FLUX|Krea|Recraft|Playground|Lovart|Dreamina:即梦|Liblib:哩布哩布|Kolors:可图|Wanxiang:通义万相|Sora|Veo|Runway|Pika|Luma|Kling:可灵|Hailuo:海螺|Vidu|PixVerse|Seedance|HeyGen|Synthesia|D-ID|CapCut:剪映|Descript|OpusClip|Captions|Hedra|Higgsfield|InVideo|Flow|Suno|Udio|ElevenLabs|Murf|Speechify|Otter|Fireflies|Granola|Whisper|Krisp|AIVA|Comet|Dia|Atlas|Flowith|Coze:扣子|Dify|n8n|Zapier|Make|Lindy|Relevance AI|Gumloop|CrewAI|LangChain|AutoGPT|Cue|WorkBuddy|Fellou|AutoGLM|Grammarly|Jasper|Copy.ai|Writesonic|Sudowrite|QuillBot|Wordtune|DeepL|Rytr|Lex|Mem|Reflect|Superhuman|Motion|Reclaim|Clockwise|Fathom|tl;dv|Read AI|Tactiq|Zoom AI|Slack AI|Miro AI|Whimsical|Napkin|Glean|Raycast|Monica|Sider|MaxAI|Merlin|HARPA|Khanmigo|Duolingo Max|Quizlet|Photomath|Brainly|Gauth|Question.AI|Speak|Praktika|ELSA|MagicSchool|Brisk|Diffit|Curipod|SchoolAI|Squirrel AI:松鼠AI|Spline|Meshy|Tripo|Uizard|Stitch|Visily|Relume|Hugging Face|Supabase|Firebase Studio|AI Studio|OpenRouter|Ollama|LM Studio|Jan|Julius|Llama|Gemma|Adobe Express|Designer|Pictory|Lumen5|Notta|Plaud'.split('|');
+ var zh=document.documentElement.lang!=='en';
+ [].forEach.call(document.querySelectorAll('.mk'),function(mk){var box=mk.querySelector('.mk-field');if(!box)return;
+  var N=L.length,ord=L.map(function(x,i){return i}),seed=7;
+  for(var i=N-1;i>0;i--){seed=(seed*16807)%2147483647;var j=seed%(i+1),x=ord[i];ord[i]=ord[j];ord[j]=x}
+  var TF=2200,frag=document.createDocumentFragment();mk.dataset.tf=TF;
+  var big=mk.querySelector('.mk-big');if(big)mk.dataset.big=big.textContent.replace(/\D/g,'');
+  L.forEach(function(x,i){var p=x.split(':'),el=document.createElement('span');el.textContent=zh&&p[1]?p[1]:p[0];
+   var t=Math.round(TF*Math.pow((ord[i]+1)/N,.6));el.dataset.t=t;el.style.setProperty('--d',t+'ms');frag.appendChild(el);frag.appendChild(document.createTextNode(' '))});
+  box.appendChild(frag);var c=mk.querySelector('.mk-n');if(c)c.textContent=N})})();
 /* counters: the first number in each .big or .cnt counts up from zero, keeping its prefix, commas, decimals, and unit */
 function firstNum(el){var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);while(w.nextNode())if(/\d/.test(w.currentNode.nodeValue))return w.currentNode;return null}
 function countUp(s){if(!HM.classList.contains('motion'))return;

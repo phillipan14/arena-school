@@ -2146,6 +2146,130 @@ section.s>.brandmk{position:absolute;z-index:3;top:calc((var(--pad-top) - 3px) *
  .motion .s.bld .shx[data-s]:not(.vis) .sh-col.n{opacity:0;transform:translateX(-24px)}
 }
 
+/* ---- s90-round2.css ---- */
+/* ===== round 2 (10-13): speakers, market map, Kimi case study, ISB proof, close ===== */
+
+/* ---- speakers: two quiet portrait cards; name and role lead, credentials sit as two even logo rows ---- */
+.spk2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto auto minmax(0,1fr);column-gap:var(--gap);row-gap:0;flex:1;min-height:0}
+.ae .bd .spk2 .sp{display:grid;grid-template-rows:subgrid;grid-row:span 3;align-content:start;min-width:0;padding:34px 40px 30px;background:var(--paper-hi);box-shadow:inset 0 0 0 1px var(--edge)}
+.sp header{display:flex;align-items:center;gap:26px}
+.sp .ph{flex:none;width:118px;height:118px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 1px var(--edge),0 0 0 6px var(--paper-hi),0 0 0 7px rgba(11,26,74,.10)}
+.ae .bd .sp h3{margin:0;font:500 38px/1.1 var(--serif);letter-spacing:-.015em;color:var(--ink);white-space:nowrap}
+.sp h3 .xn{display:block;margin-top:6px;font:400 19px/1.2 var(--serif);letter-spacing:0;color:var(--muted)}
+.ae .bd .sp .tag{margin:10px 0 0;font:600 15px/1.3 var(--serif);letter-spacing:.13em;text-transform:uppercase;color:var(--ink2)}
+:lang(zh-CN) .ae .bd .sp .tag{font-size:17px;letter-spacing:.06em}
+.ae .bd .sp .now{margin:26px 0 0;padding:0 0 22px;font:italic 400 24px/1.4 var(--serif);color:var(--ink);border-bottom:1px solid var(--edge)}
+:lang(zh-CN) .ae .bd .sp .now{font-style:normal;font-size:23px;line-height:1.5}
+.sp .lg{flex:1;display:grid;grid-template-rows:1fr 1fr;margin:0}
+.sp .lg>div{display:grid;grid-template-columns:96px minmax(0,1fr);align-items:center;min-height:0}
+.sp .lg>div+div{border-top:1px solid var(--edge)}
+.sp .lg dt{font:600 14px/1 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+:lang(zh-CN) .sp .lg dt{font-size:16px;letter-spacing:.08em}
+.sp .lg dd{margin:0;display:flex;align-items:center;justify-content:flex-start;gap:26px;min-width:0}
+.sp .lg img{display:block;flex:none;width:auto;max-width:210px;object-fit:contain;opacity:.88}
+/* optical sizes, by eye (DESIGN §6.9) */
+.sp .h-isb{height:46px}.sp .h-br{height:40px}.sp .h-ts{height:46px}.sp .h-ap{height:36px}.sp .h-de{height:26px}.sp .h-ci{height:34px}
+.sp .h-ct{height:28px}.sp .h-hv{height:38px}.sp .h-gs{height:36px}.sp .h-mk{height:22px}
+
+/* ---- market map: six known agents, then the field of other tools lights up one by one ---- */
+.mk{flex:1;min-height:0;display:flex;flex-direction:column;gap:16px}
+.ae .bd .agx.six{grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;grid-auto-rows:auto}
+.ae .bd .agx.six li{flex-direction:row;align-items:center;gap:12px;padding:14px 14px;background:var(--paper-hi);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.agx.six img{width:50px;height:50px;border-radius:13px}
+.agx.six img.t{padding:10px}
+.ae .bd .agx.six b{font-size:24px;line-height:1.1;white-space:nowrap}
+.ae .bd .agx.six small{font-size:15.5px;line-height:1.3}
+:lang(zh-CN) .ae .bd .agx.six small{font-size:15.5px;line-height:1.45}
+.agx.six b i.cn{width:8px;height:8px;margin-left:8px}
+.mk-low{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:20px}
+.ae .bd .mk-map{display:flex;flex-direction:column;gap:10px;min-height:0;padding:14px 22px 14px}
+.mk-map .lab{color:var(--muted)}
+.mk-map .lab b{font-weight:600;color:var(--ink2);font-variant-numeric:tabular-nums}
+.mk-field{flex:1;min-height:0;display:block;overflow:hidden;text-align:justify;text-align-last:left;line-height:1.28;word-spacing:6px}
+.mk-field span{display:inline-block;font:400 14.5px/1.36 var(--serif);word-spacing:0;color:var(--ink);opacity:.5;white-space:nowrap}
+.ae .bd .mk-stat{display:flex;flex-direction:column;justify-content:center;gap:8px;padding:22px 28px;background:var(--ink);color:var(--paper-hi)}
+.ae .bd .mk-stat .lab{color:#A9BEEA}
+.mk-big{display:block;font:300 84px/1 var(--serif);letter-spacing:-.02em;color:#C9D6F2;font-variant-numeric:tabular-nums}
+.ae .bd .mk-stat .mk-l{margin:0;font:400 24px/1.32 var(--serif);color:var(--paper-hi)}
+:lang(zh-CN) .ae .bd .mk-stat .mk-l{font-size:24px;line-height:1.45}
+.ae .bd .mk-stat .mk-r{margin:8px 0 0;padding-top:12px;border-top:1px solid rgba(252,243,237,.25);display:flex;flex-direction:column;gap:2px;font:italic 400 18px/1.4 var(--serif);color:rgba(252,243,237,.8)}
+:lang(zh-CN) .ae .bd .mk-stat .mk-r{font-style:normal;font-size:17px}
+/* motion: names flash ink-blue as they arrive, then settle; the counter and the big number run alongside */
+.motion .mk:not(.done) .mk-field span{opacity:0}
+.motion .mk.go .mk-field span{animation:mkon .9s ease var(--d,0s) both}
+@keyframes mkon{0%{opacity:0;color:var(--ink2)}18%{opacity:1;color:var(--ink2)}100%{opacity:.5;color:var(--ink)}}
+.motion .mk.done .mk-field span{animation:none;opacity:.5}
+.motion .mk:not(.stat):not(.done) .mk-stat{opacity:0;transform:translateY(12px)}
+.motion .mk .mk-stat{transition:opacity .5s ease,transform .7s var(--e-o)}
+
+/* ---- Kimi case study: situation → what was built → outcome (navy), then the point ---- */
+.case3{display:grid;grid-template-columns:minmax(0,1fr) 44px minmax(0,1fr) 44px minmax(0,1fr);align-items:stretch;flex:1;min-height:0}
+.ae .bd .case3 .cs{display:flex;flex-direction:column;gap:16px;min-width:0;padding:34px 34px 32px;background:var(--paper-hi);box-shadow:inset 0 0 0 1px var(--edge);border-radius:var(--r)}
+.ae .bd .case3 .cs h3{margin:0;font:500 32px/1.22 var(--serif);color:var(--ink)}
+:lang(zh-CN) .ae .bd .case3 .cs h3{font-size:30px;line-height:1.4}
+.ae .bd .case3 .cs p{margin:auto 0 0;padding-top:16px;border-top:1px solid var(--edge);font:400 24px/1.42 var(--serif);color:var(--muted)}
+:lang(zh-CN) .ae .bd .case3 .cs p{font-size:24px;line-height:1.55}
+.ae .bd .case3 .cs-out{background:var(--ink);box-shadow:none}
+.ae .bd .case3 .cs-out .lab{color:#A9BEEA}
+.ae .bd .case3 .cs-out h3{color:var(--paper-hi)}
+.ae .bd .case3 .cs-out h3 em{color:#C9D6F2}
+.ae .bd .case3 .cs-out p{color:rgba(252,243,237,.8);border-top-color:rgba(252,243,237,.25)}
+.cs-ar{display:grid;place-items:center;font:300 34px/1 var(--serif);color:var(--ink2)}
+.ae:not(.st):not(.bq) .bd>.cs-foot.pane{display:flex;flex-direction:row!important;align-items:center;justify-content:flex-start!important;gap:32px;padding:20px 34px}
+.cs-foot .brand{flex:none;height:30px;width:auto}
+.ae .bd .cs-foot p{margin:0;padding-left:32px;border-left:1px solid var(--edge);font:italic 400 30px/1.3 var(--serif);color:var(--ink)}
+:lang(zh-CN) .ae .bd .cs-foot p{font-style:normal;font-size:28px}
+.motion .s.bld .cs-ar[data-s]:not(.vis){transform:translateX(-10px)}
+
+/* ---- ISB proof: one team, problem → build → result, ISB photos only ---- */
+.pbr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap);flex:1;min-height:0}
+.ae .bd .pbr .card{display:flex;flex-direction:column;min-height:0;padding:0;overflow:hidden;background:var(--paper-hi)}
+.pbr figure{flex:none;height:184px;margin:0;overflow:hidden}
+.pbr figure img{display:block;width:100%;height:100%;object-fit:cover}
+.ae .bd .pbr .pb{display:flex;flex-direction:column;gap:9px;flex:1;padding:18px 26px 18px}
+.ae .bd .pbr .lab{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.pbr .lab i{font:italic 400 16px/1.3 var(--serif);letter-spacing:0;text-transform:none;color:var(--muted)}
+:lang(zh-CN) .pbr .lab i{font-style:normal;font-size:15px}
+.ae .bd .pbr h3{margin:0;font:500 27px/1.18 var(--serif);color:var(--ink)}
+:lang(zh-CN) .ae .bd .pbr h3{font-size:25px;line-height:1.4}
+.ae .bd .pbr .q{margin:0;font:400 24px/1.36 var(--serif);color:var(--ink)}
+:lang(zh-CN) .ae .bd .pbr .q{font-size:24px;line-height:1.5}
+.ae .bd .pbr .where{margin:auto 0 0;padding-top:12px;border-top:1px solid var(--edge);font:italic 400 18px/1.35 var(--serif);color:var(--ink2)}
+:lang(zh-CN) .ae .bd .pbr .where{font-style:normal}
+
+/* ---- close: three numbered takeaways on navy, then the line to remember ---- */
+.c3x{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+.ae .c3x li{display:flex;flex-direction:column;gap:14px;padding:6px 40px 0 0}
+.ae .c3x li+li{padding-left:40px;border-left:1px solid rgba(252,243,237,.22)}
+.c3x i{font:300 104px/.9 var(--serif);font-style:normal;color:#A9BEEA}
+.ae .c3x b{font:500 32px/1.2 var(--serif);color:var(--paper-hi)}
+.ae .c3x span{font:400 23px/1.45 var(--serif);color:rgba(252,243,237,.78)}
+:lang(zh-CN) .ae .c3x b{font-size:29px;line-height:1.4}
+:lang(zh-CN) .ae .c3x span{font-size:21px;line-height:1.6}
+.ae.cl .bd{flex:1;justify-content:center;gap:60px;padding-bottom:20px}
+.ae.cl .c3x{margin:0}
+.ae.cl .bd .endline{flex:none;margin:0;padding-top:34px;border-top:1px solid rgba(252,243,237,.22);font-size:34px}
+:lang(zh-CN) .ae.cl .bd .endline{font-size:28px}
+
+.ae .bd .mk-map .lab,.ae .bd .mk-stat .lab{white-space:nowrap}
+.ae .bd .cs h3{text-wrap:balance}
+:lang(zh-CN) .ae .bd .sp .now{font-size:24px}
+.agx.six b i.cn{margin-left:5px}
+.ae .bd .agx.six li:last-child{padding-right:10px}
+:lang(zh-CN) .ae .bd .cs h3{text-wrap:pretty}
+/* close, scaled to the room: the three takeaways read from the back */
+.ae.cl .bd{justify-content:space-evenly;gap:0;padding:40px 0 10px}
+.ae .c3x li{gap:18px}
+.c3x i{font-size:120px}
+.ae .c3x b{font-size:40px;line-height:1.15}
+.ae .c3x span{font-size:27px;line-height:1.42}
+:lang(zh-CN) .ae .c3x b{font-size:36px;line-height:1.35}
+:lang(zh-CN) .ae .c3x span{font-size:25px;line-height:1.6}
+.ae.cl .bd .endline{font-size:38px;padding-top:40px}
+:lang(zh-CN) .ae.cl .bd .endline{font-size:32px}
+.ae.cl .bd{justify-content:center;gap:64px;padding:24px 0 48px}
+.ae .c3x b{font-size:36px}
+
 /* ---- snum.css ---- */
 /* slide numbers (snum): quiet folio in the bottom-right gutter of every slide except the title */
 section.s>.pgno{position:absolute;right:var(--margin-x);bottom:calc(var(--pad-bot) * var(--z) / 2 - 6px);z-index:3;pointer-events:none;user-select:none;
@@ -2182,15 +2306,19 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <p class="kick r">Your speakers · Arena co-founders</p>
  <h2 class="r" style="--d:.1s">We trained at ISB, Caltech, Harvard, Brown, and Tsinghua, then did <em>the jobs AI is now automating.</em></h2>
  <div class="bd r" style="--d:.25s">
- <div class="team spk">
-  <div class="person" data-s="1"><div class="who-r"><img src="/photos/jing-jing-yang.jpg" alt=""><div class="who"><h3>Jing Jing Yang</h3><div class="co">ISB Class of 2019</div></div></div>
-   <dl class="lgx"><div><dt>Studied</dt><dd><img class="wide" src="/logos/cred/isb.png" alt="ISB"><img class="md" src="/logos/cred/brown.png" alt="Brown"><img class="wide" src="/logos/cred/tsinghua.png" alt="Tsinghua University"></dd></div>
-    <div><dt>Worked</dt><dd><img class="md" src="/logos/cred/apple.png" alt="Apple"><img class="sm" src="/logos/cred/deloitte.png" alt="Deloitte"><img class="md" src="/logos/cred/cicc.png" alt="CICC"></dd></div>
-    <div><dt>Now</dt><dd><div class="now"><b>Advises Chinese AI firms on going global</b><img src="/logos/cred/kimi-wordmark.png" alt="Kimi"></div></dd></div></dl></div>
-  <div class="person" data-s="2"><div class="who-r"><img src="/photos/phillip-an.jpg" alt=""><div class="who"><h3>Phillip An</h3><div class="co">Forbes 30 Under 30<br>Y Combinator alum</div></div></div>
-   <dl class="lgx"><div><dt>Studied</dt><dd><img class="sm" src="/logos/cred/caltech.png" alt="Caltech"><img class="md" src="/logos/cred/harvard.png" alt="Harvard"><img class="wide" src="/logos/cred/tsinghua.png" alt="Tsinghua University"></dd></div>
-    <div><dt>Worked</dt><dd><img class="md" src="/logos/cred/goldman.png" alt="Goldman Sachs"><img class="sm" src="/logos/cred/mckinsey.png" alt="McKinsey"></dd></div>
-    <div><dt>Now</dt><dd><div class="now"><b>Co-founder &amp; CEO, Skylarq</b><small>AI agents for sales</small></div></dd></div></dl></div>
+ <div class="spk2">
+  <article class="sp pane" data-s="1">
+   <header><img class="ph" src="/photos/jing-jing-yang.jpg" alt=""><div><h3>Jing Jing Yang</h3><div class="tag">ISB Class of 2019</div></div></header>
+   <p class="now">Advises Chinese AI firms, including Kimi, on going global</p>
+   <dl class="lg"><div><dt>Studied</dt><dd><img class="h-isb" src="/logos/cred/isb.png" alt="ISB"><img class="h-br" src="/logos/cred/brown.png" alt="Brown"><img class="h-ts" src="/logos/cred/tsinghua.png" alt="Tsinghua University"></dd></div>
+    <div><dt>Worked</dt><dd><img class="h-ap" src="/logos/cred/apple.png" alt="Apple"><img class="h-de" src="/logos/cred/deloitte.png" alt="Deloitte"><img class="h-ci" src="/logos/cred/cicc.png" alt="CICC"></dd></div></dl>
+  </article>
+  <article class="sp pane" data-s="2">
+   <header><img class="ph" src="/photos/phillip-an.jpg" alt=""><div><h3>Phillip An</h3><div class="tag">Forbes 30 Under 30<br>Y Combinator alum</div></div></header>
+   <p class="now">Co-founder and CEO of Skylarq, AI agents for sales</p>
+   <dl class="lg"><div><dt>Studied</dt><dd><img class="h-ct" src="/logos/cred/caltech.png" alt="Caltech"><img class="h-hv" src="/logos/cred/harvard.png" alt="Harvard"><img class="h-ts" src="/logos/cred/tsinghua.png" alt="Tsinghua University"></dd></div>
+    <div><dt>Worked</dt><dd><img class="h-gs" src="/logos/cred/goldman.png" alt="Goldman Sachs"><img class="h-mk" src="/logos/cred/mckinsey.png" alt="McKinsey"></dd></div></dl>
+  </article>
  </div>
  </div>
 </div><aside class="notes">Jing Jing went to ISB from elementary school through graduation, then Brown and Tsinghua as a Schwarzman Scholar; she worked at Apple, Deloitte, and CICC, and now advises Chinese AI companies, including Kimi, on going global, and does research with Microsoft AI. Phillip studied computer science at Caltech, an MBA and MS at Harvard, and was a Schwarzman Scholar at Tsinghua; he worked at Goldman Sachs and McKinsey, is co-founder and CEO of Skylarq, which builds AI agents for sales, and an earlier company of his was backed by Y Combinator. Why listen to us: we went through the schools many families here aim for, and we did the analyst, consulting, and banking work that AI now drafts in minutes. Goldman's CEO said in 2025 that AI can get an IPO filing 95% of the way there in a few minutes; that was our first job. Today we teach students the skills that still matter.</aside></section>
@@ -2427,19 +2555,23 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 <!-- 31 · The agents -->
 <section class="s alt ae"><div class="w">
  <p class="kick r">Takeaway 1 · personal AI agents, October 2026 · <i class="cn" aria-hidden="true"></i>available in mainland China</p>
- <h2 class="r" style="--d:.1s">New agents keep arriving. A year ago most of these did not exist. <em>How many have you heard of?</em></h2>
- <div class="bd r" style="--d:.25s"><div class="ag-flood">
-  <div class="ag-fill" aria-hidden="true"></div>
-  <ul class="agx">
-   <li class="pane"><img src="/logos/tools/kimi.png" alt=""><span><b>Kimi<i class="cn" aria-label="Available in mainland China"></i></b><small>Makes websites, slides, and reports</small></span></li>
-   <li class="pane"><img class="t" src="/logos/tools/muse.png" alt=""><span><b>Muse</b><small>Meta’s agent for email and travel</small></span></li>
-   <li class="pane"><img src="/logos/tools/instinct.png" alt=""><span><b>Instinct</b><small>Text it, and it runs your errands</small></span></li>
-   <li class="pane"><img src="/logos/tools/manus.png" alt=""><span><b>Manus</b><small>Finishes many-step tasks on its own</small></span></li>
-   <li class="pane"><img src="/logos/tools/genspark.png" alt=""><span><b>Genspark</b><small>An all-in-one AI workspace</small></span></li>
-   <li class="pane"><img class="t" src="/logos/tools/openclaw.png" alt=""><span><b>OpenClaw<i class="cn" aria-label="Available in mainland China"></i></b><small>Runs your computer, open source</small></span></li>
+ <h2 class="r" style="--d:.1s">Who has heard of these? Behind them, <em>thousands of new AI models appear every day.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="mk">
+  <ul class="agx six">
+   <li class="pane"><img src="/logos/tools/kimi.png" alt=""><span><b>Kimi<i class="cn" aria-label="Available in mainland China"></i></b></span></li>
+   <li class="pane"><img class="t" src="/logos/tools/muse.png" alt=""><span><b>Muse</b></span></li>
+   <li class="pane"><img src="/logos/tools/instinct.png" alt=""><span><b>Instinct</b></span></li>
+   <li class="pane"><img src="/logos/tools/manus.png" alt=""><span><b>Manus</b></span></li>
+   <li class="pane"><img src="/logos/tools/genspark.png" alt=""><span><b>Genspark</b></span></li>
+   <li class="pane"><img class="t" src="/logos/tools/openclaw.png" alt=""><span><b>OpenClaw<i class="cn" aria-label="Available in mainland China"></i></b></span></li>
   </ul>
+  <div class="mk-low">
+   <div class="mk-map pane"><p class="lab"><b class="mk-n">200</b> more AI tools you could try today</p><div class="mk-field" aria-hidden="true"></div></div>
+   <div class="mk-stat pane"><p class="lab">Hugging Face</p><b class="mk-big">4,386</b><p class="mk-l">new AI models published in one day: Monday, October 12, 2026</p><p class="mk-r"><span>About 3 every minute</span><span>3.1 million in all</span></p></div>
+  </div>
  </div></div>
-</div><aside class="notes">The red dot marks tools available in mainland China as of October 2026; most of the others are not offered there. Most families know DeepSeek, Doubao, and ChatGPT. These are the next wave: agents that carry out a whole task when you give them a goal. Kimi's agent mode builds a website or a slide deck from one request. OpenClaw, the "lobster", was China's craze this March. Meta launched Muse in September to handle email and bookings.</aside></section>
+ <p class="fn"><span>Hugging Face Hub API: 4,386 public models created Oct 12, 2026 (UTC); huggingface.co/models lists 3,145,598. Both checked Oct 13, 2026. Tools: each tool’s own site</span></p>
+</div><aside class="notes">Ask the room: who has heard of these six? The red dot marks tools available in mainland China as of October 2026; most of the others are not offered there. Most families know DeepSeek, Doubao, and ChatGPT. These are the next wave: agents that carry out a whole task when you give them a goal. Kimi makes websites, slides, and reports. Muse is Meta's agent for email and travel. Instinct runs your errands by text. Manus finishes many-step tasks on its own. Genspark is an all-in-one AI workspace. OpenClaw runs your computer and is open source. Then the field lights up: two hundred more tools, and this is a small sample. Hugging Face, the largest public library of AI models, received 4,386 new models on Monday alone, about three a minute, and now holds more than three million. Nobody can keep up with all of it, which is why children need the habit of trying new tools, not a list to memorize.</aside></section>
 
 <!-- 32 · Tools multiply -->
 <section class="s alt ae"><div class="w">
@@ -2467,16 +2599,19 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 
 <!-- 34 · A hiring story -->
 <section class="s ae"><div class="w">
- <p class="kick r">How I evaluated non-technical candidates at Kimi</p>
- <h2 class="r" style="--d:.1s">The candidate who built something before the interview <em>got the offer.</em></h2>
- <div class="bd r" style="--d:.25s"><div class="kimi">
-  <div class="pane" data-s="1"><div class="lr"><img class="brand km" src="/logos/deck/kimi.png" alt="Kimi"></div>
-   <p class="story">When I was hiring for Kimi’s growth team, one candidate built a small tool for our social media work before the interview, showed it live, and got the offer.</p>
-   <p class="punch">Nobody asked for it. <em>That was the point.</em></p></div>
-  <figure class="vframe" data-s="2"><video autoplay muted loop playsinline preload="auto" poster="/decks/img/conversation/interview-kit-en-poster.png" src="/decks/img/conversation/interview-kit-en.mp4" aria-label="Interview Prep Kit walkthrough"></video><img class="vposter" src="/decks/img/conversation/interview-kit-en-poster.png" alt=""></figure>
- </div></div>
- <p class="fn" data-s="1"><span>A first-hand hiring story from Jing Jing Yang at Kimi (Moonshot AI). Visual: Arena Interview Prep Kit</span></p>
-</div><aside class="notes">Jing Jing tells this in the first person. A job interview is about as high-stakes as everyday life gets. I was hiring for Kimi's growth team. One candidate built a small tool for our social media work, showed it live, and got the offer for a non-technical role. Nobody asked for it. That was the point: a real task, done before anyone asked.</aside></section>
+ <p class="kick r">Case study · Kimi (Moonshot AI) · hiring for the growth team</p>
+ <h2 class="r" style="--d:.1s">For a non-technical role, the candidate who built something before the interview <em>got the offer.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="case3">
+  <div class="cs pane" data-s="1"><span class="lab">The situation</span><h3>Hiring for a non-technical role on Kimi’s growth team</h3><p>Jing Jing was interviewing candidates for the team.</p></div>
+  <span class="cs-ar" data-s="2" aria-hidden="true">→</span>
+  <div class="cs pane" data-s="2"><span class="lab">What one candidate built</span><h3>A small tool for the team’s social media work</h3><p>Made with AI, on the candidate’s own initiative, before the interview.</p></div>
+  <span class="cs-ar" data-s="3" aria-hidden="true">→</span>
+  <div class="cs cs-out" data-s="3"><span class="lab">What happened</span><h3>Showed it live in the interview, and <em>got the offer</em></h3><p>A real task for the team, done before anyone asked.</p></div>
+ </div>
+ <div class="cs-foot pane" data-s="4"><img class="brand km" src="/logos/deck/kimi.png" alt="Kimi"><p>Nobody asked for it. <em>That was the point.</em></p></div>
+ </div>
+ <p class="fn"><span>A first-hand hiring story from Jing Jing Yang, hiring for the growth team at Kimi (Moonshot AI)</span></p>
+</div><aside class="notes">Jing Jing tells this in the first person. "I was hiring for Kimi's growth team, for a non-technical role. One candidate built a small tool with AI for our social media work before the interview. Nobody asked for it. They showed it to me live, and they got the offer. That was the point: a real task, done before anyone asked." A job interview is about as high-stakes as everyday life gets. Encourage children to use AI for real things: a school project, a club, an application.</aside></section>
 
 <!-- 36 · Takeaway 3 -->
 <section class="s alt ae st tk"><div class="w"><div class="tk-g">
@@ -2492,7 +2627,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <div class="bd r" style="--d:.25s"><div class="tn-pair">
   <span class="hd o">When we were young</span><span aria-hidden="true"></span><span class="hd n">Today</span>
   <div class="row"><p class="o" data-s="1">Built by hand, and slowly</p><span class="arr" data-s="2" aria-hidden="true"><i></i></span><p class="n" data-s="2">AI builds a first version in an afternoon</p></div>
-  <div class="row"><p class="o" data-s="3">A team, and years of training</p><span class="arr" data-s="4" aria-hidden="true"><i></i></span><p class="n" data-s="4">One kid can ship a first version in a week</p></div>
+  <div class="row"><p class="o" data-s="3">A team, and years of training</p><span class="arr" data-s="4" aria-hidden="true"><i></i></span><p class="n" data-s="4">One child can launch a first version in a week</p></div>
   <div class="row"><p class="o" data-s="5">Only the family saw what you made</p><span class="arr" data-s="6" aria-hidden="true"><i></i></span><p class="n" data-s="6">Real users, before they leave school</p></div>
  </div></div>
 </div><aside class="notes">Building software used to take a team and years of training, and few people outside the family ever saw what you made. With AI as a helper, a first working version comes together quickly, and a child's idea can reach real users before they leave school. We wrote essays by hand and waited years to build anything real. Our children can build, test, and improve in a week. The ones who start now compound that advantage.</aside></section>
@@ -2551,31 +2686,31 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 
 <!-- 40 · Student projects -->
 <section class="s alt ae"><div class="w">
- <p class="kick r">Takeaway 3 · the proof · Arena at ISB, 2026</p>
- <h2 class="r" style="--d:.1s">ISB students ran that loop: problem, build, <em>feedback, and launch.</em></h2>
+ <p class="kick r">Takeaway 3 · the proof · Arena at ISB, summer 2026</p>
+ <h2 class="r" style="--d:.1s">In one week at ISB, a student team went from a real problem <em>to a product judges tested.</em></h2>
  <div class="bd r" style="--d:.25s">
-  <div class="proj4">
-   <div class="card" data-s="1"><figure><img src="/photos/mix/pilot-sticky-800.webp" alt="Students mapping problems on sticky notes"></figure><div class="pb"><span class="lab">Problem</span><h3>Games aimed at Steam</h3><p class="where">Choose what is worth making</p></div></div>
-   <div class="card" data-s="2"><figure><img src="/photos/isb-2026/mentors-laptop-800.webp" alt="Students building on a laptop with a mentor"></figure><div class="pb"><span class="lab">Build</span><h3>A sleep and progress tracker</h3><p class="where">Use the tools, then judge the draft</p></div></div>
-   <div class="card" data-s="3"><figure><img src="/photos/isb-2026/mentor-feedback-800.webp" alt="A mentor giving feedback on a student project"></figure><div class="pb"><span class="lab">Feedback</span><h3>Coaches ask how they checked it</h3><p class="where">Taste, practiced in the room</p></div></div>
-   <div class="card" data-s="4"><figure class="vframe"><video autoplay muted loop playsinline preload="metadata" poster="/decks/img/conversation/hands-stage-poster.webp" src="/decks/img/conversation/hands-stage.mp4" aria-label="A student tests a sign-language app on a laptop"></video><img class="vposter" src="/decks/img/conversation/hands-stage-poster.webp" alt=""></figure><div class="pb"><span class="lab">Launch</span><h3>A sign-language app, in testing</h3><p class="where">Real users before they leave school</p></div></div>
+  <div class="pbr">
+   <div class="card" data-s="1"><figure><img src="/photos/isb-hq/isb-team-slide-1400.webp" alt="The team’s demo-day slide: the problem in a student’s own words" style="object-position:30% 22%"></figure><div class="pb"><span class="lab">Problem <i>Days 1–2 · choose it, talk to users</i></span><h3>Too many apps for one assignment</h3><p class="q">“I have Notion, Calendar, Forest, and Google Docs open just to finish one assignment.”</p><p class="where">Agency · choosing what’s worth solving</p></div></div>
+   <div class="card" data-s="2"><figure><img src="/photos/isb-2026/mentor-feedback-1600.webp" alt="Mentors give feedback at the build tables" style="object-position:50% 30%"></figure><div class="pb"><span class="lab">Build <i>Days 2–4 · live at a link</i></span><h3>One place to plan, focus, rest, and compete with friends</h3><p class="q">Built with AI coding tools, with mentors asking how each draft was checked.</p><p class="where">Taste · telling which version works</p></div></div>
+   <div class="card" data-s="3"><figure><img src="/photos/isb-hq/isb-podium-duo-1400.webp" alt="Two students pitch at the podium on demo day" style="object-position:50% 35%"></figure><div class="pb"><span class="lab">Result <i>Day 5 · demo day</i></span><h3>Pitched live, with families in the room</h3><p class="q">Judges from Harvard, Stanford, Y Combinator, and AI labs tested it before scoring.</p><p class="where">Craft · finishing it well</p></div></div>
   </div>
  </div>
-</div><aside class="notes">This is the proof that Arena closes the gaps set up earlier. Fluency: they used AI coding tools. Agency: they chose the problems. Taste: mentors asked how they checked the work. Craft: they finished and showed it. Teachers are still short of this practice; the room supplies the coach and the deadline.</aside></section>
+ <p class="fn"><span>Arena at the International School of Beijing, five-day student cohort, summer 2026. Photos from the ISB program; the quote is from the team’s own demo-day slide</span></p>
+</div><aside class="notes">This is the proof that Arena closes the gaps set up earlier, from one team at ISB this summer. Day one, students pitched problems they cared about; this team picked one they lived every day: four apps open just to finish one assignment. They talked to classmates, then used AI coding tools to build one place to plan, focus, rest, and compete with friends. Mentors kept asking how they checked each version. On demo day they pitched with families in the room, and judges from Harvard, Stanford, Y Combinator, and AI labs tested the product before scoring it. Agency, taste, and craft, practiced in one week.</aside></section>
 
 <!-- 41 · Close -->
 <section class="s ae nv cl"><div class="w">
  <p class="kick r">If you remember one thing</p>
- <h2 class="r" style="--d:.1s">Work is changing faster, so start teaching <em>the skills that still matter.</em></h2>
+ <h2 class="r" style="--d:.1s">Work is changing faster, so start teaching children <em>the AI tools and skills that still matter.</em></h2>
  <div class="bd r" style="--d:.25s">
-  <ol class="c123">
-   <li><i>1</i><b>Work is already changing</b><span>AI is in about half of jobs, and already in children’s hands</span></li>
-   <li><i>2</i><b>Fluency is the advantage</b><span>The safe middle is shrinking, and people who use AI well pull ahead</span></li>
-   <li><i>3</i><b>Start teaching these tools now</b><span>High-agency kids raise their chances at college and a career</span></li>
+  <ol class="c3x">
+   <li data-s="1"><i>1</i><b>Work is changing faster</b><span>AI is already used in about half of all jobs</span></li>
+   <li data-s="2"><i>2</i><b>Fluency pays</b><span>Jobs that require AI skills pay 62% more</span></li>
+   <li data-s="3"><i>3</i><b>Start now, at home</b><span>Real projects with AI build the agency colleges and careers reward</span></li>
   </ol>
-  <p class="endline">When AI can make almost anything, students who choose, judge, and finish pull ahead.</p>
+  <p class="endline" data-s="4">When AI can make almost anything, students who choose, judge, and finish pull ahead.</p>
  </div>
-</div><aside class="notes">One chain, said with confidence: work is already changing, people who use AI well pull ahead, and families who start teaching the tools now give their children a real advantage at college and in a career. That last line is the talk in one sentence.</aside></section>
+</div><aside class="notes">One chain, said with confidence. One: work is changing faster; AI is already part of the work in about half of all jobs. Two: fluency pays; PwC found jobs that require AI skills pay 62% more. Three: start now, at home; children who use AI tools on real projects build the agency that colleges and employers look for. The last line is the talk in one sentence.</aside></section>
 
 <!-- 42 · Q&A -->
 <section class="s alt ae"><div class="w">
@@ -2637,6 +2772,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <li><span><b>中国教育新闻网</b> on the teacher survey by 中国教育发展战略学会 and 学科网 (n=68,792)</span><span class="src">Oct 20, 2025</span></li>
   <li><span><b>METR</b>, Time Horizon 1.1: 50% time horizon doubled about every 7 months; GPT-4 ~4 min, Claude 3.7 ~1 hour, Opus 4.5 ~5 hours</span><span class="src">Jan 29, 2026</span></li>
   <li><span><b>AI tools</b>: Meta newsroom (Muse); TechCrunch (Instinct); Reuters (OpenClaw); manus.im, kimi.com, and each tool’s own site</span><span class="src">2026 · checked Oct 11</span></li>
+  <li><span><b>Hugging Face</b>: 4,386 public models created Oct 12, 2026 (Hub API, UTC); 3,145,598 listed at huggingface.co/models</span><span class="src">checked Oct 13, 2026</span></li>
   <li><span><b>Kimi</b> (Moonshot AI) hiring story, first-hand</span><span class="src">2026</span></li>
   <li><span><b>OECD</b>, PISA 2025 results</span><span class="src">Sept 8, 2026</span></li>
   <li><span><b>Cursor</b>: Series D post; Reuters, CNBC, and Bloomberg on SpaceX; SpaceX Form 8-K and PitchBook on the close</span><span class="src">Nov 2025 · June–Aug 2026</span></li>
@@ -2722,8 +2858,22 @@ function build(i,k,quiet){var s=S[i];s.dataset.k=k;if(quiet)s.classList.add('nt'
  [].forEach.call(s.querySelectorAll('[data-s]'),function(e){e.classList.toggle('vis',+e.dataset.s<=k)});if(quiet){void s.offsetWidth;s.classList.remove('nt')}
  else if(window.__count)setTimeout(function(){__count(s)},150)}
 function snapFlood(el){el.classList.add('recede','flood','focus','done');var f=el.querySelector('.ag-fill');if(f)f.classList.add('done')}
-function snapFx(s){[].forEach.call(s.querySelectorAll('.ag-flood'),snapFlood);[].forEach.call(s.querySelectorAll('.ag-fill,.grow,.skmap'),function(el){el.classList.add('done')})}
+function snapFx(s){[].forEach.call(s.querySelectorAll('.ag-flood'),snapFlood);[].forEach.call(s.querySelectorAll('.mk'),snapMk);[].forEach.call(s.querySelectorAll('.ag-fill,.grow,.skmap'),function(el){el.classList.add('done')})}
 function clearPlay(){playT.forEach(function(t){clearTimeout(t)});playT=[]}
+/* market map (slide 24): the six agents arrive, then the field of other tools lights up one by one, accelerating,
+   while the tool counter runs with it; the Hugging Face figure lands last. About 4s; a tap finishes it at once. */
+var mkRaf=0;
+function mkSet(el,n,v){var c=el.querySelector('.mk-n'),b=el.querySelector('.mk-big');if(c)c.textContent=n;if(b)b.textContent=v.toLocaleString('en-US')}
+function snapMk(el){cancelAnimationFrame(mkRaf);el.classList.add('go','stat','done');var f=el.querySelectorAll('.mk-field span').length;mkSet(el,f,+el.dataset.big||0)}
+function armMk(s){[].forEach.call(s.querySelectorAll('.mk'),function(el){
+  cancelAnimationFrame(mkRaf);el.classList.remove('go','stat','done');var sp=[].slice.call(el.querySelectorAll('.mk-field span')),N=sp.length,big=+el.dataset.big||0;mkSet(el,0,0);
+  var T0=900,TF=+el.dataset.tf||2200,TS=T0+TF+150,TB=700,t0=performance.now();
+  function f(now){var e=now-t0,n=0;for(var i=0;i<N;i++)if(+sp[i].dataset.t<=e-T0)n++;
+   var b=e<TS?0:Math.min(1,(e-TS)/TB);mkSet(el,n,Math.round(big*(1-Math.pow(1-b,3))));
+   if(e<TS+TB+50)mkRaf=requestAnimationFrame(f);else snapMk(el)}
+  playT.push(setTimeout(function(){el.classList.add('go')},T0));
+  playT.push(setTimeout(function(){el.classList.add('stat')},TS-200));
+  mkRaf=requestAnimationFrame(f)})}
 function armFlood(s){[].forEach.call(s.querySelectorAll('.ag-flood'),function(el){
   el.classList.remove('recede','flood','focus','done');var f=el.querySelector('.ag-fill');if(f)f.classList.remove('done');
   /* settle (six cards, 130ms apart) → recede → the field floods in, accelerating → the six lift back on top → done */
@@ -2737,15 +2887,15 @@ function startPlay(i){if(i<0||i>=S.length)return;clearPlay();playing=i;
  build(i,0,true);S[i].classList.remove('done');
  [].forEach.call(S[i].querySelectorAll('.ag-flood'),function(el){el.classList.remove('recede','flood','focus','done');var f=el.querySelector('.ag-fill');if(f)f.classList.remove('done')});
  [].forEach.call(S[i].querySelectorAll('.grow,.skmap'),function(el){el.classList.remove('done')});
- var k=0,n=B[i],gap=n<=1?380:Math.min(480,Math.max(300,2000/n)),flood=S[i].querySelector('.ag-flood');
+ var k=0,n=B[i],gap=n<=1?380:Math.min(480,Math.max(300,2000/n)),flood=S[i].querySelector('.ag-flood,.mk');
  function tick(){k++;build(i,k);if(k<n)playT.push(setTimeout(tick,gap));else playT.push(setTimeout(function(){if(!flood)snapFx(S[i])},80))}
- if(flood)armFlood(S[i]);
+ if(flood){armFlood(S[i]);armMk(S[i])}
  if(n)playT.push(setTimeout(tick,320));else{if(window.__count)setTimeout(function(){__count(S[i])},200);if(!flood)playT.push(setTimeout(function(){snapFx(S[i])},80))}}
 function step(d){if(moving)finishMove();
  var c=armed>=0&&Math.abs(S[armed].offsetTop-deck.scrollTop)<innerHeight*.75?armed:cur();
  if(!canBuild()){go(c+d);return}
  var k=S[c].dataset.k===undefined?B[c]:+S[c].dataset.k;
- if(d>0){if(k<B[c]||S[c].querySelector('.ag-flood:not(.done),.ag-fill:not(.done),.grow:not(.done)')){finishSlide(c);return}if(c<S.length-1){armed=c+1;go(c+1)}}
+ if(d>0){if(k<B[c]||S[c].querySelector('.ag-flood:not(.done),.ag-fill:not(.done),.grow:not(.done),.mk:not(.done)')){finishSlide(c);return}if(c<S.length-1){armed=c+1;go(c+1)}}
  else{if(c>0){armed=c-1;finishSlide(c-1);go(c-1)}}}
 deck.addEventListener('scroll',function(){if(moving)return;var c=cur();[].forEach.call(nav.children,function(a,i){a.classList.toggle('on',i===c)});document.body.classList.toggle('nvon',S[c].classList.contains('nv'));
  if(armed>=0&&Math.abs(S[armed].offsetTop-deck.scrollTop)>innerHeight*1.5)armed=-1;
@@ -2800,6 +2950,18 @@ if(!HM.classList.contains('player')&&!HM.classList.contains('export')&&!/[?&]rea
    el.style.setProperty('--i',i);el.style.setProperty('--d',d+'ms');
    el.innerHTML='<img alt="" src="/logos/tools/'+t[0]+'.png">';el.title=t[1];frag.appendChild(el)}
   box.appendChild(frag)})})();
+/* market-map field: real AI tools beyond the six agents, as of October 2026 (Chinese names on the Chinese deck).
+   Each name gets an arrival time on an accelerating curve in a scattered order, so the field flashes on across its whole area. */
+(function(){var L='ChatGPT|Claude|Gemini|DeepSeek|Doubao:豆包|Qwen:通义千问|Yuanbao:腾讯元宝|ERNIE:文心一言|Grok|Copilot|Meta AI|Le Chat|Perplexity|Poe|Character.AI|Pi|ChatGLM:智谱清言|MiniMax|Hunyuan:混元|Spark:讯飞星火|Baichuan:百川|StepFun:阶跃AI|Skywork:天工|Metaso:秘塔AI搜索|Felo|You.com|Phind|Consensus|Elicit|Scite|NotebookLM|Notion AI|Gamma|Tome|Beautiful.ai|Pitch|Canva|Figma Make|Framer|Webflow|Lovable|Bolt|v0|Replit|Cursor|Windsurf|GitHub Copilot|TRAE|Claude Code|Codex|Devin|Tabnine|Cody|Zed|Warp|JetBrains AI|Amazon Q|Gemini CLI|Qoder|CodeBuddy|Comate:文心快码|Kiro|Midjourney|DALL·E|Ideogram|Leonardo|Firefly|Stable Diffusion|FLUX|Krea|Recraft|Playground|Lovart|Dreamina:即梦|Liblib:哩布哩布|Kolors:可图|Wanxiang:通义万相|Sora|Veo|Runway|Pika|Luma|Kling:可灵|Hailuo:海螺|Vidu|PixVerse|Seedance|HeyGen|Synthesia|D-ID|CapCut:剪映|Descript|OpusClip|Captions|Hedra|Higgsfield|InVideo|Flow|Suno|Udio|ElevenLabs|Murf|Speechify|Otter|Fireflies|Granola|Whisper|Krisp|AIVA|Comet|Dia|Atlas|Flowith|Coze:扣子|Dify|n8n|Zapier|Make|Lindy|Relevance AI|Gumloop|CrewAI|LangChain|AutoGPT|Cue|WorkBuddy|Fellou|AutoGLM|Grammarly|Jasper|Copy.ai|Writesonic|Sudowrite|QuillBot|Wordtune|DeepL|Rytr|Lex|Mem|Reflect|Superhuman|Motion|Reclaim|Clockwise|Fathom|tl;dv|Read AI|Tactiq|Zoom AI|Slack AI|Miro AI|Whimsical|Napkin|Glean|Raycast|Monica|Sider|MaxAI|Merlin|HARPA|Khanmigo|Duolingo Max|Quizlet|Photomath|Brainly|Gauth|Question.AI|Speak|Praktika|ELSA|MagicSchool|Brisk|Diffit|Curipod|SchoolAI|Squirrel AI:松鼠AI|Spline|Meshy|Tripo|Uizard|Stitch|Visily|Relume|Hugging Face|Supabase|Firebase Studio|AI Studio|OpenRouter|Ollama|LM Studio|Jan|Julius|Llama|Gemma|Adobe Express|Designer|Pictory|Lumen5|Notta|Plaud'.split('|');
+ var zh=document.documentElement.lang!=='en';
+ [].forEach.call(document.querySelectorAll('.mk'),function(mk){var box=mk.querySelector('.mk-field');if(!box)return;
+  var N=L.length,ord=L.map(function(x,i){return i}),seed=7;
+  for(var i=N-1;i>0;i--){seed=(seed*16807)%2147483647;var j=seed%(i+1),x=ord[i];ord[i]=ord[j];ord[j]=x}
+  var TF=2200,frag=document.createDocumentFragment();mk.dataset.tf=TF;
+  var big=mk.querySelector('.mk-big');if(big)mk.dataset.big=big.textContent.replace(/\D/g,'');
+  L.forEach(function(x,i){var p=x.split(':'),el=document.createElement('span');el.textContent=zh&&p[1]?p[1]:p[0];
+   var t=Math.round(TF*Math.pow((ord[i]+1)/N,.6));el.dataset.t=t;el.style.setProperty('--d',t+'ms');frag.appendChild(el);frag.appendChild(document.createTextNode(' '))});
+  box.appendChild(frag);var c=mk.querySelector('.mk-n');if(c)c.textContent=N})})();
 /* counters: the first number in each .big or .cnt counts up from zero, keeping its prefix, commas, decimals, and unit */
 function firstNum(el){var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);while(w.nextNode())if(/\d/.test(w.currentNode.nodeValue))return w.currentNode;return null}
 function countUp(s){if(!HM.classList.contains('motion'))return;
