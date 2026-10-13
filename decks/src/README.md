@@ -30,7 +30,6 @@ Parents scan the QR code to `/talk`. On a phone (under 960px wide) the first scr
 
 - Source: `reader/reader.css` (layout for every slide component, phone first) and `reader/reader.js`. The content is `body-en.html` / `body-cn.html`, so editing a slide updates the deck and the reader together. If you add a new component class to a slide, give it a phone layout in `reader.css`.
 - The market-map tool names are read from `shared.js` at build time, so the two views never drift.
-- The reader's last slide (contact Jing Jing on WhatsApp or WeChat, download the PDF, email fallback) is reader-only: `reader/end-en.html` and `reader/end-cn.html`, appended by `build.py` after the appendix. The deck never shows it. `{{br:whatsapp}}` / `{{br:wechat}}` inline the brand glyphs from `reader/brand/` (Simple Icons, CC0); the Copy button uses the clipboard API with an `execCommand` fallback for in-app browsers such as WeChat's.
 - Check: `python3 decks/src/reader_check.py` loads both readers at 390×844 and 844×390 and fails on sideways overflow, text under 10px, or missing images; it writes a screenshot of every slide to `/tmp/reader-shots` (`--shots DIR` to change).
 - Locally, open http://127.0.0.1:8780/talk/en.html (the dev server has no clean URLs; Vercel serves `/talk/en`).
 

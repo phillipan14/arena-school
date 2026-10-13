@@ -48,21 +48,13 @@ ICO={'prev':'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7
      'next':'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
      'list':'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
      'x':'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
-     'down':'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-     'dl':'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-     'copy':'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8.5" y="8.5" width="11" height="11" rx="2.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M15.5 8.5V6.7a2.2 2.2 0 0 0-2.2-2.2H6.7a2.2 2.2 0 0 0-2.2 2.2v6.6a2.2 2.2 0 0 0 2.2 2.2h1.8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>'}
-# the reader's last slide (contact + PDF download) lives only in the reader: reader/end-en.html, reader/end-cn.html.
-# {{br:name}} inlines a brand glyph from reader/brand (Simple Icons, CC0); {{ico:name}} one of the ICO icons above.
-def endslide(key):
-    s=R('reader/end-%s.html'%key)
-    s=re.sub(r'\{\{br:([\w-]+)\}\}',lambda m:R('reader/brand/'+m.group(1)+'.svg').strip(),s)
-    return re.sub(r'\{\{ico:(\w+)\}\}',lambda m:ICO[m.group(1)],s)
+     'down':'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'}
 RV=[('en','en','en.html','/talk/cn','<span>中文</span>','中文','Previous slide','Next','All slides','Close','Talk resources · Arena School','',
      'Our Kids’ Jobs Don’t Exist Yet. So Which Skills Will Matter? · Arena School'),
     ('cn','zh-CN','cn.html','/talk/en','EN','English','上一页','下一页','全部幻灯片','关闭','讲座资料 · Arena School','<link rel="stylesheet" href="/fonts/zh/zh.css?v=2"><link rel="stylesheet" href="/fonts/zh/zh-fallback.css">',
      '孩子们未来的工作还不存在，那么，哪些能力最重要？ · Arena School')]
 for key,lang,fn,other,olab,oname,lprev,lnext,lall,lclose,lhome,zh,title in RV:
-    body=re.sub(r'\s*<aside class="notes">.*?</aside>','',bodies[key],flags=re.S)+'\n\n'+endslide(key)
+    body=re.sub(r'\s*<aside class="notes">.*?</aside>','',bodies[key],flags=re.S)
     gsel=dict((v[0],v[7]) for v in V)[key]; guard=GUARD.replace('__SEL__',gsel) if gsel else ''
     html=f'''<!doctype html>
 <html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">

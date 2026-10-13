@@ -419,45 +419,6 @@ i.rg::before{width:calc(var(--r) * 1%);background:linear-gradient(90deg,var(--da
 .qa-foot{padding:14px 0;font-size:14px;color:var(--muted)}
 .qa-foot a{color:var(--ink);font-weight:500}
 
-/* ---------- last slide (reader only): contact Jing Jing, download the PDF; source reader/end-en.html, end-cn.html ---------- */
-.end .bd{gap:14px}
-.end h2 em{display:block}
-.ctc{padding:0 16px}
-.ct-row{display:grid;grid-template-columns:44px 1fr auto;align-items:center;column-gap:14px;min-height:76px;padding:14px 0}
-.ct-row+.ct-row{border-top:1px solid var(--edge)}
-a.ct-row{text-decoration:none}
-a.ct-row:active .ct-go{transform:translateX(3px)}
-.ct-go{transition:transform .15s}
-.ct-ic{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:#fff}
-.ct-ic svg{width:24px;height:24px;fill:currentColor}
-.ct-wa .ct-ic{background:#25D366}
-.ct-wx .ct-ic{background:#07C160}
-.ct-t{display:flex;flex-direction:column;gap:3px;min-width:0}
-.ct-t b{font:600 11px/1.3 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
-:lang(zh-CN) .ct-t b{font-size:13px;letter-spacing:.03em;text-transform:none}
-.ct-v{font:400 21px/1.2 var(--serif);color:var(--ink);font-variant-numeric:lining-nums;white-space:nowrap}
-.ct-id{font-size:25px;letter-spacing:.005em;-webkit-user-select:all;user-select:all}
-.ct-go{width:40px;height:40px;display:grid;place-items:center;color:var(--ink2)}
-.ct-go svg{width:20px;height:20px}
-.ct-copy{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:7px;height:48px;padding:0 16px;border-radius:999px;border:1.5px solid var(--ink);color:var(--ink);font:500 15px/1 var(--sans);white-space:nowrap;transition:background-color .2s,color .2s,border-color .2s,transform .15s}
-.ct-copy svg{width:18px;height:18px;flex:none}
-.ct-copy:active{transform:scale(.96)}
-.ct-copy.ok{background:#07C160;border-color:#07C160;color:#fff}
-.ct-copy.ok svg{display:none}
-.ct-copy.ok span::before{content:"✓ "}
-.ct-how{grid-column:2/-1;margin-top:8px;font:400 13.5px/1.45 var(--sans);color:var(--muted)}
-:lang(zh-CN) .ct-how{font-size:13.5px;line-height:1.6}
-.ct-how i{font-style:normal;color:var(--ink2);margin:0 2px}
-.ct-dl{display:flex;align-items:center;justify-content:center;gap:12px;min-height:60px;padding:0 20px;border-radius:14px;background:var(--ink);color:var(--on);font:500 17px/1.25 var(--sans);text-decoration:none;text-align:center;transition:background-color .2s,transform .15s}
-.ct-dl svg{width:22px;height:22px;flex:none}
-.ct-dl:active{transform:scale(.98)}
-@media (hover:hover){.ct-dl:hover{background:#12245f}.ct-copy:hover{background:rgba(11,26,74,.05)}.ct-copy.ok:hover{background:#07C160}}
-.ct-sub{margin-top:-4px;text-align:center;font:400 13.5px/1.4 var(--sans);color:var(--muted)}
-.ct-sub a{display:inline-block;padding:10px 4px;margin:-10px 0;color:var(--ink);font-weight:500;text-underline-offset:3px}
-.ct-mail{margin-top:6px;padding-top:14px;border-top:1px solid var(--edge);text-align:center;font:400 14px/1.5 var(--sans);color:var(--muted)}
-.ct-mail a{display:inline-block;padding:8px 2px;margin:-8px 0;color:var(--ink);font-weight:500;text-underline-offset:3px}
-@media (max-width:389px){.ct-row{column-gap:12px}.ct-copy{padding:0 14px}.ct-id{font-size:23px}}
-
 /* ---------- sources ---------- */
 .srcs{padding:4px 16px}
 .srcs li{display:flex;flex-direction:column;gap:3px;padding:11px 0;border-bottom:1px solid var(--edge);font:400 13.5px/1.45 var(--sans);color:var(--text)}
