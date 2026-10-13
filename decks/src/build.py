@@ -37,3 +37,45 @@ for key,lang,fn,title,hint,phint,ftitle,gsel in V:
 {guard}
 </body></html>'''
     open(os.path.join(D,fn),'w',encoding='utf-8').write(html); print(fn,len(html))
+
+# Phone reader (/talk/en, /talk/cn): the same slides, reflowed for a phone held upright, one slide per screen.
+# The deck above never reflows (DESIGN.md §10.2); this is the separate phone view the /talk language chooser opens.
+# Same body files, minus speaker notes, styled by reader/reader.css and driven by reader/reader.js.
+T=os.path.join(H,'..','..','talk') if len(sys.argv)<=1 else D
+TOOLS=re.search(r"var L='([^']+)'\.split\('\|'\)",R('shared.js')).group(1)  # the market-map tool names, shared with the deck
+rcss,rjs=R('reader/reader.css'),R('reader/reader.js').replace('__TOOLS__',TOOLS.replace('\\','\\\\'))
+ICO={'prev':'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+     'next':'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+     'list':'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
+     'x':'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
+     'down':'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'}
+RV=[('en','en','en.html','/talk/cn','<span>中文</span>','中文','Previous slide','Next','All slides','Close','Talk resources · Arena School','',
+     'Our Kids’ Jobs Don’t Exist Yet. So Which Skills Will Matter? · Arena School'),
+    ('cn','zh-CN','cn.html','/talk/en','EN','English','上一页','下一页','全部幻灯片','关闭','讲座资料 · Arena School','<link rel="stylesheet" href="/fonts/zh/zh.css?v=2"><link rel="stylesheet" href="/fonts/zh/zh-fallback.css">',
+     '孩子们未来的工作还不存在，那么，哪些能力最重要？ · Arena School')]
+for key,lang,fn,other,olab,oname,lprev,lnext,lall,lclose,lhome,zh,title in RV:
+    body=re.sub(r'\s*<aside class="notes">.*?</aside>','',bodies[key],flags=re.S)
+    gsel=dict((v[0],v[7]) for v in V)[key]; guard=GUARD.replace('__SEL__',gsel) if gsel else ''
+    html=f'''<!doctype html>
+<html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#F3E9DD">
+<meta name="format-detection" content="telephone=no">
+<title>{title}</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3"><link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=2">
+<link rel="stylesheet" href="/fonts/fonts.css">{zh}
+<style>{rcss}</style></head><body>
+<header class="top"><a class="home" href="/talk" aria-label="{lhome}"><img class="wm n" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School" width="1600" height="242"><img class="wm i" src="/logos/arena/wordmark-ivory-1600.png" alt="" width="1600" height="242"></a>
+ <div class="tools"><a class="lng" href="{other}" data-base="{other}" hreflang="{'zh-CN' if key=='en' else 'en'}" aria-label="{oname}">{olab}</a><button type="button" class="lst" aria-label="{lall}">{ICO['list']}</button></div>
+ <div class="prog" aria-hidden="true"><i></i></div></header>
+<main class="rd" id="deck" tabindex="-1">
+{body}
+</main>
+<nav class="bot" aria-label="{lall}"><button type="button" class="pv" aria-label="{lprev}">{ICO['prev']}</button><button type="button" class="ctr" aria-label="{lall}"><b></b><small></small></button><button type="button" class="nx"><span>{lnext}</span>{ICO['next']}</button></nav>
+<button type="button" class="more-cue" aria-hidden="true" tabindex="-1">{ICO['down']}</button><div class="tip" role="status"></div>
+<div class="sheet" hidden role="dialog" aria-modal="true" aria-label="{lall}"><div class="sh-p"><div class="sh-h"><b>{lall}</b><button type="button" class="sh-x" aria-label="{lclose}">{ICO['x']}</button></div><nav class="sh-l"></nav></div></div>
+<script>{rjs}</script>
+{guard}
+</body></html>'''
+    os.makedirs(T,exist_ok=True)
+    open(os.path.join(T,fn),'w',encoding='utf-8').write(html); print('talk/'+fn,len(html))
