@@ -152,13 +152,14 @@ i.cn{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(
 :lang(zh-CN) .sp .tag{font-size:12px;letter-spacing:.03em;text-transform:none}
 .sp .now{margin-top:14px;padding-top:12px;border-top:1px solid var(--edge);font:italic 400 16px/1.45 var(--serif);color:var(--ink)}
 :lang(zh-CN) .sp .now{font:400 15px/1.65 var(--sans)}
+.sp .now .ln{display:block}
 .lg{margin-top:12px;display:grid;gap:10px}
 .lg>div{display:grid;grid-template-columns:62px 1fr;align-items:center;gap:8px}
 .lg dt{font:600 10px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 :lang(zh-CN) .lg dt{font-size:12px;letter-spacing:.04em}
 .lg dd{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px}
 .lg img{width:auto;opacity:.9}
-.h-isb{height:25px}.h-br{height:21px}.h-ts{height:25px}.h-ap{height:20px}.h-de{height:14px}.h-ci{height:19px}.h-ct{height:16px}.h-hv{height:21px}.h-gs{height:20px}.h-mk{height:12.5px}
+.h-isb{height:25px}.h-br{height:21px}.h-ts{height:25px}.h-ap{height:20px}.h-de{height:14px}.h-ci{height:19px}.h-ct{height:16px}.h-hv{height:21px}.h-gs{height:20px}.h-mk{height:12px}.h-km{height:15px}.h-li{height:14px}
 
 /* ---------- bar charts: label and value on one line, the bar under them ---------- */
 .ct{font:500 13px/1.4 var(--sans);color:var(--muted);margin-bottom:14px}
