@@ -336,6 +336,39 @@ i.rg::before{width:calc(var(--r) * 1%);background:linear-gradient(90deg,var(--da
 .mk-stat .mk-d{margin:0 0 4px;font:italic 400 16px/1.35 var(--serif);color:var(--lb)}
 :lang(zh-CN) .mk-stat .mk-d{font-style:normal;font-size:15px}
 
+/* ---------- before → after (Phillip's companies) ---------- */
+.hb2{display:flex;flex-direction:column;gap:8px}
+.hb-c{display:flex;flex-direction:column;gap:12px;padding:16px 16px 18px;border-radius:12px}
+.hb-then{background:var(--hi);box-shadow:inset 0 0 0 1px var(--edge)}
+.hb-now{background:var(--ink)}
+.hb-ar{align-self:center;transform:rotate(90deg);font-size:16px;line-height:1;color:var(--ink2)}
+.hb-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.hb-top .lab{font-size:11px;letter-spacing:.12em}
+.hb-now .lab{color:var(--lb)}
+.hb-co{display:block;flex:none;height:18px;width:auto}
+.hb-tc{display:block;width:100%;height:auto;border-radius:6px}
+.hb-num{display:flex;align-items:center;gap:12px;padding-top:12px;border-top:1px solid var(--edge)}
+.hb-num b{display:flex;align-items:baseline;gap:6px;flex:none;font:400 46px/1 var(--serif);letter-spacing:-.02em;color:var(--ink2)}
+.hb-num b small{font:italic 400 14px/1 var(--serif);letter-spacing:0;color:var(--muted)}
+:lang(zh-CN) .hb-num b small{font-style:normal}
+.hb-num p{margin:0;font-size:14px;line-height:1.45;color:var(--muted)}
+.hb-now .hb-num{border-top-color:rgba(252,243,237,.2)}
+.hb-now .hb-num b{color:var(--lb2)}
+.hb-now .hb-num p,.hb-what{color:rgba(252,243,237,.82)}
+.hb-what{margin:0;font-size:14px;line-height:1.45}
+.hb-inv{display:flex;align-items:center;flex-wrap:wrap;gap:8px 14px}
+.hb-inv .lab{font-size:11px;color:var(--muted)}
+.hb-inv img{display:block;height:13px;width:auto}
+.hb-roles ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.hb-roles li{font:500 13px/1 var(--serif);color:var(--on);padding:8px 12px 7px;border-radius:999px;box-shadow:inset 0 0 0 1px rgba(252,243,237,.3)}
+.hb-roles p{margin:10px 0 0;font:italic 400 14px/1.45 var(--serif);color:var(--lb2)}
+:lang(zh-CN) .hb-roles p{font-style:normal}
+.hb-foot p::before{display:none}
+.hb-top .lab,.hb-inv .lab{font-size:10.5px;letter-spacing:.08em;white-space:nowrap}
+.hb-co{height:16px}
+.hb-inv{gap:6px 11px;flex-wrap:nowrap}
+.hb-inv img{height:11.5px}
+
 /* ---------- case strip ---------- */
 .case3{display:flex;flex-direction:column;gap:6px}
 .cs h3{margin:6px 0 8px;font-size:19px}
@@ -816,6 +849,29 @@ i.rg::before{width:calc(var(--r) * 1%);background:linear-gradient(90deg,var(--da
  <p class="fn" data-s="1"><span>PwC 2026 Global AI Jobs Barometer, June 15, 2026: average wage premium in job ads across 27 countries; it does not control for education or experience</span></p>
 </div></section>
 
+<!-- 15b · Phillip's companies -->
+<section class="s ae hbx hold" data-hold="1"><div class="w">
+ <p class="kick r">Case study · Phillip’s companies</p>
+ <h2 class="r" style="--d:.1s">My last company had about 120 people. <em>My <span class="nw">AI‑native</span> company has fewer than five.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="hb2">
+  <div class="hb-c hb-then" data-s="1">
+   <div class="hb-top"><span class="lab">Before · co-founder and COO</span><img class="hb-co" src="/decks/img/conversation/co-homebase.png" alt="Homebase"></div>
+   <img class="hb-tc" src="/decks/img/conversation/homebase-techcrunch.png" alt="TechCrunch, November 14, 2021: Homebase raises $30M to help more people in Southeast Asia become property owners">
+   <div class="hb-num"><b><small>About</small>120</b><p>people across sales, marketing, product, design, and operations</p></div>
+   <div class="hb-inv"><span class="lab">Backed by</span><img class="iv-yc" src="/decks/img/conversation/inv-yc.png" alt="Y Combinator"><img class="iv-gw" src="/decks/img/conversation/inv-goodwater.png" alt="Goodwater Capital"><img class="iv-pt" src="/decks/img/conversation/inv-partech.png" alt="Partech"></div>
+  </div>
+  <span class="cs-ar hb-ar" data-s="2" aria-hidden="true">→</span>
+  <div class="hb-c hb-now" data-s="2">
+   <div class="hb-top"><span class="lab">Now · co-founder and CEO</span><img class="hb-co" src="/decks/img/conversation/co-skylarq-light.png" alt="Skylarq"></div>
+   <div class="hb-roles"><ul><li>Product</li><li>Design</li><li>Marketing</li><li>Social media</li><li>Sales</li></ul><p>Once separate hires, now two or three of us using AI.</p></div>
+   <div class="hb-num"><b>&lt;5</b><p>people on the whole team</p></div>
+   <p class="hb-what">Helps teams with sales and <span class="nw">go-to-market.</span></p>
+  </div>
+ </div>
+ <div class="cs-foot pane hb-foot" data-s="3"><p>“If I hire again, I’ll only hire people who are <em><span class="nw">AI‑native</span> and highly leveraged with AI.</em>”</p></div>
+ </div>
+</div></section>
+
 <!-- 17 · Young workers -->
 <section class="s ae bn"><div class="w">
  <p class="kick r">Young workers feel it first · Stanford, US payroll data</p>
@@ -1162,6 +1218,7 @@ i.rg::before{width:calc(var(--r) * 1%);background:linear-gradient(90deg,var(--da
   <li><span><b>Accenture</b> Q4 fiscal 2025 earnings call; <b>Irish Times</b> on headcount</span><span class="src">Sept 25–26, 2025</span></li>
   <li><span><b>Business Insider</b> on Julia Liuson’s Microsoft email; <b>The Verge</b> on Duolingo’s memo</span><span class="src">June 27, 2025&nbsp;· April 28, 2025</span></li>
   <li><span><b>PwC</b>, 2026 Global AI Jobs Barometer: 62% wage premium</span><span class="src">June 15, 2026</span></li>
+  <li><span><b>TechCrunch</b> on Homebase: $30M in equity and debt; investors included Y Combinator, Partech, and Goodwater Capital</span><span class="src">Nov 14, 2021</span></li>
   <li><span><b>Stanford Digital Economy Lab</b>, “Canaries in the Coal Mine?”, revised</span><span class="src">August 2026</span></li>
   <li><span><b>China Youth Daily (中国青年报)</b> Social Survey Center and wenjuan.com: 1,333 graduating students (91.1%, 56.6%)</span><span class="src">May 14, 2026</span></li>
  </ul>

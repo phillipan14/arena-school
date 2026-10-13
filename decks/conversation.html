@@ -2794,6 +2794,82 @@ section.s.ae.cl .bd{justify-content:center;gap:72px}
  :lang(zh-CN) section.s .bd .qa.qa14 .qa-links.pane{padding:57px var(--qa-in) 48px}
 }
 
+/* ---- s99-u13.css ---- */
+/* Slide 13: Phillip's companies, Homebase (before) to Skylarq (now). Left card on arrival, right card on the next press (data-hold) */
+.hbx.ae:not(.st):not(.bq) .bd{display:flex;flex-direction:column;gap:18px}
+.hbx .hb2{display:grid;grid-template-columns:minmax(0,1fr) 44px minmax(0,1fr);grid-template-rows:1fr auto auto auto auto 1fr;flex:1;min-height:0}
+.hbx .hb-c{grid-row:1/7;display:grid;grid-template-rows:subgrid;row-gap:16px;min-width:0;padding:26px 32px;border-radius:var(--r)}
+.hbx .hb-then{background:var(--paper-hi);box-shadow:inset 0 0 0 1px var(--edge)}
+.hbx .hb-now{background:var(--ink)}
+.hbx .hb-ar{grid-row:1/7;align-self:center}
+.hbx .hb-top{grid-row:2;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.hbx .hb-top .lab{white-space:nowrap}
+.hbx .hb-co{display:block;flex:none;height:30px;width:auto}
+.hbx .hb-now .lab{color:#A9BEEA}
+.hbx .hb-tc{grid-row:3;display:block;width:100%;height:auto;border-radius:6px}
+.hbx .hb-roles{grid-row:3;align-self:center}
+.hbx .hb-roles ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.hbx .hb-roles li{font:500 20px/1 var(--serif);color:var(--paper-hi);padding:10px 18px 11px;border-radius:999px;background:rgba(252,243,237,.08);box-shadow:inset 0 0 0 1px rgba(252,243,237,.3);text-decoration:line-through;text-decoration-color:rgba(169,190,234,.75);text-decoration-thickness:1.5px}
+.hbx .hb-roles p{margin:16px 0 0;font:italic 400 22px/1.4 var(--serif);color:#C9D6F2}
+:lang(zh-CN) .hbx .hb-roles p{font-style:normal}
+.hbx .hb-num{grid-row:4;display:flex;align-items:center;gap:22px;padding-top:16px;border-top:1px solid var(--edge)}
+.hbx .hb-num b{display:flex;align-items:baseline;gap:10px;flex:none;font:400 92px/1 var(--serif);letter-spacing:-.02em;color:var(--ink2)}
+.hbx .hb-num b small{font:italic 400 24px/1 var(--serif);letter-spacing:0;color:var(--muted)}
+:lang(zh-CN) .hbx .hb-num b small{font-style:normal}
+.hbx .hb-num p{margin:0;font:400 22px/1.38 var(--serif);color:var(--muted)}
+.hbx .hb-now .hb-num{border-top-color:rgba(252,243,237,.25)}
+.hbx .hb-now .hb-num b{color:#C9D6F2}
+.hbx .hb-now .hb-num p{color:rgba(252,243,237,.82)}
+.hbx .hb-inv{grid-row:5;display:flex;align-items:center;gap:24px}
+.hbx .hb-inv .lab{color:var(--muted);white-space:nowrap}
+.hbx .hb-inv img{display:block;height:24px;width:auto}
+.hbx.ae:not(.st):not(.bq) .bd>.hb-foot.pane{justify-content:center!important;padding:18px 34px}
+.hbx.ae .bd .hb-foot p{padding-left:0;border-left:0;text-align:center}
+.motion .s.bld .hbx .hb-ar[data-s]:not(.vis){transform:translateX(-10px)}
+/* round 2: fit 1080, no divider on the quote, plain chips, bottom row on the right card */
+.hbx .hb-foot p::before{display:none}
+.hbx .hb-c{padding:22px 32px;row-gap:12px}
+.hbx .hb-tc{max-height:150px;width:auto;max-width:100%;justify-self:start}
+.hbx .hb-num{padding-top:12px}
+.hbx .hb-num b{font-size:78px}
+.hbx .hb-roles li{text-decoration:none}
+.hbx .hb-roles p{margin-top:14px}
+.hbx .hb-what{grid-row:5;margin:0;font:400 22px/1.38 var(--serif);color:rgba(252,243,237,.82)}
+.hbx.ae:not(.st):not(.bq) .bd>.hb-foot.pane{padding:16px 34px}
+.hbx.ae .bd .hb-foot p{font-size:28px}
+:lang(zh-CN) .hbx.ae .bd .hb-foot p{font-size:27px}
+/* round 3 */
+.hbx .hb-tc{max-height:108px}
+.hbx .hb-roles ul{gap:8px;flex-wrap:nowrap}
+.hbx .hb-roles li{font-size:18px;padding:9px 15px 10px;white-space:nowrap}
+:lang(zh-CN) .hbx .hb-roles li{font-size:19px;padding:9px 18px 10px}
+.hbx .hb-num b{font-size:72px}
+.hbx.ae .bd .hb-now p.hb-what{grid-row:5;margin:0;padding:0;border:0;font:400 22px/1.38 var(--serif);color:rgba(252,243,237,.82)}
+/* round 4: no source strip (the clipping is the source; full line in the appendix), clipping spans the card */
+.hbx .hb-tc{max-height:none;width:100%}
+/* round 5: keep the investor row inside the card, full-width description, 1080 fit */
+.hbx .hb-c{padding:20px 32px}
+.hbx .hb-inv{gap:20px;min-width:0}
+.hbx .hb-inv img{height:20px}
+.hbx .hb-c>*{min-width:0}
+.hbx.ae .bd .hb-now p.hb-what{max-width:none}
+.hbx.ae .bd .hb-num p{max-width:none}
+/* round 6: ink-measured centering (cards, chips, quote band) */
+.hbx .hb-c{padding:22px 32px 18px}
+.hbx .hb-roles li{padding:11.5px 15px 8.5px}
+:lang(zh-CN) .hbx .hb-roles li{padding:12px 18px 7px}
+.hbx.ae .bd .hb-foot p{top:0;padding-top:0}
+.hbx .hb-c{padding:24px 32px 16px}
+:lang(zh-CN) .hbx.ae .bd .hb-foot p{top:2px}
+.hbx .hb-c{padding:20px 32px}
+.hbx .hb-c>*{position:relative;top:2.5px}
+:lang(zh-CN) .hbx .hb-c>*{top:3px}
+.hbx .hb-c>*{top:2px}
+:lang(zh-CN) .hbx .hb-c>*{top:2.2px}
+/* round 7: body text at the deck minimum (24px) for the phone letterbox check */
+.hbx.ae .bd .hb-num p,.hbx.ae .bd .hb-now p.hb-what,.hbx .hb-roles p{font-size:24px}
+.hbx .hb-c{row-gap:10px}
+
 /* ---- s99-u27.css ---- */
 /* Kimi slides 27-29, round 6 (JJ, Oct 14): source strip removed, so the cards take the room; slide 29 gets a context line */
 .kimi3.ae .bd .case3 .cs>.lab{font-size:17px}
@@ -3117,6 +3193,29 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <div class="mb" role="img" aria-label="Advertised pay, comparable jobs set to 100: jobs that require AI skills, 162"><div class="row"><span>Comparable jobs</span><i style="--v:61.73"></i><b>100</b></div><div class="row hl"><span>AI skills required</span><i style="--v:100"></i><b>162</b></div></div></div></div>
  <p class="fn" data-s="1"><span>PwC 2026 Global AI Jobs Barometer, June 15, 2026: average wage premium in job ads across 27 countries; it does not control for education or experience</span></p>
 </div><aside class="notes">Up from 57% a year earlier, and as high as 118% in some sectors. The gap is widening.</aside></section>
+
+<!-- 15b · Phillip's companies -->
+<section class="s ae hbx hold" data-hold="1"><div class="w">
+ <p class="kick r">Case study · Phillip’s companies</p>
+ <h2 class="r" style="--d:.1s">My last company had about 120 people. <em>My <span class="nw">AI‑native</span> company has fewer than five.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="hb2">
+  <div class="hb-c hb-then" data-s="1">
+   <div class="hb-top"><span class="lab">Before · co-founder and COO</span><img class="hb-co" src="/decks/img/conversation/co-homebase.png" alt="Homebase"></div>
+   <img class="hb-tc" src="/decks/img/conversation/homebase-techcrunch.png" alt="TechCrunch, November 14, 2021: Homebase raises $30M to help more people in Southeast Asia become property owners">
+   <div class="hb-num"><b><small>About</small>120</b><p>people across sales, marketing, product, design, and operations</p></div>
+   <div class="hb-inv"><span class="lab">Backed by</span><img class="iv-yc" src="/decks/img/conversation/inv-yc.png" alt="Y Combinator"><img class="iv-gw" src="/decks/img/conversation/inv-goodwater.png" alt="Goodwater Capital"><img class="iv-pt" src="/decks/img/conversation/inv-partech.png" alt="Partech"></div>
+  </div>
+  <span class="cs-ar hb-ar" data-s="2" aria-hidden="true">→</span>
+  <div class="hb-c hb-now" data-s="2">
+   <div class="hb-top"><span class="lab">Now · co-founder and CEO</span><img class="hb-co" src="/decks/img/conversation/co-skylarq-light.png" alt="Skylarq"></div>
+   <div class="hb-roles"><ul><li>Product</li><li>Design</li><li>Marketing</li><li>Social media</li><li>Sales</li></ul><p>Once separate hires, now two or three of us using AI.</p></div>
+   <div class="hb-num"><b>&lt;5</b><p>people on the whole team</p></div>
+   <p class="hb-what">Helps teams with sales and <span class="nw">go-to-market.</span></p>
+  </div>
+ </div>
+ <div class="cs-foot pane hb-foot" data-s="3"><p>“If I hire again, I’ll only hire people who are <em><span class="nw">AI‑native</span> and highly leveraged with AI.</em>”</p></div>
+ </div>
+</div><aside class="notes">Phillip: This one is mine. Before Skylarq, I co-founded Homebase in Vietnam and was its COO. We went through Y Combinator, and TechCrunch covered our $30 million raise in equity and debt in 2021, with investors like Partech and Goodwater Capital. At one point we had about 120 people across sales, marketing, product, design, and operations. (Click.) Today I run Skylarq, an AI-native company that helps teams with sales and go-to-market. We are fewer than five people. Roles that used to be separate hires, a product manager, a designer, a marketer, a social media lead, are now covered by two or three of us using AI. So I've seen it firsthand. If I hire again, I'll only hire people who are AI-native and highly leveraged with AI, not someone for one narrow role.</aside></section>
 
 <!-- 17 · Young workers -->
 <section class="s ae bn"><div class="w">
@@ -3464,6 +3563,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <li><span><b>Accenture</b> Q4 fiscal 2025 earnings call; <b>Irish Times</b> on headcount</span><span class="src">Sept 25–26, 2025</span></li>
   <li><span><b>Business Insider</b> on Julia Liuson’s Microsoft email; <b>The Verge</b> on Duolingo’s memo</span><span class="src">June 27, 2025&nbsp;· April 28, 2025</span></li>
   <li><span><b>PwC</b>, 2026 Global AI Jobs Barometer: 62% wage premium</span><span class="src">June 15, 2026</span></li>
+  <li><span><b>TechCrunch</b> on Homebase: $30M in equity and debt; investors included Y Combinator, Partech, and Goodwater Capital</span><span class="src">Nov 14, 2021</span></li>
   <li><span><b>Stanford Digital Economy Lab</b>, “Canaries in the Coal Mine?”, revised</span><span class="src">August 2026</span></li>
   <li><span><b>China Youth Daily (中国青年报)</b> Social Survey Center and wenjuan.com: 1,333 graduating students (91.1%, 56.6%)</span><span class="src">May 14, 2026</span></li>
  </ul>
