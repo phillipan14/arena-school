@@ -1,0 +1,4 @@
+/* Slide 19 round 5: example text on the deck body size (26 EN / 24 CN), so each section has more room around it (JJ, Oct 13). */
+.ae .bd .pair.prac .tri-r{gap:12px}
+.ae .bd .pair.prac .tri-r p{font-size:26px;line-height:1.4}
+:lang(zh-CN) .ae .bd .pair.prac .tri-r p{font-size:24px;line-height:1.5}
