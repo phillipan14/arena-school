@@ -1,0 +1,19 @@
+/* Round 3 (JJ screenshots, Oct 13): optical centering fixes. Scoped per slide. */
+
+/* Slide 25: the vertical timeline line runs through the exact center of each dot
+   (dots are 16px wide and start 6px in, so their center sits at 14px). */
+.accx .tln::before{left:13.75px}
+
+/* Slide 27: logo, rule, and quote centered on the band by cap height, not by line box */
+.cs-foot .brand{top:0}
+.ae .bd .cs-foot p{top:4px;line-height:1}
+:lang(zh-CN) .ae .bd .cs-foot p{line-height:1.2}
+:lang(zh-CN) .ae .bd .cs-foot p{top:3px}
+.ae .bd .cs-foot p::before{transform:translateY(calc(-56% - 1.5px))}
+:lang(zh-CN) .ae .bd .cs-foot p::before{transform:translateY(calc(-56% - .5px))}
+
+/* Takeaway pills (slides 23, 26, 28): center by cap height (ascenders run 0.7px above caps),
+   and pull the "1" in by its side bearing so ink-to-border is equal left and right */
+.tk-prog li{padding:10.55px 16px 6.45px}
+.tk-prog li:first-child i{margin-left:-1.35px}
+:lang(zh-CN) .tk-prog li:first-child i{margin-left:-.8px}
