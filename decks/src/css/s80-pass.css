@@ -27,7 +27,7 @@
  :lang(zh-CN) .ae .bd .gcol p{font-size:24px;line-height:1.45}
 
  /* five skills (18): one row of five, grouped: Arena's three, then the two employers also name */
- .why5g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px 22px;align-content:center;flex:1}
+ .why5g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px 28px;align-content:center;flex:1}
  .why5g .why5{display:contents}
  .why5g .w5h{position:relative;padding-bottom:14px;font:600 15px/1 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
  :lang(zh-CN) .why5g .w5h{font-size:17px;letter-spacing:.06em}
@@ -35,13 +35,13 @@
  .why5g .w5h.a{grid-column:1/-1}
  .why5g .w5h.b{grid-column:4/6;color:var(--muted)}
  .why5g .w5h.b::after{background:var(--line)}
- .ae .bd .why5g .why5 li,.ae .bd .why5g .why5 li:nth-child(n){grid-column:auto;grid-row:2;justify-content:flex-start;gap:14px;padding:30px 26px 32px;min-height:270px}
+ .ae .bd .why5g .why5 li,.ae .bd .why5g .why5 li:nth-child(n){grid-column:auto;grid-row:2;justify-content:flex-start;gap:20px;padding:44px 40px 48px;min-height:400px}
  .ae .bd .why5g .why5 li:nth-child(n+4){background:transparent;border-style:dashed;border-color:rgba(11,26,74,.28)}
- .why5g .why5 i{font-size:16px}
- .ae .bd .why5g .why5 b{font-size:38px}
- .ae .bd .why5g .why5 span{font-size:24px;line-height:1.38}
- :lang(zh-CN) .ae .bd .why5g .why5 b{font-size:36px}
- :lang(zh-CN) .ae .bd .why5g .why5 span{font-size:22px;line-height:1.6}
+ .why5g .why5 i{font-size:18px}
+ .ae .bd .why5g .why5 b{font-size:60px}
+ .ae .bd .why5g .why5 span{font-size:32px;line-height:1.35}
+ :lang(zh-CN) .ae .bd .why5g .why5 b{font-size:56px}
+ :lang(zh-CN) .ae .bd .why5g .why5 span{font-size:30px;line-height:1.55}
  :lang(zh-CN) .ae .bd .why5g .why5 li{padding-left:22px;padding-right:20px}
 
  /* skills map (31): two panes with labels; tiles size to their content */

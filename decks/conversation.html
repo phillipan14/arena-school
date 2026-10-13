@@ -2029,21 +2029,21 @@ section.s>.brandmk{position:absolute;z-index:3;top:calc((var(--pad-top) - 3px) *
  :lang(zh-CN) .ae .bd .gcol p{font-size:24px;line-height:1.45}
 
  /* five skills (18): one row of five, grouped: Arena's three, then the two employers also name */
- .why5g{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px 22px;align-content:center;flex:1}
+ .why5g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px 28px;align-content:center;flex:1}
  .why5g .why5{display:contents}
  .why5g .w5h{position:relative;padding-bottom:14px;font:600 15px/1 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
  :lang(zh-CN) .why5g .w5h{font-size:17px;letter-spacing:.06em}
  .why5g .w5h::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--ink2);transform-origin:left}
- .why5g .w5h.a{grid-column:1/4}
+ .why5g .w5h.a{grid-column:1/-1}
  .why5g .w5h.b{grid-column:4/6;color:var(--muted)}
  .why5g .w5h.b::after{background:var(--line)}
- .ae .bd .why5g .why5 li,.ae .bd .why5g .why5 li:nth-child(n){grid-column:auto;grid-row:2;justify-content:flex-start;gap:14px;padding:30px 26px 32px;min-height:270px}
+ .ae .bd .why5g .why5 li,.ae .bd .why5g .why5 li:nth-child(n){grid-column:auto;grid-row:2;justify-content:flex-start;gap:20px;padding:44px 40px 48px;min-height:400px}
  .ae .bd .why5g .why5 li:nth-child(n+4){background:transparent;border-style:dashed;border-color:rgba(11,26,74,.28)}
- .why5g .why5 i{font-size:16px}
- .ae .bd .why5g .why5 b{font-size:38px}
- .ae .bd .why5g .why5 span{font-size:24px;line-height:1.38}
- :lang(zh-CN) .ae .bd .why5g .why5 b{font-size:36px}
- :lang(zh-CN) .ae .bd .why5g .why5 span{font-size:22px;line-height:1.6}
+ .why5g .why5 i{font-size:18px}
+ .ae .bd .why5g .why5 b{font-size:60px}
+ .ae .bd .why5g .why5 span{font-size:32px;line-height:1.35}
+ :lang(zh-CN) .ae .bd .why5g .why5 b{font-size:56px}
+ :lang(zh-CN) .ae .bd .why5g .why5 span{font-size:30px;line-height:1.55}
  :lang(zh-CN) .ae .bd .why5g .why5 li{padding-left:22px;padding-right:20px}
 
  /* skills map (31): two panes with labels; tiles size to their content */
@@ -2369,7 +2369,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <li><div class="row"><span class="tn">2</span><span class="tt"><b>Three skills decide who gets ahead</b><small>Agency, taste, and craft</small></span></div></li>
   <li><div class="row"><span class="tn">3</span><span class="tt"><b>What families can do now</b><small>Three takeaways</small></span></div></li>
  </ol>
-</div></div><aside class="notes">One number for scale, then three careers parents trust: doctors, lawyers, and bankers. As Mu-ming Poo of the Chinese Academy of Sciences put it in May 2025, the coming decades are not about AI replacing people, but about people who use AI replacing people who don't.</aside></section>
+</div></div><aside class="notes">One number for scale, then three careers parents trust: doctors, lawyers, and bankers.</aside></section>
 
 <!-- 6 · Reach, measured -->
 <section class="s ae bn"><div class="w">
@@ -2386,7 +2386,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <h2 class="r" style="--d:.1s">With AI, eye doctors got the diagnosis right <em>92% of the time. Without it, 75%.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="pane wide-ch ch-xl" data-s="1"><div class="lr"><span class="org">The EyeFM trial · Nature Medicine</span></div><h3 class="ct">Patients given the correct diagnosis</h3>
   <div class="hb wide"><div class="row"><span class="bk">Eye doctors without AI</span><i style="--v:75.4"></i><b class="cnt">75.4%</b></div><div class="row hl"><span class="bk">Eye doctors with AI</span><i style="--v:92.2"></i><b class="cnt">92.2%</b></div></div></div></div>
- <p class="fn" data-s="1"><span>Shanghai Jiao Tong University, Tsinghua University, and others, Nature Medicine, Aug 28, 2025: 668 patients and 16 eye doctors at one centre, retinal screening; correct referrals also rose, from 80.5% to 92.2%</span></p>
+ <p class="fn" data-s="1"><span>Shanghai Jiao Tong University, Tsinghua University, and others, Nature Medicine, Aug 28, 2025: 668 patients and 16 eye doctors at one center, retinal screening; correct referrals also rose, from 80.5% to 92.2%</span></p>
 </div><aside class="notes">This is not about saving time. In a controlled trial, the doctors who worked with AI were simply right more often, and patients will choose those doctors. In a separate test in June 2025, Microsoft reported that its AI system solved 85% of very hard published cases, against 20% for experienced doctors working without help; that study is not yet peer-reviewed.</aside></section>
 
 <!-- 10 · Law -->
@@ -2401,7 +2401,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <div class="pane" data-s="3"><span class="lab">Large US law firms</span><div class="big">−7.5%</div><p>new-graduate lawyers hired in 2025, the first drop <span class="nw">since 2014</span></p>
    <div class="mb" role="img" aria-label="New-graduate hires, 2024 set to 100: 2025, 92.5"><div class="row"><span>2024</span><i style="--v:100"></i><b>100</b></div><div class="row hl"><span>2025</span><i style="--v:92.5"></i><b>92.5</b></div></div></div>
  </div></div>
- <p class="fn" data-s="1"><span>Schwarcz, Manning, Prescott, and others, “AI-Powered Lawyering”, 137 law students, 2026; LexisNexis survey of 404 legal professionals in mainland China, via Caixin, Aug 29, 2025; NALP, Class of 2025, Aug 5, 2026, which does not attribute the drop to AI alone</span></p>
+ <p class="fn" data-s="1"><span>Schwarcz, Manning, Prescott, and others, “AI-Powered Lawyering”, 127 law students, 2026; LexisNexis survey of 404 legal professionals in mainland China, via Caixin, Aug 29, 2025; NALP, Class of 2025, Aug 5, 2026, which does not attribute the drop to AI alone</span></p>
 </div><aside class="notes">Law students are the right comparison for our children: the ones who worked with AI simply got more done, and mostly did better work. The trial also caught AI making mistakes, which is why judging AI's work matters. In China, nearly every lawyer already uses AI, so not using it is the risk. And at the largest US firms, fewer new graduates were hired in 2025, for the first time in over a decade.</aside></section>
 
 <!-- 11 · Finance -->
@@ -2412,7 +2412,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <div class="pane" data-s="1"><div class="lr"><img class="brand icbc" src="/logos/deck/icbc.svg" alt="ICBC"></div><div class="big">55,000<small>person-years</small></div><p>of work done by AI “digital employees”, at a bank with 409,758 staff</p></div>
   <div class="pane dk" data-s="2"><div class="lr"><img class="brand sc" src="/logos/deck/standard-chartered.svg" alt="Standard Chartered"></div><div class="big">7,800<small>roles</small></div><p>in corporate functions to go by 2030, replacing what its CEO called <span class="nw">“lower-value human capital.”</span></p></div>
  </div></div>
- <p class="fn" data-s="1"><span>ICBC 2025 Annual Report, March 27, 2026 (13% is our calculation); Standard Chartered investor event, May 19, 2026: 15% of corporate-function roles; Bill Winters later apologised for the wording</span></p>
+ <p class="fn" data-s="1"><span>ICBC 2025 Annual Report, March 27, 2026 (13% is our calculation); Standard Chartered investor event, May 19, 2026: 15% of corporate-function roles; Bill Winters later apologized for the wording</span></p>
 </div><aside class="notes">ICBC counts this as workload, not job cuts, but the direction is clear: the same work needs far fewer people. China Merchants Bank and CITIC Bank report similar figures. JPMorgan told investors in May 2025 that operations headcount in its consumer bank would fall about 10% over five years while the business grows by more than 25%.</aside></section>
 
 <!-- 13 · Layoffs -->
@@ -2425,7 +2425,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <li class="end"><span class="dt">January 28, 2026</span><span class="dot"></span><div class="big">16,000</div><p>more corporate roles cut</p></li>
  </ol></div></div>
  <p class="fn" data-s="1"><span>Amazon: Andy Jassy memo, June 17, 2025; workforce memos, Oct 28, 2025 and Jan 28, 2026. Amazon also cited cutting layers of management, and Jassy later said the October cuts were “not even really AI-driven.”</span></p>
-</div><aside class="notes">Amazon is not alone. Salesforce has stopped growing its engineering team; Marc Benioff said AI is the reason, and 75% of new code at Google is written by AI and approved by engineers. In China, demand for AI roles is about 10 times higher while hiring for basic coding jobs has fallen sharply. Salesforce also cut support from 9,000 to about 5,000. Block cut more than 4,000 people, nearly half the company, while saying "our business is strong."</aside></section>
+</div><aside class="notes">Amazon is not alone. Salesforce has stopped growing its engineering team; Marc Benioff said AI is the reason, and 75% of new code at Google is written by AI and approved by engineers. In China, demand for AI roles is about 10 times higher while hiring for most other roles at big tech firms has fallen. Salesforce also cut support from 9,000 to about 5,000. Block cut more than 4,000 people, about 40% of the company, while saying "our business is strong."</aside></section>
 
 <!-- 14 · Jassy -->
 <section class="s alt ae bq"><div class="w">
@@ -2517,18 +2517,16 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 <!-- 22 · Each skill, one-line why -->
 <section class="s ae"><div class="w">
  <p class="kick r">Name the scarce skills</p>
- <h2 class="r" style="--d:.1s">Agency, taste, and craft, plus creativity and leadership, <em>each have a job.</em></h2>
+ <h2 class="r" style="--d:.1s">Agency chooses, taste judges, <em>and craft finishes.</em></h2>
  <div class="bd r" style="--d:.25s">
-  <div class="why5g"><span class="w5h a" data-s="1">Arena’s three skills</span><span class="w5h b" data-s="4">Also on employers’ lists · WEF</span>
+  <div class="why5g"><span class="w5h a" data-s="1">The three skills</span>
   <ol class="why5">
    <li data-s="1"><i>01</i><b>Agency</b><span>Decide what is worth building before anyone assigns it</span></li>
    <li data-s="2"><i>02</i><b>Taste</b><span>Judge whether the output is actually good</span></li>
    <li data-s="3"><i>03</i><b>Craft</b><span>Finish it so people can trust it</span></li>
-   <li data-s="4"><i>04</i><b>Creativity</b><span>Find a new answer when the obvious one is cheap</span></li>
-   <li data-s="5"><i>05</i><b>Leadership</b><span>Direct people and AI toward the same goal</span></li>
   </ol></div>
  </div>
-</div><aside class="notes">Three names we use, plus the two employers already pay for. Agency is deciding and leading. Taste is judging, including the creative call. Craft is finishing. Creativity and leadership are how the WEF writes the same shift.</aside></section>
+</div><aside class="notes">Three names for what is now scarce. Agency is deciding what is worth building before anyone assigns it. Taste is judging whether the output is actually good, including the creative call. Craft is finishing it so people can trust it. Employers describe the same shift in their own words: the WEF lists creative thinking and leadership among the skills rising through 2030.</aside></section>
 
 <!-- 27 · Shortcut or tutor -->
 <section class="s alt ae"><div class="w">
@@ -2559,7 +2557,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <div class="pane dn" data-s="2"><div class="ring2"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="tr" cx="60" cy="60" r="52" pathLength="100"/><circle class="vl" cx="60" cy="60" r="52" pathLength="100" style="--v:54.13"/></svg><div class="big">54%</div></div><p>of teachers lack confidence in teaching AI</p></div>
  </div></div>
  <p class="fn" data-s="1"><span>CNAES survey, 3,653 responses across eastern, central, and western China, May–June 2026, published Aug 19, 2026. In the US, 68% of teachers had no school or district training on AI (Gallup and Walton Family Foundation, 2025).</span></p>
-</div><aside class="notes">This is not a criticism of teachers. 44% of schools say they have severely too few. Beijing now requires at least 8 class hours of AI a year, a real start, and 81% of teachers in a national survey have tried AI themselves. A few hours a year, and teachers still learning the tools, cannot give every child the practice these skills need. That is the handoff: what families can do now.</aside></section>
+</div><aside class="notes">This is not a criticism of teachers. 44% of schools say they have severely too few. Beijing now requires at least 8 class hours of AI a year, a real start. A few hours a year, and teachers still learning the tools, cannot give every child the practice these skills need. That is the handoff: what families can do now.</aside></section>
 
 <!-- 29 · Section 3 -->
 <section class="s ae nv sec"><div class="w"><div class="sec-g">
@@ -2583,16 +2581,16 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 
 <!-- 31 · The agents -->
 <section class="s alt ae"><div class="w">
- <p class="kick r">Takeaway 1 · personal AI agents, October 2026 · <i class="cn" aria-hidden="true"></i>available in mainland China</p>
+ <p class="kick r">Takeaway 1 · personal AI agents, October 2026</p>
  <h2 class="r" style="--d:.1s">Who has heard of these? Behind them, <em>thousands of new AI models appear every day.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="mk">
   <ul class="agx six">
-   <li class="pane"><img src="/logos/tools/kimi.png" alt=""><span><b>Kimi<i class="cn" aria-label="Available in mainland China"></i></b></span></li>
+   <li class="pane"><img src="/logos/tools/kimi.png" alt=""><span><b>Kimi</b></span></li>
    <li class="pane"><img class="t" src="/logos/tools/muse.png" alt=""><span><b>Muse</b></span></li>
    <li class="pane"><img src="/logos/tools/instinct.png" alt=""><span><b>Instinct</b></span></li>
    <li class="pane"><img src="/logos/tools/manus.png" alt=""><span><b>Manus</b></span></li>
    <li class="pane"><img src="/logos/tools/genspark.png" alt=""><span><b>Genspark</b></span></li>
-   <li class="pane"><img class="t" src="/logos/tools/openclaw.png" alt=""><span><b>OpenClaw<i class="cn" aria-label="Available in mainland China"></i></b></span></li>
+   <li class="pane"><img class="t" src="/logos/tools/openclaw.png" alt=""><span><b>OpenClaw</b></span></li>
   </ul>
   <div class="mk-low">
    <div class="mk-map pane"><p class="lab"><b class="mk-n">200</b> more AI tools you could try today</p><div class="mk-field" aria-hidden="true"></div></div>
@@ -2600,7 +2598,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   </div>
  </div></div>
  <p class="fn"><span>Hugging Face Hub API: 4,386 public models created Oct 12, 2026 (UTC); huggingface.co/models lists 3,145,598. Both checked Oct 13, 2026. Tools: each tool’s own site</span></p>
-</div><aside class="notes">Ask the room: who has heard of these six? The red dot marks tools available in mainland China as of October 2026; most of the others are not offered there. Most families know DeepSeek, Doubao, and ChatGPT. These are the next wave: agents that carry out a whole task when you give them a goal. Kimi makes websites, slides, and reports. Muse is Meta's agent for email and travel. Instinct runs your errands by text. Manus finishes many-step tasks on its own. Genspark is an all-in-one AI workspace. OpenClaw runs your computer and is open source. Then the field lights up: two hundred more tools, and this is a small sample. Hugging Face, the largest public library of AI models, received 4,386 new models on Monday alone, about three a minute, and now holds more than three million. Nobody can keep up with all of it, which is why children need the habit of trying new tools, not a list to memorize.</aside></section>
+</div><aside class="notes">Ask the room: who has heard of these six? Most families know DeepSeek, Doubao, and ChatGPT. These are the next wave: agents that carry out a whole task when you give them a goal. Kimi makes websites, slides, and reports. Muse is Meta's agent for email and travel. Instinct runs your errands by text. Manus finishes many-step tasks on its own. Genspark is an all-in-one AI workspace. OpenClaw runs your computer for you. Behind them are two hundred more tools, and that is only a small sample. On Monday alone, Hugging Face, the largest public library of AI models, received 4,386 new models, about three a minute. Nobody can keep up with all of it, which is why children need the habit of trying new tools, not a list to memorize.</aside></section>
 
 <!-- 32 · Tools multiply -->
 <section class="s alt ae"><div class="w">
@@ -2628,10 +2626,10 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 
 <!-- 34 · A hiring story -->
 <section class="s ae"><div class="w">
- <p class="kick r">Case study · Kimi (Moonshot AI) · hiring for the growth team</p>
+ <p class="kick r">Case study · Kimi (Moonshot AI) · hiring for the growth and product teams</p>
  <h2 class="r" style="--d:.1s">For a non-technical role, the candidate who built something before the interview <em>got the offer.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="case3">
-  <div class="cs pane" data-s="1"><span class="lab">The situation</span><h3>Hiring for a non-technical role on Kimi’s growth team</h3><p>Jing Jing was interviewing candidates for the team.</p></div>
+  <div class="cs pane" data-s="1"><span class="lab">The situation</span><h3>Hiring for non-technical roles on Kimi’s growth and product teams</h3><p>Jing Jing was interviewing candidates for both teams.</p></div>
   <span class="cs-ar" data-s="2" aria-hidden="true">→</span>
   <div class="cs pane" data-s="2"><span class="lab">What one candidate built</span><h3>A small tool for the team’s social media work</h3><p>Made with AI, on the candidate’s own initiative, before the interview.</p></div>
   <span class="cs-ar" data-s="3" aria-hidden="true">→</span>
@@ -2639,8 +2637,8 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  </div>
  <div class="cs-foot pane" data-s="4"><img class="brand km" src="/logos/deck/kimi.png" alt="Kimi"><p>Nobody asked for it. <em>That was the point.</em></p></div>
  </div>
- <p class="fn"><span>A first-hand hiring story from Jing Jing Yang, hiring for the growth team at Kimi (Moonshot AI)</span></p>
-</div><aside class="notes">Jing Jing tells this in the first person. "I was hiring for Kimi's growth team, for a non-technical role. One candidate built a small tool with AI for our social media work before the interview. Nobody asked for it. They showed it to me live, and they got the offer. That was the point: a real task, done before anyone asked." A job interview is about as high-stakes as everyday life gets. Encourage children to use AI for real things: a school project, a club, an application.</aside></section>
+ <p class="fn"><span>A first-hand hiring story from Jing Jing Yang, hiring for the growth and product teams at Kimi (Moonshot AI)</span></p>
+</div><aside class="notes">Jing Jing tells this in the first person. "I was hiring for Kimi's growth and product teams, for non-technical roles. One candidate built a small tool with AI for our social media work before the interview. Nobody asked for it. They showed it to me live, and they got the offer. That was the point: a real task, done before anyone asked." A job interview is about as high-stakes as everyday life gets. Encourage children to use AI for real things: a school project, a club, an application.</aside></section>
 
 <!-- 36 · Takeaway 3 -->
 <section class="s alt ae st tk"><div class="w"><div class="tk-g">
@@ -2679,10 +2677,10 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 <!-- 39 · What students learn -->
 <section class="s ae"><div class="w">
  <p class="kick r">Takeaway 3 · Arena’s mission</p>
- <h2 class="r" style="--d:.1s">Arena teaches the 14 tools and four skills <em>the earlier gaps require.</em></h2>
+ <h2 class="r" style="--d:.1s">Arena teaches 14 AI tools and three skills: <em>agency, taste, and craft.</em></h2>
  <div class="bd r" style="--d:.25s">
   <div class="skmap">
-   <div class="pane sk-l" data-s="1"><span class="sk-h">Fluency · 14 tools from Arena programs</span>
+   <div class="pane sk-l" data-s="1"><span class="sk-h">14 tools from Arena programs</span>
    <ul class="sk-tools">
     <li><img src="/logos/tools/openai.png" alt=""><b>ChatGPT</b></li>
     <li><img src="/logos/tools/claude.png" alt=""><b>Claude</b></li>
@@ -2707,11 +2705,11 @@ section.s>.pgno i{font-style:normal;opacity:.6}
      <li><i>03</i><b>Get real-user feedback</b></li>
      <li><i>04</i><b>Launch</b></li>
     </ol>
-    <p class="sk-note">Fluency, agency, taste, and craft: the tools, then choose, judge, and finish. Teachers are still learning these. Students practice them here.</p>
+    <p class="sk-note">Agency, taste, and craft: choose, judge, and finish. Teachers are still learning these. Students practice them here.</p>
    </div>
   </div>
  </div>
-</div><aside class="notes">Fourteen tools from Arena programs, counted from the course pages: ChatGPT, Claude, Kimi, DeepSeek, Gemini, Doubao, Perplexity, Notion, Figma, Canva, Ideogram, GitHub, Vercel, and Stripe. Plus the four entrepreneurship skills. This is the mission: teach the fluency employers already ask for, and the agency, taste, and craft schools are still short of teachers to teach.</aside></section>
+</div><aside class="notes">Fourteen tools from Arena programs, counted from the course pages: ChatGPT, Claude, Kimi, DeepSeek, Gemini, Doubao, Perplexity, Notion, Figma, Canva, Ideogram, GitHub, Vercel, and Stripe. Plus four entrepreneurship steps. This is the mission: teach the tools employers already ask for, and the agency, taste, and craft schools are still short of teachers to teach.</aside></section>
 
 <!-- 40 · Student projects -->
 <section class="s alt ae"><div class="w">
@@ -2751,7 +2749,6 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <div class="qa-links pane">
    <div class="qa-item"><span class="k">Today’s slides</span><a class="qa-url" href="https://arenaschool.org/talk" target="_blank" rel="noopener">arenaschool.org/talk</a><p>A PDF in English and Chinese, or read it on your phone.</p></div>
    <div class="qa-item"><span class="k">Tools from the programs</span><a class="qa-url" href="https://arenaschool.org/case-study-examples" target="_blank" rel="noopener">arenaschool.org/case-study-examples</a><p>Step-by-step walkthroughs to open on your own time.</p></div>
-   <p class="qa-foot">Questions after today? <a href="mailto:contact@arenaschool.org">contact@arenaschool.org</a></p>
   </div>
  </div></div>
 </div></section>
@@ -2769,7 +2766,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <li><span><b>ICBC</b> 2025 Annual Report: 55,000 person-years, 409,758 staff</span><span class="src">March 27, 2026</span></li>
   <li><span><b>Standard Chartered</b> investor event; <b>The Guardian</b> on Bill Winters</span><span class="src">May 19 and 22, 2026</span></li>
   <li><span><b>Fortune</b> and <b>Yahoo Finance</b> on Salesforce; <b>Google</b>, Sundar Pichai (75%); <b>SignalFire</b>, State of Talent</span><span class="src">May 2025 · April–May 2026</span></li>
-  <li><span><b>界面新闻</b> citing 脉脉 on AI roles and basic developer hiring</span><span class="src">August 2025</span></li>
+  <li><span><b>界面新闻</b> citing 脉脉 on AI roles and big-tech hiring</span><span class="src">August 2025</span></li>
   <li><span><b>Business Insider</b> on David Solomon, Goldman Sachs, at the Cisco AI Summit</span><span class="src">Jan 17, 2025</span></li>
   <li><span><b>Amazon</b>: Andy Jassy memo; workforce memos (14,000 and 16,000 roles)</span><span class="src">June 2025–Jan 2026</span></li>
   <li><span><b>CNBC</b> on Salesforce support (9,000 to about 5,000); <b>CNN</b> on Block</span><span class="src">Sept 2, 2025 · Feb 26, 2026</span></li>
@@ -2798,7 +2795,6 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <li><span><b>央广网</b> on BOSS直聘 AI job postings (+74.1% in 2025)</span><span class="src">Jan 23, 2026</span></li>
   <li><span><b>北京市教育委员会</b>, work plan for AI education (2025–2027), 京教办〔2025〕2号</span><span class="src">March 6, 2025</span></li>
     <li><span><b>中国教育科学研究院</b> survey of schools and teachers (88%, 54%); <b>Gallup</b> and <b>Walton Family Foundation</b> (68%)</span><span class="src">Aug 19, 2026 · 2025</span></li>
-  <li><span><b>中国教育新闻网</b> on the teacher survey by 中国教育发展战略学会 and 学科网 (n=68,792)</span><span class="src">Oct 20, 2025</span></li>
   <li><span><b>METR</b>, Time Horizon 1.1: 50% time horizon doubled about every 7 months; GPT-4 ~4 min, Claude 3.7 ~1 hour, Opus 4.5 ~5 hours</span><span class="src">Jan 29, 2026</span></li>
   <li><span><b>AI tools</b>: Meta newsroom (Muse); TechCrunch (Instinct); Reuters (OpenClaw); manus.im, kimi.com, and each tool’s own site</span><span class="src">2026 · checked Oct 11</span></li>
   <li><span><b>Hugging Face</b>: 4,386 public models created Oct 12, 2026 (Hub API, UTC); 3,145,598 listed at huggingface.co/models</span><span class="src">checked Oct 13, 2026</span></li>
