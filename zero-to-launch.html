@@ -215,6 +215,50 @@
   </div>
 </section>
 
+<section class="zl-section-md lxd-sec" id="slides" data-screen-label="Info session slides">
+<style>
+/* Info session slides: the Lux Scholar deck (talks/2026-10-lux-bootcamp-info), embedded like the ISB talk page */
+.lxd-sec .sec-head{max-width:none;margin-bottom:clamp(24px,3vw,36px)}
+.lxd{display:flex;flex-direction:column;gap:14px}
+.dk{position:relative;width:100%;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#0B1A4A;box-shadow:0 1px 0 rgba(16,26,46,.06),0 18px 40px -24px rgba(16,26,46,.45)}
+.dk-f{position:absolute;left:0;top:0;width:1920px;height:1080px;border:0;display:block;transform-origin:0 0}
+.lxd-nav{display:flex;align-items:center;gap:10px}
+.lxd-nav .sp{flex:1}
+.lxd-nav button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:48px;height:44px;padding:0 16px;border-radius:999px;border:1px solid rgba(16,26,46,.22);background:transparent;color:var(--text-ink,#101A2E);font:inherit;font-size:15px;cursor:pointer;transition:border-color .2s,color .2s,background .2s}
+.lxd-nav button:hover{border-color:var(--riso-blue,#22458A);color:var(--riso-blue,#22458A);background:rgba(34,69,138,.05)}
+.lxd-nav button:focus-visible{outline:2px solid var(--riso-blue,#22458A);outline-offset:2px}
+.lxd-nav svg{width:18px;height:18px}
+.lxd:fullscreen{background:#F3E9DD;justify-content:center;align-items:center;padding:24px 32px}
+.lxd:fullscreen .dk{width:min(100%,calc((100vh - 116px)*16/9));flex:none}
+.lxd:fullscreen .lxd-nav{width:min(100%,calc((100vh - 116px)*16/9))}
+.lxd-m{display:none}
+@media (max-width:959px){.lxd{display:none}.lxd-m{display:inline-flex}}
+</style>
+  <div class="container">
+    <div class="sec-head reveal"><h2 class="h2 h2-md">Info session slides</h2><p class="lede">Slides from our info session with Lux Scholar (in Chinese). Click through them here.</p></div>
+    <div class="lxd">
+      <div class="dk"><iframe class="dk-f" title="Info session slides (in Chinese)" src="/talks/2026-10-lux-bootcamp-info/deck" allow="fullscreen" loading="lazy" referrerpolicy="same-origin" lang="zh-CN"></iframe></div>
+      <div class="lxd-nav"><button type="button" class="lxd-fs"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Full screen</span></button><span class="sp"></span><button type="button" class="lxd-b" data-d="-1" aria-label="Previous slide">←</button><button type="button" class="lxd-b" data-d="1" aria-label="Next">→</button></div>
+    </div>
+    <a class="btn btn-primary lxd-m" href="/talks/2026-10-lux-bootcamp-info/read/cn" hreflang="zh-CN">Open the slides <span class="arr">→</span></a>
+<script>
+/* Info session slides: scale the 1920×1080 deck to the column; the arrows step the deck (builds, then slides). */
+(function(){
+  var f=document.querySelector('.lxd .dk-f'); if(!f) return;
+  if(matchMedia('(max-width:959px)').matches){f.removeAttribute('src');return;}
+  var box=f.parentNode,v=box.parentNode;
+  function fit(){var s=box.clientWidth/1920; f.style.transform='scale('+s+')';}
+  fit(); if(window.ResizeObserver) new ResizeObserver(fit).observe(box); window.addEventListener('resize',fit);
+  function step(n){try{var s=f.contentWindow&&f.contentWindow.__step; if(s){s(n);return}}catch(e){}}
+  v.querySelectorAll('.lxd-b').forEach(function(b){b.addEventListener('click',function(){step(+b.getAttribute('data-d'))})});
+  var fs=v.querySelector('.lxd-fs');
+  if(fs){if(!v.requestFullscreen){fs.hidden=true}else fs.addEventListener('click',function(){document.fullscreenElement?document.exitFullscreen():v.requestFullscreen()})}
+  document.addEventListener('fullscreenchange',function(){setTimeout(fit,60)});
+})();
+</script>
+  </div>
+</section>
+
 <section class="zl-section-md" id="facts" data-screen-label="Program facts and FAQ">
   <div class="container pp-faq-wrap">
     <div class="sec-head reveal"><span class="eyebrow">Program facts</span><h2 class="h2 h2-md">What’s included <em>and how to apply.</em></h2>
