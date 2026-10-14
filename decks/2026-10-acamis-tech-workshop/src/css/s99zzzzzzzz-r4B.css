@@ -1,0 +1,37 @@
+/* ===== Round 4 · Agent B: slide 8, ten stages laid on five days (merged with the old week slide) ===== */
+/* geometry: --P card padding, --G gap between cards, --C node diameter. Row 1 holds days 1 and 2 (4 + 3 stages)
+   sized so every stage column is the same width; row 2 holds days 3 to 5 (one stage each). */
+/* sizes are in slide units (the .w frame is zoomed 1.32 at 1920 wide) */
+.agb-wk{--P:22px;--G:18px;--C:32px}
+.agb-wk .bd{display:flex;flex-direction:column;gap:var(--G);justify-content:center}
+.agb-wk .agb-r1,.agb-wk .agb-r2{flex:1 1 0;min-height:0}
+.agb-wk .agb-r1{display:grid;grid-template-columns:calc((100% - var(--G) - 4 * var(--P)) * 4 / 7 + 2 * var(--P)) 1fr;gap:var(--G)}
+.agb-wk .agb-r2{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--G)}
+.ae.agb-wk .bd .agb-day{display:flex;flex-direction:column;padding:18px var(--P) 18px;min-width:0}
+.ae.agb-wk .bd .agb-dk{margin:0 0 4px;font:600 13px/1.2 var(--serif);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
+.ae.agb-wk .bd .agb-day h3{margin:0;font-size:28px;line-height:1.12}
+.ae.agb-wk .bd .agb-dc{margin:4px 0 0;font:400 21px/1.3 var(--serif);color:var(--text);white-space:nowrap}
+/* stages sit on the card floor, so nodes line up across a row */
+.ae.agb-wk .bd .agb-sg{list-style:none;margin:auto 0 0;padding:12px 0 0;display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:0}
+.ae.agb-wk .bd .agb-sg li{position:relative;min-width:0;padding:0 12px 0 0;font-size:inherit;line-height:inherit}
+.agb-wk .agb-sg i{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;width:var(--C);height:var(--C);margin:0 0 6px;border-radius:50%;
+ box-sizing:border-box;border:1.5px solid var(--ink2);font:italic 400 16px/1 var(--serif);color:var(--ink2);font-variant-numeric:lining-nums}
+.agb-wk .agb-sg b{display:block;font:500 22px/1.15 var(--serif);color:var(--ink);white-space:nowrap}
+.ae.agb-wk .bd .agb-tl{display:flex;flex-wrap:nowrap;gap:6px;margin:8px 0 0;padding:0;line-height:0}
+.agb-wk .agb-tl img{display:block;flex:none;width:26px;height:26px;object-fit:contain;background:none;box-shadow:none;border-radius:0}
+/* the path: each stage draws a segment from the previous node's right edge to its own left edge, behind nothing and never over a node.
+   D = center-to-center distance: one column inside a card, one column plus two paddings and the gap across cards. No segment into 01 or 08 (row starts). */
+.agb-wk .agb-sg li::before{content:"";position:absolute;z-index:1;top:calc(var(--C) / 2 - .75px);height:1.5px;left:calc(var(--C) - var(--D));width:calc(var(--D) - var(--C));
+ background:var(--ink2);opacity:.55;transform-origin:left center;--D:100%}
+.agb-wk .agb-sg li:first-child::before{--D:calc(100% + 2 * var(--P) + var(--G))}
+.agb-wk .agb-r1 .agb-day:first-child li:first-child::before,.agb-wk .agb-r2 .agb-day:first-child li:first-child::before{display:none}
+/* row 2 stages span the whole card, so the cross-card distance uses the card's inner width: same formula, li is the full inner width */
+/* motion: a day arrives on its step; its segments draw in, then its tools pop in */
+.motion .agb-wk .agb-sg li::before{transition:transform .45s var(--ease,ease) .15s}
+.motion .s.bld.agb-wk .agb-day[data-s]:not(.vis) li::before{transform:scaleX(0)}
+.motion .agb-wk .agb-tl img{transition:opacity .3s ease calc(.3s + var(--j) * 60ms),transform .35s var(--ease,ease) calc(.3s + var(--j) * 60ms)}
+.motion .s.bld.agb-wk .agb-day[data-s]:not(.vis) .agb-tl img{opacity:0;transform:scale(.7)}
+.s.nt.agb-wk .agb-sg li::before,.s.nt.agb-wk .agb-tl img{transition:none!important}
+.export .agb-wk .agb-sg li::before,.export .agb-wk .agb-tl img{transform:none!important;opacity:revert;transition:none!important}
+.export .agb-wk .agb-sg li::before{opacity:.55!important}
+@media (prefers-reduced-motion:reduce){.agb-wk .agb-sg li::before,.agb-wk .agb-tl img{transition:none!important}}

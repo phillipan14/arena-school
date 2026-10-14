@@ -1,0 +1,21 @@
+/* Round 4, agent A: slides 1, 4, 5, 18, 20, 24 */
+/* 1 cover: ISB logo sized to sit inside the lede line; Arena lockup with web address, top right */
+.aga-cv .cv-lede .aga-isb{height:50px;top:-5px}
+section.s.aga-cv>.brandmk.ra-bm{height:calc(66px * var(--z))}
+/* 4 question: more room between "at" and the Arena lockup */
+.aga-q .kick .aga-wm{margin-left:.42em}
+/* 18 coach: numeral + tracked label with a thin rule, in place of outlined pills */
+section.s.ae.agC-co .bd .agc-q>li.pane{grid-template-columns:118px minmax(0,1fr);column-gap:30px;padding:18px 32px}
+section.s.ae.agC-co .bd .agc-q .agc-tag{grid-row:1/3;align-self:stretch;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:8px;width:auto;height:auto;border:0;border-right:1px solid var(--edge,var(--line));border-radius:0;padding:0;font:600 13px/1 var(--serif);letter-spacing:.16em;text-transform:uppercase;color:var(--ink2)}
+section.s.ae.agC-co .bd .agc-q .agc-tag i{font:italic 400 40px/1 var(--serif);letter-spacing:0;color:var(--ink2)}
+/* 20 brief: example boxes centered by ink */
+/* align-items:center moves the text by half the padding difference; the third step-1 quote has no descenders, so it sits lower */
+.agd-b.ae .bd .case3 .cs .agd-ex li{padding:8.5px 20px 7.5px}
+.agd-b.ae .bd .case3 .cs:not(.cs-out) .agd-ex li{padding:8.4px 20px 7.6px}
+.agd-b.ae .bd .case3 .cs:not(.cs-out) .agd-ex li:nth-child(3){padding:11px 20px 5px}
+/* 24 offer: lockup with web address, large enough to read the URL */
+.age-off .age-brand img{height:64px}
+section.s.st.ac-fit.age-off>.w{padding-top:64px}
+.ae.age-off .ac-off{margin-top:18px}
+.ac-fit.age-off .ac-off li{padding-top:14px}
+section.s.age-off .age-proof{margin-top:20px}
