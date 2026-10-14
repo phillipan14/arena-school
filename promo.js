@@ -1,4 +1,4 @@
-/* promo.js: ISB winter program promotion (EN + 中文). Not loaded on /decks or /talk; off after Jan 8, 2027.
+/* promo.js: ISB winter program promotion (EN + 中文). Not loaded on /decks, /talk, or /talks/*; off after Jan 8, 2027.
    - Banner: a static navy strip above the nav linking to the program page; close hides it for the session.
    - Popup: newsletter.js shows the program in its Arena Notes sheet (same design, plus the email sign-up)
      after 30s of cumulative time on the site in this session, then at 5 and 10 minutes if dismissed.
@@ -11,7 +11,7 @@
   var me = document.currentScript || document.querySelector('script[data-promo]');
   var bannerOnly = !!me && me.getAttribute('data-promo') === 'banner-only';
   var contain = bannerOnly && me.getAttribute('data-promo-layout') === 'contain';
-  if (/^\/(decks|talk)(\/|$)/.test(location.pathname) && !bannerOnly) return;
+  if (/^\/(decks|talks?)(\/|$)/.test(location.pathname) && !bannerOnly) return;
   if (self !== top || /[?&]stage\b/.test(location.search)) return; // never inside the deck's 1920x1080 stage frame
   var doc = document.documentElement, zh = (doc.lang || '').indexOf('zh') === 0;
   var END = '2027-01-08', today = new Date(Date.now() + 8 * 3600e3).toISOString().slice(0, 10);

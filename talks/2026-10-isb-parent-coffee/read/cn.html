@@ -1,0 +1,1374 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#F3E9DD">
+<meta name="format-detection" content="telephone=no">
+<title>孩子们未来的工作还不存在，那么，哪些能力最重要？ · Arena School</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3"><link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=2">
+<link rel="stylesheet" href="/fonts/fonts.css"><link rel="stylesheet" href="/fonts/zh/zh.css?v=2"><link rel="stylesheet" href="/fonts/zh/zh-fallback.css">
+<style>/* Phone reader for the parent-talk deck (talks/<slug>/read/en, /read/cn), built by build.py from the same body-en/body-cn.html as the deck.
+   The deck itself never reflows (DESIGN §10.2); this is a separate phone-first view of the same slides.
+   Primary target 390×844 portrait; landscape and tablets get a centred column. One slide per screen,
+   swiped sideways (native scroll-snap), each slide scrolls on its own if it is taller than the screen. */
+:root{--ink:#0B1A4A;--ink2:#2F55A8;--paper:#F3E9DD;--hi:#FCF3ED;--beige:#EFE3D4;--text:#26304F;--muted:#5B5B6B;
+ --edge:rgba(11,26,74,.14);--data:#2F55A8;--data-2:#B3BFDB;--track:rgba(11,26,74,.07);
+ --lb:#A9BEEA;--lb2:#C9D6F2;--on:#FCF3ED;--red:#C8553D;--ease:cubic-bezier(.2,.7,.2,1);
+ --serif:'Newsreader',Georgia,'Times New Roman',serif;
+ --sans:'Geist',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+ --gx:max(22px,env(safe-area-inset-left),env(safe-area-inset-right));
+ --tb:calc(52px + env(safe-area-inset-top));--bb:calc(72px + max(10px,env(safe-area-inset-bottom)));
+ --bar:var(--paper)}
+:lang(zh-CN){--serif:'Newsreader','Arena Serif SC','Noto Serif SC','Songti SC','Source Han Serif SC',serif;
+ --sans:'Geist','Arena Sans SC Punct','PingFang SC','Hiragino Sans GB','Noto Sans SC','Noto Sans CJK SC','Microsoft YaHei',system-ui,sans-serif}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%;overflow:hidden;background:var(--bar);overscroll-behavior:none}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;transition:background-color .35s}
+body{font:400 16px/1.55 var(--sans);color:var(--text);-webkit-font-smoothing:antialiased;font-variant-numeric:lining-nums;text-wrap:pretty}
+:lang(zh-CN) body{line-break:strict}
+button{font:inherit;color:inherit}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--ink2);outline-offset:3px;border-radius:6px}
+h1,h2,h3,p,ol,ul,dl,dd,figure{margin:0;padding:0}
+ol,ul{list-style:none}
+img{display:block;max-width:100%}
+.notes,.cv-foot,.qr,.lic{display:none}
+.nw{white-space:nowrap}
+
+/* ---------- pager ---------- */
+.rd{position:fixed;inset:0;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;outline:0}
+.rd::-webkit-scrollbar{display:none}
+.s{position:relative;flex:0 0 100%;width:100%;height:100%;overflow-x:hidden;overflow-y:auto;scroll-snap-align:start;scroll-snap-stop:always;overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+ background:var(--paper)}
+.s::-webkit-scrollbar{display:none}
+.s.alt{background:var(--beige)}
+.s.nv{background:var(--ink);color:var(--on)}
+
+.w{position:relative;z-index:1;min-height:100%;max-width:640px;margin:0 auto;display:flex;flex-direction:column;
+ padding:calc(var(--tb) + 20px) var(--gx) calc(var(--bb) + 16px)}
+.bd{margin-top:22px;display:flex;flex-direction:column;gap:12px}
+/* content slides: the title stays at the top, the body takes the free height and sits a touch above its centre */
+.s:not(.st):not(.sec):not(.tk):not(.bq):not(.cover):not(.cl):not(.toc) .bd{flex-grow:1}
+/* free height splits 2:3 above and below; the negative margins cancel the gap so a full slide pays nothing */
+.s:not(.st):not(.sec):not(.tk):not(.bq):not(.cover):not(.cl):not(.toc) .bd::before{content:"";flex:2 1 0;margin-bottom:-12px}
+.s:not(.st):not(.sec):not(.tk):not(.bq):not(.cover):not(.cl):not(.toc) .bd::after{content:"";flex:3 1 0;margin-top:-12px}
+/* statement slides: the title is the slide, so centre it in the screen */
+.st .w,.sec .w,.tk .w,.bq .w,.cover .w,.cl .w,.toc .w{justify-content:center}
+/* a statement slide with a source line: centre the statement in the space above the source */
+.st .w:has(>.fn)>:first-child{margin-top:auto}
+
+/* ---------- type ---------- */
+.kick,.lab,.sk-h,.w5h,.hd,.dt,.k,.sec-k span,.tk-n span,.tag,.ct,dt{font-family:var(--sans)}
+.kick{font:500 11.5px/1.5 var(--sans);letter-spacing:.11em;text-transform:uppercase;color:var(--ink2);margin-bottom:12px}
+:lang(zh-CN) .kick{font-size:13px;letter-spacing:.04em;text-transform:none}
+h1,h2{font-family:var(--serif);font-weight:400;color:var(--ink);text-wrap:balance}
+h2{font-size:clamp(25px,7.2vw,32px);line-height:1.15;letter-spacing:-.016em}
+:lang(zh-CN) h2{font-size:clamp(21px,6vw,27px);line-height:1.45;letter-spacing:0;font-weight:500}
+h2 em,h1 em{font-style:italic;color:var(--ink2)}
+:lang(zh-CN) h2 em,:lang(zh-CN) h1 em{font-style:normal}
+.st h2,.sec h2,.tk h2,.bq h2{font-size:clamp(31px,9vw,40px);line-height:1.1;letter-spacing:-.02em}
+:lang(zh-CN) .st h2,:lang(zh-CN) .sec h2,:lang(zh-CN) .tk h2,:lang(zh-CN) .bq h2{font-size:clamp(25px,7.4vw,32px);line-height:1.42;letter-spacing:0}
+.sec .sl{margin:14px 0 0;font-size:17px;line-height:1.45;color:rgba(252,243,237,.78)}
+h3{font:400 20px/1.25 var(--serif);color:var(--ink);letter-spacing:-.005em}
+:lang(zh-CN) h3{font-size:18px;line-height:1.45;font-weight:500}
+p{font-size:15.5px;line-height:1.5}
+:lang(zh-CN) p{font-size:15px;line-height:1.7}
+.lab{display:block;font:600 10.5px/1.4 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
+:lang(zh-CN) .lab{font-size:12.5px;letter-spacing:.04em;text-transform:none}
+.big{font:300 52px/1 var(--serif);letter-spacing:-.02em;color:var(--ink2);font-variant-numeric:lining-nums tabular-nums}
+.big small{font-size:.32em;font-weight:400;letter-spacing:0;color:var(--muted);margin-left:.3em}
+.big.lo{color:var(--muted)}
+.org{font:600 12px/1 var(--sans);letter-spacing:.06em;color:var(--ink)}
+.lr{display:flex;align-items:center;min-height:22px;margin-bottom:10px}
+.brand{height:20px;width:auto}
+.brand.an{height:15px}.brand.icbc{height:22px}.brand.sc{height:26px}.brand.amz{height:21px}.brand.km{height:17px}
+.fn{margin-top:auto;padding-top:20px}
+.fn>span{display:block;padding-top:12px;border-top:1px solid var(--edge);font:400 12px/1.5 var(--sans);color:var(--muted)}
+:lang(zh-CN) .fn>span{font-size:12px;line-height:1.65}
+.nv .kick{color:var(--lb)}
+.nv h1,.nv h2,.nv h3{color:var(--on)}
+.nv h2 em,.nv .big{color:var(--lb)}
+.nv p{color:rgba(252,243,237,.82)}
+.nv .fn>span{color:rgba(252,243,237,.62);border-top-color:rgba(252,243,237,.18)}
+i.cn{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--red);margin:0 5px 1px 4px;vertical-align:middle;font-style:normal}
+
+/* ---------- surfaces ---------- */
+.pane,.card,.pc,.cs{position:relative;background:rgba(252,243,237,.72);border:1px solid var(--edge);border-radius:12px;padding:18px 18px 18px}
+.alt .pane,.alt .card,.alt .pc,.alt .cs{background:var(--hi)}
+.s .pane.dk,.s .pc.dk,.s .cs-out,.s .mk-stat{background:var(--ink);border-color:var(--ink);color:var(--on)}
+.pane.dk h3,.pc.dk h3,.cs-out h3,.mk-stat h3{color:var(--on)}
+.pane.dk p,.pc.dk p,.cs-out p{color:rgba(252,243,237,.8)}
+.pane.dk .lab,.pc.dk .lab,.cs-out .lab,.mk-stat .lab{color:var(--lb)}
+.pane.dk .big,.mk-stat .big{color:var(--lb2)}
+.pane.dk .big small{color:rgba(252,243,237,.7)}
+.pane.dk .lr .brand{box-sizing:content-box;padding:4px 8px;border-radius:6px;background:var(--hi)}
+.pane.dk .lr .brand.sc{height:22px}
+
+/* ---------- cover ---------- */
+.cover .w{padding-top:calc(var(--tb) + 8px)}
+.cv-top{margin-bottom:auto;padding-bottom:28px}
+.pta{height:38px;width:auto}
+.cv-mid{margin-bottom:auto;padding-bottom:12vh}
+.cover .cv-lede{margin:10px 0 0;font:400 19px/1.35 var(--serif);color:var(--ink2)}
+:lang(zh-CN) .cover .cv-lede{font-size:17px;letter-spacing:.02em}
+.cover h1{font-size:clamp(42px,12.6vw,56px);line-height:1.02;letter-spacing:-.03em;font-weight:400}
+.cover h1 .m{display:block;margin-top:.04em}
+.cover h1 .m em{background:linear-gradient(rgba(47,85,168,.14),rgba(47,85,168,.14)) 0 88%/100% .34em no-repeat;padding-right:.06em;transition:background-size 1s .55s var(--ease)}
+.cover h1 .sub{display:block;margin-top:.62em;font-size:.44em;line-height:1.25;font-style:italic;letter-spacing:-.01em;color:var(--ink2)}
+:lang(zh-CN) .cover h1{font-size:clamp(34px,10vw,44px);line-height:1.3;letter-spacing:0;font-weight:500}
+:lang(zh-CN) .cover h1 .sub{font-style:normal;font-size:.56em;line-height:1.5;margin-top:.7em}
+
+/* ---------- contents / section / takeaway tracks ---------- */
+.tocf{background:rgba(252,243,237,.9);border:1px solid var(--edge);border-radius:12px;overflow:hidden}
+.tocf li+li{border-top:1px solid var(--edge)}
+.tocf a{display:grid;grid-template-columns:34px 1fr 18px;align-items:center;gap:12px;min-height:76px;padding:14px 16px;text-decoration:none}
+.tocf a::after{content:"→";color:var(--ink2);font-size:18px}
+.tocf a:active{background:rgba(47,85,168,.06)}
+.tocf .ico{display:none}
+.tocf .tn,.trk .tn{font:300 34px/1 var(--serif);color:var(--ink2)}
+.tt b{display:block;font:400 19px/1.25 var(--serif);color:var(--ink)}
+:lang(zh-CN) .tt b{font-size:17.5px;font-weight:500;line-height:1.45}
+.tt small{display:block;margin-top:2px;font:400 13.5px/1.4 var(--sans);color:var(--muted)}
+.sec-g{display:flex;flex-direction:column;gap:30px}
+.sec-k{display:flex;align-items:flex-end;gap:14px;margin-bottom:18px;color:var(--lb)}
+.sec-k span{font:500 11.5px/1.5 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding-bottom:12px}
+:lang(zh-CN) .sec-k span{font-size:13px;letter-spacing:.06em}
+.sec-k b{font:200 92px/.8 var(--serif);color:var(--lb);order:-1}
+.sec .trk{border-top:1px solid rgba(252,243,237,.18)}
+.sec .trk li{border-bottom:1px solid rgba(252,243,237,.18);opacity:.42}
+.sec .trk li.on{opacity:1}
+.sec .trk .row{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:center;padding:11px 0}
+.sec .trk .tn{font-size:24px;color:var(--lb)}
+.sec .tt b{color:var(--on);font-size:16.5px}
+.sec .tt small{color:rgba(252,243,237,.7);font-size:12.5px}
+.tk-g{display:flex;flex-direction:column}
+.tk-n{display:flex;align-items:flex-end;gap:14px;margin-bottom:26px}
+.tk-n b{font:200 92px/.8 var(--serif);color:var(--ink2);order:-1}
+.tk-n span{font:500 11.5px/1.5 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);padding-bottom:10px}
+:lang(zh-CN) .tk-n span{font-size:13px;letter-spacing:.06em}
+.tk-prog{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:30px}
+.tk-prog li{display:flex;flex-direction:column;gap:6px;padding-top:10px;border-top:2px solid rgba(11,26,74,.14);font:400 13px/1.35 var(--sans);color:var(--muted)}
+.tk-prog li i{font:italic 400 15px/1 var(--serif);color:var(--muted)}
+.tk-prog li.on{border-top-color:var(--ink2);color:var(--ink)}
+.tk-prog li.on i{color:var(--ink2)}
+
+/* ---------- speakers ---------- */
+.spk2{display:grid;gap:12px}
+.sp header{display:flex;align-items:center;gap:14px}
+.sp .ph{width:62px;height:62px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 3px var(--hi),0 0 0 4px var(--edge)}
+.sp h3{font-size:22px}
+.sp h3 .xn{display:block;font:400 14px/1.3 var(--serif);color:var(--muted);margin-top:2px}
+.sp .tag{margin-top:4px;font:600 10.5px/1.45 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+:lang(zh-CN) .sp .tag{font-size:12px;letter-spacing:.03em;text-transform:none}
+.sp .now{margin-top:14px;padding-top:12px;border-top:1px solid var(--edge);font:italic 400 16px/1.45 var(--serif);color:var(--ink)}
+:lang(zh-CN) .sp .now{font:400 15px/1.65 var(--sans)}
+.sp .now .ln{display:block}
+.lg{margin-top:12px;display:grid;gap:10px}
+.lg>div{display:grid;grid-template-columns:62px 1fr;align-items:center;gap:8px}
+.lg dt{font:600 10px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+:lang(zh-CN) .lg dt{font-size:12px;letter-spacing:.04em}
+.lg dd{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px}
+.lg img{width:auto;opacity:.9}
+.h-isb{height:25px}.h-br{height:21px}.h-ts{height:25px}.h-ap{height:20px}.h-de{height:14px}.h-ci{height:19px}.h-ct{height:16px}.h-hv{height:21px}.h-gs{height:20px}.h-mk{height:12px}.h-km{height:15px}.h-li{height:14px}
+
+/* ---------- bar charts: label and value on one line, the bar under them ---------- */
+.ct{font:500 13px/1.4 var(--sans);color:var(--muted);margin-bottom:14px}
+.hb{display:flex;flex-direction:column;gap:14px}
+.hb .row{display:grid;grid-template-columns:1fr auto;grid-template-areas:"k v" "i i";align-items:baseline;column-gap:12px;row-gap:7px}
+.hb .bk{grid-area:k;font:400 14.5px/1.35 var(--sans);color:var(--text)}
+.hb .row>b,.hb .cnt{grid-area:v;font:400 24px/1 var(--serif);color:var(--muted);font-variant-numeric:tabular-nums}
+.hb .row.hl>b,.hb .row.hl .cnt{color:var(--ink2)}
+.hb i,.mb i{grid-area:i;position:relative;display:block;height:12px;border-radius:3px;background:var(--track);overflow:hidden}
+.hb i::before,.mb i::before{content:"";position:absolute;left:0;top:0;bottom:0;width:calc(var(--v) * 1%);background:var(--data-2);border-radius:3px;transform-origin:0 50%;transition:transform 1s var(--ease)}
+.row.hl i::before{background:var(--data)}
+.accx .hb i{background:none}
+.hb .row:only-child,.arc .hb .row{grid-template-areas:"i"}
+i.rg::before{width:calc(var(--r) * 1%);background:linear-gradient(90deg,var(--data) 0 calc(var(--v) / var(--r) * 100%),rgba(47,85,168,.32) 0)}
+.mb{display:grid;grid-template-columns:max-content 1fr auto;align-items:center;column-gap:12px;row-gap:10px;margin-top:14px;padding-top:14px;border-top:1px solid var(--edge)}
+.mb .row{display:contents}
+.mb i{grid-area:auto}
+.mb .row>span{font:400 12.5px/1.2 var(--sans);color:var(--muted)}
+.mb .row>b{font:400 14px/1 var(--serif);color:var(--muted);min-width:3ch;text-align:right;font-variant-numeric:tabular-nums}
+.mb .row.hl>span,.mb .row.hl>b{color:var(--ink)}
+.mb i{height:8px;border-radius:2px;background:var(--track)}
+.nv .mb i{background:rgba(252,243,237,.1)}
+.nv .mb{border-top-color:rgba(252,243,237,.18)}
+.nv .mb .row>span,.nv .mb .row>b{color:rgba(252,243,237,.7)}
+.nv .mb .row.hl>span,.nv .mb .row.hl>b{color:var(--on)}
+.nv .mb i::before{background:rgba(201,214,242,.45)}
+.nv .mb .hl i::before{background:var(--lb)}
+
+/* ---------- number cards ---------- */
+.st3{display:grid;gap:10px}
+.st3 .pane{display:grid;grid-template-columns:auto 1fr;grid-template-areas:"l l" "b p" "m m";column-gap:16px;row-gap:6px;align-items:center}
+.st3 .lab{grid-area:l}.st3 .big{grid-area:b;font-size:40px}.st3 p{grid-area:p;font-size:14px;line-height:1.4}.st3 .mb{grid-area:m}
+:lang(zh-CN) .st3 p{font-size:13.5px;line-height:1.55}
+.duo,.cmp2{display:grid;gap:10px}
+.duo .pane{padding:16px 18px}
+.duo .big{margin:0 0 6px}
+.duo .big small{display:block;margin:4px 0 0;font-size:13px;font-family:var(--sans)}
+.cmp2{grid-template-columns:1fr 1fr}
+.cmp2 .pane{padding:16px 14px}
+.cm-h{display:flex;align-items:center;gap:7px;margin-bottom:12px}
+.cm-h .ico{display:none}
+.cmp2 .big{font-size:42px;margin-bottom:8px}
+.cmp2 p{font-size:13.5px;line-height:1.45}
+:lang(zh-CN) .cmp2 p{font-size:13.5px;line-height:1.6}
+.nst{margin-top:26px}
+.nst>.big{font-size:clamp(96px,30vw,132px);font-weight:200;letter-spacing:-.04em;line-height:.9}
+.nstx{margin-top:16px}
+.nstx .lr{margin-bottom:6px}
+.nst .org{color:var(--lb);letter-spacing:.12em}
+.nstx p{font-size:17px}
+.dns{display:grid;gap:10px}
+.dn{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:18px}
+.dn>.big{font-size:54px;min-width:2.2em}
+.dn .lr{margin-bottom:4px;min-height:0}
+.dn p{font-size:14.5px;line-height:1.45}
+.ring2{position:relative;width:96px;height:96px}
+.ring2 svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring2 circle{fill:none;stroke-width:9}
+.ring2 .tr{stroke:var(--track)}
+.ring2 .vl{stroke:var(--data);stroke-dasharray:100 100;stroke-dashoffset:calc(100 - var(--v));transition:stroke-dashoffset 1.2s var(--ease)}
+.ring2 .big{position:absolute;inset:0;display:grid;place-items:center;font-size:28px;font-weight:400}
+
+/* ---------- timelines (vertical on a phone) ---------- */
+.tln{position:relative;display:flex;flex-direction:column}
+.tln li{position:relative;padding:0 0 18px 26px}
+.tln li::before{content:"";position:absolute;left:5px;top:8px;bottom:-6px;width:1.5px;background:rgba(11,26,74,.18)}
+.tln li.end::before,.tln li:last-child::before{display:none}
+.tln .dot{position:absolute;left:0;top:3px;width:12px;height:12px;border-radius:50%;border:1.5px solid var(--ink);background:var(--hi)}
+.tln li.end .dot{background:var(--ink2);border-color:var(--ink2)}
+.tln .dt{display:block;font:600 10.5px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);margin-bottom:4px}
+:lang(zh-CN) .tln .dt{font-size:12px;letter-spacing:.03em}
+.tln h3{font-size:19px}
+.tln .big{font-size:40px;margin:2px 0}
+.tln p{font-size:14.5px;line-height:1.45;color:var(--text)}
+.tln-pane .lr{margin-bottom:16px}
+.accx{display:grid;gap:12px}
+.accx .tln{padding:6px 4px 0}
+
+/* ---------- quote ---------- */
+.bq h2{font-style:italic}
+:lang(zh-CN) .bq h2{font-style:normal}
+.bq h2 em{font-style:italic}
+.bqx{display:flex;align-items:center;gap:14px;margin-top:6px;padding-top:16px;border-top:1px solid var(--edge)}
+.bqx .lr{margin:0}
+.who2 b{display:block;font:500 14.5px/1.3 var(--sans);color:var(--ink)}
+.who2 span{display:block;font:400 13px/1.4 var(--sans);color:var(--muted)}
+
+/* ---------- arc: two numbers, "yet" between ---------- */
+.arow{display:flex;flex-direction:column;gap:6px}
+.an .big{font-size:46px;margin:6px 0 10px}
+.ar2{display:flex;align-items:center;gap:10px;font:italic 400 17px/1 var(--serif);color:var(--muted);margin:6px 0}
+.ar2::before,.ar2::after{content:"";flex:1;height:1px;background:var(--edge)}
+
+/* ---------- how → what ---------- */
+.shift{display:flex;flex-direction:column;gap:12px}
+.shx{display:grid;grid-template-columns:1fr 20px 1fr;align-items:stretch}
+.sh-col{border-radius:12px;padding:14px 13px;border:1px solid var(--edge);background:var(--hi)}
+.sh-col.n{background:var(--ink);border-color:var(--ink);color:var(--on)}
+.sh-col .hd{display:block;font:600 10px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+:lang(zh-CN) .sh-col .hd{font-size:12px;letter-spacing:.03em}
+.sh-col.n .hd{color:var(--lb)}
+.sh-col li{font:400 14.5px/1.35 var(--serif);padding:8px 0;border-top:1px solid var(--edge)}
+:lang(zh-CN) .sh-col li{font:400 14px/1.5 var(--sans)}
+.sh-col.o li{color:var(--muted)}
+.sh-col.n li{border-top-color:rgba(252,243,237,.16)}
+.sh-arr{display:grid;place-items:center}
+.sh-arr i::before{content:"→";font-style:normal;color:var(--ink2);font-size:16px}
+.wefx{background:var(--hi);border:1px solid var(--edge);border-radius:12px;padding:16px 18px}
+.wefx .hd{display:block;font:600 10.5px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);margin-bottom:12px}
+:lang(zh-CN) .wefx .hd{font-size:12.5px;letter-spacing:.03em}
+.wefx .hb{gap:11px}
+.wefx .hb .row>b{font-size:20px}
+
+/* ---------- five skills ---------- */
+.why5g{display:flex;flex-direction:column}
+.why5{display:contents}
+.w5h{order:0;display:flex;align-items:center;gap:10px;font:600 10.5px/1.4 var(--sans);letter-spacing:.11em;text-transform:uppercase;color:var(--ink2);margin:0 0 8px}
+:lang(zh-CN) .w5h{font-size:12.5px;letter-spacing:.04em}
+.w5h::after{content:"";flex:1;height:1px;background:currentColor;opacity:.35}
+.w5h.b{order:2;margin-top:18px;color:var(--muted)}
+.why5 li{order:1;display:grid;grid-template-columns:30px 1fr;column-gap:10px;padding:12px 16px;background:var(--hi);border:1px solid var(--edge);border-radius:12px;margin-bottom:8px}
+.why5 li:nth-child(n+4){order:3;background:transparent;border-style:dashed;border-color:rgba(11,26,74,.22)}
+.why5 i{grid-row:span 2;font:italic 400 15px/1.6 var(--serif);color:var(--ink2)}
+.why5 b{font:400 21px/1.2 var(--serif);color:var(--ink)}
+:lang(zh-CN) .why5 b{font-size:18.5px;font-weight:500;line-height:1.4}
+.why5 span{font:400 14px/1.45 var(--sans);color:var(--text);margin-top:3px}
+
+/* ---------- shortcut / tutor ---------- */
+.pair{display:grid;gap:10px}
+.pl{display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:999px;background:var(--beige);font:600 10.5px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+:lang(zh-CN) .pl{font-size:12px;letter-spacing:.04em}
+.pc.dk .pl{background:rgba(252,243,237,.14);color:var(--on)}
+.pc .say{margin:14px 0 10px;font:italic 400 24px/1.25 var(--serif);color:var(--ink)}
+:lang(zh-CN) .pc .say{font:500 20px/1.5 var(--serif)}
+.pc.dk .say{color:var(--on)}
+.pc p:last-child{font-size:14.5px}
+
+/* ---------- three needs ---------- */
+.ic3{margin-top:26px;border-top:1px solid var(--edge)}
+.ic3 li{display:grid;grid-template-columns:40px 1fr;column-gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--edge)}
+.ic3 .ico{grid-row:span 2;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--hi);color:var(--ink2)}
+.ic3 .ico .lic{display:block;width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.ic3 b{font:400 21px/1.2 var(--serif);color:var(--ink)}
+:lang(zh-CN) .ic3 b{font-size:19px;font-weight:500;line-height:1.4}
+.ic3 span:last-child{font:400 14.5px/1.4 var(--sans);color:var(--muted)}
+
+/* ---------- market map ---------- */
+.mk{display:flex;flex-direction:column;gap:10px}
+.agx{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.agx li{display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px 6px 10px;text-align:center;border-radius:12px}
+.agx img{width:40px;height:40px;border-radius:10px;object-fit:cover;background:#fff;box-shadow:0 0 0 1px var(--edge)}
+.agx img.t{padding:7px;object-fit:contain}
+.agx b{font:500 13.5px/1.2 var(--sans);color:var(--ink);white-space:nowrap}
+.mk-low{display:flex;flex-direction:column;gap:10px}
+.mk-map .lab b{font:400 15px/1 var(--serif);letter-spacing:0;color:var(--ink2);font-variant-numeric:tabular-nums}
+.mk-field{position:relative;margin-top:10px;max-height:168px;overflow:hidden;font:400 11.5px/1.75 var(--sans);color:var(--text);
+ -webkit-mask-image:linear-gradient(#000 70%,transparent);mask-image:linear-gradient(#000 70%,transparent)}
+.mk-field span{opacity:.5;margin-right:.55em}
+.mk-stat{display:grid;grid-template-columns:1fr;gap:4px}
+.mk-big{font:300 56px/1 var(--serif);color:var(--lb2);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.mk-l{font-size:14.5px}
+.mk-r{display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:8px;padding-top:10px;border-top:1px solid rgba(252,243,237,.16)}
+.mk-r span{font:italic 400 14px/1.3 var(--serif);color:var(--lb)}
+.mk-stat p{color:rgba(252,243,237,.82)}
+.mk-stat .mk-d{margin:0 0 4px;font:italic 400 16px/1.35 var(--serif);color:var(--lb)}
+:lang(zh-CN) .mk-stat .mk-d{font-style:normal;font-size:15px}
+
+/* ---------- before → after (Phillip's companies) ---------- */
+.hb2{display:flex;flex-direction:column;gap:8px}
+.hb-c{display:flex;flex-direction:column;gap:12px;padding:16px 16px 18px;border-radius:12px}
+.hb-then{background:var(--hi);box-shadow:inset 0 0 0 1px var(--edge)}
+.hb-now{background:var(--ink)}
+.hb-ar{align-self:center;transform:rotate(90deg);font-size:16px;line-height:1;color:var(--ink2)}
+.hb-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.hb-top .lab{font-size:11px;letter-spacing:.12em}
+.hb-now .lab{color:var(--lb)}
+.hb-co{display:block;flex:none;height:18px;width:auto}
+.hb-tc{display:block;width:100%;height:auto;border-radius:6px}
+.hb-num{display:flex;align-items:center;gap:12px;padding-top:12px;border-top:1px solid var(--edge)}
+.hb-num b{display:flex;align-items:baseline;gap:6px;flex:none;font:400 46px/1 var(--serif);letter-spacing:-.02em;color:var(--ink2)}
+.hb-num b small{font:italic 400 14px/1 var(--serif);letter-spacing:0;color:var(--muted)}
+:lang(zh-CN) .hb-num b small{font-style:normal}
+.hb-num p{margin:0;font-size:14px;line-height:1.45;color:var(--muted)}
+.hb-now .hb-num{border-top-color:rgba(252,243,237,.2)}
+.hb-now .hb-num b{color:var(--lb2)}
+.hb-now .hb-num p,.hb-what{color:rgba(252,243,237,.82)}
+.hb-what{margin:0;font-size:14px;line-height:1.45}
+.hb-inv{display:flex;align-items:center;flex-wrap:wrap;gap:8px 14px}
+.hb-inv .lab{font-size:11px;color:var(--muted)}
+.hb-inv img{display:block;height:13px;width:auto}
+.hb-roles ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.hb-roles li{font:500 13px/1 var(--serif);color:var(--on);padding:8px 12px 7px;border-radius:999px;box-shadow:inset 0 0 0 1px rgba(252,243,237,.3)}
+.hb-roles p{margin:10px 0 0;font:italic 400 14px/1.45 var(--serif);color:var(--lb2)}
+:lang(zh-CN) .hb-roles p{font-style:normal}
+.hb-foot p::before{display:none}
+.hb-top .lab,.hb-inv .lab{font-size:10.5px;letter-spacing:.08em;white-space:nowrap}
+.hb-co{height:16px}
+.hb-inv{gap:6px 11px;flex-wrap:nowrap}
+.hb-inv img{height:11.5px}
+
+/* ---------- case strip ---------- */
+.case3{display:flex;flex-direction:column;gap:6px}
+.cs h3{margin:6px 0 8px;font-size:19px}
+.cs p{font-size:14px;line-height:1.45;padding-top:8px;border-top:1px solid var(--edge)}
+.cs-out p{border-top-color:rgba(252,243,237,.16)}
+.cs-out h3 em{color:var(--lb)}
+.cs-out h3 a.k3-link{display:inline-flex;flex-direction:column;color:var(--on);text-decoration:none;font-size:17px;line-height:1.3}
+.k3-link span{white-space:nowrap}
+.k3-link span:first-child{color:var(--lb)}
+.k3-link span:last-child{text-decoration:underline;text-decoration-color:var(--lb);text-underline-offset:4px}
+.cs-ar{align-self:center;transform:rotate(90deg);font-size:16px;line-height:1;color:var(--ink2)}
+.k3-sub{margin:10px 0 0;font:400 15px/1.5 var(--serif);color:var(--muted)}
+:lang(zh-CN) .k3-sub{font-size:14.5px;line-height:1.65}
+.cs-foot{display:flex;align-items:center;gap:14px;margin-top:4px}
+.cs-foot p{font:italic 400 17px/1.35 var(--serif);color:var(--ink)}
+:lang(zh-CN) .cs-foot p{font:500 16px/1.55 var(--serif)}
+.cs-foot p em{color:var(--ink2)}
+
+/* ---------- then / now ---------- */
+.tn-pair{display:grid;grid-template-columns:1fr 18px 1fr;row-gap:8px}
+.tn-pair .row{display:contents}
+.tn-pair .hd{font:600 10px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-bottom:2px}
+:lang(zh-CN) .tn-pair .hd{font-size:12px;letter-spacing:.03em}
+.tn-pair .hd.n{color:var(--ink2)}
+.tn-pair p{border-radius:12px;padding:14px 13px;font-size:14.5px;line-height:1.4}
+:lang(zh-CN) .tn-pair p{font-size:14px;line-height:1.6}
+.tn-pair p.o{background:var(--hi);border:1px solid var(--edge);color:var(--muted)}
+.tn-pair p.n{background:var(--ink);color:var(--on)}
+.tn-pair .arr{display:grid;place-items:center}
+.tn-pair .arr i::before{content:"→";font-style:normal;color:var(--ink2);font-size:15px}
+
+/* ---------- growth (Cursor): a dated list with horizontal bars ---------- */
+.grow-n{display:flex;flex-direction:column}
+.grow-n li{display:flex;flex-direction:column;padding:11px 0;border-top:1px solid var(--edge)}
+.grow-n li:first-child{border-top:0;padding-top:0}
+.grow-n .dt{order:0;font:600 10.5px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+.grow-n h3{order:1;font-size:19px;margin-top:2px}
+.grow-n p{order:2;font-size:14px;color:var(--muted)}
+.grow-n .gc{order:3;display:flex;align-items:center;gap:10px;margin-top:8px}
+.grow-n li:not([style]) .gc{order:-1;position:absolute;right:0;margin:0}
+.grow-n li:not([style]){position:relative}
+.gb{display:block;height:14px;border-radius:3px;background:var(--data-2);width:calc(var(--v) * .64%);transform-origin:0 50%;transition:transform 1s var(--ease)}
+.grow-n li.end .gb{background:var(--data)}
+.gb.dot{width:11px;height:11px;border-radius:50%;background:transparent;border:1.5px solid var(--ink)}
+.grow-n li:not([style]) .gb.dot{display:none}
+.gv{display:flex;align-items:center;gap:10px;order:2}
+.gv .big{font-size:28px;font-weight:400}
+.gv .big small{font-size:.48em}
+.gv img.gl{width:26px;height:26px;border-radius:7px}
+.acq{display:flex;align-items:center;gap:6px}
+.acq .to{color:var(--muted);font-size:13px}
+.acq img.sx{height:10px;width:80px;object-fit:contain;object-position:left center;border-radius:0}
+.grow-n li.end .big{color:var(--ink2)}
+
+/* ---------- skills map ---------- */
+.skmap{display:grid;gap:10px}
+.sk-h{display:block;font:600 10.5px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);margin-bottom:12px}
+:lang(zh-CN) .sk-h{font-size:12.5px;letter-spacing:.03em}
+.sk-tools{display:grid;grid-template-columns:repeat(5,1fr);gap:12px 4px}
+.sk-tools li{display:flex;flex-direction:column;align-items:center;gap:5px;min-width:0}
+.sk-tools img{width:34px;height:34px;border-radius:9px;background:#fff;box-shadow:0 0 0 1px var(--edge);object-fit:contain}
+.sk-tools b{font:500 10.5px/1.2 var(--sans);color:var(--text);white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.sk-proc{display:grid;gap:6px}
+.sk-proc li{display:flex;align-items:center;gap:12px;min-height:42px;padding:0 14px;border-radius:9px;background:var(--ink);color:var(--on)}
+.sk-proc i{font:italic 400 14px/1 var(--serif);color:var(--lb)}
+.sk-proc b{font:400 16.5px/1.25 var(--serif)}
+:lang(zh-CN) .sk-proc b{font-size:15.5px;font-weight:500}
+.sk-note{margin-top:12px;font-size:14px;color:var(--muted)}
+
+/* ---------- proof: photo cards ---------- */
+.pbr{display:grid;gap:12px}
+.pbr .card{padding:0;overflow:hidden}
+.pbr figure{aspect-ratio:16/9;overflow:hidden;background:var(--beige)}
+.pbr figure img{width:100%;height:100%;object-fit:cover}
+.pb{padding:14px 16px 16px}
+.pb .lab{display:flex;justify-content:space-between;gap:10px}
+.pb .lab i{font:italic 400 13px/1.3 var(--serif);letter-spacing:0;text-transform:none;color:var(--muted)}
+.pb h3{margin:6px 0 6px;font-size:19px}
+.pb .q{font-size:14.5px;line-height:1.45}
+.pb .where{margin-top:10px;padding-top:9px;border-top:1px solid var(--edge);font:italic 400 14px/1.35 var(--serif);color:var(--ink2)}
+:lang(zh-CN) .pb .where{font:400 13px/1.5 var(--sans)}
+
+/* ---------- close ---------- */
+.c3x{margin-top:4px;border-top:1px solid rgba(252,243,237,.18)}
+.c3x li{display:grid;grid-template-columns:44px 1fr;column-gap:12px;padding:14px 0;border-bottom:1px solid rgba(252,243,237,.18)}
+.c3x i{grid-row:span 2;font:200 46px/.9 var(--serif);font-style:normal;color:var(--lb)}
+.c3x b{font:400 20px/1.25 var(--serif);color:var(--on)}
+:lang(zh-CN) .c3x b{font-size:18px;font-weight:500;line-height:1.45}
+.c3x span{font:400 14px/1.45 var(--sans);color:rgba(252,243,237,.75);margin-top:3px}
+.endline{margin-top:20px;font:italic 400 20px/1.35 var(--serif);color:var(--on)}
+:lang(zh-CN) .endline{font:500 18px/1.6 var(--serif)}
+
+/* ---------- Q&A ---------- */
+.qa{display:block}
+.qa-links{display:flex;flex-direction:column;gap:0;padding:4px 18px}
+.qa-item{padding:14px 0;border-bottom:1px solid var(--edge)}
+.qa-item:last-child{border-bottom:0}
+.qa-item .k{display:block;font:600 10.5px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+:lang(zh-CN) .qa-item .k{font-size:12.5px;letter-spacing:.03em}
+.qa-url{display:inline-flex;align-items:center;min-height:40px;font:400 18px/1.3 var(--serif);color:var(--ink);text-decoration:underline;text-decoration-color:rgba(11,26,74,.3);text-underline-offset:4px;word-break:break-all}
+.qa-item p{font-size:14px;color:var(--muted)}
+.qa-foot{padding:14px 0;font-size:14px;color:var(--muted)}
+.qa-foot a{color:var(--ink);font-weight:500}
+
+/* ---------- sources ---------- */
+.srcs{padding:4px 16px}
+.srcs li{display:flex;flex-direction:column;gap:3px;padding:11px 0;border-bottom:1px solid var(--edge);font:400 13.5px/1.45 var(--sans);color:var(--text)}
+.srcs li:last-child{border-bottom:0}
+.srcs b{font-weight:600;color:var(--ink)}
+.srcs .src{font-size:12px;color:var(--muted)}
+
+/* ---------- chrome: top bar, progress, bottom controls ---------- */
+.top,.bot{position:fixed;left:0;right:0;z-index:5;background:color-mix(in srgb,var(--bar) 90%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transition:background-color .35s,color .35s}
+.top{top:0;height:var(--tb);padding:env(safe-area-inset-top) var(--gx) 0;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.home{display:inline-flex;align-items:center;min-height:44px}
+.wm{height:17px;width:auto}
+.wm.i{display:none}
+.dk .wm.n{display:none}.dk .wm.i{display:block}
+.tools{display:flex;align-items:center;gap:8px}
+.lng,.lst{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;height:34px;min-width:44px;padding:0 12px;border-radius:999px;border:1px solid rgba(11,26,74,.22);font:500 13.5px/1 var(--sans);color:var(--ink);cursor:pointer;position:relative}
+.lng::after,.lst::after{content:"";position:absolute;inset:-6px -2px}
+.lng span{font-family:'PingFang SC','Hiragino Sans GB','Noto Sans SC',var(--sans)}
+.lst{padding:0;width:34px;min-width:34px}
+.lst svg{width:17px;height:17px}
+.prog{position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(11,26,74,.08)}
+.prog i{position:absolute;left:0;top:0;bottom:0;width:100%;background:var(--ink2);transform-origin:0 50%;transform:scaleX(var(--p,0));transition:transform .45s var(--ease)}
+.prog b{position:absolute;top:-2px;width:1.5px;height:6px;background:rgba(11,26,74,.3)}
+.bot{bottom:0;height:var(--bb);padding:10px var(--gx) max(10px,env(safe-area-inset-bottom));display:grid;grid-template-columns:52px 1fr auto;align-items:center;gap:12px}
+.pv,.ctr,.nx{all:unset;box-sizing:border-box;cursor:pointer;-webkit-user-select:none;user-select:none}
+.pv{width:52px;height:52px;border-radius:50%;border:1px solid rgba(11,26,74,.22);display:grid;place-items:center;transition:opacity .25s,transform .15s}
+.pv svg,.nx svg{width:20px;height:20px}
+.pv[disabled]{opacity:.28;pointer-events:none}
+.ctr{min-width:0;height:52px;display:flex;flex-direction:column;justify-content:center;padding:0 4px;border-radius:12px}
+.ctr b{font:500 15px/1.2 var(--sans);font-variant-numeric:tabular-nums;color:var(--ink)}
+.ctr b span{color:var(--muted);font-weight:400}
+.ctr b{margin-bottom:1px}
+.ctr small{font:400 12px/1.25 var(--sans);color:var(--muted);display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+.nx{height:52px;min-width:112px;padding:0 20px 0 24px;border-radius:999px;background:var(--ink);color:var(--on);display:inline-flex;align-items:center;justify-content:center;gap:10px;font:500 16px/1 var(--sans);transition:background-color .25s,color .25s,transform .15s;text-decoration:none}
+.pv:active,.nx:active{transform:scale(.96)}
+.ctr:active{background:rgba(11,26,74,.05)}
+@media (hover:hover){.nx:hover{background:#12245f}.pv:hover{border-color:var(--ink)}}
+.dk{--bar:var(--ink)}
+.dk .top,.dk .bot{color:var(--on)}
+.dk .lng,.dk .lst,.dk .pv{border-color:rgba(252,243,237,.35);color:var(--on)}
+.dk .prog{background:rgba(252,243,237,.14)}.dk .prog i{background:var(--lb)}.dk .prog b{background:rgba(252,243,237,.35)}
+.dk .ctr b{color:var(--on)}.dk .ctr b span,.dk .ctr small{color:rgba(252,243,237,.65)}
+.dk .nx{background:var(--hi);color:var(--ink)}
+.bg-alt{--bar:var(--beige)}
+
+/* first-visit hint, shown once over slide 1 */
+.tip{position:fixed;z-index:4;left:50%;bottom:calc(var(--bb) + 14px);transform:translateX(-50%);padding:9px 16px;border-radius:999px;background:rgba(11,26,74,.88);color:var(--on);font:400 13px/1.2 var(--sans);white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .4s}
+.tip.on{opacity:1}
+
+/* "more below" cue when a slide scrolls on its own */
+.more-cue{position:fixed;z-index:6;left:50%;bottom:calc(var(--bb) + 6px);transform:translateX(-50%);width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--hi);color:var(--ink2);box-shadow:0 0 0 1px var(--edge),0 8px 18px -10px rgba(11,26,74,.4);opacity:0;pointer-events:none;transition:opacity .3s}
+.more-cue svg{width:16px;height:16px}
+.bot::before{content:"";position:absolute;left:0;right:0;bottom:100%;height:64px;background:linear-gradient(color-mix(in srgb,var(--bar) 0%,transparent),var(--bar) 85%);opacity:0;transition:opacity .3s;pointer-events:none}
+.more .bot::before{opacity:1}
+.more-cue.on{opacity:1;pointer-events:auto;animation:nudge 2.4s 1s infinite}
+@keyframes nudge{0%,70%,100%{transform:translate(-50%,0)}80%{transform:translate(-50%,4px)}90%{transform:translate(-50%,0)}}
+
+/* ---------- slide list (bottom sheet) ---------- */
+.sheet{position:fixed;inset:0;z-index:20;display:flex;flex-direction:column;justify-content:flex-end;background:rgba(11,26,74,0);transition:background-color .3s;pointer-events:none}
+.sheet.open{background:rgba(11,26,74,.4);pointer-events:auto}
+.sheet[hidden]{display:none}
+.sh-p{max-height:86%;width:100%;max-width:640px;margin:0 auto;display:flex;flex-direction:column;background:var(--paper);border-radius:18px 18px 0 0;transform:translateY(100%);transition:transform .38s var(--ease);box-shadow:0 -20px 40px -24px rgba(11,26,74,.5)}
+.sheet.open .sh-p{transform:none}
+.sh-h{display:flex;align-items:center;justify-content:space-between;padding:16px var(--gx) 12px;border-bottom:1px solid var(--edge)}
+.sh-h b{font:400 21px/1.2 var(--serif);color:var(--ink)}
+.sh-x{all:unset;box-sizing:border-box;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;cursor:pointer;background:rgba(11,26,74,.06);color:var(--ink)}
+.sh-x svg{width:16px;height:16px}
+.sh-l{overflow-y:auto;overscroll-behavior:contain;padding:4px 0 max(16px,env(safe-area-inset-bottom))}
+.sh-g{padding:16px var(--gx) 6px;font:600 10.5px/1.4 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
+:lang(zh-CN) .sh-g{font-size:12.5px;letter-spacing:.04em}
+.sh-l a{display:grid;grid-template-columns:30px 1fr;gap:10px;padding:10px var(--gx);text-decoration:none;color:var(--text)}
+.sh-l a:active{background:rgba(11,26,74,.05)}
+.sh-l a i{font:italic 400 14px/1.5 var(--serif);color:var(--muted);font-variant-numeric:tabular-nums}
+.sh-l a span{font:400 15.5px/1.4 var(--serif);color:var(--ink)}
+:lang(zh-CN) .sh-l a span{font-size:15px;line-height:1.6}
+.sh-l a span em{font-style:italic;color:var(--ink2)}
+:lang(zh-CN) .sh-l a span em{font-style:normal}
+.sh-l a[aria-current] {background:rgba(47,85,168,.08)}
+.sh-l a[aria-current] i{color:var(--ink2);font-weight:500}
+
+/* ---------- motion: a slide builds once, the first time it is reached ---------- */
+.arm [data-s]{transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.arm [data-s]:not(.vis){opacity:0;transform:translateY(14px)}
+.arm [data-s]:not(.vis) i::before,.arm [data-s]:not(.vis) .gb{transform:scaleX(0)}
+.arm [data-s]:not(.vis) .ring2 .vl{stroke-dashoffset:100}
+.arm .wd,.arm .phr{display:inline-block;transition:opacity .5s var(--ease),transform .6s var(--ease);transition-delay:calc(var(--i) * 55ms + 80ms)}
+.arm .phr{display:inline;transition-property:opacity}
+.arm:not(.go) .wd{opacity:0;transform:translateY(.35em)}
+.arm:not(.go) .phr{opacity:0}
+.cover.arm:not(.go) .m em{background-size:0 .34em}
+.arm .agx li,.arm .sk-tools li{transition:opacity .45s var(--ease),transform .45s var(--ease);transition-delay:calc(var(--i) * 70ms + 200ms)}
+.arm:not(.go) .agx li,.arm:not(.go) .sk-tools li{opacity:0;transform:translateY(10px)}
+.arm .mk-field span{opacity:0}
+.arm.go .mk-field span{animation:lit .9s var(--d) both}
+@keyframes lit{0%{opacity:0;color:var(--ink2)}25%{opacity:1;color:var(--ink2)}100%{opacity:.5;color:var(--text)}}
+.arm .mk-stat{transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.arm .mk:not(.stat) .mk-stat{opacity:0;transform:translateY(12px)}
+.arm .tln li{transition:opacity .5s var(--ease),transform .5s var(--ease);transition-delay:calc(var(--i) * 160ms + 150ms)}
+.arm [data-s]:not(.vis) .tln li,.arm:not(.go) .tln-pane .tln li{opacity:0;transform:translateY(10px)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* ---------- landscape phones and wider screens ---------- */
+@media (max-height:500px) and (orientation:landscape){
+ :root{--tb:calc(44px + env(safe-area-inset-top));--bb:calc(58px + max(6px,env(safe-area-inset-bottom)))}
+ .bot{padding-top:6px;padding-bottom:max(6px,env(safe-area-inset-bottom))}
+ .pv{width:44px;height:44px}.nx{height:44px}.ctr{height:44px}
+ .w{max-width:760px;padding-top:calc(var(--tb) + 16px);padding-bottom:calc(var(--bb) + 18px)}
+ .cv-mid{padding-bottom:0}.cover h1{font-size:44px}
+ .nst>.big{font-size:96px}
+ .sec-k b,.tk-n b{font-size:64px}
+ .bot::before{height:40px}
+}
+@media (min-width:600px){
+ .spk2,.duo,.pair,.dns{grid-template-columns:1fr 1fr}
+ .st3{grid-template-columns:repeat(3,1fr)}
+ .st3 .pane{grid-template-columns:1fr;grid-template-areas:"l" "b" "p" "m"}
+ .pbr{grid-template-columns:repeat(3,1fr)}
+ .skmap{grid-template-columns:3fr 2fr}
+ .sk-tools{grid-template-columns:repeat(7,1fr)}
+ .case3{display:grid;grid-template-columns:1fr 16px 1fr 16px 1fr;align-items:stretch}
+ .cs-ar{transform:none}.cs-foot{grid-column:1/-1}
+ .agx{grid-template-columns:repeat(6,1fr)}
+ .mk-low{display:grid;grid-template-columns:3fr 2fr}
+ .accx{grid-template-columns:1fr 1fr}
+ .bot{padding-left:max(var(--gx),calc(50% - 320px + 22px));padding-right:max(var(--gx),calc(50% - 320px + 22px))}
+ .top{padding-left:max(var(--gx),calc(50% - 320px + 22px));padding-right:max(var(--gx),calc(50% - 320px + 22px))}
+}
+@media (max-width:389px){.nx{min-width:100px;padding:0 18px 0 20px}.bot{gap:10px}}
+@media (max-width:359px){
+ .w{--gx:16px}.sk-tools{grid-template-columns:repeat(4,1fr)}.cmp2 .big{font-size:36px}
+ .nx{min-width:104px;padding:0 16px 0 18px}
+}
+/* Chinese section kicker reads 第 1 部分: keep the numeral in its place between the two words */
+:lang(zh-CN) .sec-k{gap:10px}
+:lang(zh-CN) .sec-k b{order:0;font-size:80px}
+/* Cursor on a phone: the title already names SpaceX, so the logo pair waits for wider screens */
+.grow-n .acq{display:none}
+.gv .big{white-space:nowrap}
+@media (min-width:600px){.grow-n .acq{display:flex}}
+/* market map on a phone: the six agents, the lit field, and the Hugging Face figure all fit one screen */
+@media (max-width:599px){
+ .agx{gap:6px}
+ .agx li{flex-direction:row;justify-content:flex-start;gap:7px;padding:8px 8px;text-align:left}
+ .agx img{width:26px;height:26px;border-radius:7px}
+ .agx img.t{padding:4px}
+ .agx b{font-size:12.5px}
+ .agx li{position:relative}
+ /* the mainland-China dot moves to the card corner so long names keep their room */
+ .agx i.cn{position:absolute;top:6px;right:6px;margin:0;width:6px;height:6px}
+ .mk-map{padding:14px 16px}
+ .mk-field{max-height:90px;margin-top:8px;font-size:11px;line-height:1.7}
+ .mk-stat{padding:14px 16px}
+ .mk-big{font-size:46px}
+ .mk-l{font-size:13.5px;line-height:1.4}
+ .mk-r{margin-top:4px;padding-top:8px}
+ :lang(zh-CN) .mk-field{max-height:78px}
+}
+/* landscape phones: the slide column is 760 wide, so the chrome lines up with it rather than the 640 portrait column */
+@media (max-height:500px) and (orientation:landscape) and (min-width:600px){
+ .top,.bot{padding-left:max(var(--gx),calc(50% - 380px + var(--gx)));padding-right:max(var(--gx),calc(50% - 380px + var(--gx)))}
+}
+/* slide 4: the rotating task shows only its final phrase on phones, in the title accent, with the riso highlight band */
+.rot,.rot-t,.rot-t>span.fin{display:inline}
+.rot-t>span:not(.fin){display:none}
+.rot{color:var(--ink2)}
+.rot-hl{position:relative;z-index:0}
+:lang(en) .rot-hl{white-space:nowrap}
+.rot-hl::after{content:"";position:absolute;left:-.03em;right:-.03em;bottom:.06em;height:.3em;z-index:-1;background:url(/art/riso-hl.png) 0 0/6px 6px repeat}
+.rot .rot-pc{color:var(--ink)}
+.rot-h br{display:none}
+:lang(zh-CN) .rot-h br{display:inline}
+
+/* slide 19: agency, taste, and craft in practice */
+:root{--hl-light:#5B7FD1}
+.s h2 em.hl-l{color:var(--hl-light)}
+.prac .tri{padding:4px 18px}
+.prac .tri-r{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:14px 0;border-top:1px solid rgba(252,243,237,.18)}
+.prac .tri-r:first-child{border-top:0}
+.prac .tri-r p{margin:0;font-size:14.5px;line-height:1.45;color:rgba(252,243,237,.86)}
+:lang(zh-CN) .prac .tri-r p{font-size:14px;line-height:1.6}
+
+/* ---------- slide 31: a child's project (video, three beats, example tools) ---------- */
+.cs31{display:grid;gap:10px}
+.cs31 .cs-vp{display:flex;flex-direction:column;gap:8px;padding:10px}
+.cs31 .cs-v{position:relative;margin:0;aspect-ratio:4/3;border-radius:9px;overflow:hidden;background:var(--beige)}
+.cs31 .cs-v video,.cs31 .cs-v .vposter{display:block;width:100%;height:100%;object-fit:cover}
+.cs31 .cs-v .vposter{display:none}
+.cs31 .cs-cap{margin:0;text-align:center;font:italic 400 13px/1.3 var(--serif);color:var(--muted)}
+:lang(zh-CN) .cs31 .cs-cap{font-style:normal;font-size:12.5px}
+.cs31 .cs-side{display:grid;gap:8px}
+.cs31 .cs-beats{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.cs31 .cs-beats li{background:rgba(252,243,237,.72);border:1px solid var(--edge);border-radius:12px;padding:12px 14px;display:grid;gap:6px}
+.cs31 .cs-k{display:flex;align-items:baseline;flex-wrap:wrap;column-gap:8px;row-gap:2px}
+.cs31 .cs-k i{font:italic 400 14px/1 var(--serif);color:var(--ink2)}
+.cs31 .cs-k b{font:500 19px/1.15 var(--serif);color:var(--ink)}
+.cs31 .cs-k>span{margin-left:auto;font:600 10.5px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+:lang(zh-CN) .cs31 .cs-k>span{font-size:12px;letter-spacing:.03em}
+.cs31 .cs-beats p{margin:0;font:400 15px/1.45 var(--serif);color:var(--text)}
+:lang(zh-CN) .cs31 .cs-beats p{font-size:14.5px;line-height:1.6}
+.cs31 .cs-note{margin:2px 2px 0;font:400 15.5px/1.45 var(--serif);color:var(--ink)}
+.cs31 .cs-note em{color:var(--ink2)}
+.cs31 .cs-tools{padding:14px 14px 16px}
+.cs31 .cs-th{display:block;font:600 10.5px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);margin-bottom:12px;padding-left:4.7px}
+:lang(zh-CN) .cs31 .cs-th{font-size:12.5px;letter-spacing:.03em}
+.cs31 .cs-tools ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:12px 2px;justify-items:center}
+.cs31 .cs-tools li{display:flex;flex-direction:column;align-items:center;gap:4px;min-width:0}
+.cs31 .cs-tools img{display:block;width:34px;height:34px;border-radius:8px;background:#fff;box-shadow:0 0 0 1px var(--edge);object-fit:cover}
+.cs31 .cs-tools b{font:500 10px/1.2 var(--sans);color:var(--text);white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+/* slide 25 (round 4): METR curve and the gap illustration, static on phones */
+.xg2{display:flex;flex-direction:column;gap:12px}
+.xg2>.pane{display:flex;flex-direction:column}
+.xg-plot{position:relative;height:200px;margin:10px 0 0}
+.xg-area{position:absolute;left:54px;right:10px;top:10px;bottom:24px}
+.xg-grid,.xg-draw{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible}
+.xg .gl{stroke:var(--edge);stroke-width:1}.xg .gl:first-child{stroke:rgba(11,26,74,.3)}
+.xg .ar{fill:rgba(47,85,168,.08)}.xg .cv{fill:none;stroke:var(--ink2);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.xg-yl,.xg-xl{position:absolute;font:400 11px/1 var(--sans);color:var(--muted);white-space:nowrap}
+.xg-yl{right:calc(100% + 6px);bottom:calc(var(--y) * 1%);translate:0 50%}
+.xg-xl{top:calc(100% + 8px);left:calc(var(--x) * 1%);translate:-50% 0}
+.xg-pt{position:absolute;left:calc(var(--x) * 1%);bottom:calc(var(--y) * 1%);width:11px;height:11px;margin:0 0 -5.5px -5.5px;border-radius:50%;background:var(--hi);border:2px solid var(--ink2);box-sizing:border-box}
+.xg-pt.hl{background:var(--ink2)}
+.xg-lb{position:absolute;left:calc(var(--x) * 1%);bottom:calc(var(--y) * 1%);font:400 12px/1 var(--sans);color:var(--text);white-space:nowrap}
+.xg-lb.hl{color:var(--ink2);font-weight:600}
+.xg-lb.p0{translate:-8px -16px}.xg-lb.p1{translate:calc(-100% + 4px) -26px}.xg-lb.p2{translate:calc(-100% - 1px) -18px}.xg-lb.p3{translate:calc(-100% - 12px) 50%}
+.xg-il .xg-plot{height:170px}.xg-il .xg-area{left:0;right:2px;top:4px;bottom:22px}
+.xg-il .ax{stroke:rgba(11,26,74,.3);stroke-width:1}
+.xg-axl{position:absolute;font:400 11px/1 var(--sans);color:var(--muted);white-space:nowrap}.xg-axl.x{right:0;top:calc(100% + 8px)}.xg-axl.y{left:8px;top:0}
+.xg-il .gp{fill:rgba(47,85,168,.12)}.xg-il .cf{fill:none;stroke:var(--muted);stroke-width:2;stroke-linecap:round}
+.xg-ll,.xg-gl{position:absolute;white-space:nowrap;font:400 12.5px/1.2 var(--sans)}
+.xg-ll.up{right:21%;bottom:62%;color:var(--ink2);font-weight:600}.xg-ll.fl{right:0;bottom:calc(7.8% + 5px);color:var(--muted);padding:1px 4px;background:var(--hi);border-radius:3px}
+.xg-gl{left:87%;bottom:41%;translate:-50% 50%;font-style:italic;color:var(--ink2)}
+.xg-cap{margin:6px 0 0;font:italic 400 12px/1.45 var(--sans);color:var(--muted)}
+:lang(zh-CN) .xg-gl,:lang(zh-CN) .xg-cap{font-style:normal}
+/* Chinese word spans from the reader-only segmenter in body-cn.html: never break inside a word */
+:lang(zh-CN) .rd cj-w{white-space:nowrap}
+</style></head><body>
+<header class="top"><a class="home" href="/talks/2026-10-isb-parent-coffee" aria-label="讲座资料 · Arena School"><img class="wm n" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School" width="1600" height="242"><img class="wm i" src="/logos/arena/wordmark-ivory-1600.png" alt="" width="1600" height="242"></a>
+ <div class="tools"><a class="lng" href="/talks/2026-10-isb-parent-coffee/read/en" data-base="/talks/2026-10-isb-parent-coffee/read/en" hreflang="en" aria-label="English">EN</a><button type="button" class="lst" aria-label="全部幻灯片"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></div>
+ <div class="prog" aria-hidden="true"><i></i></div></header>
+<main class="rd" id="deck" tabindex="-1">
+<!-- 1 · Cover -->
+<section class="s ae cover"><div class="w">
+ <div class="cv-top"><img class="pta" src="/decks/img/conversation/pta-logo.png" alt="ISB 家长教师协会（PTA）"></div>
+ <div class="cv-mid">
+  <p class="kick r">家长咖啡会 · 2026年10月14日</p>
+  <p class="cv-lede r" style="--d:.05s">AI时代，工作的未来与教育的未来</p>
+  <h1 class="r" style="--d:.1s">孩子们未来的工作<br><span class="m" style="--d:1s"><em>还不存在，</em></span><span class="sub">那么，哪些能力最重要？</span></h1>
+ </div>
+ <div class="cv-foot"><span class="cv-rule"></span><a class="cv-qr" href="https://arenaschool.org/talks/2026-10-isb-parent-coffee" target="_blank" rel="noopener"><img src="/decks/img/conversation/qr-isb-parent-coffee-clear.png" alt="arenaschool.org/talks/2026-10-isb-parent-coffee 二维码"><span>今天的讲义（中英文）<small><span class="nw">arenaschool.org/talks/</span><wbr><span class="nw">2026-10-isb-parent-coffee</span></small></span></a></div>
+</div></section>
+
+<!-- 2 · Contents -->
+<section class="s alt ae toc"><div class="w">
+ <p class="kick r">今天上午</p>
+ <h2 class="r" style="--d:.1s">从职场的变化讲起，<em>最后落到在家能做什么。</em></h2>
+ <div class="bd"><ol class="trk tocf">
+  <li><a href="#" data-go="4"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 12h.01" /><path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" /><path d="M22 13a18.15 18.15 0 0 1-20 0" /><rect width="20" height="14" x="2" y="6" rx="2" /></svg></span><span class="tn">1</span><span class="tt"><b>工作正在<wbr>被改写</b><small>最稳妥的职业也不例外</small></span></a></li>
+  <li><a href="#" data-go="14"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10" /><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" /></svg></span><span class="tn">2</span><span class="tt"><b>领先靠三种能力</b><small>主动性、审美与匠心</small></span></a></li>
+  <li><a href="#" data-go="21"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg></span><span class="tn">3</span><span class="tt"><b>家庭现在<wbr>能做什么</b><small>三点建议</small></span></a></li>
+ </ol></div>
+</div></section>
+
+<!-- 3 · The speakers -->
+<section class="s alt ae"><div class="w">
+ <p class="kick r">主讲人 · Arena 联合创始人</p>
+ <h2 class="r" style="--d:.1s">我们在 ISB、加州理工、哈佛、布朗和清华求学，做过的正是<em>AI如今在自动化的工作。</em></h2>
+ <div class="bd r" style="--d:.25s">
+ <div class="spk2">
+  <article class="sp pane" data-s="1">
+   <header><img class="ph" src="/photos/jing-jing-yang.jpg" alt=""><div><h3>羊筱涵<span class="xn">Jing Jing Yang</span></h3><div class="tag">ISB 2019届</div></div></header>
+   <p class="now"><span class="ln">高中起就与中国科技和AI公司合作，</span><span class="ln">帮助它们走向海外</span></p>
+   <dl class="lg"><div><dt>求学</dt><dd><img class="h-isb" src="/logos/cred/isb.png" alt="ISB"><img class="h-br" src="/logos/cred/brown.png" alt="Brown"><img class="h-ts" src="/logos/cred/tsinghua.png" alt="清华大学"></dd></div>
+    <div><dt>工作</dt><dd><img class="h-ap" src="/logos/cred/apple.png" alt="Apple"><img class="h-de" src="/logos/cred/deloitte.png" alt="Deloitte"><img class="h-ci" src="/logos/cred/cicc.png" alt="CICC"><img class="h-km" src="/logos/cred/kimi-wordmark.png" alt="Kimi"></dd></div></dl>
+  </article>
+  <article class="sp pane" data-s="2">
+   <header><img class="ph" src="/photos/phillip-an.jpg" alt=""><div><h3>安广宁<span class="xn">Phillip An</span></h3><div class="tag">福布斯30U30</div></div></header>
+   <p class="now"><span class="ln">Skylarq&nbsp;AI 联合创始人兼CEO</span><span class="ln">Homebase 联创兼前COO（融资超5000万美元）</span></p>
+   <dl class="lg"><div><dt>求学</dt><dd><img class="h-ct" src="/logos/cred/caltech.png" alt="Caltech"><img class="h-hv" src="/logos/cred/harvard.png" alt="Harvard"><img class="h-ts" src="/logos/cred/tsinghua.png" alt="清华大学"></dd></div>
+    <div><dt>工作</dt><dd><img class="h-gs" src="/logos/cred/goldman.png" alt="Goldman Sachs"><img class="h-mk" src="/logos/cred/mckinsey.png" alt="McKinsey"><img class="h-li" src="/decks/img/conversation/linkedin.png" alt="LinkedIn"></dd></div></dl>
+  </article>
+ </div>
+ </div>
+</div></section>
+
+<!-- 4 · The question -->
+<section class="s alt ae st"><div class="w">
+ <p class="kick r">今天想回答的问题</p>
+ <h2 class="r rot-h" style="--d:.1s" aria-label="当AI几秒钟就能做到所有这些，孩子还必须学会什么？">当AI几秒钟就能<span class="rot" aria-hidden="true"><span class="rot-t"><span>写一篇作文<span class="rot-pc">，</span></span><span>写代码<span class="rot-pc">，</span></span><span>总结一篇文章<span class="rot-pc">，</span></span><span>做一份研究报告<span class="rot-pc">，</span></span><span>设计一个标志<span class="rot-pc">，</span></span><span>做一个网站<span class="rot-pc">，</span></span><span>翻译一段演讲<span class="rot-pc">，</span></span><span class="fin"><span class="rot-hl">做到所有这些</span><span class="rot-pc">，</span></span></span></span><br>孩子<em>还必须学会什么？</em></h2>
+</div></section>
+
+<!-- 5 · Section 1 -->
+<section class="s ae nv sec"><div class="w"><div class="sec-g">
+ <div>
+  <p class="sec-k"><span>第</span><b>1</b><span>部分</span></p>
+  <h2 class="r" style="--d:.15s">AI已经在改变工作，<em>包括家长最信赖的那些职业。</em></h2>
+  <p class="sl r" style="--d:.35s">以医学、法律和金融为例</p>
+ </div>
+ <ol class="trk" aria-label="三个部分">
+  <li class="on"><div class="row"><span class="tn">1</span><span class="tt"><b>工作正在被改写</b><small>最稳妥的职业也不例外</small></span></div></li>
+  <li><div class="row"><span class="tn">2</span><span class="tt"><b>领先靠三种能力</b><small>主动性、审美与匠心</small></span></div></li>
+  <li><div class="row"><span class="tn">3</span><span class="tt"><b>家庭现在能做什么</b><small>三点建议</small></span></div></li>
+ </ol>
+</div></div></section>
+
+<!-- 6 · Reach, measured -->
+<section class="s ae bn"><div class="w">
+ <p class="kick r">Anthropic 经济指数 · 基于 Claude 的真实使用数据</p>
+ <h2 class="r" style="--d:.1s">在<em>大约一半的职业</em>里，至少四分之一的任务已经用上了AI。</h2>
+ <div class="bd r" style="--d:.25s"><div class="pane wide-ch ch-xl" data-s="1"><div class="lr"><img class="brand an" src="/logos/deck/anthropic.svg" alt="Anthropic"></div><h3 class="ct">至少四分之一的任务用到AI的职业占比</h3>
+  <div class="hb wide"><div class="row"><span class="bk">2025年1月报告</span><i style="--v:36"></i><b class="cnt">36%</b></div><div class="row hl"><span class="bk">2026年1月报告</span><i style="--v:49"></i><b class="cnt">49%</b></div></div></div></div>
+ <p class="fn" data-s="1"><span>Anthropic 经济指数，2026年1月15日：至少25%的任务用到AI的职业占比（2025年1月报告为36%）。2026年的数字汇总了多期报告的数据，反映的是人们使用 Claude 的情况，不是对所有劳动者的普查。</span></p>
+</div></section>
+
+<!-- 9 · Medicine -->
+<section class="s ae"><div class="w">
+ <p class="kick r">医生 · 中国的一项随机对照试验</p>
+ <h2 class="r" style="--d:.1s">用AI的眼科医生，诊断<span class="nw">正确率</span><em>92%；不用AI的只有75%。</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="pane wide-ch ch-xl" data-s="1"><div class="lr"><span class="org">EyeFM 试验 · 《自然·医学》</span></div><h3 class="ct">患者获得正确诊断的比例</h3>
+  <div class="hb wide"><div class="row"><span class="bk">不用AI的眼科医生</span><i style="--v:75.4"></i><b class="cnt">75.4%</b></div><div class="row hl"><span class="bk">借助AI的眼科医生</span><i style="--v:92.2"></i><b class="cnt">92.2%</b></div></div></div></div>
+ <p class="fn" data-s="1"><span>上海交通大学、清华大学等，《自然·医学》，2025年8月28日：单中心，668名患者、16名眼科医生，视网膜筛查；正确转诊率也从80.5%升至92.2%</span></p>
+</div></section>
+
+<!-- 10 · Law -->
+<section class="s alt ae"><div class="w">
+ <p class="kick r">律师 · 美国试验、中国调查与美国招聘</p>
+ <h2 class="r" style="--d:.1s">用法学生做的试验里，用AI的人在多数法律任务上<em>多做了34%到140%。</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="st3">
+  <div class="pane hl" data-s="1"><span class="lab">美国随机对照试验</span><div class="big nc">+34–140%</div><p>6项法律任务中，有5项借助AI完成得更多</p>
+   <div class="mb" role="img" aria-label="完成的工作量，不用AI记为100：用AI为134至240"><div class="row"><span>不用AI</span><i style="--v:41.67"></i><b>100</b></div><div class="row hl"><span>用AI</span><i class="rg" style="--v:55.83;--r:100"></i><b>134–240</b></div></div></div>
+  <div class="pane" data-s="2"><span class="lab">中国大陆律师</span><div class="big">93%</div><p>的律师和实习律师已经在用AI</p>
+   <div class="mb" role="img" aria-label="93%使用AI"><div class="row hl"><span>使用AI</span><i style="--v:93"></i><b>93%</b></div></div></div>
+  <div class="pane" data-s="3"><span class="lab">美国大型律所</span><div class="big">−7.5%</div><p>2025年新招应届律师人数，为2014年以来首次下降</p>
+   <div class="mb" role="img" aria-label="新招应届生人数，2024年记为100：2025年为92.5"><div class="row"><span>2024年</span><i style="--v:100"></i><b>100</b></div><div class="row hl"><span>2025年</span><i style="--v:92.5"></i><b>92.5</b></div></div></div>
+ </div></div>
+ <p class="fn" data-s="1"><span>Schwarcz、Manning、Prescott 等，《AI赋能的律师工作》，127名法学生，2026年；律商联讯对中国大陆404名法律从业者的调查，财新，2025年8月29日；美国全国法律就业协会（NALP）2025届报告，2026年8月5日，未将下降仅归因于AI</span></p>
+</div></section>
+
+<!-- 11 · Finance -->
+<section class="s ae"><div class="w">
+ <p class="kick r">银行家 · 工商银行与渣打银行</p>
+ <h2 class="r" style="--d:.1s">在中国最大的银行工商银行，AI在2025年承担的工作量<em>约相当于全行员工的13%。</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="duo">
+  <div class="pane" data-s="1"><div class="lr"><img class="brand icbc" src="/logos/deck/icbc.svg" alt="中国工商银行"></div><div class="big">5.5<small>万人年</small></div><p>由AI“数字员工”承担的工作量；全行员工约41万人</p></div>
+  <div class="pane dk" data-s="2"><div class="lr"><img class="brand sc" src="/logos/deck/standard-chartered.svg" alt="渣打银行"></div><div class="big">7800<small>个岗位</small></div><p>企业职能岗位将在2030年前削减，<br>CEO 称之为替换“价值较低的人力资本”。</p></div>
+ </div></div>
+ <p class="fn" data-s="1"><span>中国工商银行2025年年度报告，2026年3月27日（13%为我们的估算）；渣打银行投资者活动，2026年5月19日：削减15%的企业职能岗位；CEO Bill Winters 事后为这一措辞道歉</span></p>
+</div></section>
+
+<!-- 13 · Layoffs -->
+<section class="s ae"><div class="w">
+ <p class="kick r">亚马逊 · 从内部信到裁员</p>
+ <h2 class="r" style="--d:.1s">亚马逊CEO说，AI会让公司员工变少。<em>此后亚马逊已裁掉约3万个公司职位。</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="pane tln-pane"><div class="lr"><img class="brand amz" src="/logos/deck/amazon.svg" alt="亚马逊"></div><ol class="tln" style="--n:3">
+  <li><span class="dt">2025年6月17日</span><span class="dot"></span><h3>CEO 致员工信</h3><p>AI“将减少我们公司员工的总数”</p></li>
+  <li><span class="dt">2025年10月28日</span><span class="dot"></span><div class="big">1.4<small>万</small></div><p>公司职位被裁</p></li>
+  <li class="end"><span class="dt">2026年1月28日</span><span class="dot"></span><div class="big">1.6<small>万</small></div><p>公司职位再被裁</p></li>
+ </ol></div></div>
+ <p class="fn" data-s="1"><span>亚马逊：Andy Jassy 致员工信，2025年6月17日；裁员内部信，2025年10月28日、2026年1月28日。亚马逊同时提到要精简管理层级；Jassy 后来表示，10月的裁员“其实不是AI驱动的”。</span></p>
+</div></section>
+
+<!-- 14 · Jassy -->
+<section class="s alt ae bq"><div class="w">
+ <p class="kick r">谁会留下 · 出自同一封内部信，2025年6月</p>
+ <h2 class="r" style="--d:.1s">“那些拥抱这场变化、熟练掌握AI的人……将处在<em>能发挥重大影响</em>的位置。”</h2>
+ <div class="bd r" style="--d:.25s"><div class="bqx" data-s="1"><div class="lr"><img class="brand amz" src="/logos/deck/amazon.svg" alt="亚马逊"></div><div class="who2"><b>Andy Jassy，亚马逊 CEO</b><span>致员工信，2025年6月17日</span></div></div></div>
+</div></section>
+
+<!-- 15 · 薪资差距 -->
+<section class="s ae st nv"><div class="w">
+ <p class="kick r">这些能力值多少 · 普华永道《2026年全球AI就业晴雨表》</p>
+ <h2 class="r" style="--d:.1s">要求AI技能的岗位，招聘薪资已经<em>高出62%。</em></h2>
+ <div class="nst" data-s="1"><div class="big">62%</div><div class="nstx"><div class="lr"><span class="org">普华永道</span></div><p>要求AI技能的岗位，招聘薪资高出的幅度</p>
+  <div class="mb" role="img" aria-label="招聘薪资，同类岗位记为100：要求AI技能的岗位为162"><div class="row"><span>同类岗位</span><i style="--v:61.73"></i><b>100</b></div><div class="row hl"><span>要求AI技能</span><i style="--v:100"></i><b>162</b></div></div></div></div>
+ <p class="fn" data-s="1"><span>普华永道《2026全球AI就业晴雨表》，2026年6月15日：27个国家和地区招聘广告中的平均薪资溢价，未控制学历、经验等因素</span></p>
+</div></section>
+
+<!-- 15b · Phillip's companies -->
+<section class="s ae hbx hold" data-hold="1"><div class="w">
+ <p class="kick r">案例 · 安广宁的创业经历</p>
+ <h2 class="r" style="--d:.1s">我上一家公司有大约120人，<em>现在这家AI原生公司，不到5人。</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="hb2">
+  <div class="hb-c hb-then" data-s="1">
+   <div class="hb-top"><span class="lab">之前 · 联合创始人兼COO</span><img class="hb-co" src="/decks/img/conversation/co-homebase.png" alt="Homebase"></div>
+   <img class="hb-tc" src="/decks/img/conversation/homebase-techcrunch.png" alt="TechCrunch，2021年11月14日：Homebase 融资3000万美元，帮助更多东南亚人成为房主">
+   <div class="hb-num"><b><small>约</small>120</b><p>人，分布在销售、市场、产品、设计和运营</p></div>
+   <div class="hb-inv"><span class="lab">投资方</span><img class="iv-yc" src="/decks/img/conversation/inv-yc.png" alt="Y Combinator"><img class="iv-gw" src="/decks/img/conversation/inv-goodwater.png" alt="Goodwater Capital"><img class="iv-pt" src="/decks/img/conversation/inv-partech.png" alt="Partech"></div>
+  </div>
+  <span class="cs-ar hb-ar" data-s="2" aria-hidden="true">→</span>
+  <div class="hb-c hb-now" data-s="2">
+   <div class="hb-top"><span class="lab">现在 · 联合创始人兼CEO</span><img class="hb-co" src="/decks/img/conversation/co-skylarq-light.png" alt="Skylarq"></div>
+   <div class="hb-roles"><ul><li>产品</li><li>设计</li><li>市场</li><li>社媒</li><li>销售</li></ul><p>以前要分别招人，现在两三个人借助AI一起完成。</p></div>
+   <div class="hb-num"><b>&lt;5</b><p>人，就是整个团队</p></div>
+   <p class="hb-what">打造为其他公司跑销售与市场增长的AI智能体。</p>
+  </div>
+ </div>
+ <div class="cs-foot pane hb-foot" data-s="3"><p>如果再招人，<em>我只招AI原生、能用AI放大产出的人。</em></p></div>
+ </div>
+</div></section>
+
+<!-- 17 · Young workers -->
+<section class="s ae bn"><div class="w">
+ <p class="kick r">年轻人最先受影响 · 斯坦福，美国薪资数据</p>
+ <h2 class="r" style="--d:.1s">在受影响最大的岗位上，年轻人已经<em>落后19%。</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="cmp2">
+  <div class="pane dk" data-s="1"><div class="cm-h"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="8" r="5" /><path d="M20 21a8 8 0 0 0-16 0" /></svg></span><span class="lab">22至25岁</span></div><div class="big">−19%</div><p>受AI影响大的岗位上的就业，<br>对比受影响小的岗位上的同龄人</p></div>
+  <div class="pane" data-s="2"><div class="cm-h"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 12h.01" /><path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" /><path d="M22 13a18.15 18.15 0 0 1-20 0" /><rect width="20" height="14" x="2" y="6" rx="2" /></svg></span><span class="lab">资深员工</span></div><div class="big lo">没有落差</div><p>同样是受AI影响大的岗位，<br>对比受影响小的岗位没有差距</p></div>
+ </div></div>
+ <p class="fn" data-s="1"><span>Brynjolfsson、Chandar、Chen，《矿井里的金丝雀？》，2026年8月修订版；描述性结果，不是因果估计</span></p>
+</div></section>
+
+<!-- 18 · China students -->
+<section class="s alt ae bn"><div class="w">
+ <p class="kick r">中国 · 1333名应届毕业生，2026年5月</p>
+ <h2 class="r" style="--d:.1s">在中国，91%的<span class="nw">应届毕业生</span>因AI调整了求职规划，<span class="nw">但<em>只有57%</em></span><em>在主动学习AI技能。</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="pane arc" data-s="1"><div class="lr"><span class="org">中国青年报</span></div>
+  <div class="arow">
+   <div class="an" data-s="1"><span class="lab">因AI调整求职规划</span><div class="big">91.1%</div><div class="hb"><div class="row hl"><i style="--v:91.1"></i></div></div></div>
+   <div class="ar2 vs" data-s="2" aria-hidden="true"><span>但只有</span></div>
+   <div class="an" data-s="2"><span class="lab">主动学习AI技能</span><div class="big lo">56.6%</div><div class="hb"><div class="row"><i style="--v:56.6"></i></div></div></div>
+  </div></div></div>
+ <p class="fn" data-s="1"><span>中国青年报社社会调查中心联合问卷网，1333名应届毕业生<span class="nw">调查，</span>2026年5月14日</span></p>
+</div></section>
+
+<!-- 19 · Section 2 -->
+<section class="s ae nv sec"><div class="w"><div class="sec-g">
+ <div>
+  <p class="sec-k"><span>第</span><b>2</b><span>部分</span></p>
+  <h2 class="r" style="--d:.15s">所以，决定<span class="nw">谁能领先的，</span>是三种能力：<em><span class="nw">主动性</span>、审美与匠心。</em></h2>
+ </div>
+ <ol class="trk" aria-label="三个部分">
+  <li><div class="row"><span class="tn">1</span><span class="tt"><b>工作正在被改写</b><small>最稳妥的职业也不例外</small></span></div></li>
+  <li class="on"><div class="row"><span class="tn">2</span><span class="tt"><b>领先靠三种能力</b><small>主动性、审美与匠心</small></span></div></li>
+  <li><div class="row"><span class="tn">3</span><span class="tt"><b>家庭现在能做什么</b><small>三点建议</small></span></div></li>
+ </ol>
+</div></div></section>
+
+<!-- 20 · Execution is getting cheap -->
+<section class="s ae"><div class="w">
+ <p class="kick r">谷歌 · 百度 · 工作是怎么做出来的</p>
+ <h2 class="r" style="--d:.1s">AI正在让“怎么做”变便宜：写代码、写稿、<em>做分析。</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="dns">
+  <div class="pane dn" data-s="1"><div class="big">75%</div><div><div class="lr"><span class="org">Google</span></div><p>新代码现在由AI先写，再由工程师审过</p></div></div>
+  <div class="pane dn" data-s="2"><div class="big">52%</div><div><div class="lr"><span class="org">百度</span></div><p>新增代码由AI生成，<br>CEO的目标是<span class="nw">八到九成</span></p></div></div>
+ </div></div>
+ <p class="fn" data-s="1"><span>Sundar Pichai，比去年秋天的50%上升，Google Cloud Next / 公司博客，2026年4月22日。李彦宏，百度世界大会2025，2025年11月13日</span></p>
+</div></section>
+
+<!-- 21 · The scarce work shifts -->
+<section class="s alt ae"><div class="w">
+ <p class="kick r">世界经济论坛 · 《2025年未来就业报告》· 一千多家雇主</p>
+ <h2 class="r" style="--d:.1s">所以，值钱的变成：做什么，<em>以及好不好。</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="shift">
+  <div class="shx" data-s="1">
+   <div class="sh-col o"><span class="hd">怎么做</span><ul><li>写出代码</li><li>写好备忘</li><li>跑完分析</li></ul></div>
+   <div class="sh-arr" aria-hidden="true"><i></i></div>
+   <div class="sh-col n"><span class="hd">做什么，以及好不好</span><ul><li>决定做什么</li><li>判断产出好不好</li><li>带人和AI一起做</li></ul></div>
+  </div>
+  <div class="wefx" data-s="2">
+   <span class="hd">现在必要 · 到2030年继续上升</span>
+   <div class="hb">
+    <div class="row hl"><span class="bk">分析性思维</span><b>69%</b><i style="--v:69"></i></div>
+    <div class="row hl"><span class="bk">韧性与敏捷</span><b>67%</b><i style="--v:67"></i></div>
+    <div class="row hl"><span class="bk">领导力</span><b>61%</b><i style="--v:61"></i></div>
+    <div class="row hl"><span class="bk">创造性思维</span><b>57%</b><i style="--v:57"></i></div>
+   </div>
+  </div>
+ </div></div>
+ <p class="fn" data-s="1"><span>世界经济论坛《2025年未来就业报告》，2025年1月7日，图3.3现在必要；图3.4到2030年继续上升。微软《2026工作趋势指数》；LinkedIn《2026年上升技能》</span></p>
+</div></section>
+
+<!-- 22 · Each skill, one-line why -->
+<section class="s ae"><div class="w">
+ <p class="kick r">给这些稀缺能力起名字</p>
+ <h2 class="r" style="--d:.1s"><span class="nw">主动性</span>来选，审美来判，<em>匠心来收。</em></h2>
+ <div class="bd r" style="--d:.25s">
+  <div class="why5g"><span class="w5h a" data-s="1">三项能力</span>
+  <ol class="why5">
+   <li data-s="1"><i>01</i><b>主动性</b><span>不等布置，先定做什么。</span></li>
+   <li data-s="2"><i>02</i><b>审美</b><span>判断产出<span class="nw">到底好不好。</span></span></li>
+   <li data-s="3"><i>03</i><b>匠心</b><span>做完，做到别人信得过。</span></li>
+  </ol></div>
+ </div>
+</div></section>
+
+<!-- 27 · Shortcut or tutor -->
+<section class="s alt ae"><div class="w">
+ <p class="kick r">高中生的一周里</p>
+ <h2 class="r" style="--d:.1s"><em class="hl-l"><span class="nw">主动性</span>、审美与匠心</em>，在实际中<span class="nw">是什么样子？</span></h2>
+ <div class="bd r" style="--d:.25s">
+  <div class="pair prac">
+   <div class="pc lt" data-s="1"><span class="pl">以前</span><p class="say"><span class="nw">“直接告诉我答案。”</span></p><p>作业做完了，思考却跳过了。</p></div>
+   <div class="pc dk tri">
+    <div class="tri-r" data-s="2"><span class="pl">主动性</span><p>看到弟弟卡在分数题上，没人要求，就用AI给他做一个<span class="nw">练习小游戏。</span></p></div>
+    <div class="tri-r" data-s="3"><span class="pl">审美</span><p>试了几个版本，留下弟弟真正愿意玩的那个，而不是<span class="nw">最花哨的。</span></p></div>
+    <div class="tri-r" data-s="4"><span class="pl">匠心</span><p>改掉AI出错的题目和太小的按钮，直到弟弟能<span class="nw">自己玩下去。</span></p></div>
+   </div>
+  </div>
+ </div>
+</div></section>
+
+<!-- 28 · Structure -->
+<section class="s alt ae st"><div class="w">
+ <p class="kick r">孩子需要什么</p>
+ <h2 class="r" style="--d:.1s">能力要靠<em>有结构的练习。</em></h2>
+ <ol class="ic3"><li data-s="1"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z" /><path d="M8 10v4" /><path d="M12 10v2" /><path d="M16 10v6" /></svg></span><b>真实的项目</b><span>做的事真有分量</span></li><li data-s="2"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m8 11 2 2 4-4" /><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg></span><b>一位教练</b><span>追问“你是怎么检查的”</span></li><li data-s="3"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" /><path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1" /></svg></span><b>坦诚的反馈</b><span>来自真实的人</span></li></ol>
+</div></section>
+
+<!-- 26 · Teachers, last in Section 2 -->
+<section class="s ae"><div class="w">
+ <p class="kick r">全国学校调查 · 中国教育科学研究院，2026年</p>
+ <h2 class="r" style="--d:.1s">研究显示，大多数学校仍缺少能教AI的老师，<em>家庭现在就可以出一份力。</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="dns">
+  <div class="pane dn" data-s="1"><div class="ring2"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="tr" cx="60" cy="60" r="52" pathLength="100"/><circle class="vl" cx="60" cy="60" r="52" pathLength="100" style="--v:88.12"/></svg><div class="big">88%</div></div><p>的学校反映，能教AI的老师不足</p></div>
+  <div class="pane dn" data-s="2"><div class="ring2"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="tr" cx="60" cy="60" r="52" pathLength="100"/><circle class="vl" cx="60" cy="60" r="52" pathLength="100" style="--v:54.13"/></svg><div class="big">54%</div></div><p>的老师对自己的<span class="nw">AI教学能力</span>缺乏信心</p></div>
+ </div></div>
+ <p class="fn" data-s="1"><span>中国教育科学研究院课题组调研，覆盖东中西部，3653份有效问卷，2026年5月至6月，2026年8月19日发布。在美国，68%的老师没有接受过学校或学区提供的AI培训（盖洛普与沃尔顿家族基金会，2025年）。</span></p>
+</div></section>
+
+<!-- 29 · Section 3 -->
+<section class="s ae nv sec"><div class="w"><div class="sec-g">
+ <div>
+  <p class="sec-k"><span>第</span><b>3</b><span>部分</span></p>
+  <h2 class="r" style="--d:.15s">所以，现在就开始培养这些能力，<em>趁差距还小。</em></h2>
+ </div>
+ <ol class="trk" aria-label="三个部分">
+  <li><div class="row"><span class="tn">1</span><span class="tt"><b>工作正在被改写</b><small>最稳妥的职业也不例外</small></span></div></li>
+  <li><div class="row"><span class="tn">2</span><span class="tt"><b>领先靠三种能力</b><small>主动性、审美与匠心</small></span></div></li>
+  <li class="on"><div class="row"><span class="tn">3</span><span class="tt"><b>家庭现在能做什么</b><small>三点建议</small></span></div></li>
+ </ol>
+</div></div></section>
+
+<!-- 30 · Takeaway 1 -->
+<section class="s alt ae st tk"><div class="w"><div class="tk-g">
+ <div class="tk-n"><span>建议</span><b>1</b></div>
+ <div><p class="kick r">家庭现在能做的事</p><h2 class="r" style="--d:.1s">了解最新的AI工具，<em>才能引导孩子。</em></h2>
+ <ol class="tk-prog"><li class="on"><i>1</i><span>了解工具</span></li><li><i>2</i><span>用于真实任务</span></li><li><i>3</i><span>动手创造</span></li></ol></div>
+</div></div></section>
+
+<!-- 31 · The agents -->
+<section class="s alt ae hold"><div class="w">
+ <p class="kick r">建议一 · 个人AI智能体，2026年10月</p>
+ <h2 class="r" style="--d:.1s">这些您听说过几个？<span class="t2" data-s="1">在它们背后，<em>每天都有数千个新的AI模型发布。</em></span></h2>
+ <div class="bd r" style="--d:.25s"><div class="mk">
+  <ul class="agx six">
+   <li class="pane"><img src="/logos/tools/kimi.png" alt=""><span><b>Kimi</b></span></li>
+   <li class="pane"><img class="t" src="/logos/tools/muse.png" alt=""><span><b>Muse</b></span></li>
+   <li class="pane"><img src="/logos/tools/instinct.png" alt=""><span><b>Instinct</b></span></li>
+   <li class="pane"><img src="/logos/tools/manus.png" alt=""><span><b>Manus</b></span></li>
+   <li class="pane"><img src="/logos/tools/genspark.png" alt=""><span><b>Genspark</b></span></li>
+   <li class="pane"><img class="t" src="/logos/tools/openclaw.png" alt=""><span><b>OpenClaw</b></span></li>
+  </ul>
+  <div class="mk-low" data-s="1">
+   <div class="mk-map pane"><p class="lab">今天就能试用的另外 <b><span class="mk-n">200</span><span class="mk-plus">+</span></b> 个AI工具</p><div class="mk-field" aria-hidden="true"></div></div>
+   <div class="mk-stat pane"><p class="lab">Hugging Face</p><p class="mk-d">全球最大的公开AI模型库</p><b class="mk-big">4,386</b><p class="mk-l">2026年10月12日（周一）新发布的AI模型</p><p class="mk-r"><span>大约每分钟3个</span><span>累计超过310万个</span></p></div>
+  </div>
+ </div></div>
+ <p class="fn" data-s="1"><span>Hugging Face Hub API：2026年10月12日（UTC）新建公开模型4,386个；huggingface.co/models 共列出3,145,598个。均于2026年10月13日核对。工具信息：各工具官网</span></p>
+</div></section>
+
+<!-- 32 · Tools multiply -->
+<section class="s alt ae hold" data-hold="1"><div class="w">
+ <p class="kick r">建议一 · METR 时间视野 1.1 · 2026年1月29日</p>
+ <h2 class="r" style="--d:.1s">AI的能力大约每7个月翻一倍，<em><span class="nw">会用它的人，</span>优势也在复利增长。</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="xg2">
+   <div class="pane xg" data-s="1"><div class="lr"><span class="org">METR · AI能独立完成的任务时长</span></div>
+    <figure class="xg-plot"><div class="xg-area"><svg class="xg-grid" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true"><line class="gl" x1="0" x2="1000" y1="1000" y2="1000" vector-effect="non-scaling-stroke"/><line class="gl" x1="0" x2="1000" y1="500" y2="500" vector-effect="non-scaling-stroke"/><line class="gl" x1="0" x2="1000" y1="0" y2="0" vector-effect="non-scaling-stroke"/></svg><svg class="xg-draw" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true"><path class="ar" d="M61.8,994.4 L65.3,994.3 L68.9,994.3 L72.5,994.2 L76.0,994.1 L79.6,993.9 L83.2,993.8 L86.7,993.7 L90.3,993.6 L93.9,993.5 L97.4,993.4 L101.0,993.3 L104.6,993.2 L108.1,993.1 L111.7,993.0 L115.3,992.8 L118.8,992.7 L122.4,992.6 L126.0,992.5 L129.5,992.4 L133.1,992.2 L136.7,992.1 L140.2,992.0 L143.8,991.9 L147.4,991.7 L150.9,991.6 L154.5,991.4 L158.1,991.3 L161.6,991.2 L165.2,991.0 L168.8,990.9 L172.3,990.7 L175.9,990.6 L179.4,990.4 L183.0,990.3 L186.6,990.1 L190.1,990.0 L193.7,989.8 L197.3,989.6 L200.8,989.5 L204.4,989.3 L208.0,989.1 L211.5,989.0 L215.1,988.8 L218.7,988.6 L222.2,988.4 L225.8,988.2 L229.4,988.0 L232.9,987.9 L236.5,987.7 L240.1,987.5 L243.6,987.3 L247.2,987.1 L250.8,986.9 L254.3,986.7 L257.9,986.4 L261.5,986.2 L265.0,986.0 L268.6,985.8 L272.2,985.6 L275.7,985.3 L279.3,985.1 L282.9,984.9 L286.4,984.6 L290.0,984.4 L293.6,984.1 L297.1,983.9 L300.7,983.6 L304.3,983.3 L307.8,983.1 L311.4,982.8 L315.0,982.5 L318.5,982.2 L322.1,982.0 L325.7,981.7 L329.2,981.4 L332.8,981.1 L336.4,980.8 L339.9,980.5 L343.5,980.1 L347.1,979.8 L350.6,979.5 L354.2,979.1 L357.8,978.8 L361.3,978.5 L364.9,978.1 L368.5,977.7 L372.0,977.4 L375.6,977.0 L379.2,976.6 L382.7,976.2 L386.3,975.8 L389.9,975.4 L393.4,975.0 L397.0,974.6 L400.6,974.2 L404.1,973.7 L407.7,973.3 L411.2,972.8 L414.8,972.4 L418.4,971.9 L421.9,971.4 L425.5,970.9 L429.1,970.4 L432.6,969.9 L436.2,969.4 L439.8,968.9 L443.3,968.3 L446.9,967.8 L450.5,967.2 L454.0,966.6 L457.6,966.1 L461.2,965.5 L464.7,964.8 L468.3,964.2 L471.9,963.6 L475.4,962.9 L479.0,962.2 L482.6,961.6 L486.1,960.9 L489.7,960.1 L493.3,959.4 L496.8,958.7 L500.4,957.9 L504.0,957.1 L507.5,956.3 L511.1,955.5 L514.7,954.7 L518.2,953.8 L521.8,953.0 L525.4,952.1 L528.9,951.1 L532.5,950.2 L536.1,949.3 L539.6,948.3 L543.2,947.3 L546.8,946.2 L550.3,945.2 L553.9,944.1 L557.5,943.0 L561.0,941.9 L564.6,940.7 L568.2,939.5 L571.7,938.3 L575.3,937.1 L578.9,935.8 L582.4,934.5 L586.0,933.1 L589.6,931.7 L593.1,930.3 L596.7,928.9 L600.3,927.4 L603.8,925.9 L607.4,924.3 L611.0,922.7 L614.5,921.0 L618.1,919.3 L621.7,917.6 L625.2,915.8 L628.8,914.0 L632.4,912.1 L635.9,910.2 L639.5,908.3 L643.1,906.3 L646.6,904.2 L650.2,902.2 L653.7,900.0 L657.3,897.8 L660.9,895.6 L664.4,893.3 L668.0,891.0 L671.6,888.5 L675.1,886.1 L678.7,883.5 L682.3,880.9 L685.8,878.2 L689.4,875.5 L693.0,872.6 L696.5,869.7 L700.1,866.7 L703.7,863.6 L707.2,860.4 L710.8,857.2 L714.4,853.8 L717.9,850.3 L721.5,846.7 L725.1,843.0 L728.6,839.1 L732.2,835.2 L735.8,831.1 L739.3,826.8 L742.9,822.5 L746.5,817.9 L750.0,813.2 L753.6,808.4 L757.2,803.3 L760.7,798.1 L764.3,792.7 L767.9,787.1 L771.4,781.2 L775.0,775.2 L778.6,768.9 L782.1,762.3 L785.7,755.5 L789.3,748.5 L792.8,741.1 L796.4,733.4 L800.0,725.4 L803.5,717.1 L807.1,708.4 L810.7,699.3 L814.2,689.9 L817.8,680.0 L821.4,669.7 L824.9,658.9 L828.5,647.6 L832.1,635.8 L835.6,623.5 L839.2,610.5 L842.8,597.0 L846.3,582.7 L849.9,567.2 L853.5,550.5 L857.0,532.5 L860.6,513.1 L864.2,492.4 L867.7,470.2 L871.3,446.6 L874.9,421.4 L878.4,394.8 L882.0,366.5 L885.6,336.8 L889.1,305.4 L892.7,272.4 L896.2,237.9 L899.8,201.8 L903.4,164.2 L906.9,125.1 L910.5,84.6 L914.1,42.9 L917.6,-0.0 L917.6,1000 L61.8,1000 Z"/><path class="cv" d="M61.8,994.4 L65.3,994.3 L68.9,994.3 L72.5,994.2 L76.0,994.1 L79.6,993.9 L83.2,993.8 L86.7,993.7 L90.3,993.6 L93.9,993.5 L97.4,993.4 L101.0,993.3 L104.6,993.2 L108.1,993.1 L111.7,993.0 L115.3,992.8 L118.8,992.7 L122.4,992.6 L126.0,992.5 L129.5,992.4 L133.1,992.2 L136.7,992.1 L140.2,992.0 L143.8,991.9 L147.4,991.7 L150.9,991.6 L154.5,991.4 L158.1,991.3 L161.6,991.2 L165.2,991.0 L168.8,990.9 L172.3,990.7 L175.9,990.6 L179.4,990.4 L183.0,990.3 L186.6,990.1 L190.1,990.0 L193.7,989.8 L197.3,989.6 L200.8,989.5 L204.4,989.3 L208.0,989.1 L211.5,989.0 L215.1,988.8 L218.7,988.6 L222.2,988.4 L225.8,988.2 L229.4,988.0 L232.9,987.9 L236.5,987.7 L240.1,987.5 L243.6,987.3 L247.2,987.1 L250.8,986.9 L254.3,986.7 L257.9,986.4 L261.5,986.2 L265.0,986.0 L268.6,985.8 L272.2,985.6 L275.7,985.3 L279.3,985.1 L282.9,984.9 L286.4,984.6 L290.0,984.4 L293.6,984.1 L297.1,983.9 L300.7,983.6 L304.3,983.3 L307.8,983.1 L311.4,982.8 L315.0,982.5 L318.5,982.2 L322.1,982.0 L325.7,981.7 L329.2,981.4 L332.8,981.1 L336.4,980.8 L339.9,980.5 L343.5,980.1 L347.1,979.8 L350.6,979.5 L354.2,979.1 L357.8,978.8 L361.3,978.5 L364.9,978.1 L368.5,977.7 L372.0,977.4 L375.6,977.0 L379.2,976.6 L382.7,976.2 L386.3,975.8 L389.9,975.4 L393.4,975.0 L397.0,974.6 L400.6,974.2 L404.1,973.7 L407.7,973.3 L411.2,972.8 L414.8,972.4 L418.4,971.9 L421.9,971.4 L425.5,970.9 L429.1,970.4 L432.6,969.9 L436.2,969.4 L439.8,968.9 L443.3,968.3 L446.9,967.8 L450.5,967.2 L454.0,966.6 L457.6,966.1 L461.2,965.5 L464.7,964.8 L468.3,964.2 L471.9,963.6 L475.4,962.9 L479.0,962.2 L482.6,961.6 L486.1,960.9 L489.7,960.1 L493.3,959.4 L496.8,958.7 L500.4,957.9 L504.0,957.1 L507.5,956.3 L511.1,955.5 L514.7,954.7 L518.2,953.8 L521.8,953.0 L525.4,952.1 L528.9,951.1 L532.5,950.2 L536.1,949.3 L539.6,948.3 L543.2,947.3 L546.8,946.2 L550.3,945.2 L553.9,944.1 L557.5,943.0 L561.0,941.9 L564.6,940.7 L568.2,939.5 L571.7,938.3 L575.3,937.1 L578.9,935.8 L582.4,934.5 L586.0,933.1 L589.6,931.7 L593.1,930.3 L596.7,928.9 L600.3,927.4 L603.8,925.9 L607.4,924.3 L611.0,922.7 L614.5,921.0 L618.1,919.3 L621.7,917.6 L625.2,915.8 L628.8,914.0 L632.4,912.1 L635.9,910.2 L639.5,908.3 L643.1,906.3 L646.6,904.2 L650.2,902.2 L653.7,900.0 L657.3,897.8 L660.9,895.6 L664.4,893.3 L668.0,891.0 L671.6,888.5 L675.1,886.1 L678.7,883.5 L682.3,880.9 L685.8,878.2 L689.4,875.5 L693.0,872.6 L696.5,869.7 L700.1,866.7 L703.7,863.6 L707.2,860.4 L710.8,857.2 L714.4,853.8 L717.9,850.3 L721.5,846.7 L725.1,843.0 L728.6,839.1 L732.2,835.2 L735.8,831.1 L739.3,826.8 L742.9,822.5 L746.5,817.9 L750.0,813.2 L753.6,808.4 L757.2,803.3 L760.7,798.1 L764.3,792.7 L767.9,787.1 L771.4,781.2 L775.0,775.2 L778.6,768.9 L782.1,762.3 L785.7,755.5 L789.3,748.5 L792.8,741.1 L796.4,733.4 L800.0,725.4 L803.5,717.1 L807.1,708.4 L810.7,699.3 L814.2,689.9 L817.8,680.0 L821.4,669.7 L824.9,658.9 L828.5,647.6 L832.1,635.8 L835.6,623.5 L839.2,610.5 L842.8,597.0 L846.3,582.7 L849.9,567.2 L853.5,550.5 L857.0,532.5 L860.6,513.1 L864.2,492.4 L867.7,470.2 L871.3,446.6 L874.9,421.4 L878.4,394.8 L882.0,366.5 L885.6,336.8 L889.1,305.4 L892.7,272.4 L896.2,237.9 L899.8,201.8 L903.4,164.2 L906.9,125.1 L910.5,84.6 L914.1,42.9 L917.6,-0.0" vector-effect="non-scaling-stroke"/></svg><span class="xg-yl" style="--y:0">0</span><span class="xg-yl" style="--y:50">6小时</span><span class="xg-yl" style="--y:100">12小时</span><span class="xg-xl" style="--x:0.00">2023年</span><span class="xg-xl" style="--x:29.41">2024年</span><span class="xg-xl" style="--x:58.82">2025年</span><span class="xg-xl" style="--x:88.24">2026年</span><span class="xg-pt p0" style="--x:6.18;--y:0.56"></span><span class="xg-lb p0" style="--x:6.18;--y:0.56">GPT-4 · 4分钟</span><span class="xg-pt p1" style="--x:62.35;--y:8.33"></span><span class="xg-lb p1" style="--x:62.35;--y:8.33">Claude 3.7 · 1小时</span><span class="xg-pt p2" style="--x:84.41;--y:40.83"></span><span class="xg-lb p2" style="--x:84.41;--y:40.83">Opus 4.5 · 4.9小时</span><span class="xg-pt p3 hl" style="--x:91.76;--y:100.00"></span><span class="xg-lb p3 hl" style="--x:91.76;--y:100.00">Opus 4.6 · 12小时</span></div></figure></div>
+   <div class="pane xg xg-il" data-s="2"><div class="lr"><span class="org">对使用者意味着什么</span></div><div class="xg-cap">示意图，不是数据：工具越强，差距越大。</div>
+    <figure class="xg-plot"><div class="xg-area"><svg class="xg-grid" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true"><line class="ax" x1="0" x2="1000" y1="1000" y2="1000" vector-effect="non-scaling-stroke"/><line class="ax" x1="0" x2="0" y1="0" y2="1000" vector-effect="non-scaling-stroke"/></svg><svg class="xg-draw" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true"><path class="gp" d="M0.0,1000.0 L16.7,997.0 L33.3,993.7 L50.0,990.5 L66.7,987.1 L83.3,983.4 L100.0,979.6 L116.7,975.6 L133.3,971.4 L150.0,967.0 L166.7,962.4 L183.3,957.6 L200.0,952.6 L216.7,947.3 L233.3,941.7 L250.0,936.0 L266.7,929.9 L283.3,923.6 L300.0,916.9 L316.7,910.0 L333.3,902.8 L350.0,895.1 L366.7,887.1 L383.3,878.8 L400.0,870.0 L416.7,860.8 L433.3,851.2 L450.0,841.2 L466.7,830.5 L483.3,819.6 L500.0,808.0 L516.7,795.9 L533.3,783.2 L550.0,769.9 L566.7,756.0 L583.3,741.5 L600.0,726.2 L616.7,710.2 L633.3,693.5 L650.0,675.9 L666.7,657.6 L683.3,638.4 L700.0,618.2 L716.7,597.2 L733.3,575.1 L750.0,552.0 L766.7,527.8 L783.3,502.5 L800.0,475.9 L816.7,448.0 L833.3,418.9 L850.0,388.4 L866.7,356.5 L883.3,323.0 L900.0,287.9 L916.7,251.2 L933.3,212.8 L950.0,172.5 L966.7,130.4 L983.3,86.2 L1000.0,40.0 L1000.0,921.9 L983.3,923.2 L966.7,924.4 L950.0,925.8 L933.3,927.1 L916.7,928.3 L900.0,929.7 L883.3,931.0 L866.7,932.2 L850.0,933.6 L833.3,934.9 L816.7,936.1 L800.0,937.5 L783.3,938.8 L766.7,940.1 L750.0,941.4 L733.3,942.7 L716.7,944.0 L700.0,945.3 L683.3,946.6 L666.7,947.9 L650.0,949.2 L633.3,950.5 L616.7,951.8 L600.0,953.1 L583.3,954.5 L566.7,955.7 L550.0,957.0 L533.3,958.4 L516.7,959.6 L500.0,960.9 L483.3,962.3 L466.7,963.5 L450.0,964.8 L433.3,966.2 L416.7,967.4 L400.0,968.7 L383.3,970.1 L366.7,971.3 L350.0,972.7 L333.3,974.0 L316.7,975.2 L300.0,976.6 L283.3,977.9 L266.7,979.1 L250.0,980.5 L233.3,981.8 L216.7,983.0 L200.0,984.4 L183.3,985.7 L166.7,986.9 L150.0,988.3 L133.3,989.6 L116.7,990.8 L100.0,992.2 L83.3,993.5 L66.7,994.8 L50.0,996.1 L33.3,997.4 L16.7,998.7 L0.0,1000.0 Z"/><path class="cf" d="M0.0,1000.0 L16.7,998.7 L33.3,997.4 L50.0,996.1 L66.7,994.8 L83.3,993.5 L100.0,992.2 L116.7,990.8 L133.3,989.6 L150.0,988.3 L166.7,986.9 L183.3,985.7 L200.0,984.4 L216.7,983.0 L233.3,981.8 L250.0,980.5 L266.7,979.1 L283.3,977.9 L300.0,976.6 L316.7,975.2 L333.3,974.0 L350.0,972.7 L366.7,971.3 L383.3,970.1 L400.0,968.7 L416.7,967.4 L433.3,966.2 L450.0,964.8 L466.7,963.5 L483.3,962.3 L500.0,960.9 L516.7,959.6 L533.3,958.4 L550.0,957.0 L566.7,955.7 L583.3,954.5 L600.0,953.1 L616.7,951.8 L633.3,950.5 L650.0,949.2 L666.7,947.9 L683.3,946.6 L700.0,945.3 L716.7,944.0 L733.3,942.7 L750.0,941.4 L766.7,940.1 L783.3,938.8 L800.0,937.5 L816.7,936.1 L833.3,934.9 L850.0,933.6 L866.7,932.2 L883.3,931.0 L900.0,929.7 L916.7,928.3 L933.3,927.1 L950.0,925.8 L966.7,924.4 L983.3,923.2 L1000.0,921.9" vector-effect="non-scaling-stroke"/><path class="cv" d="M0.0,1000.0 L16.7,997.0 L33.3,993.7 L50.0,990.5 L66.7,987.1 L83.3,983.4 L100.0,979.6 L116.7,975.6 L133.3,971.4 L150.0,967.0 L166.7,962.4 L183.3,957.6 L200.0,952.6 L216.7,947.3 L233.3,941.7 L250.0,936.0 L266.7,929.9 L283.3,923.6 L300.0,916.9 L316.7,910.0 L333.3,902.8 L350.0,895.1 L366.7,887.1 L383.3,878.8 L400.0,870.0 L416.7,860.8 L433.3,851.2 L450.0,841.2 L466.7,830.5 L483.3,819.6 L500.0,808.0 L516.7,795.9 L533.3,783.2 L550.0,769.9 L566.7,756.0 L583.3,741.5 L600.0,726.2 L616.7,710.2 L633.3,693.5 L650.0,675.9 L666.7,657.6 L683.3,638.4 L700.0,618.2 L716.7,597.2 L733.3,575.1 L750.0,552.0 L766.7,527.8 L783.3,502.5 L800.0,475.9 L816.7,448.0 L833.3,418.9 L850.0,388.4 L866.7,356.5 L883.3,323.0 L900.0,287.9 L916.7,251.2 L933.3,212.8 L950.0,172.5 L966.7,130.4 L983.3,86.2 L1000.0,40.0" vector-effect="non-scaling-stroke"/></svg><span class="xg-axl y">能做到的事 ↑</span><span class="xg-axl x">时间 →</span><span class="xg-ll up">会用AI工具的人</span><span class="xg-ll fl">不用的人</span><span class="xg-gl">差距</span></div></figure></div>
+  </div></div>
+ <p class="fn" data-s="1"><span>METR《时间视野 1.1》，2026年1月29日：大约每7个月翻一倍。METR 数据（2026年10月13日核对）：GPT-4约4分钟，<span class="nw">Claude 3.7</span>约1小时，<span class="nw">Claude Opus 4.5</span>约4.9小时，<span class="nw">Claude Opus 4.6</span>约12小时。<span class="fn-il" data-s="2">右侧为示意图，不是数据</span></span></p>
+</div></section>
+
+<!-- 33 · Takeaway 2 -->
+<section class="s alt ae st tk"><div class="w"><div class="tk-g">
+ <div class="tk-n"><span>建议</span><b>2</b></div>
+ <div><p class="kick r">家庭现在能做的事</p><h2 class="r" style="--d:.1s">把AI用在真实、有分量的事上，<em>比如学校项目或求职申请。</em></h2>
+ <ol class="tk-prog"><li><i>1</i><span>了解工具</span></li><li class="on"><i>2</i><span>用于真实任务</span></li><li><i>3</i><span>动手创造</span></li></ol></div>
+</div></div></section>
+
+<!-- 34 · 我和 Kimi 的故事（1/3） -->
+<section class="s ae kimi3 k3a"><div class="w">
+ <p class="kick r">案例 · 我在 Kimi 的经历 · 1/3</p>
+ <h2 class="r" style="--d:.1s">学AI才两个月，<em>我用自己做的工具申请了 Kimi。</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="case3">
+  <div class="cs pane" data-s="1"><span class="lab">我做了什么</span><h3>一个AI面试准备工具，<br>和一个社媒追踪工具</h3><p>简历里还附上 GitHub 作品集，都是我用AI做的东西。</p></div>
+  <span class="cs-ar" data-s="2" aria-hidden="true">→</span>
+  <div class="cs pane" data-s="2"><span class="lab">面试时</span><h3>两个工具都现场演示</h3><p>展示我的AI能力，也展示我对 Kimi 和全球市场的理解。</p></div>
+  <span class="cs-ar" data-s="3" aria-hidden="true">→</span>
+  <div class="cs cs-out" data-s="3"><span class="lab">现场演示</span><h3><a class="k3-link" href="https://arenaschool.org/case-study-examples" target="_blank" rel="noopener"><span>arenaschool.org/</span><span>case-study-examples</span></a></h3><p>两个工具都在这个网站上，现在演示给大家看。</p></div>
+ </div>
+ <div class="cs-foot pane" data-s="4"><img class="brand km" src="/logos/deck/kimi.png" alt="Kimi"><p>应聘的是非技术岗位，<em>最有说服力的，是我用AI做出来的东西。</em></p></div>
+ </div>
+</div></section>
+
+<!-- 35 · 我和 Kimi 的故事（2/3） -->
+<section class="s alt ae kimi3 k3b"><div class="w">
+ <p class="kick r">案例 · 我在 Kimi 的经历 · 2/3</p>
+ <h2 class="r" style="--d:.1s">在 Kimi，重复的活交给AI，<em>判断留给自己。</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="case3">
+  <div class="cs pane" data-s="1"><span class="lab">我一直在做</span><h3>给自己的工作流做工具</h3><p>用AI做工具，日常工作更快。</p></div>
+  <span class="cs-ar" data-s="2" aria-hidden="true">→</span>
+  <div class="cs pane" data-s="2"><span class="lab">我怎么用</span><h3>重复的任务交出去</h3><p>哪些事自己来做，由我判断。</p></div>
+  <span class="cs-ar" data-s="3" aria-hidden="true">→</span>
+  <div class="cs cs-out" data-s="3"><span class="lab">带来的变化</span><h3>我进步得很快</h3><p>先在团队里，后来跨团队。</p></div>
+ </div>
+ <div class="cs-foot pane" data-s="4"><img class="brand km" src="/logos/deck/kimi.png" alt="Kimi"><p>这样，<em>我就能专注在真正重要的判断上。</em></p></div>
+ </div>
+</div></section>
+
+<!-- 36 · 我和 Kimi 的故事（3/3） -->
+<section class="s ae kimi3 k3c"><div class="w">
+ <p class="kick r">案例 · 我在 Kimi 的经历 · 3/3</p>
+ <h2 class="r" style="--d:.1s">在做增长工作的同时，<em>我还被安排负责HR。</em></h2>
+ <p class="k3-sub r" style="--d:.18s">Kimi 是一家AI公司，对员工的要求自然更高。但这也<span class="nw">预示着未来</span>：五到十年后，各行各业的入门岗位<span class="nw">很可能都会这样要求。</span></p>
+ <div class="bd r" style="--d:.25s"><div class="case3">
+  <div class="cs pane" data-s="1"><span class="lab">缘由</span><h3>领导层认为公司需要<span class="nw">更多AI原生的员工</span></h3><p><span class="nw">哪怕是市场、销售和产品</span><span class="nw">这些非技术团队。</span></p></div>
+  <span class="cs-ar" data-s="2" aria-hidden="true">→</span>
+  <div class="cs pane" data-s="2"><span class="lab">我招人先看</span><h3>真正会用AI工具</h3><p>知道哪些交给AI，哪些自己来做。</p></div>
+  <span class="cs-ar" data-s="3" aria-hidden="true">→</span>
+  <div class="cs cs-out" data-s="3"><span class="lab">再看</span><h3>主动性、审美与匠心</h3><p>用好AI，能腾出精力去创造。</p></div>
+ </div>
+ <div class="cs-foot pane" data-s="4"><img class="brand km" src="/logos/deck/kimi.png" alt="Kimi"><p>公司现在看重AI的熟练度，<em>哪怕是不需要技术背景的岗位。</em></p></div>
+ </div>
+</div></section>
+
+<!-- 36 · Takeaway 3 -->
+<section class="s alt ae st tk"><div class="w"><div class="tk-g">
+ <div class="tk-n"><span>建议</span><b>3</b></div>
+ <div><p class="kick r">家庭现在能做的事</p><h2 class="r" style="--d:.1s">尽管如此，这是孩子成长最好的时代之一，<em>也是动手创造的最好时机。</em></h2>
+ <ol class="tk-prog"><li><i>1</i><span>了解工具</span></li><li><i>2</i><span>用于真实任务</span></li><li class="on"><i>3</i><span>动手创造</span></li></ol></div>
+</div></div></section>
+
+<!-- 37 · Then and now -->
+<section class="s ae"><div class="w">
+ <p class="kick r">建议三 · 过去与现在</p>
+ <h2 class="r" style="--d:.1s">我们小时候，想法留在笔记本里；今天，孩子能<em>把它做成真东西。</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="tn-pair">
+  <span class="hd o">我们小时候</span><span aria-hidden="true"></span><span class="hd n">今天</span>
+  <div class="row"><p class="o" data-s="1">靠手工，慢慢做。</p><span class="arr" data-s="2" aria-hidden="true"><i></i></span><p class="n" data-s="2">一个下午，AI就能做出第一版。</p></div>
+  <div class="row"><p class="o" data-s="3">一个团队，加多年训练。</p><span class="arr" data-s="4" aria-hidden="true"><i></i></span><p class="n" data-s="4">一个孩子，一周就能做出第一版。</p></div>
+  <div class="row"><p class="o" data-s="5">做出来的东西只有家人看到。</p><span class="arr" data-s="6" aria-hidden="true"><i></i></span><p class="n" data-s="6">还在上学，就有真实的用户。</p></div>
+ </div></div>
+</div></section>
+
+<!-- 38 · Cursor -->
+<section class="s alt ae"><div class="w">
+ <p class="kick r">建议三 · Cursor，2022至2026年</p>
+ <h2 class="r" style="--d:.1s">2022年，四位麻省理工的朋友创办了 Cursor；SpaceX 以<em>600亿美元</em>将其收购。</h2>
+ <div class="bd r" style="--d:.25s"><div class="grow gcol" data-s="1">
+  <ol class="grow-n">
+   <li><div class="gc"><div class="gv"><img class="gl" src="/logos/tools/cursor.png" alt="Cursor"></div><span class="gb dot"></span></div><span class="dt">2022年</span><h3>四位麻省理工校友</h3><p>创办一款AI编程工具</p></li>
+   <li><div class="gc"><span class="gb dot"></span></div><span class="dt">2023年</span><h3>Cursor 发布</h3><p>一款AI代码编辑器</p></li>
+   <li style="--v:48.83"><div class="gc"><div class="gv"><div class="big">293<small>亿美元</small></div></div><span class="gb"></span></div><span class="dt">2025年11月</span><h3>D轮融资</h3><p>投后估值，年化收入超10亿美元</p></li>
+   <li class="end" style="--v:100"><div class="gc"><div class="gv"><div class="acq"><img class="gl" src="/logos/tools/cursor.png" alt="Cursor"><span class="to">→</span><img class="sx" src="/logos/deck/spacex.svg" alt="SpaceX"></div><div class="big">600<small>亿美元</small></div></div><span class="gb"></span></div><span class="dt">2026年8月</span><h3>SpaceX 收购</h3><p>全股票交易</p></li>
+  </ol>
+ </div></div>
+ <p class="fn" data-s="1"><span>Cursor D 轮融资公告，2025年11月13日；路透社、CNBC、彭博社，2026年6月16日；SpaceX 8-K 文件与 PitchBook，2026年8月14日</span></p>
+</div></section>
+
+<!-- 39 · What children can build -->
+<section class="s ae"><div class="w">
+ <p class="kick r">建议三 · 孩子能做出什么</p>
+ <h2 class="r" style="--d:.1s">五天里，一个十一岁的孩子<em>把手语变成了语音。</em></h2>
+ <div class="bd r" style="--d:.25s">
+  <div class="cs31">
+   <div class="pane cs-vp">
+    <figure class="vframe cs-v"><video autoplay muted loop playsinline preload="metadata" poster="/decks/img/conversation/hands-stage-poster.webp" src="/decks/img/conversation/hands-stage.mp4" aria-label="学生在笔记本电脑上测试手语应用"></video><img class="vposter" src="/decks/img/conversation/hands-stage-poster.webp" alt=""></figure>
+    <span class="cs-cap">一名初一学生用五天做成</span>
+   </div>
+   <div class="cs-side">
+    <ol class="cs-beats">
+     <li data-s="1"><span class="cs-k"><i>01</i><b>主动性</b><span>找到问题</span></span><p>他选了手语转语音，因为他的表亲是听障人士。<span class="nw">没有人布置这个题目。</span></p></li>
+     <li data-s="2"><span class="cs-k"><i>02</i><b>审美</b><span>听真实用户反馈</span></span><p>路演结束后他还在改，因为第一个版本，<span class="nw">他的奶奶还用不了。</span></p></li>
+     <li data-s="3"><span class="cs-k"><i>03</i><b>匠心</b><span>做完、发布</span></span><p>最难的不是AI，而是把音频做得足够清楚，<span class="nw">让奶奶愿意信任它。</span></p></li>
+    </ol>
+    <p class="cs-note" data-s="3">AI工具负责动手；<em>选题、判断和做完，靠他自己。</em></p>
+   </div>
+   <div class="pane cs-tools" data-s="4"><span class="cs-th">示例工具</span>
+    <ul>
+     <li><img src="/logos/tools/openai.png" alt="ChatGPT"></li>
+     <li><img src="/logos/tools/claude.png" alt="Claude"></li>
+     <li><img src="/logos/tools/kimi.png" alt="Kimi"></li>
+     <li><img src="/logos/tools/deepseek.png" alt="DeepSeek"></li>
+     <li><img src="/logos/tools/gemini.png" alt="Gemini"></li>
+     <li><img src="/logos/tools/doubao.png" alt="豆包"></li>
+     <li><img src="/logos/tools/perplexity.png" alt="Perplexity"></li>
+     <li><img src="/logos/tools/notion.png" alt="Notion"></li>
+     <li><img src="/logos/tools/figma.png" alt="Figma"></li>
+     <li><img src="/logos/tools/canva.png" alt="Canva"></li>
+     <li><img src="/logos/tools/ideogram.png" alt="Ideogram"></li>
+     <li><img src="/logos/tools/github.png" alt="GitHub"></li>
+     <li><img src="/logos/tools/vercel.png" alt="Vercel"></li>
+     <li><img src="/logos/tools/stripe.png" alt="Stripe"></li>
+    </ul></div>
+  </div>
+ </div>
+</div></section>
+
+
+<!-- 41 · Close -->
+<section class="s ae nv cl"><div class="w">
+ <p class="kick r">如果只记住一句话</p>
+ <h2 class="r" style="--d:.1s">工作正在被改写。<br><em>会用AI选题、判断、做完的孩子，走得更远。</em></h2>
+ <div class="bd r" style="--d:.25s">
+  <ol class="c3x">
+   <li data-s="1"><i>1</i><b>工作正在被改写</b><span>大约一半的岗位已经在用AI。</span></li>
+   <li data-s="2"><i>2</i><b>三项能力最要紧</b><span>主动性、审美与匠心：<span class="nw">选题、判断、做完。</span></span></li>
+   <li data-s="3"><i>3</i><b>成为AI原生</b><span>永远不嫌早，也永远不算晚。</span></li>
+  </ol>
+  <p class="endline" data-s="4">这些工具对每个人都是新的。所以，这是当孩子最好的时代。</p>
+ </div>
+</div></section>
+
+<!-- 42 · Q&A -->
+<section class="s alt ae"><div class="w">
+ <p class="kick r">ISB PTA 家长咖啡会 · 2026年10月14日</p>
+ <h2 class="r" style="--d:.1s">谢谢大家！<em>欢迎提问。</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="qa qa14">
+  <a class="qr pane qr-live qr-slides" href="https://arenaschool.org/talks/2026-10-isb-parent-coffee" target="_blank" rel="noopener"><img src="/decks/img/conversation/qr-isb-parent-coffee-tight.png" alt="arenaschool.org/talks/2026-10-isb-parent-coffee 二维码"><span>今天的讲义</span><small><span class="nw">arenaschool.org/talks/</span><wbr><span class="nw">2026-10-isb-parent-coffee</span></small></a>
+  <div class="qa-links pane">
+   <div class="qa-item"><span class="k">工具演示</span><a class="qa-url" href="https://arenaschool.org/case-study-examples" target="_blank" rel="noopener">arenaschool.org/case-study-examples</a><p>一步一步的演示，可以自己打开看。</p></div>
+  </div>
+ </div></div>
+</div></section>
+
+
+
+<script>/* Phone reader only (main.rd): keep Chinese words whole when a line wraps. Intl.Segmenter finds word
+   boundaries, so lines break between words (哈佛, 四分之一, 公司) instead of inside them. The 1920 deck skips this. */
+(function(){var me=document.currentScript,m=me&&me.closest('main.rd');if(!m||!window.Intl||!Intl.Segmenter)return;
+var sg=new Intl.Segmenter('zh',{granularity:'word'}),cjk=/[\u3400-\u9fff]/,w=document.createTreeWalker(m,NodeFilter.SHOW_TEXT),ns=[],n;
+while(n=w.nextNode()){var pe=n.parentElement;if(cjk.test(n.nodeValue)&&!pe.closest('.nw,cj-w,script,style,svg,a')&&!/flex|grid/.test(getComputedStyle(pe).display))ns.push(n)}
+ns.forEach(function(t){var f=document.createDocumentFragment(),buf='';
+ for(var s of sg.segment(t.nodeValue)){if(s.isWordLike&&s.segment.length>1&&cjk.test(s.segment)){if(buf){f.appendChild(document.createTextNode(buf));buf=''}var sp=document.createElement('cj-w');sp.textContent=s.segment;f.appendChild(sp)}else buf+=s.segment}
+ if(buf)f.appendChild(document.createTextNode(buf));t.parentNode.replaceChild(f,t)})})();</script>
+
+</main>
+<nav class="bot" aria-label="全部幻灯片"><button type="button" class="pv" aria-label="上一页"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" class="ctr" aria-label="全部幻灯片"><b></b><small></small></button><button type="button" class="nx"><span>下一页</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></nav>
+<button type="button" class="more-cue" aria-hidden="true" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="tip" role="status"></div>
+<div class="sheet" hidden role="dialog" aria-modal="true" aria-label="全部幻灯片"><div class="sh-p"><div class="sh-h"><b>全部幻灯片</b><button type="button" class="sh-x" aria-label="关闭"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></div><nav class="sh-l"></nav></div></div>
+<script>/* Phone reader for the parent-talk deck. See reader.css for the layout; build.py fills ChatGPT|Claude|Gemini|DeepSeek|Doubao:豆包|Qwen:通义千问|Yuanbao:腾讯元宝|ERNIE:文心一言|Grok|Copilot|Meta AI|Le Chat|Perplexity|Poe|Character.AI|Pi|ChatGLM:智谱清言|MiniMax|Hunyuan:混元|Spark:讯飞星火|Baichuan:百川|StepFun:阶跃AI|Skywork:天工|Metaso:秘塔AI搜索|Felo|You.com|Phind|Consensus|Elicit|Scite|NotebookLM|Notion AI|Gamma|Tome|Beautiful.ai|Pitch|Canva|Figma Make|Framer|Webflow|Lovable|Bolt|v0|Replit|Cursor|Windsurf|GitHub Copilot|TRAE|Claude Code|Codex|Devin|Tabnine|Cody|Zed|Warp|JetBrains AI|Amazon Q|Gemini CLI|Qoder|CodeBuddy|Comate:文心快码|Kiro|Midjourney|DALL·E|Ideogram|Leonardo|Firefly|Stable Diffusion|FLUX|Krea|Recraft|Playground|Lovart|Dreamina:即梦|Liblib:哩布哩布|Kolors:可图|Wanxiang:通义万相|Sora|Veo|Runway|Pika|Luma|Kling:可灵|Hailuo:海螺|Vidu|PixVerse|Seedance|HeyGen|Synthesia|D-ID|CapCut:剪映|Descript|OpusClip|Captions|Hedra|Higgsfield|InVideo|Flow|Suno|Udio|ElevenLabs|Murf|Speechify|Otter|Fireflies|Granola|Whisper|Krisp|AIVA|Comet|Dia|Atlas|Flowith|Coze:扣子|Dify|n8n|Zapier|Make|Lindy|Relevance AI|Gumloop|CrewAI|LangChain|AutoGPT|Cue|WorkBuddy|Fellou|AutoGLM|Grammarly|Jasper|Copy.ai|Writesonic|Sudowrite|QuillBot|Wordtune|DeepL|Rytr|Lex|Mem|Reflect|Superhuman|Motion|Reclaim|Clockwise|Fathom|tl;dv|Read AI|Tactiq|Zoom AI|Slack AI|Miro AI|Whimsical|Napkin|Glean|Raycast|Monica|Sider|MaxAI|Merlin|HARPA|Khanmigo|Duolingo Max|Quizlet|Photomath|Brainly|Gauth|Question.AI|Speak|Praktika|ELSA|MagicSchool|Brisk|Diffit|Curipod|SchoolAI|Squirrel AI:松鼠AI|Spline|Meshy|Tripo|Uizard|Stitch|Visily|Relume|Hugging Face|Supabase|Firebase Studio|AI Studio|OpenRouter|Ollama|LM Studio|Jan|Julius|Llama|Gemma|Adobe Express|Designer|Pictory|Lumen5|Notta|Plaud with the
+   market-map tool list from shared.js so the two views never drift.
+   One slide per screen, swiped sideways (native scroll-snap) or moved with the Next / Previous buttons and the keys.
+   Each slide builds once, the first time it is reached; reduced motion shows every slide fully built. */
+(function(){
+var H=document.documentElement,deck=document.getElementById('deck'),S=[].slice.call(deck.querySelectorAll('.s')),N=S.length;
+/* END: the closing slide (last one before the source appendix); Next there goes back to the talk's landing page */
+var END=(function(){for(var j=N-1;j>=0;j--)if(!S[j].classList.contains('s-src'))return j;return N-1})();
+var ZH=H.lang!=='en',KEY=ZH?'cn':'en',T=ZH?
+ {next:'下一页',start:'开始',done:'返回首页',prev:'上一页',all:'全部幻灯片',close:'关闭',appx:'附录',intro:'开场',tip:'左右滑动或点“下一页”翻页',slide:'第{n}页'}:
+ {next:'Next',start:'Start',done:'Back to start',prev:'Previous slide',all:'All slides',close:'Close',appx:'Appendix',intro:'Opening',tip:'Swipe or tap Next to turn the page',slide:'Slide {n}'};
+var motion=!matchMedia('(prefers-reduced-motion: reduce)').matches;
+var $=function(s,r){return (r||document).querySelector(s)};
+var nx=$('.nx'),pv=$('.pv'),ctr=$('.ctr'),bar=$('.prog'),lng=$('.lng'),cue=$('.more-cue');
+
+/* ---- sections: part titles from the navy chapter slides, so the counter can say where you are ---- */
+var part=[],cur='';
+S.forEach(function(s,i){
+ if(s.classList.contains('sec')){var on=s.querySelector('.trk li.on b');cur=on?on.textContent.trim():''}
+ if(s.classList.contains('s-src'))cur=T.appx;
+ part[i]=cur||T.intro});
+S.forEach(function(s,i){if(s.classList.contains('sec')){var t=document.createElement('b');t.style.left=(i/N*100)+'%';bar.appendChild(t)}});
+
+/* ---- build units: every [data-s] step; a slide with none builds its body as one step ---- */
+var units=S.map(function(s){var u=[].slice.call(s.querySelectorAll('[data-s]'));
+ if(!u.length){var bd=s.querySelector('.bd');if(bd&&!bd.querySelector('.mk')){bd.dataset.s=1;u=[bd]}}
+ return u});
+[].forEach.call(document.querySelectorAll('.tln,.agx,.sk-tools'),function(g){[].forEach.call(g.children,function(c,i){c.style.setProperty('--i',i)})});
+
+/* statement titles build word by word in English and phrase by phrase in Chinese */
+if(motion)[].forEach.call(document.querySelectorAll('.st h2,.sec h2,.tk h2,.bq h2,.cl h2,.cover h1'),function(h){var i=0;
+ (function walk(n){[].slice.call(n.childNodes).forEach(function(c){
+  if(c.nodeType===3){var f=document.createDocumentFragment(),parts=ZH?c.nodeValue.replace(/([，。、：；？！])/g,'$1\u0001').split('\u0001'):c.nodeValue.split(/(\s+)/);
+   parts.forEach(function(p){if(!p)return;if(!ZH&&/^\s+$/.test(p)){f.appendChild(document.createTextNode(p));return}
+    var w=document.createElement('span');w.className=ZH?'phr':'wd';w.style.setProperty('--i',i++);w.textContent=p;f.appendChild(w)});
+   n.replaceChild(f,c)}else if(c.nodeType===1&&c.tagName!=='BR'&&!c.classList.contains('rot'))walk(c)})})(h)});
+
+/* ---- market map: the same named tools as the deck, lit in a scattered order on an accelerating curve ---- */
+var TOOLS='ChatGPT|Claude|Gemini|DeepSeek|Doubao:豆包|Qwen:通义千问|Yuanbao:腾讯元宝|ERNIE:文心一言|Grok|Copilot|Meta AI|Le Chat|Perplexity|Poe|Character.AI|Pi|ChatGLM:智谱清言|MiniMax|Hunyuan:混元|Spark:讯飞星火|Baichuan:百川|StepFun:阶跃AI|Skywork:天工|Metaso:秘塔AI搜索|Felo|You.com|Phind|Consensus|Elicit|Scite|NotebookLM|Notion AI|Gamma|Tome|Beautiful.ai|Pitch|Canva|Figma Make|Framer|Webflow|Lovable|Bolt|v0|Replit|Cursor|Windsurf|GitHub Copilot|TRAE|Claude Code|Codex|Devin|Tabnine|Cody|Zed|Warp|JetBrains AI|Amazon Q|Gemini CLI|Qoder|CodeBuddy|Comate:文心快码|Kiro|Midjourney|DALL·E|Ideogram|Leonardo|Firefly|Stable Diffusion|FLUX|Krea|Recraft|Playground|Lovart|Dreamina:即梦|Liblib:哩布哩布|Kolors:可图|Wanxiang:通义万相|Sora|Veo|Runway|Pika|Luma|Kling:可灵|Hailuo:海螺|Vidu|PixVerse|Seedance|HeyGen|Synthesia|D-ID|CapCut:剪映|Descript|OpusClip|Captions|Hedra|Higgsfield|InVideo|Flow|Suno|Udio|ElevenLabs|Murf|Speechify|Otter|Fireflies|Granola|Whisper|Krisp|AIVA|Comet|Dia|Atlas|Flowith|Coze:扣子|Dify|n8n|Zapier|Make|Lindy|Relevance AI|Gumloop|CrewAI|LangChain|AutoGPT|Cue|WorkBuddy|Fellou|AutoGLM|Grammarly|Jasper|Copy.ai|Writesonic|Sudowrite|QuillBot|Wordtune|DeepL|Rytr|Lex|Mem|Reflect|Superhuman|Motion|Reclaim|Clockwise|Fathom|tl;dv|Read AI|Tactiq|Zoom AI|Slack AI|Miro AI|Whimsical|Napkin|Glean|Raycast|Monica|Sider|MaxAI|Merlin|HARPA|Khanmigo|Duolingo Max|Quizlet|Photomath|Brainly|Gauth|Question.AI|Speak|Praktika|ELSA|MagicSchool|Brisk|Diffit|Curipod|SchoolAI|Squirrel AI:松鼠AI|Spline|Meshy|Tripo|Uizard|Stitch|Visily|Relume|Hugging Face|Supabase|Firebase Studio|AI Studio|OpenRouter|Ollama|LM Studio|Jan|Julius|Llama|Gemma|Adobe Express|Designer|Pictory|Lumen5|Notta|Plaud'.split('|');
+[].forEach.call(document.querySelectorAll('.mk'),function(mk){var box=mk.querySelector('.mk-field');if(!box)return;
+ var n=TOOLS.length,ord=TOOLS.map(function(x,i){return i}),seed=7,TF=2200,frag=document.createDocumentFragment();
+ for(var i=n-1;i>0;i--){seed=(seed*16807)%2147483647;var j=seed%(i+1),x=ord[i];ord[i]=ord[j];ord[j]=x}
+ TOOLS.forEach(function(x,i){var p=x.split(':'),el=document.createElement('span'),t=Math.round(TF*Math.pow((ord[i]+1)/n,.6));
+  el.textContent=ZH&&p[1]?p[1]:p[0];el.dataset.t=t;el.style.setProperty('--d',t+'ms');frag.appendChild(el);frag.appendChild(document.createTextNode(' '))});
+ box.appendChild(frag);mk.dataset.tf=TF;var big=mk.querySelector('.mk-big');if(big)mk.dataset.big=big.textContent.replace(/\D/g,'');
+ var c=mk.querySelector('.mk-n');if(c)c.textContent=n});
+
+/* ---- counters: the first number in each .big / .cnt counts up, keeping its prefix, commas, decimals, and unit ---- */
+function firstNum(el){var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);while(w.nextNode())if(/\d/.test(w.currentNode.nodeValue))return w.currentNode;return null}
+function countUp(roots){if(!motion)return;var els=[];
+ roots.forEach(function(r){if(r.matches('.big,.cnt'))els.push(r);[].push.apply(els,r.querySelectorAll('.big,.cnt'))});
+ els.forEach(function(el){if(el.dataset.run||el.classList.contains('nc')||el.closest('.mk'))return;
+  var t=firstNum(el);if(!t)return;var full=t.nodeValue,m=full.match(/^([^\d]*)(\d[\d,]*(?:\.\d+)?)([\s\S]*)$/);if(!m)return;
+  var raw=m[2],to=parseFloat(raw.replace(/,/g,'')),dec=(raw.split('.')[1]||'').length,cm=raw.indexOf(',')>=0,t0=0,D=to>=1000?1500:1100;
+  el.dataset.run=1;el.style.minWidth=el.getBoundingClientRect().width+'px';
+  requestAnimationFrame(function f(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/D),v=to*(1-Math.pow(1-p,4));
+   if(p>=1){t.nodeValue=full;el.style.minWidth='';return}
+   t.nodeValue=m[1]+(cm?Math.round(v).toLocaleString('en-US'):v.toFixed(dec))+m[3];requestAnimationFrame(f)})})}
+
+/* ---- builds ---- */
+var timers=[],mkRaf=0,building=-1;
+function clearT(){timers.forEach(clearTimeout);timers=[];cancelAnimationFrame(mkRaf)}
+function settle(s){s.classList.remove('arm','go');s.classList.add('seen')}
+function mkSet(mk,n,v){var c=mk.querySelector('.mk-n'),b=mk.querySelector('.mk-big');if(c)c.textContent=n;if(b)b.textContent=v.toLocaleString('en-US')}
+function finish(i){if(i<0)return;var s=S[i];if(!s.classList.contains('arm'))return;clearT();
+ s.classList.add('go');units[i].forEach(function(u){u.classList.add('vis')});
+ [].forEach.call(s.querySelectorAll('.mk'),function(mk){mk.classList.add('stat');mkSet(mk,TOOLS.length,+mk.dataset.big||0)});
+ setTimeout(function(){settle(s)},700);if(building===i)building=-1}
+function play(i){var s=S[i];if(!motion||!s.classList.contains('arm')||s.classList.contains('go'))return;
+ clearT();building=i;void s.offsetWidth;s.classList.add('go');
+ var u=units[i],groups={};u.forEach(function(e){var k=+e.dataset.s||1;(groups[k]=groups[k]||[]).push(e)});
+ var ks=Object.keys(groups).map(Number).sort(function(a,b){return a-b}),hero=s.querySelector('.wd,.phr'),
+  t0=hero?Math.min(900,s.querySelectorAll('.wd,.phr').length*55+250):280,gap=ks.length>3?320:420;
+ ks.forEach(function(k,j){timers.push(setTimeout(function(){groups[k].forEach(function(e){e.classList.add('vis')});countUp(groups[k])},t0+j*gap))});
+ var mk=s.querySelector('.mk'),end=t0+ks.length*gap+900;
+ if(mk){var sp=[].slice.call(mk.querySelectorAll('.mk-field span')),TF=+mk.dataset.tf,big=+mk.dataset.big||0,TS=TF+600,TB=900,st=performance.now();mkSet(mk,0,0);
+  (function f(now){var e=now-st,n=0;for(var q=0;q<sp.length;q++)if(+sp[q].dataset.t<=e)n++;
+   if(e>TS-250)mk.classList.add('stat');var b=e<TS?0:Math.min(1,(e-TS)/TB);mkSet(mk,n,Math.round(big*(1-Math.pow(1-b,3))));
+   if(e<TS+TB+40)mkRaf=requestAnimationFrame(f)})(st);end=Math.max(end,TS+TB+400)}
+ timers.push(setTimeout(function(){settle(s);building=-1},end+400))}
+if(motion)S.forEach(function(s){s.classList.add('arm')});
+
+/* ---- navigation ---- */
+var idx=-1,shown=-1;
+function w(){return deck.clientWidth||1}
+function at(){return Math.max(0,Math.min(N-1,Math.round(deck.scrollLeft/w())))}
+function go(i,instant){i=Math.max(0,Math.min(N-1,i));
+ deck.scrollTo({left:i*w(),behavior:instant||!motion?'instant':'smooth'})}
+function label(i){var tp=$('.tip');if(tp&&i>0)tp.classList.remove('on');
+ nx.querySelector('span').textContent=i===0?T.start:i===END||i===N-1?T.done:T.next;
+ nx.setAttribute('aria-label',i===END||i===N-1?T.done:T.next);
+ pv.disabled=i===0;
+ ctr.querySelector('b').innerHTML=(i+1)+' <span>/ '+N+'</span>';
+ ctr.querySelector('small').textContent=part[i];
+ bar.style.setProperty('--p',(i+1)/N);
+ var s=S[i];H.classList.toggle('dk',s.classList.contains('nv'));H.classList.toggle('bg-alt',s.classList.contains('alt'));
+ var m=document.querySelector('meta[name=theme-color]');if(m)m.content=s.classList.contains('nv')?'#0B1A4A':s.classList.contains('alt')?'#EFE3D4':'#F3E9DD';
+ if(lng)lng.href=lng.getAttribute('data-base')+'#'+(i+1)}
+function arrive(i){if(i===shown)return;
+ if(building>=0&&building!==i)finish(building);
+ shown=i;play(i);moreCue();
+ try{history.replaceState(null,'','#'+(i+1));localStorage.setItem('arena-talk-slide-/talks/2026-10-isb-parent-coffee-'+KEY,i+1)}catch(e){}}
+function onScroll(){var i=at();if(i!==idx){idx=i;label(i)}
+ if(Math.abs(deck.scrollLeft-i*w())<w()*.12)arrive(i)}
+var raf=0;deck.addEventListener('scroll',function(){if(!raf)raf=requestAnimationFrame(function(){raf=0;onScroll()})},{passive:true});
+
+nx.addEventListener('click',function(){if(idx===END||idx===N-1){location.href='/talks/2026-10-isb-parent-coffee';return}finish(idx);go(idx+1)});
+pv.addEventListener('click',function(){go(idx-1)});
+addEventListener('keydown',function(e){if(sheet.classList.contains('open')){if(e.key==='Escape')closeList();return}
+ if(e.altKey||e.ctrlKey||e.metaKey)return;
+ if(['ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();if(idx===END||idx===N-1){location.href='/talks/2026-10-isb-parent-coffee';return}finish(idx);go(idx+1)}
+ else if(['ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();go(idx-1)}
+ else if(e.key==='Home'){e.preventDefault();go(0)}else if(e.key==='End'){e.preventDefault();go(N-1)}});
+[].forEach.call(document.querySelectorAll('[data-go]'),function(a){a.addEventListener('click',function(e){e.preventDefault();go(+a.dataset.go)})});
+/* keep the same slide in view through rotation and resizes */
+var keep=0;addEventListener('resize',function(){var i=idx;clearTimeout(keep);deck.scrollLeft=i*w();keep=setTimeout(function(){deck.scrollLeft=i*w();moreCue()},150)});
+
+/* ---- "more below": a quiet arrow when the current slide is taller than the screen ---- */
+function moreCue(){var s=S[shown];if(!s||!cue)return;var m=s.scrollHeight-s.clientHeight-s.scrollTop>8;cue.classList.toggle('on',m);H.classList.toggle('more',m)}
+S.forEach(function(s){s.addEventListener('scroll',function(){if(S[shown]===s)moreCue()},{passive:true})});
+if(cue)cue.addEventListener('click',function(){var s=S[shown];s.scrollBy({top:s.clientHeight*.7,behavior:motion?'smooth':'instant'})});
+
+/* ---- slide list ---- */
+var sheet=$('.sheet'),list=$('.sh-l'),lastFocus=null;
+(function(){var g='',html='';S.forEach(function(s,i){
+ if(part[i]!==g){g=part[i];html+='<p class="sh-g">'+esc(g)+'</p>'}
+ var h=s.querySelector('h1,h2'),t=h?h.cloneNode(true):null;
+ if(t){[].forEach.call(t.querySelectorAll('.sub,br'),function(x){x.replaceWith(' ')});}
+ var txt=t?t.innerHTML.replace(/<(?!\/?em\b)[^>]+>/g,'').replace(/\s+/g,' ').trim():'';
+ html+='<a href="#'+(i+1)+'" data-i="'+i+'"><i>'+(i+1)+'</i><span>'+txt+'</span></a>'});
+ list.innerHTML=html})();
+function esc(s){return s.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function openList(){lastFocus=document.activeElement;sheet.hidden=false;
+ [].forEach.call(list.querySelectorAll('a'),function(a){if(+a.dataset.i===idx)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current')});
+ requestAnimationFrame(function(){sheet.classList.add('open');var a=list.querySelector('[aria-current]');if(a)a.scrollIntoView({block:'center'});$('.sh-x').focus()})}
+function closeList(){sheet.classList.remove('open');setTimeout(function(){sheet.hidden=true},380);if(lastFocus)lastFocus.focus()}
+$('.lst').addEventListener('click',openList);ctr.addEventListener('click',openList);
+$('.sh-x').addEventListener('click',closeList);
+sheet.addEventListener('click',function(e){if(e.target===sheet)closeList()});
+list.addEventListener('click',function(e){var a=e.target.closest('a');if(!a)return;e.preventDefault();var i=+a.dataset.i;
+ if(i!==idx)finish(idx);closeList();go(i,true)});
+
+/* ---- start: #n opens slide n; save the language for the landing page ---- */
+try{localStorage.setItem('arena-talk-lang',ZH?'zh':'en')}catch(e){}
+var h=parseInt((location.hash||'').slice(1),10),start=h>=1&&h<=N?h-1:0;
+idx=start;label(start);
+requestAnimationFrame(function(){deck.scrollLeft=start*w();idx=at();label(idx);setTimeout(function(){arrive(idx)},motion?250:0)});
+if(start===0){var tip=$('.tip');if(tip){var seenTip=false;try{seenTip=!!localStorage.getItem('arena-talk-tip')}catch(e){}
+ if(!seenTip){tip.textContent=T.tip;setTimeout(function(){tip.classList.add('on')},1600);setTimeout(function(){tip.classList.remove('on')},6200);
+  deck.addEventListener('scroll',function(){tip.classList.remove('on')},{passive:true,once:true});try{localStorage.setItem('arena-talk-tip','1')}catch(e){}}}}
+})();
+</script>
+<script>
+/* CJK orphan guard: keep the last 3 characters (plus closing punctuation) of each text block together */
+(function(){var sel='h1,h2,h3,p,li,dd,.quote,.cap,.step b,.t,.mc b';var re=/([\u3400-\u9fff][\u3400-\u9fff\u3000-\u303f\uff00-\uffef“”‘’」』]{0,2}[\u3400-\u9fff][\u3000-\u303f\uff00-\uffef“”‘’」』?？。，、！]*\s*)$/;
+document.querySelectorAll(sel).forEach(function(el){var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT),n,last=null;while(n=w.nextNode()){if(n.nodeValue.trim())last=n}
+ if(!last)return;var m=last.nodeValue.match(re);if(!m)return;var t=last.nodeValue;var sp=document.createElement('span');sp.style.whiteSpace='nowrap';sp.textContent=m[1];last.nodeValue=t.slice(0,t.length-m[1].length);last.parentNode.insertBefore(sp,last.nextSibling)})})();
+</script>
+</body></html>

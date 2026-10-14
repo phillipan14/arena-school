@@ -147,6 +147,56 @@
       "source": "/programs/portfolio-workshop-cn",
       "destination": "/programs/website-portfolio-workshop-cn",
       "permanent": true
+    },
+    {
+      "source": "/talk",
+      "destination": "/talks/2026-10-isb-parent-coffee",
+      "permanent": true
+    },
+    {
+      "source": "/talk/en",
+      "destination": "/talks/2026-10-isb-parent-coffee/read/en",
+      "permanent": true
+    },
+    {
+      "source": "/talk/cn",
+      "destination": "/talks/2026-10-isb-parent-coffee/read/cn",
+      "permanent": true
+    },
+    {
+      "source": "/decks/conversation",
+      "destination": "/talks/2026-10-isb-parent-coffee/deck",
+      "permanent": true
+    },
+    {
+      "source": "/decks/conversation-cn",
+      "destination": "/talks/2026-10-isb-parent-coffee/deck-cn",
+      "permanent": true
+    },
+    {
+      "source": "/decks/conversation.html",
+      "destination": "/talks/2026-10-isb-parent-coffee/deck",
+      "permanent": true
+    },
+    {
+      "source": "/decks/conversation-cn.html",
+      "destination": "/talks/2026-10-isb-parent-coffee/deck-cn",
+      "permanent": true
+    },
+    {
+      "source": "/talk/Arena-Parent-Conversation-EN.pdf",
+      "destination": "/talks/2026-10-isb-parent-coffee/slides-en.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/talk/Arena-Parent-Conversation-CN.pdf",
+      "destination": "/talks/2026-10-isb-parent-coffee/slides-cn.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/talk/slides/:path*",
+      "destination": "/talks/2026-10-isb-parent-coffee/slides/:path*",
+      "permanent": true
     }
   ],
   "headers": [
