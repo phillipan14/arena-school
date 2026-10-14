@@ -1,0 +1,39 @@
+/* Final design audit, Chinese deck (Oct 13 night). Every rule is scoped to :lang(zh-CN) so the English deck is untouched. */
+
+/* s08 lawyers: card content sat 8px higher than the bottom gap; even the three cards out */
+:lang(zh-CN) .st3 > .pane > .mb{height:135px}
+
+/* s19 practice: "作业做完了，思考却跳过了。" fits on one line at 30px instead of two short lines */
+:lang(zh-CN) .ae .bd .pair.prac .pc.lt p:not(.say){font-size:30px}
+/* s19 navy card: each section's ink sat ~5px high (pill top 26 vs text bottom 36); shift content down */
+:lang(zh-CN) .ae .bd .pair.prac .tri-r{padding:20px 0 12px}
+
+/* s24 agent cards: icons nearly touched the card edges (12px); smaller icon, roomier inset */
+:lang(zh-CN) .agx.six img{width:32px;height:32px;border-radius:8px}
+:lang(zh-CN) .ae .bd .agx.six li,:lang(zh-CN) .ae .bd .agx.six li:last-child{padding:11px}
+
+/* s33 tools strip: 15px above and below the icon row felt cramped */
+:lang(zh-CN) .ae .bd .cs31 .cs-tools{padding:17px 26px}
+:lang(zh-CN) .cs31 .cs-tools img{width:27px;height:27px;border-radius:7px}
+
+/* s36–37 sources: rows sat 18px from the card's top and bottom edges */
+:lang(zh-CN) .ae .bd .srcs.pane{padding:20px 26px 24px}
+/* s18: every body is one line now, so drop the two-line reservation that left an empty band under each card */
+:lang(zh-CN) .ae .bd .why5g .why5 span{min-height:0}
+/* s24 "200+ tools" card: heading sat 18px from the top edge vs 27px at the bottom; even and roomier */
+:lang(zh-CN) .ae .bd .mk-map{padding:16px 22px 12px}
+
+/* Vertical centering by ink (measured on the 2x export screenshots): line-box leading left each card's
+   content sitting high or low by a few px. Nudge the content, not the cards, so rows and heights stay put. */
+:lang(zh-CN) .tocf li a>span{transform:translateY(4.4px)}                 /* s02 agenda: was 161 above / 173 below */
+:lang(zh-CN) .cmp2>.pane>*{transform:translateY(4.5px)}                    /* s13: 68 / 80 */
+:lang(zh-CN) .dns>.pane.dn:not(:has(.ring2))>*{transform:translateY(-2.6px)} /* s16: 212 / 205 */
+:lang(zh-CN) .ae .bd .wefx{padding:19.2px 28px 12.8px}                  /* s17 bars card: 21 / 30 */
+:lang(zh-CN) .why5g .why5 li>*{transform:translateY(7.4px)}                /* s18: 147 / 166 */
+:lang(zh-CN) .kimi3.k3a .case3>.cs>*{transform:translateY(3.6px)}         /* s27: 57.5 / 67 */
+:lang(zh-CN) .kimi3:not(.k3a) .case3>.cs>*{transform:translateY(3.4px)}   /* s28–29: 107 / 116 */
+:lang(zh-CN) .tln-pane>*{transform:translateY(1.7px)}                      /* s10: 100 / 104.5 */
+:lang(zh-CN) .mk-stat>*{transform:translateY(1.5px)}                       /* s24 Hugging Face card: 55.5 / 59.5 */
+:lang(zh-CN) .tn-pair .row p{padding:24.5px 26px 19.5px}                   /* s31 then/now cards: 69 / 76 */
+:lang(zh-CN) .ae:has(.st3)>.w>.fn{padding:11.9px 20px 8.1px}              /* s08 source strip: 15.5 / 20.5 */
+:lang(zh-CN) .ae .bd .pane.xg{padding:36.9px 40px 35.1px!important}   /* s25 chart cards: 45.5 / 49.5 */

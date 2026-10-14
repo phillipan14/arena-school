@@ -1,0 +1,38 @@
+/* Final EN design audit (Oct 13 night). Every rule is scoped to English. */
+/* s2 agenda: all three card titles on two lines, so the shared row grid centers every card */
+:lang(en) .toc .tocf b{font-size:38px}
+/* s8 lawyers: balance broke the title before the whole italic phrase; wrap normally */
+:lang(en) .s:has(.st3) h2{text-wrap:wrap}
+/* s18 skills: Agency fits two lines like Taste and Craft */
+:lang(en) .ae .bd .why5g .why5 span{font-size:26px}
+/* s25 illustration: no paper box behind the flat-line label */
+:lang(en) .xg-ll.fl{background:transparent;padding:0}
+/* s33 beats and s34 close: no phrase split across lines */
+:lang(en) .ae .bd .cs31 .cs-beats p,:lang(en) .c3x span{text-wrap:balance}
+/* s36-37 sources: date column only as wide as its date, giving the source text the room */
+:lang(en) .ae .srcs li{grid-template-columns:minmax(0,1fr) auto}
+/* s8 lawyers: label ink sat 51px below the card top while the bars sit 41px above the bottom; 28px top makes both 41 */
+:lang(en) .st3 > .pane{padding-top:28px!important}
+/* s18 skills: Craft wraps like Agency and Taste so all three cards share one rhythm */
+:lang(en) .ae .bd .why5g .why5 li:nth-child(3) span{max-width:12em;text-wrap:balance}
+/* s18 skills: every body is two lines now, so reserve two (an earlier pass reserved three, which left a blank line under the text) */
+:lang(en) .ae .bd .why5g .why5 span{min-height:2lh}
+/* Vertical centering by ink, measured at stage scale (1 CSS px = 1.32 stage px); offsets allow for descenders */
+/* s2 agenda cards: content sat 3.5 stage px high */
+:lang(en) .toc .tocf a > *{position:relative;top:3px}
+/* s3 speaker cards: photo-to-logos block sat 5 stage px high */
+:lang(en) .spk2 .sp > *{position:relative;top:4px}
+/* s13 youth jobs: both cards sat about 7 stage px high (shared rows, same shift) */
+:lang(en) .cmp2 .pane > *{position:relative;top:2px}
+/* s17 skills bars: the label was only 16px below the card top; give it room and balance */
+:lang(en) .ae .wefx{padding-top:24px;padding-bottom:18px}
+/* s18 skills: content sat about 10 stage px high once descenders are discounted */
+:lang(en) .ae .bd .why5g .why5 li,:lang(en) .ae .bd .why5g .why5 li:nth-child(n){padding-top:51px;padding-bottom:41px}
+/* s19 practice card: each section sat 3 stage px high */
+:lang(en) .ae .bd .pair.prac .tri-r{padding-top:18px;padding-bottom:14px}
+/* s25 charts: both cards sat 2.75 stage px high */
+:lang(en) .pane.xg > *{position:relative;top:2px}
+/* s36-37 sources: the last rule sat closer to the card bottom (18.5) than the first line to the top (27.5) */
+:lang(en) .ae .bd .srcs.pane{padding-bottom:21px}
+/* s9 title: the italic "staff" overhangs toward "in"; a small gap after the italic phrase */
+:lang(en) .s:has(.duo) h2 em{margin-right:.1em}

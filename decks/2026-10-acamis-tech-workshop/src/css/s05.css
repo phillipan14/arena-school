@@ -1,0 +1,14 @@
+/* s05 · center each big number between the card's left border and the divider.
+   The card's left padding and the column gap move into the number's own box (same total width,
+   so the divider and text column stay put); the number is centered inside that box. */
+@media (min-width:701px){
+ section.s05 .card.stat.h{padding-left:0;column-gap:0;
+  --s05-pad:calc((clamp(22px,1.9vw,30px) + clamp(22px,2.2vw,36px)) / 2)}
+ section.s05 .card.stat.h .num{text-align:center;padding:0 var(--s05-pad);
+  min-width:calc(2.6ch + 2 * var(--s05-pad))}
+}
+/* optical nudge: glyph side bearings are uneven ("+35%" carries extra room on its right), so shift by ink */
+@media (min-width:701px){
+ section.s05 .card.stat.h:nth-child(1) .num{position:relative;left:.013em}
+ section.s05 .card.stat.h:nth-child(2) .num{position:relative;left:-.04em}
+}

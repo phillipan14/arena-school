@@ -1,0 +1,40 @@
+/* Round 3a (JJ, Oct 13): optical alignment on slides 2, 8, 9, and 10. */
+
+/* s2 agenda: center the numeral's ink (figure height, no descenders) on the icon circle, not its line box */
+.toc .tocf .tn{position:relative;top:11px}
+
+/* s8: bar rows sit centered between the divider and the card's bottom edge, the same in all three cards.
+   The bar block replaces the card's 36px bottom padding and keeps one height, so the dividers stay level. */
+.st3 > .pane{padding-bottom:0!important}
+.st3 > .pane > .mb{height:122px;min-height:0;margin-bottom:0;padding:0;align-content:center}
+
+/* s9: the logo + caption block in each card sits optically centered (logo ink top to last text line equals the card's top and bottom space).
+   The text's half-leading below the last line made each block read high; nudge per card (CSS px; the stage renders ×1.32). */
+.duo .pane:not(.dk) .lr,.duo .pane:not(.dk) p{transform:translateY(5.5px)}
+.duo .pane.dk .lr,.duo .pane.dk p{transform:translateY(3.7px)}
+:lang(zh-CN) .duo .pane:not(.dk) .lr,:lang(zh-CN) .duo .pane:not(.dk) p{transform:translateY(5.1px)}
+:lang(zh-CN) .duo .pane.dk .lr,:lang(zh-CN) .duo .pane.dk p{transform:translateY(5.6px)}
+
+/* Optical left edge: a big serif figure starts with side bearing, so its ink sat right of the caption, label, or bar below it.
+   Pull each figure left so its leftmost ink lines up with the caption's (measured per glyph, CSS px; stage renders ×1.32). */
+/* s10 Amazon */
+.tln li:nth-child(2) .big{margin-left:-8.3px}
+.tln li.end .big{margin-left:-9.1px}
+:lang(zh-CN) .tln li:nth-child(2) .big,:lang(zh-CN) .tln li.end .big{margin-left:-6.8px}
+/* s8 lawyers */
+.st3 > .pane:nth-child(1) .big{margin-left:-4.5px}
+.st3 > .pane:nth-child(2) .big{margin-left:-2.3px}
+.st3 > .pane:nth-child(3) .big{margin-left:-4.5px}
+:lang(zh-CN) .st3 > .pane:nth-child(1) .big{margin-left:-3px}
+:lang(zh-CN) .st3 > .pane:nth-child(2) .big{margin-left:-.8px}
+:lang(zh-CN) .st3 > .pane:nth-child(3) .big{margin-left:-3.8px}
+/* s13 young workers */
+.cmp2 > .pane.dk .big{margin-left:-11.4px}
+.cmp2 > .pane:not(.dk) .big.lo{margin-left:-4.5px}
+:lang(zh-CN) .cmp2 > .pane.dk .big{margin-left:-8.3px}
+:lang(zh-CN) .cmp2 > .pane:not(.dk) .big.lo{margin-left:-.8px}
+/* s14 China students: figures over their bars */
+.arc .an:first-child .big{margin-left:-9.8px}
+.arc .an:last-child .big{margin-left:-3.8px}
+:lang(zh-CN) .arc .an:first-child .big{margin-left:-9.1px}
+:lang(zh-CN) .arc .an:last-child .big{margin-left:-3.8px}

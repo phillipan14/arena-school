@@ -1,0 +1,6 @@
+/* fresh-eyes QA, slides 1-18 */
+/* s03 CN: the romanized name sat 0.55em right of the Chinese name above it */
+.sp h3 .xn{margin-left:0}
+/* s14: the YET / 但 pill centers on the number's ink, not on the whole column (number + bar) */
+.arc .ar2.vs span{transform:translateY(-23px)}
+:lang(zh-CN) .arc .ar2.vs span{transform:translateY(-18px)}

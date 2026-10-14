@@ -1,0 +1,14 @@
+/* Slide 19: what agency, taste, and craft look like in practice (JJ, Oct 13).
+   Left: the "Before" habit. Right: one navy card split into three equal sections. */
+:root{--hl-light:#5B7FD1}
+.s h2 em.hl-l{color:var(--hl-light)}
+.ae .bd .pair.prac{grid-template-columns:minmax(0,5fr) minmax(0,7fr);align-items:stretch}
+.ae .bd .pair.prac .pc.lt{justify-content:center;gap:28px;padding:var(--pad-l)}
+.ae .bd .pair.prac .pc.lt .say{min-height:0}
+.ae .bd .pair.prac .pc.tri{display:flex;flex-direction:column;align-items:stretch;gap:0;padding:6px 48px}
+.ae .bd .pair.prac .tri-r{flex:1 1 0;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:12px;padding:16px 0;border-top:1px solid rgba(252,243,237,.18)}
+.ae .bd .pair.prac .tri-r:first-child{border-top:0}
+.ae .bd .pair.prac .tri-r .pl{justify-self:start}
+.ae .bd .pair.prac .tri-r p{margin:0;font-size:28px;line-height:1.4;color:var(--paper-hi)}
+:lang(zh-CN) .ae .bd .pair.prac .tri-r p{font-size:26px;line-height:1.5}
+:lang(zh-CN) .ae .bd .pair.prac .pc.lt .say{font-size:44px;line-height:1.35}

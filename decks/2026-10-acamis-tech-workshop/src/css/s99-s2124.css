@@ -1,0 +1,4 @@
+/* Round 4 · slides 21 and 24 (Oct 13) */
+/* slide 24: the "+" after the tool counter waits until the count lands */
+.mk-plus{transition:opacity .3s ease}
+.motion .mk:not(.done) .mk-plus{opacity:0}

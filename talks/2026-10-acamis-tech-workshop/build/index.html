@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#F3E9DD">
+<title>Practice Game · Built Live at ACAMIS</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
+<!--
+  Starter for the live build at the ACAMIS Technology Conference, Oct 18, 2026.
+  The room picks a class and a topic; we edit QUESTIONS, the title, and the features live with an AI coding tool.
+  Everything is in this one file so it publishes anywhere, including a China-reachable address.
+-->
+<style>
+:root{--paper:#F3E9DD;--card:#FBF4EA;--ink:#152636;--accent:#2F55A8;--soft:#4A5768;--line:#E2D6C6;--ok:#2E7D4F;--no:#A3392B}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.5 Georgia,'Times New Roman',serif}
+main{max-width:640px;margin:0 auto;padding:28px 18px 48px}
+.k{margin:0 0 6px;font:600 12px/1.3 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h1{margin:0 0 4px;font-size:34px;line-height:1.15;font-weight:500}
+.sub{margin:0 0 22px;color:var(--soft)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px}
+.bar{display:flex;justify-content:space-between;font:500 14px/1 system-ui,sans-serif;color:var(--soft);margin-bottom:16px}
+.q{margin:0 0 18px;font-size:23px;line-height:1.35}
+.opts{display:grid;gap:10px}
+button{font:inherit}
+.opt{width:100%;min-height:56px;padding:12px 16px;text-align:left;border:1.5px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);cursor:pointer}
+.opt:hover{border-color:var(--accent)}
+.opt.right{border-color:var(--ok);background:#EAF4EE}
+.opt.wrong{border-color:var(--no);background:#F8E9E6}
+.fb{min-height:28px;margin:14px 0 0;color:var(--soft)}
+.next{margin-top:16px;min-height:52px;padding:0 24px;border:0;border-radius:999px;background:var(--ink);color:#fff;cursor:pointer}
+.next[hidden]{display:none}
+.done{text-align:center}
+.done b{display:block;font-size:56px;font-weight:400;color:var(--accent)}
+footer{margin-top:28px;font:400 13px/1.5 system-ui,sans-serif;color:var(--soft);text-align:center}
+</style>
+</head>
+<body>
+<main>
+  <p class="k">Built live at ACAMIS · October 18, 2026</p>
+  <h1 id="title">Practice Game</h1>
+  <p class="sub" id="topic">Class and topic: chosen by the room</p>
+  <div class="card" id="game"></div>
+  <footer>Made in one session by describing it in plain English. Arena School · arenaschool.org</footer>
+</main>
+<script>
+/* The room fills these in live. Each question: the prompt, the choices, the index of the right one, and a short why. */
+var QUESTIONS = [
+  { q: 'Which of these is a question the room will replace?', choices: ['This one', 'Every one of them', 'None of them', 'Only the last one'], answer: 1, why: 'All of these are placeholders until the room picks a class and a topic.' },
+  { q: 'Who decides whether a question is good enough?', choices: ['The AI', 'The room', 'Nobody', 'The computer'], answer: 1, why: 'The AI drafts. People judge.' }
+];
+var i = 0, score = 0, el = document.getElementById('game');
+function show(){
+  if (i >= QUESTIONS.length) {
+    el.innerHTML = '<div class="done"><p class="k">Your score</p><b>' + score + ' / ' + QUESTIONS.length + '</b><button class="next" id="again">Play again</button></div>';
+    document.getElementById('again').onclick = function(){ i = 0; score = 0; show(); };
+    return;
+  }
+  var item = QUESTIONS[i];
+  el.innerHTML = '<div class="bar"><span>Question ' + (i + 1) + ' of ' + QUESTIONS.length + '</span><span>Score ' + score + '</span></div>' +
+    '<p class="q"></p><div class="opts"></div><p class="fb" aria-live="polite"></p><button class="next" hidden>Next</button>';
+  el.querySelector('.q').textContent = item.q;
+  var opts = el.querySelector('.opts'), fb = el.querySelector('.fb'), next = el.querySelector('.next');
+  item.choices.forEach(function(c, k){
+    var b = document.createElement('button'); b.className = 'opt'; b.textContent = c;
+    b.onclick = function(){
+      if (next.hidden === false) return;
+      var ok = k === item.answer; if (ok) score++;
+      b.classList.add(ok ? 'right' : 'wrong'); opts.children[item.answer].classList.add('right');
+      fb.textContent = (ok ? 'Right. ' : 'Not quite. ') + item.why; next.hidden = false;
+    };
+    opts.appendChild(b);
+  });
+  next.onclick = function(){ i++; show(); };
+}
+show();
+</script>
+</body>
+</html>
