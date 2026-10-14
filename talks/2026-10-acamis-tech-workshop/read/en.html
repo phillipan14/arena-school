@@ -729,49 +729,177 @@ a.qr.qr-live[href$="/build"] span::after{content:"  \2192"}
 .ac-10 b{font-size:16px;font-weight:500}
 .ac-10 span{font-size:14px;line-height:1.35}
 .ac-facts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+/* agent A */
+.aga-cv .cv-lede .aga-isb{display:inline-block;height:2em;width:auto;vertical-align:middle;position:relative;top:-.12em}
+.aga-q .kick .aga-wm{display:inline-block;height:1.9em;width:auto;vertical-align:middle;position:relative;top:-.08em;margin-left:.15em}
+.aga-cv .cv-lede{padding-bottom:6px}
+/* agent B */
+.agb-tl{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0 0}
+.agb-tl img{width:22px;height:22px;border-radius:6px;object-fit:cover;background:#fff;box-shadow:0 0 0 1px var(--edge)}
+.agb-path li>i{display:block}
+.agb-gs{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.agb-grp{padding:12px;border-radius:12px}
+.agb-grp.w2{grid-column:1/-1}
+.agb-grp .lab{margin:0}
+.agb-st{margin:2px 0 8px;font:italic 400 13px/1.3 var(--serif);color:var(--muted)}
+.agb-grp ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr;gap:6px}
+.agb-grp.w2 ul{grid-template-columns:1fr 1fr}
+.agb-grp li{display:flex;align-items:center;gap:7px;min-width:0}
+.agb-grp li img,.agb-mono{flex:none;display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:6px;box-sizing:border-box}
+.agb-grp li img{object-fit:cover;background:#fff;box-shadow:0 0 0 1px var(--edge)}
+.agb-mono{box-shadow:inset 0 0 0 1px var(--edge);font:italic 400 12px/1 var(--serif);color:var(--muted)}
+.agb-grp li span{font-size:14px;white-space:nowrap}
+/* agent C */
+/* What students keep: browser mock, pitch photo, ownership card */
+.agc-keep{display:grid;gap:10px}
+.agc-keep .pane{margin:0;padding:0;overflow:hidden}
+.agc-win{margin:14px;border:1px solid var(--edge);border-radius:8px;overflow:hidden;background:#fff}
+.agc-bar{display:flex;align-items:center;gap:8px;height:28px;padding:0 10px;background:var(--paper);border-bottom:1px solid var(--edge)}
+.agc-dots{display:flex;gap:4px}.agc-dots i{width:7px;height:7px;border-radius:50%;background:#D4C0AA}
+.agc-url{flex:1;display:flex;align-items:center;height:18px;padding:0 9px;border-radius:999px;background:var(--hi);border:1px solid var(--edge);font:500 11px/1 var(--sans);color:var(--text)}
+.agc-lock{display:none}
+.agc-page{display:flex;flex-direction:column;gap:12px;padding:14px 16px 16px}
+.agc-nav{display:flex;align-items:center;gap:8px}
+.agc-logo{width:14px;height:14px;border-radius:4px;background:var(--ink2)}
+.agc-sk1{width:60px;height:6px;border-radius:3px;background:var(--ink);opacity:.8;margin-right:auto}
+.agc-sk2{width:30px;height:5px;border-radius:3px;background:#D4C0AA}
+.agc-hl{margin:0;font:400 22px/1.15 var(--serif);color:var(--ink)}
+.agc-hl em{font-style:italic;color:var(--ink2)}
+.agc-btns{display:flex;gap:8px}
+.agc-btns>span{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 14px;border-radius:999px;font:500 13px/1 var(--sans)}
+.agc-b1{background:var(--ink);color:var(--on)}
+.agc-b2{border:1px solid var(--ink);color:var(--ink)}
+.agc-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.agc-tiles span{height:26px;border-radius:4px;background:var(--paper);border:1px solid var(--edge)}
+.agc-keep figcaption{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:8px;margin:0;padding:10px 16px 12px;border-top:1px solid var(--edge)}
+.agc-keep figcaption b{font:400 18px/1.25 var(--serif);color:var(--ink)}
+.agc-keep figcaption span{font:italic 400 14px/1.4 var(--serif);color:var(--muted)}
+.agc-im{display:block}
+.agc-im img{display:block;width:100%;aspect-ratio:16/9;height:auto;object-fit:cover;object-position:center 42%}
+.agc-keep .agc-own{display:flex;align-items:center;gap:12px;padding:14px 16px}
+.agc-ic{flex:none;display:block;width:24px;height:24px;color:var(--lb)}
+.agc-ic .lic{display:block;width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.agc-own p{margin:0;display:flex;flex-direction:column;gap:2px}
+.agc-own b{font:400 18px/1.25 var(--serif);color:var(--on)}
+.agc-own p span{font:italic 400 14px/1.4 var(--serif);color:var(--lb)}
+/* Agency, taste, craft: definition + how the week trained it */
+.agc-sk{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.agc-sk>li{margin:0}
+.agc-hd{display:flex;align-items:baseline;gap:10px}
+.agc-hd i{font:600 11px/1 var(--sans);font-style:normal;letter-spacing:.12em;color:var(--ink2)}
+.agc-hd b{font:400 24px/1.15 var(--serif);color:var(--ink)}
+.agc-def{margin:6px 0 0;font:italic 400 16px/1.4 var(--serif);color:var(--ink2)}
+.agc-lab{display:block;margin:12px 0 0;padding:0 0 6px;border-bottom:1px solid var(--edge);font:600 10.5px/1.4 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.agc-mo{margin:8px 0 0;font:400 14px/1.5 var(--sans);color:var(--text)}
+/* Your role + three questions */
+.agc-co{display:grid;gap:10px}
+.agc-role{display:flex;flex-direction:column;gap:10px}
+.agc-k{font:600 10.5px/1.4 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--lb)}
+.agc-shift{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.agc-from{margin:0;font:400 16px/1.35 var(--serif);color:var(--lb)!important}
+.agc-to{margin:0;font:italic 400 21px/1.25 var(--serif);color:var(--on)!important}
+.agc-dn{position:relative;display:block;width:1px;height:18px;margin-left:8px;background:var(--lb)}
+.agc-dn::after{content:"";position:absolute;left:50%;bottom:0;width:6px;height:6px;border-right:1px solid var(--lb);border-bottom:1px solid var(--lb);transform:translate(-50%,0) rotate(45deg);box-sizing:border-box}
+.agc-note{margin:4px 0 0;padding-top:10px;border-top:1px solid rgba(169,190,234,.3);font:italic 400 14px/1.45 var(--serif);color:var(--lb)!important}
+.agc-q{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.agc-q>li{margin:0;display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+.agc-tag{display:inline-flex;align-items:center;height:22px;padding:0 10px;border-radius:999px;border:1px solid var(--ink2);font:600 10.5px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
+.agc-q b{margin-top:4px;font:400 20px/1.25 var(--serif);color:var(--ink)}
+.agc-q b+span{font:italic 400 14px/1.4 var(--serif);color:var(--muted)}
+/* agent D */
+.agd-ex{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+.agd-ex li{padding:8px 12px;border-radius:10px;background:var(--paper);box-shadow:inset 0 0 0 1px var(--edge);font:italic 400 15px/1.35 var(--serif);color:var(--ink)}
+.cs-out .agd-ex li{background:rgba(252,243,237,.08);box-shadow:inset 0 0 0 1px rgba(252,243,237,.2);color:var(--on)}
+.agd-cc{margin-top:10px;border-radius:10px;background:var(--paper);box-shadow:inset 0 0 0 1px var(--edge);overflow:hidden}
+.agd-cc-h{display:flex;align-items:center;gap:8px;padding:8px 12px;border-bottom:1px solid var(--edge)}
+.agd-cc-h img{display:block;width:22px;height:22px;border-radius:6px}
+.agd-cc-h b{font:600 14px/1 var(--serif);color:var(--ink)}
+.agd-cc-h small{margin-left:auto;font:italic 400 12.5px/1 var(--serif);color:var(--muted)}
+.cs .agd-cc p.agd-cc-p{margin:0;padding:10px 12px;border-top:0;font:400 13px/1.45 ui-monospace,Menlo,monospace;color:var(--ink)}
+.agd-cc-p>span::before{content:"› ";color:#C8664B;font-weight:700}
+.agd-cc-o{display:block;padding:8px 12px;border-top:1px solid var(--edge);font:italic 400 14px/1.3 var(--serif);color:var(--ink2)}
+.agd-cc-o::before{content:"→ "}
+.agd-l .qa-item .ac-big{font:400 18px/1.3 var(--serif);color:var(--ink);margin:2px 0 4px}
+.qa-links p.agd-more{display:flex;align-items:center;flex-wrap:wrap;gap:4px 8px;padding:14px 0;font-size:14px;color:var(--muted)}
+.agd-more img{display:block;width:22px;height:22px}
+.agd-more a{color:var(--ink);font-weight:500}
+/* agent E */
+/* 24: seal in the navy column label; the split footnote stacks */
+.age-hd{display:flex!important;align-items:center;gap:8px}
+.age-hd img{display:block;width:22px;height:22px;flex:none}
+.age-fn>span+span{border-top:0;padding-top:4px}
+.age-fn a{color:inherit}
+/* 25: lockup as the kicker; each offer keeps its link under the description */
+.age-brand{margin-bottom:14px;line-height:0}
+.age-brand img{display:block;height:26px;width:auto}
+.age-off .ic3 .ico{grid-row:span 3}
+.age-off .ic3 .age-d{font:400 14.5px/1.4 var(--sans);color:var(--muted)}
+.age-go{grid-column:2;display:inline-block;margin-top:4px;font:500 13.5px/1.4 var(--sans);color:var(--ink2);text-underline-offset:3px;overflow-wrap:anywhere}
+.age-proof .ac-pl{flex-direction:column;align-items:flex-start;gap:14px}
+.age-w{display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+.age-w small{font:400 12.5px/1.4 var(--sans);color:var(--muted)}
+.age-l{gap:6px}
+.age-res{font:500 13.5px/1.4 var(--sans);color:var(--ink2);text-underline-offset:3px}
+/* 26: the endline, then the pointer to Arena School */
+.age-end p{margin:0}
+.age-sig{display:block;margin-top:12px;font:400 14.5px/1.5 var(--sans);font-style:normal;color:rgba(252,243,237,.78);text-decoration:none}
+.age-sig b{display:inline-block;margin-left:4px;font-weight:500;color:var(--on);text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(252,243,237,.45)}
+/* 27: the slides QR is for the room; on a phone the call to action is the contact page as a button */
+.age-qa{display:block}
+.age-cta{display:flex;flex-direction:column;align-items:stretch;gap:16px}
+.age-ct{display:flex;flex-direction:column;align-items:flex-start}
+.age-wm{display:block;height:24px;width:auto;margin-bottom:14px}
+.age-ct .k{display:block;font:600 10.5px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+.age-h{margin:6px 0 0;font:400 23px/1.2 var(--serif);color:var(--ink)}
+.age-p{margin:6px 0 0;font-size:14.5px;line-height:1.5;color:var(--muted)}
+.age-ln{display:flex;flex-direction:column;gap:2px;margin:12px 0 0;padding-top:10px;border-top:1px solid var(--edge);width:100%}
+.age-ln a{display:inline-flex;align-items:center;min-height:40px;font:400 17px/1.3 var(--serif);color:var(--ink);text-decoration:underline;text-decoration-color:rgba(11,26,74,.3);text-underline-offset:4px}
+a.qr.qr-live.age-q2{display:flex;align-items:center;justify-content:center;min-height:52px;padding:0 22px;border-radius:999px;background:var(--ink);color:#fff;text-decoration:none;font:500 15px/1 var(--sans)}
+a.qr.qr-live.age-q2>*{display:none}
+a.qr.qr-live.age-q2::after{content:"Book a 20-minute call  \2192"}
 </style></head><body>
 <header class="top"><a class="home" href="/talks/2026-10-acamis-tech-workshop" aria-label="Talk resources · Arena School"><img class="wm n" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School" width="1600" height="242"><img class="wm i" src="/logos/arena/wordmark-ivory-1600.png" alt="" width="1600" height="242"></a>
  <div class="tools"><button type="button" class="lst" aria-label="All slides"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></div>
  <div class="prog" aria-hidden="true"><i></i></div></header>
 <main class="rd" id="deck" tabindex="-1">
 <!-- 1 · Cover -->
-<section class="s ae cover"><div class="w">
+<section class="s ae cover aga-cv"><div class="w">
  <div class="cv-top"></div>
  <div class="cv-mid">
   <p class="kick r">ACAMIS Technology Conference · October 18, 2026</p>
-  <p class="cv-lede r" style="--d:.05s">A case study from the International School of Beijing</p>
+  <p class="cv-lede r" style="--d:.05s">A case study from <span class="nw">the <img class="aga-isb" src="/logos/cred/isb.png" alt="International School of Beijing"></span></p>
   <h1 class="r" style="--d:.1s">From Lab <span class="m" style="--d:1s"><em>to Classroom</em></span><span class="sub" style="--d:1.3s">Running an AI Student Program Inside a School</span></h1>
  </div>
  <div class="cv-foot"><span class="cv-rule"></span><a class="cv-qr" href="https://arenaschool.org/talks/2026-10-acamis-tech-workshop" target="_blank" rel="noopener"><img src="/decks/img/acamis/qr-acamis-clear.png" alt="QR code for arenaschool.org/talks/2026-10-acamis-tech-workshop"><span>Today’s slides, checklist, and tool guide<small><span class="nw">arenaschool.org/talks/</span><wbr><span class="nw">2026-10-acamis-tech-workshop</span></small></span></a></div>
 </div></section>
 
 <!-- 2 · Contents -->
-<section class="s alt ae toc"><div class="w">
+<section class="s alt ae toc aga-toc"><div class="w">
  <p class="kick r">The next 60 minutes</p>
  <h2 class="r" style="--d:.1s">From what students built in five days <em>to what you can run at your school.</em></h2>
  <div class="bd"><ol class="trk tocf ac4">
   <li><a href="#" data-go="5"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2 3h20" /><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3" /><path d="m7 21 5-5 5 5" /></svg></span><span class="tn">1</span><span class="tt"><b>The case</b><small>15 minutes</small></span></a></li>
-  <li><a href="#" data-go="12"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10" /><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" /></svg></span><span class="tn">2</span><span class="tt"><b>Why it worked</b><small>10 minutes</small></span></a></li>
-  <li><a href="#" data-go="19"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m15 12-9.373 9.373a1 1 0 0 1-3.001-3L12 9" /><path d="m18 15 4-4" /><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172v-.344a2 2 0 0 0-.586-1.414l-1.657-1.657A6 6 0 0 0 12.516 3H9l1.243 1.243A6 6 0 0 1 12 8.485V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5" /></svg></span><span class="tn">3</span><span class="tt"><b>Build one, live</b><small>30 minutes</small></span></a></li>
-  <li><a href="#" data-go="22"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg></span><span class="tn">4</span><span class="tt"><b>Take it back</b><small>5 minutes</small></span></a></li>
+  <li><a href="#" data-go="13"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10" /><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" /></svg></span><span class="tn">2</span><span class="tt"><b>Why it worked</b><small>10 minutes</small></span></a></li>
+  <li><a href="#" data-go="18"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m15 12-9.373 9.373a1 1 0 0 1-3.001-3L12 9" /><path d="m18 15 4-4" /><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172v-.344a2 2 0 0 0-.586-1.414l-1.657-1.657A6 6 0 0 0 12.516 3H9l1.243 1.243A6 6 0 0 1 12 8.485V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5" /></svg></span><span class="tn">3</span><span class="tt"><b>Build one, live</b><small>30 minutes</small></span></a></li>
+  <li><a href="#" data-go="21"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg></span><span class="tn">4</span><span class="tt"><b>Take it back</b><small>5 minutes</small></span></a></li>
  </ol></div>
 </div></section>
 
 <!-- 3 · The speakers -->
-<section class="s alt ae"><div class="w">
+<section class="s alt ae aga-sp"><div class="w">
  <p class="kick r">Your speakers · Arena School co-founders</p>
  <h2 class="r" style="--d:.1s">We trained at ISB, Caltech, Harvard, Brown, and Tsinghua, then did <em>the jobs AI is now automating.</em></h2>
  <div class="bd r" style="--d:.25s">
  <div class="spk2">
   <article class="sp pane" data-s="1">
    <header><img class="ph" src="/photos/jing-jing-yang.jpg" alt=""><div><h3>Jing Jing Yang</h3><div class="tag">WAB and ISB alum · ISB Class of 2019</div></div></header>
-   <p class="now"><span class="ln">Ran the AI Founders Program at ISB, summer&nbsp;2026</span><span class="ln">Worked in international growth at Kimi, a leading Chinese AI&nbsp;lab</span></p>
+   <p class="now"><span class="ln">Worked in international growth at Kimi, a leading Chinese AI&nbsp;lab</span></p>
    <dl class="lg"><div><dt>Studied</dt><dd><img class="h-isb" src="/logos/cred/isb.png" alt="ISB"><img class="h-br" src="/logos/cred/brown.png" alt="Brown"><img class="h-ts" src="/logos/cred/tsinghua.png" alt="Tsinghua University"></dd></div>
     <div><dt>Worked</dt><dd><img class="h-ap" src="/logos/cred/apple.png" alt="Apple"><img class="h-de" src="/logos/cred/deloitte.png" alt="Deloitte"><img class="h-ci" src="/logos/cred/cicc.png" alt="CICC"><img class="h-km" src="/logos/cred/kimi-wordmark.png" alt="Kimi"></dd></div></dl>
   </article>
   <article class="sp pane" data-s="2">
    <header><img class="ph" src="/photos/phillip-an.jpg" alt=""><div><h3>Phillip An</h3><div class="tag">Forbes 30 Under 30</div></div></header>
-   <p class="now"><span class="ln">Co-founder and CEO of Skylarq&nbsp;AI</span><span class="ln">Co-founder and ex-COO of Homebase, backed by Y&nbsp;Combinator</span></p>
+   <p class="now"><span class="ln">Co-founder and CEO of Skylarq&nbsp;AI</span><span class="ln">Co-founded Homebase, backed by Y&nbsp;Combinator</span></p>
    <dl class="lg"><div><dt>Studied</dt><dd><img class="h-ct" src="/logos/cred/caltech.png" alt="Caltech"><img class="h-hv" src="/logos/cred/harvard.png" alt="Harvard"><img class="h-ts" src="/logos/cred/tsinghua.png" alt="Tsinghua University"></dd></div>
     <div><dt>Worked</dt><dd><img class="h-gs" src="/logos/cred/goldman.png" alt="Goldman Sachs"><img class="h-mk" src="/logos/cred/mckinsey.png" alt="McKinsey"><img class="h-li" src="/decks/img/conversation/linkedin.png" alt="LinkedIn"></dd></div></dl>
   </article>
@@ -780,20 +908,20 @@ a.qr.qr-live[href$="/build"] span::after{content:"  \2192"}
 </div></section>
 
 <!-- 4 · The question -->
-<section class="s alt ae st"><div class="w">
- <p class="kick r">The question behind this session</p>
+<section class="s alt ae st aga-q"><div class="w">
+ <p class="kick r">The question we try to answer <span class="nw">at <img class="aga-wm" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School"></span></p>
  <h2 class="r rot-h" style="--d:.1s" aria-label="When AI can do all of these in seconds, what must our students still learn to do?">When AI can <span class="rot" aria-hidden="true"><span class="rot-t"><span>draft an essay</span><span>write code</span><span>summarize an article</span><span>create a research report</span><span>design a logo</span><span>build a website</span><span>translate a speech</span><span class="fin"><span class="rot-hl">do all of these</span></span></span></span> <br>in seconds, what must our students <em>still learn to&nbsp;do?</em></h2>
 </div></section>
 
 <!-- 5 · What parents asked -->
-<section class="s alt ae"><div class="w">
- <p class="kick r">Where this started · ISB PTA Parent Coffee, October 14, 2026</p>
- <h2 class="r" style="--d:.1s">Parents asked us one practical question: <em>which skills will outlast the tools?</em></h2>
+<section class="s alt ae aga-pa"><div class="w">
+ <p class="kick r">Where this started · October 14, 2026</p>
+ <h2 class="r" style="--d:.1s">At ISB’s PTA Parent Coffee, parents asked one question:<br> <em>which skills will outlast the&nbsp;tools?</em></h2>
  <div class="bd r" style="--d:.25s"><div class="shift ac-own">
   <div class="shx" data-s="1">
    <div class="sh-col o"><span class="hd">What parents asked</span><ul><li>Which skills last as the tools change?</li><li>Will AI do the thinking for my child?</li><li>What should my child practice now?</li></ul></div>
    <div class="sh-arr" aria-hidden="true"><i></i></div>
-   <div class="sh-col n"><span class="hd">What this session shows</span><ul><li>Three skills that outlast any tool</li><li>A program where students do the thinking</li><li>Real products, built in five days</li></ul></div>
+   <div class="sh-col n"><span class="hd">What this session shows</span><ul><li>Three skills that outlast any tool</li><li>Students doing the thinking</li><li>Real products, built in five days</li></ul></div>
   </div>
  </div></div>
 </div></section>
@@ -829,20 +957,20 @@ a.qr.qr-live[href$="/build"] span::after{content:"  \2192"}
 </div></section>
 
 <!-- 8 · Ten stages -->
-<section class="s alt ae"><div class="w">
+<section class="s alt ae agb8"><div class="w">
  <p class="kick r">The case · the founder’s path</p>
- <h2 class="r" style="--d:.1s">Students don’t study startups. <em>They run one, in ten stages.</em></h2>
- <div class="bd r" style="--d:.25s"><ol class="ac-10">
-  <li class="pane" data-s="1"><i>01</i><b>Find the idea</b><span>A real problem, in one sentence</span></li>
-  <li class="pane" data-s="1"><i>02</i><b>Validate it</b><span>Interview real people first</span></li>
-  <li class="pane" data-s="1"><i>03</i><b>Form the team</b><span>Builder, designer, storyteller</span></li>
-  <li class="pane" data-s="1"><i>04</i><b>Define the product</b><span>The smallest useful version</span></li>
-  <li class="pane" data-s="1"><i>05</i><b>Design it</b><span>Screens, type, and color</span></li>
-  <li class="pane" data-s="2"><i>06</i><b>Build it</b><span>Direct AI tools to build it</span></li>
-  <li class="pane" data-s="2"><i>07</i><b>Ship it live</b><span>A public link of its own</span></li>
-  <li class="pane" data-s="2"><i>08</i><b>Test and iterate</b><span>Watch users, then rebuild</span></li>
-  <li class="pane" data-s="2"><i>09</i><b>Brand it</b><span>A name, a logo, and a story</span></li>
-  <li class="pane" data-s="2"><i>10</i><b>Pitch and sell</b><span>Set a price, pitch it live</span></li>
+ <h2 class="r" style="--d:.1s">Students don’t study startups. <em>They run one, in ten stages, with the AI tools professionals&nbsp;use.</em></h2>
+ <div class="bd r" style="--d:.25s"><ol class="ac-10 agb-path">
+  <li class="pane" data-s="1"><i>01</i><b>Find the idea</b><span>A real problem, in one sentence</span><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/logos/tools/openai.png" alt="ChatGPT"><img style="--j:1" src="/logos/tools/claude.png" alt="Claude"><img style="--j:2" src="/logos/tools/gemini.png" alt="Gemini"><img style="--j:3" src="/logos/tools/perplexity.png" alt="Perplexity"></p></li>
+  <li class="pane" data-s="2"><i>02</i><b>Validate it</b><span>Interview real people first</span><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/logos/tools/perplexity.png" alt="Perplexity"><img style="--j:1" src="/logos/tools/openai.png" alt="ChatGPT"><img style="--j:2" src="/logos/tools/claude.png" alt="Claude"><img style="--j:3" src="/logos/tools/gemini.png" alt="Gemini"><img style="--j:4" src="/logos/tools/gemini-notebook.png" alt="NotebookLM"></p></li>
+  <li class="pane" data-s="3"><i>03</i><b>Form the team</b><span>Builder, designer, storyteller</span><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/logos/tools/claude.png" alt="Claude"><img style="--j:1" src="/logos/tools/openai.png" alt="ChatGPT"><img style="--j:2" src="/logos/tools/gemini.png" alt="Gemini"><img style="--j:3" src="/logos/tools/manus.png" alt="Manus"></p></li>
+  <li class="pane" data-s="4"><i>04</i><b>Define it</b><span>The smallest useful version</span><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/logos/tools/claude.png" alt="Claude"><img style="--j:1" src="/logos/tools/openai.png" alt="ChatGPT"><img style="--j:2" src="/logos/tools/gemini.png" alt="Gemini"><img style="--j:3" src="/logos/tools/deepseek.png" alt="DeepSeek"></p></li>
+  <li class="pane" data-s="5"><i>05</i><b>Design it</b><span>Screens, type, and color</span><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/logos/tools/midjourney.png" alt="Midjourney"><img style="--j:1" src="/logos/tools/ideogram.png" alt="Ideogram"><img style="--j:2" src="/logos/tools/openai.png" alt="ChatGPT"></p></li>
+  <li class="pane" data-s="6"><i>06</i><b>Build it</b><span>Direct AI tools to build it</span><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/logos/tools/cursor.png" alt="Cursor"><img style="--j:1" src="/logos/tools/lovable.png" alt="Lovable"><img style="--j:2" src="/logos/tools/replit.png" alt="Replit"></p></li>
+  <li class="pane" data-s="7"><i>07</i><b>Ship it live</b><span>A public link of its own</span><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/logos/tools/replit.png" alt="Replit"><img style="--j:1" src="/logos/tools/lovable.png" alt="Lovable"><img style="--j:2" src="/logos/tools/openai.png" alt="ChatGPT"><img style="--j:3" src="/logos/tools/claude.png" alt="Claude"></p></li>
+  <li class="pane" data-s="8"><i>08</i><b>Test and iterate</b><span>Watch users, then rebuild</span><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/logos/tools/cursor.png" alt="Cursor"><img style="--j:1" src="/logos/tools/claude.png" alt="Claude"><img style="--j:2" src="/logos/tools/openai.png" alt="ChatGPT"><img style="--j:3" src="/logos/tools/gemini.png" alt="Gemini"><img style="--j:4" src="/logos/tools/deepseek.png" alt="DeepSeek"></p></li>
+  <li class="pane" data-s="9"><i>09</i><b>Brand it</b><span>A name, a logo, and a story</span><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/logos/tools/midjourney.png" alt="Midjourney"><img style="--j:1" src="/logos/tools/suno.png" alt="Suno"><img style="--j:2" src="/logos/tools/elevenlabs.png" alt="ElevenLabs"><img style="--j:3" src="/logos/tools/capcut.png" alt="CapCut"></p></li>
+  <li class="pane" data-s="10"><i>10</i><b>Pitch and sell</b><span>Set a price, pitch it live</span><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/logos/tools/openai.png" alt="ChatGPT"><img style="--j:1" src="/logos/tools/claude.png" alt="Claude"><img style="--j:2" src="/logos/tools/gemini.png" alt="Gemini"></p></li>
  </ol></div>
 </div></section>
 
@@ -859,14 +987,47 @@ a.qr.qr-live[href$="/build"] span::after{content:"  \2192"}
  </ol></div></div>
 </div></section>
 
-<!-- 10 · What students keep -->
-<section class="s alt ae st ac-fit"><div class="w">
- <p class="kick r">The case · what every student walked out with</p>
- <h2 class="r" style="--d:.1s">Students left with real work, <em>and they own all of it.</em></h2>
- <ol class="ic3"><li data-s="1"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m18 16 4-4-4-4" /><path d="m6 8-4 4 4 4" /><path d="m14.5 4-5 16" /></svg></span><b>A live product</b><span>at its own link, with the code behind it</span></li><li data-s="2"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2 3h20" /><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3" /><path d="m7 21 5-5 5 5" /></svg></span><b>A live pitch</b><span>to judges, families, and peers</span></li><li data-s="3"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m16 11 2 2 4-4" /><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /></svg></span><b>Full ownership</b><span>of the code, the design, and the brand</span></li></ol>
+<!-- 10 · The tools -->
+<section class="s alt ae hold agb-tk"><div class="w">
+ <p class="kick r">The case · the toolkit, by job</p>
+ <h2 class="r" style="--d:.1s">Students learned more than 20 AI tools in five days, <em>out of 200+ they could choose&nbsp;from.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="mk">
+  <div class="agb-gs">
+   <div class="pane agb-grp w2 r" style="--d:0.35s"><p class="lab">Research</p><span class="agb-st">Ask and search</span><ul><li><img src="/logos/tools/openai.png" alt=""><span>ChatGPT</span></li><li><img src="/logos/tools/claude.png" alt=""><span>Claude</span></li><li><img src="/logos/tools/gemini.png" alt=""><span>Gemini</span></li><li><img src="/logos/tools/perplexity.png" alt=""><span>Perplexity</span></li><li><img src="/logos/tools/gemini-notebook.png" alt=""><span>NotebookLM</span></li><li><img src="/logos/tools/deepseek.png" alt=""><span>DeepSeek</span></li><li><img src="/logos/tools/manus.png" alt=""><span>Manus</span></li><li><i class="agb-mono" aria-hidden="true">G</i><span>Grok</span></li><li><i class="agb-mono" aria-hidden="true">M</i><span>Mistral</span></li></ul></div>
+   <div class="pane agb-grp  r" style="--d:0.47s"><p class="lab">Design</p><span class="agb-st">Logos and art</span><ul><li><img src="/logos/tools/midjourney.png" alt=""><span>Midjourney</span></li><li><img src="/logos/tools/ideogram.png" alt=""><span>Ideogram</span></li><li><i class="agb-mono" aria-hidden="true">K</i><span>Krea</span></li><li><i class="agb-mono" aria-hidden="true">R</i><span>Recraft</span></li></ul></div>
+   <div class="pane agb-grp  r" style="--d:0.59s"><p class="lab">Build</p><span class="agb-st">Apps and sites</span><ul><li><img src="/logos/tools/cursor.png" alt=""><span>Cursor</span></li><li><img src="/logos/tools/lovable.png" alt=""><span>Lovable</span></li><li><img src="/logos/tools/replit.png" alt=""><span>Replit</span></li><li><i class="agb-mono" aria-hidden="true">V</i><span>v0</span></li><li><i class="agb-mono" aria-hidden="true">W</i><span>Windsurf</span></li></ul></div>
+   <div class="pane agb-grp  r" style="--d:0.71s"><p class="lab">Brand</p><span class="agb-st">Sound and video</span><ul><li><img src="/logos/tools/suno.png" alt=""><span>Suno</span></li><li><img src="/logos/tools/elevenlabs.png" alt=""><span>ElevenLabs</span></li><li><img src="/logos/tools/capcut.png" alt=""><span>CapCut</span></li></ul></div>
+   <div class="pane agb-grp  r" style="--d:0.83s"><p class="lab">Launch</p><span class="agb-st">Sell and promote</span><ul><li><img src="/logos/tools/stripe.png" alt=""><span>Stripe</span></li><li><i class="agb-mono" aria-hidden="true">P</i><span>Pika</span></li><li><i class="agb-mono" aria-hidden="true">R</i><span>Runway</span></li></ul></div>
+  </div>
+  <div class="mk-low" data-s="1">
+   <div class="mk-map pane"><p class="lab"><b><span class="mk-n">200</span><span class="mk-plus">+</span></b> AI tools students could choose from</p><div class="mk-field" aria-hidden="true"></div></div>
+  </div>
+ </div></div>
 </div></section>
 
-<!-- 11 · Demo day -->
+<!-- 11 · What students keep -->
+<section class="s alt ae agC agC-keep"><div class="w">
+ <p class="kick r">The case · what every student walked out with</p>
+ <h2 class="r" style="--d:.1s">Students left with real work, <em>and they own all of it.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="agc-keep">
+  <figure class="pane agc-br" data-s="1">
+   <div class="agc-win">
+    <div class="agc-bar"><span class="agc-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="agc-url"><span class="agc-lock" aria-hidden="true"></span><span class="agc-host">their-product.app</span></span></div>
+    <div class="agc-page">
+     <div class="agc-nav"><span class="agc-logo" aria-hidden="true"></span><span class="agc-sk1"></span><span class="agc-sk2"></span><span class="agc-sk2"></span></div>
+     <p class="agc-hl">Built in five days.<br><em>Open to anyone, any&nbsp;time.</em></p>
+     <div class="agc-btns"><span class="agc-b1">Try it</span><span class="agc-b2"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m18 16 4-4-4-4" /><path d="m6 8-4 4 4 4" /><path d="m14.5 4-5 16" /></svg>See the code</span></div>
+     <div class="agc-tiles" aria-hidden="true"><span></span><span></span><span></span></div>
+    </div>
+   </div>
+   <figcaption><b>A live product</b><span>at its own link, with the code behind&nbsp;it</span></figcaption>
+  </figure>
+  <figure class="pane agc-ph" data-s="2"><span class="agc-im"><img src="/photos/isb-2026/pitch-duo-1600.webp" alt="Two students pitch their product at the podium"></span><figcaption><b>A live pitch</b><span>to judges, families, and&nbsp;peers</span></figcaption></figure>
+  <div class="pane dk agc-own" data-s="3"><span class="agc-ic"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" /><path d="m16 9-5.5 5.5L8 12" /></svg></span><p><b>Full ownership</b><span>The code, the design, and the brand stay&nbsp;theirs.</span></p></div>
+ </div></div>
+</div></section>
+
+<!-- 12 · Demo day -->
 <section class="s ae"><div class="w">
  <p class="kick r">The case · demo day</p>
  <h2 class="r" style="--d:.1s">On day five, teams pitched working products <em>to judges from Harvard, Stanford, Y&nbsp;Combinator, and AI labs.</em></h2>
@@ -877,7 +1038,7 @@ a.qr.qr-live[href$="/build"] span::after{content:"  \2192"}
  </div></div>
 </div></section>
 
-<!-- 12 · What children can build -->
+<!-- 13 · What children can build -->
 <section class="s alt ae"><div class="w">
  <p class="kick r">The pilot · Bodley Academy, Hong Kong, summer 2025</p>
  <h2 class="r" style="--d:.1s">In five days, an 11-year-old<br><em>turned sign language into speech.</em></h2>
@@ -904,7 +1065,7 @@ a.qr.qr-live[href$="/build"] span::after{content:"  \2192"}
  </div>
 </div></section>
 
-<!-- 13 · Part 2 -->
+<!-- 14 · Part 2 -->
 <section class="s ae nv sec"><div class="w"><div class="sec-g">
  <div>
   <p class="sec-k"><span>Part</span><b>2</b></p>
@@ -919,7 +1080,7 @@ a.qr.qr-live[href$="/build"] span::after{content:"  \2192"}
  </ol>
 </div></div></section>
 
-<!-- 14 · Design is the difference -->
+<!-- 15 · Design is the difference -->
 <section class="s ae"><div class="w">
  <p class="kick r">The research · two 2025 studies</p>
  <h2 class="r" style="--d:.1s">Used as a shortcut, AI does the thinking. <em>Set up as a coach, it helps students learn more.</em></h2>
@@ -930,67 +1091,69 @@ a.qr.qr-live[href$="/build"] span::after{content:"  \2192"}
  <p class="fn" data-s="1"><span>Bastani and others, PNAS, June 25, 2025: grades fell 17% once plain ChatGPT was taken away; with safeguards, the harm was “largely mitigated”; Kestin and others, Scientific Reports, June 3, 2025: 194 Harvard physics students, median learning gains more than double</span></p>
 </div></section>
 
-<!-- 15 · Each skill, one-line why -->
-<section class="s ae"><div class="w">
- <p class="kick r">Name the scarce skills</p>
- <h2 class="r" style="--d:.1s">Agency chooses, taste judges, <em>and craft finishes.</em></h2>
- <div class="bd r" style="--d:.25s">
-  <div class="why5g"><span class="w5h a" data-s="1">The three skills</span>
-  <ol class="why5">
-   <li data-s="1"><i>01</i><b>Agency</b><span>Decide what is worth building before anyone assigns it.</span></li>
-   <li data-s="2"><i>02</i><b>Taste</b><span>Judge whether the output is actually good.</span></li>
-   <li data-s="3"><i>03</i><b>Craft</b><span>Finish it so people can trust it.</span></li>
-  </ol></div>
- </div>
-</div></section>
-
-<!-- 16 · How the week trains them -->
-<section class="s alt ae"><div class="w">
- <p class="kick r">How the week was designed</p>
- <h2 class="r" style="--d:.1s">Each skill had a moment in the week <em>that students couldn’t skip.</em></h2>
- <div class="bd r" style="--d:.25s">
-  <div class="why5g"><span class="w5h a" data-s="1">Skill · how the week trains it</span>
-  <ol class="why5 ac-days">
-   <li data-s="1"><i>01</i><b>Agency</b><span>Students pitch their own idea in three minutes, with no slides, and choose the problem on <span class="nw">day one.</span></span></li>
-   <li data-s="2"><i>02</i><b>Taste</b><span>A prototype is online by midweek, so real users and mentors react to it <span class="nw">every day.</span></span></li>
-   <li data-s="3"><i>03</i><b>Craft</b><span>Building stops at a fixed hour, and students explain every decision live on <span class="nw">demo day.</span></span></li>
-  </ol></div>
- </div>
+<!-- 16 · Agency, taste, craft, and how the week trains them -->
+<section class="s ae agC agC-sk"><div class="w">
+ <p class="kick r">Arena School’s approach · arenaschool.org/approach</p>
+ <h2 class="r" style="--d:.1s">Agency chooses, taste judges, and craft finishes.<br><em>The week gave each one a moment students couldn’t&nbsp;skip.</em></h2>
+ <div class="bd r" style="--d:.25s"><ol class="agc-sk">
+  <li class="pane" data-s="1">
+   <div class="agc-hd"><i>01</i><b>Agency</b></div>
+   <p class="agc-def">Deciding what is worth building, before anyone assigns&nbsp;it.</p>
+   <span class="agc-lab">How the week trained it</span>
+   <p class="agc-mo">On day one, each student chooses the problem and pitches it in three minutes, with no&nbsp;slides.</p>
+  </li>
+  <li class="pane" data-s="2">
+   <div class="agc-hd"><i>02</i><b>Taste</b></div>
+   <p class="agc-def">Judging whether the output is actually good, and saying&nbsp;why.</p>
+   <span class="agc-lab">How the week trained it</span>
+   <p class="agc-mo">By midweek, a prototype is online at a public link, and real users and mentors react every&nbsp;day.</p>
+  </li>
+  <li class="pane" data-s="3">
+   <div class="agc-hd"><i>03</i><b>Craft</b></div>
+   <p class="agc-def">Finishing it well enough that people can trust&nbsp;it.</p>
+   <span class="agc-lab">How the week trained it</span>
+   <p class="agc-mo">Building stops at a fixed hour each day, and on demo day students explain every decision&nbsp;live.</p>
+  </li>
+ </ol></div>
 </div></section>
 
 <!-- 17 · Is it cheating? -->
-<section class="s ae"><div class="w">
+<section class="s ae agC agC-ch"><div class="w">
  <p class="kick r">Is using AI just cheating?</p>
  <h2 class="r" style="--d:.1s">No. AI tools write the code, <em>and students make every decision.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="shift ac-own">
   <div class="shx" data-s="1">
    <div class="sh-col o"><span class="hd">AI tools and mentors handle</span><ul><li>Writing the code</li><li>Putting it online</li><li>Fixing technical errors</li></ul></div>
    <div class="sh-arr" aria-hidden="true"><i></i></div>
-   <div class="sh-col n"><span class="hd">Students decide</span><ul><li>What to build, and for whom</li><li>Which version is better, and why</li><li>When it’s good enough to ship</li></ul></div>
+   <div class="sh-col n"><span class="hd">Students decide</span><ul><li>Which problem, and for whom</li><li>What to cut after users try it</li><li>The name, the price, and the pitch</li></ul></div>
   </div>
  </div></div>
 </div></section>
 
-<!-- 18 · Structure -->
-<section class="s alt ae st ac-fit"><div class="w">
- <p class="kick r">What students need from us</p>
- <h2 class="r" style="--d:.1s">Skills grow from practice with structure, <em>so your role becomes the coach.</em></h2>
- <ol class="ic3"><li data-s="1"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z" /><path d="M8 10v4" /><path d="M12 10v2" /><path d="M16 10v6" /></svg></span><b>A real project</b><span>with something at stake</span></li><li data-s="2"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m8 11 2 2 4-4" /><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg></span><b>A coach</b><span>who asks how you checked it</span></li><li data-s="3"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" /><path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1" /></svg></span><b>Honest feedback</b><span>from real people</span></li></ol>
+<!-- 18 · Your role, and three questions -->
+<section class="s alt ae agC agC-co"><div class="w">
+ <p class="kick r">What students need from us · try this on Monday</p>
+ <h2 class="r" style="--d:.1s">Your role becomes the coach, <em>and three questions do the coaching.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="agc-co">
+  <div class="pane dk agc-role" data-s="1">
+   <span class="agc-k">The teacher’s role</span>
+   <div class="agc-shift"><p class="agc-from">From the person with <span class="nw">the answers</span></p><span class="agc-dn" aria-hidden="true"></span><p class="agc-to">to the coach who asks <span class="nw">the questions</span></p></div>
+   <p class="agc-note">It’s what good teachers already do, and what our mentors did all&nbsp;week.</p>
+  </div>
+  <ol class="agc-q">
+   <li class="pane" data-s="2"><span class="agc-tag">Agency</span><b>“Why this problem?”</b><span>They choose, not the&nbsp;AI.</span></li>
+   <li class="pane" data-s="3"><span class="agc-tag">Taste</span><b>“How do you know it’s good?”</b><span>They judge what it&nbsp;made.</span></li>
+   <li class="pane" data-s="4"><span class="agc-tag">Craft</span><b>“What would make someone trust it?”</b><span>They check it and finish&nbsp;it.</span></li>
+  </ol>
+ </div></div>
 </div></section>
 
-<!-- 19 · Three questions -->
-<section class="s ae st ac-fit"><div class="w">
- <p class="kick r">Try this on Monday · three coaching questions</p>
- <h2 class="r" style="--d:.1s">Three questions turn any AI task into practice <em>in agency, taste, and craft.</em></h2>
- <ol class="ic3 ac-q"><li data-s="1"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10" /><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" /></svg></span><b>“Why this problem?”</b><span>Agency: they choose, not the AI</span></li><li data-s="2"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m8 11 2 2 4-4" /><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg></span><b>“How do you know it’s good?”</b><span>Taste: they judge what it made</span></li><li data-s="3"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" /><path d="m16 9-5.5 5.5L8 12" /></svg></span><b>“What would make someone trust it?”</b><span>Craft: they check and finish it</span></li></ol>
-</div></section>
-
-<!-- 20 · Part 3 -->
+<!-- 19 · Part 3 -->
 <section class="s ae nv sec"><div class="w"><div class="sec-g">
  <div>
   <p class="sec-k"><span>Part</span><b>3</b></p>
   <h2 class="r" style="--d:.15s">Now we build one together. <em>No coding needed.</em></h2>
-  <p class="sl r" style="--d:.35s">You choose the class. We build a practice game for it, live.</p>
+  <p class="sl r" style="--d:.35s">Name a school chore. We build the fix together,&nbsp;live.</p>
  </div>
  <ol class="trk" aria-label="Parts">
   <li><div class="row"><span class="tn">1</span><span class="tt"><b>The case</b><small>What students built</small></span></div></li>
@@ -1000,34 +1163,38 @@ a.qr.qr-live[href$="/build"] span::after{content:"  \2192"}
  </ol>
 </div></div></section>
 
-<!-- 21 · The brief -->
-<section class="s alt ae kimi3"><div class="w">
+<!-- 20 · The brief -->
+<section class="s alt ae kimi3 agd-b"><div class="w">
  <p class="kick r">Live build · 30 minutes</p>
- <h2 class="r" style="--d:.1s">You pick a class and a topic.<br><em>We build a practice game for it, live.</em></h2>
+ <h2 class="r" style="--d:.1s">You bring a real school problem.<br><em>We build the fix together, live.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="case3">
-  <div class="cs pane" data-s="1"><span class="lab">Step 1 · you describe it</span><h3>In plain English</h3><p>Call out the class, the topic, and what the game should do.</p></div>
+  <div class="cs pane" data-s="1"><span class="lab">Step 1 · you name it</span><h3>A chore or a snag</h3><p>A workflow you repeat, or a problem you keep running&nbsp;into.</p>
+   <ul class="agd-ex" aria-label="Examples from teachers"><li>“I rewrite the same parent email every&nbsp;week.”</li><li>“Tracking which students turned in&nbsp;drafts.”</li><li>“Making one reading at three&nbsp;levels.”</li></ul></div>
   <span class="cs-ar" data-s="2" aria-hidden="true">→</span>
-  <div class="cs pane" data-s="2"><span class="lab">Step 2 · we direct the AI</span><h3>A first version in minutes</h3><p>We give your words to an AI tool that writes the code.</p></div>
+  <div class="cs pane" data-s="2"><span class="lab">Step 2 · we build it live</span><h3>Claude Code writes it</h3><p>An AI tool that builds web apps from plain&nbsp;English.</p>
+   <div class="agd-cc"><div class="agd-cc-h"><img src="/logos/tools/claude.png" alt=""><b>Claude Code</b><small>by Anthropic</small></div><p class="agd-cc-p"><span>Make a page where I paste a reading and get it at three&nbsp;levels.</span></p><span class="agd-cc-o">A working web app, in&nbsp;minutes</span></div></div>
   <span class="cs-ar" data-s="3" aria-hidden="true">→</span>
-  <div class="cs cs-out" data-s="3"><span class="lab">Step 3 · we all check it</span><h3>Is it right? Is it good?</h3><p>Wrong answers, unclear wording, and tiny buttons get fixed.</p></div>
+  <div class="cs cs-out" data-s="3"><span class="lab">Step 3 · we all iterate</span><h3>Open it, then improve it</h3><p>We try it together and fix what’s off, one plain sentence at a&nbsp;time.</p>
+   <ul class="agd-ex" aria-label="Example fixes"><li>“Make the buttons&nbsp;bigger.”</li><li>“Add a column for due&nbsp;dates.”</li><li>“Use simpler words for grade&nbsp;6.”</li></ul></div>
  </div>
- <div class="cs-foot pane" data-s="4"><p>The same loop your students would run: <em>choose, judge, and finish.</em></p></div>
  </div>
 </div></section>
 
-<!-- 22 · It's live -->
-<section class="s ae"><div class="w">
+<!-- 21 · It's live -->
+<section class="s ae agd-l"><div class="w">
  <p class="kick r">Live build · open it on your phone</p>
- <h2 class="r" style="--d:.1s">It’s live. <em>Open it on your phone.</em></h2>
+ <h2 class="r" style="--d:.1s">What we just built is live. <em>Open it on your phone.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="qa qa14">
-  <a class="qr pane qr-live qr-slides" href="https://arenaschool.org/talks/2026-10-acamis-tech-workshop/build" target="_blank" rel="noopener"><img src="/decks/img/acamis/qr-acamis-build-tight.png" alt="QR code for the game built in this session"><span>Play the game</span><small><span class="nw">arenaschool.org/talks/</span><wbr><span class="nw">2026-10-acamis-tech-workshop</span><wbr><span class="nw">/build</span></small></a>
+  <a class="qr pane qr-live qr-slides" href="https://arenaschool.org/talks/2026-10-acamis-tech-workshop/build" target="_blank" rel="noopener"><img src="/decks/img/acamis/qr-acamis-build-tight.png" alt="QR code for the app the room built live in this session"><span>Open what we built</span><small><span class="nw">arenaschool.org/talks/</span><wbr><span class="nw">2026-10-acamis-tech-workshop</span><wbr><span class="nw">/build</span></small></a>
   <div class="qa-links pane">
-   <div class="qa-item"><span class="k">What it took</span><p class="ac-big">One room, 30 minutes, and plain English.</p><p>No code typed by hand. Every choice was yours: the topic, the questions, and what counted as good enough.</p></div>
+   <div class="qa-item"><span class="k">What it took</span><p class="ac-big">One room, 30 minutes, and plain&nbsp;English.</p><p>You named the problem. Claude Code wrote the code. Together we judged every version and decided when it was good&nbsp;enough.</p></div>
+   <div class="qa-item"><span class="k">What it shows</span><p>The loop your students would practice: agency to pick the problem, taste to judge it, and craft to finish&nbsp;it.</p></div>
+   <p class="agd-more"><img src="/logos/arena/seal-navy-256.png" alt="">More of what students built: <a href="https://arenaschool.org/results" target="_blank" rel="noopener">arenaschool.org/results</a></p>
   </div>
  </div></div>
 </div></section>
 
-<!-- 23 · Part 4 -->
+<!-- 22 · Part 4 -->
 <section class="s ae nv sec"><div class="w"><div class="sec-g">
  <div>
   <p class="sec-k"><span>Part</span><b>4</b></p>
@@ -1041,50 +1208,57 @@ a.qr.qr-live[href$="/build"] span::after{content:"  \2192"}
  </ol>
 </div></div></section>
 
-<!-- 24 · What it takes -->
-<section class="s ae"><div class="w">
+<!-- 23 · What it takes -->
+<section class="s ae age-own"><div class="w">
  <p class="kick r">Take it back · planning checklist</p>
- <h2 class="r" style="--d:.1s">Your school already owns most of this. <em>A practitioner covers the rest.</em></h2>
+ <h2 class="r" style="--d:.1s">Your school already owns most of this. <em>Arena School can help with the&nbsp;rest.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="shift ac-own">
   <div class="shx" data-s="1">
    <div class="sh-col o"><span class="hd">Your school owns</span><ul><li>The learning goals and lasting skills</li><li>A five-day block on the calendar</li><li>Teachers, IT, and families on board</li><li>How students show their work</li></ul></div>
    <div class="sh-arr" aria-hidden="true"><i></i></div>
-   <div class="sh-col n"><span class="hd">Where a practitioner helps</span><ul><li>Matching AI tools to each task</li><li>Prompting that builds thinking</li><li>Working around blocked tools</li><li>Taking an idea to a product in days</li></ul></div>
+   <div class="sh-col n"><span class="hd age-hd"><img src="/logos/arena/seal-ivory-256.png" alt="">Where Arena School helps</span><ul><li>Matching AI tools to each task</li><li>Prompting that builds thinking</li><li>Tools that work on your network</li><li>An idea to a product in five days</li></ul></div>
   </div>
  </div></div>
- <p class="fn" data-s="1"><span>The full checklist and a guide to AI tools on school networks in China are on the session page: arenaschool.org/talks/2026-10-acamis-tech-workshop</span></p>
+ <p class="fn age-fn" data-s="1"><span>Checklist and China tool guide: <a href="https://arenaschool.org/talks/2026-10-acamis-tech-workshop" target="_blank" rel="noopener">arenaschool.org/talks/2026-10-acamis-tech-workshop</a></span><span>How we teach: <a href="https://arenaschool.org/approach" target="_blank" rel="noopener">arenaschool.org/approach</a></span></p>
 </div></section>
 
-<!-- 25 · Going further -->
-<section class="s alt ae st ac-fit"><div class="w">
- <p class="kick r">This hour was the demo</p>
+<!-- 24 · Going further -->
+<section class="s alt ae st ac-fit age-off"><div class="w">
+ <p class="kick r age-brand"><img src="/logos/arena/wordmark-navy-1600.png" alt="Arena School" width="1600" height="242"></p>
  <h2 class="r" style="--d:.1s">Going further: we help schools bring AI <em>into teaching and learning.</em></h2>
-  <ol class="ic3 ac-off"><li data-s="1"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><path d="M16 3.128a4 4 0 0 1 0 7.744" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><circle cx="9" cy="7" r="4" /></svg></span><b>AI for Educators</b><span>Hands-on training at your school, with your teachers’ own lessons</span></li><li data-s="2"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2 3h20" /><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3" /><path d="m7 21 5-5 5 5" /></svg></span><b>Student programs</b><span>A five-day build week like ISB’s, run with your&nbsp;teachers</span></li><li data-s="3"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M13 21h8" /><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" /></svg></span><b>Curriculum design</b><span>Where AI fits in your courses, and how to assess&nbsp;it</span></li></ol>
-  <div class="pane ac-proof" data-s="4"><span class="lab">Selected work</span><span class="ac-pl"><img class="p-isb" src="/logos/cred/isb.png" alt="International School of Beijing"><span class="ac-pt">Bodley Academy, Hong Kong</span><img class="p-sc" src="/logos/cred/schwarzman.png" alt="Schwarzman College, Tsinghua University"></span></div>
+  <ol class="ic3 ac-off"><li data-s="1"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><path d="M16 3.128a4 4 0 0 1 0 7.744" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><circle cx="9" cy="7" r="4" /></svg></span><b>AI for Educators</b><span class="age-d">Hands-on training at your school, with your teachers’ own lessons</span><a class="age-go" href="https://arenaschool.org/programs/teacher-training" target="_blank" rel="noopener">arenaschool.org/programs/<wbr>teacher-training</a></li><li data-s="2"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2 3h20" /><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3" /><path d="m7 21 5-5 5 5" /></svg></span><b>Student programs</b><span class="age-d">A five-day build week like ISB’s, co-run with your&nbsp;teachers</span><a class="age-go" href="https://arenaschool.org/programs/product-intensive" target="_blank" rel="noopener">arenaschool.org/programs/<wbr>product-intensive</a></li><li data-s="3"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M13 21h8" /><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" /></svg></span><b>Curriculum design</b><span class="age-d">Where AI fits in your courses, and how to assess&nbsp;it</span><a class="age-go" href="https://arenaschool.org/contact" target="_blank" rel="noopener">arenaschool.org/contact</a></li></ol>
+  <div class="pane ac-proof age-proof" data-s="4"><span class="age-w age-l"><span class="lab">Selected work</span><a class="age-res" href="https://arenaschool.org/results" target="_blank" rel="noopener">arenaschool.org/results</a></span><span class="ac-pl"><span class="age-w"><img class="p-isb" src="/logos/cred/isb.png" alt="International School of Beijing"><small>Student program · Beijing,&nbsp;2026</small></span><span class="age-w"><span class="ac-pt">Bodley Academy, Hong&nbsp;Kong</span><small>Student course · Hong Kong,&nbsp;2025</small></span><span class="age-w"><img class="p-sc" src="/logos/cred/schwarzman.png" alt="Schwarzman College, Tsinghua University"><small>Staff training · Tsinghua University</small></span></span></div>
 </div></section>
 
-<!-- 26 · Close -->
-<section class="s ae nv cl"><div class="w">
+<!-- 25 · Close -->
+<section class="s ae nv cl age-cl"><div class="w">
  <p class="kick r">If you remember one thing</p>
  <h2 class="r" style="--d:.1s">AI doesn’t have to do the thinking for students.<br><em>The design is up to us.</em></h2>
  <div class="bd r" style="--d:.25s">
   <ol class="c3x">
-   <li data-s="1"><i>1</i><b>Students can ship</b><span>Real products in five days, with no coding.</span></li>
+   <li data-s="1"><i>1</i><b>Students can ship</b><span>Live products in five days, with no coding&nbsp;background.</span></li>
    <li data-s="2"><i>2</i><b>Design decides</b><span>Students choose, judge, and finish.</span></li>
    <li data-s="3"><i>3</i><b>Start small, start now</b><span>One project, one class, and three questions.</span></li>
   </ol>
-  <p class="endline" data-s="4">You don’t need to code. You already know how to coach.</p>
+  <div class="endline age-end" data-s="4"><p>You don’t need to code. You already know how to coach.</p><a class="age-sig" href="https://arenaschool.org" target="_blank" rel="noopener"><span>When you’re ready to run your own, Arena School can&nbsp;help.</span><b>arenaschool.org</b></a></div>
  </div>
 </div></section>
 
-<!-- 27 · Q&A -->
-<section class="s alt ae"><div class="w">
+<!-- 26 · Q&A -->
+<section class="s alt ae age-ty"><div class="w">
  <p class="kick r">ACAMIS Technology Conference · October 18, 2026</p>
  <h2 class="r" style="--d:.1s">Thank you! <em>We&nbsp;welcome your questions.</em></h2>
- <div class="bd r" style="--d:.25s"><div class="qa qa14">
-  <a class="qr pane qr-live qr-slides" href="https://arenaschool.org/talks/2026-10-acamis-tech-workshop" target="_blank" rel="noopener"><img src="/decks/img/acamis/qr-acamis-tight.png" alt="QR code for arenaschool.org/talks/2026-10-acamis-tech-workshop"><span>Slides and resources</span><small><span class="nw">arenaschool.org/talks/</span><wbr><span class="nw">2026-10-acamis-tech-workshop</span></small></a>
-  <div class="qa-links pane">
-   <div class="qa-item"><span class="k">Bring this to your school</span><a class="qa-url" href="mailto:jingjing@arenaschool.org">jingjing@arenaschool.org</a><p>Book a 20-minute call about teacher training, student programs, or curriculum design.</p></div>
+ <div class="bd r" style="--d:.25s"><div class="qa age-qa">
+  <a class="qr pane qr-live age-q" href="https://arenaschool.org/talks/2026-10-acamis-tech-workshop" target="_blank" rel="noopener"><img src="/decks/img/acamis/qr-acamis-tight.png" alt="QR code for arenaschool.org/talks/2026-10-acamis-tech-workshop"><span>Slides and resources</span><small><span class="nw">arenaschool.org/talks/</span><wbr><span class="nw">2026-10-acamis-tech-workshop</span></small></a>
+  <div class="pane age-cta">
+   <div class="age-ct">
+    <img class="age-wm" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School" width="1600" height="242">
+    <span class="k">Bring this to your school</span>
+    <p class="age-h">Book a 20-minute call</p>
+    <p class="age-p">About teacher training, student programs, or curriculum&nbsp;design.</p>
+    <p class="age-ln"><a href="mailto:jingjing@arenaschool.org">jingjing@arenaschool.org</a><a href="https://arenaschool.org" target="_blank" rel="noopener">arenaschool.org</a></p>
+   </div>
+   <a class="qr qr-live age-q age-q2" href="https://arenaschool.org/contact" target="_blank" rel="noopener"><img src="/decks/img/acamis/e-qr-contact-tight.png" alt="QR code for arenaschool.org/contact"><span>Book a call</span><small>arenaschool.org/contact</small></a>
   </div>
  </div></div>
 </div></section>

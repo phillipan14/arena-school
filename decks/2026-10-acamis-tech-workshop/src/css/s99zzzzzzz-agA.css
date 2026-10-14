@@ -1,0 +1,12 @@
+/* Agent A: slides 1-5 (cover, contents, speakers, question, parents) */
+/* 1 cover: ISB logo inline in the lede; Arena brand mark larger, as host */
+.aga-cv .cv-lede .aga-isb{display:inline-block;height:64px;width:auto;vertical-align:middle;position:relative;top:-5.3px}
+section.s.aga-cv>.brandmk{height:calc(44px * var(--z))}
+/* 4 question: larger kicker with the Arena lockup inline */
+.aga-q .kick{font-size:24px;padding-top:2.5px}
+.aga-q .kick .aga-wm{display:inline-block;height:46px;width:auto;vertical-align:middle;position:relative;top:-2.27px;margin-left:.1em}
+/* 2 contents: chevrons centered by ink in the 28px gaps and on the cards; numbers larger, beside the icon, centered on it by ink */
+.aga-toc .tocf li+li::before{transform:translate(6.25px,-6.44px) rotate(45deg)}
+:lang(en) .aga-toc .tocf.ac4 a>.tn{font-size:104px;justify-self:start;margin-left:-12px;top:16.45px}
+/* 3 speakers: one line each in Jing Jing's and Phillip's bios now (2 lines each); the bottom logo row centers by ink between its rule and the card edge */
+.aga-sp .sp .lg>div+div>*{position:relative;top:-2px}

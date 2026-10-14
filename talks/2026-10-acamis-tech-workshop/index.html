@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-n-en="27" data-l="en">
+<html lang="en" data-n-en="26" data-l="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -298,6 +298,29 @@ html[data-l="en"] .pk-en small,html[data-l="zh"] .pk-cn small{color:rgba(252,243
 .ck p{margin:0}
 .s-guide{margin-top:26px}
 @media (min-width:960px){.s-guide{grid-area:guide}}
+/* Arena School presence: who we are, the three offers, the call to action */
+.who{margin:12px 0 0;font-size:15px;line-height:1.55;color:var(--soft)}
+.who b{font-weight:600;color:var(--ink)}
+.who a{font-weight:500;color:var(--btn);text-underline-offset:4px;text-decoration-color:rgba(21,38,54,.3);white-space:nowrap}
+.who a::after{content:" \2192"}
+.row span.u{display:block;margin-top:4px;font-size:13px;line-height:1.4;color:var(--muted);overflow-wrap:anywhere}
+.more-l{display:flex;flex-direction:column;gap:0;margin-top:10px}
+.more-l a{display:flex;align-items:center;min-height:44px;font-size:15px;font-weight:500;color:var(--btn);text-underline-offset:4px;text-decoration-color:rgba(21,38,54,.3)}
+.cta{margin:34px 0 0;padding:26px 0 6px}
+.cta .k{margin-bottom:6px}
+.pk-call b{font-size:21px !important}
+.cta h2{font-size:26px;margin-bottom:8px}
+.cta-b{display:flex;flex-direction:column;gap:12px;margin-top:18px}
+.cta-b .btn{min-height:64px}
+footer a{color:inherit;text-underline-offset:3px}
+@media (min-width:960px){
+  main{grid-template-areas:"slides viewer" "tools guide" "tools more" "cta cta" !important}
+  .s-more{grid-area:more;border-top:1px solid var(--line);margin-top:26px;padding-top:26px}
+  .who{max-width:760px;font-size:16px}
+  .cta{display:grid;grid-template-columns:minmax(0,1fr) 380px;column-gap:64px;align-items:center;margin-top:44px;padding:36px 40px;background:var(--card);border:1px solid var(--line);border-radius:12px}
+  .cta-b{margin-top:0}
+  .cta h2{font-size:30px}
+}
 </style>
 <link rel="stylesheet" href="/promo.css" data-promo><script src="/promo.js" defer data-promo="banner-only"></script>
 </head>
@@ -312,6 +335,7 @@ html[data-l="en"] .pk-en small,html[data-l="zh"] .pk-cn small{color:rgba(252,243
     
     <div class="pk-l">
       <a class="pk-b pk-en" href="/talks/2026-10-acamis-tech-workshop/read/en" hreflang="en" lang="en"><b>Open the slides</b><small>Follow along, slide by slide</small><span class="ar" aria-hidden="true">→</span></a>
+      <a class="pk-b pk-call" href="/contact" lang="en"><b>Book a 20-minute call</b><small>Bring this to your school with Arena</small><span class="ar" aria-hidden="true">→</span></a>
     </div>
   </div>
   <a class="pk-more" href="#resources"><span lang="en">Checklist, tool guide, and more</span><i aria-hidden="true">↓</i></a>
@@ -325,6 +349,7 @@ html[data-l="en"] .pk-en small,html[data-l="zh"] .pk-cn small{color:rgba(252,243
   <div class="intro">
     <p class="ev"><span class="en" lang="en">ACAMIS Technology Conference · Oct 18, 2026</span></p>
     <p class="hi"><span class="en" lang="en">Thank you for joining “From Lab to Classroom.” Below are the slides, the planning checklist, and a guide to AI tools on school networks.</span></p>
+    <p class="who"><span class="en" lang="en"><b>Arena School</b> runs hands-on AI programs for students, teachers, and schools, planned with your faculty and run on your campus. This session’s case study is our summer 2026 student program at the International School of Beijing. <a href="/about">Who we are</a></span></p>
   </div>
 
 </header>
@@ -396,26 +421,28 @@ html[data-l="en"] .pk-en small,html[data-l="zh"] .pk-cn small{color:rgba(252,243
   </section>
 
   <section class="s-more" aria-labelledby="h-more">
-    <p class="k"><span class="en" lang="en">Keep exploring</span><span class="zh" lang="zh-CN">延伸阅读</span></p>
-    <h2 id="h-more"><span class="en" lang="en">More from Arena</span></h2>
+    <p class="k"><span class="en" lang="en">Work with Arena School</span></p>
+    <h2 id="h-more"><span class="en" lang="en">Bring AI into teaching and learning</span></h2>
     <ul class="list">
       <li><a class="row" href="/programs/teacher-training">
-        <span class="t"><b><span class="en" lang="en">AI for Educators</span></b><span class="d"><span class="en" lang="en">Hands-on AI training at your school, with your teachers’ own lessons.</span></span></span><span class="ar" aria-hidden="true">→</span></a></li>
+        <span class="t"><b>AI for Educators</b><span class="d">Hands-on AI training at your school, built around your teachers’ own lessons. No coding needed.</span><span class="u">arenaschool.org/programs/teacher-training</span></span><span class="ar" aria-hidden="true">→</span></a></li>
       <li><a class="row" href="/programs/product-intensive">
-        <span class="t"><b><span class="en" lang="en">Student programs</span></b><span class="d"><span class="en" lang="en">A five-day build week like the ISB case, run with your teachers.</span></span></span><span class="ar" aria-hidden="true">→</span></a></li>
-      <li><a class="row" data-href-en="/approach" data-href-zh="/approach-cn" href="/approach">
-        <span class="t"><b><span class="en" lang="en">How we teach</span><span class="zh" lang="zh-CN">我们的教学理念</span></b><span class="d"><span class="en" lang="en">Agency, taste, and craft, and how a program runs.</span><span class="zh" lang="zh-CN">主动性、审美与匠心，以及一个项目是<span class="nw">怎样进行的。</span></span></span></span><span class="ar" aria-hidden="true">→</span></a></li>
-      <li><a class="row" data-href-en="/results" data-href-zh="/results-cn" href="/results">
-        <span class="t"><b><span class="en" lang="en">Selected programs</span><span class="zh" lang="zh-CN">项目案例</span></b><span class="d"><span class="en" lang="en">Students in Hong Kong and Beijing, and staff training at Tsinghua.</span><span class="zh" lang="zh-CN">香港和北京的学生项目，以及清华大学苏世民书院的教职<span class="nw">员工培训。</span></span></span></span><span class="ar" aria-hidden="true">→</span></a></li>
+        <span class="t"><b>Student programs</b><span class="d">The Entrepreneurship &amp; AI Intensive: five days at your school, like the ISB week, co-run with your teachers. Grades 7 to&nbsp;12.</span><span class="u">arenaschool.org/programs/product-intensive</span></span><span class="ar" aria-hidden="true">→</span></a></li>
+      <li><a class="row" href="/contact">
+        <span class="t"><b>Curriculum design</b><span class="d">Where AI fits in your courses, and how to assess it, planned with your&nbsp;faculty.</span><span class="u">arenaschool.org/contact</span></span><span class="ar" aria-hidden="true">→</span></a></li>
     </ul>
+    <p class="more-l"><a href="/approach">How we teach: agency, taste, and craft</a><a href="/results">Selected programs: what we have run</a></p>
   </section>
 
   <section class="cta" aria-labelledby="h-cta">
-    <h2 id="h-cta"><span class="en" lang="en">Bring this to your school</span></h2>
-    <p>Book a 20-minute call about teacher training, student programs, or curriculum design.</p>
-    <div class="links">
-      <a href="mailto:jingjing@arenaschool.org?subject=ACAMIS%20follow-up">jingjing@arenaschool.org</a>
-      <a href="https://arenaschool.org/contact">arenaschool.org/contact</a>
+    <div class="cta-t">
+      <p class="k"><span class="en" lang="en">Bring this to your school</span></p>
+      <h2 id="h-cta"><span class="en" lang="en">Book a 20-minute call</span></h2>
+      <p>About teacher training, student programs, or curriculum design. We reply within three working&nbsp;days.</p>
+    </div>
+    <div class="cta-b">
+      <a class="btn pri" href="/contact"><span class="lbl">Book a call<small>arenaschool.org/contact</small></span><span class="ar" aria-hidden="true">→</span></a>
+      <a class="btn gh" href="mailto:jingjing@arenaschool.org?subject=ACAMIS%20follow-up"><span class="lbl">Email Jing Jing<small>jingjing@arenaschool.org</small></span><span class="ar" aria-hidden="true">→</span></a>
     </div>
   </section>
 </main>
@@ -425,7 +452,7 @@ html[data-l="en"] .pk-en small,html[data-l="zh"] .pk-cn small{color:rgba(252,243
   <p class="lb-tip"><span class="en" lang="en">Turn your phone sideways for a bigger view<br>Swipe for the next slide · long-press to save</span><span class="zh" lang="zh-CN">横过手机看得更清楚<br>左右滑动翻页 · 长按保存</span></p>
 </div>
 
-<footer>© 2026 Arena School</footer>
+<footer>© 2026 Arena School · <a href="https://arenaschool.org/">arenaschool.org</a></footer>
 </div>
 
 <script>
