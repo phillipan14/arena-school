@@ -715,3 +715,9 @@ a.qr.qr-live[href$="/build"] span::after{content:"  \2192"}
 .ac-st span{font-size:14px}
 .ac-lg{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:8px}
 .ac-lg img{height:24px;width:auto}
+.ac-10{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ac-10 li{display:flex;flex-direction:column;gap:2px;padding:12px}
+.ac-10 i{font-size:13px;font-style:italic;color:var(--ink2,#2F55A8)}
+.ac-10 b{font-size:16px;font-weight:500}
+.ac-10 span{font-size:14px;line-height:1.35}
+.ac-facts{display:grid;grid-template-columns:1fr 1fr;gap:10px}

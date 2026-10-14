@@ -78,3 +78,18 @@ section.s.st.ac-fit:has(.ac-off)>.w{padding-top:calc(var(--hero-top) * .55)}
 .ae .bd .ac-lg .j-yc{height:30px!important}
 section.s.st.ac-fit:has(.ac-off)>.w{padding-top:calc(var(--hero-top) * .6)}
 .ac-q b{max-width:8.6em}
+/* program facts strip under the two photos */
+.ae .bd .ac-dd .ac-facts{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap);align-items:center;padding:20px 32px}
+.ac-facts b{font-size:56px}
+/* ten stages */
+.ac-10{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--gap)}
+.ae .bd .ac-10 li{display:flex;flex-direction:column;gap:8px;padding:28px 26px}
+.ac-10 i{font:italic 400 22px/1 var(--serif);color:var(--ink2)}
+.ac-10 b{font:500 31px/1.15 var(--serif);letter-spacing:-.01em;color:var(--ink)}
+.ac-10 span{font:400 22px/1.35 var(--serif);color:var(--text)}
+.ac-10 li:nth-child(n+6){background:var(--paper-hi)}
+.ae .bd .ac-dd .ac-facts.ac-f3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.ac-prog .ae .bd .ac-dd .ac-ph img,.ae.ac-prog .bd .ac-dd .ac-ph img{height:280px!important}
+.ae .bd .ac-10 li{padding:22px 22px;gap:6px}
+.ac-10 b{font-size:29px}
+.ac-10 span{font-size:21px}
