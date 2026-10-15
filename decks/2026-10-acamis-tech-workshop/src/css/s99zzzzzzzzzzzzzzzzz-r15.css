@@ -70,3 +70,18 @@
 .ae.r4c-tk .bd .mk-map .mk-field,.ae.r4c-tk .bd .mk-map .mk-field span{line-height:1.5}.ae.r4c-tk .bd .mk-map .mk-field{top:0}
 .ae.r4c-tk .bd .mk-map .mk-field{top:3.8px}
 .ae.r4c-tk .bd .mk-map .mk-field{top:2.6px}
+/* round 16: "Selected for" program block beside the title; founding team on one line */
+.r15-ab .r16-hd{display:flex;align-items:center;justify-content:space-between;gap:48px}
+.r15-ab .r16-sel{flex:none;display:flex;flex-direction:column;align-items:flex-start}
+.r15-ab .r16-sel .r15-h{margin:0 0 16px}
+.r15-ab .r16-sel ul{list-style:none;margin:0;padding:0;display:flex;gap:44px}
+.r15-ab .r16-sel li{display:flex;flex-direction:column;align-items:center;gap:10px}
+.r15-ab .r16-lg{height:40px;display:flex;align-items:center}
+.r15-ab .r16-lg img{display:block;width:auto}
+.r15-ab .r16-an{height:19px}.r15-ab .r16-oa{height:39px}
+.r15-ab .r16-sel small{font:italic 400 19px/1.2 var(--serif);color:var(--muted);white-space:nowrap}
+.r15-ab .r15-team{gap:20px}
+.ae.r15-ab .bd .r15-ft{margin:0;display:flex;align-items:baseline;gap:18px}
+.r15-ab .r15-ft .r15-h{margin:0}
+.r15-ab .r15-ft b{font:500 24px/1.2 var(--serif);color:var(--ink)}
+section.s.r15-ab>.brandmk{display:none!important}
