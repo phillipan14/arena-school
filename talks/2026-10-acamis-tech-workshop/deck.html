@@ -4288,5 +4288,25 @@ lay();addEventListener('resize',lay);[].forEach.call(document.querySelectorAll('
 })();
 </script>
 
+<script>
+/* Tools slide: the 200+ field must read as a clean rectangle. Justify every line, including the last,
+   and hide (not delete, so the 200+ count holds) any names stranded on a short last line. */
+(function(){
+ function rect(box){
+  var sp=[].slice.call(box.querySelectorAll('span'));if(!sp.length)return;
+  sp.forEach(function(s){s.style.display=''});box.style.textAlignLast='left';
+  var lines=[],top=null;
+  sp.forEach(function(s){var t=s.offsetTop;if(top===null||Math.abs(t-top)>4){lines.push([]);top=t}lines[lines.length-1].push(s)});
+  if(lines.length>1){var last=lines[lines.length-1],prev=lines[lines.length-2];
+   if(last.length<prev.length*0.85&&!last.some(function(s){return s.classList.contains('hl')}))last.forEach(function(s){s.style.display='none'})}
+  box.style.textAlignLast='justify';
+ }
+ function all(){[].forEach.call(document.querySelectorAll('.r4c-tk .mk-field'),rect)}
+ if(document.fonts&&document.fonts.ready)document.fonts.ready.then(all);
+ addEventListener('load',all);addEventListener('resize',function(){clearTimeout(all.t);all.t=setTimeout(all,120)});
+ new MutationObserver(function(){clearTimeout(all.m);all.m=setTimeout(all,60)}).observe(document.documentElement,{attributes:true,attributeFilter:['class']});
+})();
+</script>
+
 
 </body></html>
