@@ -35,11 +35,11 @@
      "url": "qianwen.com"
     },
     {
-     "name": "Yuanbao",
-     "zh": "腾讯元宝",
+     "name": "WorkBuddy",
+     "zh": "",
      "maker": "Tencent",
-     "good_for": "Questions, writing, and search with sources",
-     "url": "yuanbao.tencent.com"
+     "good_for": "A desktop AI agent that works through files and multi-step office tasks",
+     "url": "workbuddy.cn"
     },
     {
      "name": "Wenxin",
