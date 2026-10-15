@@ -65,10 +65,10 @@ PAGES = {
     end_cta=('教育者AI培训','/programs/teacher-training-cn'), end_more=('联系我们的团队','/contact-cn?program=conferences')),
  },
  'isb-winter-2027': {
-  'en': dict(title='AI Product Lab @ ISB (Jan 5–8, 2027)',
-    desc='AI Product Lab @ ISB: a short Arena School program at the International School of Beijing, January 5–8, 2027, the last days of ISB’s winter break. Students choose a real problem, build a working product with AI tools, and demo it. Register interest.',
-    eyebrow='AI Product Lab @ ISB · Jan 5–8, 2027', eyebrow_m='AI Product Lab · Jan 5–8',
-    h1='AI Product Lab @ ISB',
+  'en': dict(title='Build Your Own AI Toolkit @ ISB (Jan 5–8, 2027)',
+    desc='Build Your Own AI Toolkit @ ISB: a short Arena School program at the International School of Beijing, January 5–8, 2027, the last days of ISB’s winter break. Students choose a real problem, build a working product with AI tools, and demo it. Register interest.',
+    eyebrow='Build Your Own AI Toolkit @ ISB',
+    h1='Build Your Own AI Toolkit @ ISB',
     lede='In the last days of ISB’s winter break, students choose a problem worth solving, build a working product with AI tools, and show it to a panel. A shorter version of the Entrepreneurship & AI Intensive we ran with ISB students in Beijing in 2026.',
     facts=[('When','Jan 5–8, 2027'),('Where','International School of Beijing'),('For','ISB students')],
     cta=[('Register interest','#register',True),('See all programs','/#programs',False)],
@@ -83,10 +83,10 @@ PAGES = {
       done='Thank you. You are on the list.', note='Our team will reply personally within three working days.'),
     end_k='Proof', end_h='What ISB students built in 2026', end_p='Over five days in Beijing, ISB students built working websites and apps with AI and presented them to judges from Harvard, Stanford, Y Combinator, and AI labs.',
     end_cta=('See results','/results'), end_more=('About the five-day intensive','/programs/product-intensive')),
-  'cn': dict(title='ISB AI产品实验室（2027年1月5–8日）',
-    desc='ISB AI产品实验室：Arena School 于2027年1月5–8日（ISB 寒假最后几天），在北京顺义国际学校开展的短期项目：学生选择真实问题，借助AI工具做出可用的产品并展示。欢迎登记意向。',
-    eyebrow='ISB AI产品实验室 · 2027年1月5–8日', eyebrow_m='AI产品实验室 · 1月5–8日',
-    h1='ISB AI产品实验室',
+  'cn': dict(title='打造专属于你的AI工具箱 @ ISB（2027年1月5–8日）',
+    desc='打造专属于你的AI工具箱 @ ISB：Arena School 于2027年1月5–8日（ISB 寒假最后几天），在北京顺义国际学校开展的短期项目：学生选择真实问题，借助AI工具做出可用的产品并展示。欢迎登记意向。',
+    eyebrow='打造专属于你的AI工具箱 @ ISB',
+    h1='打造专属于你的AI工具箱 @ ISB',
     lede='在 ISB 寒假的最后几天，学生选择一个值得解决的问题，借助AI工具做出可用的产品，并向评委展示。这是我们2026年在北京与 ISB 学生一起开展的“创业与AI集训营”的精简版。',
     facts=[('日期','2027年1月5–8日'),('地点','北京顺义国际学校'),('对象','ISB 学生')],
     cta=[('登记意向','#register',True),('查看全部项目','/index-cn#programs',False)],
@@ -115,7 +115,7 @@ def form_html(d, lang):
     if not f: return ''
     zh = lang == 'cn'
     opts = lambda xs: ''.join('<option>%s</option>' % E(x) for x in xs)
-    prog = 'AI Product Lab @ ISB 2027'
+    prog = 'Build Your Own AI Toolkit @ ISB 2027'
     pick = '请选择' if zh else 'Pick one'
     return f'''<section class="zl-section pc-sec ev-reg" id="register" data-screen-label="Register">
   <div class="container pc-why-grid">
