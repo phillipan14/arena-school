@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Winter Program @ ISB (Jan 5–8, 2027) · Arena School</title>
-<meta name="description" content="Winter Program @ ISB: a short Arena School program at the International School of Beijing, January 5–8, 2027, the last days of ISB’s winter break. Students choose a real problem, build a working product with AI tools, and demo it. Register interest." />
+<title>AI Product Lab @ ISB · Jan 5–8, 2027 · Arena School</title>
+<meta name="description" content="AI Product Lab @ ISB, January 5–8, 2027: a four-day AI fundamentals bootcamp at the end of winter break where every student builds an AI-native product. No coding or STEM background needed. Register interest." />
 <meta name="author" content="Arena School" />
 <meta name="theme-color" content="#152636" />
 <link rel="canonical" href="https://arenaschool.org/events/isb-winter-2027" />
@@ -15,14 +15,16 @@
 <link rel="manifest" href="/manifest.json?v=2" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Arena School" />
-<meta property="og:title" content="Winter Program @ ISB (Jan 5–8, 2027) · Arena School" />
-<meta property="og:description" content="Winter Program @ ISB: a short Arena School program at the International School of Beijing, January 5–8, 2027, the last days of ISB’s winter break. Students choose a real problem, build a working product with AI tools, and demo it. Register interest." />
+<meta property="og:title" content="AI Product Lab @ ISB (Jan 5–8, 2027) · Arena School" />
+<meta property="og:description" content="AI Product Lab @ ISB, January 5–8, 2027: a four-day AI fundamentals bootcamp at the end of winter break where every student builds an AI-native product. No coding or STEM background needed. Register interest." />
 <meta property="og:url" content="https://arenaschool.org/events/isb-winter-2027" />
 <meta property="og:image" content="https://arenaschool.org/og-image.png" />
 <link rel="stylesheet" href="/styles.css?v=1790704894" />
 <link rel="stylesheet" href="/riso-theme.css?v=1791500000" />
 <link rel="stylesheet" href="/mobile.css?v=1790910000" />
 <link rel="stylesheet" href="/css/parent-talks.css?v=1790704894" />
+<link rel="stylesheet" href="/css/zero-to-launch.css?v=1790704894" />
+<link rel="stylesheet" href="/css/pages.css?v=1790806100" />
 <link rel="stylesheet" href="/css/program-pages.css?v=1790900500" />
 <link rel="stylesheet" href="/css/team.css?v=1790806300" />
 <link rel="stylesheet" href="/css/cofounders.css?v=1790941000" />
@@ -58,12 +60,102 @@
   .pc-final .pp-final-all a { display: inline-block; padding: 12px 8px; }
 }
 </style>
+<style data-mobile>
+@media (max-width: 760px) {
+  /* Line breaks: no orphans in headings, ledes, and card copy */
+  .pg-bootcamp main h1, .pg-bootcamp main h2, .pg-bootcamp .pg-outs b, .pg-bootcamp .pg-seq b { text-wrap: balance; }
+  .pg-bootcamp .lede, .pg-bootcamp .card-p, .pg-bootcamp .pg-seq p, .pg-bootcamp .zl-spec-value, .pg-bootcamp .faq-a, .pg-bootcamp .pp-close-sub { text-wrap: pretty; }
+
+  /* Hero: trim the empty band above the eyebrow, center, stacked full-width CTAs */
+  .pg-bootcamp .hero.hero-pad-md { padding-top: 124px; padding-bottom: 44px; }
+  .pg-bootcamp .hero .hero-copy { text-align: center; margin-inline: auto; }
+  .pg-bootcamp .hero .hero-eyebrow-row { justify-content: center; }
+  .pg-bootcamp .hero .cs-h1, .pg-bootcamp .hero .lede-56 { margin-left: auto !important; margin-right: auto !important; }
+  .pg-bootcamp .hero .lede-56, .pg-bootcamp .sec-head.pg-head .lede, .pg-bootcamp .pp-close-sub { text-wrap: balance; }
+  .pg-bootcamp .hero .pp-hero-cta { flex-direction: column; align-items: stretch; gap: 12px; }
+  .pg-bootcamp .hero .pp-hero-cta .btn { width: 100%; min-height: 52px; justify-content: center; margin: 0; }
+  /* At-a-glance: one fact per row, label above value (no "in / person" or split dates) */
+  .pg-bootcamp .hero .pp-glance { grid-template-columns: 1fr; text-align: left; }
+  .pg-bootcamp .hero .pp-glance li, .pg-bootcamp .hero .pp-glance li:last-child { grid-column: auto; border-right: 0; border-bottom: 1px solid var(--pg-line); padding: 12px 20px 13px; }
+  .pg-bootcamp .hero .pp-glance li:last-child { border-bottom: 0; }
+  .pg-bootcamp .hero .pp-glance b { font-size: 11.5px; }
+  /* Co-brand strip: centered under the CTAs */
+  .pg-bootcamp .zl-hero-hosted { justify-content: center; margin-top: 26px; }
+
+  /* Section heads centered */
+  .pg-bootcamp .sec-head.pg-head { text-align: center; justify-items: center; margin-inline: auto; }
+  .pg-bootcamp .sec-head.pg-head .eyebrow { justify-self: center !important; }
+  .pg-bootcamp .sec-head.pg-head .h2, .pg-bootcamp .sec-head.pg-head .lede { margin-inline: auto; }
+
+  /* Outcomes: clean single column (matches "Why it matters") instead of a clipped sideways row */
+  .pg-bootcamp .pg-outs { grid-auto-flow: row; grid-template-columns: 1fr; grid-auto-columns: auto; overflow: visible; scroll-snap-type: none; padding: 0; margin-inline: 0; gap: 12px; }
+  .pg-bootcamp .pg-outs > li { padding: 20px 22px 22px; }
+  /* "Why it matters": tap-to-open points get a visible +/- affordance; no dead gap when closed */
+  .pg-bootcamp .has-wr > li { cursor: pointer; }
+  .pg-bootcamp .has-wr > li::after { content: "+"; position: absolute; right: 18px; top: 16px; width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--pg-line); display: grid; place-items: center; font: 400 19px/1 var(--font-body, inherit); color: var(--coral-deep, #B4532A); }
+  .pg-bootcamp .has-wr > li.wr-open::after { content: "\2212"; }
+  .pg-bootcamp .has-wr > li > .wr { margin-top: -10px; }
+  .pg-bootcamp .has-wr > li.wr-open > .wr { margin-top: 0; }
+  .pg-bootcamp .pg-outs-body .card-p { font-size: 15px; }
+
+  /* The week: vertical timeline, day label above the title */
+  .pg-bootcamp #week .pg-seq { border-top: 0; margin-top: 8px; }
+  .pg-bootcamp #week .pg-seq li, .pg-bootcamp #week .pg-seq li + li { position: relative; display: block; padding: 0 0 26px 34px; border: 0; }
+  .pg-bootcamp #week .pg-seq li:last-child { padding-bottom: 0; border-bottom: 0; }
+  .pg-bootcamp #week .pg-seq li::before { content: ""; position: absolute; left: 6px; top: 16px; bottom: -2px; width: 1.5px; background: var(--pg-line-hi, rgba(11,26,74,.25)); }
+  .pg-bootcamp #week .pg-seq li:last-child::before { display: none; }
+  .pg-bootcamp #week .pg-seq li::after { content: ""; position: absolute; left: 0; top: 2px; width: 14px; height: 14px; border-radius: 50%; background: var(--paper-hi, #FCF3ED); box-shadow: inset 0 0 0 1.5px var(--ink-2, #2F55A8); }
+  .pg-bootcamp #week .pg-seq li:first-child::after, .pg-bootcamp #week .pg-seq li:last-child::after { background: var(--ink-2, #2F55A8); }
+  .pg-bootcamp #week .pg-seq small { padding-top: 0; font-size: 11.5px; line-height: 18px; }
+  .pg-bootcamp #week .pg-seq b { margin-top: 6px; font-size: 21px; }
+  .pg-bootcamp #week .pg-seq p { margin-top: 6px; font-size: 15px; line-height: 1.55; }
+
+  /* AI tools: two-up category cards instead of a clipped sideways strip */
+  .pg-bootcamp .pg-tools-k { font-size: 11.5px; line-height: 1.6; text-align: center; text-wrap: balance; margin-top: 40px; }
+  .pg-bootcamp .zt-strip { grid-auto-flow: row; grid-template-columns: 1fr 1fr; grid-auto-columns: auto; overflow: visible; scroll-snap-type: none; padding-bottom: 0; gap: 10px; }
+  .pg-bootcamp .zt-strip .zt-col { padding: 14px 14px 8px; min-width: 0; }
+  .pg-bootcamp .zt-strip .zt-cat { font-size: 11.5px; letter-spacing: .06em; }
+  .pg-bootcamp .zt-strip .zt-tool b { font-size: 14.5px; }
+  .pg-bootcamp .zt-strip .zt-col:last-child:nth-child(odd) { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; column-gap: 14px; }
+  .pg-bootcamp .zt-strip .zt-col:last-child:nth-child(odd) .zt-cat { grid-column: 1 / -1; }
+
+  /* Team labels: 11px floor */
+  .pg-bootcamp .hp-cred-lab, .pg-bootcamp .hp-cf-r, .pg-bootcamp .hp-cf-k { font-size: 11px; }
+  .pg-bootcamp .hp-cf-card em { text-wrap: balance; }
+
+  /* Program facts head: centered like the other section heads */
+  .pg-bootcamp #facts .sec-head { text-align: center; }
+  .pg-bootcamp #facts .sec-head .h2 { margin-inline: auto; }
+  .pg-bootcamp #facts .zl-spec { text-align: left; }
+  /* Program facts: label above value so values get the full width */
+  .pg-bootcamp .pg-spec .zl-spec-row { grid-template-columns: 1fr; }
+  .pg-bootcamp .pg-spec .zl-spec-label { padding: 12px 18px 0; font-size: 11.5px; background: none; border: 0; }
+  .pg-bootcamp .pg-spec .zl-spec-value { padding: 4px 18px 13px; font-size: 16px; line-height: 1.5; }
+
+  /* Closing CTA: centered head, full-width button */
+  .pg-bootcamp .pp-final .pp-final-top > div:first-child { text-align: center; }
+  .pg-bootcamp .pp-final .pp-close-sub { margin-inline: auto; }
+  .pg-bootcamp .pp-final .pp-close-cta { display: flex; flex-direction: column; align-items: stretch; }
+  .pg-bootcamp .pp-final .pp-close-cta .btn { width: 100%; min-height: 52px; justify-content: center; margin: 0; }
+  .pg-bootcamp .pp-close-photo figcaption { font-size: 13px; }
+}
+@media (max-width: 374px) {
+  .pg-bootcamp .zt-strip .zt-col { padding: 12px 12px 6px; }
+  .pg-bootcamp .zt-strip .zt-cat { font-size: 11px; letter-spacing: .04em; }
+  .pg-bootcamp .zt-strip .zt-tool { gap: 8px; }
+  .pg-bootcamp .zt-strip .zt-tool b { font-size: 14px; }
+}
+</style>
+<style data-winter>
+.pg-winter .wp-proof { margin: 36px 0 0; max-width: 64ch; font-size: 16px; line-height: 1.6; color: #4A5768; text-wrap: pretty; }
+.pg-winter .wp-proof .tlink { white-space: nowrap; }
+</style>
 <style>@media (min-width:761px){.pc-event .pc-facts{grid-template-columns:repeat(var(--evf,4),minmax(0,1fr)) !important}.pc-event .pc-facts li span,.pc-event .pc-facts li b{white-space:normal !important}}.ev-eb-m{display:none}@media (max-width:760px){.ev-eb-d{display:none}.ev-eb-m{display:inline;white-space:nowrap}}</style>
 <link rel="stylesheet" href="/newsletter.css?v=516d21dd" data-nl>
 <link rel="stylesheet" href="/promo.css?v=21ea5dbe" data-promo>
 <link rel="stylesheet" href="/phone.css?v=0675d6ee" data-phone>
 </head>
-<body class="no-ticker zl-page">
+<body class="no-ticker zl-page pg pg-bootcamp pg-winter">
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <a href="/" class="wordmark nav-brand">
@@ -89,34 +181,30 @@
     </div>
   </div>
 </nav>
-<main id="top" class="pc pc-event">
-<section class="hero hero-pad-md hero-inv pc-hero" data-screen-label="Hero">
+<main id="top">
+
+<section class="hero hero-pad-md hero-inv" data-screen-label="Hero">
   <div class="hero-bg" data-riso-field="static" aria-hidden="true"></div>
   <div class="container">
     <div class="hero-copy hero-copy-wide">
-      <div class="hero-eyebrow-row reveal"><span class="eyebrow"><span class="ev-eb-d">Winter Program @ ISB · Jan 5–8, 2027</span><span class="ev-eb-m">Winter Program · Jan 5–8</span></span></div>
-      <h1 class="display reveal cs-h1">Winter Program @ ISB</h1>
-      <p class="lede reveal lede-56">In the last days of ISB’s winter break, students choose a problem worth solving, build a working product with AI tools, and show it to a panel. A shorter version of the Entrepreneurship &amp; AI Intensive we ran with ISB students in Beijing in 2026.</p>
-      <ul class="pc-facts reveal" style="--evf:3" aria-label="At a glance"><li><b>When</b><span>Jan 5–8, 2027</span></li><li><b>Where</b><span>International School of Beijing</span></li><li><b>For</b><span>ISB students</span></li></ul>
-      <div class="pc-cta reveal"><a href="#register" class="btn btn-primary">Register interest <span class="arr">→</span></a><a href="/#programs" class="btn btn-ghost">See all programs</a></div>
+      <div class="hero-eyebrow-row reveal"><span class="eyebrow">AI Product Lab @ ISB · Jan 5–8</span></div>
+      <h1 class="display reveal cs-h1">A four-day AI fundamentals bootcamp, <em>where every student builds an AI-native product.</em></h1>
+      <p class="lede sub reveal lede-56">Four days at the end of winter break. Students learn 20+ AI tools and use them to turn an idea into a real product. No STEM background or coding needed.</p>
+      <ul class="pp-glance reveal" aria-label="At a glance"><li><b>Dates</b><span>Jan 5–8, 2027</span></li><li><b>Where</b><span>International School of Beijing</span></li><li><b>For</b><span>ISB students, grades 6–12</span></li></ul>
+      <div class="pp-hero-cta reveal"><a href="#register" class="btn btn-primary">Register interest <span class="arr">→</span></a><a href="#week" class="btn btn-ghost">The four days</a></div>
     </div>
   </div>
 </section>
-<section class="zl-section pc-sec pc-why" data-screen-label="Session">
-  <div class="container pc-why-grid">
-    <div class="sec-head reveal"><span class="eyebrow">What students do</span><h2 class="h2 h2-md">From a problem to a working product</h2></div>
-    <div class="reveal"><ul class="pc-why-list"><li><h3>Choose a problem</h3><p>Students pitch problems they care about, and teams form around them.</p></li><li><h3>Talk to users</h3><p>Teams interview the people they want to help before they build.</p></li><li><h3>Live at a link</h3><p>With AI coding tools, teams make a working version anyone can open. No coding experience is needed.</p></li><li><h3>Demo</h3><p>Teams present what they built and what they learned.</p></li></ul></div>
-  </div>
-</section>
+
 <section class="zl-section pc-sec ev-reg" id="register" data-screen-label="Register">
   <div class="container pc-why-grid">
     <div class="sec-head reveal"><span class="eyebrow">Register interest</span><h2 class="h2 h2-md">Hear first when registration opens</h2><p class="pc-intro">Leave your details and we will follow up with the full program details. Registering interest is not a commitment.</p></div>
     <div class="pp-lead reveal">
       <form class="cohort-form pp-lead-form" action="https://formsubmit.co/ajax/contact@arenaschool.org" method="POST">
-        <input type="hidden" name="_subject" value="Arena School · interest · ISB Winter Program 2027" />
+        <input type="hidden" name="_subject" value="Arena School · interest · AI Product Lab @ ISB 2027" />
         <input type="hidden" name="_template" value="box" />
         <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="program" value="ISB Winter Program 2027" />
+        <input type="hidden" name="program" value="AI Product Lab @ ISB 2027" />
         <input type="hidden" name="kind" value="interest" />
         <input type="hidden" name="lang" value="en" />
         <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
@@ -142,18 +230,72 @@
     </div>
   </div>
 </section>
-<section class="zl-section section-alt pc-sec" data-screen-label="Speakers">
-  <div class="container pc-why-grid">
-    <div class="sec-head reveal"><span class="eyebrow">Who runs it</span><h2 class="h2 h2-md">The co-founders of Arena School</h2></div>
-    <div class="reveal"><ul class="pc-why-list ev-speakers"><li><h3><a class="ev-spk" href="/about#jing-jing-yang">Jing Jing Yang</a></h3><p>Co-founder, Arena School. At ISB from elementary school through graduation (Class of 2019); Brown and Tsinghua; Kimi (Moonshot AI).</p></li><li><h3><a class="ev-spk" href="/about#phillip-an">Phillip An</a></h3><p>Co-founder, Arena School. Forbes 30 Under 30 and a YC-backed founder; McKinsey and Goldman Sachs; Caltech, Harvard, and Tsinghua.</p></li></ul></div>
-  </div>
-</section>
-<section class="zl-section pc-sec ev-end" data-screen-label="After">
+
+<section class="zl-section" data-screen-label="Why it matters">
   <div class="container">
-    <div class="sec-head reveal"><span class="eyebrow">Proof</span><h2 class="h2 h2-md">What ISB students built in 2026</h2><p class="pc-intro">Over five days in Beijing, ISB students built working websites and apps with AI and presented them to judges from Harvard, Stanford, Y Combinator, and AI labs.</p></div>
-    <div class="pc-cta reveal ev-end-cta"><a href="/results" class="btn btn-primary">See results <span class="arr">→</span></a><a class="tlink" href="/programs/product-intensive">About the five-day intensive →</a></div>
+    <div class="sec-head pg-head reveal"><span class="eyebrow">Why it matters</span><h2 class="h2 h2-md">When AI can make almost anything, students need to know <em>what’s worth making,</em> whether it’s good, and how to finish it.</h2><p class="lede">Students practice all three, hands-on, on a project of their own.</p></div>
+    <ul class="pg-outs pg-outs-body pg-outs-3 has-wr"><li class="reveal"><small>01</small><b>Learn AI skills</b><p class="card-p">Professional tools for research, design, code, and video, each learned on the student’s own project.</p><div class="wr" aria-hidden="true" data-lint-skip><div class="wr-in"><div class="wr-marq"><div class="wr-track"><span class="wr-tool"><img src="/logos/tools/openai.png" alt="" loading="lazy" />ChatGPT</span><span class="wr-tool"><img src="/logos/tools/claude.png" alt="" loading="lazy" />Claude</span><span class="wr-tool"><img src="/logos/tools/deepseek.png" alt="" loading="lazy" />DeepSeek</span><span class="wr-tool"><img src="/logos/tools/perplexity.png" alt="" loading="lazy" />Perplexity</span><span class="wr-tool"><img src="/logos/tools/cursor.png" alt="" loading="lazy" />Cursor</span><span class="wr-tool"><img src="/logos/tools/kimi.png" alt="" loading="lazy" />Kimi Code</span><span class="wr-tool"><img src="/logos/tools/github.png" alt="" loading="lazy" />GitHub</span><span class="wr-tool"><img src="/logos/tools/vercel.png" alt="" loading="lazy" />Vercel</span><span class="wr-tool"><img src="/logos/tools/figma.png" alt="" loading="lazy" />Figma</span><span class="wr-tool"><img src="/logos/tools/canva.png" alt="" loading="lazy" />Canva</span><span class="wr-tool"><img src="/logos/tools/ideogram.png" alt="" loading="lazy" />Ideogram</span><span class="wr-tool"><img src="/logos/tools/midjourney.png" alt="" loading="lazy" />Midjourney</span><span class="wr-tool"><img src="/logos/tools/capcut.png" alt="" loading="lazy" />CapCut 剪映</span><span class="wr-tool"><img src="/logos/tools/suno.png" alt="" loading="lazy" />Suno</span><span class="wr-tool"><img src="/logos/tools/elevenlabs.png" alt="" loading="lazy" />ElevenLabs</span><span aria-hidden="true" class="wr-dup"><span class="wr-tool"><img src="/logos/tools/openai.png" alt="" loading="lazy" />ChatGPT</span><span class="wr-tool"><img src="/logos/tools/claude.png" alt="" loading="lazy" />Claude</span><span class="wr-tool"><img src="/logos/tools/deepseek.png" alt="" loading="lazy" />DeepSeek</span><span class="wr-tool"><img src="/logos/tools/perplexity.png" alt="" loading="lazy" />Perplexity</span><span class="wr-tool"><img src="/logos/tools/cursor.png" alt="" loading="lazy" />Cursor</span><span class="wr-tool"><img src="/logos/tools/kimi.png" alt="" loading="lazy" />Kimi Code</span><span class="wr-tool"><img src="/logos/tools/github.png" alt="" loading="lazy" />GitHub</span><span class="wr-tool"><img src="/logos/tools/vercel.png" alt="" loading="lazy" />Vercel</span><span class="wr-tool"><img src="/logos/tools/figma.png" alt="" loading="lazy" />Figma</span><span class="wr-tool"><img src="/logos/tools/canva.png" alt="" loading="lazy" />Canva</span><span class="wr-tool"><img src="/logos/tools/ideogram.png" alt="" loading="lazy" />Ideogram</span><span class="wr-tool"><img src="/logos/tools/midjourney.png" alt="" loading="lazy" />Midjourney</span><span class="wr-tool"><img src="/logos/tools/capcut.png" alt="" loading="lazy" />CapCut 剪映</span><span class="wr-tool"><img src="/logos/tools/suno.png" alt="" loading="lazy" />Suno</span><span class="wr-tool"><img src="/logos/tools/elevenlabs.png" alt="" loading="lazy" />ElevenLabs</span></span></div></div></div></div></li><li class="reveal"><small>02</small><b>Choose a project worth making</b><p class="card-p">A sport, a cause, a hobby, or a subject they love. Students choose what is worth making, and every decision stays theirs.</p><div class="wr" aria-hidden="true" data-lint-skip><div class="wr-in"><ul class="wr-idx"><li>A study tool</li><li>A club website</li><li>A game</li><li>A tool for a cause</li><li>A music or film project</li></ul></div></div></li><li class="reveal"><small>03</small><b>Finish something real</b><p class="card-p">A working version anyone can open at a link, tested with real people and presented on the last day.</p><div class="wr" aria-hidden="true" data-lint-skip><div class="wr-in"><ul class="wr-idx"><li>Tested with real people</li><li>Live at a link</li><li>Presented on day four</li></ul></div></div></li></ul>
   </div>
 </section>
+
+<section class="zl-section section-alt" id="week" data-screen-label="The four days">
+  <div class="container">
+    <div class="sec-head pg-head reveal"><span class="eyebrow">The four days</span><h2 class="h2 h2-md">Four days, <em>from an idea to a demo.</em></h2><p class="lede">Short lessons each morning, then project time with our team beside every student.</p></div>
+    <ol class="pg-seq reveal" style="--n:4"><li><small>Day 01</small><b>Choose a project</b><p>Students pick something they care about and write a one-page plan.</p></li><li><small>Day 02</small><b>Talk to people, make a first version</b><p>Interviews with the people it is for, then a first working version.</p></li><li><small>Day 03</small><b>Test, improve, and design</b><p>Classmates try it. Students decide what to fix and cut, then name and style it.</p></li><li><small>Day 04</small><b>Launch and present</b><p>The project goes live at its own link, and each student presents it.</p></li></ol>
+    <p class="pg-k pg-tools-k reveal">The AI tools students learn</p>
+    <div class="zt-grid zt-strip reveal"><div class="zt-col"><div class="zt-cat">Think &amp; research</div><div class="zt-tool"><img src="/logos/tools/openai.png" alt="" loading="lazy"><b>ChatGPT</b></div><div class="zt-tool"><img src="/logos/tools/claude.png" alt="" loading="lazy"><b>Claude</b></div><div class="zt-tool"><img src="/logos/tools/deepseek.png" alt="" loading="lazy"><b>DeepSeek</b></div><div class="zt-tool"><img src="/logos/tools/perplexity.png" alt="" loading="lazy"><b>Perplexity</b></div></div><div class="zt-col"><div class="zt-cat">Make it work</div><div class="zt-tool"><img src="/logos/tools/cursor.png" alt="" loading="lazy"><b>Cursor</b></div><div class="zt-tool"><img src="/logos/tools/kimi.png" alt="" loading="lazy"><b>Kimi Code</b></div><div class="zt-tool"><img src="/logos/tools/github.png" alt="" loading="lazy"><b>GitHub</b></div><div class="zt-tool"><img src="/logos/tools/vercel.png" alt="" loading="lazy"><b>Vercel</b></div></div><div class="zt-col"><div class="zt-cat">Design</div><div class="zt-tool"><img src="/logos/tools/figma.png" alt="" loading="lazy"><b>Figma</b></div><div class="zt-tool"><img src="/logos/tools/canva.png" alt="" loading="lazy"><b>Canva</b></div><div class="zt-tool"><img src="/logos/tools/ideogram.png" alt="" loading="lazy"><b>Ideogram</b></div><div class="zt-tool"><img src="/logos/tools/midjourney.png" alt="" loading="lazy"><b>Midjourney</b></div></div><div class="zt-col"><div class="zt-cat">Video &amp; sound</div><div class="zt-tool"><img src="/logos/tools/capcut.png" alt="" loading="lazy"><b>CapCut 剪映</b></div><div class="zt-tool"><img src="/logos/tools/suno.png" alt="" loading="lazy"><b>Suno</b></div><div class="zt-tool"><img src="/logos/tools/elevenlabs.png" alt="" loading="lazy"><b>ElevenLabs</b></div></div></div>
+    <p class="wp-proof reveal">In 2026, ISB students made working websites and apps in five days and presented them to judges from Harvard, Stanford, Y Combinator, and AI labs. <a class="tlink" href="/results">See results <span class="arr">→</span></a></p>
+  </div>
+</section>
+
+<section class="zl-section" data-screen-label="Outcomes">
+  <div class="container">
+    <div class="sec-head pg-head reveal"><span class="eyebrow">Outcomes</span><h2 class="h2 h2-md">What students <em>leave with.</em></h2><p class="lede">Everything they make is theirs to keep.</p></div>
+    <ul class="pg-outs pg-outs-body pg-outs-3"><li class="reveal"><small>01</small><b>A live project</b><p class="card-p">Published at its own link and theirs to keep building.</p></li><li class="reveal"><small>02</small><b>A practiced presentation</b><p class="card-p">Explaining what they made, why, and what they learned, practiced on the last day.</p></li><li class="reveal"><small>03</small><b>A way of working with AI</b><p class="card-p">AI as a helper, with every call theirs. A method for schoolwork, clubs, and the next idea.</p></li></ul>
+  </div>
+</section>
+
+<section class="hp-cred team-sec" id="team" data-screen-label="Instructors">
+  <div class="container">
+    <div class="hp-cred-head reveal"><span class="eyebrow">Who teaches it</span><h2 class="h2 h2-md">Taught by <em>our co-founders.</em></h2><p class="lede">Phillip An leads the teaching, with ISB graduate Jing Jing Yang alongside him.</p></div>
+    <div class="hp-cred-grid reveal">
+      <div class="hp-cred-row"><span class="hp-cred-lab">Studied at</span><ul><li><img src="/logos/cred/caltech.png" alt="Caltech" style="height:30px" loading="lazy" /></li><li><img src="/logos/cred/harvard.png" alt="Harvard University" style="height:40px" loading="lazy" /></li><li><img src="/logos/cred/brown.png" alt="Brown University" style="height:40px" loading="lazy" /></li><li><img src="/logos/cred/tsinghua-lockup.png" alt="Tsinghua University" style="height:44px" loading="lazy" /></li><li><img src="/logos/cred/isb.png" alt="International School of Beijing" style="height:46px" loading="lazy" /></li></ul></div>
+      <div class="hp-cred-row"><span class="hp-cred-lab">Worked at</span><ul><li><img src="/logos/cred/mckinsey.png" alt="McKinsey & Company" style="height:22px" loading="lazy" /></li><li><img src="/logos/cred/goldman.png" alt="Goldman Sachs" style="height:36px" loading="lazy" /></li><li><img src="/logos/cred/yc.png" alt="Y Combinator" style="height:38px" loading="lazy" /></li><li><img src="/logos/cred/apple.png" alt="Apple" style="height:38px" loading="lazy" /></li><li><img src="/logos/cred/microsoft-ai.png" alt="Microsoft AI" style="height:30px" loading="lazy" /></li><li><img src="/logos/cred/deloitte.png" alt="Deloitte" style="height:22px" loading="lazy" /></li><li><img src="/logos/cred/kimi.png" alt="Kimi (Moonshot AI)" style="height:24px" loading="lazy" /></li></ul></div>
+    </div>
+    <div class="hp-cf reveal"><span class="hp-cf-k">Arena leadership</span><div class="hp-cf-list" data-xp="701"><div class="hp-cf-slot" data-xp-slot><button type="button" class="hp-cf-card" data-xp-card="pa" aria-expanded="false" aria-controls="cf-panel"><img data-xp-notch src="/photos/phillip-an-640.webp" alt="" width="72" height="72" loading="lazy" decoding="async" /><span class="hp-cf-t"><b>Phillip An</b><span class="hp-cf-r">Lead instructor · Co-founder</span><em><span class="nw">Forbes 30 Under 30</span> · <span class="nw">Y&nbsp;Combinator</span> · <span class="nw">McKinsey</span></em></span><span class="hp-cf-plus" aria-hidden="true"></span><span class="sr-only">View profile</span></button></div><div class="hp-cf-slot" data-xp-slot><button type="button" class="hp-cf-card" data-xp-card="jj" aria-expanded="false" aria-controls="cf-panel"><img data-xp-notch src="/photos/jing-jing-yang-640.webp?v=2" alt="" width="72" height="72" loading="lazy" decoding="async" /><span class="hp-cf-t"><b>Jing Jing Yang</b><span class="hp-cf-r">Instructor · Co-founder</span><em><span class="nw">ISB Class of 2019</span> · <span class="nw">Brown</span> · <span class="nw">Tsinghua</span> · <span class="nw">Kimi</span></em></span><span class="hp-cf-plus" aria-hidden="true"></span><span class="sr-only">View profile</span></button></div><div class="hp-cf-panel" id="cf-panel" data-xp-panel data-lint-skip><div class="hp-cf-clip"><div class="hp-cf-box" data-xp-box><div class="hp-cf-prof" data-xp-for="jj" aria-label="Jing Jing Yang" hidden><div class="hp-cf-pq"><p class="hp-cf-lab">In her words</p><blockquote class="hp-cf-quote"><p>Education is moving from knowing the answer to knowing what’s worth building. That is the skill AI can’t hand a student, and the one we teach.</p></blockquote><p class="hp-cf-cite"><img src="/photos/jing-jing-yang-640.webp?v=2" alt="" width="32" height="32" loading="lazy" /><b>Jing Jing Yang</b><span>Co-founder, Arena School</span></p></div><div class="hp-cf-pe"><p class="hp-cf-lab">Experience</p><ul class="hp-cf-exp"><li><span class="hp-cf-lg"><img src="/logos/cred/brown.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b class="sr-only">Brown University</b><span>Economics and Behavioral Decision Sciences</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/microsoft-ai.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b class="sr-only">Microsoft AI</b><span>AI research</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/apple.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b class="sr-only">Apple</b><span>Technology</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/deloitte.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b class="sr-only">Deloitte</b><span>Consulting</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/tsinghua-lockup.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b class="sr-only">Tsinghua University</b><span>Schwarzman Scholar</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/kimi.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b class="sr-only">Kimi · Moonshot AI</b><span>International growth</span></span></li></ul></div><div class="hp-cf-links"><a class="tlink" href="/about#cofounders">Read full bio <span class="arr">→</span></a><a href="https://www.linkedin.com/in/xiao-han-yang/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4v11H3v-11Zm6.5 0h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4v-11Z"/></svg>LinkedIn</a><a href="mailto:jingjing@arenaschool.org">jingjing@arenaschool.org</a></div></div><div class="hp-cf-prof" data-xp-for="pa" aria-label="Phillip An" hidden><div class="hp-cf-pq"><p class="hp-cf-lab">In his words</p><blockquote class="hp-cf-quote"><p>AI is changing work quickly. The habits students build now, in class and at home, are what carry over.</p></blockquote><p class="hp-cf-cite"><img src="/photos/phillip-an-640.webp" alt="" width="32" height="32" loading="lazy" /><b>Phillip An</b><span>Co-founder, Arena School</span></p></div><div class="hp-cf-pe"><p class="hp-cf-lab">Experience</p><ul class="hp-cf-exp"><li><span class="hp-cf-lg"><img src="/logos/cred/caltech.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b class="sr-only">Caltech</b><span>Computer Science</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/mckinsey.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b class="sr-only">McKinsey &amp; Company</b><span>Management consulting</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/goldman.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b class="sr-only">Goldman Sachs</b><span>Investment banking</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/harvard.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b class="sr-only">Harvard University</b><span>MBA and master’s in engineering</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/yc.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b class="sr-only">Y Combinator</b><span>Co-founded Homebase, the first YC-backed company from Vietnam; Forbes 30&nbsp;Under&nbsp;30</span></span></li><li><span class="hp-cf-lg"><img src="/logos/cred/tsinghua-lockup.png" alt="" loading="lazy" /></span><span class="hp-cf-x"><b class="sr-only">Tsinghua University</b><span>Schwarzman Scholar</span></span></li></ul></div><div class="hp-cf-links"><a class="tlink" href="/about#cofounders">Read full bio <span class="arr">→</span></a><a href="https://www.linkedin.com/in/phillipan/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4v11H3v-11Zm6.5 0h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4v-11Z"/></svg>LinkedIn</a><a href="mailto:phillip@arenaschool.org">phillip@arenaschool.org</a></div></div></div></div></div></div><a href="/about" class="btn btn-ghost hp-cf-btn">Meet our leadership <span class="arr">→</span></a></div>
+  </div>
+</section>
+
+<section class="zl-section-md" id="facts" data-screen-label="Program facts and FAQ">
+  <div class="container pp-faq-wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Program facts</span><h2 class="h2 h2-md">What’s included <em>and how to join.</em></h2>
+      <div class="zl-spec pg-spec"><div class="zl-spec-row"><span class="zl-spec-label">When</span><span class="zl-spec-value">Tuesday to Friday, January 5–8, 2027, on the ISB campus</span></div><div class="zl-spec-row"><span class="zl-spec-label">Language</span><span class="zl-spec-value">English, with Chinese support</span></div><div class="zl-spec-row"><span class="zl-spec-label">Included</span><span class="zl-spec-value">Four days of teaching, the AI tools used in class, and the final presentation</span></div><div class="zl-spec-row"><span class="zl-spec-label">Join</span><span class="zl-spec-value">Full details, including fees, follow when registration opens.</span></div></div>
+    </div>
+    <div class="faq pp-faq">
+      <details class="faq-item reveal">
+        <summary><span class="faq-q">Does my child need to know how to code?</span><span class="faq-toggle" aria-hidden="true">+</span></summary>
+        <p class="faq-a">No. Students use AI coding tools to make their project, learn how it works, and make every decision along the way.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary><span class="faq-q">What kind of project can they make?</span><span class="faq-toggle" aria-hidden="true">+</span></summary>
+        <p class="faq-a">Anything they care about: a study tool, a club or cause website, a game, or a family tool. Day one helps them choose.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary><span class="faq-q">Is using AI just cheating?</span><span class="faq-toggle" aria-hidden="true">+</span></summary>
+        <p class="faq-a">No. AI is a helper. Students make the decisions and, on the last day, explain how their project works and why.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary><span class="faq-q">How is this different from the Entrepreneurship &amp; AI Intensive?</span><span class="faq-toggle" aria-hidden="true">+</span></summary>
+        <p class="faq-a">It is shorter and starts from a personal interest, not a startup idea. The five-day Intensive covers the full path from idea to pitch.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary><span class="faq-q">What happens after the four days?</span><span class="faq-toggle" aria-hidden="true">+</span></summary>
+        <p class="faq-a">Students keep the project, its code, and its link. To keep going, ask about our Year-Long Project Mentorship.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
 </main>
 <footer class="footer">
   <div class="container">
