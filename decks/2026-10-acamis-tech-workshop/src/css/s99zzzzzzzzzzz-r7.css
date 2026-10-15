@@ -1,0 +1,43 @@
+/* round 7: agenda as a list with a proportional 60-minute bar (replaces the four cards) */
+.r7-toc .bd{display:flex;flex-direction:column;justify-content:center;gap:34px}
+.r7-toc .r7-bar{display:flex;gap:6px;height:44px}
+.r7-toc .r7-bar i{flex:var(--m) 1 0;display:flex;align-items:center;padding:0 16px;border-radius:6px;background:var(--paper-hi);box-shadow:inset 0 0 0 1px var(--edge);font:italic 400 19px/1 var(--serif);color:var(--ink2);white-space:nowrap;overflow:hidden}
+.r7-toc .r7-bar i.hl{background:var(--ink);box-shadow:none;color:var(--paper-hi)}
+.r7-toc .r7-list{list-style:none;margin:0;padding:0;border-top:1.5px solid var(--ink)}
+.r7-toc .r7-list li{border-bottom:1px solid var(--line,rgba(21,38,54,.18))}
+.r7-toc .r7-list a{display:grid;grid-template-columns:96px minmax(0,1fr) 150px;align-items:center;column-gap:24px;padding:26px 0;color:inherit;text-decoration:none}
+.r7-toc .r7-n{font:300 64px/1 var(--serif);letter-spacing:-.03em;color:var(--ink2);font-variant-numeric:lining-nums}
+.r7-toc .r7-t{display:flex;align-items:baseline;gap:32px;min-width:0}
+.r7-toc .r7-t b{flex:none;width:300px;font:500 38px/1.15 var(--serif);letter-spacing:-.015em;color:var(--ink)}
+.r7-toc .r7-t span{font:400 25px/1.35 var(--serif);color:var(--text)}
+.r7-toc .r7-m{justify-self:end;font:italic 400 24px/1 var(--serif);color:var(--muted);white-space:nowrap}
+.r7-toc .r7-m b{font:300 44px/1 var(--serif);font-style:normal;color:var(--ink2);margin-right:4px}
+.r7-toc .r7-list li.r7-hl .r7-t b,.r7-toc .r7-list li.r7-hl .r7-m b{color:var(--ink)}
+.r7-toc .r7-list li.r7-hl .r7-n{color:var(--ink)}
+.r7-toc .r7-list a:hover .r7-t b{color:var(--ink2)}
+.r7-toc .bd{gap:26px}
+.r7-toc .r7-bar{height:34px}
+.r7-toc .r7-bar i{font-size:16px;padding:0 12px}
+.r7-toc .r7-list a{grid-template-columns:70px minmax(0,1fr) 120px;padding:17px 0}
+.r7-toc .r7-n{font-size:46px}
+.r7-toc .r7-t{align-items:center;gap:28px}
+.r7-toc .r7-t b{width:250px;font-size:31px}
+.r7-toc .r7-t span{font-size:21px}
+.r7-toc .r7-m{font-size:19px}
+.r7-toc .r7-m b{font-size:34px}
+.ae.r7-toc .bd{flex:1 1 auto;justify-content:center;padding-bottom:24px}
+.r7-toc .r7-bar i{padding:0 10px;font-size:15px}
+.r7-toc .r7-list a{padding:27px 0}
+.r7-toc .bd{gap:40px}
+.r7-toc .r7-bar{height:38px}
+.r7-toc .r7-list a{padding:22px 0}
+.r7-toc .bd{gap:34px}
+/* round 8: parents slide note under the two columns */
+.r8-pa .bd{display:flex;flex-direction:column;gap:30px}
+.r8-pa .r8-note{margin:0;padding:26px 0 0;border-top:1px solid var(--line,rgba(21,38,54,.18));font:400 28px/1.4 var(--serif);color:var(--ink)}
+.r8-pa .r8-note em{font-style:italic;color:var(--ink2)}
+.ae.r8-pa .bd .ac-own .sh-col{padding:34px 44px!important;justify-content:flex-start!important}
+.ae.r8-pa .bd .ac-own .sh-col li{font-size:29px!important;margin-bottom:6px;white-space:nowrap}
+.ae.r8-pa .bd .ac-own .hd{margin-bottom:14px}
+.r8-pa .bd{gap:26px}
+.r8-pa .r8-note{font-size:25px;padding-top:22px}

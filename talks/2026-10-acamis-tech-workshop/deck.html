@@ -3522,6 +3522,51 @@ section.s.age-off .age-proof{margin-top:20px}
 .r6-off .r6-l{flex:none;display:flex;flex-direction:column;gap:12px}
 .r6-off .r6-res{font:400 20px/1.2 var(--serif);color:var(--ink2);text-decoration:underline;text-decoration-color:rgba(47,85,168,.4);text-underline-offset:.2em;white-space:nowrap}
 
+/* ---- s99zzzzzzzzzzz-r7.css ---- */
+/* round 7: agenda as a list with a proportional 60-minute bar (replaces the four cards) */
+.r7-toc .bd{display:flex;flex-direction:column;justify-content:center;gap:34px}
+.r7-toc .r7-bar{display:flex;gap:6px;height:44px}
+.r7-toc .r7-bar i{flex:var(--m) 1 0;display:flex;align-items:center;padding:0 16px;border-radius:6px;background:var(--paper-hi);box-shadow:inset 0 0 0 1px var(--edge);font:italic 400 19px/1 var(--serif);color:var(--ink2);white-space:nowrap;overflow:hidden}
+.r7-toc .r7-bar i.hl{background:var(--ink);box-shadow:none;color:var(--paper-hi)}
+.r7-toc .r7-list{list-style:none;margin:0;padding:0;border-top:1.5px solid var(--ink)}
+.r7-toc .r7-list li{border-bottom:1px solid var(--line,rgba(21,38,54,.18))}
+.r7-toc .r7-list a{display:grid;grid-template-columns:96px minmax(0,1fr) 150px;align-items:center;column-gap:24px;padding:26px 0;color:inherit;text-decoration:none}
+.r7-toc .r7-n{font:300 64px/1 var(--serif);letter-spacing:-.03em;color:var(--ink2);font-variant-numeric:lining-nums}
+.r7-toc .r7-t{display:flex;align-items:baseline;gap:32px;min-width:0}
+.r7-toc .r7-t b{flex:none;width:300px;font:500 38px/1.15 var(--serif);letter-spacing:-.015em;color:var(--ink)}
+.r7-toc .r7-t span{font:400 25px/1.35 var(--serif);color:var(--text)}
+.r7-toc .r7-m{justify-self:end;font:italic 400 24px/1 var(--serif);color:var(--muted);white-space:nowrap}
+.r7-toc .r7-m b{font:300 44px/1 var(--serif);font-style:normal;color:var(--ink2);margin-right:4px}
+.r7-toc .r7-list li.r7-hl .r7-t b,.r7-toc .r7-list li.r7-hl .r7-m b{color:var(--ink)}
+.r7-toc .r7-list li.r7-hl .r7-n{color:var(--ink)}
+.r7-toc .r7-list a:hover .r7-t b{color:var(--ink2)}
+.r7-toc .bd{gap:26px}
+.r7-toc .r7-bar{height:34px}
+.r7-toc .r7-bar i{font-size:16px;padding:0 12px}
+.r7-toc .r7-list a{grid-template-columns:70px minmax(0,1fr) 120px;padding:17px 0}
+.r7-toc .r7-n{font-size:46px}
+.r7-toc .r7-t{align-items:center;gap:28px}
+.r7-toc .r7-t b{width:250px;font-size:31px}
+.r7-toc .r7-t span{font-size:21px}
+.r7-toc .r7-m{font-size:19px}
+.r7-toc .r7-m b{font-size:34px}
+.ae.r7-toc .bd{flex:1 1 auto;justify-content:center;padding-bottom:24px}
+.r7-toc .r7-bar i{padding:0 10px;font-size:15px}
+.r7-toc .r7-list a{padding:27px 0}
+.r7-toc .bd{gap:40px}
+.r7-toc .r7-bar{height:38px}
+.r7-toc .r7-list a{padding:22px 0}
+.r7-toc .bd{gap:34px}
+/* round 8: parents slide note under the two columns */
+.r8-pa .bd{display:flex;flex-direction:column;gap:30px}
+.r8-pa .r8-note{margin:0;padding:26px 0 0;border-top:1px solid var(--line,rgba(21,38,54,.18));font:400 28px/1.4 var(--serif);color:var(--ink)}
+.r8-pa .r8-note em{font-style:italic;color:var(--ink2)}
+.ae.r8-pa .bd .ac-own .sh-col{padding:34px 44px!important;justify-content:flex-start!important}
+.ae.r8-pa .bd .ac-own .sh-col li{font-size:29px!important;margin-bottom:6px;white-space:nowrap}
+.ae.r8-pa .bd .ac-own .hd{margin-bottom:14px}
+.r8-pa .bd{gap:26px}
+.r8-pa .r8-note{font-size:25px;padding-top:22px}
+
 /* ---- snum.css ---- */
 /* slide numbers (snum): quiet folio in the bottom-right gutter of every slide except the title */
 section.s>.pgno{position:absolute;right:var(--margin-x);bottom:calc(var(--pad-bot) * var(--z) / 2 - 6px);z-index:3;pointer-events:none;user-select:none;
@@ -3544,15 +3589,18 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 </div><img class="brandmk ra-bm" src="/decks/img/acamis/a-wordmark-url-navy.png" alt="" aria-hidden="true" width="1600" height="243"><aside class="notes">Welcome. We are Arena School, and this is a case study from the International School of Beijing. Scan the code for today's slides, the planning checklist, and a guide to AI tools on school networks. Every number today comes from a public source, cited on the slide. Here is the plan for the hour.</aside></section>
 
 <!-- 2 · Contents -->
-<section class="s alt ae toc aga-toc"><div class="w">
+<section class="s alt ae r7-toc"><div class="w">
  <p class="kick r">The next 60 minutes</p>
  <h2 class="r" style="--d:.1s">From what students built in five days <em>to what you can run at your school.</em></h2>
- <div class="bd"><ol class="trk tocf ac4">
-  <li><a href="#" data-go="5"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2 3h20" /><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3" /><path d="m7 21 5-5 5 5" /></svg></span><span class="tn">1</span><span class="tt"><b>The case</b><small>15 minutes</small></span></a></li>
-  <li><a href="#" data-go="11"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10" /><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" /></svg></span><span class="tn">2</span><span class="tt"><b>Why it worked</b><small>10 minutes</small></span></a></li>
-  <li><a href="#" data-go="16"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m15 12-9.373 9.373a1 1 0 0 1-3.001-3L12 9" /><path d="m18 15 4-4" /><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172v-.344a2 2 0 0 0-.586-1.414l-1.657-1.657A6 6 0 0 0 12.516 3H9l1.243 1.243A6 6 0 0 1 12 8.485V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5" /></svg></span><span class="tn">3</span><span class="tt"><b>Build one, live</b><small>30 minutes</small></span></a></li>
-  <li><a href="#" data-go="18"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg></span><span class="tn">4</span><span class="tt"><b>Take it back</b><small>5 minutes</small></span></a></li>
- </ol></div>
+ <div class="bd r" style="--d:.25s">
+  <div class="r7-bar" aria-hidden="true"><i style="--m:15">The case</i><i style="--m:10">Why it worked</i><i class="hl" style="--m:30">Build one, live: half the session</i><i style="--m:5">Take it back</i></div>
+  <ol class="r7-list">
+  <li class="" data-s="1"><a href="#" data-go="5"><span class="r7-n">1</span><span class="r7-t"><b>The case</b><span>What ISB students built in five days, and the 20+ AI tools they used</span></span><span class="r7-m"><b>15</b> min</span></a></li>
+  <li class="" data-s="2"><a href="#" data-go="11"><span class="r7-n">2</span><span class="r7-t"><b>Why it worked</b><span>The research, the three skills, and the teacher’s role as coach</span></span><span class="r7-m"><b>10</b> min</span></a></li>
+  <li class="r7-hl" data-s="3"><a href="#" data-go="16"><span class="r7-n">3</span><span class="r7-t"><b>Build one, live</b><span>You name a school chore. We build the fix together with Claude&nbsp;Code.</span></span><span class="r7-m"><b>30</b> min</span></a></li>
+  <li class="" data-s="4"><a href="#" data-go="18"><span class="r7-n">4</span><span class="r7-t"><b>Take it back</b><span>What a school needs to run this, and how Arena School&nbsp;helps</span></span><span class="r7-m"><b>5</b> min</span></a></li>
+  </ol>
+ </div>
 </div><aside class="notes">Four parts. First the case: what students at ISB built in five days, and why that matters. Then why it worked: the program was designed around skills AI can't hand over. Then the main event, 30 minutes: we build something live with you, no coding. Last, what a school needs to run this.</aside></section>
 
 <!-- 3 · The speakers -->
@@ -3584,17 +3632,18 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 </div><aside class="notes">The examples roll by on their own: an essay, code, a summary, a research report, a logo, a website, a speech, then all of these at once. Every teacher here has seen at least one of these turned in as homework. Parents are asking the same question. It is the question we try to answer every day at Arena School.</aside></section>
 
 <!-- 5 · What parents asked -->
-<section class="s alt ae aga-pa"><div class="w">
+<section class="s alt ae aga-pa r8-pa"><div class="w">
  <p class="kick r">Why parents cared · October 14, 2026</p>
- <h2 class="r" style="--d:.1s">At ISB’s PTA Parent Coffee, parents asked one question:<br> <em>which skills will outlast the&nbsp;tools?</em></h2>
+ <h2 class="r" style="--d:.1s">We talked with 60+ parents at ISB’s PTA Parent Coffee.<br><em>Their question: which skills will outlast the&nbsp;tools?</em></h2>
  <div class="bd r" style="--d:.25s"><div class="shift ac-own">
   <div class="shx" data-s="1">
-   <div class="sh-col o"><span class="hd">What parents asked</span><ul><li>Which skills last as the tools change?</li><li>Will AI do the thinking for my child?</li><li>What should my child practice now?</li></ul></div>
+   <div class="sh-col o"><span class="hd">What 60+ parents care about</span><ul><li>Which skills last as the tools change?</li><li>Will AI do the thinking for my child?</li><li>What should my child practice now?</li></ul></div>
    <div class="sh-arr" aria-hidden="true"><i></i></div>
-   <div class="sh-col n"><span class="hd">What this session shows</span><ul><li>Three skills that outlast any tool</li><li>Students doing the thinking</li><li>Real products, built in five days</li></ul></div>
+   <div class="sh-col n"><span class="hd">What you can tell them after today</span><ul><li>Three skills outlast any tool</li><li>Used well, AI deepens thinking</li><li>Real products, in five days</li></ul></div>
   </div>
- </div></div>
-</div><aside class="notes">Four days ago we spoke at ISB's PTA Parent Coffee. Parents weren't asking whether their children should use AI. They were asking something more practical: which skills will still matter as the tools keep changing, whether AI will do the thinking for their children, and what their children should be practicing now. You probably hear the same questions at your own schools. This session answers them with one real program.</aside></section>
+ </div>
+ <p class="r8-note" data-s="2">We’ve already done this at ISB: a strong first run, and parents left happy. <em>Today we share what we learned, and the takeaways for your&nbsp;school.</em></p></div>
+</div><aside class="notes">Four days ago we spoke with more than sixty parents at ISB’s PTA Parent Coffee. They weren’t asking whether their children should use AI. They were asking something practical: which skills will still matter as the tools keep changing, whether AI will do the thinking for their children, and what their children should practice now. You hear the same questions from your parents. On the right is what you’ll be able to tell them after today. (Click.) And this isn’t theory: we ran the program at ISB this summer. The first run went well, and parents left happy. Today we share what we learned, and the takeaways for your school.</aside></section>
 
 <!-- 6 · Part 1 -->
 <section class="s ae nv sec"><div class="w"><div class="sec-g">

@@ -879,3 +879,16 @@ a.qr.qr-live.age-q2::after{content:"Book a 20-minute call  \2192"}
 .r4c-grp li{display:flex;align-items:center;gap:8px;min-width:0}
 .r4c-grp li img{flex:none;display:block;width:22px;height:22px;object-fit:contain}
 .r4c-grp li span{font-size:14px;white-space:nowrap}
+/* round 7 agenda list */
+.r7-bar{display:flex;gap:4px;height:26px;margin:0 0 12px}
+.r7-bar i{flex:var(--m) 1 0;display:flex;align-items:center;padding:0 6px;border-radius:4px;background:#FBF4EA;box-shadow:inset 0 0 0 1px rgba(21,38,54,.15);font-size:11px;font-style:italic;color:#2F55A8;white-space:nowrap;overflow:hidden}
+.r7-bar i.hl{background:#0B1A4A;color:#FBF4EA}
+.r7-list{list-style:none;margin:0;padding:0;border-top:1.5px solid #0B1A4A}
+.r7-list li{border-bottom:1px solid rgba(21,38,54,.18)}
+.r7-list a{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:start;padding:12px 0;color:inherit;text-decoration:none}
+.r7-n{font-size:26px;font-weight:300;line-height:1;color:#2F55A8}
+.r7-t{display:flex;flex-direction:column;gap:3px}
+.r7-t b{font-size:18px;font-weight:500}
+.r7-t span{font-size:14px;line-height:1.4}
+.r7-m{font-size:13px;font-style:italic;white-space:nowrap}
+.r7-m b{font-size:18px;font-style:normal;font-weight:400}
