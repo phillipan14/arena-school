@@ -124,6 +124,16 @@
   body.home .partners-form .form-row label { font-size: 13px; letter-spacing: .06em; }
 }
 </style>
+<style data-hero-fit>
+/* Full-screen opening fits the screen even when a banner sits above it (2026-10-16): the hero gives up whatever height
+   is above it (--hero-top, set by the script below), so "Scroll for more" + its arrow never fall below the fold. */
+.hero-full { min-height: calc(100vh - var(--hero-top, 0px)) !important; min-height: calc(100svh - var(--hero-top, 0px)) !important; }
+.hero-full .hero-riso-grid { padding-top: max(72px, calc(clamp(110px, 10vh, 140px) - var(--hero-top, 0px))) !important; }
+</style>
+<script data-hero-fit>
+(()=>{const d=document.documentElement,fit=()=>{const h=document.querySelector('.hero-full');if(!h)return;const t=Math.max(0,Math.round(h.getBoundingClientRect().top+scrollY));d.style.setProperty('--hero-top',t+'px')};
+addEventListener('DOMContentLoaded',()=>{fit();new MutationObserver(fit).observe(d,{attributes:true,attributeFilter:['class']});new MutationObserver(fit).observe(document.body,{childList:true})});addEventListener('load',fit);addEventListener('resize',fit)})();
+</script>
 <style data-ai-partners>
 /* "Selected by" band at the top of the photo gallery (2026-10-15). Inside #gallery so the hero's first-scroll glide lands on it. Logos: logos/partners/, official marks in ink navy. */
 .ai-band { text-align: center; padding: clamp(26px, 2.8vw, 40px) 20px clamp(30px, 3.4vw, 44px); }
