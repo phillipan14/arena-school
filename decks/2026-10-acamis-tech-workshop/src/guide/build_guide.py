@@ -26,26 +26,26 @@ page = f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
 @page{{size:A4;margin:16mm 16mm 15mm}}
 :root{{--ink:#0B1A4A;--ink2:#2F55A8;--text:#2b3346;--muted:#6b7385;--line:#d9cfc0;--paper:#FBF7F0}}
 *{{box-sizing:border-box}}
-body{{margin:0;font:400 10.2pt/1.42 Newsreader,Georgia,serif;color:var(--text);-webkit-print-color-adjust:exact;print-color-adjust:exact}}
-header{{display:flex;justify-content:space-between;align-items:center;padding-bottom:7mm;border-bottom:1.2pt solid var(--ink)}}
-header img{{height:12mm}}
-header .ev{{font:600 7.6pt/1.3 Newsreader,serif;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);text-align:right}}
-h1{{margin:7mm 0 2mm;font:500 22pt/1.12 Newsreader,serif;letter-spacing:-.01em;color:var(--ink)}}
+body{{margin:0;font:400 9.6pt/1.36 Newsreader,Georgia,serif;color:var(--text);-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+header{{display:flex;justify-content:space-between;align-items:center;padding-bottom:5mm;border-bottom:1.2pt solid var(--ink)}}
+header{{gap:8mm}} header img{{height:10mm}}
+header .ev{{white-space:nowrap;font:600 7.2pt/1.3 Newsreader,serif;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);text-align:right}}
+h1{{margin:5mm 0 1.5mm;font:500 21pt/1.12 Newsreader,serif;letter-spacing:-.01em;color:var(--ink)}}
 h1 em{{font-style:italic;color:var(--ink2)}}
-.lede{{margin:0 0 5mm;font-size:10.6pt;color:var(--text)}}
-.job{{break-inside:avoid;margin:0 0 4.5mm}}
+.lede{{margin:0 0 4mm;font-size:10pt;color:var(--text)}}
+.job{{break-inside:avoid;margin:0 0 3.5mm}}
 h2{{margin:0 0 1.5mm;font:600 8pt/1.2 Newsreader,serif;letter-spacing:.16em;text-transform:uppercase;color:var(--ink2)}}
 table{{width:100%;border-collapse:collapse;border-top:.6pt solid var(--line)}}
-td{{padding:2.1mm 2mm 2.1mm 0;border-bottom:.6pt solid var(--line);vertical-align:baseline}}
+td{{padding:1.35mm 2mm 1.35mm 0;border-bottom:.6pt solid var(--line);vertical-align:baseline}}
 td.t{{width:36%}} td.t b{{font-weight:600;color:var(--ink)}}
 td.t .zh{{margin-left:1.6mm;font-family:'Noto Serif SC','Songti SC',serif;color:var(--ink)}}
-td.t .mk{{display:block;font-size:8.4pt;color:var(--muted)}}
+td.t .mk{{display:block;font-size:8pt;color:var(--muted)}}
 td.g{{width:40%}} td.u{{font-size:8.8pt;color:var(--ink2)}}
 .box{{break-inside:avoid;margin:0 0 4.5mm;padding:4mm 5mm;border-radius:2mm;background:var(--paper);border:.6pt solid var(--line)}}
 .box h2{{margin-bottom:2mm}} .box p{{margin:0 0 1.5mm}} .box ul{{margin:0;padding-left:4.5mm}} .box li{{margin:0 0 1.2mm}}
 .two{{display:grid;grid-template-columns:1fr 1fr;gap:5mm}}
 footer{{margin-top:3mm;padding-top:3mm;border-top:.6pt solid var(--line);font-size:8.4pt;color:var(--muted);display:flex;justify-content:space-between;gap:6mm}}
-footer b{{color:var(--ink)}}
+footer b{{color:var(--ink)}} footer span:last-child{{white-space:nowrap}}
 .pb{{break-before:page}}
 </style></head><body>
 <header><img src="/decks/img/acamis/a-wordmark-url-navy.png" alt="Arena School, arenaschool.org"><div class="ev">{e(D["event"])}</div></header>
