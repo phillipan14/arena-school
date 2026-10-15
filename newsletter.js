@@ -10,7 +10,7 @@
   var T = zh ? {
     name: 'Arena 通讯',
     promise: '我们新开的项目、即将举办的讲座，以及关于孩子与AI的观察。',
-    fine: '可随时退订，我们不会分享您的邮箱。',
+    fine: '绝无垃圾邮件，可随时退订，我们不会分享您的邮箱。',
     iam: '我是', roles: [['parent', '家长'], ['student', '学生'], ['educator', '教育者'], ['other', '其他']],
     email: '您的邮箱', btn: '订阅', sending: '正在订阅…', ok: '订阅成功，欢迎邮件马上就到。', notnow: '暂不需要', close: '关闭', done: '好的',
     sheetH: '新项目和讲座，第一时间知道。', footer: '订阅 Arena 通讯', closing: '订阅 Arena 通讯', bar: '新项目、讲座，以及我们对孩子与AI的观察', barGo: '订阅', barClose: '关闭横幅',
@@ -19,7 +19,7 @@
   } : {
     name: 'Arena Notes',
     promise: 'Programs we’re opening, talks we’re giving, and what we’re learning about kids and AI.',
-    fine: 'Unsubscribe anytime. We never share your email.',
+    fine: 'No spam. Unsubscribe anytime. We never share your email.',
     iam: 'I’m a…', roles: [['parent', 'Parent'], ['student', 'Student'], ['educator', 'Educator'], ['other', 'Other']],
     email: 'Your email', btn: 'Subscribe', sending: 'Subscribing…', ok: 'You’re on the list. A short welcome is on its way.', notnow: 'Not now', close: 'Close', done: 'Done',
     sheetH: 'Hear about new programs and talks first.', footer: 'Get Arena Notes', closing: 'Get Arena Notes', bar: 'New programs, talks, and what we’re learning about kids and AI', barGo: 'Subscribe', barClose: 'Close banner',
