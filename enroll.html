@@ -96,6 +96,7 @@
           <div><label class="f" for="ef-parent">Parent name</label><input id="ef-parent" type="text" name="Parent name" required autocomplete="name"></div>
           <div><label class="f" for="ef-contact">Parent WeChat or phone</label><input id="ef-contact" type="text" name="Parent WeChat or phone" required autocomplete="tel"></div>
         </div>
+        <div class="fld"><label class="f" for="ef-email">Parent email</label><input id="ef-email" type="email" name="email" required autocomplete="email" inputmode="email" maxlength="200" placeholder="you@example.com"><p class="nl-formnote">We’ll also send you Arena Notes, our occasional newsletter. Unsubscribe anytime.</p></div>
       </fieldset>
 
       <fieldset class="ef-sec reveal">
@@ -174,6 +175,7 @@ async function go(e){
   var data={}; fd.forEach(function(v,k){ data[k]=v; });
   data['_subject']='Mentorship enrollment: '+(data['Student name']||'');
   data['_template']='box';
+  if(data.email) fetch('/api/subscribe',{method:'POST',keepalive:true,headers:{'Content-Type':'application/json'},body:JSON.stringify({email:data.email,role:'parent',lang:'en',source:'enroll: mentorship',page:location.pathname,quiet:true})}).catch(function(){});
   try{
     await fetch('https://formsubmit.co/ajax/contact@arenaschool.org',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});
   }catch(err){}
