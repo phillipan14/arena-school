@@ -1,0 +1,19 @@
+/* round 11 */
+/* slide 5: survey source line under the title */
+.r8-pa .r11-src{margin:14px 0 0;font:italic 400 24px/1.35 var(--serif);color:var(--muted)}
+/* slide 7: three separate fact cards across the full width, content centered */
+.ae .bd .ac-dd .r11-facts{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap)}
+.ae .bd .ac-dd .r11-facts .pane{display:flex;align-items:last baseline;justify-content:center;gap:16px;padding:22px 26px;margin:0}
+.r11-facts b{font:300 56px/1 var(--serif);letter-spacing:-.03em;color:var(--ink2);white-space:nowrap}
+.r11-facts span{font:400 21px/1.35 var(--serif);color:var(--text)}
+/* slide 8: the 200+ field sits centered in the space under its label */
+.ae.r4c-tk .bd .mk-map .mk-field{margin-top:auto;margin-bottom:auto}
+/* slide 8: more room around the divider; groups centered between the divider and the card's bottom padding */
+.r4c-tk .r4c-gs{inset:87px 40px 30px!important;padding:0!important;align-content:center!important}
+.ae .bd .ac-dd .r11-facts .pane{display:flex;align-items:center;justify-content:center}
+.r11-facts .r11-in{display:flex;align-items:last baseline;gap:16px}
+/* slide 10: stats row content was 4px high */
+.ae .bd .cs31.ac-hk .ac-st{padding:24px 30px 12px}
+.ae .bd .ac-dd .r11-facts .pane{padding:27px 26px 17px}
+.ae .bd .ac-dd .r11-facts .pane:first-child{padding:25.4px 26px 18.6px}
+.r4c-tk .r4c-gs{inset:87px 40px 0!important}

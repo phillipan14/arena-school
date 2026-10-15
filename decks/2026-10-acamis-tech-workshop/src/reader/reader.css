@@ -892,3 +892,19 @@ a.qr.qr-live.age-q2::after{content:"Book a 20-minute call  \2192"}
 .r7-t span{font-size:14px;line-height:1.4}
 .r7-m{font-size:13px;font-style:italic;white-space:nowrap}
 .r7-m b{font-size:18px;font-style:normal;font-weight:400}
+/* round 11 */
+.r11-facts{display:grid;grid-template-columns:1fr;gap:8px}
+.r11-facts .pane{display:flex;align-items:baseline;gap:10px;padding:10px 12px}
+.r11-facts b{font-size:30px;font-weight:300;color:#2F55A8}
+.r11-facts span{font-size:14px}
+.r11-src{font-size:14px;font-style:italic;margin:6px 0 0}
+/* round 13 */
+.r13-cols{display:grid;gap:10px}
+.r13-c{padding:14px}
+.r13-n{display:flex;gap:8px;align-items:baseline;margin:0 0 6px}
+.r13-n i{font-size:13px;font-style:italic;color:#2F55A8}
+.r13-n b{font-size:22px;font-weight:500}
+.r13-d{margin:0;font-size:15px}
+.r13-w{margin:10px 0 0;padding-top:8px;border-top:1px solid rgba(21,38,54,.15);font-size:14px;font-style:italic}
+.r13-w span{display:block;font-size:11px;font-style:normal;letter-spacing:.12em;text-transform:uppercase;color:#2F55A8}
+.r13-end{font-size:15px;margin:10px 0 0}
