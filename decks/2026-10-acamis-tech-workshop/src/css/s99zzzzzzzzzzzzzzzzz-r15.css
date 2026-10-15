@@ -49,3 +49,18 @@
 .r15-ab .r15-more{font:italic 400 21px/1.2 var(--serif);color:var(--muted);white-space:nowrap}
 .r15-ab .r15-ptn .r15-h{white-space:nowrap}.r15-ab .r15-ptn{gap:20px}.r15-ab .r15-pl{gap:22px}
 .r15-ab .r15-an{height:16px}.r15-ab .r15-oa{height:32px}.r15-ab .r15-pl{gap:18px}.r15-ab .r15-ptn{gap:16px}.r15-ab .r15-more{font-size:18px}.r15-ab .r15-top{gap:24px}.r15-ab .r15-who img{width:50px;height:50px}.r15-ab .r15-who b{font-size:22px}.ae.r15-ab .bd .r15-who p{margin-left:14px}
+
+/* smaller, airier logo line */
+.r15-ab .r15-lg{justify-content:space-between;padding:0 6px}
+.r15-ab .r15-lg .r15-caltech{height:21.6px}
+.r15-ab .r15-lg .r15-harvard{height:28.8px}
+.r15-ab .r15-lg .r15-brown{height:28.8px}
+.r15-ab .r15-lg .r15-tsinghua-lockup{height:31.7px}
+.r15-ab .r15-lg .r15-isb{height:33.1px}
+.r15-ab .r15-lg .r15-mckinsey{height:15.8px}
+.r15-ab .r15-lg .r15-goldman{height:25.9px}
+.r15-ab .r15-lg .r15-yc{height:27.4px}
+.r15-ab .r15-lg .r15-apple{height:27.4px}
+.r15-ab .r15-lg .r15-microsoft-ai{height:21.6px}
+.r15-ab .r15-lg .r15-deloitte{height:15.8px}
+.r15-ab .r15-lg .r15-kimi{height:17.3px}
