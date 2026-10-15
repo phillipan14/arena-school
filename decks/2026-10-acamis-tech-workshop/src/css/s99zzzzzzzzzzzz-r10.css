@@ -8,3 +8,4 @@
 .agd-b.ae .bd .case3 .cs-out .agd-ex li{padding:11px 20px 5px}
 .agd-b.ae .bd .case3 .cs:not(.cs-out) .agd-ex li{padding:10.4px 20px 5.6px}
 .agd-b.ae .bd .case3 .cs:not(.cs-out) .agd-ex li:nth-child(3){padding:12.5px 20px 3.5px}
+.r7-toc .r7-list a{grid-template-columns:70px minmax(0,1fr)}
