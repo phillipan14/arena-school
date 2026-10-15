@@ -1,6 +1,8 @@
 // POST /api/subscribe: "Arena Notes" newsletter sign-ups -> Resend contact (+ segment), then a short
 // bilingual welcome email once the sending domain is verified. Same shape as /api/interest.
-// Env: RESEND_API_KEY (required, "Full access"), RESEND_SEGMENT_ID (required),
+// Program forms (one-pager / interest / contact) also post here with quiet: true, so every email we
+// collect lands in the same Arena Notes list; quiet skips the welcome email and the Slack ping (those
+// forms already notify the team). Env: RESEND_API_KEY (required, "Full access"), RESEND_SEGMENT_ID (required),
 //      Resend contact properties role, lang, source must exist in the account (created 2026-10-13),
 //      RESEND_FROM (optional; e.g. "Arena School <notes@arenaschool.org>"; no welcome email until set),
 //      ARENA_SLACK_BOT_TOKEN + ARENA_NEWSLETTER_SLACK_CHANNEL (optional one-line ping; never includes the email).
@@ -10,6 +12,17 @@ const ROLES = ['parent', 'student', 'educator', 'other'];
 const WINDOW_MS = 10 * 60 * 1000;
 const MAX_PER_WINDOW = 5;
 const hits = new Map(); // best-effort, per warm instance
+
+// Program forms use their own role labels ("School leader", "Teacher or counselor", "家长", ...).
+function mapRole(r) {
+  const v = String(r || '').toLowerCase();
+  if (ROLES.includes(v)) return v;
+  if (!v) return '';
+  if (/parent|家长/.test(v)) return 'parent';
+  if (/student|学生/.test(v)) return 'student';
+  if (/school|teacher|counsel|educator|organizer|board|老师|教师|学校|校长|教育/.test(v)) return 'educator';
+  return 'other';
+}
 
 const clean = (v, max) => String(v == null ? '' : v).replace(/\s+/g, ' ').trim().slice(0, max);
 const isEmail = (s) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(s);
@@ -97,7 +110,8 @@ module.exports = async function handler(req, res) {
   const d = Object.fromEntries(Object.entries(LIMITS).map(([k, max]) => [k, clean(body[k], max)]));
   d.email = d.email.toLowerCase();
   d.lang = d.lang === 'zh' ? 'zh' : 'en';
-  d.role = ROLES.includes(d.role) ? d.role : '';
+  d.role = mapRole(body.role);
+  const quiet = body.quiet === true || body.quiet === 1 || body.quiet === '1';
   if (!isEmail(d.email)) return res.status(400).json({ ok: false, error: d.lang === 'zh' ? '请填写有效的邮箱。' : 'Please add a valid email.' });
 
   const key = process.env.RESEND_API_KEY, segment = process.env.RESEND_SEGMENT_ID;
@@ -109,12 +123,12 @@ module.exports = async function handler(req, res) {
   try {
     const { created } = await saveContact(d, key, segment);
     const from = process.env.RESEND_FROM;
-    if (created && from) {
+    if (created && from && !quiet) {
       const w = welcome(d.lang);
       const sent = await resend('/emails', 'POST', key, { from, to: [d.email], reply_to: 'contact@arenaschool.org', subject: w.subject, html: w.html, text: w.text });
       if (!sent.ok) console.error('subscribe: welcome failed', sent.status, JSON.stringify(sent.out).slice(0, 200));
     }
-    await ping(d);
+    if (!quiet) await ping(d);
     return res.status(200).json({ ok: true, created });
   } catch (err) {
     console.error('subscribe:', err && err.message);
@@ -122,4 +136,4 @@ module.exports = async function handler(req, res) {
   }
 };
 
-module.exports._test = { clean, isEmail, rateLimited, welcome, saveContact };
+module.exports._test = { clean, isEmail, rateLimited, welcome, saveContact, mapRole };
