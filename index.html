@@ -147,6 +147,22 @@
   body.home .partners-lede .hc-direct { row-gap: 0; margin-top: 14px; }
 }
 </style>
+<style data-ai-partners>
+/* AI partner row under the hero buttons (2026-10-15). Logos: logos/partners/, official marks in ink navy. */
+.hero-ai-partners { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; margin-top: 40px; padding-top: 22px; border-top: 1px solid rgba(11,26,74,.14); max-width: 720px; }
+.hero-ai-partners .hap-k { font-family: var(--sans, "Geist", sans-serif); font-size: 12px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: #4A5578; flex-basis: 100%; }
+.hero-ai-partners .hap-logos { display: inline-flex; align-items: center; gap: 30px; }
+.hero-ai-partners .hap-logos img { display: block; width: auto; }
+.hero-ai-partners .hap-anthropic { height: 15px; }
+.hero-ai-partners .hap-openai { height: 31px; }
+.hero-ai-partners .hap-more { font-size: 15px; color: #4A5578; }
+:lang(zh) .hero-ai-partners .hap-k { letter-spacing: .12em; font-size: 13px; }
+@media (max-width: 760px) {
+  body.home .hero-ai-partners { justify-content: center; margin: 26px auto 0; padding-top: 18px; gap: 10px 20px; }
+  body.home .hero-ai-partners .hap-k { flex-basis: 100%; text-align: center; }
+  body.home .hero-ai-partners .hap-more { flex-basis: 100%; text-align: center; font-size: 14px; }
+}
+</style>
 <link rel="stylesheet" href="/newsletter.css?v=516d21dd" data-nl>
 <link rel="stylesheet" href="/promo.css?v=21ea5dbe" data-promo>
 <link rel="stylesheet" href="/phone.css?v=0675d6ee" data-phone>
@@ -195,6 +211,7 @@
           <a href="#programs" class="btn btn-primary">See our programs <span class="arr">→</span></a>
           <a href="/contact" class="btn btn-ghost">Contact us</a>
         </div>
+        <div class="hero-ai-partners reveal"><span class="hap-k">Partnered with</span><span class="hap-logos"><img class="hap-anthropic" src="/logos/partners/anthropic.svg" alt="Anthropic" width="134" height="15" /><img class="hap-openai" src="/logos/partners/openai.svg" alt="OpenAI" width="114" height="31" /></span><span class="hap-more">among other leading AI companies</span></div>
     </div>
   </div>
   
