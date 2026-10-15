@@ -39,3 +39,13 @@
 .r15-ab .r15-c:nth-child(3){padding:38.2px 36px 25.8px}
 .r15-ab .r15-c:nth-child(3){padding:36.3px 36px 27.7px}
 .r15-ab .r15-who img+img{margin-left:8px}
+/* founding team (left) and AI partners (right) on one line */
+.r15-ab .r15-top{display:flex;align-items:center;justify-content:space-between;gap:40px}
+.r15-ab .r15-ptn{display:flex;align-items:center;gap:22px}
+.r15-ab .r15-ptn .r15-h{margin:0}
+.r15-ab .r15-pl{display:flex;align-items:center;gap:26px}
+.r15-ab .r15-pl img{display:block;width:auto}
+.r15-ab .r15-an{height:19px}.r15-ab .r15-oa{height:38px}
+.r15-ab .r15-more{font:italic 400 21px/1.2 var(--serif);color:var(--muted);white-space:nowrap}
+.r15-ab .r15-ptn .r15-h{white-space:nowrap}.r15-ab .r15-ptn{gap:20px}.r15-ab .r15-pl{gap:22px}
+.r15-ab .r15-an{height:16px}.r15-ab .r15-oa{height:32px}.r15-ab .r15-pl{gap:18px}.r15-ab .r15-ptn{gap:16px}.r15-ab .r15-more{font-size:18px}.r15-ab .r15-top{gap:24px}.r15-ab .r15-who img{width:50px;height:50px}.r15-ab .r15-who b{font-size:22px}.ae.r15-ab .bd .r15-who p{margin-left:14px}
