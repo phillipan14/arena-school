@@ -1,0 +1,10 @@
+/* round 10 */
+/* slide 10: a two-line caption ends on the number's baseline */
+.ac-hk .ac-st>div{align-items:last baseline}
+/* slide 8: a rule under the panel label, and the tool groups start right under it (no empty band) */
+.r4c-tk .r4c-gs{inset:74px 40px 0;padding:30px 0 0;align-content:start}
+.r4c-tk .r4c-gs.vis::before,.export .r4c-tk .r4c-gs::before{content:"";position:absolute;left:0;right:0;top:0;border-top:1px solid var(--edge)}
+/* slide 18: center the quotes on the letters' main body (descenders read as empty space) */
+.agd-b.ae .bd .case3 .cs-out .agd-ex li{padding:11px 20px 5px}
+.agd-b.ae .bd .case3 .cs:not(.cs-out) .agd-ex li{padding:10.4px 20px 5.6px}
+.agd-b.ae .bd .case3 .cs:not(.cs-out) .agd-ex li:nth-child(3){padding:12.5px 20px 3.5px}
