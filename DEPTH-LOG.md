@@ -148,3 +148,21 @@ Before: 1,870 words, 10 sections (`/tmp/pro-pass/trim-learning-before-*.png`). T
 wheel's four strands and the four outcome columns; removed, with its table-of-contents entry. After: 1,800 words,
 9 sections (`trim-learning-after-*.png`). Everything else stays: philosophy, framework wheel, one week, outcomes,
 assessment, principles, by audience.
+
+## Our approach / Learning approach rebalance (NAV-BRIEF 2, Oct 17, EN + CN)
+Boards: ApproachRebalance and LearningRebalance in the Claude Design project. Shots: `/tmp/pro-pass/rebal-*-r0-*`
+(before), `rebal-*-r1-*`, and the final `rebal-{approach,learning}-{1440,390}.png`.
+- **r0 (before).** Our approach: 421 words, hero, three skills, a pointer, closing. Too thin to explain how we teach.
+  Learning approach: 1,800 words, 9 sections, and it opened with "Philosophy", a shorter copy of Our approach's
+  three skills.
+- **r1 (moved, nothing new written except the two pointers).** To Our approach: how we teach (four principles, who does
+  what, the eight principles, the shape of a day) and by audience (the tabs). Removed from Learning approach: the
+  philosophy section (it repeated the three skills). Learning approach keeps the framework: the wheel, the four
+  strands with their learning goals (the goals now sit beside the wheel, so they are not a separate section that
+  repeats the worked week), one week, outcomes, assessment. Cross-links: "Next: the framework" on Our approach and
+  "Why we teach this way" on Learning approach, plus "The teaching principles in full" beside the wheel's principle
+  list. Critique: (1) each strand name ran into its goal with no break; (2) the principles link sat tight under its
+  list; (3) the last bands looked empty in the capture (checked in the browser: a capture timing artifact, not the
+  page).
+- **r2.** Strand names stack over their goals; the link has space above it. Words: Our approach 1,428 (6 sections),
+  Learning approach 796 (7 sections); budgets updated in CONTENT-RULES.md. No section appears on both pages.

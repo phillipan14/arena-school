@@ -305,3 +305,10 @@ html body main .ev-speakers .ev-spk { color: var(--pro-ink) !important; text-dec
 /* Centred heads: the eyebrow centres with its headline at every width (film section, EN + CN) */
 html body main .ds-section > .container > .ds-head.is-center > .eyebrow,
 html body main .ds-section > .container > .ds-head.is-center > .ds-eyebrow { justify-self: center !important; text-align: center !important; margin-left: auto !important; margin-right: auto !important; display: block; width: 100%; grid-column: 1 / -1; }
+
+/* Learning approach framework (NAV-BRIEF 2): each strand with its learning goal, stacked; link to the principles */
+html body main .ap-fw-lists .is-goals li > span { display: flex; flex-direction: column; gap: 2px; }
+html body main .ap-fw-lists .is-goals li > span b { font-weight: 600; color: var(--pro-ink); }
+html body main .ap-fw-lists .is-goals li { align-items: flex-start; padding-block: var(--space-2); }
+html body main .ap-fw-lists .is-goals li > svg { margin-top: 2px; }
+html body main .ap-fw-more { display: inline-block; margin-top: var(--space-4); }

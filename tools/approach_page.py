@@ -1,9 +1,10 @@
 """Approach + Learning Approach page builder (APPROACH-BRIEF, EDITORIAL-BRIEF; Oct 16, 2026), EN and CN.
 
-Two pages from one copy deck:
-  approach(-cn).html            short: the three skills (photos), then a pointer to the full framework
-  learning-approach(-cn).html   the framework: philosophy, wheel, strands, one week (editorial matrix, css/ds.css),
-                                outcomes, assessment, principles (icons, grouped numbers, day flow), by audience
+Two pages from one copy deck (rebalanced NAV-BRIEF 2, Oct 17, 2026; no section appears on both):
+  approach(-cn).html            why we teach this way: the three skills (photos), how we teach (principles, who does
+                                what, the eight principles, the shape of a day), by audience, then "Next: the framework"
+  learning-approach(-cn).html   the framework: wheel with the four strands and their learning goals, one week
+                                (editorial matrix, css/ds.css), outcomes, assessment, then "Why we teach this way"
 Each body sits between <!-- ap2:start --> and <!-- ap2:end -->; the cine hero above it stays with
 tools/hero_markup.py. This tool also writes the hero copy, <title>, descriptions, canonical and language links.
   python3 tools/approach_page.py           write all four pages
@@ -44,7 +45,7 @@ T = {'en': dict(
   lang='en', sfx='',
   # ---------- Approach (short) ----------
   a_title='Approach · Arena School',
-  a_desc='Arena School’s approach: when AI can make almost anything, learners need agency, taste, and craft. What each skill means, how learners practice it, and what it changes.',
+  a_desc='Arena School’s approach: why learners need agency, taste, and craft when AI can make almost anything, the principles in every room, and how it fits students, teachers, schools, and families.',
   a_eyebrow='Our approach', a_h1='Agency, taste, <em>and craft.</em>',
   a_lede='When AI can make almost anything, learners need to know what is worth making, whether it is good, and how to finish it.',
   a_cta1='Find the right program', a_cta2='Read the learning approach',
@@ -62,18 +63,22 @@ T = {'en': dict(
     [('In school', 'A first draft is now instant. Revising it into something reliable is where the learning happens.'), ('At work', 'A working product earns trust that a prototype or a slide deck does not.'), ('Over a career', 'A record of finished work, with a live link, speaks for itself.')]),
   ],
   without='Without it', practice='How learners practice it', changes='What it changes',
-  ptr_k='Learning approach', ptr_h='The full framework, <em>on one page.</em>',
-  ptr_p='Four strands of learning, the outcomes learners reach, how we assess the thinking, and how it all applies to students, teachers, schools, and families.',
-  ptr_items=['The framework wheel', 'Outcomes by strand', 'How we assess', 'By audience'], ptr_btn='Read the learning approach',
+  ptr_k='Next: the framework', ptr_h='What learners practice, <em>and how we know.</em>',
+  ptr_p='The learning approach sets out the framework behind every program: four strands with their learning goals, a worked week, the outcomes, and how we assess the thinking.',
+  ptr_items=['The framework wheel', 'A worked week', 'Outcomes by strand', 'How we assess'], ptr_btn='Read the learning approach',
   # ---------- Learning approach ----------
   l_title='Learning approach · Arena School',
-  l_desc='Arena School’s learning framework for every program: four strands, the outcomes learners reach, how we assess the thinking, our teaching principles, and how it applies to students, teachers, schools, and families.',
+  l_desc='Arena School’s learning framework for every program: four strands and their learning goals, a worked week, the outcomes learners reach, and how we assess the thinking.',
   l_og='One learning framework for every Arena School program: learners decide, AI builds, and real people judge the work.',
   l_eyebrow='Learning approach', l_h1='Learners decide. AI builds. <em>Real people judge.</em>',
   l_lede='One framework runs every Arena School program, for students, teachers, school leaders, and parents. Here is what learners practice, what they can do by the end, and how we know.',
   l_cta1='Find the right program', l_cta2='See the framework',
   toc_label='On this page',
-  toc=['Philosophy', 'Framework', 'One week', 'Outcomes', 'Assessment', 'Principles', 'By audience'],
+  toc=['Framework', 'One week', 'Outcomes', 'Assessment'],
+  fw_more=('/approach#principles', 'The teaching principles in full'),
+  wy_k='Why we teach this way', wy_h='The skills and principles <em>behind the framework.</em>',
+  wy_p='Our approach explains why agency, taste, and craft come first, the principles in every room, and how the framework fits students, teachers, schools, and families.',
+  wy_items=['Three skills', 'How we teach', 'Who does what', 'By audience'], wy_btn='Read our approach',
   ph_k='Philosophy', ph_h='Three skills <em>AI cannot supply.</em>',
   ph_l='AI can draft the essay, write the code, and design the logo. It cannot choose the problem, judge the result, or finish the work so people trust it.',
   fw_k='Framework', fw_h='One framework, <em>every program.</em>',
@@ -166,7 +171,7 @@ T['cn'] = dict(T['en'])
 T['cn'].update(
   lang='cn', sfx='-cn',
   a_title='教学理念 · Arena School',
-  a_desc='Arena School 的教学理念：当AI几乎什么都能做，学习者需要主动性、审美与匠心。每种能力是什么、怎样练、带来什么改变。',
+  a_desc='Arena School 的教学理念：当AI几乎什么都能做，为什么学习者需要主动性、审美与匠心，每个课堂都遵循的原则，以及它如何用于学生、老师、学校和家庭。',
   a_eyebrow='教学理念', a_h1='主动性、审美 <em>与匠心</em>',
   a_lede='当AI几乎什么都能做出来，学习者需要知道什么值得做、做得好不好，以及怎样把它做完。',
   a_cta1='找到合适的项目', a_cta2='阅读学习方法',
@@ -184,17 +189,21 @@ T['cn'].update(
     [('在学校', '初稿如今唾手可得，把它打磨成可靠的作品，才是真正学到东西的过程。'), ('在工作中', '真正能用的产品，比原型和幻灯片更能赢得信任。'), ('在职业生涯中', '一串做完的作品，附上能打开的链接，就是最好的证明。')]),
   ],
   without='缺少它', practice='怎样练', changes='它带来的改变',
-  ptr_k='学习方法', ptr_h='完整的学习框架，<em>都在这一页。</em>',
-  ptr_p='四条学习主线、学习者能达到的成果、我们如何评估背后的思考，以及它如何用于学生、老师、学校和家庭。',
-  ptr_items=['学习框架图', '按主线划分的学习成果', '我们如何评估', '面向不同对象'], ptr_btn='阅读学习方法',
+  ptr_k='下一步：学习框架', ptr_h='学习者练什么，<em>我们怎样判断。</em>',
+  ptr_p='学习方法页介绍每个项目背后的框架：四条主线及其学习目标、一周实例、学习成果，以及我们如何评估背后的思考。',
+  ptr_items=['学习框架图', '一周实例', '按主线划分的学习成果', '我们如何评估'], ptr_btn='阅读学习方法',
   l_title='学习方法 · Arena School',
-  l_desc='Arena School 每个项目共用的学习框架：四条主线、学习者能达到的成果、我们如何评估思考、教学原则，以及它如何用于学生、老师、学校和家庭。',
+  l_desc='Arena School 每个项目共用的学习框架：四条主线及其学习目标、一周实例、学习者能达到的成果，以及我们如何评估思考。',
   l_og='Arena School 每个项目共用同一套学习框架：学习者做决定，AI动手做，真实的人来评判。',
   l_eyebrow='学习方法', l_h1='学习者做决定，AI动手做，<em>真实的人来评判。</em>',
   l_lede='Arena School 的每个项目，无论面向学生、老师、学校管理者还是家长，都遵循同一套框架。下面是学习者练什么、最后能做到什么，以及我们怎样判断。',
   l_cta1='找到合适的项目', l_cta2='查看学习框架',
   toc_label='本页内容',
-  toc=['理念', '学习框架', '一周实例', '学习成果', '评估', '教学原则', '面向对象'],
+  toc=['学习框架', '一周实例', '学习成果', '评估'],
+  fw_more=('/approach-cn#principles', '查看完整的教学原则'),
+  wy_k='我们为什么这样教', wy_h='框架背后的<em>能力与原则。</em>',
+  wy_p='教学理念页说明了为什么主动性、审美与匠心排在最前，每个课堂都遵循的教学原则，以及这套框架如何用于学生、老师、学校和家庭。',
+  wy_items=['三种能力', '我们怎样教', '分工', '面向对象'], wy_btn='阅读教学理念',
   ph_k='理念', ph_h='三种能力，<em>AI给不了。</em>',
   ph_l='AI能写文章、写代码、设计标志，却不能替人选问题、判断结果，也不能把作品做到让人信得过。',
   fw_k='学习框架', fw_h='一套框架，<em>贯穿每个项目。</em>',
@@ -315,8 +324,10 @@ def section(id_, label, inner, alt=False):
     return '<section class="ds-section ap2%s" id="%s" data-screen-label="%s"><div class="container">%s</div></section>' % (' is-alt' if alt else '', id_, label, inner)
 
 
-# ---------- Approach (short) ----------
+# ---------- Approach: why we teach this way ----------
 def approach_body(t):
+    """Our approach (NAV-BRIEF 2, Oct 17): the three skills, how we teach (principles, who does what, the eight
+    principles, the shape of a day), by audience, then "Next: the framework" to the Learning approach page."""
     cards = []
     for i, (num, name, d, w, img, alt, how, ch) in enumerate(t['skills']):
         lis = ''.join('<li><b>%s</b>%s</li>' % (a, b) for a, b in ch)
@@ -325,13 +336,13 @@ def approach_body(t):
                      '<dl class="ap-skill-dl"><div><dt>%s</dt><dd>%s</dd></div><div><dt>%s</dt><dd>%s</dd></div></dl>'
                      '<details><summary>%s</summary><ol>%s</ol></details></div></article>'
                      % (img, alt, num, ic(SKILL_ICONS[i]), name, d, t['practice'], how, t['without'], w, t['changes'], lis))
-    items = ''.join('<li>%s%s</li>' % (ic(n), x) for n, x in zip(['route', 'list-checks', 'search-check', 'users'], t['ptr_items']))
-    ptr = ('<div class="ap-ptr reveal"><div><span class="ds-eyebrow">%s</span><h2 class="ds-h2">%s</h2><p class="ap-ptr-p">%s</p></div>'
-           '<div class="ap-ptr-side"><ul>%s</ul><a class="btn btn-primary" href="%s">%s <span class="arr">→</span></a></div></div>'
-           % (t['ptr_k'], t['ptr_h'], t['ptr_p'], items, link(t, '/learning-approach'), t['ptr_btn']))
-    return ('<!-- ap2:start -->\n' + jj(t, 'Approach page') +
-            section('skills', 'Three skills', head(t['a_sk_k'], t['a_sk_h'], t['a_sk_l']) + '<div class="ds-grid ds-grid-3 ap-skills">%s</div>' % ''.join(cards)) + '\n' +
-            section('learning-approach', 'Learning approach', ptr) + '\n<!-- ap2:end -->')
+    return ('<!-- ap2:start -->\n' + jj(t, 'Approach page') + '\n'.join([
+        section('skills', 'Three skills', head(t['a_sk_k'], t['a_sk_h'], t['a_sk_l']) + '<div class="ds-grid ds-grid-3 ap-skills">%s</div>' % ''.join(cards)),
+        principles_sec(t, alt=True),
+        audiences_sec(t, alt=False),
+        pointer('learning-approach', 'Next: the framework', t['ptr_k'], t['ptr_h'], t['ptr_p'], t['ptr_items'], ['route', 'list-checks', 'search-check', 'users'],
+                link(t, '/learning-approach'), t['ptr_btn']),
+    ]) + '\n<!-- ap2:end -->')
 
 
 # ---------- Learning approach ----------
@@ -359,47 +370,22 @@ def matrix(t):
             % (t['ex_goal_col'], ths, t['ex_ev_col'], ''.join(rows), key))
 
 
-def learning_body(t):
-    ids = ['philosophy', 'framework', 'week', 'outcomes', 'assessment', 'principles', 'audiences']
-    o = [jj(t, 'Learning approach page') + '<nav class="ap-toc" aria-label="%s"><div class="container"><ol>%s</ol></div></nav>' % (
-        t['toc_label'], ''.join('<li><a href="#%s"><b>%02d</b>%s</a></li>' % (i, n + 1, x) for n, (i, x) in enumerate(zip(ids, t['toc']))))]
-    sk = ''.join('<li class="ap-ph reveal">%s<span class="ap-ph-n">%s</span><h3>%s</h3><p>%s</p><p class="ap-ph-w"><b>%s:</b> %s</p></li>'
-                 % (ic(SKILL_ICONS[i], 'ds-ic lg'), num, name, d, t['without'], w) for i, (num, name, d, w, *_r) in enumerate(t['skills']))
-    o.append(section('philosophy', 'Philosophy', head(t['ph_k'], t['ph_h'], t['ph_l']) + '<ol class="ds-grid ds-grid-3 ap-phs">%s</ol>' % sk))
-    mid = ''.join('<li>%s<span>%s</span></li>' % (ic(DOM_ICONS[i]), x) for i, x in enumerate(t['domains']))
-    out = ''.join('<li>%s<span>%s</span></li>' % (ic(TEACH_ICONS[i]), x) for i, x in enumerate(t['principles4']))
-    o.append(section('framework', 'Framework', head(t['fw_k'], t['fw_h'], t['fw_l']) +
-             '<div class="ap-fw"><div class="ap-wheel reveal">%s</div><div class="ap-fw-text reveal">'
-             '<div class="ap-fw-lists"><div><span class="ds-eyebrow">%s</span><ol>%s</ol></div><div class="is-out"><span class="ds-eyebrow">%s</span><ol>%s</ol></div></div>'
-             '<blockquote class="ap-fw-q"><span class="ds-eyebrow">%s</span><p>%s</p></blockquote><p class="ap-fw-note">%s %s</p></div></div>'
-             % (wheel_svg(t['lang']), t['fw_mid_k'], mid, t['fw_out_k'], out, t['fw_q_k'], t['fw_q'], t['fw_center'], t['fw_note']), alt=True))
-    doms = ''.join('<li class="ds-card ap-domain reveal">%s<span class="ap-num" aria-hidden="true">0%d</span><h3>%s</h3><p>%s</p></li>'
-                   % (ic(DOM_ICONS[i], 'ds-ic lg'), i + 1, t['domains'][i], g) for i, g in enumerate(t['goals']))
-    # (EDITORIAL trim, Oct 17: the strands section repeated the wheel's list and the outcome columns; dropped)
-    o.append(section('week', 'One week', head(t['ex_k'], t['ex_h'], t['ex_l']) + matrix(t) +
-             '<p class="ap-ex-foot reveal"><span>%s</span><a class="tlink" href="%s">%s →</a></p>' % (t['ex_foot'], link(t, t['ex_link'][0]), t['ex_link'][1]), alt=True))
-    cols = ''.join('<div>%s<h3>%s</h3><ul>%s</ul></div>' % (ic(DOM_ICONS[i]), t['domains'][i], ''.join('<li>%s</li>' % x for x in items))
-                   for i, items in enumerate(t['outcomes']))
-    o.append(section('outcomes', 'Outcomes', head(t['oc_k'], t['oc_h'], t['oc_l']) + '<div class="ap-outcomes reveal">%s</div>' % cols))
-    lv = ''.join('<li style="--l:%d"><b>%s</b><i aria-hidden="true"></i>%s</li>' % (i + 1, a, b) for i, (a, b) in enumerate(t['levels']))
-    ev = ''.join('<li>%s<span>%s</span></li>' % (ic(EV_ICONS[i]), x) for i, x in enumerate(t['evidence']))
-    qs = ''.join('<li><b>%s</b><q>%s</q></li>' % q for q in t['qs'])
-    o.append(section('assessment', 'Assessment', head(t['as_k'], t['as_h'], t['as_l']) +
-             '<div class="ap-assess"><div class="ds-card ap-crit reveal"><div class="ap-crit-head"><span class="ds-eyebrow">%s</span><h3>%s</h3></div><ol>%s</ol><p class="ap-crit-foot">%s</p></div>'
-             '<div class="ap-side reveal"><div class="ds-card"><span class="ds-eyebrow">%s</span><ul class="ap-ev">%s</ul></div><div class="ds-card"><span class="ds-eyebrow">%s</span><ul class="ap-qs">%s</ul></div></div></div>'
-             % (t['crit_k'], t['crit_h'], lv, t['crit_foot'], t['ev_k'], ev, t['qs_k'], qs), alt=True))
+def principles_sec(t, alt):
     teach = ''.join('<li class="ap-teach-i reveal">%s<h3>%s</h3><p>%s</p></li>' % (ic(TEACH_ICONS[i], 'ds-ic lg'), a, b) for i, (a, b) in enumerate(t['teach']))
     groups = ''.join('<div class="ap-eg"><span class="ds-eyebrow">%s</span><ol>%s</ol></div>'
                      % (g, ''.join('<li><b>%s</b><span><strong>%s</strong>%s</span></li>' % x for x in items)) for g, items in t['eight_groups'])
     flow = ''.join('<li style="--i:%d">%s<span class="ap-fl-t">%s</span><b>%s</b><span class="ap-fl-d">%s</span></li>'
                    % (i, ic(DAY_ICONS[i]), a, b, c) for i, (a, b, c) in enumerate(t['day']))
-    o.append(section('principles', 'Principles', head(t['pr_k'], t['pr_h'], t['pr_l']) +
-             '<ol class="ds-grid ds-grid-4 ap-teach">%s</ol>'
-             '<div class="ap-block reveal"><span class="ds-eyebrow">%s</span><div class="ap-split"><div>%s<span class="ap-split-k">%s</span><ul>%s</ul></div><div class="is-learner">%s<span class="ap-split-k">%s</span><ul>%s</ul></div></div></div>'
-             '<div class="ap-block reveal"><span class="ds-eyebrow">%s</span><div class="ds-grid ds-grid-3 ap-eight">%s</div></div>'
-             '<div class="ap-block reveal"><span class="ds-eyebrow">%s</span><p class="ds-lede">%s</p><ol class="ap-flow">%s</ol></div>'
-             % (teach, t['split_k'], ic('bot'), t['ai_k'], ''.join('<li>%s</li>' % x for x in t['ai']), ic('user-round'), t['me_k'], ''.join('<li>%s</li>' % x for x in t['me']),
-                t['eight_k'], groups, t['day_k'], t['day_l'], flow)))
+    return section('principles', 'Principles', head(t['pr_k'], t['pr_h'], t['pr_l']) +
+                   '<ol class="ds-grid ds-grid-4 ap-teach">%s</ol>'
+                   '<div class="ap-block reveal"><span class="ds-eyebrow">%s</span><div class="ap-split"><div>%s<span class="ap-split-k">%s</span><ul>%s</ul></div><div class="is-learner">%s<span class="ap-split-k">%s</span><ul>%s</ul></div></div></div>'
+                   '<div class="ap-block reveal"><span class="ds-eyebrow">%s</span><div class="ds-grid ds-grid-3 ap-eight">%s</div></div>'
+                   '<div class="ap-block reveal"><span class="ds-eyebrow">%s</span><p class="ds-lede">%s</p><ol class="ap-flow">%s</ol></div>'
+                   % (teach, t['split_k'], ic('bot'), t['ai_k'], ''.join('<li>%s</li>' % x for x in t['ai']), ic('user-round'), t['me_k'], ''.join('<li>%s</li>' % x for x in t['me']),
+                      t['eight_k'], groups, t['day_k'], t['day_l'], flow), alt=alt)
+
+
+def audiences_sec(t, alt):
     tabs, panels = [], []
     for n, (name, intro, progs) in enumerate(t['audiences']):
         sel = n == 0
@@ -409,8 +395,47 @@ def learning_body(t):
                         % (fmt, title, ''.join('<li>%s</li>' % x for x in outs), link(t, href), t['see']) for href, title, fmt, outs in progs)
         panels.append('<div class="el-tabpanel" role="tabpanel" id="ap-p%d" aria-labelledby="ap-t%d"%s><p class="ap-aud-intro">%s</p><ul class="ds-grid ds-grid-3 ap-progs">%s</ul></div>'
                       % (n, n, '' if sel else ' hidden', intro, cards))
-    o.append(section('audiences', 'By audience', head(t['au_k'], t['au_h'], t['au_l']) +
-             '<div class="el-tabs reveal" role="tablist" aria-label="%s" data-el-tabs>%s</div>%s' % (t['tabs_label'], ''.join(tabs), ''.join(panels)), alt=True))
+    return section('audiences', 'By audience', head(t['au_k'], t['au_h'], t['au_l']) +
+                   '<div class="el-tabs reveal" role="tablist" aria-label="%s" data-el-tabs>%s</div>%s' % (t['tabs_label'], ''.join(tabs), ''.join(panels)), alt=alt)
+
+
+def pointer(id_, label, k, h, p_, items, icons, href, btn):
+    lis = ''.join('<li>%s%s</li>' % (ic(n), x) for n, x in zip(icons, items))
+    return section(id_, label, '<div class="ap-ptr reveal"><div><span class="ds-eyebrow">%s</span><h2 class="ds-h2">%s</h2><p class="ap-ptr-p">%s</p></div>'
+                   '<div class="ap-ptr-side"><ul>%s</ul><a class="btn btn-primary" href="%s">%s <span class="arr">→</span></a></div></div>'
+                   % (k, h, p_, lis, href, btn), alt=True)
+
+
+def learning_body(t):
+    """The framework (NAV-BRIEF 2, Oct 17): wheel with the four strands and their learning goals, a worked week,
+    outcomes, assessment, then a pointer back to Our approach (skills, principles, audiences live there)."""
+    ids = ['framework', 'week', 'outcomes', 'assessment']
+    o = [jj(t, 'Learning approach page') + '<nav class="ap-toc" aria-label="%s"><div class="container"><ol>%s</ol></div></nav>' % (
+        t['toc_label'], ''.join('<li><a href="#%s"><b>%02d</b>%s</a></li>' % (i, n + 1, x) for n, (i, x) in enumerate(zip(ids, t['toc']))))]
+    # learning-goal domains: each strand with its goal, beside the wheel
+    mid = ''.join('<li>%s<span><b>%s</b>%s</span></li>' % (ic(DOM_ICONS[i]), x, t['goals'][i]) for i, x in enumerate(t['domains']))
+    out = ''.join('<li>%s<span>%s</span></li>' % (ic(TEACH_ICONS[i]), x) for i, x in enumerate(t['principles4']))
+    o.append(section('framework', 'Framework', head(t['fw_k'], t['fw_h'], t['fw_l']) +
+             '<div class="ap-fw"><div class="ap-wheel reveal">%s</div><div class="ap-fw-text reveal">'
+             '<div class="ap-fw-lists"><div class="is-goals"><span class="ds-eyebrow">%s</span><ol>%s</ol></div><div class="is-out"><span class="ds-eyebrow">%s</span><ol>%s</ol>'
+             '<a class="tlink ap-fw-more" href="%s">%s →</a></div></div>'
+             '<blockquote class="ap-fw-q"><span class="ds-eyebrow">%s</span><p>%s</p></blockquote><p class="ap-fw-note">%s %s</p></div></div>'
+             % (wheel_svg(t['lang']), t['fw_mid_k'], mid, t['fw_out_k'], out, link(t, '/approach').split('#')[0] + '#principles', t['fw_more'][1],
+                t['fw_q_k'], t['fw_q'], t['fw_center'], t['fw_note']), alt=True))
+    o.append(section('week', 'One week', head(t['ex_k'], t['ex_h'], t['ex_l']) + matrix(t) +
+             '<p class="ap-ex-foot reveal"><span>%s</span><a class="tlink" href="%s">%s →</a></p>' % (t['ex_foot'], link(t, t['ex_link'][0]), t['ex_link'][1])))
+    cols = ''.join('<div>%s<h3>%s</h3><ul>%s</ul></div>' % (ic(DOM_ICONS[i]), t['domains'][i], ''.join('<li>%s</li>' % x for x in items))
+                   for i, items in enumerate(t['outcomes']))
+    o.append(section('outcomes', 'Outcomes', head(t['oc_k'], t['oc_h'], t['oc_l']) + '<div class="ap-outcomes reveal">%s</div>' % cols, alt=True))
+    lv = ''.join('<li style="--l:%d"><b>%s</b><i aria-hidden="true"></i>%s</li>' % (i + 1, a, b) for i, (a, b) in enumerate(t['levels']))
+    ev = ''.join('<li>%s<span>%s</span></li>' % (ic(EV_ICONS[i]), x) for i, x in enumerate(t['evidence']))
+    qs = ''.join('<li><b>%s</b><q>%s</q></li>' % q for q in t['qs'])
+    o.append(section('assessment', 'Assessment', head(t['as_k'], t['as_h'], t['as_l']) +
+             '<div class="ap-assess"><div class="ds-card ap-crit reveal"><div class="ap-crit-head"><span class="ds-eyebrow">%s</span><h3>%s</h3></div><ol>%s</ol><p class="ap-crit-foot">%s</p></div>'
+             '<div class="ap-side reveal"><div class="ds-card"><span class="ds-eyebrow">%s</span><ul class="ap-ev">%s</ul></div><div class="ds-card"><span class="ds-eyebrow">%s</span><ul class="ap-qs">%s</ul></div></div></div>'
+             % (t['crit_k'], t['crit_h'], lv, t['crit_foot'], t['ev_k'], ev, t['qs_k'], qs)))
+    o.append(pointer('why', 'Why we teach this way', t['wy_k'], t['wy_h'], t['wy_p'], t['wy_items'], ['compass', 'users', 'user-round', 'route'],
+                     link(t, '/approach'), t['wy_btn']))
     return '<!-- ap2:start -->\n' + '\n'.join(o) + '\n<!-- ap2:end -->'
 
 

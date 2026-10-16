@@ -37,8 +37,8 @@ A section earns a place only if it passes all four questions:
 | How-we-work page (Student programs, Portfolio workshop, Community dialogues, Teacher training, Conferences) | 1200 | 10 |
 | How-we-work hub (Schools) | 1200 | 10 |
 | Audience page (Technology teams, `/schools/technology`) | 1200 | 10 |
-| Approach | 650 | 5 |
-| Learning approach (the full learning framework, Oct 16) | 2200 | 10 |
+| Our approach (why we teach this way: skills, principles, by audience; NAV-BRIEF, Oct 17) | 1600 | 7 |
+| Learning approach (the framework: wheel and goals, worked week, outcomes, assessment; NAV-BRIEF, Oct 17) | 1000 | 8 |
 | About | 850 | 7 |
 | Results | 850 | 8 |
 | Partners | 900 | 9 |
