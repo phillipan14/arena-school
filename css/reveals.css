@@ -37,7 +37,7 @@
 .wr-in > * { margin-top: 18px; }
 .wr-proc { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(var(--n), minmax(0, 1fr)); }
 .wr-proc li { position: relative; padding: 20px 14px 2px 0; opacity: 0; transform: translateY(4px); transition: opacity .4s ease, transform .5s cubic-bezier(.2,.7,.2,1); }
-.wr-proc li::before { content: ""; position: absolute; top: 0; left: 0; width: 9px; height: 9px; border-radius: 50%; background: var(--paper-hi, #FCF3ED); box-shadow: inset 0 0 0 2px var(--ink-2, #2F55A8); }
+.wr-proc li::before { content: ""; position: absolute; top: 0; left: 0; width: 9px; height: 9px; border-radius: 50%; background: var(--paper-hi, #FFFFFF); box-shadow: inset 0 0 0 2px var(--ink-2, #2F55A8); }
 .wr-proc li:first-child::before { background: var(--ink-2, #2F55A8); }
 .wr-proc li::after { content: ""; position: absolute; top: 4px; left: 15px; right: 6px; height: 1px; background: rgba(47,85,168,.28); }
 .wr-proc li:last-child::after { display: none; }

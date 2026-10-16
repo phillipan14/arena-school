@@ -10,7 +10,11 @@
       t.setAttribute('aria-selected', on ? 'true' : 'false');
       t.tabIndex = on ? 0 : -1;
       var panel = document.getElementById(t.getAttribute('aria-controls'));
-      if (panel) panel.hidden = !on;
+      if (panel) {
+        panel.hidden = !on;
+        // content that was hidden when motion.js observed it would otherwise stay faded out
+        if (on) panel.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+      }
     });
   }
 

@@ -612,3 +612,16 @@ Applies to Teachers (`/programs/teacher-training`), Technology staff (`/schools/
 - **Closing band:** navy, cream h2 with `#A9BEEA` italic, cream pill; the one-pager form sits on a flat cream card.
 - **Winter banner on phones:** the program name scrolls sideways as a ticker; the Register pill stays fixed (`promo.css`).
 
+
+## Pro system (2026-10-16, founder: "more professional/legit for schools"): supersedes the cream palette above
+Where this section conflicts with earlier sections (paper colors, eyebrow chips, pill buttons, dot grids, the seal watermark, riso markers), this section wins. Decks and talks are out of scope and keep their own look.
+- **Grounds:** page white `#FFFFFF`; bands and heroes cool off-white `#F5F7FA`; sunk wells `#EEF1F6`; hairlines `#E2E6EE` (stronger `#CDD3DF`). Navy `#0B1A4A` stays the ink and the one dark band per page. Colors were moved in the source files by `tools/pro_recolor.py` (idempotent).
+- **Type:** one scale with `clamp()`: h1 `clamp(34px, 1.1rem + 2.1vw, 52px)`, h2 `clamp(26px, .95rem + 1.25vw, 36px)`, both Newsreader 500; body Geist. h1 max 20ch. One italic accent at most; no halftone markers.
+- **Labels, not chips:** eyebrows are 12px Geist 600 caps in `--ink-2` (light blue on navy), no fill, no dot.
+- **Components:** 8px buttons, 10–12px cards, hairline borders, no shadows on cards; "at a glance" facts sit in a bordered panel.
+- **Heroes:** light, copy left, a real photo plus the facts panel right, both aligned to the top (fixes the 1024–1280 Technology hero).
+- **Photos:** one slot component `.pro-photo` (3:2, 12px radius, hairline). Real photos only; missing ones are dashed placeholders with `TODO-PHOTO:` comments. Inventory: `PHOTO-SLOTS.md`.
+- **Logos:** tools taught (only those the page lists) and team affiliations (only those on About), grayscale, optical heights. Inventory and sources: `LOGOS.md`.
+- **Motion:** the existing `.reveal` system, softened to a 12px rise over 600ms ease-out with the 80ms stagger in motion.js; tab panels crossfade in 450ms; everything is static under `prefers-reduced-motion`.
+- **Files and order:** `css/pro.css` is linked last on every site page by `tools/pro_markup.py`, which also stamps stylesheet versions. Run after edits: `python3 tools/pro_recolor.py && python3 tools/phone_markup.py && python3 tools/newsletter_markup.py && python3 tools/pro_markup.py`.
+- **Canvas:** Arena School pro system, https://claude.ai/artifact/6YmQtcXvpoLUVLybmrzTfq (system sheet plus home, technology, teachers, leaders, winter, and a program page at 1280 and 390).

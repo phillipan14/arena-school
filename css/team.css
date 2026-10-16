@@ -3,7 +3,7 @@
 .hp-cred-k { margin: 44px 0 6px; text-align: center; font: 500 10.5px/1 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--text-ink-muted); }
 .hp-lead .hp-cred-k { margin-top: 8px; }
 .about-creds .hp-cred-k { margin-top: 0; }
-.hp-cred { padding-block: clamp(72px, 9vw, 120px) !important; background: var(--paper-hi, #FCF3ED) !important; border-block: 1px solid var(--border-paper); }
+.hp-cred { padding-block: clamp(72px, 9vw, 120px) !important; background: var(--paper-hi, #FFFFFF) !important; border-block: 1px solid var(--border-paper); }
 .hp-cred-head { text-align: center; max-width: 720px; margin: 0 auto clamp(40px, 5vw, 56px); }
 .hp-cred-head .eyebrow { margin: 0 auto; }
 .hp-cred-head .h2 { margin: 16px 0 12px; }

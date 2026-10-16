@@ -57,7 +57,7 @@
 .hp-cf-lg img[src*="yc"] { height: 24px; }
 .hp-cf-x b { display: block; font-weight: 500; font-size: 14px; line-height: 1.35; color: var(--ink); }
 .hp-cf-x span { display: block; margin-top: 2px; font-size: 13.5px; line-height: 1.45; color: var(--text-ink-soft); }
-.hp-cf-links { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; margin: 30px -38px 0; padding: 16px 38px; border-top: 1px solid var(--border-paper); background: rgba(239,227,212,.35); border-radius: 0 0 17px 17px; font-size: 14px; }
+.hp-cf-links { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; margin: 30px -38px 0; padding: 16px 38px; border-top: 1px solid var(--border-paper); background: rgba(255, 255, 255,.35); border-radius: 0 0 17px 17px; font-size: 14px; }
 .hp-cf-links a { display: inline-flex; align-items: center; gap: 7px; color: var(--ink-2, #2F55A8); text-decoration: none; }
 .hp-cf-links a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .hp-cf-links .tlink { font-weight: 500; margin-right: auto; }
@@ -112,7 +112,7 @@ html[lang="zh-CN"] .hp-cf-quote p { font-style: normal; font-family: var(--font-
 
 /* Panel polish: tinted quote band, speaker line, uniform logo slots */
 .hp-cf-prof { padding: 0 !important; }
-.hp-cf-pq { padding: 32px 38px 28px; background: linear-gradient(180deg, rgba(239,227,212,.42), rgba(239,227,212,.12)); border-radius: 17px 17px 0 0; }
+.hp-cf-pq { padding: 32px 38px 28px; background: linear-gradient(180deg, rgba(255, 255, 255,.42), rgba(255, 255, 255,.12)); border-radius: 17px 17px 0 0; }
 .hp-cf-cite { display: flex; align-items: center; gap: 10px; margin: 18px 0 0 22px; font-size: 13.5px; color: var(--text-ink-soft); }
 .hp-cf-cite img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; object-position: 50% 20%; box-shadow: 0 0 0 1px var(--border-paper); }
 .hp-cf-cite b { font-weight: 500; color: var(--ink); }

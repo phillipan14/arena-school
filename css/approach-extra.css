@@ -94,7 +94,7 @@ html[lang="zh-CN"] .pg-approach .ap-where { letter-spacing: .02em; font-size: 12
 }
 .pg-approach .ap-tl-node {
   top: var(--ap-rail); width: 12px; height: 12px; margin-top: -6px;
-  border-radius: 50%; background: var(--pg-card, #FCF3ED); border: 2px solid var(--pg-line-hi, rgba(11,26,74,.42));
+  border-radius: 50%; background: var(--pg-card, #FFFFFF); border: 2px solid var(--pg-line-hi, rgba(11,26,74,.42));
   transition: background-color .25s ease, border-color .25s ease, box-shadow .25s ease; z-index: 1;
 }
 .pg-approach .ap-tl-title { display: block; margin: calc(var(--ap-rail) + 16px) 0 6px; font: 400 18px/1.25 var(--font-display); color: var(--ink); transition: color .25s ease; }
@@ -104,7 +104,7 @@ html[lang="zh-CN"] .pg-approach .ap-where { letter-spacing: .02em; font-size: 12
 .pg-approach .ap-tl-item.is-hover .ap-tl-node,
 .pg-approach .ap-tl-item:focus-visible .ap-tl-node {
   background: var(--ink-2); border-color: var(--ink-2);
-  box-shadow: 0 0 0 4px var(--pg-card, #FCF3ED), 0 0 0 7px rgba(47,85,168,.24);
+  box-shadow: 0 0 0 4px var(--pg-card, #FFFFFF), 0 0 0 7px rgba(47,85,168,.24);
 }
 .pg-approach .ap-tl-item:hover .ap-tl-title, .pg-approach .ap-tl-item:hover .ap-tl-time,
 .pg-approach .ap-tl-item.is-hover .ap-tl-title, .pg-approach .ap-tl-item.is-hover .ap-tl-time,

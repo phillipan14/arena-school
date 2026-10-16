@@ -353,12 +353,12 @@ body.pg-enroll-page .en-form .chk::after{content:"";flex:none;width:22px;height:
 body.pg-enroll-page .en-form .chk:has(input:checked){background:rgba(34,69,138,.05) !important}
 body.pg-enroll-page .en-form .chk:has(input:checked)::after{border-color:var(--ph-blue);background:var(--ph-blue)}
 body.pg-enroll-page .en-form .chk .ph-tick{display:none}
-body.pg-enroll-page .en-form .chk:has(input:checked) .ph-tick{display:block;position:absolute;right:16px;top:50%;width:22px;height:22px;margin-top:-11px;background:#FCF3ED;-webkit-mask:var(--ph-check-mask) center/14px 14px no-repeat;mask:var(--ph-check-mask) center/14px 14px no-repeat;pointer-events:none}
+body.pg-enroll-page .en-form .chk:has(input:checked) .ph-tick{display:block;position:absolute;right:16px;top:50%;width:22px;height:22px;margin-top:-11px;background:#FFFFFF;-webkit-mask:var(--ph-check-mask) center/14px 14px no-repeat;mask:var(--ph-check-mask) center/14px 14px no-repeat;pointer-events:none}
 body.pg-enroll-page .en-form .chk:has(input:focus-visible){box-shadow:inset 0 0 0 2px rgba(47,85,168,.45)}
 /* confirmation: same row grammar in its own container */
 body.pg-enroll-page .en-form .ef-confirm .chk{align-items:flex-start !important;padding:14px 16px !important;background:var(--ph-surface) !important;border:1px solid var(--ph-line) !important;border-radius:var(--ph-r) !important}
 body.pg-enroll-page .en-form .ef-confirm .chk::after{margin-top:1px}
-body.pg-enroll-page .en-form .ef-confirm .chk:has(input:checked){background:#F4EFEA !important}
+body.pg-enroll-page .en-form .ef-confirm .chk:has(input:checked){background:#F5F7FA !important}
 body.pg-enroll-page .en-form .ef-confirm .chk .ph-tick{top:15px;margin-top:0}
 body.pg-enroll-page .en-form .ef-confirm .chk input{top:15px;margin-top:0 !important}
 body.pg-enroll-page .en-form .en-btn{min-height:56px;border-radius:999px !important;font-size:16.5px !important;font-weight:600 !important;white-space:nowrap}

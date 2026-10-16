@@ -1,0 +1,129 @@
+/* pro.css: the Oct 16, 2026 "pro" pass, loaded LAST on every site page (tools/pro_markup.py).
+   Colors already moved to white / cool off-white in the source files (tools/pro_recolor.py); this layer
+   carries the structural changes that the older stylesheets pin with !important:
+   - light heroes everywhere (no navy dot-field heroes, no riso canvases or textures)
+   - a solid white nav with dark ink on every page
+   - one restrained clamp() type scale for h1 / h2
+   - eyebrows as quiet labels instead of navy chips; one italic accent at most; no halftone markers
+   - 8px buttons and a single photo-slot component (.pro-photo) with one ratio (3:2)
+   Never loaded by decks/ or talks/. */
+
+:root {
+  --pro-bg: #FFFFFF; --pro-alt: #F5F7FA; --pro-sunk: #EEF1F6; --pro-line: #E2E6EE; --pro-line-2: #CDD3DF;
+  --pro-ink: #0B1A4A; --pro-ink-2: #2F55A8; --pro-text: #111827; --pro-soft: #465066; --pro-muted: #5D6677;
+  --pro-h1: clamp(34px, 1.1rem + 2.1vw, 52px);
+  --pro-h2: clamp(26px, .95rem + 1.25vw, 36px);
+  --paper-art: #F5F7FA; --riso-tint: none;
+}
+
+/* ---------- Ground and textures ---------- */
+html body { background: var(--pro-bg) !important; background-image: none !important; }
+html body .hero-bg, html body [data-riso-field], html body .hero-scrim, html body .dots-canvas, html body .page-art { display: none !important; }
+html body [data-dots] { background-image: none !important; }
+html body .section-alt { background: var(--pro-alt) !important; }
+/* dot grids, halftones, and the rotating seal watermark are retired (magazine texture) */
+html body section.hero-opt:not(#pro) { background-image: none !important; }
+html body section.hero-opt.hero-opt-A:not(#pro)::before { display: none !important; }
+html body :is(.pp-cta-band, .pp-final, .dark-band, section.pp-cta-band)::before { background-image: none !important; }
+html body :is(.pp-cta-band, .pp-final, .zl-hero) { background-image: none !important; }
+html body .zl-hero::after { background-image: none !important; }
+html body :is(.hmark, .hw)::after { display: none !important; }
+
+/* ---------- Heroes: light, structured, hairline below ---------- */
+html body section.hero-inv, html body section.hero-full, html body section.hero-riso { background: var(--pro-alt) !important; border-bottom: 1px solid var(--pro-line); }
+html body .hero-inv :is(h1, .display, .cs-h1) { color: var(--pro-ink) !important; text-shadow: none !important; }
+html body .hero-inv :is(h1, .display) em { color: var(--pro-ink-2) !important; }
+html body .hero-inv :is(.lede, .sub, .thesis, p) { color: var(--pro-soft) !important; }
+html body .hero-inv :is(.zl-hero-cn, .hero-note, .zl-hero-note) { color: var(--pro-muted) !important; }
+html body .hero-inv .btn-ghost { color: var(--pro-ink) !important; border-color: var(--pro-line-2) !important; background: #fff !important; }
+html body .hero-inv :is(.pc-facts, .pp-glance) b { color: var(--pro-muted) !important; }
+html body .hero-inv :is(.pc-facts, .pp-glance) span { color: var(--pro-text) !important; }
+html body .hero-inv a:not(.btn) { color: var(--pro-ink-2) !important; }
+
+/* ---------- Nav: solid white, dark ink, every page ---------- */
+html body .nav, html body .nav.scrolled { background: rgba(255, 255, 255, .96) !important; border-bottom: 1px solid var(--pro-line) !important; -webkit-backdrop-filter: saturate(1.2) blur(10px); backdrop-filter: saturate(1.2) blur(10px); }
+html body.zl-page .nav :is(.wordmark, .nav-links a, .nav-toggle, .nav-dd-btn) { color: var(--pro-soft) !important; }
+html body.zl-page .nav :is(.nav-links a:hover, .nav-dd-btn:hover, .nav-dd.open .nav-dd-btn) { color: var(--pro-ink) !important; }
+html body.zl-page .nav .nav-lockup, html body.zl-page .nav .nav-crest { filter: none !important; }
+html body.zl-page .nav .lang-switch { background: #fff !important; border-color: var(--pro-line) !important; }
+html body.zl-page .nav .lang-switch a:not(.lang-active) { color: var(--pro-soft) !important; }
+html body.zl-page .nav .lang-switch a.lang-active { background: var(--pro-ink) !important; color: #fff !important; }
+html body.zl-page .nav .btn-ghost { color: var(--pro-ink) !important; border-color: var(--pro-line-2) !important; }
+
+/* ---------- Type: one restrained scale ---------- */
+html body main :is(h1.display, h1.cs-h1, .hero h1, .hero-riso-h1, .pg-h1, .el-h1):not(#pro) {
+  font-size: var(--pro-h1) !important; line-height: 1.08 !important; letter-spacing: -.02em !important; font-weight: 500 !important; max-width: 20ch;
+}
+html body main .hero-riso-h1:not(#pro) { max-width: 18ch; }
+html body main :is(.h2, .h2-md, .h2-sm, .h2-closing, .el-h2):not(#pro) {
+  font-size: var(--pro-h2) !important; line-height: 1.15 !important; letter-spacing: -.015em !important; font-weight: 500 !important;
+}
+html body main :is(.lede, .el-lede) { color: var(--pro-soft); }
+html[lang^="zh"] body main :is(h1, .h2, .el-h1, .el-h2):not(#pro) { line-height: 1.22 !important; letter-spacing: 0 !important; }
+
+/* ---------- Labels instead of chips ---------- */
+html body .eyebrow {
+  background: none !important; box-shadow: none !important; padding: 0 !important; border-radius: 0 !important;
+  color: var(--pro-ink-2) !important; font-family: var(--font-body) !important; font-size: 12px !important; font-weight: 600 !important;
+  letter-spacing: .1em !important; text-transform: uppercase; line-height: 1.3 !important;
+}
+html body .eyebrow::before { display: none !important; }
+html body :is(.dark-band, .el-cta, .pp-cta-band, .footer, [class*="dark"]) .eyebrow { color: #A9BEEA !important; background: none !important; }
+html[lang^="zh"] body .eyebrow { letter-spacing: .04em !important; font-size: 13px !important; }
+
+/* ---------- Accents: italic only, no halftone markers ---------- */
+html body :is(.rh, .hw-m)::after { display: none !important; }
+html body .rh { font-weight: inherit !important; color: var(--pro-ink-2); }
+
+/* ---------- Buttons: 8px ---------- */
+html body .btn { border-radius: 8px !important; }
+html body .btn-primary { box-shadow: none !important; }
+html body .btn-primary:hover { box-shadow: none !important; }
+html body .btn-ghost { border-color: var(--pro-line-2); background: #fff; }
+
+/* ---------- Photo slots: one ratio (3:2), rounded, hairline ---------- */
+.pro-photo { margin: 0; border-radius: 12px; overflow: hidden; border: 1px solid var(--pro-line); background: var(--pro-sunk); aspect-ratio: 3 / 2; position: relative; }
+.pro-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pro-photo-cap { margin: 8px 0 0; font-size: 12.5px; line-height: 1.4; color: var(--pro-muted); }
+.pro-photo.is-todo { display: flex; align-items: center; justify-content: center; border-style: dashed; border-color: var(--pro-line-2); background: var(--pro-alt); }
+.pro-photo.is-todo::after { content: ""; width: 44px; height: 34px; border: 1.5px solid var(--pro-line-2); border-radius: 6px;
+  background: radial-gradient(circle at 70% 32%, var(--pro-line-2) 4px, transparent 5px), linear-gradient(135deg, transparent 55%, var(--pro-line-2) 55% 60%, transparent 60%); }
+
+/* ---------- Homepage hero: copy left, a real photo right ---------- */
+html body .hero-full .hero-riso-grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr) !important; align-items: center; padding-block: clamp(120px, 11vw, 150px) clamp(56px, 6vw, 88px) !important; }
+html body .hero-full { min-height: 0 !important; }
+html body .hero-full .hero-art { order: 2; display: block !important; width: 100%; max-width: 620px; justify-self: end; transform: none !important; padding: 0 !important; }
+html body .hero-full .hero-riso-copy { order: 1; }
+html body .hero-full .hero-more { display: none !important; }
+@media (max-width: 900px) {
+  html body .hero-full .hero-riso-grid { grid-template-columns: 1fr !important; padding-block: 104px 48px !important; }
+  html body .hero-full .hero-art { order: 2; display: block !important; width: 100%; max-width: 620px; justify-self: end; transform: none !important; padding: 0 !important; }
+}
+
+/* ---------- Motion: gentle reveal (reuses motion.js .reveal / .in), soft crossfades ---------- */
+html body .reveal { transform: translateY(12px); transition: opacity 600ms cubic-bezier(.22, .61, .36, 1), transform 600ms cubic-bezier(.22, .61, .36, 1); }
+html body .reveal.in { transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html body .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+
+/* ---------- Logo strips: monochrome, one height, honest labels ---------- */
+.pro-logos { display: grid; grid-template-columns: 168px minmax(0, 1fr); gap: 10px 24px; align-items: center; padding: 18px 0; border-top: 1px solid var(--pro-line); }
+.pro-logos + .pro-logos { border-top: 0; padding-top: 0; }
+.pro-logos > span { font-size: 11.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--pro-muted); }
+html[lang^="zh"] .pro-logos > span { letter-spacing: .04em; font-size: 12.5px; }
+.pro-logos ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 32px; }
+.pro-logos img { height: 24px; width: auto; max-width: 132px; object-fit: contain; filter: grayscale(1); opacity: .72; display: block; }
+/* optical sizing, proportional to the About page reference heights (DESIGN.md 6.9) */
+.pro-logos img[src*="/isb."] { height: 27px; } .pro-logos img[src*="tsinghua"] { height: 26px; }
+.pro-logos img[src*="harvard"], .pro-logos img[src*="brown"] { height: 23px; }
+.pro-logos img[src*="apple"], .pro-logos img[src*="/yc."] { height: 22px; } .pro-logos img[src*="goldman"] { height: 21px; }
+.pro-logos img[src*="caltech"], .pro-logos img[src*="microsoft"] { height: 17px; }
+.pro-logos img[src*="kimi"] { height: 14px; } .pro-logos img[src*="mckinsey"], .pro-logos img[src*="deloitte"] { height: 13px; }
+.pro-tools { overflow: hidden; width: 100%; -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
+.pro-tools ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 28px; width: max-content; align-items: center; animation: pro-tools 46s linear infinite; }
+.pro-tools li { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--pro-soft); white-space: nowrap; }
+.pro-tools img { height: 22px; width: 22px; object-fit: contain; filter: grayscale(1); opacity: .8; }
+@keyframes pro-tools { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .pro-tools ul { animation: none; flex-wrap: wrap; width: auto; } .pro-tools li[aria-hidden="true"] { display: none; } }
+@media (max-width: 760px) { .pro-logos { grid-template-columns: 1fr; } .pro-logos ul { gap: 12px 22px; } }

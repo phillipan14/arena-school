@@ -3,7 +3,7 @@
 body.home .pillars .sec-head { max-width: 980px; }
 body.home .pillars .pl-intro { margin: 18px 0 0; max-width: 60ch; }
 body.home .pillar-row { align-items: stretch; }
-body.home .pillar-row .pillar-card { all: unset; box-sizing: border-box; position: relative; display: flex; flex-direction: column; cursor: pointer; padding: 24px 26px 26px !important; background: #FBF6EF; border: 1px solid var(--border-paper); border-radius: 16px; transition: border-color .3s, box-shadow .4s var(--e, ease), transform .4s var(--e, ease), opacity .3s; }
+body.home .pillar-row .pillar-card { all: unset; box-sizing: border-box; position: relative; display: flex; flex-direction: column; cursor: pointer; padding: 24px 26px 26px !important; background: #FFFFFF; border: 1px solid var(--border-paper); border-radius: 16px; transition: border-color .3s, box-shadow .4s var(--e, ease), transform .4s var(--e, ease), opacity .3s; }
 body.home .pillar-row .pillar-card:hover { transform: translateY(-3px); border-color: rgba(11,26,74,.28); box-shadow: 0 22px 44px -28px rgba(11,26,74,.4); }
 body.home .pillar-row .pillar-card:focus-visible { outline: 2px solid var(--ink-2, #2F55A8); outline-offset: 3px; }
 body.home .pillar-row .pillar-card[aria-expanded="true"] { background: #fff !important; border-color: var(--ink) !important; box-shadow: 0 0 0 1px var(--ink), 0 18px 38px -28px rgba(11,26,74,.45) !important; transform: none; }

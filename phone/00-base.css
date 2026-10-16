@@ -8,7 +8,7 @@
 :root{
   --ph-ink:#0B1A4A; --ph-text:#1F2A44; --ph-soft:#4A5470; --ph-muted:#5C6378;
   --ph-blue:#22458A; --ph-blue2:#2F55A8;
-  --ph-paper:#FCF3ED; --ph-sand:#F3E9DD; --ph-surface:#FBF6EF; --ph-line:rgba(11,26,74,.12);
+  --ph-paper:#FFFFFF; --ph-sand:#F5F7FA; --ph-surface:#FFFFFF; --ph-line:rgba(11,26,74,.12);
   --ph-gut:20px; --ph-sec:48px; --ph-r:16px; --ph-row:56px;
   --ph-nav:56px; --ph-safe-b:env(safe-area-inset-bottom,0px);
 }
@@ -122,11 +122,11 @@ body.home .hero-more{display:none !important}
 
 /* ---------- 7. Compact footer (phone-only markup from tools/phone_markup.py) ---------- */
 footer.footer{display:none !important}
-.ph-foot{display:block;background:#0E1729;color:#F6F0E5;padding:36px var(--ph-gut) calc(28px + var(--ph-safe-b) + var(--ph-barh,0px))}
+.ph-foot{display:block;background:#0E1729;color:#F4F6FA;padding:36px var(--ph-gut) calc(28px + var(--ph-safe-b) + var(--ph-barh,0px))}
 .ph-foot-lock{display:block;height:24px;width:auto}
-.ph-foot-tag{margin:14px 0 22px;font:400 17px/1.5 'Newsreader',Georgia,serif;color:rgba(246,240,229,.82);max-width:24em}
+.ph-foot-tag{margin:14px 0 22px;font:400 17px/1.5 'Newsreader',Georgia,serif;color:rgba(244, 246, 250,.82);max-width:24em}
 html[lang="zh-CN"] .ph-foot-tag{font-family:'Arena Serif SC','Noto Serif SC','Songti SC',serif;font-size:16px;line-height:1.75}
-.ph-foot-c{margin:22px 0 0;font:400 13px/1 'Geist',system-ui,sans-serif;color:rgba(246,240,229,.55)}
+.ph-foot-c{margin:22px 0 0;font:400 13px/1 'Geist',system-ui,sans-serif;color:rgba(244, 246, 250,.55)}
 
 /* ---------- 8. Grouped rows (shared component) ---------- */
 .ph-list{list-style:none;margin:0;padding:0;background:var(--ph-surface);border:1px solid var(--ph-line);border-radius:var(--ph-r);overflow:hidden}
@@ -136,18 +136,18 @@ html[lang="zh-CN"] .ph-foot-tag{font-family:'Arena Serif SC','Noto Serif SC','So
 .ph-row-t{flex:1;min-width:0}
 .ph-row-v{color:var(--ph-muted);font-weight:400;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:62%}
 .ph-chev{flex:none;width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;opacity:.45}
-.ph-list-dark{background:rgba(246,240,229,.06);border-color:rgba(246,240,229,.12)}
-.ph-list-dark > li + li{border-top-color:rgba(246,240,229,.12)}
-.ph-list-dark .ph-row{color:#F6F0E5}
-.ph-list-dark .ph-row-v{color:rgba(246,240,229,.6)}
-.ph-list-dark .ph-row:active{background:rgba(246,240,229,.08)}
+.ph-list-dark{background:rgba(244, 246, 250,.06);border-color:rgba(244, 246, 250,.12)}
+.ph-list-dark > li + li{border-top-color:rgba(244, 246, 250,.12)}
+.ph-list-dark .ph-row{color:#F4F6FA}
+.ph-list-dark .ph-row-v{color:rgba(244, 246, 250,.6)}
+.ph-list-dark .ph-row:active{background:rgba(244, 246, 250,.08)}
 
 /* ---------- 9. Bottom action bar (built by phone.js from the hero's primary button) ---------- */
 .ph-bar{display:block;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px var(--ph-gut) calc(10px + var(--ph-safe-b));
-  background:rgba(252,243,237,.97);border-top:1px solid var(--ph-line);transform:translateY(110%);transition:transform .25s ease;pointer-events:none}
+  background:rgba(255, 255, 255,.97);border-top:1px solid var(--ph-line);transform:translateY(110%);transition:transform .25s ease;pointer-events:none}
 .ph-bar.on{transform:none;pointer-events:auto}
 html.nav-open .ph-bar{transform:translateY(110%)}
-.ph-bar-btn{display:flex;align-items:center;justify-content:center;gap:8px;min-height:52px;border-radius:999px;background:var(--ph-blue);color:#F7F1E7 !important;
+.ph-bar-btn{display:flex;align-items:center;justify-content:center;gap:8px;min-height:52px;border-radius:999px;background:var(--ph-blue);color:#FFFFFF !important;
   font:600 16.5px/1 'Geist',system-ui,sans-serif;text-decoration:none}
 .ph-bar-btn:active{transform:scale(.98);opacity:.9}
 }

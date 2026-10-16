@@ -8,5 +8,5 @@
   .timeline.tl-n5::after { left: 75px; width: calc(150px * var(--rx-n, 0)); }
 }
 /* mentorship pointer under the closing CTA, readable on the dark band */
-.sp-next { margin: 22px auto 0; max-width: 60ch; color: rgba(252,243,237,.72); font-size: 15px; }
-.sp-next .tlink { color: #EFE3D4; white-space: nowrap; }
+.sp-next { margin: 22px auto 0; max-width: 60ch; color: rgba(255, 255, 255,.72); font-size: 15px; }
+.sp-next .tlink { color: #FFFFFF; white-space: nowrap; }

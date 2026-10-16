@@ -1,9 +1,9 @@
 /* newsletter.css: "Arena Notes" sign-up band, footer field, closing button, and sheet (see newsletter.js).
    Desktop styles here; phones get their own rules at the bottom (inside max-width:760px). */
-.nl-band{padding:8px 0 64px;background:var(--paper,#EFE3D4)}
+.nl-band{padding:8px 0 64px;background:var(--paper,#FFFFFF)}
 /* the section before a band gives up most of its bottom padding, so the card sits close to the content above */
 html.nl-on section:has(+ .nl-band){padding-bottom:40px !important}
-.nl-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center;max-width:1040px;margin:0 auto;padding:40px 44px;background:#F6EDE2;border:1px solid rgba(11,26,74,.12);border-radius:20px}
+.nl-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center;max-width:1040px;margin:0 auto;padding:40px 44px;background:#F5F7FA;border:1px solid rgba(11,26,74,.12);border-radius:20px}
 .nl-k{display:block;font:600 12.5px/1.2 var(--font-body,'Geist'),system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#2F55A8}
 html[lang="zh-CN"] .nl-k{letter-spacing:.06em;text-transform:none;font-size:13.5px}
 .nl-h{margin:10px 0 10px;font:400 30px/1.18 var(--font-display,'Newsreader'),Georgia,serif;letter-spacing:-.01em;color:#0B1A4A}
@@ -16,11 +16,11 @@ html[lang="zh-CN"] .nl-p{line-height:1.8}
 .nl-chips{display:flex;flex-wrap:wrap;gap:8px}
 .nl-chip{position:relative;cursor:pointer}
 .nl-chip input{position:absolute;opacity:0;width:1px;height:1px}
-.nl-chip span{display:inline-flex;align-items:center;min-height:40px;padding:0 16px;border:1px solid rgba(11,26,74,.22);border-radius:999px;background:#FCF3ED;font:500 14.5px/1 var(--font-body,'Geist'),system-ui,sans-serif;color:#0B1A4A;transition:background-color .15s,border-color .15s,color .15s}
-.nl-chip input:checked + span{background:#0B1A4A;border-color:#0B1A4A;color:#FCF3ED}
+.nl-chip span{display:inline-flex;align-items:center;min-height:40px;padding:0 16px;border:1px solid rgba(11,26,74,.22);border-radius:999px;background:#FFFFFF;font:500 14.5px/1 var(--font-body,'Geist'),system-ui,sans-serif;color:#0B1A4A;transition:background-color .15s,border-color .15s,color .15s}
+.nl-chip input:checked + span{background:#0B1A4A;border-color:#0B1A4A;color:#FFFFFF}
 .nl-chip input:focus-visible + span{outline:2px solid #2F55A8;outline-offset:2px}
 .nl-row{display:flex;gap:10px}
-.nl-email{flex:1;min-width:0;height:52px;padding:0 16px;border:1px solid rgba(11,26,74,.22);border-radius:12px;background:#FFFCF8;font:400 16px/1 var(--font-body,'Geist'),system-ui,sans-serif;color:#0B1A4A}
+.nl-email{flex:1;min-width:0;height:52px;padding:0 16px;border:1px solid rgba(11,26,74,.22);border-radius:12px;background:#FFFFFF;font:400 16px/1 var(--font-body,'Geist'),system-ui,sans-serif;color:#0B1A4A}
 .nl-email:focus{outline:2px solid #2F55A8;outline-offset:1px;border-color:transparent}
 .nl-btn{height:52px;padding:0 24px;white-space:nowrap}
 .nl-hp{position:absolute !important;left:-9999px !important;width:1px;height:1px;opacity:0}
@@ -29,24 +29,24 @@ html[lang="zh-CN"] .nl-p{line-height:1.8}
 .nl-msg:empty{display:none}
 .nl-msg.nl-err{color:#A6482A}
 .nl-fine{margin:10px 0 0;font:400 13.5px/1.45 var(--font-body,'Geist'),system-ui,sans-serif;color:#5C6378}
-.nl-done{padding:18px 20px;border-radius:14px;background:#FCF3ED;border:1px solid rgba(11,26,74,.12)}
+.nl-done{padding:18px 20px;border-radius:14px;background:#FFFFFF;border:1px solid rgba(11,26,74,.12)}
 .nl-ok{margin:0;font:500 16.5px/1.5 var(--font-body,'Geist'),system-ui,sans-serif;color:#0B1A4A}
 .nl-donebtn{margin-top:14px}
 /* desktop footer field */
 .nl-foot{margin-top:22px;max-width:360px}
-.nl-foot-k{display:block;margin:0 0 8px;font:500 13.5px/1.3 var(--font-body,'Geist'),system-ui,sans-serif;color:rgba(246,240,229,.75)}
+.nl-foot-k{display:block;margin:0 0 8px;font:500 13.5px/1.3 var(--font-body,'Geist'),system-ui,sans-serif;color:rgba(244, 246, 250,.75)}
 .nl-foot .nl-row{gap:8px}
-.nl-foot .nl-email{height:44px;background:rgba(246,240,229,.08);border-color:rgba(246,240,229,.22);color:#F6F0E5}
-.nl-foot .nl-email::placeholder{color:rgba(246,240,229,.5)}
+.nl-foot .nl-email{height:44px;background:rgba(244, 246, 250,.08);border-color:rgba(244, 246, 250,.22);color:#F4F6FA}
+.nl-foot .nl-email::placeholder{color:rgba(244, 246, 250,.5)}
 .nl-foot .nl-btn{height:44px;padding:0 18px}
-.nl-foot .nl-msg{color:rgba(246,240,229,.8)}
-.nl-foot .nl-done{background:rgba(246,240,229,.08);border-color:rgba(246,240,229,.2)}
-.nl-foot .nl-ok{color:#F6F0E5;font-size:15px}
+.nl-foot .nl-msg{color:rgba(244, 246, 250,.8)}
+.nl-foot .nl-done{background:rgba(244, 246, 250,.08);border-color:rgba(244, 246, 250,.2)}
+.nl-foot .nl-ok{color:#F4F6FA;font-size:15px}
 /* the sheet: centered card on desktop */
 .nl-sheet{position:fixed;inset:0;z-index:1000;display:grid;place-items:center}
 .nl-sheet[hidden]{display:none !important}
 .nl-sheet-bg{position:absolute;inset:0;background:rgba(14,23,41,.5);opacity:0;transition:opacity .25s}
-.nl-sheet-panel{position:relative;width:min(440px,calc(100vw - 32px));max-height:calc(100vh - 48px);overflow:auto;padding:26px 28px 24px;background:#FCF3ED;border-radius:20px;box-shadow:0 30px 70px -30px rgba(11,26,74,.6);opacity:0;transform:translateY(12px) scale(.98);transition:opacity .25s,transform .25s;outline:none}
+.nl-sheet-panel{position:relative;width:min(440px,calc(100vw - 32px));max-height:calc(100vh - 48px);overflow:auto;padding:26px 28px 24px;background:#FFFFFF;border-radius:20px;box-shadow:0 30px 70px -30px rgba(11,26,74,.6);opacity:0;transform:translateY(12px) scale(.98);transition:opacity .25s,transform .25s;outline:none}
 .nl-sheet.on .nl-sheet-bg{opacity:1}
 .nl-sheet.on .nl-sheet-panel{opacity:1;transform:none}
 .nl-sheet-top{display:flex;justify-content:flex-end;margin:-10px -12px 4px 0}
@@ -70,7 +70,7 @@ html.nl-lock{overflow:hidden}
 .nl-band{padding:4px 0 40px !important}
 html.nl-on section:has(+ .nl-band){padding-bottom:24px !important}
 .nl-band .container{padding-left:var(--ph-gut,20px) !important;padding-right:var(--ph-gut,20px) !important}
-.nl-card{display:block;padding:24px 20px 22px;border-radius:16px;background:var(--ph-surface,#FBF6EF)}
+.nl-card{display:block;padding:24px 20px 22px;border-radius:16px;background:var(--ph-surface,#FFFFFF)}
 .nl-h{font-size:24px;margin:8px 0}
 html[lang="zh-CN"] .nl-h{font-size:21px;line-height:1.5}
 .nl-p{font-size:15.5px;margin-bottom:18px}
@@ -85,7 +85,7 @@ html[lang="zh-CN"] .nl-h{font-size:21px;line-height:1.5}
 .nl-sheet-panel{width:100%;max-width:420px;max-height:calc(100dvh - 32px);border-radius:18px;padding:18px 18px 12px;transform:scale(.96);opacity:0;transition:opacity .2s ease,transform .2s ease}
 .nl-sheet.on .nl-sheet-panel{transform:none;opacity:1}
 .nl-sheet-top{position:sticky;top:-18px;z-index:2;height:0;margin:0;justify-content:flex-end}
-.nl-sheet-top .nl-x{margin:-10px -10px 0 0;background:#FCF3ED;border-radius:999px}
+.nl-sheet-top .nl-x{margin:-10px -10px 0 0;background:#FFFFFF;border-radius:999px}
 .nl-grab{display:none}
 .nl-sheet .nl-k{padding-right:36px;font-size:11.5px;letter-spacing:.12em}
 .nl-sheet .nl-h{font-size:21px;margin:8px 0 6px;line-height:1.22}
@@ -102,7 +102,7 @@ html[lang="zh-CN"] .nl-sheet .nl-h{font-size:20px;line-height:1.4}
 html:not(.nl-on) .nl-band,html:not(.nl-on) a[href="#nl"],html:not(.nl-on) li:has(> a[href="#nl"]){display:none !important}
 
 /* homepage top banner (both widths): thin navy strip above the nav */
-.nl-bar{position:relative;z-index:1001;display:flex;align-items:center;height:36px;background:#0B1A4A;color:#F6F0E5}
+.nl-bar{position:relative;z-index:1001;display:flex;align-items:center;height:36px;background:#0B1A4A;color:#F4F6FA}
 .nl-bar-link{flex:1;min-width:0;height:100%;display:flex;align-items:center;justify-content:center;overflow:hidden;color:inherit !important;text-decoration:none !important;padding:0 8px 0 44px}
 .nl-bar-track{display:inline-flex;align-items:center;white-space:nowrap;font:500 13.5px/1 var(--font-body,'Geist'),system-ui,sans-serif;letter-spacing:.01em}
 html[lang="zh-CN"] .nl-bar-track{font-size:13.5px;letter-spacing:.02em}
@@ -110,15 +110,15 @@ html[lang="zh-CN"] .nl-bar-track{font-size:13.5px;letter-spacing:.02em}
 .nl-bar-item b{font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:12px;color:#C9D6F2}
 html[lang="zh-CN"] .nl-bar-item b{letter-spacing:.04em;text-transform:none;font-size:13px}
 .nl-bar-dot{opacity:.5}
-.nl-bar-go{margin-left:6px;padding:4px 10px;border:1px solid rgba(246,240,229,.4);border-radius:999px;font-weight:600;font-size:12.5px}
+.nl-bar-go{margin-left:6px;padding:4px 10px;border:1px solid rgba(244, 246, 250,.4);border-radius:999px;font-weight:600;font-size:12.5px}
 .nl-bar-gap{display:inline-block;width:56px}
-.nl-bar-link:hover .nl-bar-go{background:rgba(246,240,229,.12)}
+.nl-bar-link:hover .nl-bar-go{background:rgba(244, 246, 250,.12)}
 .nl-bar-track.nl-run{animation:nlTicker var(--nlb-dur,20s) linear infinite;justify-content:flex-start}
 .nl-bar-link:has(.nl-run){justify-content:flex-start;padding-left:12px}
 .nl-bar-link:hover .nl-run{animation-play-state:paused}
 @keyframes nlTicker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.nl-bar-track.nl-run{animation:none}}
-.nl-bar-x{flex:none;display:grid;place-items:center;width:44px;height:36px;border:0;background:none;color:rgba(246,240,229,.75);cursor:pointer}
+.nl-bar-x{flex:none;display:grid;place-items:center;width:44px;height:36px;border:0;background:none;color:rgba(244, 246, 250,.75);cursor:pointer}
 .nl-bar-x svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
 /* the fixed nav sits under the banner until the banner scrolls away */
 html.nl-bar-on body .nav{top:var(--nlb-off,36px) !important}
@@ -138,7 +138,7 @@ html.nl-bar-on.ph-nav-hide:not(.nav-open) body .nav{transform:translateY(calc(-1
 .nl-sheet.nl-is-promo .nl-promo{display:block;text-align:center}
 .nl-sheet.nl-is-promo .nl-std,.nl-sheet.nl-is-promo .nl-roles,.nl-sheet.nl-is-promo .nl-fine,.nl-sheet.nl-is-promo .nl-notnow{display:none}
 .nl-sheet:not(.nl-is-promo) .nl-promo-or{display:none}
-.nl-sheet.nl-is-promo .nl-sheet-panel{width:min(480px,calc(100vw - 32px));padding:40px 44px 30px;background:#FCF3ED;border-radius:22px;
+.nl-sheet.nl-is-promo .nl-sheet-panel{width:min(480px,calc(100vw - 32px));padding:40px 44px 30px;background:#FFFFFF;border-radius:22px;
   box-shadow:inset 0 0 0 1px rgba(11,26,74,.06),0 40px 90px -36px rgba(11,26,74,.55),0 2px 8px -4px rgba(11,26,74,.15)}
 .nl-sheet.nl-is-promo .nl-sheet-top{position:absolute;top:10px;right:10px;z-index:2;height:auto;margin:0}
 .nl-sheet.nl-is-promo .nl-x{width:44px;height:44px;margin:0;background:transparent;color:#5C6378;transition:background-color .15s,color .15s}
@@ -158,13 +158,13 @@ html[lang="zh-CN"] .nl-sheet.nl-is-promo .nl-p{line-height:1.8}
 .nl-promo-note{margin:10px auto 0;max-width:30em;font:italic 400 15px/1.5 var(--font-display,'Newsreader'),Georgia,serif;color:#5C6378;text-wrap:balance;hyphens:manual;white-space:pre-line}
 html[lang="zh-CN"] .nl-promo-note{font:400 13.5px/1.7 var(--font-body,'Geist'),system-ui,sans-serif}
 .nl-promo-cta{display:flex;margin:24px 0 0}
-.nl-sheet.nl-is-promo .nl-promo-cta .btn{width:100%;height:52px;justify-content:center;border-radius:999px;background:#0B1A4A;border-color:#0B1A4A;color:#FCF3ED;font-size:16px;font-weight:600;letter-spacing:.01em;box-shadow:0 10px 24px -14px rgba(11,26,74,.7)}
+.nl-sheet.nl-is-promo .nl-promo-cta .btn{width:100%;height:52px;justify-content:center;border-radius:999px;background:#0B1A4A;border-color:#0B1A4A;color:#FFFFFF;font-size:16px;font-weight:600;letter-spacing:.01em;box-shadow:0 10px 24px -14px rgba(11,26,74,.7)}
 .nl-sheet.nl-is-promo .nl-promo-cta .btn:hover{background:#2F55A8;border-color:#2F55A8}
 .nl-promo-cta .arr{display:inline-block;margin-left:6px;transition:transform .2s}
 .nl-promo-cta .btn:hover .arr{transform:translateX(3px)}
 .nl-promo-or{margin:26px 0 10px;padding-top:20px;border-top:1px solid rgba(11,26,74,.1);font:500 13.5px/1.4 var(--font-body,'Geist'),system-ui,sans-serif;color:#4A5470;text-align:center}
 .nl-sheet.nl-is-promo .nl-form .nl-row{flex-direction:row;gap:8px}
-.nl-sheet.nl-is-promo .nl-email{flex:1;width:auto;height:44px;padding:0 14px;border-radius:999px;background:#FFFCF8;font-size:15px}
+.nl-sheet.nl-is-promo .nl-email{flex:1;width:auto;height:44px;padding:0 14px;border-radius:999px;background:#FFFFFF;font-size:15px}
 .nl-sheet.nl-is-promo .nl-form .nl-btn{flex:none;width:auto;height:44px;padding:0 18px;border-radius:999px;background:transparent;border:1px solid rgba(11,26,74,.3);color:#0B1A4A;font-size:14.5px;font-weight:600;box-shadow:none}
 .nl-sheet.nl-is-promo .nl-form .nl-btn:hover{background:rgba(11,26,74,.05);border-color:#0B1A4A}
 .nl-sheet.nl-is-promo .nl-msg{text-align:center}

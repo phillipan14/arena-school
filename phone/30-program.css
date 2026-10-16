@@ -6,7 +6,7 @@
 /* ---------- shared: two-line rows + group labels ---------- */
 .php-list > div{margin:0;padding:0}
 .php-list > div + div{border-top:1px solid var(--ph-line)}
-.php-list.ph-list-dark > div + div{border-top-color:rgba(246,240,229,.12)}
+.php-list.ph-list-dark > div + div{border-top-color:rgba(244, 246, 250,.12)}
 .php-row{width:100%;text-align:left;border:0;background:none;font:500 16px/1.35 'Geist',system-ui,sans-serif;cursor:pointer;-webkit-appearance:none;appearance:none;box-sizing:border-box}
 button.php-row{color:inherit}
 .php-row:active{background:rgba(34,69,138,.07)}
@@ -136,12 +136,12 @@ main .faq .faq-item[open] summary{padding-bottom:8px !important}
 main section.pp-final{padding:var(--ph-sec) 0 calc(var(--ph-sec) + 4px) !important}
 main .pp-final :is(.pp-final-top,.pc-final-pair){display:block !important;margin:0 !important;gap:0 !important;padding:0 !important;border:0 !important}
 main .pp-final :is(.pp-final-top,.pc-final-pair) > div:first-child{text-align:left !important}
-main .pp-final :is(.pp-final-top,.pc-final-pair) .eyebrow{display:block;width:auto;margin:0 0 12px !important;background:none !important;box-shadow:none !important;padding:0 !important;border:0 !important;color:rgba(246,240,229,.72) !important;
+main .pp-final :is(.pp-final-top,.pc-final-pair) .eyebrow{display:block;width:auto;margin:0 0 12px !important;background:none !important;box-shadow:none !important;padding:0 !important;border:0 !important;color:rgba(244, 246, 250,.72) !important;
   font:600 12.5px/1.2 'Geist',system-ui,sans-serif !important;letter-spacing:.14em !important;text-transform:uppercase}
 main .pp-final :is(.pp-final-top,.pc-final-pair) .eyebrow::before,main .pp-final :is(.pp-final-top,.pc-final-pair) .eyebrow::after{display:none !important}
 html[lang="zh-CN"] main .pp-final :is(.pp-final-top,.pc-final-pair) .eyebrow{font-size:13.5px !important;letter-spacing:.06em !important}
 main .pp-final :is(h2,.h2){text-align:left !important;margin:0 0 10px !important}
-main .pp-final .pp-close-sub{text-align:left !important;margin:0 !important;max-width:none !important;font-size:16px !important;line-height:1.55 !important;color:rgba(246,240,229,.78) !important}
+main .pp-final .pp-close-sub{text-align:left !important;margin:0 !important;max-width:none !important;font-size:16px !important;line-height:1.55 !important;color:rgba(244, 246, 250,.78) !important}
 html[lang="zh-CN"] main .pp-final .pp-close-sub{line-height:1.75 !important}
 main .pp-final .pp-close-cta{display:flex !important;flex-direction:column !important;align-items:stretch !important;gap:0 !important;margin:24px 0 0 !important}
 main .pp-final .pp-close-cta .btn-primary{width:100% !important;min-height:56px !important;border-radius:999px !important;justify-content:center;margin:0 !important;font-size:16.5px !important;font-weight:600 !important;white-space:nowrap}
@@ -154,9 +154,9 @@ main .pp-final:not(.php-closing) .pp-close-cta .btn:not(.btn-primary){min-height
 main .pp-final .pp-close-photo{display:none !important}
 .php-final{margin-top:24px}
 .php-final .ph-list + .php-k{margin-top:26px !important}
-.php-final .php-k{color:rgba(246,240,229,.6) !important}
-.php-final .php-t2{color:rgba(246,240,229,.62)}
-.php-final .php-row{color:#F6F0E5}
+.php-final .php-k{color:rgba(244, 246, 250,.6) !important}
+.php-final .php-t2{color:rgba(244, 246, 250,.62)}
+.php-final .php-row{color:#F4F6FA}
 .php-final .php-static .php-t1{font-weight:500}
 
 /* ---------- 7. One-pager bottom sheet (the page's own form, moved in) ---------- */
