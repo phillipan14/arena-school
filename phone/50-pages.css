@@ -399,3 +399,20 @@ html[lang="zh-CN"] body:is(.pg-schools,.pg-enroll-page) :is(.pg-note,.ef-help){l
 @media (max-width:760px){
 body.pg-results .pg-gl > a .ph-chev,body.pg-results .pg-gl > a svg:last-child{transform:rotate(90deg)}
 }
+@media (max-width:760px){
+/* Audience pages (2026-10-16): promise cards stack as rows, links and the programs line stay tappable */
+body.pg-schools .aud-outs{display:grid !important;grid-template-columns:1fr !important;grid-auto-flow:row !important;grid-auto-columns:auto !important;overflow:visible !important;scroll-snap-type:none !important;gap:12px !important;padding:0 !important;margin:0 !important}
+body.pg-schools .aud-outs > li{padding:18px 18px 20px !important;gap:8px !important}
+body.pg-schools .aud-outs small{padding-bottom:10px !important;font-size:20px !important}
+body.pg-schools .aud-outs b{font-size:19px !important}
+body.pg-schools .aud-outs .card-p{font-size:15.5px !important;line-height:1.55 !important}
+html[lang="zh-CN"] body.pg-schools .aud-outs .card-p{line-height:1.75 !important}
+body.pg-schools .aud-links{gap:0 20px !important}
+body.pg-schools .aud-links a{display:inline-flex;align-items:center;min-height:44px;font-size:15.5px}
+body.pg-schools .aud-plist{display:block !important}
+body.pg-schools .aud-plist-k{display:block;margin-bottom:6px;font-size:12px !important}
+html[lang="zh-CN"] body.pg-schools .aud-plist-k{font-size:13px !important}
+body.pg-schools .aud-plist-row{display:block !important}
+body.pg-schools .aud-plist-row a{display:flex;align-items:center;min-height:44px;font-size:16px;border-bottom:1px solid var(--ph-line)}
+body.pg-schools .pg-proof.aud-proof{grid-template-columns:1fr !important}
+}
