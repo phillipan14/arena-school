@@ -13,9 +13,21 @@
   --pro-ink: #0B1A4A; --pro-ink-2: #2F55A8; --pro-text: #111827; --pro-soft: #465066; --pro-muted: #5D6677;
   --ease: cubic-bezier(.22, .61, .36, 1); --ease-io: cubic-bezier(.45, 0, .25, 1);
   --dur-fast: 180ms; --dur-ui: 280ms; --dur-reveal: 600ms;
+  /* Motion tokens (MOTION2-BRIEF; recorded in the design system, DESIGN-SYSTEM-MOTION.md).
+     Photo crossfade: hold per photo + fade. Ken Burns (hero photos): duration, max zoom, drift.
+     Drift (framed photos): duration, max zoom, drift. Reduce Motion swaps in gentler values below, never none. */
+  --xf-hold: 6s; --xf-fade: 1.4s;
+  --kb-dur: 20s; --kb-scale: 1.07; --kb-tx: -3%; --kb-ty: -1.5%;
+  --drift-dur: 22s; --drift-scale: 1.07; --drift-tx: -2.5%; --drift-ty: -1.5%;
   --pro-h1: clamp(34px, 1.1rem + 2.1vw, 52px);
   --pro-h2: clamp(26px, .95rem + 1.25vw, 36px);
   --paper-art: #F5F7FA; --riso-tint: none;
+}
+/* Reduce Motion (macOS/iOS/Windows setting): photos still move, gently; the crossfade is slower (opacity fades are
+   fine for vestibular users). Only large zoom/pan and scroll-linked effects are dropped. */
+@media (prefers-reduced-motion: reduce) {
+  :root { --xf-hold: 7s; --xf-fade: 2.2s; --kb-dur: 30s; --kb-scale: 1.03; --kb-tx: -1%; --kb-ty: -.5%;
+    --drift-dur: 30s; --drift-scale: 1.03; --drift-tx: -1%; --drift-ty: -.5%; }
 }
 
 /* ---------- Ground and textures ---------- */
@@ -184,16 +196,15 @@ html, html body { overflow-x: clip !important; }
 html body .nav:not(#pro-nav) { position: sticky !important; top: 0 !important; left: auto; right: auto;
   transform: none !important; transition: background-color .2s ease !important; will-change: auto !important; z-index: 1000; }
 
-/* ---------- Desktop drift on framed photos (RES-BRIEF, Oct 16, 8:18pm) ----------
-   The hero's cinematic feel carried to the other large still photos (closing CTA, results cases,
-   contact, school photo rows): a slow zoom and drift, transform only, ease-in-out, back and forth.
-   Every wrapper clips (overflow: hidden) and the scale always exceeds the drift, so no edge shows.
-   Phones keep them still (the hero already moves there). Reduced motion: a still frame. */
-@keyframes pro-drift { from { transform: translate3d(0, 0, 0) scale(1.03); } to { transform: translate3d(-2.5%, -1.5%, 0) scale(1.08); } }
-@media (min-width: 901px) and (prefers-reduced-motion: no-preference) {
-  html body :is(.pp-close-photo, .pg-case-media, .pro-photo, .pg-contact-photo) > img {
-    animation: pro-drift 22s var(--ease-io, cubic-bezier(.45, 0, .55, 1)) infinite alternate both; }
-  html body :is(.pp-close-photo, .pg-case-media, .pro-photo, .pg-contact-photo):nth-of-type(even) > img { animation-delay: -9s; }
-}
+/* ---------- Drift on framed photos (RES-BRIEF 8:18pm, MOTION2-BRIEF) ----------
+   The hero's cinematic feel carried to the other large still photos (closing CTA, results cases, contact,
+   school photo rows): a slow zoom and drift, transform only, ease-in-out, back and forth, at every width.
+   Every wrapper clips (overflow: hidden) and the zoom always exceeds the drift, so no edge shows.
+   Reduce Motion: the same, gentler (motion tokens), never switched off. */
+@keyframes pro-drift { from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(var(--drift-tx, -2.5%), var(--drift-ty, -1.5%), 0) scale(var(--drift-scale, 1.07)); } }
+html body :is(.pp-close-photo, .pg-case-media, .pro-photo, .pg-contact-photo) > img {
+  animation: pro-drift var(--drift-dur, 22s) var(--ease-io, cubic-bezier(.45, 0, .55, 1)) infinite alternate both; }
+html body :is(.pp-close-photo, .pg-case-media, .pro-photo, .pg-contact-photo):nth-of-type(even) > img { animation-delay: -9s; }
 /* Pay page: its first section was padded to clear the old fixed nav; the nav is in the flow now */
 html body main > .pay-sec:first-child { padding-top: clamp(40px, 5vw, 64px) !important; }

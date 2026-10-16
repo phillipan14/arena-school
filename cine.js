@@ -4,12 +4,12 @@
    This file: starts the
    Ken Burns (.is-live), loads the remaining photos once the first has loaded and starts the crossfade
    (.is-cycling), draws the faint light particle field (riso-particles.js, started when the page is idle), and centers the
-   crest when the copy is centered. Under prefers-reduced-motion: one still photo, no zoom or pan. */
+   crest when the copy is centered. Under Reduce Motion the photos still crossfade and move, gently (css/cine.css and
+   the motion tokens in css/pro.css); only the timing changes, so nothing here checks the setting. */
 (function () {
   'use strict';
   var hero = document.querySelector('main section.cine-hero');
   if (!hero) return;
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   var media = hero.querySelector('.cine-media');
   var caps = hero.querySelector('.cine-caps');
@@ -21,7 +21,7 @@
     });
     if (media.querySelectorAll('.cine-slide').length > 1) { media.classList.add('is-cycling'); if (caps) caps.classList.add('is-cycling'); }
   }
-  if (media && !reduce) {
+  if (media && first) {
     media.classList.add('is-live');
     if (first.complete) rest(); else first.addEventListener('load', rest, { once: true });
   }

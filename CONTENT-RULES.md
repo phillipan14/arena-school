@@ -43,6 +43,8 @@ A section earns a place only if it passes all four questions:
 | Partners | 450 | 5 |
 | Contact | 100 | 2 |
 
+Media bands are not copy sections: the newsletter band and the homepage film (its eyebrow and title are the video's caption) count toward neither budget (Oct 16).
+
 **Per-block limits:**
 - hero lede: 30 words
 - section intro: 25 words

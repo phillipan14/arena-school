@@ -94,3 +94,37 @@ body.home .gm-lane.is-short .gm-bar::after { content: "\2192"; position: absolut
 body.home .gm-lane.is-short:hover .gm-bar::after, body.home .gm-lane.is-short.on .gm-bar::after, body.home .gm-lane.is-short:focus-visible .gm-bar::after,
 body.home .gmap.has-focus .gm-lane.is-short.is-focus .gm-bar::after { opacity: 1; transform: translate(0, -50%); }
 @media (max-width: 760px) { body.home .gm-lane.is-short .gm-bar::after { display: none; } }
+
+/* ---------- Timeline polish (MOTION2-BRIEF item 2, Oct 16) ----------
+   Design-system timeline: a faint full-width track per row, 44px bars (navy family, tokens), every label
+   inside its bar, a wider College column so the AI Advantage Bootcamp bar holds its own label (it was a
+   one-column coral blob with the label outside). Phones: name, grades as text, then a thin track with the
+   program's segment, so short bars never push a label outside. */
+html body.home .gmap { --tl-track: var(--pro-alt, #F5F7FA); --tl-bar-a: var(--pro-ink-2, #2F55A8); --tl-bar-b: var(--pro-ink, #0B1A4A); }
+@media (min-width: 761px) {
+  html body.home .gmap :is(.gm-axis, .gm-lane) { grid-template-columns: repeat(7, minmax(0, 1fr)) minmax(0, 1.9fr) !important; }
+  html body.home .gmap .gm-lanes { gap: 8px; background-image: none; }   /* the row tracks carry the grid */
+  html body.home .gmap .gm-lane { min-height: 52px; }
+  html body.home .gmap .gm-lane::before { content: ""; grid-row: 1; grid-column: 1 / -1; height: 44px; border-radius: 999px; background: var(--tl-track); }
+  html body.home .gmap .gm-bar { height: 44px; background: linear-gradient(90deg, var(--tl-bar-a), var(--tl-bar-b)); }
+  html body.home .gmap .gm-lane[data-prog="bootcamp"] .gm-bar { margin-right: 0; background: linear-gradient(90deg, #3A63B8, var(--tl-bar-a)); }
+  html body.home .gmap .gm-lane:is([data-prog="bootcamp"], [data-prog="portfolio"]) .gm-lab { flex-direction: column; align-items: flex-start; justify-content: center; gap: 4px; padding: 0 16px; }
+  html body.home .gmap .gm-lane:is([data-prog="bootcamp"], [data-prog="portfolio"]) .gm-lab b { font-size: 14.5px; }
+  html body.home .gmap .gm-lane:is([data-prog="bootcamp"], [data-prog="portfolio"]) .gm-lab small { font-size: 9.5px; letter-spacing: .1em; opacity: .85; }
+  html body.home .gmap .gm-lane:is([data-prog="bootcamp"], [data-prog="portfolio"]) .gm-lab em { display: none; }
+  html body.home .gmap .gm-lab small { opacity: .85; }
+  html body.home .gmap.has-focus .gm-lane.is-focus[data-prog="bootcamp"] .gm-bar { box-shadow: 0 18px 34px -16px rgba(11,26,74,.7); }
+  html body.home .gmap .gm-axis > span:last-child { color: var(--pro-soft, #465066); }
+}
+@media (max-width: 760px) {
+  html body.home #programs .gmap .gm-lane { grid-template-rows: auto auto 8px !important; row-gap: 6px !important; min-height: 44px; padding: 14px 16px !important; }
+  html body.home #programs .gmap .gm-lane::before { content: ""; grid-row: 3; grid-column: 1 / 9; height: 8px; border-radius: 999px; background: var(--tl-track); align-self: center; }
+  html body.home #programs .gmap .gm-bar { grid-row: 3 !important; height: 8px !important; margin-right: 0 !important; z-index: 1;
+    background: linear-gradient(90deg, var(--tl-bar-a), var(--tl-bar-b)) !important; }
+  /* (two ids: beats phone.css, which paints the grade range as a pill inside the bar) */
+  html body.home #programs:not(#tl) .gmap .gm-lane .gm-lab small {
+    grid-row: 2 !important; grid-column: 1 / 9 !important; justify-self: start !important; align-self: auto !important; display: block !important;
+    margin: 0 !important; padding: 0 !important; border-radius: 0 !important; z-index: 1;
+    color: var(--ph-soft, #4A5470) !important; background: none !important; font-size: 13px !important; opacity: 1 !important; }
+  html body.home #programs .gmap .gm-chev { grid-row: 1 / 4 !important; align-self: center; }
+}

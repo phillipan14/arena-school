@@ -4,7 +4,7 @@
 try{
 /* phone.js: behavior for the phone layer (phone.css). Does nothing above 760px.
    1. Bottom action bar, built from the hero's primary button; shown once that button scrolls away.
-   2. Nav hides on scroll down and returns on scroll up.
+   2. (Retired Oct 16: the nav is plain CSS sticky; nothing hides it on scroll.)
    3. Orphans: the last two words (English) or last few characters (Chinese) of headings and short
       paragraphs are kept together with a phone-only no-break span.
    4. Footer "All programs" row opens the menu. */

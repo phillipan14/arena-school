@@ -89,12 +89,6 @@ def ver(path):
     return hashlib.sha1(open(os.path.join(ROOT, path), 'rb').read()).hexdigest()[:8]
 
 
-def delay(i, n):
-    """Animation delay for slot i of n: each photo owns a WIN-second window that starts with a 1.6s fade-in; at load
-    the first photo is already 1.6s in (fully visible) and every other photo is mid-gap (invisible)."""
-    return -round((1.6 - WIN * i) % (WIN * n), 2) if n > 1 else 0
-
-
 def srcset(key):
     small, large = P[key][0], P[key][1]
     return '%s 800w, %s 1600w' % (small, large) if large else '%s 1024w' % small
@@ -110,7 +104,7 @@ def wide_list(keys):
     return out
 
 
-WIN = 12      # seconds each photo owns; the crossfade takes 1.6s of the next window
+# Timing lives in CSS motion tokens (css/pro.css: --xf-hold, --xf-fade, --kb-*); the markup only numbers the slots (--i).
 SIZES = '(min-width: 901px) 1300px, 700px'
 
 
@@ -130,8 +124,8 @@ def slide(i, n, key, home):
     pb = m['pb'] if home else m['pbs']                                   # subpages: a shorter pan
     px = {'duo': 82, 'gesture': 72, 'mentors': 66}.get(key, 70)   # desktop focus x when the photo is narrowed
     mk = {'gesture': 18}.get(key, 0)   # desktop: hide more of the left edge (a second face sits there)
-    style = ('--d:%ss;--r:%s;--px:%s%%;--mk0:%s%%;--pa-m:%s;--pb-m:%s;--ps-m:%s;--pa-t:%s;--pb-t:%s;--ps-t:%s;--pym:%s%%'
-             % (delay(i, n), round(P[key][2], 4), px, mk, m['pa'], pb, m['ps'], m['pat'], m['pbt'], m['pst'], round(m['pym'] * 100, 1)))
+    style = ('--i:%d;--r:%s;--px:%s%%;--mk0:%s%%;--pa-m:%s;--pb-m:%s;--ps-m:%s;--pa-t:%s;--pb-t:%s;--ps-t:%s;--pym:%s%%'
+             % (i, round(P[key][2], 4), px, mk, m['pa'], pb, m['ps'], m['pat'], m['pbt'], m['pst'], round(m['pym'] * 100, 1)))
     faces = 'data-faces="%s"' % html.escape(repr([key, P[key][2], P[key][5]]).replace("'", '"'))
     src, jpg, jss = sources(key, i > 0)
     h = int(round(1600 / P[key][2]))
@@ -143,7 +137,7 @@ def slide(i, n, key, home):
 
 
 def cap(key, i, n, zh):
-    return '<span style="--d:%ss">%s</span>' % (delay(i, n), html.escape(P[key][4] if zh else P[key][3]))
+    return '<span style="--i:%d">%s</span>' % (i, html.escape(P[key][4] if zh else P[key][3]))
 
 
 def preload(key):

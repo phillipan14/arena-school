@@ -33,7 +33,7 @@ class Page(HTMLParser):
         if t in SKIP_TAGS: s.skip += 1
         if s.skip: return
         # The Arena Notes band is an empty placeholder injected by tools/newsletter_markup.py, like the footer.
-        if t == 'section' and 'nl-band' not in cls: s.sections += 1
+        if t == 'section' and 'nl-band' not in cls and 'film-sec' not in cls: s.sections += 1   # media bands, not copy sections
         if a.get('data-detail'): s.details.append(a['data-detail'])
         kind = ('lede' if re.search(r'\b(lede|sub|thesis)\b', cls) else 'card' if re.search(r'\b(card-p|gc-sub|tile-body|hc-tex|fp-trip-card)\b', cls)
                 else 'faq' if 'faq-a' in cls else None)

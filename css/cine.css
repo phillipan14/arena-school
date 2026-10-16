@@ -2,45 +2,50 @@
    the business cards, and the payment page. Markup: tools/hero_markup.py. Behavior: /cine.js.
    A full-bleed real photo crossfade (slow zoom) under a navy gradient, a faint light particle field,
    the ivory crest above the headline, and white type. Headline size per page: --cine-h1 on the
-   section. Static under prefers-reduced-motion. */
+   section. Motion timing comes from the motion tokens in css/pro.css (gentler values under Reduce Motion,
+   never none: MOTION2-BRIEF). */
 
 /* ---------- Media layers ----------
    Three real photos per page (tools/hero_markup.py), each a <picture> (AVIF, WebP, JPEG; 1600px is the largest
    original, see HERO-RES.md). Per-slot vars: --d (cycle delay), --r (aspect), --px (desktop focus x), phone/tablet
    pan stops --pa/--pb (1 = right edge), --ps (still frame), --pym (focus y).
-   Each photo owns 12s and crossfades into the next over 1.6s (36s cycle).
+   Crossfade: each photo holds --xf-hold and fades into the next over --xf-fade (3 photos: a 3 x hold cycle);
+   slot --i starts at i x hold - fade, so photo 1 is fully in at load.
+   Ken Burns: continuous and independent of the crossfade (--kb-dur, ease-in-out, back and forth).
    Desktop: the photo is right-anchored at the hero's height (no upscaling past cover), its left edge melting into
-   the navy behind the copy; it drifts right to left with a slow zoom (scale never above 1.07).
-   Phones/tablets: the photo sits in a band under the nav (copy below) and pans right to left with a slow zoom. */
-:root { --ease: cubic-bezier(.22, .61, .36, 1); --ease-io: cubic-bezier(.45, 0, .25, 1); }
+   the navy behind the copy; it drifts right to left and up with a slow zoom (scale 1 to --kb-scale, 1.07 max:
+   1600px sources). transform-origin is the left edge, so the right overhang (scale - 1) always covers the drift.
+   Phones/tablets: the photo sits in a band under the nav (copy below) and pans right to left with a slow zoom.
+   Reduce Motion: the same, gentler (tokens), with a slower crossfade; nothing is switched off. */
 /* the nav's height, so the photo starts under it from the first paint (cine.js refines it to the pixel) */
 /* the nav is sticky and in the flow, so the hero (and its photo) starts right under it */
 section.cine-hero { --cine-top: 0px; }
 .cine-media { position: absolute; inset: 0; z-index: 0; overflow: hidden; background: #0B1A4A; container-type: size; }
-.cine-media { --kzm: 1.035; --k0: 1.03; --k1: 1.08; --dx: -6%; --dy: -1.5%; top: var(--cine-top, 0px); }
-.cine-media.is-home { --kzm: 1.07; }
-/* desktop drift (RES-BRIEF 8:18pm: it has to read as motion): right to left 6% plus a slight rise, zoom capped at 1.08
-   for the 1600px sources. transform-origin is the left edge, so the right overhang (k-1) always covers the drift. */
+.cine-media { top: var(--cine-top, 0px); }
 .cine-slide { --pa: var(--pa-m, 1); --pb: var(--pb-m, .5); --ps: var(--ps-m, .5); }
 .cine-slide { position: absolute; inset: 0; opacity: 0; }
 .cine-slide:first-child { opacity: 1; }
 .cine-slide picture { display: contents; }
 .cine-slide img { position: absolute; top: 0; right: 0; height: 100%; width: min(calc(100cqh * var(--r, 1.5)), 82cqw); max-width: none;
-  object-fit: cover; object-position: var(--px, 75%) 30%; transform-origin: 0% 50%; transform: scale(var(--k0));
+  object-fit: cover; object-position: var(--px, 75%) 30%; transform-origin: 0% 50%; transform: none;
   -webkit-mask-image: linear-gradient(90deg, transparent 0, transparent var(--mk0, 0%), rgba(0, 0, 0, .35) calc(var(--mk0, 0%) + 16%), #000 calc(var(--mk0, 0%) + 42%)); mask-image: linear-gradient(90deg, transparent 0, transparent var(--mk0, 0%), rgba(0, 0, 0, .35) calc(var(--mk0, 0%) + 16%), #000 calc(var(--mk0, 0%) + 42%));
   backface-visibility: hidden; }
 .cine-media.is-live .cine-slide img { will-change: transform; }
 
-.cine-media.n-3.is-cycling .cine-slide, .cine-caps.n-3.is-cycling span { animation: cine-fade 36s linear infinite both; animation-delay: var(--d); }
-/* each photo: fade in over 1.6s, hold to 12s, fade out over 1.6s while the next fades in, then wait */
-@keyframes cine-fade { 0% { opacity: 0; } 4.44% { opacity: 1; } 33.33% { opacity: 1; } 37.78% { opacity: 0; } 100% { opacity: 0; } }
+.cine-media.n-3.is-cycling .cine-slide, .cine-caps.n-3.is-cycling span {
+  animation: cine-fade calc(3 * var(--xf-hold, 6s)) linear infinite both;
+  animation-delay: calc(var(--i, 0) * var(--xf-hold, 6s) - var(--xf-fade, 1.4s)); }
+/* 18s cycle: fade in 1.4s (7.78%), hold to 6s (33.33%), fade out by 7.4s (41.11%) while the next fades in */
+@keyframes cine-fade { 0% { opacity: 0; } 7.78% { opacity: 1; } 33.33% { opacity: 1; } 41.11% { opacity: 0; } 100% { opacity: 0; } }
+/* Reduce Motion, 21s cycle: fade in 2.2s (10.48%), hold to 7s, fade out by 9.2s (43.81%) */
+@keyframes cine-fade-r { 0% { opacity: 0; } 10.48% { opacity: 1; } 33.33% { opacity: 1; } 43.81% { opacity: 0; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .cine-media.n-3.is-cycling .cine-slide, .cine-caps.n-3.is-cycling span { animation-name: cine-fade-r; } }
 
-@media (min-width: 901px) {
-  .cine-media.is-live.n-3 .cine-slide img { animation: cine-kb-d 36s linear infinite both; animation-delay: var(--d); }
-}
-@keyframes cine-kb-d { 0% { transform: translate3d(0, 0, 0) scale(var(--k0)); animation-timing-function: var(--ease-io); }
-  37.78% { transform: translate3d(var(--dx), var(--dy, 0), 0) scale(var(--k1)); }
-  38.6%, 100% { transform: translate3d(0, 0, 0) scale(var(--k0)); } }
+/* Ken Burns on the img itself (the slide wrapper only fades); each slot starts at a different point of the swing */
+.cine-media.is-live .cine-slide img { animation: cine-kb-d var(--kb-dur, 20s) var(--ease-io, ease-in-out) infinite alternate both;
+  animation-delay: calc(var(--i, 0) * -7s); }
+@keyframes cine-kb-d { from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(var(--kb-tx, -3%), var(--kb-ty, -1.5%), 0) scale(var(--kb-scale, 1.07)); } }
 
 /* captions: above the shade, crossfading with their photo */
 .cine-caps { position: absolute; inset: 0; z-index: 4; pointer-events: none; }
@@ -55,16 +60,14 @@ section.cine-hero { --cine-top: 0px; }
   .cine-slide img { left: 0; right: auto; width: auto; min-width: 122%; height: 100%; object-position: 50% var(--pym, 22%);
     -webkit-mask-image: none; mask-image: none;
     transform-origin: 50% 40%; transform: translate3d(calc((100cqw - 100%) * var(--pa, 1)), 0, 0); }
-  .cine-media.is-live.n-3 .cine-slide img { animation: cine-kb-m 36s linear infinite both; animation-delay: var(--d); }
+  .cine-media.is-live .cine-slide img { animation-name: cine-kb-m; }
   .cine-caps span { bottom: auto; top: calc(var(--cine-top, 0px) + clamp(300px, 48svh, 460px) - 26px); right: 16px; font-size: 11px; }
 }
 @media (min-width: 761px) and (max-width: 900px) {
   .cine-slide { --pa: var(--pa-t, 1); --pb: var(--pb-t, .8); --ps: var(--ps-t, .8); }
-  .cine-media, .cine-media.is-home { --kzm: 1.03; }
 }
-@keyframes cine-kb-m { 0% { transform: translate3d(calc((100cqw - 100%) * var(--pa)), 0, 0) scale(1.02); animation-timing-function: var(--ease-io); }
-  37.78% { transform: translate3d(calc((100cqw - 100%) * var(--pb)), 0, 0) scale(var(--kzm)); }
-  38.6%, 100% { transform: translate3d(calc((100cqw - 100%) * var(--pa)), 0, 0) scale(1.02); } }
+@keyframes cine-kb-m { from { transform: translate3d(calc((100cqw - 100%) * var(--pa)), 0, 0) scale(1); }
+  to { transform: translate3d(calc((100cqw - 100%) * var(--pb)), 0, 0) scale(var(--kb-scale, 1.07)); } }
 
 .cine-shade { position: absolute; inset: 0; top: var(--cine-top, 0px); z-index: 1; pointer-events: none;
   background: linear-gradient(90deg, rgba(8, 15, 38, .5) 0%, rgba(8, 15, 38, .2) 42%, rgba(8, 15, 38, 0) 60%),
@@ -144,13 +147,9 @@ html body main section.cine-hero .zl-hero-hosted img { filter: brightness(0) inv
     background: linear-gradient(180deg, rgba(8, 15, 38, .12) 0%, rgba(8, 15, 38, 0) 30%, rgba(8, 15, 38, .25) 70%, #0B1A4A 100%); }
   html body main section.cine-hero :is(h1, .display, .cs-h1, .hero-riso-h1, .el-h1):not(#cine):not(#cine-h1) { max-width: none; }
 }
-@media (prefers-reduced-motion: reduce) {
-  .cine-media .cine-slide, .cine-media .cine-slide img, .cine-caps span { animation: none !important; }
-  .cine-media .cine-slide:not(:first-child), .cine-caps span:not(:first-child) { display: none; }
-}
 @media (prefers-reduced-motion: reduce) and (max-width: 900px) {
-  /* a still frame with the faces centered */
-  .cine-slide img { transform: translate3d(calc((100cqw - 100%) * var(--ps, .5)), 0, 0) !important; }
+  /* Reduce Motion on phones: a short pan around the faces-centered frame instead of the full sweep */
+  .cine-slide { --pa: var(--ps) !important; --pb: max(0, calc(var(--ps) - .08)) !important; }
 }
 
 
