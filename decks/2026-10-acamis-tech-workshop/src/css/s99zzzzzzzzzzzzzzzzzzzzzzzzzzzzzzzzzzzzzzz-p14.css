@@ -1,0 +1,52 @@
+/* Pass 14: final polish. (1) Slide 25 gets a contact row (WeChat, email, website) above Member of, in the white half
+   of the code band. (2) One motion grammar for the deck: builds 0.5 to 0.7s, a 12px rise, ease-out, no overshoot;
+   slide changes are one short crossfade with a 12px drift; diagrams draw in 1.1s at most. (3) Grid and alignment fixes. */
+
+/* ---------- slide 25: contact + Member of share the white half of the band ---------- */
+.ae.p13-ct .bd .p11-qr{padding:10px 30px 10px 10px}
+.ae.p13-ct .bd .p11-qt b{white-space:normal;max-width:236px;font-size:21px;line-height:1.22}
+.ae.p13-ct .bd .p14-side{display:grid;grid-template-rows:1fr 1fr;padding:0 30px;min-width:0}
+.ae.p13-ct .bd .p14-ct,.ae.p13-ct .bd .p14-side .p13-mem{display:grid;grid-template-columns:96px minmax(0,1fr);align-items:center;column-gap:24px;padding:0}
+.ae.p13-ct .bd .p14-ct{border-bottom:1px solid var(--pro-line)}
+.ae.p13-ct .bd .p14-side .r15-h{margin:0;white-space:nowrap}
+.ae.p13-ct .bd .p14-cl{list-style:none;margin:0;padding:0;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.ae.p13-ct .bd .p14-cl li{margin:0;padding:0}
+.ae.p13-ct .bd .p14-cl li,.ae.p13-ct .bd .p14-cl a{display:flex;align-items:center;gap:10px;color:inherit;text-decoration:none}
+.ae.p13-ct .bd .p14-ci{flex:none;display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--pro-alt,#EEF2FA);color:var(--pro-ink)}
+.ae.p13-ct .bd .p14-ci .lic{width:15px;height:15px;stroke-width:1.8}
+.ae.p13-ct .bd .p14-cv{display:flex;flex-direction:column;gap:1px;font:500 18px/1.2 var(--serif);color:var(--pro-ink);white-space:nowrap}
+.ae.p13-ct .bd .p14-cv small{font:600 9.5px/1.2 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--pro-muted)}
+.ae.p13-ct .bd .p14-side .p13-mem .r15-lg{display:flex;justify-content:flex-start;gap:48px}
+
+/* ---------- one Arena mark per slide: slides 5 and 6 drop the wordmark from the kicker (the top-right mark stays) ---------- */
+section.s.st.aga-q>.w{justify-content:center;padding-top:40px}
+.ae.aga-q .kick{font-size:20px;margin:0 0 6px;padding:0}
+
+/* ---------- slide 9: the four outcome heads share one two-line row, so every description starts on one line ---------- */
+.ae.p8-as .bd .p8-o{grid-template-rows:56px auto}
+
+/* ---------- slide 18: all four question bubbles the same height ---------- */
+.ae.p8-pn .bd .p8-bub{min-height:119px}
+
+/* ---------- slide 24: four equal columns (the first was 26px off the grid), the rule runs node to node ---------- */
+.ae.p8-gsx .bd .p8-c3x li,.ae.p8-gsx .bd .p8-c3x li+li{padding-left:0;padding-right:26px}
+.ae.p8-gsx .bd .p8-c3x::before{left:38px;right:calc(25% - 38px)}
+.ae.p8-gsx .bd .c3x span{text-wrap:pretty}
+
+/* ---------- motion: one grammar for the whole deck (screen only; export, print, the reader, and reduced motion are static) ---------- */
+@media screen{
+ .motion .s{transition:opacity .45s var(--e-x),transform .5s var(--e-o)}
+ .motion .s.leave.out,.motion .s.out.leave{opacity:0;transform:translateY(-12px)}
+ .motion .s:not(.in):not(.leave)>.w{opacity:0;transform:translateY(12px)}
+ .motion .s.in>.w{opacity:1;transform:none;transition:opacity .45s ease,transform .6s var(--e-o)}
+ .motion [data-s]{transition:opacity .5s ease,transform .6s var(--e-o)}
+ .motion .s.bld [data-s]:not(.vis){transform:translateY(12px)}
+ .motion .s:not(.in) .wsplit .wd{transform:translateY(12px)}
+ .motion .sec-k b{transition:opacity .6s ease .1s,transform .7s var(--e-o) .1s}
+ .motion .s:not(.in) .sec-k b{transform:translateY(14px)}
+ .motion .s:not(.in) .trk li{transform:translateX(12px)}
+ .motion .p5-gs .c3x li i{transition:opacity .5s ease,transform .7s var(--e-o)}
+ .motion .nx-wk .nx-axis{transition:transform 1.1s var(--e-io) .3s}
+ .motion .dn .vl{transition:stroke-dasharray 1.1s var(--e-o) .3s}
+}
+@media (prefers-reduced-motion:reduce){.s,.s>.w,[data-s],.r{transition:none!important}}

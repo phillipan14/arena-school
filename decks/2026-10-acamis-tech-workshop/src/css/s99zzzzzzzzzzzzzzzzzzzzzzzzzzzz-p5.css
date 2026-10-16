@@ -1,0 +1,105 @@
+/* ===== Pass 5 (Oct 16): logo marquee, learning-goals summary, the big picture, and the contact slide.
+   Motion here follows css/s60-motion.css: it lives under html.motion only, so export, ?read, the phone reader,
+   and prefers-reduced-motion always show the finished, static slide. ===== */
+
+/* --- slide 4: the founding-team logos as a slow marquee. Static (export, reduced motion): the original spaced row. --- */
+.r15-ab .p5-mq .p5-mqt,.r15-ab .p5-mq .p5-set{display:contents}
+.r15-ab .p5-mq .p5-dup{display:none}
+@media screen{
+ .motion .r15-ab .p5-mq{display:block;overflow:hidden;padding:6px 0;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
+ .motion .r15-ab .p5-mq .p5-mqt{display:flex;width:max-content;animation:p5-mq 46s linear infinite}
+ .motion .r15-ab .p5-mq .p5-set{display:flex;align-items:center;gap:64px;padding-right:64px}
+ .motion .r15-ab .p5-mq .p5-dup{display:flex}
+ .motion .r15-ab .p5-mq:hover .p5-mqt{animation-play-state:paused}
+ /* translate (not transform), so the exit crossfade's transform reset never makes the strip jump */
+ @keyframes p5-mq{from{translate:0 0}to{translate:-50% 0}}
+}
+
+/* --- slide 16: the swimlane reused as a summary (same component as slide 8, different rows); no cycle arrow --- */
+.ae.p5-lg .bd .nx-sw{grid-template-rows:auto auto auto auto}
+.ae.p5-lg .bd .nx-sw p.nx-q{font-style:italic;color:var(--ink2)}
+
+/* --- slide 24: the big picture, four takeaways on navy --- */
+.ae.cl.p5-gs .c3x{grid-template-columns:repeat(4,minmax(0,1fr))}
+.ae.cl.p5-gs .c3x i{font-size:96px}
+.ae.cl.p5-gs .c3x span{font-size:24px}
+
+/* --- slide 25: let's work together --- */
+.ae.p5-ct .bd{justify-content:flex-start}
+.p5-cg{display:flex;flex-direction:column;gap:34px;width:100%}
+.p5-ways{list-style:none;margin:0;padding:24px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;border-top:1.5px solid var(--ink)}
+.p5-ways li{display:grid;grid-template-columns:52px minmax(0,1fr);column-gap:18px;row-gap:6px;align-items:center}
+.p5-wi{grid-row:span 2;align-self:start;display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;background:var(--paper-hi);box-shadow:inset 0 0 0 1px var(--edge);color:var(--ink2)}
+.p5-wi .lic{width:24px;height:24px}
+.ae .p5-ways b{font:500 28px/1.2 var(--serif);color:var(--ink)}
+.ae .p5-ways li>span:last-child{font:italic 400 21px/1.4 var(--serif);color:var(--muted)}
+.p5-ppl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap,24px);align-items:stretch}
+.ae .bd .p5-pc{display:flex;flex-direction:column;justify-content:space-between;gap:20px;padding:26px 28px;margin:0;min-height:0}
+.p5-hd{display:flex;align-items:center;gap:20px}
+.p5-ph{flex:none;width:84px;height:84px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 1px var(--edge)}
+.p5-nm{display:flex;flex-direction:column;min-width:0}
+.ae .p5-nm>b{font:500 30px/1.2 var(--serif);color:var(--ink);white-space:nowrap}
+.p5-role{margin-top:2px;font:italic 400 19px/1.3 var(--serif);color:var(--muted)}
+.p5-cx{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;padding-top:18px;border-top:1px solid var(--edge)}
+.p5-cx dl{display:grid;grid-template-columns:auto auto;gap:10px 16px;margin:0;align-self:center}
+.p5-cx dt{font:600 13px/1.6 var(--serif);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);align-self:center}
+.p5-cx dd{margin:0;font:500 22px/1.3 var(--serif);color:var(--ink);white-space:nowrap}
+.p5-cx dd.p5-sc{font-style:italic;font-weight:400;color:var(--muted)}
+.p5-qr{flex:none;display:block;line-height:0}
+.p5-qr img{display:block;width:118px;height:118px}
+.ae .bd .p5-res{display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;gap:16px;padding:26px 28px;margin:0;min-height:0;text-decoration:none;background:var(--ink);box-shadow:none;color:var(--paper-hi)}
+.p5-res>img{display:block;width:118px;height:118px;padding:9px;border-radius:10px;background:var(--paper-hi)}
+.p5-rt{display:flex;flex-direction:column;gap:6px;min-width:0}
+.p5-rt b{font:500 23px/1.25 var(--serif);color:var(--paper-hi)}
+.p5-rt small{font:italic 400 17px/1.35 var(--serif);color:rgba(252,243,237,.78);word-break:break-word}
+.p5-site{font:600 15px/1.3 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:#A9BEEA}
+.ae.p5-ct .bd .p5-cg{margin-top:12px}
+
+/* slide 16 closing line, and the big picture's tighter columns */
+.ae.p5-lg .bd p.p5-end{margin:30px 0 0;padding-top:22px;border-top:1px solid var(--edge);font:400 28px/1.35 var(--serif);color:var(--ink)}
+.ae.p5-lg .bd p.p5-end em{color:var(--ink2)}
+.ae.cl.p5-gs .c3x li{padding-right:26px}
+.ae.cl.p5-gs .c3x li+li{padding-left:26px}
+.ae.cl.p5-gs .c3x b{font-size:31px;white-space:nowrap}
+
+/* --- entrance motion (screen only) --- */
+@media screen{
+ /* day by day: the axis draws across before the days build */
+ .motion .nx-wk .nx-axis{transform-origin:left center;transition:transform 1.4s var(--e-io) .35s}
+ .motion .s:not(.in) .nx-wk .nx-axis,.motion .nx-wk:not(.in) .nx-axis{transform:scaleX(0)}
+ .motion .nx-wk .nx-dot{transition:transform var(--t-f) var(--e-o) .2s}
+ .motion .nx-wk.bld .nx-td:not(.vis) .nx-dot{transform:scale(.3)}
+ /* swimlanes (slides 8 and 16): the highlighted band sweeps in from the left */
+ .motion .nx-ai .nx-band{transform-origin:left center;transition:transform 1.1s var(--e-io) .3s,opacity .6s ease .3s}
+ .motion .nx-ai:not(.in) .nx-band{transform:scaleX(.2);opacity:0}
+ /* the big picture: each numeral rises a beat before its line */
+ .motion .p5-gs .c3x li i{transition:opacity .6s ease,transform .9s var(--e-o)}
+ .motion .p5-gs.bld .c3x li:not(.vis) i{opacity:0;transform:translateY(24px)}
+ /* contact: the three ways arrive one after another, then the people */
+ .motion .p5-ways li{transition:opacity var(--t-f) ease calc(var(--t0) + var(--i,0) * var(--st)),transform var(--t-m) var(--e-o) calc(var(--t0) + var(--i,0) * var(--st))}
+ .motion .p5-ways li:nth-child(2){--i:1}.motion .p5-ways li:nth-child(3){--i:2}
+ .motion .p5-ct.bld .p5-ways:not(.vis) li,.motion .s.p5-ct:not(.in) .p5-ways li{opacity:0;transform:translateY(14px)}
+ .motion .p5-ppl>*{transition:opacity var(--t-f) ease,transform var(--t-m) var(--e-o)}
+ .motion .p5-ppl>:nth-child(2){transition-delay:.12s}.motion .p5-ppl>:nth-child(3){transition-delay:.24s}
+ .motion .p5-ct.bld .p5-ppl:not(.vis)>*{opacity:0;transform:translateY(14px)}
+ /* demo-day and program photos settle as they appear */
+ .motion .ac-ph img{transition:transform 1.6s var(--e-o)}
+ .motion .s.bld .ac-ph:not(.vis) img{transform:scale(1.04)}
+}
+@media (prefers-reduced-motion:reduce){.r15-ab .p5-mq .p5-mqt{animation:none!important}}
+
+/* fit pass: slide 25 within 1080, and the WeChat IDs on one line */
+.ae.p5-ct .bd .p5-cg{margin-top:0;gap:26px}
+.ae.p5-ct .bd .p5-ways{padding-top:18px}
+.ae.p5-ct .bd .p5-pc,.ae.p5-ct .bd .p5-res{padding:22px 26px;gap:14px}
+.ae.p5-ct .bd .p5-cx{padding-top:14px}
+.ae.p5-ct .bd .p5-qr img,.ae.p5-ct .bd .p5-res>img{width:108px;height:108px}
+.ae .bd .p5-cx dd{white-space:nowrap}
+/* slide 16: the closing line sits closer */
+.ae.p5-lg .bd p.p5-end{margin-top:18px;padding-top:16px;font-size:26px}
+/* slide 16: the closing line takes the row slide 8 gives its cycle arrow, so both swimlanes share a height */
+.ae.p5-lg .bd .nx-sw{grid-template-rows:auto auto auto auto 58px}
+.ae.p5-lg .bd .nx-sw p.p5-end{grid-column:2/-1;grid-row:5;align-self:end;display:block;margin:0;padding:12px 0 0;border-top:1px solid var(--edge);font:400 26px/1.3 var(--serif);color:var(--ink)}
+.ae.p5-lg .bd .nx-sw p.p5-end{padding-top:10px;font-size:25px;line-height:1.25}
+.ae.p5-ct .bd .p5-cx dl{column-gap:12px}.ae.p5-ct .bd .p5-qr img{width:96px;height:96px}.ae .bd .p5-cx dd{font-size:21px}

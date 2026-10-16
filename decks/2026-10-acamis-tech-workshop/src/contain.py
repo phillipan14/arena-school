@@ -44,7 +44,8 @@ JS = r"""([idx, tol, onlyNums]) => {
   /* vertically a line occupies its line box, not the font's taller content area */
   test([...rg.getClientRects()].map((q,i)=>{const h=Math.min(q.height,lh),y=q.top+(q.height-h)/2,l=q.left+(i?0:bear);return {left:l,right:q.right,width:q.right-l,height:h,top:y,bottom:y+h}}),
        '"'+t.nodeValue.trim().slice(0,30)+'"',p,true)}
- if(!onlyNums)w.querySelectorAll('*').forEach(e=>{if(e.closest('.notes,.ag-fill')||(e.closest('svg')&&e.tagName.toLowerCase()!=='svg')||!shown(e))return;
+ /* the slide 4 logo marquee scrolls inside a frame that clips it, by design (static and checked in export) */
+ if(!onlyNums)w.querySelectorAll('*').forEach(e=>{if(e.closest('.notes,.ag-fill,.p5-mq')||(e.closest('svg')&&e.tagName.toLowerCase()!=='svg')||!shown(e))return;
   const c=getComputedStyle(e);if(c.position==='fixed'||c.display==='inline'||c.display==='contents')return;
   const media=/^(img|video|svg|canvas)$/i.test(e.tagName);
   /* a photo cropped by a frame that hides its overflow (the slow zoom on project photos) is cropped by design */
@@ -62,10 +63,12 @@ JS = r"""([idx, tol, onlyNums]) => {
    const a=items[i],b=items[j];
    if(a.contains(b)||b.contains(a))continue;
    if(a.closest('figure')&&a.closest('figure')===b.closest('figure'))continue;
-   if(a.closest('.ring2,.dn,.pg-m')&&a.closest('.ring2,.dn,.pg-m')===b.closest('.ring2,.dn,.pg-m'))continue;
+   if(a.closest('.ring2,.dn,.pg-m,.p8-ring')&&a.closest('.ring2,.dn,.pg-m,.p8-ring')===b.closest('.ring2,.dn,.pg-m,.p8-ring'))continue;
    if(a.closest('.lr')&&a.closest('.lr')===b.closest('.lr')&&media(a)&&media(b))continue;
    if(a.closest('.ag-fill')||b.closest('.ag-fill'))continue;
    if(a.closest('.grow-line')||b.closest('.grow-line'))continue;
+   /* live: the marquee logos scroll under their row label but are clipped by the strip's own frame (checked static in export) */
+   if((a.closest('.p5-mq')||b.closest('.p5-mq'))&&document.documentElement.classList.contains('motion'))continue;
    const A=a.getBoundingClientRect(),B=b.getBoundingClientRect();
    if(A.width<2||B.width<2||A.height<2||B.height<2)continue;
    const ix=Math.min(A.right,B.right)-Math.max(A.left,B.left),iy=Math.min(A.bottom,B.bottom)-Math.max(A.top,B.top);

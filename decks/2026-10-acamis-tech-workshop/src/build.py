@@ -59,7 +59,7 @@ for key,lang,fn,other,olab,oname,lprev,lnext,lall,lclose,lhome,zh,title in RV:
     html=f'''<!doctype html>
 <html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#F3E9DD">
+<meta name="theme-color" content="#FFFFFF">
 <meta name="format-detection" content="telephone=no">
 <title>{title}</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3"><link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=2">
