@@ -51,4 +51,4 @@ page above 760px; `ds.css` linked on every page; "Learning approach" added to th
 | ACAMIS session, EN + CN | depth pass sized to the page | thin | yes: tools/depth.py | 379d301 |
 | ISB parent coffee, EN + CN | depth pass sized to the page | thin | yes: tools/depth.py | 6495559 |
 | All pages with a depth FAQ (phones) | FAQ rows | browser default disclosure triangles | yes: ds-faq phone rules in css/ds.css | f859817 |
-| All pages, 390 audit (EN all, CN all, automated + visual) | overflow, clipping, tap targets | About leader logos cut off; Results stats crowded; event speaker links 19px; card language pill 30px | fixed (tools/audit390.mjs) | chunk M1 |
+| All pages, 390 audit (EN all, CN all, automated + visual) | overflow, clipping, tap targets | About leader logos cut off; Results stats crowded; event speaker links 19px; card language pill 30px | fixed (tools/audit390.mjs) | 65ae4bc |
