@@ -1,5 +1,17 @@
 # Notes for Phillip: ACAMIS deck restructure (Oct 16)
 
+## Pass 12 (Oct 16): no person cards on the close
+
+**Slide 25** (your note: "I don't think we need the individual people. Please remove the me and Junjun's boxes")
+- **Your card and Jing Jing's card are gone**: photos, names, "Co-founder, Arena School", and the WeChat IDs. The "The team · WeChat is the fastest way to reach us" label went with them.
+- **The bottom band is now one taller panel** under a new label, "Keep in touch · one code for everything from today". On the left is the navy session code, larger than before. On the right are three rows sharing one label column: **Member of** (Anthropic, Startup Program; OpenAI, Partner Network), **Our team studied at**, and **Our team worked at**. The Member of logos are now greyscale like the other logos.
+- The five pillars are unchanged. The click order is unchanged: the pillars, then the band.
+- **Speaker notes:** dropped "This is our team" and the WeChat line. They still say Jing Jing and you teach every program, the two memberships, and the one code.
+- **Phone reader:** same order, stacked: pillars, the label, the code, then Member of and the two logo rows.
+- **Call to confirm:** "Keep in touch" is new label copy. Your WeChat IDs no longer appear anywhere in the deck, so the session page and arenaschool.org are now the only way to reach you from the slides. Backup 33 still has both bios and email addresses for Q&A.
+
+**Checks.** `contain.py --georgia` is 0 on every line, `reader_check.py` says "reader OK", and `shots.py` shows no slide taller than 1080 and no page errors. **I also ran `export.py` this time**, so the public PDF, the slide images, and the session page's slide count (36) are up to date with Passes 6 to 12. New styles are in `css/s99zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz-p12.css`, with a Pass 12 block at the end of `reader/reader.css`. Nothing is pushed.
+
 ## Pass 11 (Oct 16, late night): one main code on the close, no repeated photos, and the Arena mark on every slide
 
 **Slide 25, the close** (your note: "we don't need individual QR codes… just one main one with all the logos of our team", and the Anthropic and OpenAI logos)
