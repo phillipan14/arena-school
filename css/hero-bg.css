@@ -1,15 +1,9 @@
-/* hero-bg.css: homepage hero backgrounds (pro pass, 2026-10-16). Three quiet, education-related options,
-   chosen with ?hero=A|B|C (hero-bg.js); A is the default. Low contrast, CSS/SVG only, no particles,
-   no dot grid. Everything stops under prefers-reduced-motion.
-     A  Notebook: soft gradient and faint ruled lines with a margin rule, drifting slowly upward.
-     B  Network: thin connected-node lines (a learning network), very slow drift.
-     C  Grid: a fine square grid with a gentle light sweep every few seconds. */
+/* hero-bg.css: the homepage hero's default background (pro pass, 2026-10-16): a soft cool gradient with
+   faint ruled notebook lines and one margin rule, drifting slowly upward; still under prefers-reduced-motion.
+   The A/B/C preview options were retired on Oct 16 (5:28pm brief); cinematic previews live in css/cine.css. */
 
 .pro-hero-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
-.pro-hero-bg > * { position: absolute; inset: 0; display: none; }
-.pro-hero-bg[data-variant="A"] .hb-a, .pro-hero-bg:not([data-variant]) .hb-a { display: block; }
-.pro-hero-bg[data-variant="B"] .hb-b { display: block; }
-.pro-hero-bg[data-variant="C"] .hb-c { display: block; }
+.pro-hero-bg > * { position: absolute; inset: 0; }
 
 /* A: notebook */
 .hb-a { background: linear-gradient(160deg, #F7F9FC 0%, #F1F5FB 55%, #EAF0F9 100%); }
@@ -21,28 +15,6 @@
 .hb-a::after { content: ""; position: absolute; top: 0; bottom: 0; left: clamp(28px, 6vw, 96px); width: 1px; background: rgba(229, 147, 117, .28); }
 @keyframes hb-a-drift { to { transform: translateY(-32px); } }
 
-/* B: learning network */
-.hb-b { background: linear-gradient(180deg, #F7F9FC, #F0F4FA); }
-.hb-b svg { position: absolute; right: -4%; top: -6%; width: 78%; height: 112%;
-  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 40%); mask-image: linear-gradient(90deg, transparent 0, #000 40%);
-  animation: hb-b-drift 60s ease-in-out infinite alternate; }
-.hb-b line { stroke: rgba(47, 85, 168, .2); stroke-width: 1; }
-.hb-b circle { fill: #FFFFFF; stroke: rgba(47, 85, 168, .4); stroke-width: 1.2; }
-.hb-b circle.is-on { fill: rgba(47, 85, 168, .5); stroke: none; }
-@keyframes hb-b-drift { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-24px, 14px, 0); } }
-
-/* C: fine grid with a light sweep */
-.hb-c { background-color: #F6F8FB;
-  background-image: linear-gradient(rgba(11, 26, 74, .055) 1px, transparent 1px), linear-gradient(90deg, rgba(11, 26, 74, .055) 1px, transparent 1px);
-  background-size: 28px 28px;
-  -webkit-mask-image: radial-gradient(120% 90% at 70% 40%, #000 40%, rgba(0,0,0,.35) 100%);
-          mask-image: radial-gradient(120% 90% at 70% 40%, #000 40%, rgba(0,0,0,.35) 100%); }
-.hb-c::after { content: ""; position: absolute; top: -20%; bottom: -20%; width: 34%; left: -40%;
-  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .85) 50%, transparent);
-  animation: hb-c-sweep 11s ease-in-out infinite; }
-@keyframes hb-c-sweep { 0%, 35% { left: -40%; } 75%, 100% { left: 110%; } }
-
 @media (prefers-reduced-motion: reduce) {
-  .hb-a::before, .hb-b svg, .hb-c::after { animation: none !important; }
-  .hb-c::after { display: none; }
+  .hb-a::before { animation: none !important; }
 }
