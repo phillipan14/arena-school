@@ -6,15 +6,15 @@ Exit code 1 if any page fails."""
 import glob, re, sys, collections
 from html.parser import HTMLParser
 
-BUDGET = {  # page -> (max words, max sections)
-    'index': (600, 7), 'mentorship': (700, 7), 'zero-to-launch': (700, 7),
-    'case-studies/student-programs': (550, 6), 'case-studies/skill-workshops': (550, 6),
-    'case-studies/parent-talks': (550, 6), 'case-studies/teacher-training': (550, 6),
-    'programs/website-portfolio-workshop': (700, 7), 'programs/product-intensive': (700, 7), 'programs/remake-your-favorite-app': (700, 7),
-    'programs/community-dialogues': (550, 6), 'programs/teacher-training': (550, 6),
-    'schools': (550, 6), 'schools/technology': (550, 6), 'curriculum': (650, 5), 'approach': (650, 5), 'learning-approach': (2200, 10), 'learning-approach-cn': (2200, 10),  # EDITORIAL-BRIEF (Oct 16): the framework moved to Learning approach
-    'about': (650, 5),  # schools 550: founder asked for fuller FAQ answers (Oct 2026)
-    'results': (750, 6), 'partnerships': (450, 5), 'contact': (100, 2),
+BUDGET = {  # page -> (max words, max sections). Raised Oct 17, 2026 (Phillip): pages carry the 8-10 depth sections
+    'index': (600, 7), 'mentorship': (1500, 11), 'zero-to-launch': (1500, 11),
+    'case-studies/student-programs': (1200, 10), 'case-studies/skill-workshops': (1200, 10),
+    'case-studies/parent-talks': (1200, 10), 'case-studies/teacher-training': (1200, 10),
+    'programs/website-portfolio-workshop': (1500, 11), 'programs/product-intensive': (1500, 11), 'programs/remake-your-favorite-app': (1500, 11),
+    'programs/community-dialogues': (1200, 10), 'programs/teacher-training': (1200, 10), 'programs/conferences': (1200, 10),
+    'schools': (1200, 10), 'schools/technology': (1200, 10), 'curriculum': (650, 5), 'approach': (650, 5), 'learning-approach': (2200, 10), 'learning-approach-cn': (2200, 10),  # EDITORIAL-BRIEF (Oct 16): the framework moved to Learning approach
+    'about': (850, 7),
+    'results': (850, 8), 'partnerships': (900, 9), 'contact': (200, 3),
 }
 BLOCK = {'lede': 30, 'card': 25, 'detail': 30, 'faq': 45}
 BANNED = [r'instead of writ', r'you (just )?review', r'type less', r'does (it|the work) for you', r'replace (you|teachers|your)', r'in minutes, not', r'never (mark|grade|write) again', r'\bweekend of marking', r'AI (builds|writes|grades|marks) (it|the|your)', r'替您完成', r'不再负责写', r'取代(老师|您|教师)', r'\bunlike school', r'school never', r'career teacher', r'\bNot [A-Z][^.]{0,40}\. Not ', r'waiting room', r'eulogy',

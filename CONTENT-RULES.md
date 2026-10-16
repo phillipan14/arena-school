@@ -33,16 +33,20 @@ A section earns a place only if it passes all four questions:
 | Page type | Max words | Max sections |
 |---|---|---|
 | Homepage | 600 | 7 |
-| Program page (Mentorship, Bootcamp, the four student programs, any new program) | 700 | 7 |
-| How-we-work page (Student programs, Portfolio workshop, Community dialogues, Teacher training) | 550 | 6 |
-| How-we-work hub (Schools) | 500 | 6 |
-| Audience page (Technology teams, `/schools/technology`) | 550 | 6 |
+| Program page (Mentorship, Bootcamp, the four student programs, any new program) | 1500 | 11 |
+| How-we-work page (Student programs, Portfolio workshop, Community dialogues, Teacher training, Conferences) | 1200 | 10 |
+| How-we-work hub (Schools) | 1200 | 10 |
+| Audience page (Technology teams, `/schools/technology`) | 1200 | 10 |
 | Approach | 650 | 5 |
 | Learning approach (the full learning framework, Oct 16) | 2200 | 10 |
-| About | 650 | 5 |
-| Results | 750 | 6 |
-| Partners | 450 | 5 |
-| Contact | 100 | 2 |
+| About | 850 | 7 |
+| Results | 850 | 8 |
+| Partners | 900 | 9 |
+| Contact | 200 | 3 |
+
+Budgets raised Oct 17, 2026 (Phillip's decision): pages now carry the DEPTH-BRIEF sections (pressures and answers,
+research, cases, tools, FAQ), 8 to 10 per page. Each new budget is about 10% above the largest page in its group.
+Block limits below are unchanged.
 
 Media bands are not copy sections: the newsletter band and the homepage film (its eyebrow and title are the video's caption) count toward neither budget (Oct 16).
 
