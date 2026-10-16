@@ -44,7 +44,8 @@ JS = r"""([idx, tol, onlyNums]) => {
   /* vertically a line occupies its line box, not the font's taller content area */
   test([...rg.getClientRects()].map((q,i)=>{const h=Math.min(q.height,lh),y=q.top+(q.height-h)/2,l=q.left+(i?0:bear);return {left:l,right:q.right,width:q.right-l,height:h,top:y,bottom:y+h}}),
        '"'+t.nodeValue.trim().slice(0,30)+'"',p,true)}
- if(!onlyNums)w.querySelectorAll('*').forEach(e=>{if(e.closest('.notes,.ag-fill')||(e.closest('svg')&&e.tagName.toLowerCase()!=='svg')||!shown(e))return;
+ /* the slide 4 logo marquee scrolls inside a frame that clips it, by design (static and checked in export) */
+ if(!onlyNums)w.querySelectorAll('*').forEach(e=>{if(e.closest('.notes,.ag-fill,.p5-mq')||(e.closest('svg')&&e.tagName.toLowerCase()!=='svg')||!shown(e))return;
   const c=getComputedStyle(e);if(c.position==='fixed'||c.display==='inline'||c.display==='contents')return;
   const media=/^(img|video|svg|canvas)$/i.test(e.tagName);
   /* a photo cropped by a frame that hides its overflow (the slow zoom on project photos) is cropped by design */

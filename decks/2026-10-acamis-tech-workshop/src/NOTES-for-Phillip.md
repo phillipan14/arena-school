@@ -1,5 +1,47 @@
 # Notes for Phillip: ACAMIS deck restructure (Oct 16)
 
+## Pass 5 (Oct 16, night): summaries, contact, motion, stronger headlines
+
+This section supersedes the Pass 4 running order for slides 15 to 25. Slides 1 to 15 and the backup keep their places.
+
+**What changed**
+- **New slide 16, "How the week built each learning goal"** (end of the student part). It uses the same swimlane as slide 8, so the audience sees the framework return filled in. There are four columns (one per strand), and each has three rows: the learning goal, how the week built it (by day), and what students showed. It closes on "No worksheet and no quiz. The evidence is the work itself."
+- **Slide 24, "The big picture"** (the grand summary at the end of the educator part). It replaces the old close: "AI can do the making. The thinking is still ours to teach.", followed by all four takeaways. The old close was missing takeaway 3, "Teachers can build". It ends on "You don't need to code. You already know how to coach."
+- **Slide 25, "Let's build this at your school"** (the final slide, which also hosts Q&A). It merges the old "What we offer" slide with the old Q&A slide. Three ways to collaborate (train your teachers, run a student week, design your curriculum), then a card for each of you with a photo, your WeChat ID (phgan14, jj-xiaohan), and a WhatsApp QR code (wa.me links). A navy card carries today's slides QR and arenaschool.org. There is no cal.com link and no "book a call" QR. The emails are gone from this slide, but they're still on the founders backup slide.
+- **Logo marquee (slide 4):** the founding-team logos now scroll as a slow, continuous carousel with soft faded edges, and the strip pauses on hover. Export, the PDF, the phone reader, and prefers-reduced-motion all show the original static row, because the second copy of the logos is hidden there.
+- **Entrance motion:** on slide 12, the timeline axis draws across and each day's dot pops in as it builds. On slides 8 and 16, the highlighted swimlane band sweeps in. The demo-day and program photos settle from a slight zoom as they appear. On slide 24, each numeral rises a beat ahead of its line. On slide 25, the three ways arrive one after another, then the people. All of this runs under `html.motion`, so export and reduced-motion get the finished slide.
+- **Headlines, rewritten to be shorter and to claim more:**
+  - 3: "We teach the part of learning that AI can't do for you."
+  - 4: "AI tools change every week. We teach learners to make the calls." (This is the uniqueness line. The mission line moved to the notes.)
+  - 6: "Three human skills AI can't supply. Without them, AI does the thinking."
+  - 7: "Same AI, opposite results. The design decides."
+  - 8: "AI helps at every step of the cycle. Every decision stays with the learner."
+  - 9: "When AI can polish the product, we assess the thinking behind it."
+  - 12: "Ten stages in five days, and every day ends with something real."
+  - 20: "Teachers don't need to code to build for their own class."
+  - 2 and 22: the agenda and the Part 4 subtitle now read "the big picture … how to work with us".
+- **Speaker notes** for 15, 16, 23, 24, and 25 are rewritten so that each one hands off to the next. The line "None of it works without teachers" moved from 15 to 16.
+
+**Running order: 25 main slides, then 11 backup slides (26 to 36)**
+1 to 15 as in Pass 4 · **16 How the week built each learning goal** · 17 Part 3 · 18 Pain points · 19 Time back · 20 Teachers build · 21 Build session · 22 Part 4 · 23 Coach · **24 The big picture** · **25 Let's build this at your school**. Agenda links are `data-go` 2, 9, 16, 21.
+
+**Narration arc for the new and changed slides**
+| # | The one point, and the handoff |
+|---|---|
+| 15 | Judges tried every product; students can ship. "Did a week of building teach what we set out to teach?" |
+| 16 | Every learning goal was practiced on real work, and the evidence is the work itself. "None of it works without teachers." |
+| 23 | Three coaching questions for Monday. "Let me pull the whole hour together." |
+| 24 | AI does the making, the thinking is ours to teach: the four takeaways. "Here is how to reach us." |
+| 25 | Three ways to work together, then WeChat and WhatsApp. Then Q&A. |
+
+**Calls to confirm**
+- **Slide 16 rows** are drawn from the deck's own day-by-day slide (12) and the backup slide on what the week trained. "Choices backed by what users did" is my phrasing of the day 1 to 3 validation and user-testing stages. Please check that it matches what students actually showed.
+- **Slide 4 headline.** "AI tools change every week. We teach learners to make the calls." is the strongest uniqueness claim in the deck. If you'd rather keep "Helping students, families, educators, and schools thrive in the age of AI," it's one line to swap back.
+- **Phone number privacy.** The WhatsApp QR codes encode your phone numbers, and slide 25 is also published in the public PDF and the phone reader once `export.py` runs. The numbers are not printed as text on the slide.
+- **"What we offer" no longer has its own slide.** The "Selected work" proof (the ISB, Bodley, and Tsinghua logos, and the results link) went with it. Slide 4's marquee and slide 15's judges carry the credibility now. If you want the proof back, it could be a slim marquee under the slide 25 cards.
+
+**Checks:** `contain.py --georgia` is 0 on every line, `reader_check.py` says "reader OK", and `shots.py` reports no slide taller than 1080 and no page errors. `contain.py` now skips the marquee strip in its live pass, because the strip scrolls inside a clipping frame by design; the export pass still checks it as a static row. Slide 25 got its own phone-reader layout. I verified the marquee in motion mode (it scrolls, with no page errors), and both WhatsApp QR images match a fresh encoding of their wa.me links. `export.py` was not run, as before.
+
 ## Pass 4 (Oct 16, evening): compress, one case, unblur, narrative
 
 This section supersedes the running order, the "cases 2 and 3" and "prize amount" items, and the timing risk further down.

@@ -4329,6 +4329,25 @@ section.s.age-ty .bd .age-qa p.age-ln.nx-ln{gap:10px 48px}
 .ae.nx-pain .bd .nx-pc:nth-child(4){padding-top:33.5px;padding-bottom:26.5px}
 .ae.nx-pain .bd .nx-pc:nth-child(2){padding-top:30.4px;padding-bottom:29.6px}
 
+/* ---- s99zzzzzzzzzzzzzzzzzzzzzzz-r8.css ---- */
+/* pass 4: outcomes and assessment on one slide (.nx-oa). Outcome rows reuse .lo3-s; the band below follows the rubric slide's evidence row. */
+.ae.lo3-s.nx-oa .bd{gap:34px}
+.ae.lo3-s.nx-oa .bd .lo3-c{padding:14px 0 12px}
+.lo3-s.nx-oa .nx-oab{flex:none;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:var(--gap)}
+.lo3-s.nx-oa .nx-oae,.lo3-s.nx-oa .nx-oai{display:flex;flex-direction:column;justify-content:center;padding:28px 28px 26px;border-radius:var(--r,14px)}
+.lo3-s.nx-oa .nx-oae{background:var(--paper-hi);box-shadow:inset 0 0 0 1px var(--edge)}
+.lo3-s.nx-oa .nx-oai{background:var(--ink)}
+.lo3-s.nx-oa .nx-oak{display:block;margin:0 0 12px;font:600 14px/1.2 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
+.lo3-s.nx-oa .nx-oai .nx-oak{color:#A9BEEA}
+.lo3-s.nx-oa .nx-oae ul{list-style:none;margin:0;padding:0;display:flex;justify-content:space-between;align-items:center;gap:24px}
+.ae.lo3-s.nx-oa .bd .nx-oae li{display:flex;align-items:center;gap:12px;margin:0;padding:0;border:0;font:400 24px/1.2 var(--serif);color:var(--ink)}
+.ae.lo3-s.nx-oa .bd .nx-oae li::before{content:none}
+.lo3-s.nx-oa .nx-oae .lic{width:24px;height:24px;color:var(--ink2);flex:none}
+.ae.lo3-s.nx-oa .bd .nx-oai p{margin:0;font:400 24px/1.35 var(--serif);color:#fff}
+.ae.lo3-s.nx-oa .bd .nx-oae ul{flex-direction:row;flex:none}
+.ae.lo3-s.nx-oa .bd>.nx-oab:last-child{flex:none!important;flex-grow:0!important}
+.ae.lo3-s.nx-oa .bd .nx-oai p{line-height:1.2}
+
 /* ---- s99zzzzzzzzzzzzzzzzzzzzzzz-theme.css ---- */
 /* palette trial (Oct 16): "neutral academic", opt-in with ?theme=acad. Ivory paper, charcoal ink, slate accent, no dot texture.
    The default Arena palette is untouched; delete this file and js/zzz-theme.html to drop the trial. */
@@ -4344,6 +4363,113 @@ html.th-acad .fx-wheel [fill="#5670B0"]{fill:#647D99}
 html.th-acad .fx-wheel [stroke="#2F55A8"]{stroke:#36557A}
 html.th-acad .fx-wheel circle[fill="#FCF3ED"]{fill:#FFFFFF}
 html.th-acad .nx-back span{background:var(--paper)}
+
+/* ---- s99zzzzzzzzzzzzzzzzzzzzzzzzzzzz-p5.css ---- */
+/* ===== Pass 5 (Oct 16): logo marquee, learning-goals summary, the big picture, and the contact slide.
+   Motion here follows css/s60-motion.css: it lives under html.motion only, so export, ?read, the phone reader,
+   and prefers-reduced-motion always show the finished, static slide. ===== */
+
+/* --- slide 4: the founding-team logos as a slow marquee. Static (export, reduced motion): the original spaced row. --- */
+.r15-ab .p5-mq .p5-mqt,.r15-ab .p5-mq .p5-set{display:contents}
+.r15-ab .p5-mq .p5-dup{display:none}
+@media screen{
+ .motion .r15-ab .p5-mq{display:block;overflow:hidden;padding:6px 0;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
+ .motion .r15-ab .p5-mq .p5-mqt{display:flex;width:max-content;animation:p5-mq 46s linear infinite}
+ .motion .r15-ab .p5-mq .p5-set{display:flex;align-items:center;gap:64px;padding-right:64px}
+ .motion .r15-ab .p5-mq .p5-dup{display:flex}
+ .motion .r15-ab .p5-mq:hover .p5-mqt{animation-play-state:paused}
+ /* translate (not transform), so the exit crossfade's transform reset never makes the strip jump */
+ @keyframes p5-mq{from{translate:0 0}to{translate:-50% 0}}
+}
+
+/* --- slide 16: the swimlane reused as a summary (same component as slide 8, different rows); no cycle arrow --- */
+.ae.p5-lg .bd .nx-sw{grid-template-rows:auto auto auto auto}
+.ae.p5-lg .bd .nx-sw p.nx-q{font-style:italic;color:var(--ink2)}
+
+/* --- slide 24: the big picture, four takeaways on navy --- */
+.ae.cl.p5-gs .c3x{grid-template-columns:repeat(4,minmax(0,1fr))}
+.ae.cl.p5-gs .c3x i{font-size:96px}
+.ae.cl.p5-gs .c3x span{font-size:24px}
+
+/* --- slide 25: let's work together --- */
+.ae.p5-ct .bd{justify-content:flex-start}
+.p5-cg{display:flex;flex-direction:column;gap:34px;width:100%}
+.p5-ways{list-style:none;margin:0;padding:24px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;border-top:1.5px solid var(--ink)}
+.p5-ways li{display:grid;grid-template-columns:52px minmax(0,1fr);column-gap:18px;row-gap:6px;align-items:center}
+.p5-wi{grid-row:span 2;align-self:start;display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;background:var(--paper-hi);box-shadow:inset 0 0 0 1px var(--edge);color:var(--ink2)}
+.p5-wi .lic{width:24px;height:24px}
+.ae .p5-ways b{font:500 28px/1.2 var(--serif);color:var(--ink)}
+.ae .p5-ways li>span:last-child{font:italic 400 21px/1.4 var(--serif);color:var(--muted)}
+.p5-ppl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap,24px);align-items:stretch}
+.ae .bd .p5-pc{display:flex;flex-direction:column;justify-content:space-between;gap:20px;padding:26px 28px;margin:0;min-height:0}
+.p5-hd{display:flex;align-items:center;gap:20px}
+.p5-ph{flex:none;width:84px;height:84px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 1px var(--edge)}
+.p5-nm{display:flex;flex-direction:column;min-width:0}
+.ae .p5-nm>b{font:500 30px/1.2 var(--serif);color:var(--ink);white-space:nowrap}
+.p5-role{margin-top:2px;font:italic 400 19px/1.3 var(--serif);color:var(--muted)}
+.p5-cx{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;padding-top:18px;border-top:1px solid var(--edge)}
+.p5-cx dl{display:grid;grid-template-columns:auto auto;gap:10px 16px;margin:0;align-self:center}
+.p5-cx dt{font:600 13px/1.6 var(--serif);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);align-self:center}
+.p5-cx dd{margin:0;font:500 22px/1.3 var(--serif);color:var(--ink);white-space:nowrap}
+.p5-cx dd.p5-sc{font-style:italic;font-weight:400;color:var(--muted)}
+.p5-qr{flex:none;display:block;line-height:0}
+.p5-qr img{display:block;width:118px;height:118px}
+.ae .bd .p5-res{display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;gap:16px;padding:26px 28px;margin:0;min-height:0;text-decoration:none;background:var(--ink);box-shadow:none;color:var(--paper-hi)}
+.p5-res>img{display:block;width:118px;height:118px;padding:9px;border-radius:10px;background:var(--paper-hi)}
+.p5-rt{display:flex;flex-direction:column;gap:6px;min-width:0}
+.p5-rt b{font:500 23px/1.25 var(--serif);color:var(--paper-hi)}
+.p5-rt small{font:italic 400 17px/1.35 var(--serif);color:rgba(252,243,237,.78);word-break:break-word}
+.p5-site{font:600 15px/1.3 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:#A9BEEA}
+.ae.p5-ct .bd .p5-cg{margin-top:12px}
+
+/* slide 16 closing line, and the big picture's tighter columns */
+.ae.p5-lg .bd p.p5-end{margin:30px 0 0;padding-top:22px;border-top:1px solid var(--edge);font:400 28px/1.35 var(--serif);color:var(--ink)}
+.ae.p5-lg .bd p.p5-end em{color:var(--ink2)}
+.ae.cl.p5-gs .c3x li{padding-right:26px}
+.ae.cl.p5-gs .c3x li+li{padding-left:26px}
+.ae.cl.p5-gs .c3x b{font-size:31px;white-space:nowrap}
+
+/* --- entrance motion (screen only) --- */
+@media screen{
+ /* day by day: the axis draws across before the days build */
+ .motion .nx-wk .nx-axis{transform-origin:left center;transition:transform 1.4s var(--e-io) .35s}
+ .motion .s:not(.in) .nx-wk .nx-axis,.motion .nx-wk:not(.in) .nx-axis{transform:scaleX(0)}
+ .motion .nx-wk .nx-dot{transition:transform var(--t-f) var(--e-o) .2s}
+ .motion .nx-wk.bld .nx-td:not(.vis) .nx-dot{transform:scale(.3)}
+ /* swimlanes (slides 8 and 16): the highlighted band sweeps in from the left */
+ .motion .nx-ai .nx-band{transform-origin:left center;transition:transform 1.1s var(--e-io) .3s,opacity .6s ease .3s}
+ .motion .nx-ai:not(.in) .nx-band{transform:scaleX(.2);opacity:0}
+ /* the big picture: each numeral rises a beat before its line */
+ .motion .p5-gs .c3x li i{transition:opacity .6s ease,transform .9s var(--e-o)}
+ .motion .p5-gs.bld .c3x li:not(.vis) i{opacity:0;transform:translateY(24px)}
+ /* contact: the three ways arrive one after another, then the people */
+ .motion .p5-ways li{transition:opacity var(--t-f) ease calc(var(--t0) + var(--i,0) * var(--st)),transform var(--t-m) var(--e-o) calc(var(--t0) + var(--i,0) * var(--st))}
+ .motion .p5-ways li:nth-child(2){--i:1}.motion .p5-ways li:nth-child(3){--i:2}
+ .motion .p5-ct.bld .p5-ways:not(.vis) li,.motion .s.p5-ct:not(.in) .p5-ways li{opacity:0;transform:translateY(14px)}
+ .motion .p5-ppl>*{transition:opacity var(--t-f) ease,transform var(--t-m) var(--e-o)}
+ .motion .p5-ppl>:nth-child(2){transition-delay:.12s}.motion .p5-ppl>:nth-child(3){transition-delay:.24s}
+ .motion .p5-ct.bld .p5-ppl:not(.vis)>*{opacity:0;transform:translateY(14px)}
+ /* demo-day and program photos settle as they appear */
+ .motion .ac-ph img{transition:transform 1.6s var(--e-o)}
+ .motion .s.bld .ac-ph:not(.vis) img{transform:scale(1.04)}
+}
+@media (prefers-reduced-motion:reduce){.r15-ab .p5-mq .p5-mqt{animation:none!important}}
+
+/* fit pass: slide 25 within 1080, and the WeChat IDs on one line */
+.ae.p5-ct .bd .p5-cg{margin-top:0;gap:26px}
+.ae.p5-ct .bd .p5-ways{padding-top:18px}
+.ae.p5-ct .bd .p5-pc,.ae.p5-ct .bd .p5-res{padding:22px 26px;gap:14px}
+.ae.p5-ct .bd .p5-cx{padding-top:14px}
+.ae.p5-ct .bd .p5-qr img,.ae.p5-ct .bd .p5-res>img{width:108px;height:108px}
+.ae .bd .p5-cx dd{white-space:nowrap}
+/* slide 16: the closing line sits closer */
+.ae.p5-lg .bd p.p5-end{margin-top:18px;padding-top:16px;font-size:26px}
+/* slide 16: the closing line takes the row slide 8 gives its cycle arrow, so both swimlanes share a height */
+.ae.p5-lg .bd .nx-sw{grid-template-rows:auto auto auto auto 58px}
+.ae.p5-lg .bd .nx-sw p.p5-end{grid-column:2/-1;grid-row:5;align-self:end;display:block;margin:0;padding:12px 0 0;border-top:1px solid var(--edge);font:400 26px/1.3 var(--serif);color:var(--ink)}
+.ae.p5-lg .bd .nx-sw p.p5-end{padding-top:10px;font-size:25px;line-height:1.25}
+.ae.p5-ct .bd .p5-cx dl{column-gap:12px}.ae.p5-ct .bd .p5-qr img{width:96px;height:96px}.ae .bd .p5-cx dd{font-size:21px}
 
 /* ---- snum.css ---- */
 /* slide numbers (snum): quiet folio in the bottom-right gutter of every slide except the title */
@@ -4364,7 +4490,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <h1 class="r" style="--d:.1s">From Lab <span class="m" style="--d:1s"><em>to Classroom</em></span><span class="sub" style="--d:1.3s">Running an AI Student Program Inside a School</span></h1>
  </div>
  <div class="cv-foot"><span class="cv-rule"></span><a class="cv-qr" href="https://arenaschool.org/talks/2026-10-acamis-tech-workshop" target="_blank" rel="noopener"><img src="/decks/img/acamis/qr-acamis-clear.png" alt="QR code for arenaschool.org/talks/2026-10-acamis-tech-workshop"><span>Today’s slides, checklist, and tool guide<small><span class="nw">arenaschool.org/talks/</span><wbr><span class="nw">2026-10-acamis-tech-workshop</span></small></span></a></div>
-</div><img class="brandmk ra-bm" src="/decks/img/acamis/a-wordmark-url-navy.png" alt="" aria-hidden="true" width="1600" height="243"><aside class="notes">Welcome. We are Arena School, and this is a case study from the International School of Beijing. Scan the code for today's slides, the planning checklist, and a guide to AI tools on school networks. Every number today comes from a public source, cited on the slide. Here is the plan for the hour.</aside></section>
+</div><img class="brandmk ra-bm" src="/decks/img/acamis/a-wordmark-url-navy.png" alt="" aria-hidden="true" width="1600" height="243"><aside class="notes">Welcome. I’m Phillip, and with Jing Jing Yang I run Arena School. This is a case study from the International School of Beijing: what happens when students build with AI for a week inside a school. Scan the code now for today’s slides, a planning checklist, and a guide to AI tools that work on school networks in China. Every number today comes from a public source, cited on the slide. Here is the hour.</aside></section>
 
 <!-- 2 · Contents -->
 <section class="s alt ae r7-toc"><div class="w">
@@ -4373,92 +4499,79 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <div class="bd r" style="--d:.25s">
   <ol class="r7-list">
   <li class="" data-s="1"><a href="#" data-go="2"><span class="r7-n">1</span><span class="r7-t"><b>Who we are</b><span>Arena School, our philosophy, and the learning framework behind every&nbsp;program</span></span></a></li>
-  <li class="" data-s="2"><a href="#" data-go="12"><span class="r7-n">2</span><span class="r7-t"><b>The case</b><span>The ISB AI Founders week: its structure, its tools, what students built, and demo&nbsp;day</span></span></a></li>
-  <li class="" data-s="3"><a href="#" data-go="21"><span class="r7-n">3</span><span class="r7-t"><b>Build together</b><span>What teachers build for their own classes. Then you name a chore, and we build the&nbsp;fix.</span></span></a></li>
-  <li class="" data-s="4"><a href="#" data-go="27"><span class="r7-n">4</span><span class="r7-t"><b>Wrap-up</b><span>Where AI helps students, teachers, and schools, and how we can&nbsp;help</span></span></a></li>
+  <li class="" data-s="2"><a href="#" data-go="9"><span class="r7-n">2</span><span class="r7-t"><b>The case</b><span>The ISB AI Founders week: its structure, its tools, what students built, and demo&nbsp;day</span></span></a></li>
+  <li class="" data-s="3"><a href="#" data-go="16"><span class="r7-n">3</span><span class="r7-t"><b>Build together</b><span>What teachers build for their own classes. Then you name a chore, and we build the&nbsp;fix.</span></span></a></li>
+  <li class="" data-s="4"><a href="#" data-go="21"><span class="r7-n">4</span><span class="r7-t"><b>Wrap-up</b><span>The big picture, three questions for Monday, and how to work with&nbsp;us</span></span></a></li>
   </ol>
  </div>
-</div><aside class="notes">Four parts. First, who we are and how we teach: our philosophy, our learning framework, and how it runs every program. Second, the case: one of those programs, a five-day AI Founders week for students at ISB, from the structure to demo day. Third, the main event, about 30 minutes: what teachers are building for their own classes, then a build session together, no coding. Last, a short wrap-up: where AI helps students, teachers, and schools, and how to reach us.</aside></section>
+</div><aside class="notes">Four parts. First, how we teach with AI, and why. Second, the proof: a five-day AI Founders week at ISB. Third, the main event, about thirty minutes: you name a chore, and we build the fix together, with no coding. Last, a few minutes on what to take back on Monday.</aside></section>
 
 <!-- 3 · Part 1 -->
 <section class="s ae nv sec"><div class="w"><div class="sec-g">
  <div>
   <p class="sec-k"><span>Part</span><b>1</b></p>
-  <h2 class="r" style="--d:.15s">Who we are, <em>and how we teach every&nbsp;learner.</em></h2>
-  <p class="sl r" style="--d:.35s">Our philosophy, our learning framework, and how it runs each&nbsp;program</p>
+  <h2 class="r" style="--d:.15s">We teach the part of learning <em>that AI can’t do for&nbsp;you.</em></h2>
+  <p class="sl r" style="--d:.35s">Who we are, our philosophy, the research behind it, and our learning&nbsp;framework</p>
  </div>
  <ol class="trk" aria-label="Parts">
  <li class="on"><div class="row"><span class="tn">1</span><span class="tt"><b>Who we are</b><small>How we teach</small></span></div></li>
  <li><div class="row"><span class="tn">2</span><span class="tt"><b>The case</b><small>ISB AI Founders week</small></span></div></li>
  <li><div class="row"><span class="tn">3</span><span class="tt"><b>Build together</b><small>With the room</small></span></div></li>
- <li><div class="row"><span class="tn">4</span><span class="tt"><b>Wrap-up</b><small>Where AI helps</small></span></div></li>
+ <li><div class="row"><span class="tn">4</span><span class="tt"><b>Wrap-up</b><small>Start on Monday</small></span></div></li>
  </ol>
-</div></div><aside class="notes">First, who we are and how we teach. Our philosophy, the learning framework behind it, how we assess it, and how the same framework runs a student course, a teacher training, and curriculum work.</aside></section>
+</div></div><aside class="notes">First, who we are, and the one idea behind everything we teach.</aside></section>
 
 <!-- 4 · About Arena School -->
 <section class="s alt ae r15-ab"><div class="w">
  <p class="kick r">About Arena School</p>
-<div class="r16-hd"><h2 class="r" style="--d:.1s">Helping students, families, educators,<br>and schools <em>thrive in the age of&nbsp;AI.</em></h2>
+<div class="r16-hd"><h2 class="r" style="--d:.1s">AI tools change every week.<br><em>We teach learners to make the&nbsp;calls.</em></h2>
  <div class="r16-sel r" style="--d:.2s"><span class="r15-h">Selected for</span><ul><li><span class="r16-lg"><img class="r16-an" src="/decks/img/acamis/partner-anthropic.svg" alt="Anthropic"></span><small>Startup Program</small></li><li><span class="r16-lg"><img class="r16-oa" src="/decks/img/acamis/partner-openai.svg" alt="OpenAI"></span><small>Partner Network</small></li></ul></div></div>
  <div class="bd r" style="--d:.25s">
   <div class="r15-cols">
    <div class="r15-c" data-s="1"><span class="r15-h">What we do</span><p>Hands-on programs where every learner, from middle schoolers to teachers and parents, makes real things with&nbsp;AI.</p></div>
-   <div class="r15-c" data-s="1"><span class="r15-h">How we teach</span><p>Every program builds three human skills: <em>agency, taste, and craft.</em> Learners make every decision; AI helps them&nbsp;build.</p></div>
+   <div class="r15-c" data-s="1"><span class="r15-h">How we teach</span><p>Learners make every decision and AI does the building, so every program ends in <em>real work for a real&nbsp;audience.</em></p></div>
    <div class="r15-c" data-s="1"><span class="r15-h">Who we work with</span><ul><li>Students, grades 6 to 12</li><li>Teachers and schools</li><li>Parents and families</li></ul></div>
   </div>
   <div class="r15-team" data-s="2">
    <p class="r15-ft"><span class="r15-h">The founding team</span></p>
-   <div class="r15-lg"><img class="r15-caltech" src="/logos/cred/caltech.png" alt="Caltech"><img class="r15-harvard" src="/logos/cred/harvard.png" alt="Harvard University"><img class="r15-brown" src="/logos/cred/brown.png" alt="Brown University"><img class="r15-tsinghua-lockup" src="/logos/cred/tsinghua-lockup.png" alt="Tsinghua University"><img class="r15-isb" src="/logos/cred/isb.png" alt="International School of Beijing"><img class="r15-mckinsey" src="/logos/cred/mckinsey.png" alt="McKinsey &amp; Company"><img class="r15-goldman" src="/logos/cred/goldman.png" alt="Goldman Sachs"><img class="r15-yc" src="/logos/cred/yc.png" alt="Y Combinator"><img class="r15-apple" src="/logos/cred/apple.png" alt="Apple"><img class="r15-microsoft-ai" src="/logos/cred/microsoft-ai.png" alt="Microsoft AI"><img class="r15-deloitte" src="/logos/cred/deloitte.png" alt="Deloitte"><img class="r15-kimi" src="/logos/cred/kimi.png" alt="Kimi (Moonshot AI)"></div>
+   <div class="r15-lg p5-mq"><div class="p5-mqt"><span class="p5-set"><img class="r15-caltech" src="/logos/cred/caltech.png" alt="Caltech"><img class="r15-harvard" src="/logos/cred/harvard.png" alt="Harvard University"><img class="r15-brown" src="/logos/cred/brown.png" alt="Brown University"><img class="r15-tsinghua-lockup" src="/logos/cred/tsinghua-lockup.png" alt="Tsinghua University"><img class="r15-isb" src="/logos/cred/isb.png" alt="International School of Beijing"><img class="r15-mckinsey" src="/logos/cred/mckinsey.png" alt="McKinsey &amp; Company"><img class="r15-goldman" src="/logos/cred/goldman.png" alt="Goldman Sachs"><img class="r15-yc" src="/logos/cred/yc.png" alt="Y Combinator"><img class="r15-apple" src="/logos/cred/apple.png" alt="Apple"><img class="r15-microsoft-ai" src="/logos/cred/microsoft-ai.png" alt="Microsoft AI"><img class="r15-deloitte" src="/logos/cred/deloitte.png" alt="Deloitte"><img class="r15-kimi" src="/logos/cred/kimi.png" alt="Kimi (Moonshot AI)"></span><span class="p5-set p5-dup" aria-hidden="true"><img class="r15-caltech" src="/logos/cred/caltech.png" alt=""><img class="r15-harvard" src="/logos/cred/harvard.png" alt=""><img class="r15-brown" src="/logos/cred/brown.png" alt=""><img class="r15-tsinghua-lockup" src="/logos/cred/tsinghua-lockup.png" alt=""><img class="r15-isb" src="/logos/cred/isb.png" alt=""><img class="r15-mckinsey" src="/logos/cred/mckinsey.png" alt=""><img class="r15-goldman" src="/logos/cred/goldman.png" alt=""><img class="r15-yc" src="/logos/cred/yc.png" alt=""><img class="r15-apple" src="/logos/cred/apple.png" alt=""><img class="r15-microsoft-ai" src="/logos/cred/microsoft-ai.png" alt=""><img class="r15-deloitte" src="/logos/cred/deloitte.png" alt=""><img class="r15-kimi" src="/logos/cred/kimi.png" alt=""></span></div></div>
   </div>
  </div>
-</div><aside class="notes">We’re Arena School. Our mission is to help students, families, educators, and schools thrive in the age of AI. We run hands-on programs where every learner makes real things with AI: middle and high school students, and also teachers, school leaders, and parents. Every program is built on three human skills: agency, taste, and craft. Learners make every decision; AI helps them build. Arena School was selected for Anthropic’s Startup Program and OpenAI’s Partner Network. (Click.) A word on who we are: Arena was founded by Jing Jing Yang and Phillip An. Between us, we studied and worked at the places on this line, from ISB, Brown, Caltech, Harvard, and Tsinghua to McKinsey, Goldman Sachs, Apple, Microsoft AI, Y Combinator, and Kimi. Jing Jing grew up in ACAMIS schools, at WAB and ISB, so this conference is a homecoming.</aside></section>
+</div><aside class="notes">Arena School helps students, families, educators, and schools thrive in the age of AI. We run hands-on programs where every learner, from middle schoolers to teachers and parents, makes real things with AI. The rule is simple: learners make every decision, and AI helps them build. We were selected for Anthropic’s Startup Program and OpenAI’s Partner Network. (Click.) Jing Jing and I founded Arena. Between us, we studied and worked at the places on this line, from ISB, Brown, Caltech, Harvard, and Tsinghua to McKinsey, Goldman Sachs, Apple, Microsoft AI, Y Combinator, and Kimi. Jing Jing grew up in ACAMIS schools, at WAB and ISB, so this conference is a homecoming. Everything we teach starts from one question.</aside></section>
 
 <!-- 5 · The question -->
 <section class="s alt ae st aga-q"><div class="w">
  <p class="kick r">The question we try to answer <span class="nw">at <img class="aga-wm" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School"></span></p>
  <h2 class="r rot-h" style="--d:.1s" aria-label="When AI can do all of these in seconds, what must our students still learn to do?">When AI can <span class="rot" aria-hidden="true"><span class="rot-t"><span>draft an essay</span><span>write code</span><span>summarize an article</span><span>create a research report</span><span>design a logo</span><span>build a website</span><span>translate a speech</span><span class="fin"><span class="rot-hl">do all of these</span></span></span></span> <br>in seconds, what must our students <em>still learn to&nbsp;do?</em></h2>
-</div><aside class="notes">The examples roll by on their own: an essay, code, a summary, a research report, a logo, a website, a speech, then all of these at once. Every teacher here has seen at least one of these turned in as homework. Parents are asking the same question. It is the question we try to answer every day at Arena School.</aside></section>
+</div><aside class="notes">When AI can write the essay, the code, and the website in seconds, what must our students still learn to do? Every teacher here has seen at least one of these handed in as homework, and parents ask us the same thing. Here is our answer.</aside></section>
 
 <!-- 6 · Teaching philosophy -->
 <section class="s alt ae r13-ph"><div class="w">
  <p class="kick r r14-k"><img class="r14-wm" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School" width="1600" height="242"><span>Teaching philosophy</span></p>
- <h2 class="r" style="--d:.1s">Staying competitive with AI takes three human skills.<br><em>Without them, AI does the thinking.</em></h2>
+ <h2 class="r" style="--d:.1s">Three human skills AI can’t supply.<br><em>Without them, AI does the&nbsp;thinking.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="r13-cols">
   <div class="pane r13-c" data-s="1"><p class="r13-n"><i>01</i><b>Agency</b></p><p class="r13-d">Choosing what is worth doing, before anyone assigns&nbsp;it.</p><p class="r13-w"><span>Without it</span>AI picks the problem, and learners&nbsp;follow.</p></div>
   <div class="pane r13-c" data-s="2"><p class="r13-n"><i>02</i><b>Taste</b></p><p class="r13-d">Judging whether the output is actually&nbsp;good.</p><p class="r13-w"><span>Without it</span>Learners accept the first answer AI&nbsp;gives.</p></div>
   <div class="pane r13-c" data-s="3"><p class="r13-n"><i>03</i><b>Craft</b></p><p class="r13-d">Finishing the work so people can trust&nbsp;it.</p><p class="r13-w"><span>Without it</span>The work stays an unchecked first&nbsp;draft.</p></div>
  </div>
  <p class="r13-end" data-s="4">This is how we teach every learner, from students to teachers and parents, <em>and the lens for today.</em></p></div>
-</div><aside class="notes">Parents and teachers ask us the same thing: what does it take for children to stay competitive in a world with AI? Three very human skills that AI can't supply, and that students have to practice. Agency: choosing what is worth doing before anyone assigns it. Without it, AI picks the problem and learners just follow. Taste: judging whether the output is actually good. Without it, learners accept the first answer AI gives them. Craft: finishing the work so people can trust it. Without it, the work stays an unchecked first draft. This is our teaching philosophy at Arena School, and it applies to every learner we teach: students, and also teachers and parents. If learners can't do these three things, AI can be a negative force in their learning. Keep these three in mind for everything you see today.</aside></section>
+</div><aside class="notes">Three human skills that AI can’t supply. (Click.) Agency: choosing what is worth doing before anyone assigns it. Without it, AI picks the problem and the learner follows. (Click.) Taste: judging whether the output is actually good. Without it, learners take the first answer AI gives. (Click.) Craft: finishing the work so people can trust it. Without it, the work stays an unchecked first draft. (Click.) This is our philosophy for every learner, and the lens for the hour. I’ll name the three skills once, here; from now on you’ll see them in action. And this isn’t only our opinion.</aside></section>
 
 <!-- 7 · Design is the difference -->
 <section class="s ae"><div class="w">
  <p class="kick r">Why the design matters · two 2025 studies</p>
- <h2 class="r" style="--d:.1s">Used as a shortcut, AI does the thinking. <em>Set up as a coach, it helps students learn more.</em></h2>
+ <h2 class="r" style="--d:.1s">Same AI, opposite results.<br><em>The design&nbsp;decides.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="duo">
   <div class="pane" data-s="1"><div class="lr"><span class="org">High school math · nearly 1,000 students</span></div><div class="big">−17%</div><p>exam grades after practicing with plain ChatGPT. A tutor version that gave hints, not answers, largely avoided <span class="nw">the drop.</span></p></div>
   <div class="pane dk" data-s="2"><div class="lr"><span class="org">Harvard physics · a randomized trial</span></div><div class="big">2×</div><p>the learning gains of an active-learning class, in less time, with an AI tutor built on <span class="nw">the same methods</span></p></div>
  </div></div>
  <p class="fn" data-s="1"><span>Bastani and others, PNAS, June 25, 2025: grades fell 17% once plain ChatGPT was taken away; with safeguards, the harm was “largely mitigated”; Kestin and others, Scientific Reports, June 3, 2025: 194 Harvard physics students, median learning gains more than double</span></p>
-</div><aside class="notes">This is the one piece of research we'll show, because it answers the worry every teacher has. In a study of nearly a thousand high school students, those who practiced math with plain ChatGPT did 17% worse on the exam once it was taken away. They used it as a crutch. But a second group used a version set up like a tutor, giving hints instead of answers, and the harm largely disappeared. And at Harvard, a randomized trial found students learned about twice as much, in less time, from an AI tutor built on good teaching methods. So the question isn't whether students use AI. It's how their use of it is designed. That's a teaching question, and it's what our learning framework is built to answer.</aside></section>
+</div><aside class="notes">Two studies from 2025. Nearly a thousand high school students practiced math with plain ChatGPT, and scored 17% worse once it was taken away. A tutor version that gave hints instead of answers largely avoided the drop. (Click.) At Harvard, a randomized trial found students learned about twice as much, in less time, from an AI tutor built on good teaching methods. Same technology, opposite results. The difference is the design, and the design is what our framework is for.</aside></section>
 
-<!-- 8 · Learning framework -->
-<section class="s ae fx-s"><div class="w">
- <p class="kick r">The Arena School learning framework</p>
- <h2 class="r" style="--d:.1s">Learners do the thinking, AI is a tool, <em>and teachers and peers give the&nbsp;feedback.</em></h2>
- <div class="bd r" style="--d:.25s"><div class="fx-g">
-  <div class="fx-wh" data-s="1"><svg class="fx-wheel" viewBox="0 0 800 800" role="img" aria-label="Arena School learning framework: the student does the thinking; four strands; four conditions" font-family="Newsreader, Georgia, serif"><defs><marker id="cyc" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2F55A8"/></marker><path id="st00" d="M403.5,202.1 A197.9,197.9 0 0 1 597.9,396.5" fill="none"/><path id="st01" d="M402.7,244.1 A155.9,155.9 0 0 1 555.9,397.3" fill="none"/><path id="st10" d="M403.1,580.2 A180.2,180.2 0 0 0 580.2,403.1" fill="none"/><path id="st11" d="M403.9,622.2 A222.2,222.2 0 0 0 622.2,403.9" fill="none"/><path id="st20" d="M219.8,403.1 A180.2,180.2 0 0 0 396.9,580.2" fill="none"/><path id="st21" d="M177.8,403.9 A222.2,222.2 0 0 0 396.1,622.2" fill="none"/><path id="st30" d="M202.1,396.5 A197.9,197.9 0 0 1 396.5,202.1" fill="none"/><path id="st31" d="M244.1,397.3 A155.9,155.9 0 0 1 397.3,244.1" fill="none"/><path id="cd0" d="M389.6,103.1 A297.1,297.1 0 0 1 696.9,410.4" fill="none"/><path id="cd1" d="M388.9,716.7 A316.9,316.9 0 0 0 716.7,388.9" fill="none"/><path id="cd2" d="M83.3,388.9 A316.9,316.9 0 0 0 411.1,716.7" fill="none"/><path id="cd3" d="M103.1,410.4 A297.1,297.1 0 0 1 410.4,103.1" fill="none"/></defs><circle cx="400.0" cy="400.0" r="348.0" fill="#FCF3ED" stroke="#0B1A4A" stroke-opacity=".2" stroke-width="1.2"/><path d="M452.9,23.7 A380.0,380.0 0 0 1 776.3,347.1" fill="none" stroke="#2F55A8" stroke-width="2.4" stroke-linecap="round" marker-end="url(#cyc)"/><path d="M776.3,452.9 A380.0,380.0 0 0 1 452.9,776.3" fill="none" stroke="#2F55A8" stroke-width="2.4" stroke-linecap="round" marker-end="url(#cyc)"/><path d="M347.1,776.3 A380.0,380.0 0 0 1 23.7,452.9" fill="none" stroke="#2F55A8" stroke-width="2.4" stroke-linecap="round" marker-end="url(#cyc)"/><path d="M23.7,347.1 A380.0,380.0 0 0 1 347.1,23.7" fill="none" stroke="#2F55A8" stroke-width="2.4" stroke-linecap="round" marker-end="url(#cyc)"/><line x1="400.0" y1="134.0" x2="400.0" y2="52.0" stroke="#0B1A4A" stroke-opacity=".18" stroke-width="1.2"/><line x1="666.0" y1="400.0" x2="748.0" y2="400.0" stroke="#0B1A4A" stroke-opacity=".18" stroke-width="1.2"/><line x1="400.0" y1="666.0" x2="400.0" y2="748.0" stroke="#0B1A4A" stroke-opacity=".18" stroke-width="1.2"/><line x1="134.0" y1="400.0" x2="52.0" y2="400.0" stroke="#0B1A4A" stroke-opacity=".18" stroke-width="1.2"/><path d="M403.2,134.0 A266.0,266.0 0 0 1 666.0,396.8 L516.0,398.6 A116.0,116.0 0 0 0 401.4,284.0Z" fill="#2F55A8"/><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st00" startOffset="50%" text-anchor="middle">Inquiry and</textPath></text><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st01" startOffset="50%" text-anchor="middle">planning</textPath></text><path d="M666.0,403.2 A266.0,266.0 0 0 1 403.2,666.0 L401.4,516.0 A116.0,116.0 0 0 0 516.0,401.4Z" fill="#0B1A4A"/><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st10" startOffset="50%" text-anchor="middle">Research and</textPath></text><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st11" startOffset="50%" text-anchor="middle">evaluation</textPath></text><path d="M396.8,666.0 A266.0,266.0 0 0 1 134.0,403.2 L284.0,401.4 A116.0,116.0 0 0 0 398.6,516.0Z" fill="#3D5FA6"/><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st20" startOffset="50%" text-anchor="middle">Creating and</textPath></text><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st21" startOffset="50%" text-anchor="middle">communicating</textPath></text><path d="M134.0,396.8 A266.0,266.0 0 0 1 396.8,134.0 L398.6,284.0 A116.0,116.0 0 0 0 284.0,398.6Z" fill="#5670B0"/><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st30" startOffset="50%" text-anchor="middle">Collaboration</textPath></text><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st31" startOffset="50%" text-anchor="middle">and reflection</textPath></text><circle cx="400.0" cy="400.0" r="110.0" fill="#FCF3ED" stroke="#0B1A4A" stroke-opacity=".2"/><text x="400.0" y="374.6" text-anchor="middle" font-size="33" fill="#0B1A4A">The learner</text><text x="400.0" y="410.6" text-anchor="middle" font-size="33" fill="#0B1A4A">does the</text><text x="400.0" y="446.6" text-anchor="middle" font-size="33" fill="#2F55A8" font-style="italic">thinking</text><text font-size="31" fill="#0B1A4A"><textPath href="#cd0" startOffset="50%" text-anchor="middle">In person, real-time feedback</textPath></text><text font-size="31" fill="#0B1A4A"><textPath href="#cd1" startOffset="50%" text-anchor="middle">AI use disclosed and cited</textPath></text><text font-size="31" fill="#0B1A4A"><textPath href="#cd2" startOffset="50%" text-anchor="middle">Learner voice and choice</textPath></text><text font-size="31" fill="#0B1A4A"><textPath href="#cd3" startOffset="50%" text-anchor="middle">An authentic audience</textPath></text></svg></div>
-  <div class="fx-side">
-   <div class="fx-blk" data-s="2"><span class="fx-k">Built on project-based learning</span><p>Every strand gets a real purpose and a real&nbsp;audience.<br>AI speeds up the&nbsp;building.</p><small class="fx-cite">Informed by PBLWorks’ Gold Standard&nbsp;PBL.</small></div>
-   <div class="fx-call" data-s="3"><span class="fx-ck">At every check-in, the teacher asks</span><p>“How did you check&nbsp;it?”</p><span>and responds in real&nbsp;time.<br>AI can support that feedback, not replace&nbsp;it.</span></div>
-  </div>
- </div></div>
-</div><aside class="notes">This is the Arena School learning framework. (Click.) At the center, the learner does the thinking. We say learner on purpose: the same framework runs our student programs, our teacher training, and our sessions for school leaders and parents. The arrows show it’s a cycle, not a checklist. Around that are four strands we develop in every program: inquiry and planning, research and evaluation, creating and communicating, and collaboration and reflection. On the outer ring are four teaching principles: learning in person with real-time feedback; AI use that is disclosed and cited; learner voice and choice; and an authentic audience. (Click.) It’s built on project-based learning, PBL, informed by PBLWorks’ Gold Standard PBL. PBL gives each strand a real purpose and an audience, and AI makes the building faster than ever. (Click.) At every check-in, the teacher asks one question: how did you check it? And responds in real time. AI tools can support that feedback, and many of you use them well. They don’t replace it.</aside></section>
-
-<!-- 9 · Where AI comes in -->
+<!-- 8 · Learning framework · where AI comes in -->
 <section class="s ae nx-ai"><div class="w">
- <p class="kick r">The learning framework · where AI comes in</p>
- <h2 class="r" style="--d:.1s">AI helps at every step of the cycle, <em>but the learner makes each&nbsp;call.</em></h2>
+ <p class="kick r">The Arena School learning framework · where AI comes in</p>
+ <h2 class="r" style="--d:.1s">AI helps at every step of the cycle. <em>Every decision stays with the&nbsp;learner.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="nx-sw">
   <div class="nx-swl" aria-hidden="true"><span></span><span>The learner decides</span><span class="nx-swa">AI helps</span><span>The teacher asks</span></div>
   <span class="nx-band" aria-hidden="true"></span>
@@ -4468,61 +4581,33 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <div class="nx-swc" data-s="4"><div class="nx-swh"><i>04</i><b>Collaboration and reflection</b></div><p class="nx-me"><small>The learner decides</small>What to change after&nbsp;critique</p><p class="nx-aip"><small>AI helps</small>Gives a first round of&nbsp;feedback</p><p class="nx-q"><small>The teacher asks</small>“What would you do&nbsp;differently?”</p></div>
   <div class="nx-back" data-s="4" aria-hidden="true"><span>Then the next question starts the cycle&nbsp;again</span></div>
  </div></div>
-</div><aside class="notes">Here is where AI comes in at each step of the framework. Read it column by column. (Click.) Inquiry and planning: the learner decides which problem, for whom, and the plan. AI can suggest angles and draft a plan. The teacher asks: why this problem? (Click.) Research and evaluation: AI searches, summarizes, and compares options; the learner decides which sources and answers to trust; the teacher asks how they checked it. (Click.) Creating and communicating: AI writes the code, the drafts, and the visuals; the learner decides what to build and what to cut; the teacher asks how they know it’s good. (Click.) Collaboration and reflection: AI can give a first round of feedback; the learner decides what to change after critique from teachers and peers; the teacher asks what they would do differently. In every column, AI does more of the making, and the decision stays with the learner.</aside></section>
+</div><aside class="notes">This is the Arena School learning framework. It has four strands, it is built on project-based learning, and it runs as a cycle. Read each column top to bottom: what the learner decides, where AI helps, and what the teacher asks. (Click.) Inquiry and planning: the learner picks the problem and who it’s for; AI can suggest angles; the teacher asks, why this problem? (Click.) Research and evaluation: AI searches and summarizes; the learner decides what to trust; the teacher asks, how did you check it? (Click.) Creating and communicating: AI writes the code, the drafts, and the visuals; the learner decides what to build and what to cut. (Click.) Collaboration and reflection: AI can give a first round of feedback; the learner decides what to change after real critique. Then the next question starts the cycle again. In every column, AI does more of the making, and the decision stays with the learner. We say learner on purpose: the same framework runs our student programs, our teacher training, and our curriculum work.</aside></section>
 
-<!-- 10 · Learning outcomes -->
-<section class="s alt ae lo3-s"><div class="w">
- <p class="kick r">Learning outcomes</p>
- <h2 class="r" style="--d:.1s">Across every program, <em>learners will be able&nbsp;to…</em></h2>
- <p class="lo3-sub r" style="--d:.15s">Learners are whoever a program is for: students, teachers, school leaders, or parents. The outcomes stay the same; the depth&nbsp;grows.</p>
- <div class="bd r" style="--d:.25s"><div class="lo3-cols"><div class="lo3-c" data-s="1"><div class="lo3-h"><span class="lo3-ic"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /></svg></span><b>Inquiry and planning</b></div><ul><li>Turn a broad interest into a focused, researchable&nbsp;question.</li><li>Plan a project with milestones, and adjust the plan based on&nbsp;progress.</li></ul></div><div class="lo3-c" data-s="2"><div class="lo3-h"><span class="lo3-ic"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg></span><b>Research and evaluation</b></div><ul><li>Find, evaluate, and cite sources, including checking the accuracy of AI&nbsp;output.</li><li>Compare options against criteria, and justify a&nbsp;choice.</li><li>Explain how AI tools work, where they fail, and the bias and privacy issues they&nbsp;raise.</li></ul></div><div class="lo3-c" data-s="3"><div class="lo3-h"><span class="lo3-ic"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="M10 9H8" /><path d="M16 13H8" /><path d="M16 17H8" /></svg></span><b>Creating and communicating</b></div><ul><li>Build and test a product, prototype, or solution, deciding which steps to hand to AI and disclosing how they used&nbsp;it.</li><li>Structure an argument and write it clearly, in their own&nbsp;words.</li><li>Present to an authentic audience, and defend their reasoning under&nbsp;questioning.</li></ul></div><div class="lo3-c" data-s="4"><div class="lo3-h"><span class="lo3-ic"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" /><path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1" /></svg></span><b>Collaboration and reflection</b></div><ul><li>Work in a team, share roles, and contribute to a shared&nbsp;product.</li><li>Give and use critique from teachers and peers to revise their&nbsp;work.</li><li>Reflect on their process and on what they would do&nbsp;differently.</li></ul></div></div>
-</div><aside class="notes">Here are the learning outcomes, written so a teacher could assess them on any project. Inquiry and planning: frame a researchable question; plan with milestones and adjust. Research and evaluation: find, evaluate, and cite sources, including checking AI output; compare options against criteria; and understand AI itself, how it works, where it fails, and the bias and privacy issues it raises. Creating and communicating: build and test a product, prototype, or solution, deciding which steps to hand to AI and disclosing how they used it; write a clear argument in their own words; present and defend their reasoning to an authentic audience. Collaboration and reflection: work in a team with shared roles; give and use critique; and reflect on their process. (Click.) A note on the word learners: these outcomes apply to every program we run, for students, teachers, school leaders, or parents. The outcomes stay the same; the depth grows, from middle school to high school and on to adults.</aside></section>
-
-<!-- 11 · Assessment -->
-<section class="s ae rb-s"><div class="w">
- <p class="kick r">How we assess</p>
- <h2 class="r" style="--d:.1s">We assess the process, <em>not only the&nbsp;product.</em></h2>
- <div class="bd r" style="--d:.25s">
-  <div class="rb-t">
-   <div class="rb-hd"><div class="rb-hd-l"><span class="rb-k">Sample criterion · research and evaluation</span><b>Evaluates sources, including AI output</b></div></div>
-   <div class="rb-ls"><div class="rb-l" data-s="1"><b>Beginning</b><p>Accepts sources and AI output as given; cites&nbsp;inconsistently.</p></div><div class="rb-l" data-s="1"><b>Developing</b><p>Checks some claims against a second source; cites most&nbsp;sources.</p></div><div class="rb-l" data-s="1"><b>Proficient</b><p>Verifies key claims, including AI output, against reliable sources; discloses AI&nbsp;use.</p></div><div class="rb-l" data-s="1"><b>Extending</b><p>Explains why sources disagree, corrects AI errors, and judges which evidence to&nbsp;trust.</p></div></div>
-  </div>
-  <div class="rb-bot rb-bot2">
-   <div class="rb-ev" data-s="2"><span class="rb-k">Evidence we collect</span><ul><li><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 7v14" /><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" /></svg><span>Process journal</span></li><li><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="M10 9H8" /><path d="M16 13H8" /><path d="M16 17H8" /></svg><span>Drafts</span></li><li><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /><line x1="12" x2="12" y1="19" y2="22" /></svg><span>Recorded defense</span></li></ul></div>
-   <div class="rb-isb" data-s="3"><span class="rb-k">In practice</span><p>Used with students in the ISB AI Founders Program, summer&nbsp;2026.</p></div>
-  </div>
+<!-- 9 · Outcomes and assessment -->
+<section class="s alt ae lo3-s nx-oa"><div class="w">
+ <p class="kick r">Learning outcomes and assessment</p>
+ <h2 class="r" style="--d:.1s">When AI can polish the product, <em>we assess the thinking behind&nbsp;it.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="lo3-cols" data-s="1"><div class="lo3-c"><div class="lo3-h"><span class="lo3-ic"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /></svg></span><b>Inquiry and planning</b></div><ul><li>Turn a broad interest into a focused, researchable&nbsp;question.</li></ul></div><div class="lo3-c"><div class="lo3-h"><span class="lo3-ic"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg></span><b>Research and evaluation</b></div><ul><li>Find, evaluate, and cite sources, including checking the accuracy of AI&nbsp;output.</li></ul></div><div class="lo3-c"><div class="lo3-h"><span class="lo3-ic"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="M10 9H8" /><path d="M16 13H8" /><path d="M16 17H8" /></svg></span><b>Creating and communicating</b></div><ul><li>Build and test a product, deciding which steps to hand to AI and disclosing how they used&nbsp;it.</li></ul></div><div class="lo3-c"><div class="lo3-h"><span class="lo3-ic"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" /><path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1" /></svg></span><b>Collaboration and reflection</b></div><ul><li>Give and use critique from teachers and peers to revise their&nbsp;work.</li></ul></div></div>
+  <div class="nx-oab" data-s="2"><div class="nx-oae"><span class="nx-oak">Evidence we assess</span><ul><li><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 7v14" /><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" /></svg><span>Process journal</span></li><li><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="M10 9H8" /><path d="M16 13H8" /><path d="M16 17H8" /></svg><span>Drafts</span></li><li><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /><line x1="12" x2="12" y1="19" y2="22" /></svg><span>Recorded defense</span></li></ul></div><div class="nx-oai"><span class="nx-oak">In practice</span><p>Used with ISB students, summer&nbsp;2026.</p></div></div>
  </div>
-</div><aside class="notes">“We assess the process” always draws the next question: what’s the rubric? Here is one sample row, from research and evaluation: evaluates sources, including AI output. Beginning: accepts sources and AI output as given. Developing: checks some claims against a second source. Proficient: verifies key claims, including AI output, against reliable sources, and discloses AI use. Extending: explains why sources disagree, corrects AI errors, and judges which evidence to trust. (Click.) The evidence we collect is the process itself: a process journal, drafts, and a recorded defense. (Click.) We used this approach with students in the ISB AI Founders Program this summer. One more thing, briefly: if your students use AI anywhere in their process, even when AI isn’t your subject, you need to be AI literate yourself to assess it.</aside></section>
+</div><aside class="notes">Each strand has an outcome we can assess. (Click.) Turn an interest into a focused question. Find and check sources, including AI output. Build and test a product, and say how AI helped. Use critique to revise the work. (Click.) Because AI can produce a polished final product, we assess the process: a process journal, the drafts, and a recorded defense where learners explain their choices. We used exactly this at ISB this summer. The full list of outcomes and the rubric are in the backup slides if you want them. So what does this look like in a real school?</aside></section>
 
-<!-- 12 · Programs map -->
-<section class="s alt ae nx-map"><div class="w">
- <p class="kick r">One framework · three kinds of program</p>
- <h2 class="r" style="--d:.1s">The same framework runs every program. <em>The learner and the output&nbsp;change.</em></h2>
- <div class="bd r" style="--d:.25s"><div class="nx-pm">
-  <div class="nx-pml" aria-hidden="true"><span></span><span><i>01</i>Inquiry and planning</span><span><i>02</i>Research and evaluation</span><span><i>03</i>Creating and communicating</span><span><i>04</i>Collaboration and reflection</span><span class="nx-pmo">Learners leave with</span></div>
-  <span class="nx-pmb" aria-hidden="true"></span>
-  <div class="nx-pmc" data-s="1"><div class="nx-pmh"><span>Student short course</span><b>AI Founders week</b></div><p><small>Inquiry and planning</small>Choose a problem and pitch it in three&nbsp;minutes</p><p><small>Research and evaluation</small>Talk to the people they want to&nbsp;help</p><p><small>Creating and communicating</small>Build a live product at a public&nbsp;link</p><p><small>Collaboration and reflection</small>Defend every decision on demo&nbsp;day</p><p class="nx-pmo"><small>Learners leave with</small>A live product and a&nbsp;pitch</p></div>
-  <div class="nx-pmc" data-s="2"><div class="nx-pmh"><span>Teacher training</span><b>AI for Educators</b></div><p><small>Inquiry and planning</small>Pick one task from a class you&nbsp;teach</p><p><small>Research and evaluation</small>Check every result the tool&nbsp;gives</p><p><small>Creating and communicating</small>Make the tool on your approved&nbsp;tools</p><p><small>Collaboration and reflection</small>Share the tool and the prompt behind&nbsp;it</p><p class="nx-pmo"><small>Learners leave with</small>A tool for their own&nbsp;class</p></div>
-  <div class="nx-pmc" data-s="3"><div class="nx-pmh"><span>Curriculum design</span><b>AI in your courses</b></div><p><small>Inquiry and planning</small>Map where AI fits in each&nbsp;course</p><p><small>Research and evaluation</small>Decide when AI doesn’t&nbsp;belong</p><p><small>Creating and communicating</small>Write rubrics that assess the&nbsp;process</p><p><small>Collaboration and reflection</small>Collect drafts, reflections, and&nbsp;reasons</p><p class="nx-pmo"><small>Learners leave with</small>A plan and rubrics the faculty&nbsp;owns</p></div>
- </div></div>
-</div><aside class="notes">This is how the framework maps onto each kind of program we run. The four strands stay the same; the learner and the output change. (Click.) For students, a short course like the AI Founders week: they choose a problem and pitch it, talk to the people they want to help, build a live product, and defend every decision on demo day. They leave with a live product and a pitch. (Click.) For teachers, AI for Educators: each teacher picks one task from a class they teach, checks every result the tool gives, makes the tool on the school’s approved tools, and keeps the tool and the prompt to share. (Click.) For school leaders and departments, curriculum design: where AI fits in each course, when it doesn’t belong, and rubrics that assess the process, with drafts, reflections, and reasons as the evidence. Next, one of these programs in detail.</aside></section>
-
-<!-- 13 · Part 2 -->
+<!-- 10 · Part 2 -->
 <section class="s ae nv sec"><div class="w"><div class="sec-g">
  <div>
   <p class="sec-k"><span>Part</span><b>2</b></p>
   <h2 class="r" style="--d:.15s">In five days, ISB students built and launched <em>working products with AI.</em></h2>
-  <p class="sl r" style="--d:.35s">The program, the structure, the tools, what students made, and demo&nbsp;day</p>
+  <p class="sl r" style="--d:.35s">The program, the week, the tools, one student’s build, and demo&nbsp;day</p>
  </div>
  <ol class="trk" aria-label="Parts">
  <li><div class="row"><span class="tn">1</span><span class="tt"><b>Who we are</b><small>How we teach</small></span></div></li>
  <li class="on"><div class="row"><span class="tn">2</span><span class="tt"><b>The case</b><small>ISB AI Founders week</small></span></div></li>
  <li><div class="row"><span class="tn">3</span><span class="tt"><b>Build together</b><small>With the room</small></span></div></li>
- <li><div class="row"><span class="tn">4</span><span class="tt"><b>Wrap-up</b><small>Where AI helps</small></span></div></li>
+ <li><div class="row"><span class="tn">4</span><span class="tt"><b>Wrap-up</b><small>Start on Monday</small></span></div></li>
  </ol>
-</div></div><aside class="notes">Now one of those programs in practice: the ISB AI Founders week. What the program is, how the five days are structured, what students learn, two or three of the things they built, and demo day.</aside></section>
+</div></div><aside class="notes">Here is the framework running for real: a five-day AI Founders week at ISB.</aside></section>
 
-<!-- 14 · The program -->
+<!-- 11 · The program -->
 <section class="s ae ac-prog"><div class="w">
  <p class="kick r">The case · ISB AI Founders Program, August 5–9, 2026</p>
  <h2 class="r" style="--d:.1s">An AI builder week for grades 7 to 12: <em>learn AI skills, start a company, build something real.</em></h2>
@@ -4535,12 +4620,12 @@ section.s>.pgno i{font-style:normal;opacity:.6}
    <div class="pane"><div class="r11-in"><b>0</b><span>coding experience required</span></div></div>
   </div>
  </div></div>
-</div><aside class="notes">This summer, ISB hosted the AI Founders Program: five days in August for students in grades 7 to 12, selected by application. No coding experience was required. The promise was simple: learn AI skills, start a company, and build something real, a live product at its own link by the final afternoon. Mentors were in the room every day, and every team demoed what worked.</aside></section>
+</div><aside class="notes">This summer, ISB hosted the AI Founders Program: five days in August for students in grades 7 to 12, selected by application, with no coding experience required. The promise was simple: learn AI skills, start a company, and build something real, a live product at its own link by the final afternoon. (Click.) Mentors were in the room every day. Here is how the five days run.</aside></section>
 
-<!-- 15 · Day by day -->
+<!-- 12 · Day by day -->
 <section class="s alt ae nx-wk"><div class="w">
  <p class="kick r">The case · the structure, day by day</p>
- <h2 class="r" style="--d:.1s">Students run a “startup” in ten stages, <em>over five&nbsp;days.</em></h2>
+ <h2 class="r" style="--d:.1s">Ten stages in five days, <em>and every day ends with something&nbsp;real.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="nx-tl">
   <div class="nx-tll" aria-hidden="true"><span></span><span>Stages</span><span>Main tools</span><span>Skill trained</span><span>Output</span></div>
   <span class="nx-axis" aria-hidden="true"></span><span class="nx-tlb" aria-hidden="true"></span>
@@ -4550,9 +4635,9 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <div class="nx-td" data-s="4"><div class="nx-tdh"><span class="nx-dot" aria-hidden="true"></span><small>Day 4</small><b>Polish and price</b></div><ol class="nx-tds"><li><i>09</i>Brand it</li></ol><p class="nx-tdt" aria-label="AI tools used"><img src="/decks/img/acamis/tools/midjourney.png" alt="Midjourney"><img src="/decks/img/acamis/tools/suno.png" alt="Suno"><img src="/decks/img/acamis/tools/elevenlabs.png" alt="ElevenLabs"><img src="/decks/img/acamis/tools/runway.png" alt="Runway"><img src="/decks/img/acamis/tools/capcut.png" alt="CapCut"></p><span class="nx-tsk nx-craft">Craft</span><p class="nx-tdo">A name, a landing page, and a&nbsp;price</p></div>
   <div class="nx-td" data-s="5"><div class="nx-tdh"><span class="nx-dot" aria-hidden="true"></span><small>Day 5</small><b>Demo day</b></div><ol class="nx-tds"><li><i>10</i>Pitch and sell</li></ol><p class="nx-tdt" aria-label="AI tools used"><img src="/decks/img/acamis/tools/chatgpt.png" alt="ChatGPT"><img src="/decks/img/acamis/tools/claude.png" alt="Claude"><img src="/decks/img/acamis/tools/gemini.png" alt="Gemini"><img src="/decks/img/acamis/tools/pika.png" alt="Pika"><img src="/decks/img/acamis/tools/runway.png" alt="Runway"></p><span class="nx-tsk nx-craft">Craft</span><p class="nx-tdo">A two-minute pitch to judges and&nbsp;families</p></div>
  </div></div>
-</div><aside class="notes">Here is the structure, day by day. Read each column top to bottom: the stages, the main AI tools, the skill that day trains, and what students walk out with. (Click.) Day one, pick a problem: find the idea, validate it by talking to real people, form a team with roles, and cut the idea down to a one-page plan. That is agency, and the output is the plan and a first prototype. (Click.) Day two, go public: design it, build it by directing AI tools, and ship it to a public link. Real people try it, don't understand it, and the team fixes it. That is taste. (Click.) Day three is the rebuild: they watch real users and rebuild the weak parts. Most strong projects look nothing like the day-one plan, and that's the point. (Click.) Day four is polish and price: a name, a logo, a landing page, and a real price, and building stops at a fixed hour. That is craft. (Click.) Day five is demo day: two-minute live pitches to a panel of judges and to families.</aside></section>
+</div><aside class="notes">Read each column top to bottom: the stages, the main tools, the skill that day trains, and the output. (Click.) Day one, pick a problem: find an idea, validate it with real people, form a team, and cut it down to a one-page plan. (Click.) Day two, go public: design it, build it by directing AI tools, and ship it to a public link that real people try. (Click.) Day three, the rebuild: watch real users and rebuild the weak parts. Most strong projects look nothing like the day-one plan, and that’s the point. (Click.) Day four, polish and price: a name, a landing page, and a real price, and building stops at a fixed hour. (Click.) Day five, demo day: a two-minute pitch to judges and families. Look along the bottom two rows: every day trains one of the three skills, and every day ends with something real.</aside></section>
 
-<!-- 16 · The tools -->
+<!-- 13 · The tools -->
 <section class="s alt ae hold r4c-tk" data-mk="arrive"><div class="w">
  <p class="kick r">The case · what they learn: the toolkit, by job</p>
  <h2 class="r" style="--d:.1s">Students learned 20+ AI tools in <span class="nw">five days,</span> <em>out of 200+ they could choose&nbsp;from.</em></h2>
@@ -4568,56 +4653,254 @@ section.s>.pgno i{font-style:normal;opacity:.6}
    <div class="pane r4c-grp" style="--j:4"><p class="lab">Launch</p><span class="r4c-st">Sell and promote</span><ul><li><img src="/decks/img/acamis/tools/stripe.png" alt=""><span>Stripe</span></li><li><img src="/decks/img/acamis/tools/pika.png" alt=""><span>Pika</span></li><li><img src="/decks/img/acamis/tools/runway.png" alt=""><span>Runway</span></li></ul></div>
   </div>
  </div></div>
-</div><aside class="notes">This is the field students walked into: more than two hundred AI tools on the market today, and that is only a sample. New ones arrive every week. (Click.) Out of all of these, students picked up more than twenty in five days. (Click.) Here they are, grouped by the job they do: research, design, build, brand, and launch. Nobody needed to know any of them on day one. The list matters less than the habit: picking the right tool for a job, trying it fast, and judging the result. That habit outlasts any single tool.</aside></section>
+</div><aside class="notes">And the tools? More than two hundred on the market today, with new ones every week. (Click.) Students used more than twenty of them in five days. (Click.) Here they are, grouped by job: research, design, build, brand, and launch. Nobody knew them on day one. What students learned wasn’t the list. It was the habit of picking the right tool for a job, trying it fast, and judging the result. That habit outlasts any tool. Here is what it looks like for one student.</aside></section>
 
-<!-- 17 · Case 1 · Bodley Academy -->
+<!-- 14 · The case · Bodley Academy -->
 <section class="s ae nx-case"><div class="w">
- <p class="kick r">Case 1 · where it started: Bodley Academy, Hong Kong, summer 2025</p>
+ <p class="kick r">The case · where it started: Bodley Academy, Hong Kong, summer 2025</p>
  <h2 class="r" style="--d:.1s">In five days, an 11-year-old <em>turned sign language into&nbsp;speech.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="nx-cs">
   <div class="pane nx-med"><figure class="vframe nx-v"><video autoplay muted loop playsinline preload="metadata" poster="/decks/img/conversation/hands-stage-poster.webp" src="/decks/img/conversation/hands-stage.mp4" aria-label="A student tests a sign-language app on a laptop"></video><img class="vposter" src="/decks/img/conversation/hands-stage-poster.webp" alt=""></figure><span class="nx-cap">Built in five days by a seventh&nbsp;grader</span></div>
   <ol class="nx-st"><li data-s="1"><span class="nx-sh"><i>01</i><b>Found the problem</b><small>Agency</small></span><p>His cousin is deaf. Nobody assigned&nbsp;it.</p></li><li data-s="2"><span class="nx-sh"><i>02</i><b>Sketched it</b><small>Agency</small></span><p>Sign language in, spoken words&nbsp;out.</p></li><li data-s="3"><span class="nx-sh"><i>03</i><b>Built it</b><small>Craft</small></span><p>AI tools did the building. He made every&nbsp;call.</p></li><li data-s="4"><span class="nx-sh"><i>04</i><b>Changed it</b><small>Taste</small></span><p>His grandmother couldn’t use version one, so he fixed the&nbsp;audio.</p></li></ol>
   <div class="nx-oc" data-s="4"><span class="nx-ock">Learning outcomes</span><span>Turn an interest into a focused&nbsp;question</span><span>Build and test a&nbsp;product</span><span>Use critique to revise the&nbsp;work</span></div>
  </div></div>
-</div><aside class="notes">Where it started: a five-day course Phillip taught for Bodley Academy in Hong Kong, summer 2025, with twenty students. Every case today follows the same four steps. (Click.) He found the problem himself: sign language to speech, because his cousin is deaf. Nobody assigned it. (Click.) The idea fit in one line: sign language in, spoken words out. (Click.) AI tools did the building; he made every call. (Click.) Then real users. His grandmother couldn't use the first version yet, so he kept improving it after the demo. The hardest part wasn't the AI; it was getting the audio clear enough for her to trust. (Click.) That maps straight onto the outcomes: turning an interest into a focused question, building and testing a product, and using critique to revise. Students rated the course 9.5 out of 10 on how likely they were to recommend it. A year later, the same week ran at ISB. PLACEHOLDER: if we have his first sketch, it replaces the one-line idea in step two.</aside></section>
+</div><aside class="notes">This is where the week started: a five-day course I taught at Bodley Academy in Hong Kong, in summer 2025. (Click.) An 11-year-old found his own problem: his cousin is deaf. Nobody assigned it. (Click.) The idea fit in one line: sign language in, spoken words out. (Click.) AI tools did the building, and he made every call. (Click.) Then a real user. His grandmother couldn’t use the first version, so he kept improving it after the demo. The hard part wasn’t the AI; it was getting the audio clear enough for her to trust. That is three of our outcomes in one project: a focused question, a tested product, and revision from critique. Students rated the course 9.5 out of 10, and a year later the same week ran at ISB.</aside></section>
 
-<!-- 18 · Case 2 (placeholder) -->
-<section class="s ae nx-case nx-tbd"><div class="w">
- <p class="kick r"><span class="nx-tag">Placeholder</span>Case 2 · ISB AI Founders week, August 2026</p>
- <h2 class="r" style="--d:.1s">One ISB team, <em>from the first idea to demo&nbsp;day.</em></h2>
- <div class="bd r" style="--d:.25s"><div class="nx-cs">
-  <div class="nx-med nx-sk"><span class="nx-tag">Placeholder</span><svg class="nx-wf" viewBox="0 0 240 170" aria-hidden="true"><rect x="1" y="1" width="238" height="168" rx="8"/><line x1="1" y1="22" x2="239" y2="22"/><circle cx="12" cy="11.5" r="3"/><circle cx="22" cy="11.5" r="3"/><rect class="f" x="16" y="36" width="120" height="12" rx="2"/><rect x="16" y="56" width="208" height="54" rx="4"/><rect class="f" x="16" y="122" width="64" height="14" rx="3"/><rect x="16" y="144" width="150" height="8" rx="2"/></svg><p>The team’s first wireframe or sketch, then a screenshot of what they&nbsp;built</p></div>
-  <ol class="nx-st"><li data-s="1"><span class="nx-sh"><i>01</i><b>Found the problem</b><small>Agency</small></span><p class="nx-tbdx">Who they talked to, and what they&nbsp;heard</p></li><li data-s="2"><span class="nx-sh"><i>02</i><b>Sketched it</b><small>Agency</small></span><p class="nx-tbdx">The first wireframe, and what it left&nbsp;out</p></li><li data-s="3"><span class="nx-sh"><i>03</i><b>Built it</b><small>Craft</small></span><p class="nx-tbdx">What it does, and which tools they&nbsp;used</p></li><li data-s="4"><span class="nx-sh"><i>04</i><b>Changed it</b><small>Taste</small></span><p class="nx-tbdx">What users got stuck on, and what they&nbsp;cut</p></li></ol>
-  <div class="nx-oc" data-s="4"><span class="nx-ock">Learning outcomes</span><span>Outcome 1 it&nbsp;shows</span><span>Outcome 2 it&nbsp;shows</span><span>Outcome 3 it&nbsp;shows</span></div>
- </div></div>
-</div><aside class="notes">PLACEHOLDER, case 2: fill in from the ISB project records before presenting. Follow the four steps: how the team found the problem, the first sketch or wireframe, what they built and with which tools, and what changed after real users tried it. Then pick the three learning outcomes it shows best. No student names, no product names, and no cohort size.</aside></section>
-
-<!-- 19 · Case 3 (placeholder) -->
-<section class="s ae nx-case nx-tbd"><div class="w">
- <p class="kick r"><span class="nx-tag">Placeholder</span>Case 3 · ISB AI Founders week, August 2026</p>
- <h2 class="r" style="--d:.1s">One ISB team, <em>from the first idea to demo&nbsp;day.</em></h2>
- <div class="bd r" style="--d:.25s"><div class="nx-cs">
-  <div class="nx-med nx-sk"><span class="nx-tag">Placeholder</span><svg class="nx-wf" viewBox="0 0 240 170" aria-hidden="true"><rect x="1" y="1" width="238" height="168" rx="8"/><line x1="1" y1="22" x2="239" y2="22"/><circle cx="12" cy="11.5" r="3"/><circle cx="22" cy="11.5" r="3"/><rect class="f" x="16" y="36" width="120" height="12" rx="2"/><rect x="16" y="56" width="208" height="54" rx="4"/><rect class="f" x="16" y="122" width="64" height="14" rx="3"/><rect x="16" y="144" width="150" height="8" rx="2"/></svg><p>The team’s first wireframe or sketch, then a screenshot of what they&nbsp;built</p></div>
-  <ol class="nx-st"><li data-s="1"><span class="nx-sh"><i>01</i><b>Found the problem</b><small>Agency</small></span><p class="nx-tbdx">Who they talked to, and what they&nbsp;heard</p></li><li data-s="2"><span class="nx-sh"><i>02</i><b>Sketched it</b><small>Agency</small></span><p class="nx-tbdx">The first wireframe, and what it left&nbsp;out</p></li><li data-s="3"><span class="nx-sh"><i>03</i><b>Built it</b><small>Craft</small></span><p class="nx-tbdx">What it does, and which tools they&nbsp;used</p></li><li data-s="4"><span class="nx-sh"><i>04</i><b>Changed it</b><small>Taste</small></span><p class="nx-tbdx">What users got stuck on, and what they&nbsp;cut</p></li></ol>
-  <div class="nx-oc" data-s="4"><span class="nx-ock">Learning outcomes</span><span>Outcome 1 it&nbsp;shows</span><span>Outcome 2 it&nbsp;shows</span><span>Outcome 3 it&nbsp;shows</span></div>
- </div></div>
-</div><aside class="notes">PLACEHOLDER, case 3: fill in from the ISB project records before presenting. Follow the four steps: how the team found the problem, the first sketch or wireframe, what they built and with which tools, and what changed after real users tried it. Then pick the three learning outcomes it shows best. No student names, no product names, and no cohort size.</aside></section>
-
-<!-- 20 · Demo day -->
+<!-- 15 · Demo day -->
 <section class="s ae"><div class="w">
  <p class="kick r">The case · demo day</p>
  <h2 class="r" style="--d:.1s">On day five, teams pitched working products <em>to judges from Harvard, Stanford, Y&nbsp;Combinator, and AI labs.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="ac-dd nx-dd3">
   <figure class="pane ac-ph" data-s="1"><img src="/photos/isb-hq/isb-judges-test-1400.webp" alt="Judges test a student product on a laptop"><figcaption>Judges test each product before scoring</figcaption></figure>
   <figure class="pane ac-ph" data-s="2"><img src="/photos/isb-hq/isb-pitch-mic-1400.webp" alt="A student pitches her team’s product"><figcaption>Every team pitched its own product</figcaption></figure>
-  <figure class="pane ac-ph nx-win" data-s="3"><img src="/photos/isb-hq/isb-winners-noamount-1400.webp" alt="The winning team after the final pitch"><figcaption>The winning team, after the final pitch</figcaption></figure>
+  <figure class="pane ac-ph nx-win" data-s="3"><img src="/photos/isb-hq/isb-winners-1400.webp" alt="The winning team after the final pitch"><figcaption>The winning team, after the final pitch</figcaption></figure>
   <div class="pane ac-jg" data-s="4"><span class="lab">Judged by founders and operators from</span><div class="ac-lg"><img class="j-hv" src="/logos/cred/harvard.png" alt="Harvard"><img class="j-sf" src="/logos/cred/stanford.png" alt="Stanford"><img class="j-yc" src="/decks/img/conversation/inv-yc.png" alt="Y Combinator"><span class="ac-ai">and AI labs</span></div></div>
  </div></div>
-</div><aside class="notes">On demo day, the judges didn't just watch slides. They opened each product and tried it before scoring. The panel was founders and operators from Harvard, Stanford, Y Combinator, and AI labs. Families were in the room. (Click.) And here is the winning team, right after the final pitch. So what made the difference?</aside></section>
+</div><aside class="notes">Back at ISB, day five. (Click.) The judges didn’t just watch slides. They opened each product and tried it before scoring. (Click.) Every team pitched its own product, live. (Click.) Here is the winning team, right after the final pitch. (Click.) The panel was founders and operators from Harvard, Stanford, Y Combinator, and AI labs, and families were in the room. Every team had the same tools. What made the difference was the three skills: a problem they chose, a product real users had changed, and decisions they could defend live. Students can ship in five days, when the program is designed for it. So did a week of building actually teach what we set out to teach?</aside></section>
 
-<!-- 21 · Analysis: what the week trained -->
+<!-- 16 · The case · how the week built each learning goal -->
+<section class="s alt ae nx-ai p5-lg"><div class="w">
+ <p class="kick r">The case · how the week built each learning goal</p>
+ <h2 class="r" style="--d:.1s">Every learning goal, practiced on real work<br><em>for real people, in five&nbsp;days.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="nx-sw">
+  <div class="nx-swl" aria-hidden="true"><span></span><span>The learning goal</span><span class="nx-swa">How the week built it</span><span>What students showed</span></div>
+  <span class="nx-band" aria-hidden="true"></span>
+  <div class="nx-swc" data-s="1"><div class="nx-swh"><i>01</i><b>Inquiry and planning</b></div><p class="nx-me"><small>The learning goal</small>Turn an interest into a focused&nbsp;question</p><p class="nx-aip"><small>How the week built it</small>Pick a problem and a plan on day&nbsp;1</p><p class="nx-q"><small>What students showed</small>A plan and a first&nbsp;prototype</p></div>
+  <div class="nx-swc" data-s="2"><div class="nx-swh"><i>02</i><b>Research and evaluation</b></div><p class="nx-me"><small>The learning goal</small>Check sources, including AI&nbsp;output</p><p class="nx-aip"><small>How the week built it</small>Test it with the people it’s for, days 1 to&nbsp;3</p><p class="nx-q"><small>What students showed</small>Choices backed by what users&nbsp;did</p></div>
+  <div class="nx-swc" data-s="3"><div class="nx-swh"><i>03</i><b>Creating and communicating</b></div><p class="nx-me"><small>The learning goal</small>Build and test a product with&nbsp;AI</p><p class="nx-aip"><small>How the week built it</small>Ship it on day&nbsp;2, and price it on day&nbsp;4</p><p class="nx-q"><small>What students showed</small>A live product at a public&nbsp;link</p></div>
+  <div class="nx-swc" data-s="4"><div class="nx-swh"><i>04</i><b>Collaboration and reflection</b></div><p class="nx-me"><small>The learning goal</small>Use critique to revise the&nbsp;work</p><p class="nx-aip"><small>How the week built it</small>Rebuild it on day&nbsp;3, and defend it on day&nbsp;5</p><p class="nx-q"><small>What students showed</small>A rebuilt product, and a pitch to&nbsp;judges</p></div>
+  <p class="p5-end" data-s="4">No worksheet and no quiz. <em>The evidence is the work&nbsp;itself.</em></p>
+ </div></div>
+</div><aside class="notes">So how did a week of building teach what we set out to teach? Here are the four learning goals from the framework, one per column, and how the week built each one. (Click.) Inquiry and planning: on day one, each student chose a problem and cut it down to a one-page plan. (Click.) Research and evaluation: they tested the idea with real people, then watched those people use it, so their choices rested on evidence, not on what AI told them. (Click.) Creating and communicating: a live product on day two, and a name, a brand, and a price on day four. (Click.) Collaboration and reflection: they rebuilt the weak parts after feedback, and on demo day they defended every decision to judges. No worksheet, no quiz: students practiced every goal by doing the work, and the evidence is the work itself. That is the student side. None of it works, though, without teachers.</aside></section>
+
+<!-- 17 · Part 3 -->
+<section class="s ae nv sec"><div class="w"><div class="sec-g">
+ <div>
+  <p class="sec-k"><span>Part</span><b>3</b></p>
+  <h2 class="r" style="--d:.15s">Now let’s build one together. <em>No coding&nbsp;needed.</em></h2>
+  <p class="sl r" style="--d:.35s">First what teachers already build for their own classes, then a build session with the&nbsp;room</p>
+ </div>
+ <ol class="trk" aria-label="Parts">
+ <li><div class="row"><span class="tn">1</span><span class="tt"><b>Who we are</b><small>How we teach</small></span></div></li>
+ <li><div class="row"><span class="tn">2</span><span class="tt"><b>The case</b><small>ISB AI Founders week</small></span></div></li>
+ <li class="on"><div class="row"><span class="tn">3</span><span class="tt"><b>Build together</b><small>With the room</small></span></div></li>
+ <li><div class="row"><span class="tn">4</span><span class="tt"><b>Wrap-up</b><small>Start on Monday</small></span></div></li>
+ </ol>
+</div></div><aside class="notes">So part three is about you. What teachers tell us, what some of them have already built, and then thirty minutes building one together.</aside></section>
+
+<!-- 18 · Teachers’ pain points -->
+<section class="s alt ae nx-pain"><div class="w">
+ <p class="kick r">What teachers ask us before a session</p>
+ <h2 class="r" style="--d:.1s">Teachers don’t lack ideas. <em>They lack time, approved tools, and a place to&nbsp;start.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="nx-pp">
+  <div class="pane nx-pc" data-s="1"><span class="nx-pi"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg></span><b>“We have no time for more&nbsp;PD.”</b><p>Start from one task you already do, and make the tool in the&nbsp;session.</p></div>
+  <div class="pane nx-pc" data-s="2"><span class="nx-pi"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m18 16 4-4-4-4" /><path d="m6 8-4 4 4 4" /><path d="m14.5 4-5 16" /></svg></span><b>“I’m not technical. Will I keep&nbsp;up?”</b><p>No coding: you describe the tool in plain&nbsp;English.</p></div>
+  <div class="pane nx-pc" data-s="3"><span class="nx-pi"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 3v18" /><path d="m19 8 3 8a5 5 0 0 1-6 0zV7" /><path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1" /><path d="m5 8 3 8a5 5 0 0 1-6 0zV7" /><path d="M7 21h10" /></svg></span><b>“What about students using AI to&nbsp;cheat?”</b><p>Assess the process: drafts, reflections, and the reasons behind each&nbsp;change.</p></div>
+  <div class="pane nx-pc" data-s="4"><span class="nx-pi"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M10 18v-7" /><path d="M11.119 2.205a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949z" /><path d="M14 18v-7" /><path d="M18 18v-7" /><path d="M3 22h18" /><path d="M6 18v-7" /></svg></span><b>“Our school restricts tools and student&nbsp;data.”</b><p>Use only the tools your school approves, with no student data in&nbsp;them.</p></div>
+ </div></div>
+</div><aside class="notes">Before any session, teachers ask us the same four things. (Click.) We have no time for more PD. So we start from one task you already do, and the tool gets made in the session. (Click.) I’m not technical. No coding: you describe it in plain English. (Click.) What about cheating? Assess the process, the drafts and the reasons, as in the framework. (Click.) Our school restricts tools and student data. We use only the tools your school approves, with no student data in them. Teachers don’t lack ideas. They lack time, approved tools, and a place to start. Let’s start with time.</aside></section>
+
+<!-- 19 · AI gives teachers time back -->
+<section class="s alt ae r5b-tt"><div class="w">
+ <p class="kick r">Why teachers need AI too · EEF · Gallup</p>
+ <h2 class="r" style="--d:.1s">AI gives teachers back time<br><em>to spend on their&nbsp;students.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="r5b-g">
+  <div class="r5b-st">
+   <div class="pane r5b-n" data-s="1"><div class="big">31%</div><p>less time on lesson planning with AI in a randomized trial, with no drop in&nbsp;quality</p></div>
+   <div class="pane r5b-n" data-s="2"><div class="big">5.9<small>hours</small></div><p>saved a week by teachers who use AI weekly, about six weeks a school&nbsp;year</p></div>
+  </div>
+  <div class="pane r5b-case" data-s="3">
+   <span class="lab">From a teacher we spoke with</span>
+   <h3>A grading timer, <em>not a&nbsp;grader</em></h3>
+   <div class="r5b-tm" aria-hidden="true"><span class="r5b-tm-l">Paper 9 of 24</span><div class="r5b-tm-bar"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="on"></i><i></i><i></i><i></i></div><b class="r5b-tm-t">4:12 / 6:00</b></div>
+   <p>An English teacher built a simple timer. It grades nothing: he still reads every paper and writes the feedback&nbsp;himself.</p>
+   <p>It gives every paper the same share of his time, and keeps his marking within a set&nbsp;limit.</p>
+   <p class="r5b-tk">AI handles the housekeeping. <em>The teacher keeps the&nbsp;judgment.</em></p>
+  </div>
+ </div></div>
+ <p class="fn" data-s="1"><span>EEF/NFER, randomized trial, 259 teachers in 68 schools (2024). Gallup and Walton Family Foundation (2025): weekly AI users, n=2,232, self-reported&nbsp;estimate.</span></p>
+</div><aside class="notes">Two numbers. In a randomized trial in England, teachers who used AI for lesson planning spent 31% less time on it, and blind reviewers rated the plans the same. (Click.) In a 2025 Gallup survey, US teachers who use AI every week estimate it saves them almost six hours a week. Over a school year, that’s about six weeks. (Click.) Here is what that looks like. An English teacher we spoke with built himself a grading timer. It grades nothing: he still reads every paper and writes every comment. It gives every paper the same share of his time, and keeps his marking inside a set limit. AI handles the housekeeping. The teacher keeps the judgment.</aside></section>
+
+<!-- 20 · Tools teachers build -->
+<section class="s alt ae r5b-tl"><div class="w">
+ <p class="kick r">Why teachers need AI too · teachers as builders</p>
+ <h2 class="r" style="--d:.1s">Teachers don’t need to code <em>to build for their own&nbsp;class.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="r5b-two">
+  <div class="pane r5b-c" data-s="1">
+   <span class="lab">English · from a teacher we spoke with</span>
+   <h3>Literary devices, one click&nbsp;away</h3>
+   <div class="r5b-vis r5b-poem" aria-hidden="true"><span class="r6-src">Sonnet 18 · lines 5–7</span><p class="r5b-pl">Sometime too hot the <mark><small>Metaphor</small><span>eye of heaven</span></mark> shines,</p><p class="r5b-pl">And often is <mark class="b"><small>Personification</small><span>his gold complexion</span></mark> dimm’d;</p><p class="r5b-pl">And every <mark class="c"><small>Alliteration</small><span>fair from fair</span></mark> sometime declines,</p></div>
+   <p>Instead of color-coding a poem by hand at the board, the teacher tags each literary device before&nbsp;class.</p>
+   <p>In class, one click reveals each device and its&nbsp;label.</p>
+   <p class="r5b-out">Class time goes to discussing the&nbsp;poem.</p>
+  </div>
+  <div class="pane r5b-c" data-s="2">
+   <span class="lab">Science · what a STEM teacher can build</span>
+   <h3>A simulation made for this&nbsp;class</h3>
+   <div class="r5b-vis r5b-sim" aria-hidden="true"><svg viewBox="0 22 280 84"><line class="g" x1="10" y1="100" x2="270" y2="100"/><path class="rp" d="M30 100 L250 100 L250 30 Z"/><rect class="bk" x="134" y="39.5" width="34" height="22" rx="3" transform="rotate(-17.65 151 61.5)"/><path class="ar" d="M112.5 54.8 L73 67.4"/><path class="ah" d="M73 67.4 L83.6 58.9 M73 67.4 L86.6 68.7"/><path class="an" d="M66 100 A36 36 0 0 0 64.3 89.1"/></svg><div class="r5b-ctl"><span>Angle <b>20°</b></span><span class="r5b-sl"><i></i></span><span>Friction <b>0.3</b></span><span class="r5b-sl s2"><i></i></span></div></div>
+   <p>Students take a model apart and rebuild it, or change one variable in a physics&nbsp;setup.</p>
+   <p>Built for this lesson, not the nearest YouTube&nbsp;demo.</p>
+   <p class="r5b-out">Students test ideas instead of watching&nbsp;one.</p>
+  </div>
+ </div></div>
+</div><aside class="notes">Saving time is the start. Teachers also build tools for their own classrooms. (Click.) Another English teacher tags each literary device in a poem before class. In class, one click reveals the phrase and its label, so class time goes to discussing the poem, not copying it from the board. (Click.) A science teacher can build a simulation for exactly this lesson, instead of the nearest YouTube demo: change the angle or the friction, and students test the idea themselves. Neither teacher writes code. They describe what they want in plain English, and that is what we’ll do now.</aside></section>
+
+<!-- 21 · The build session -->
+<section class="s alt ae kimi3 agd-b"><div class="w">
+ <p class="kick r">Build session · how the next 25 minutes run</p>
+ <h2 class="r" style="--d:.1s">You bring a real school problem.<br><em>We walk through building the fix together.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="case3">
+  <div class="cs pane" data-s="1"><span class="lab">Step 1 · you name it</span><h3>A chore or a snag</h3><p>A workflow you repeat, or a problem you keep running&nbsp;into.</p>
+   <ul class="agd-ex" aria-label="Examples from teachers"><li>“I rewrite the same parent email every&nbsp;week.”</li><li>“Tracking which students turned in&nbsp;drafts.”</li><li>“Making one reading at three&nbsp;levels.”</li></ul></div>
+  <span class="cs-ar" data-s="2" aria-hidden="true">→</span>
+  <div class="cs pane" data-s="2"><span class="lab">Step 2 · we build it</span><h3>Claude Code writes it</h3><p>An AI tool that builds web apps from plain&nbsp;English.</p>
+   <div class="agd-cc"><div class="agd-cc-h"><img src="/logos/tools/claude.png" alt=""><b>Claude Code</b><small>by Anthropic</small></div><p class="agd-cc-p"><span>Make a page where I paste a reading and get it at three&nbsp;levels.</span></p><span class="agd-cc-o">A working web app, in&nbsp;minutes</span></div></div>
+  <span class="cs-ar" data-s="3" aria-hidden="true">→</span>
+  <div class="cs cs-out" data-s="3"><span class="lab">Step 3 · we all iterate</span><h3>Open it, then improve it</h3><p>We try it together and fix what’s off, one plain sentence at a&nbsp;time.</p>
+   <ul class="agd-ex" aria-label="Example fixes"><li>“Make the buttons&nbsp;bigger.”</li><li>“Add a column for due&nbsp;dates.”</li><li>“Use simpler words for grade&nbsp;6.”</li></ul></div>
+ </div>
+ </div>
+</div><aside class="notes">Here’s how the next 25 minutes run. (Click.) Step one: you name something from your school week, a workflow you repeat or a problem you keep running into. We take a few ideas and the room picks one. (Click.) Step two: we describe it to Claude Code, an AI tool from Anthropic that builds web apps from plain English, almost word for word, and a first version appears in a few minutes. (Click.) Step three is the important part: we open it together and judge it. Does it solve the problem? Would you use it on Monday? Every fix is one more plain sentence, until the room says it’s good enough. It’s the same loop your students would run: choose, judge, and finish. When we’re done, the link goes on the session page. Logistics: call it a build session or walkthrough, never a guaranteed live demo. If the network holds, run it in Claude Code; if not, show the terminal and walk through prepared prompts and the result. Keep a recorded backup open in another tab.</aside></section>
+
+<!-- 22 · Part 4 -->
+<section class="s ae nv sec"><div class="w"><div class="sec-g">
+ <div>
+  <p class="sec-k"><span>Part</span><b>4</b></p>
+  <h2 class="r" style="--d:.15s">Start small, <em>and start on&nbsp;Monday.</em></h2>
+  <p class="sl r" style="--d:.35s">Your role as coach, the big picture, and how we can work&nbsp;together</p>
+ </div>
+ <ol class="trk" aria-label="Parts">
+ <li><div class="row"><span class="tn">1</span><span class="tt"><b>Who we are</b><small>How we teach</small></span></div></li>
+ <li><div class="row"><span class="tn">2</span><span class="tt"><b>The case</b><small>ISB AI Founders week</small></span></div></li>
+ <li><div class="row"><span class="tn">3</span><span class="tt"><b>Build together</b><small>With the room</small></span></div></li>
+ <li class="on"><div class="row"><span class="tn">4</span><span class="tt"><b>Wrap-up</b><small>Start on Monday</small></span></div></li>
+ </ol>
+</div></div><aside class="notes">Let’s bring it back to Monday.</aside></section>
+
+<!-- 23 · Your role, and three questions -->
+<section class="s alt ae agC agC-co"><div class="w">
+ <p class="kick r">What students need from teachers · try this on Monday</p>
+ <h2 class="r" style="--d:.1s">Your role becomes the coach, <em>and three questions do the coaching.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="agc-co">
+  <div class="pane dk agc-role" data-s="1">
+   <span class="agc-k">The teacher’s role</span>
+   <div class="agc-shift"><p class="agc-from">From the person with <span class="nw">the answers</span></p><span class="agc-dn" aria-hidden="true"></span><p class="agc-to">to the coach who asks <span class="nw">the questions</span></p></div>
+   <p class="agc-note">It’s what good teachers already do, and what our mentors did all&nbsp;week.</p>
+  </div>
+  <ol class="agc-q">
+   <li class="pane" data-s="2"><span class="agc-tag"><i>01</i>Agency</span><b>“Why this problem?”</b><span>They choose, not the&nbsp;AI.</span></li>
+   <li class="pane" data-s="3"><span class="agc-tag"><i>02</i>Taste</span><b>“How do you know it’s good?”</b><span>They judge what it&nbsp;made.</span></li>
+   <li class="pane" data-s="4"><span class="agc-tag"><i>03</i>Craft</span><b>“What would make someone trust it?”</b><span>They check it and finish&nbsp;it.</span></li>
+  </ol>
+ </div></div>
+</div><aside class="notes">What do students need from us? Not more tools; those are everywhere. They need a real project, honest feedback from real people, and someone who asks how they checked it. That’s what good teachers already do, and what our mentors did all week. (Click.) With AI in the room, your role moves from the person with the answers to the coach who asks the questions. Here are three to use on Monday, in any subject, with any tool your school allows. (Click.) Why this problem? (Click.) How do you know it’s good? (Click.) What would make someone trust it? You don’t need to know how the tool works to ask any of them. Let me pull the whole hour together.</aside></section>
+
+<!-- 24 · The big picture -->
+<section class="s ae nv cl age-cl p5-gs"><div class="w">
+ <p class="kick r">The big picture</p>
+ <h2 class="r" style="--d:.1s">AI can do the making.<br><em>The thinking is still ours to&nbsp;teach.</em></h2>
+ <div class="bd r" style="--d:.25s">
+  <ol class="c3x">
+   <li data-s="1"><i>1</i><b>Design decides</b><span>Same AI, opposite results. Learners choose, judge, and&nbsp;finish.</span></li>
+   <li data-s="2"><i>2</i><b>Students can ship</b><span>Live products in five days, with no coding&nbsp;background.</span></li>
+   <li data-s="3"><i>3</i><b>Teachers can build</b><span>Tools for your own class, described in plain&nbsp;English.</span></li>
+   <li data-s="4"><i>4</i><b>Start on Monday</b><span>One tool, one class, and three&nbsp;questions.</span></li>
+  </ol>
+  <div class="endline age-end" data-s="5"><p>You don’t need to code. <span class="nw">You already know how to coach.</span></p></div>
+ </div>
+</div><aside class="notes">Here is the whole hour on one slide. AI can do the making. The thinking is still ours to teach. (Click.) One: design decides. The same AI made students worse at math in one study and doubled learning in another. What changed was the design: learners choose, judge, and finish. (Click.) Two: students can ship. At ISB, students with no coding background had live products in five days. (Click.) Three: teachers can build. You just watched a tool for a real classroom get built in plain English. (Click.) Four: start on Monday. One tool, one class, and three questions. (Click.) You don’t need to code. You already know how to coach. And if you want a partner for any of this, here is how to reach us.</aside></section>
+
+<!-- 25 · Let’s work together -->
+<section class="s alt ae p5-ct"><div class="w">
+ <p class="kick r">Thank you · questions welcome</p>
+ <h2 class="r" style="--d:.1s">Let’s build this at your school.<br><em>We’d love to work with&nbsp;you.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="p5-cg">
+  <ol class="p5-ways" data-s="1">
+   <li><span class="p5-wi"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><path d="M16 3.128a4 4 0 0 1 0 7.744" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><circle cx="9" cy="7" r="4" /></svg></span><b>Train your teachers</b><span>AI for Educators, at your school, with your teachers’ own&nbsp;lessons</span></li>
+   <li><span class="p5-wi"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2 3h20" /><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3" /><path d="m7 21 5-5 5 5" /></svg></span><b>Run a student week</b><span>A five-day build week like ISB’s, co-run with your&nbsp;teachers</span></li>
+   <li><span class="p5-wi"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M13 21h8" /><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" /></svg></span><b>Design your curriculum</b><span>Where AI fits in each course, and how to assess&nbsp;it</span></li>
+  </ol>
+  <div class="p5-ppl" data-s="2">
+   <div class="pane p5-pc"><div class="p5-hd"><img class="p5-ph" src="/photos/phillip-an-640.webp" alt="Phillip An"><div class="p5-nm"><b>Phillip An</b><span class="p5-role">Co-founder, Arena&nbsp;School</span></div></div><div class="p5-cx"><dl><dt>WeChat</dt><dd>phgan14</dd><dt>WhatsApp</dt><dd class="p5-sc">Scan the&nbsp;code</dd></dl><a class="p5-qr" href="https://wa.me/13143592522" target="_blank" rel="noopener"><img src="/decks/img/acamis/qr-wa-phillip-tight.png" alt="WhatsApp QR code for Phillip An"></a></div></div>
+   <div class="pane p5-pc"><div class="p5-hd"><img class="p5-ph" src="/photos/jing-jing-yang-640.webp" alt="Jing Jing Yang"><div class="p5-nm"><b>Jing Jing Yang</b><span class="p5-role">Co-founder, Arena&nbsp;School</span></div></div><div class="p5-cx"><dl><dt>WeChat</dt><dd>jj-xiaohan</dd><dt>WhatsApp</dt><dd class="p5-sc">Scan the&nbsp;code</dd></dl><a class="p5-qr" href="https://wa.me/16177337119" target="_blank" rel="noopener"><img src="/decks/img/acamis/qr-wa-jingjing-tight.png" alt="WhatsApp QR code for Jing Jing Yang"></a></div></div>
+   <a class="pane p5-res" href="https://arenaschool.org/talks/2026-10-acamis-tech-workshop" target="_blank" rel="noopener"><img src="/decks/img/acamis/qr-acamis-tight.png" alt="QR code for arenaschool.org/talks/2026-10-acamis-tech-workshop"><span class="p5-rt"><b>Today’s slides, checklist, and tool&nbsp;guide</b><small><span class="nw">arenaschool.org/talks/</span><wbr><span class="nw">2026-10-acamis-tech-workshop</span></small></span><span class="p5-site">arenaschool.org</span></a>
+  </div>
+ </div></div>
+</div><aside class="notes">Thank you. If one hour isn’t enough, there are three ways we work with schools. (Click.) We train your teachers at your school, with their own lessons; we run a student build week like ISB’s, co-run with your teachers so you can run it again yourselves; and we help you design where AI fits in each course, and how to assess it. All three run on the framework you saw today. (Click.) The fastest way to reach us is WeChat or WhatsApp: Jing Jing and I are both here, and the codes are on the slide. Today’s slides, the checklist, and the China tool guide are at the code on the right, and everything else is at arenaschool.org. We’d love to take your questions now.</aside></section>
+
+<!-- 26 · Backup · Framework wheel -->
+<section class="s ae fx-s"><div class="w">
+ <p class="kick r">Backup · the learning framework as a wheel</p>
+ <h2 class="r" style="--d:.1s">Learners do the thinking, AI is a tool, <em>and teachers and peers give the&nbsp;feedback.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="fx-g">
+  <div class="fx-wh" data-s="1"><svg class="fx-wheel" viewBox="0 0 800 800" role="img" aria-label="Arena School learning framework: the student does the thinking; four strands; four conditions" font-family="Newsreader, Georgia, serif"><defs><marker id="cyc" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2F55A8"/></marker><path id="st00" d="M403.5,202.1 A197.9,197.9 0 0 1 597.9,396.5" fill="none"/><path id="st01" d="M402.7,244.1 A155.9,155.9 0 0 1 555.9,397.3" fill="none"/><path id="st10" d="M403.1,580.2 A180.2,180.2 0 0 0 580.2,403.1" fill="none"/><path id="st11" d="M403.9,622.2 A222.2,222.2 0 0 0 622.2,403.9" fill="none"/><path id="st20" d="M219.8,403.1 A180.2,180.2 0 0 0 396.9,580.2" fill="none"/><path id="st21" d="M177.8,403.9 A222.2,222.2 0 0 0 396.1,622.2" fill="none"/><path id="st30" d="M202.1,396.5 A197.9,197.9 0 0 1 396.5,202.1" fill="none"/><path id="st31" d="M244.1,397.3 A155.9,155.9 0 0 1 397.3,244.1" fill="none"/><path id="cd0" d="M389.6,103.1 A297.1,297.1 0 0 1 696.9,410.4" fill="none"/><path id="cd1" d="M388.9,716.7 A316.9,316.9 0 0 0 716.7,388.9" fill="none"/><path id="cd2" d="M83.3,388.9 A316.9,316.9 0 0 0 411.1,716.7" fill="none"/><path id="cd3" d="M103.1,410.4 A297.1,297.1 0 0 1 410.4,103.1" fill="none"/></defs><circle cx="400.0" cy="400.0" r="348.0" fill="#FCF3ED" stroke="#0B1A4A" stroke-opacity=".2" stroke-width="1.2"/><path d="M452.9,23.7 A380.0,380.0 0 0 1 776.3,347.1" fill="none" stroke="#2F55A8" stroke-width="2.4" stroke-linecap="round" marker-end="url(#cyc)"/><path d="M776.3,452.9 A380.0,380.0 0 0 1 452.9,776.3" fill="none" stroke="#2F55A8" stroke-width="2.4" stroke-linecap="round" marker-end="url(#cyc)"/><path d="M347.1,776.3 A380.0,380.0 0 0 1 23.7,452.9" fill="none" stroke="#2F55A8" stroke-width="2.4" stroke-linecap="round" marker-end="url(#cyc)"/><path d="M23.7,347.1 A380.0,380.0 0 0 1 347.1,23.7" fill="none" stroke="#2F55A8" stroke-width="2.4" stroke-linecap="round" marker-end="url(#cyc)"/><line x1="400.0" y1="134.0" x2="400.0" y2="52.0" stroke="#0B1A4A" stroke-opacity=".18" stroke-width="1.2"/><line x1="666.0" y1="400.0" x2="748.0" y2="400.0" stroke="#0B1A4A" stroke-opacity=".18" stroke-width="1.2"/><line x1="400.0" y1="666.0" x2="400.0" y2="748.0" stroke="#0B1A4A" stroke-opacity=".18" stroke-width="1.2"/><line x1="134.0" y1="400.0" x2="52.0" y2="400.0" stroke="#0B1A4A" stroke-opacity=".18" stroke-width="1.2"/><path d="M403.2,134.0 A266.0,266.0 0 0 1 666.0,396.8 L516.0,398.6 A116.0,116.0 0 0 0 401.4,284.0Z" fill="#2F55A8"/><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st00" startOffset="50%" text-anchor="middle">Inquiry and</textPath></text><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st01" startOffset="50%" text-anchor="middle">planning</textPath></text><path d="M666.0,403.2 A266.0,266.0 0 0 1 403.2,666.0 L401.4,516.0 A116.0,116.0 0 0 0 516.0,401.4Z" fill="#0B1A4A"/><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st10" startOffset="50%" text-anchor="middle">Research and</textPath></text><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st11" startOffset="50%" text-anchor="middle">evaluation</textPath></text><path d="M396.8,666.0 A266.0,266.0 0 0 1 134.0,403.2 L284.0,401.4 A116.0,116.0 0 0 0 398.6,516.0Z" fill="#3D5FA6"/><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st20" startOffset="50%" text-anchor="middle">Creating and</textPath></text><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st21" startOffset="50%" text-anchor="middle">communicating</textPath></text><path d="M134.0,396.8 A266.0,266.0 0 0 1 396.8,134.0 L398.6,284.0 A116.0,116.0 0 0 0 284.0,398.6Z" fill="#5670B0"/><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st30" startOffset="50%" text-anchor="middle">Collaboration</textPath></text><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st31" startOffset="50%" text-anchor="middle">and reflection</textPath></text><circle cx="400.0" cy="400.0" r="110.0" fill="#FCF3ED" stroke="#0B1A4A" stroke-opacity=".2"/><text x="400.0" y="374.6" text-anchor="middle" font-size="33" fill="#0B1A4A">The learner</text><text x="400.0" y="410.6" text-anchor="middle" font-size="33" fill="#0B1A4A">does the</text><text x="400.0" y="446.6" text-anchor="middle" font-size="33" fill="#2F55A8" font-style="italic">thinking</text><text font-size="31" fill="#0B1A4A"><textPath href="#cd0" startOffset="50%" text-anchor="middle">In person, real-time feedback</textPath></text><text font-size="31" fill="#0B1A4A"><textPath href="#cd1" startOffset="50%" text-anchor="middle">AI use disclosed and cited</textPath></text><text font-size="31" fill="#0B1A4A"><textPath href="#cd2" startOffset="50%" text-anchor="middle">Learner voice and choice</textPath></text><text font-size="31" fill="#0B1A4A"><textPath href="#cd3" startOffset="50%" text-anchor="middle">An authentic audience</textPath></text></svg></div>
+  <div class="fx-side">
+   <div class="fx-blk" data-s="2"><span class="fx-k">Built on project-based learning</span><p>Every strand gets a real purpose and a real&nbsp;audience.<br>AI speeds up the&nbsp;building.</p><small class="fx-cite">Informed by PBLWorks’ Gold Standard&nbsp;PBL.</small></div>
+   <div class="fx-call" data-s="3"><span class="fx-ck">At every check-in, the teacher asks</span><p>“How did you check&nbsp;it?”</p><span>and responds in real&nbsp;time.<br>AI can support that feedback, not replace&nbsp;it.</span></div>
+  </div>
+ </div></div>
+</div><aside class="notes">This is the Arena School learning framework. (Click.) At the center, the learner does the thinking. We say learner on purpose: the same framework runs our student programs, our teacher training, and our sessions for school leaders and parents. The arrows show it’s a cycle, not a checklist. Around that are four strands we develop in every program: inquiry and planning, research and evaluation, creating and communicating, and collaboration and reflection. On the outer ring are four teaching principles: learning in person with real-time feedback; AI use that is disclosed and cited; learner voice and choice; and an authentic audience. (Click.) It’s built on project-based learning, PBL, informed by PBLWorks’ Gold Standard PBL. PBL gives each strand a real purpose and an audience, and AI makes the building faster than ever. (Click.) At every check-in, the teacher asks one question: how did you check it? And responds in real time. AI tools can support that feedback, and many of you use them well. They don’t replace it.</aside></section>
+
+<!-- 27 · Backup · All learning outcomes -->
+<section class="s alt ae lo3-s"><div class="w">
+ <p class="kick r">Backup · all learning outcomes</p>
+ <h2 class="r" style="--d:.1s">Across every program, <em>learners will be able&nbsp;to…</em></h2>
+ <p class="lo3-sub r" style="--d:.15s">Learners are whoever a program is for: students, teachers, school leaders, or parents. The outcomes stay the same; the depth&nbsp;grows.</p>
+ <div class="bd r" style="--d:.25s"><div class="lo3-cols"><div class="lo3-c" data-s="1"><div class="lo3-h"><span class="lo3-ic"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /></svg></span><b>Inquiry and planning</b></div><ul><li>Turn a broad interest into a focused, researchable&nbsp;question.</li><li>Plan a project with milestones, and adjust the plan based on&nbsp;progress.</li></ul></div><div class="lo3-c" data-s="2"><div class="lo3-h"><span class="lo3-ic"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg></span><b>Research and evaluation</b></div><ul><li>Find, evaluate, and cite sources, including checking the accuracy of AI&nbsp;output.</li><li>Compare options against criteria, and justify a&nbsp;choice.</li><li>Explain how AI tools work, where they fail, and the bias and privacy issues they&nbsp;raise.</li></ul></div><div class="lo3-c" data-s="3"><div class="lo3-h"><span class="lo3-ic"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="M10 9H8" /><path d="M16 13H8" /><path d="M16 17H8" /></svg></span><b>Creating and communicating</b></div><ul><li>Build and test a product, prototype, or solution, deciding which steps to hand to AI and disclosing how they used&nbsp;it.</li><li>Structure an argument and write it clearly, in their own&nbsp;words.</li><li>Present to an authentic audience, and defend their reasoning under&nbsp;questioning.</li></ul></div><div class="lo3-c" data-s="4"><div class="lo3-h"><span class="lo3-ic"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" /><path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1" /></svg></span><b>Collaboration and reflection</b></div><ul><li>Work in a team, share roles, and contribute to a shared&nbsp;product.</li><li>Give and use critique from teachers and peers to revise their&nbsp;work.</li><li>Reflect on their process and on what they would do&nbsp;differently.</li></ul></div></div>
+</div><aside class="notes">Here are the learning outcomes, written so a teacher could assess them on any project. Inquiry and planning: frame a researchable question; plan with milestones and adjust. Research and evaluation: find, evaluate, and cite sources, including checking AI output; compare options against criteria; and understand AI itself, how it works, where it fails, and the bias and privacy issues it raises. Creating and communicating: build and test a product, prototype, or solution, deciding which steps to hand to AI and disclosing how they used it; write a clear argument in their own words; present and defend their reasoning to an authentic audience. Collaboration and reflection: work in a team with shared roles; give and use critique; and reflect on their process. (Click.) A note on the word learners: these outcomes apply to every program we run, for students, teachers, school leaders, or parents. The outcomes stay the same; the depth grows, from middle school to high school and on to adults.</aside></section>
+
+<!-- 28 · Backup · Assessment rubric -->
+<section class="s ae rb-s"><div class="w">
+ <p class="kick r">Backup · the assessment rubric</p>
+ <h2 class="r" style="--d:.1s">We assess the process, <em>not only the&nbsp;product.</em></h2>
+ <div class="bd r" style="--d:.25s">
+  <div class="rb-t">
+   <div class="rb-hd"><div class="rb-hd-l"><span class="rb-k">Sample criterion · research and evaluation</span><b>Evaluates sources, including AI output</b></div></div>
+   <div class="rb-ls"><div class="rb-l" data-s="1"><b>Beginning</b><p>Accepts sources and AI output as given; cites&nbsp;inconsistently.</p></div><div class="rb-l" data-s="1"><b>Developing</b><p>Checks some claims against a second source; cites most&nbsp;sources.</p></div><div class="rb-l" data-s="1"><b>Proficient</b><p>Verifies key claims, including AI output, against reliable sources; discloses AI&nbsp;use.</p></div><div class="rb-l" data-s="1"><b>Extending</b><p>Explains why sources disagree, corrects AI errors, and judges which evidence to&nbsp;trust.</p></div></div>
+  </div>
+  <div class="rb-bot rb-bot2">
+   <div class="rb-ev" data-s="2"><span class="rb-k">Evidence we collect</span><ul><li><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 7v14" /><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" /></svg><span>Process journal</span></li><li><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="M10 9H8" /><path d="M16 13H8" /><path d="M16 17H8" /></svg><span>Drafts</span></li><li><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /><line x1="12" x2="12" y1="19" y2="22" /></svg><span>Recorded defense</span></li></ul></div>
+   <div class="rb-isb" data-s="3"><span class="rb-k">In practice</span><p>Used with students in the ISB AI Founders Program, summer&nbsp;2026.</p></div>
+  </div>
+ </div>
+</div><aside class="notes">“We assess the process” always draws the next question: what’s the rubric? Here is one sample row, from research and evaluation: evaluates sources, including AI output. Beginning: accepts sources and AI output as given. Developing: checks some claims against a second source. Proficient: verifies key claims, including AI output, against reliable sources, and discloses AI use. Extending: explains why sources disagree, corrects AI errors, and judges which evidence to trust. (Click.) The evidence we collect is the process itself: a process journal, drafts, and a recorded defense. (Click.) We used this approach with students in the ISB AI Founders Program this summer. One more thing, briefly: if your students use AI anywhere in their process, even when AI isn’t your subject, you need to be AI literate yourself to assess it.</aside></section>
+
+<!-- 29 · Backup · Programs map -->
+<section class="s alt ae nx-map"><div class="w">
+ <p class="kick r">Backup · one framework, three kinds of program</p>
+ <h2 class="r" style="--d:.1s">The same framework runs every program. <em>The learner and the output&nbsp;change.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="nx-pm">
+  <div class="nx-pml" aria-hidden="true"><span></span><span><i>01</i>Inquiry and planning</span><span><i>02</i>Research and evaluation</span><span><i>03</i>Creating and communicating</span><span><i>04</i>Collaboration and reflection</span><span class="nx-pmo">Learners leave with</span></div>
+  <span class="nx-pmb" aria-hidden="true"></span>
+  <div class="nx-pmc" data-s="1"><div class="nx-pmh"><span>Student short course</span><b>AI Founders week</b></div><p><small>Inquiry and planning</small>Choose a problem and pitch it in three&nbsp;minutes</p><p><small>Research and evaluation</small>Talk to the people they want to&nbsp;help</p><p><small>Creating and communicating</small>Build a live product at a public&nbsp;link</p><p><small>Collaboration and reflection</small>Defend every decision on demo&nbsp;day</p><p class="nx-pmo"><small>Learners leave with</small>A live product and a&nbsp;pitch</p></div>
+  <div class="nx-pmc" data-s="2"><div class="nx-pmh"><span>Teacher training</span><b>AI for Educators</b></div><p><small>Inquiry and planning</small>Pick one task from a class you&nbsp;teach</p><p><small>Research and evaluation</small>Check every result the tool&nbsp;gives</p><p><small>Creating and communicating</small>Make the tool on your approved&nbsp;tools</p><p><small>Collaboration and reflection</small>Share the tool and the prompt behind&nbsp;it</p><p class="nx-pmo"><small>Learners leave with</small>A tool for their own&nbsp;class</p></div>
+  <div class="nx-pmc" data-s="3"><div class="nx-pmh"><span>Curriculum design</span><b>AI in your courses</b></div><p><small>Inquiry and planning</small>Map where AI fits in each&nbsp;course</p><p><small>Research and evaluation</small>Decide when AI doesn’t&nbsp;belong</p><p><small>Creating and communicating</small>Write rubrics that assess the&nbsp;process</p><p><small>Collaboration and reflection</small>Collect drafts, reflections, and&nbsp;reasons</p><p class="nx-pmo"><small>Learners leave with</small>A plan and rubrics the faculty&nbsp;owns</p></div>
+ </div></div>
+</div><aside class="notes">This is how the framework maps onto each kind of program we run. The four strands stay the same; the learner and the output change. (Click.) For students, a short course like the AI Founders week: they choose a problem and pitch it, talk to the people they want to help, build a live product, and defend every decision on demo day. They leave with a live product and a pitch. (Click.) For teachers, AI for Educators: each teacher picks one task from a class they teach, checks every result the tool gives, makes the tool on the school’s approved tools, and keeps the tool and the prompt to share. (Click.) For school leaders and departments, curriculum design: where AI fits in each course, when it doesn’t belong, and rubrics that assess the process, with drafts, reflections, and reasons as the evidence. Next, one of these programs in detail.</aside></section>
+
+<!-- 30 · Backup · What the week trained -->
 <section class="s ae agC agC-sk"><div class="w">
- <p class="kick r">The case · looking back on the week</p>
+ <p class="kick r">Backup · looking back on the week</p>
  <h2 class="r" style="--d:.1s">The ISB week gave each skill<br><em>a moment students couldn’t&nbsp;skip.</em></h2>
  <div class="bd r" style="--d:.25s"><ol class="agc-sk">
   <li class="pane" data-s="1">
@@ -4641,81 +4924,9 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  </ol></div>
 </div><aside class="notes">Looking back, what made the difference on demo day was not the tools. Every team had the same tools. It was three skills, and the week gave each one a moment students could not skip. Agency is deciding what is worth building before anyone assigns it. On day one, each student chooses the problem and pitches it in three minutes, with no slides, so nobody can hand them the answer. Taste is judging whether the output is actually good, and being able to say why. By midweek the prototype is online at a public link, real users try it and get confused, and mentors react to it every day. That's how students learn which version actually works. Craft is finishing it well enough that people can trust it. Building stops at a fixed hour each day, so teams demo only what works, and on demo day every student explains each decision live. AI is in every step, but these three stay with the student. The longer version is on our site, at arenaschool.org/approach.</aside></section>
 
-<!-- 22 · Part 3 -->
-<section class="s ae nv sec"><div class="w"><div class="sec-g">
- <div>
-  <p class="sec-k"><span>Part</span><b>3</b></p>
-  <h2 class="r" style="--d:.15s">Now let’s build one together. <em>No coding&nbsp;needed.</em></h2>
-  <p class="sl r" style="--d:.35s">First what teachers already build for their own classes, then a build session with the&nbsp;room</p>
- </div>
- <ol class="trk" aria-label="Parts">
- <li><div class="row"><span class="tn">1</span><span class="tt"><b>Who we are</b><small>How we teach</small></span></div></li>
- <li><div class="row"><span class="tn">2</span><span class="tt"><b>The case</b><small>ISB AI Founders week</small></span></div></li>
- <li class="on"><div class="row"><span class="tn">3</span><span class="tt"><b>Build together</b><small>With the room</small></span></div></li>
- <li><div class="row"><span class="tn">4</span><span class="tt"><b>Wrap-up</b><small>Where AI helps</small></span></div></li>
- </ol>
-</div></div><aside class="notes">Part three is about you, the teachers. First, the problems we hear from teachers, and what some of them have already built for their own classes. Then thirty minutes together: you name a chore, and we walk through building the fix.</aside></section>
-
-<!-- 23 · Teachers’ pain points -->
-<section class="s alt ae nx-pain"><div class="w">
- <p class="kick r">What teachers ask us before a session</p>
- <h2 class="r" style="--d:.1s">Teachers don’t lack ideas. <em>They lack time, approved tools, and a place to&nbsp;start.</em></h2>
- <div class="bd r" style="--d:.25s"><div class="nx-pp">
-  <div class="pane nx-pc" data-s="1"><span class="nx-pi"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg></span><b>“We have no time for more&nbsp;PD.”</b><p>Start from one task you already do, and make the tool in the&nbsp;session.</p></div>
-  <div class="pane nx-pc" data-s="2"><span class="nx-pi"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m18 16 4-4-4-4" /><path d="m6 8-4 4 4 4" /><path d="m14.5 4-5 16" /></svg></span><b>“I’m not technical. Will I keep&nbsp;up?”</b><p>No coding: you describe the tool in plain&nbsp;English.</p></div>
-  <div class="pane nx-pc" data-s="3"><span class="nx-pi"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 3v18" /><path d="m19 8 3 8a5 5 0 0 1-6 0zV7" /><path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1" /><path d="m5 8 3 8a5 5 0 0 1-6 0zV7" /><path d="M7 21h10" /></svg></span><b>“What about students using AI to&nbsp;cheat?”</b><p>Assess the process: drafts, reflections, and the reasons behind each&nbsp;change.</p></div>
-  <div class="pane nx-pc" data-s="4"><span class="nx-pi"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M10 18v-7" /><path d="M11.119 2.205a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949z" /><path d="M14 18v-7" /><path d="M18 18v-7" /><path d="M3 22h18" /><path d="M6 18v-7" /></svg></span><b>“Our school restricts tools and student&nbsp;data.”</b><p>Use only the tools your school approves, with no student data in&nbsp;them.</p></div>
- </div></div>
-</div><aside class="notes">Before any session, teachers ask us the same four things. (Click.) We have no time for more PD. So we start from one task you already do, and the tool gets made in the session. (Click.) I’m not technical; will I keep up? No coding is needed. You describe what you want in plain English. (Click.) What about students using AI to cheat? Assess the process, not only the product: drafts, reflections, and the reasons behind each change, as we saw in part one. (Click.) Our school restricts tools and student data. We use only the tools your school approves, and no student data goes into them. Teachers don’t lack ideas. They lack time, approved tools, and a place to start. Here is what that time can buy back.</aside></section>
-
-<!-- 24 · AI gives teachers time back -->
-<section class="s alt ae r5b-tt"><div class="w">
- <p class="kick r">Why teachers need AI too · EEF · Gallup</p>
- <h2 class="r" style="--d:.1s">AI gives teachers back time<br><em>to spend on their&nbsp;students.</em></h2>
- <div class="bd r" style="--d:.25s"><div class="r5b-g">
-  <div class="r5b-st">
-   <div class="pane r5b-n" data-s="1"><div class="big">31%</div><p>less time on lesson planning with AI in a randomized trial, with no drop in&nbsp;quality</p></div>
-   <div class="pane r5b-n" data-s="2"><div class="big">5.9<small>hours</small></div><p>saved a week by teachers who use AI weekly, about six weeks a school&nbsp;year</p></div>
-  </div>
-  <div class="pane r5b-case" data-s="3">
-   <span class="lab">From a teacher we spoke with</span>
-   <h3>A grading timer, <em>not a&nbsp;grader</em></h3>
-   <div class="r5b-tm" aria-hidden="true"><span class="r5b-tm-l">Paper 9 of 24</span><div class="r5b-tm-bar"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="on"></i><i></i><i></i><i></i></div><b class="r5b-tm-t">4:12 / 6:00</b></div>
-   <p>An English teacher built a simple timer. It grades nothing: he still reads every paper and writes the feedback&nbsp;himself.</p>
-   <p>It gives every paper the same share of his time, and keeps his marking within a set&nbsp;limit.</p>
-   <p class="r5b-tk">AI handles the housekeeping. <em>The teacher keeps the&nbsp;judgment.</em></p>
-  </div>
- </div></div>
- <p class="fn" data-s="1"><span>EEF/NFER, randomized trial, 259 teachers in 68 schools (2024). Gallup and Walton Family Foundation (2025): weekly AI users, n=2,232, self-reported&nbsp;estimate.</span></p>
-</div><aside class="notes">So far it has been about students. Now it is about you, because none of that works without teachers having time for it. Two numbers. First, a randomized trial in England: teachers who used AI for lesson planning spent 31% less time on it, and blind reviewers rated the plans the same. (Click.) Second, a 2025 Gallup survey of more than two thousand US teachers: those who use AI every week estimate it saves them almost six hours a week. Over a school year, that's about six weeks. (Click.) Here's what that looks like in practice. An English teacher we spoke with built himself a simple grading timer. It doesn't grade anything. He still reads every paper and writes every comment himself. What it does is time each paper, so every student gets an equal share of his attention, nobody rushed at the end of the pile and nobody over-weighted at the start, and his marking stays inside a set time. He's more accountable and more productive. That's the pattern: AI handles the housekeeping, and the teacher keeps the judgment.</aside></section>
-
-<!-- 25 · Tools teachers build -->
-<section class="s alt ae r5b-tl"><div class="w">
- <p class="kick r">Why teachers need AI too · teachers as builders</p>
- <h2 class="r" style="--d:.1s">Tools teachers build <em>for their own&nbsp;classrooms.</em></h2>
- <div class="bd r" style="--d:.25s"><div class="r5b-two">
-  <div class="pane r5b-c" data-s="1">
-   <span class="lab">English · from a teacher we spoke with</span>
-   <h3>Literary devices, one click&nbsp;away</h3>
-   <div class="r5b-vis r5b-poem" aria-hidden="true"><span class="r6-src">Sonnet 18 · lines 5–7</span><p class="r5b-pl">Sometime too hot the <mark><small>Metaphor</small><span>eye of heaven</span></mark> shines,</p><p class="r5b-pl">And often is <mark class="b"><small>Personification</small><span>his gold complexion</span></mark> dimm’d;</p><p class="r5b-pl">And every <mark class="c"><small>Alliteration</small><span>fair from fair</span></mark> sometime declines,</p></div>
-   <p>Instead of color-coding a poem by hand at the board, the teacher tags each literary device before&nbsp;class.</p>
-   <p>In class, one click reveals each device and its&nbsp;label.</p>
-   <p class="r5b-out">Class time goes to discussing the&nbsp;poem.</p>
-  </div>
-  <div class="pane r5b-c" data-s="2">
-   <span class="lab">Science · what a STEM teacher can build</span>
-   <h3>A simulation made for this&nbsp;class</h3>
-   <div class="r5b-vis r5b-sim" aria-hidden="true"><svg viewBox="0 22 280 84"><line class="g" x1="10" y1="100" x2="270" y2="100"/><path class="rp" d="M30 100 L250 100 L250 30 Z"/><rect class="bk" x="134" y="39.5" width="34" height="22" rx="3" transform="rotate(-17.65 151 61.5)"/><path class="ar" d="M112.5 54.8 L73 67.4"/><path class="ah" d="M73 67.4 L83.6 58.9 M73 67.4 L86.6 68.7"/><path class="an" d="M66 100 A36 36 0 0 0 64.3 89.1"/></svg><div class="r5b-ctl"><span>Angle <b>20°</b></span><span class="r5b-sl"><i></i></span><span>Friction <b>0.3</b></span><span class="r5b-sl s2"><i></i></span></div></div>
-   <p>Students take a model apart and rebuild it, or change one variable in a physics&nbsp;setup.</p>
-   <p>Built for this lesson, not the nearest YouTube&nbsp;demo.</p>
-   <p class="r5b-out">Students test ideas instead of watching&nbsp;one.</p>
-  </div>
- </div></div>
-</div><aside class="notes">Teachers don't only save time with AI. They build their own tools. Here's one from an English teacher we spoke with. Teaching a poem used to mean annotating it by hand, at the board, while thirty students watched and copied. Now the teacher tags each literary device before class: a metaphor, a personification, an alliteration. In class, one click highlights the phrase and brings up its label. The class spends that time talking about the poem. (Click.) The second one is an example of what a science or math teacher can build. Instead of searching YouTube for a demo that's almost right, you build a simulation for exactly this lesson: students take a model apart and put it back together, or change the angle of a ramp and watch what happens. They test the idea themselves. Neither teacher writes code. They describe what they want in plain English, and that is exactly what we are about to do together.</aside></section>
-
-<!-- 26 · Build session loop -->
+<!-- 31 · Backup · Build session loop -->
 <section class="s ae nx-loop"><div class="w">
- <p class="kick r">Build session · the framework in 30 minutes</p>
+ <p class="kick r">Backup · the build session as the framework loop</p>
  <h2 class="r" style="--d:.1s">The build session runs the same loop <em>students ran all&nbsp;week.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="nx-lpw"><ol class="nx-lp nx-lp2">
   <li class="pane" data-s="1"><span class="nx-li"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></svg></span><span class="nx-lk"><i>01</i>Inquiry and planning</span><b>You name it</b><p>A chore, and who the fix is&nbsp;for.</p><small>Agency</small></li>
@@ -4726,41 +4937,9 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <div class="nx-lpb" data-s="4" aria-hidden="true"><span>Repeat until it’s good enough to use on&nbsp;Monday</span></div></div></div>
 </div><aside class="notes">The build session follows the same framework as everything you have seen today. (Click.) Inquiry and planning: you name a chore, and who the fix is for. That is agency. (Click.) Creating: we describe it to Claude Code in plain English. (Click.) Research and evaluation: the room tests it. Does it actually solve the problem? That is taste. (Click.) Collaboration and reflection: we revise together, one plain sentence at a time, until it is good enough to use. That is craft. Here is how the next 25 minutes run.</aside></section>
 
-<!-- 27 · The build session -->
-<section class="s alt ae kimi3 agd-b"><div class="w">
- <p class="kick r">Build session · how the next 25 minutes run</p>
- <h2 class="r" style="--d:.1s">You bring a real school problem.<br><em>We walk through building the fix together.</em></h2>
- <div class="bd r" style="--d:.25s"><div class="case3">
-  <div class="cs pane" data-s="1"><span class="lab">Step 1 · you name it</span><h3>A chore or a snag</h3><p>A workflow you repeat, or a problem you keep running&nbsp;into.</p>
-   <ul class="agd-ex" aria-label="Examples from teachers"><li>“I rewrite the same parent email every&nbsp;week.”</li><li>“Tracking which students turned in&nbsp;drafts.”</li><li>“Making one reading at three&nbsp;levels.”</li></ul></div>
-  <span class="cs-ar" data-s="2" aria-hidden="true">→</span>
-  <div class="cs pane" data-s="2"><span class="lab">Step 2 · we build it</span><h3>Claude Code writes it</h3><p>An AI tool that builds web apps from plain&nbsp;English.</p>
-   <div class="agd-cc"><div class="agd-cc-h"><img src="/logos/tools/claude.png" alt=""><b>Claude Code</b><small>by Anthropic</small></div><p class="agd-cc-p"><span>Make a page where I paste a reading and get it at three&nbsp;levels.</span></p><span class="agd-cc-o">A working web app, in&nbsp;minutes</span></div></div>
-  <span class="cs-ar" data-s="3" aria-hidden="true">→</span>
-  <div class="cs cs-out" data-s="3"><span class="lab">Step 3 · we all iterate</span><h3>Open it, then improve it</h3><p>We try it together and fix what’s off, one plain sentence at a&nbsp;time.</p>
-   <ul class="agd-ex" aria-label="Example fixes"><li>“Make the buttons&nbsp;bigger.”</li><li>“Add a column for due&nbsp;dates.”</li><li>“Use simpler words for grade&nbsp;6.”</li></ul></div>
- </div>
- </div>
-</div><aside class="notes">Here's how it works. Step one: call out something from your school week. A workflow you repeat, like rewriting the same parent email every Friday, or a problem you keep running into, like tracking which students have turned in drafts. We'll take a few ideas and the room picks one. Step two: we build it with Claude Code, an AI assistant from Anthropic that writes the code for a website or a small web app from plain English. We type what you said, almost word for word, and in a few minutes there's a first version on screen. Step three is the important part: we open it together and judge it. Does it actually solve the problem? Is it clear? Would you use it on Monday? Every fix is one more plain sentence, and we keep going until the room says it's good enough. It's the same loop your students would run: choose, judge, and finish. When we're done, we publish it; the link to what we built is on the session page, under slides and resources. Logistics: frame this as a build session or walkthrough, never as a guaranteed live demo. If the network holds, run it in Claude Code; if not, show the terminal and walk through a few prepared prompts and the result. Keep a recorded backup open in another tab.</aside></section>
-
-<!-- 28 · Part 4 -->
-<section class="s ae nv sec"><div class="w"><div class="sec-g">
- <div>
-  <p class="sec-k"><span>Part</span><b>4</b></p>
-  <h2 class="r" style="--d:.15s">Where AI helps students, teachers, <em>and&nbsp;schools.</em></h2>
-  <p class="sl r" style="--d:.35s">What to take back, what we offer, and how to reach&nbsp;us</p>
- </div>
- <ol class="trk" aria-label="Parts">
- <li><div class="row"><span class="tn">1</span><span class="tt"><b>Who we are</b><small>How we teach</small></span></div></li>
- <li><div class="row"><span class="tn">2</span><span class="tt"><b>The case</b><small>ISB AI Founders week</small></span></div></li>
- <li><div class="row"><span class="tn">3</span><span class="tt"><b>Build together</b><small>With the room</small></span></div></li>
- <li class="on"><div class="row"><span class="tn">4</span><span class="tt"><b>Wrap-up</b><small>Where AI helps</small></span></div></li>
- </ol>
-</div></div><aside class="notes">To wrap up: where AI helps, tied back to the learning outcomes; the one habit to take back on Monday; and who we are, if you want to go further.</aside></section>
-
-<!-- 29 · Where AI helps -->
+<!-- 32 · Backup · Where AI helps -->
 <section class="s alt ae nx-help"><div class="w">
- <p class="kick r">Where AI helps · tied to the learning outcomes</p>
+ <p class="kick r">Backup · where AI helps</p>
  <h2 class="r" style="--d:.1s">Used well, AI gives every learner <em>more time for the&nbsp;thinking.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="nx-h3">
   <div class="pane nx-hc" data-s="1"><span class="nx-hi"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="8" r="5" /><path d="M20 21a8 8 0 0 0-16 0" /></svg></span><span class="nx-hk">For students</span><b>AI does the making</b><p>So their time goes to choosing, judging, and&nbsp;finishing.</p><span class="nx-ho"><small>Outcome</small>Build and test a product with&nbsp;AI</span></div>
@@ -4769,35 +4948,9 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  </div></div>
 </div><aside class="notes">So where does AI actually help? (Click.) For students, AI does the making, so their time goes to the parts that matter: choosing, judging, and finishing. That is the outcome of building and testing a product, and disclosing how AI helped. (Click.) For teachers, AI takes the chores, the housekeeping, so your time goes to feedback, in person and in real time. That serves the outcome of giving and using critique. (Click.) For schools, one framework and one rubric across student programs, teacher training, and courses, so every learner is assessed on the same thing: whether they can evaluate sources, including AI output.</aside></section>
 
-<!-- 30 · Your role, and three questions -->
-<section class="s alt ae agC agC-co"><div class="w">
- <p class="kick r">What students need from teachers · try this on Monday</p>
- <h2 class="r" style="--d:.1s">Your role becomes the coach, <em>and three questions do the coaching.</em></h2>
- <div class="bd r" style="--d:.25s"><div class="agc-co">
-  <div class="pane dk agc-role" data-s="1">
-   <span class="agc-k">The teacher’s role</span>
-   <div class="agc-shift"><p class="agc-from">From the person with <span class="nw">the answers</span></p><span class="agc-dn" aria-hidden="true"></span><p class="agc-to">to the coach who asks <span class="nw">the questions</span></p></div>
-   <p class="agc-note">It’s what good teachers already do, and what our mentors did all&nbsp;week.</p>
-  </div>
-  <ol class="agc-q">
-   <li class="pane" data-s="2"><span class="agc-tag"><i>01</i>Agency</span><b>“Why this problem?”</b><span>They choose, not the&nbsp;AI.</span></li>
-   <li class="pane" data-s="3"><span class="agc-tag"><i>02</i>Taste</span><b>“How do you know it’s good?”</b><span>They judge what it&nbsp;made.</span></li>
-   <li class="pane" data-s="4"><span class="agc-tag"><i>03</i>Craft</span><b>“What would make someone trust it?”</b><span>They check it and finish&nbsp;it.</span></li>
-  </ol>
- </div></div>
-</div><aside class="notes">So what do students need from us? The tools are everywhere. What's scarce is the structure around them: a real project with something at stake, honest feedback from real people, and someone who asks how they checked it. None of that is technical. It's what good teachers already do, and it's exactly what the mentors did all week. With AI in the room, the teacher moves from the person with the answers to the coach who asks the questions. And here's something you can use on Monday, in any subject, with any tool your school allows. When a student shows you something made with AI, ask three questions. Why this problem? That's agency. How do you know it's good? That's taste. What would make someone trust it? That's craft. You don't need to know how the tool works to ask any of them. That is the one thing to take back on Monday.</aside></section>
-
-<!-- 31 · What we offer -->
-<section class="s alt ae st ac-fit age-off r6-off"><div class="w">
- <p class="kick r age-brand"><img src="/decks/img/acamis/a-wordmark-url-navy.png" alt="Arena School, arenaschool.org" width="1600" height="243"></p>
- <h2 class="r" style="--d:.1s">What we offer: three programs, <em>one framework.</em></h2>
-  <ol class="ic3 ac-off"><li data-s="1"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><path d="M16 3.128a4 4 0 0 1 0 7.744" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><circle cx="9" cy="7" r="4" /></svg></span><b>AI for Educators</b><span class="age-d">Hands-on training at your school, with your teachers’ own lessons</span></li><li data-s="2"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2 3h20" /><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3" /><path d="m7 21 5-5 5 5" /></svg></span><b>Student programs</b><span class="age-d">A five-day build week like ISB’s, co-run with your&nbsp;teachers</span></li><li data-s="3"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M13 21h8" /><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" /></svg></span><b>Curriculum design</b><span class="age-d">Where AI fits in your courses, and how to assess&nbsp;it</span></li></ol>
-  <div class="r6-proof" data-s="4"><span class="r6-l"><span class="r6-lab">Selected work</span><a class="r6-res" href="https://arenaschool.org/results" target="_blank" rel="noopener">arenaschool.org/results</a></span><div class="r6-logos"><img class="r6-isb" src="/logos/cred/isb.png" alt="International School of Beijing"><span class="r6-bod">Bodley Academy</span><img class="r6-ts" src="/logos/cred/tsinghua-lockup.png" alt="Tsinghua University"></div></div>
-</div><aside class="notes">Today was one hour. Building real AI fluency across a faculty, and a curriculum where students use AI to think more rather than less, takes more than that. That's what we do at Arena School. AI for Educators trains teachers at their own school, with their own lessons. Our student programs, like the five-day week at ISB, are co-run with your teachers, so you can run it again yourselves. And we help schools plan where AI fits in each course and how to assess it. Selected work: the student program at ISB this summer, a five-day course at Bodley Academy in Hong Kong last year, and staff training at Schwarzman College at Tsinghua. Each program has its own page on arenaschool.org, and the results page shows all three.</aside></section>
-
-<!-- 32 · Founders -->
+<!-- 33 · Backup · Founders -->
 <section class="s ae nx-bio"><div class="w">
- <p class="kick r">Who we are · the founders of Arena School</p>
+ <p class="kick r">Backup · the founders of Arena School</p>
  <h2 class="r" style="--d:.1s">We build programs from inside schools, <em>and from inside the AI&nbsp;industry.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="nx-b2">
   <div class="pane nx-bc" data-s="1"><img class="nx-bp" src="/photos/phillip-an-640.webp" alt="Phillip An"><div class="nx-bt"><b>Phillip An</b><span class="nx-br">Co-founder</span><p>Computer science at Caltech; MBA and master’s in engineering at Harvard. McKinsey and Goldman&nbsp;Sachs.</p><p>Co-founded Homebase, the first company from Vietnam backed by Y&nbsp;Combinator. Forbes 30 Under 30; Schwarzman&nbsp;Scholar.</p><a href="mailto:phillip@arenaschool.org">phillip@arenaschool.org</a></div></div>
@@ -4805,40 +4958,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  </div></div>
 </div><aside class="notes">A word on who we are. (Click.) I’m Phillip. I studied computer science at Caltech and did an MBA and a master’s in engineering at Harvard, worked at McKinsey and Goldman Sachs, and co-founded Homebase, the first company from Vietnam backed by Y Combinator. (Click.) Jing Jing grew up in ACAMIS schools, at WAB and ISB, studied at Brown, was a Schwarzman Scholar at Tsinghua, did research with Microsoft AI, and worked at Apple, Deloitte, and Kimi. We design and teach every Arena program ourselves.</aside></section>
 
-<!-- 33 · Close -->
-<section class="s ae nv cl age-cl"><div class="w">
- <p class="kick r">If you remember one thing</p>
- <h2 class="r" style="--d:.1s">AI doesn’t have to do the thinking for students.<br><em>The design is up to us.</em></h2>
- <div class="bd r" style="--d:.25s">
-  <ol class="c3x">
-   <li data-s="1"><i>1</i><b>Students can ship</b><span>Live products in five days, with no coding&nbsp;background.</span></li>
-   <li data-s="2"><i>2</i><b>Design decides</b><span>Students choose, judge, and finish.</span></li>
-   <li data-s="3"><i>3</i><b>Start small, start now</b><span>One project, one class, and three questions.</span></li>
-  </ol>
-  <div class="endline age-end" data-s="4"><p>You don’t need to code. You already know how to coach.</p><a class="age-sig" href="https://arenaschool.org" target="_blank" rel="noopener"><span>When you’re ready to run your own, Arena School can&nbsp;help.</span><b>arenaschool.org</b></a></div>
- </div>
-</div><aside class="notes">Three things. One: students can ship; at ISB, students with no coding background had live products in five days. Two: design decides; when students choose, judge, and finish, AI makes them learn more, not less. Three: start small; one project, one class, three questions. Then the last line, with a smile: you don't need to code. You already know how to coach. And when you're ready to run your own, Arena School can help.</aside></section>
-
-<!-- 34 · Q&A -->
-<section class="s alt ae age-ty"><div class="w">
- <p class="kick r">ACAMIS Technology Conference · October 18, 2026</p>
- <h2 class="r" style="--d:.1s">Thank you! <em>We&nbsp;welcome your questions.</em></h2>
- <div class="bd r" style="--d:.25s"><div class="qa age-qa">
-  <a class="qr pane qr-live age-q" href="https://arenaschool.org/talks/2026-10-acamis-tech-workshop" target="_blank" rel="noopener"><img src="/decks/img/acamis/qr-acamis-tight.png" alt="QR code for arenaschool.org/talks/2026-10-acamis-tech-workshop"><span>Slides and resources</span><small><span class="nw">arenaschool.org/talks/</span><wbr><span class="nw">2026-10-acamis-tech-workshop</span></small></a>
-  <div class="pane age-cta">
-   <div class="age-ct">
-    <img class="age-wm" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School" width="1600" height="242">
-    <span class="k">Bring this to your school</span>
-    <p class="age-h">Book a call with us</p>
-    <p class="age-p">About teacher training, student programs, or curriculum&nbsp;design.</p>
-    <p class="age-ln nx-ln"><span><b>Phillip An</b><a href="mailto:phillip@arenaschool.org">phillip@arenaschool.org</a></span><span><b>Jing Jing Yang</b><a href="mailto:jingjing@arenaschool.org">jingjing@arenaschool.org</a></span></p>
-   </div>
-   <a class="qr qr-live age-q age-q2" href="https://arenaschool.org/contact" target="_blank" rel="noopener"><img src="/decks/img/acamis/e-qr-contact-tight.png" alt="QR code for arenaschool.org/contact"><span>Book a call</span><small>arenaschool.org/contact</small></a>
-  </div>
- </div></div>
-</div><aside class="notes">Thank you. The slides, the checklist, and the tool guide are all at the code on the left. If you'd like to bring any of this to your school, scan the code on the right to book a call, email either of us, Phillip or Jing Jing, or find us after the session.</aside></section>
-
-<!-- 35 · Backup · What parents asked -->
+<!-- 34 · Backup · What parents asked -->
 <section class="s alt ae aga-pa r8-pa"><div class="w">
  <p class="kick r">Backup · why parents care</p>
  <h2 class="r" style="--d:.1s">Parents are asking one practical question:<br><em>which skills will outlast the&nbsp;tools?</em></h2>
@@ -4853,7 +4973,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <p class="r8-note" data-s="2">Parents don’t see AI as an academic subject, like learning to code.<br><em>They see it as a life skill: optional for many jobs today, and likely non-negotiable by the time their children start&nbsp;working.</em></p></div>
 </div><aside class="notes">We surveyed parents in the ISB community and in other local communities across mainland China. (Speak to the details here.) They weren’t asking whether their children should use AI. They were asking something practical: which skills will still matter as the tools keep changing, whether AI will do the thinking for their children, and what their children should practice now. You hear the same questions from your parents. On the right is what you’ll be able to tell them after today. (Click.) The biggest thing we heard: parents aren’t asking whether their child can code. They treat AI as a life skill, not an academic subject. Today it may still be optional for many jobs, but by the time their children graduate from college and start looking for work, they expect it to be non-negotiable.</aside></section>
 
-<!-- 36 · Backup · Is it cheating? -->
+<!-- 35 · Backup · Is it cheating? -->
 <section class="s ae agC agC-ch"><div class="w">
  <p class="kick r">Backup · is using AI just cheating?</p>
  <h2 class="r" style="--d:.1s">No. AI tools write the code,<br><em>and students make every decision.</em></h2>
@@ -4866,7 +4986,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  </div></div>
 </div><aside class="notes">The question we get most from teachers: isn't this just cheating? No. Look at who does what. AI tools and mentors handle the technical complexity: writing the code, putting it online, fixing errors. Students make the product decisions: which problem, and for whom; what to cut once real users have tried it; and the name, the price, and the pitch. AI can't make those calls for them, and on demo day they explain every one of them live. That judgment is the part that compounds, and it's the part teachers already know how to coach.</aside></section>
 
-<!-- 37 · Backup · What it takes -->
+<!-- 36 · Backup · What it takes -->
 <section class="s ae age-own"><div class="w">
  <p class="kick r">Backup · planning checklist</p>
  <h2 class="r" style="--d:.1s">Your school already owns most of this. <em>Arena School can help with the&nbsp;rest.</em></h2>
