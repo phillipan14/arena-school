@@ -11,19 +11,19 @@ page above 760px; `ds.css` linked on every page; "Learning approach" added to th
 
 | Page | Section | Old | Migrated | Commit |
 |---|---|---|---|---|
-| Learning approach (new, EN + CN) | all | n/a | yes: ds-section, ds-head, ds-grid, ds-card, ds-mx, ds-ic | chunk 1 |
-| Approach (EN + CN) | three skills, pointer | approach-extra.css, pages.css cards | yes: ds-section, ds-head, ds-card | chunk 1 |
-| Home (EN + CN) | film | film.css head | yes: ds-section, ds-head.is-center | chunk 1 |
+| Learning approach (new, EN + CN) | all | n/a | yes: ds-section, ds-head, ds-grid, ds-card, ds-mx, ds-ic | 11079d9 |
+| Approach (EN + CN) | three skills, pointer | approach-extra.css, pages.css cards | yes: ds-section, ds-head, ds-card | 11079d9 |
+| Home (EN + CN) | film | film.css head | yes: ds-section, ds-head.is-center | 11079d9 |
 | Home | partner strip, photo gallery | ai-band.css, index.css gallery | kept (their own components) | n/a |
-| Home | programs: head, doors, cards | index.css, styles.css | yes: ds-head, ds-doors, ds-grid, ds-card.is-media | chunk 1 |
-| Home | where each program fits | grades.css pill/Gantt lanes | yes: ds-mx (ds-gmx), tools/grade_matrix.py; dead lane CSS removed | chunk 1 |
-| Home | our team | index.css hp-cred, hp-cf | partly: ds-section, ds-head, ds-logos (leader cards keep their own styles) | chunk 1 |
-| Home | what we teach | index.css pillars | yes: ds-head, ds-grid, ds-card | chunk 1 |
-| Home | what's next | styles.css cf-evs | yes: ds-list | chunk 1 |
-| Home | contact | index.css partners | partly: ds-section, ds-stack heading (form keeps its styles) | chunk 1 |
+| Home | programs: head, doors, cards | index.css, styles.css | yes: ds-head, ds-doors, ds-grid, ds-card.is-media | 11079d9 |
+| Home | where each program fits | grades.css pill/Gantt lanes | yes: ds-mx (ds-gmx), tools/grade_matrix.py; dead lane CSS removed | 11079d9 |
+| Home | our team | index.css hp-cred, hp-cf | partly: ds-section, ds-head, ds-logos (leader cards keep their own styles) | 11079d9 |
+| Home | what we teach | index.css pillars | yes: ds-head, ds-grid, ds-card | 11079d9 |
+| Home | what's next | styles.css cf-evs | yes: ds-list | 11079d9 |
+| Home | contact | index.css partners | partly: ds-section, ds-stack heading (form keeps its styles) | 11079d9 |
 | Home | phones (≤760px) | phone layer | not yet (phone layer) | |
-| Programs (4 student programs) | all | program-pages.css | not yet | |
+| App Design Workshop, College Portfolio Workshop, Entrepreneurship & AI Intensive, Year-Long Project Mentorship, AI Advantage Bootcamp (EN + CN) | sections, heads, FAQ | program-pages.css, pages.css | yes: ds-section, ds-head, ds-faq (tools/page_ds.py programs); steppers, stats and forms keep their components | chunk 2 |
 | Teachers, technology, conferences, community dialogues | all | elegance.css, program-pages.css | not yet | |
 | Schools, partnerships, results, about, contact, enroll | all | pages.css, elegance.css | not yet | |
-| Events (winter, ACAMIS, parent coffee), mentorship, bootcamp | all | program-pages.css, events | not yet | |
+| Events (winter, ACAMIS, parent coffee) | all | program-pages.css, events | not yet | |
 | CN twins | follow their EN page | | | |
