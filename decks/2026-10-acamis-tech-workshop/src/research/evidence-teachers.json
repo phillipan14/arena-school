@@ -1,0 +1,202 @@
+[
+  {
+    "topic": "1. Teacher time on non-teaching tasks",
+    "citation": "OECD (2025), Results from TALIS 2024: The State of Teaching, TALIS, OECD Publishing, Paris, https://doi.org/10.1787/90df6235-en (published 7 Oct 2025). Ch. 3 'The demands of teaching', Table 3.10 (StatLink https://stat.link/l5uoad).",
+    "finding": "Full-time lower-secondary teachers report working 41.0 hours/week on average across OECD countries, of which 22.7 hours are teaching. Planning takes 7.4 h, marking 4.6 h, and general admin 3.0 h. Teaching is about 43% of total working time; planning (14%) and marking (9%) come next.",
+    "number": "41.0 h/week total; 22.7 h teaching (~43%); planning 7.4 h + marking 4.6 h + admin 3.0 h = ~15 h/week",
+    "design": "TALIS 2024: international survey of ~280,000 teachers and principals in 55 education systems, collected 2024. Figures are self-reported hours in the most recent full calendar week, OECD average-27, ISCED 2, full-time teachers.",
+    "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2025/10/results-from-talis-2024_28fbde1d/90df6235-en.pdf",
+    "caveat": "Self-reported. Teachers answer task hours separately, so the task hours can add up to more than the total. Lower-secondary only. The TALIS-49 average (all participating systems) is 39.2 h total and 22.3 h teaching.",
+    "confidence": "high (checked in report PDF text + Table 3.10 xlsx)"
+  },
+  {
+    "topic": "1. Teacher time on non-teaching tasks (China datapoint)",
+    "citation": "OECD (2025), Results from TALIS 2024: The State of Teaching, Table 3.10; report text p.109.",
+    "finding": "Shanghai (China) lower-secondary teachers report 46.9 h/week, with only 20.3 h teaching. Planning takes 8.8 h, marking 7.9 h, and admin 3.3 h. OECD says teaching is under one-third of total working time in Shanghai, Japan, and Singapore (the report counts time as a share of all task hours). Shanghai and Singapore teachers spend more than 10% of working time on marking.",
+    "number": "Shanghai 46.9 h/week total vs 20.3 h teaching; marking 7.9 h (OECD avg 4.6 h)",
+    "design": "Same TALIS 2024 survey; Shanghai is a sub-national participant.",
+    "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2025/10/results-from-talis-2024_28fbde1d/90df6235-en.pdf",
+    "caveat": "Shanghai is not representative of all of China. Same self-report caveat as above.",
+    "confidence": "high"
+  },
+  {
+    "topic": "1. Teacher time on non-teaching tasks (England)",
+    "citation": "IFF Research & UCL Institute of Education for DfE (Nov 2025), Working lives of teachers and leaders: wave 4 – Summary report.",
+    "finding": "Full-time teachers in England worked 50.1 hours in their most recent full term-time week in 2025, down from 51.2 (2024) and 52.4 (2023). Full-time teachers with teaching responsibilities spent 23.3 hours teaching. Only 26% of teachers and leaders agreed their workload was acceptable.",
+    "number": "50.1 h/week (full-time teachers); 23.3 h teaching (<half); 26% say workload acceptable",
+    "design": "Annual longitudinal survey of teachers and leaders in English state schools. Wave 4 had n=10,808 teachers and leaders plus 461 leavers, weighted to the School Workforce Census.",
+    "url": "https://assets.publishing.service.gov.uk/media/693bdc426a12691d48491e9b/Working_lives_of_teachers_and_leaders_wave_4_summary_report.pdf",
+    "caveat": "Covers English state schools only and is self-reported. The all-teacher average including part-time staff is 46.9 h.",
+    "confidence": "high (verified in PDF)"
+  },
+  {
+    "topic": "1. Teacher time (US)",
+    "citation": "Steiner, E.D., Levine, P.R., Doan, S., & Woo, A. (2025). Teacher Well-Being, Pay, and Intentions to Leave in 2025: Findings from the State of the American Teacher Survey. RAND, RR-A1108-16.",
+    "finding": "US K-12 teachers reported working a total of 49 hours per week on average in 2025. That is 4 hours less than in 2023 and 2024, but still 10 hours more than they are contracted to work.",
+    "number": "49 h/week; +10 h over contract",
+    "design": "Nationally representative weighted survey of 1,419 K-12 public school teachers (RAND American Teacher Panel), fielded Jan–Mar 2025, compared with 507 similar working adults.",
+    "url": "https://www.rand.org/content/dam/rand/pubs/research_reports/RRA1100/RRA1108-16/RAND_RRA1108-16.pdf",
+    "caveat": "The report does not give a teaching vs. non-teaching split. The survey is NEA-funded and covers the US only.",
+    "confidence": "high (verified in PDF)"
+  },
+  {
+    "topic": "2. Time AI could save",
+    "citation": "Bryant, J., Heitz, C., Sanghvi, S., & Wagle, D. (14 Jan 2020). How artificial intelligence will impact K-12 teachers. McKinsey & Company.",
+    "finding": "\"20 to 40 percent of current teacher hours are spent on activities that could be automated using existing technology. That translates into approximately 13 hours per week.\" McKinsey estimates the biggest saving is in preparation (11 h down to 6 h), followed by evaluation and feedback (3 of 6 h saved) and admin (5 h down to 3 h).",
+    "number": "20–40% of teacher hours; ~13 h/week",
+    "design": "Survey of more than 2,000 teachers in Canada, Singapore, the UK, and the US (2017, with Microsoft), plus McKinsey's task-level automation-potential modeling.",
+    "url": "https://www.mckinsey.com/industries/education/our-insights/how-artificial-intelligence-will-impact-k-12-teachers",
+    "caveat": "This is a modeled potential estimate made before ChatGPT, not measured savings. It is consultancy research, and the survey data are from 2017.",
+    "confidence": "high (quote verified via archived page)"
+  },
+  {
+    "topic": "2. Time AI could save (self-reported)",
+    "citation": "Gallup & Walton Family Foundation (June 2025). Teaching for Tomorrow: Unlocking Six Weeks a Year With AI.",
+    "finding": "Teachers who use AI at least weekly estimate it saves them 5.9 hours per week, about six weeks over a 37.4-week school year. Monthly users estimate 2.9 h. 60% of teachers used an AI tool in 2024-25, but only 32% use it weekly and 40% not at all.",
+    "number": "5.9 h/week (weekly users) ≈ 6 weeks/year",
+    "design": "Web survey of 2,232 US public K-12 teachers recruited from the RAND American Teacher Panel, fielded 18 Mar–11 Apr 2025, weighted, MOE ±2.5 pts.",
+    "url": "https://nextgeninsights.waltonfamilyfoundation.org/wp-content/uploads/2025/06/Teachers_AI_Report.pdf",
+    "caveat": "Savings are self-estimated by weekly users, who are self-selected enthusiasts. This is not causal evidence. US only.",
+    "confidence": "high (verified in PDF)"
+  },
+  {
+    "topic": "2. Time AI could save (RCT)",
+    "citation": "Roy, P., Poet, H., Staunton, R., Aston, K., & Thomas, D. (12 Dec 2024). ChatGPT in lesson preparation – A Teacher Choices Trial. NFER for the Education Endowment Foundation & Hg Foundation.",
+    "finding": "KS3 science teachers given ChatGPT plus a guide spent 56.2 minutes a week on Year 7/8 lesson and resource preparation, against 81.5 minutes for the no-GenAI group. That is a saving of 25.3 minutes a week (69% of the time, about 31% less). A blinded expert panel found no evidence of any difference in resource quality.",
+    "number": "31% less planning time (56.2 vs 81.5 min/week)",
+    "design": "School-randomised controlled trial with 259 Year 7/8 science teachers in 68 English secondary schools (129 teachers in 34 schools in the ChatGPT arm). Ten-week implementation in the summer term of 2024.",
+    "url": "https://www.nfer.ac.uk/publications/chatgpt-in-lesson-preparation-a-teacher-choices-trial/",
+    "caveat": "The measured saving is about 25 minutes a week on one subject's planning, not total workload. It covers one subject and one country. Time is self-reported (weeks 6–10).",
+    "confidence": "high (numbers verified on NFER publication page)"
+  },
+  {
+    "topic": "3. Teacher AI adoption & training gap (international)",
+    "citation": "OECD (2025), Results from TALIS 2024: The State of Teaching, Ch. 1 (Table 1.59, 1.63) and Ch. 4 (Table 4.22, 4.30).",
+    "finding": "36% of lower-secondary teachers (OECD average) used AI in their work in the past 12 months, rising to 75% in Singapore and the UAE. Among non-users, 75% say they lack the knowledge and skills to teach with AI. AI was the top area of professional-learning need (29% report high need), but only about 38% had any AI training.",
+    "number": "36% use AI (OECD avg; 41% TALIS-49 avg); 75% of non-users lack skills; ~38% trained; 29% high need",
+    "design": "TALIS 2024 international teacher survey, 55 systems, lower secondary.",
+    "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2025/10/results-from-talis-2024_28fbde1d/90df6235-en.pdf",
+    "caveat": "Data were collected in 2024 and adoption has likely risen since. 'Used AI' means any use in the past year. Secondary sources quoting '41%' are using the TALIS-49 average, not the OECD average.",
+    "confidence": "high (verified in report text + Table 1.59/1.63 xlsx)"
+  },
+  {
+    "topic": "3. Teacher AI adoption (China / Shanghai)",
+    "citation": "OECD (2025), Results from TALIS 2024, Tables 1.59, 1.63, 4.30 (StatLink https://stat.link/fvn03o, https://stat.link/0fcxr7).",
+    "finding": "53.5% of Shanghai lower-secondary teachers used AI in their work, against an OECD average of 36.3%. Among Shanghai non-users, 73.8% say they lack the knowledge and skills to teach with AI and 73.1% say their school lacks infrastructure. About 54% of Shanghai teachers report a high need for AI professional learning, against ~29% OECD.",
+    "number": "Shanghai 53.5% use AI; 73.8% of non-users lack skills; ~54% high AI-training need",
+    "design": "TALIS 2024, Shanghai sample.",
+    "url": "https://stat.link/fvn03o",
+    "caveat": "The ~54% need and ~56% participation figures are my sums of Table 4.30 cells (participated/high-need combinations) and are not printed as single numbers. Shanghai only.",
+    "confidence": "high for 53.5% and 73.8%; medium for derived ~54% need"
+  },
+  {
+    "topic": "3. Teacher AI adoption & training gap (US)",
+    "citation": "Doss, C.J., Bozick, R., Schwartz, H.L., et al. (2025). AI Use in Schools Is Quickly Increasing but Guidance Lags Behind: Findings from the RAND Survey Panels. RAND, RR-A4180-1.",
+    "finding": "53% of ELA, math, and science teachers used AI for school in spring 2025 (54% of students did too), up more than 15 points in one to two years. Only 55% of teachers said their school or district had offered any AI PD or resources, and 30% of all teachers said it was 'very little'. Of those who got it, only 35% found it helpful. Only 45% of principals report an AI policy.",
+    "number": "53% teachers use AI; 55% got any AI PD (25% 'some/a lot'); 35% found it helpful",
+    "design": "Eight nationally representative RAND panels. Teacher use: n=8,601 ELA, math, and science teachers (Apr–Jun 2025). PD question: n=959 K-12 teachers (Oct 2024).",
+    "url": "https://www.rand.org/content/dam/rand/pubs/research_reports/RRA4100/RRA4180-1/RAND_RRA4180-1.pdf",
+    "caveat": "US only. The 53% covers ELA, math, and science teachers, and the PD figure is from fall 2024.",
+    "confidence": "high (verified in PDF)"
+  },
+  {
+    "topic": "3. Teacher AI training gap (US, Gallup)",
+    "citation": "Gallup & Walton Family Foundation (June 2025). Teaching for Tomorrow: Unlocking Six Weeks a Year With AI, p.19.",
+    "finding": "68% of teachers did not take part in any school- or district-provided AI training in 2024-25. Teachers are more likely to teach themselves AI than to be trained by their school (52% vs 31%). Only 19% say their school has an AI policy.",
+    "number": "68% no training; 52% self-taught vs 31% school-trained; 19% school AI policy",
+    "design": "n=2,232 US public K-12 teachers, Mar–Apr 2025.",
+    "url": "https://nextgeninsights.waltonfamilyfoundation.org/wp-content/uploads/2025/06/Teachers_AI_Report.pdf",
+    "caveat": "US only.",
+    "confidence": "high (verified in PDF)"
+  },
+  {
+    "topic": "3. Teacher AI adoption (mainland China)",
+    "citation": "《中国教师生成式人工智能应用报告(2026)》 (Report on Generative AI Application among Chinese Teachers, 2026), guided by the MOE Department of Teacher Affairs and compiled by the MOE Center for Educational Technology and Resource Development (中央电化教育馆). Released 12 May 2026 at the World Digital Education Conference, Hangzhou.",
+    "finding": "96.1% of Chinese teachers are inclined to actively learn and try more AI tools, and 92.3% are inclined to integrate AI into classroom teaching. 86% worry that students' over-reliance on AI will erode independent thinking.",
+    "number": "96.1% / 92.3% / 86%",
+    "design": "Survey of ~86,000 teachers across 30 provinces plus 4M+ characters of text materials (school levels not specified in coverage).",
+    "url": "https://m.gmw.cn/2026-05/13/content_38762738.htm",
+    "caveat": "I could not locate the full report. Figures come from Guangming/China News Service coverage. '倾向于' measures inclination, not actual usage, and no training-rate figure is reported.",
+    "confidence": "medium (secondary state-media coverage; primary report not found)"
+  },
+  {
+    "topic": "3. Institutional guidance gap (global)",
+    "citation": "UNESCO (1 June 2023). UNESCO survey: Less than 10% of schools and universities have formal guidance on AI.",
+    "finding": "A global UNESCO survey of more than 450 schools and universities found that fewer than 10% had developed institutional policies and/or formal guidance on generative AI.",
+    "number": "<10% of 450+ institutions",
+    "design": "Global institutional survey prepared for UNESCO's Ministerial Roundtable on Generative AI and Education, 25 May 2023.",
+    "url": "https://www.unesco.org/en/articles/unesco-survey-less-10-schools-and-universities-have-formal-guidance-ai",
+    "caveat": "Dated (May 2023) and a convenience sample. Coverage reports 7% of schools vs 13% of universities, but I did not verify that split on the UNESCO page.",
+    "confidence": "high for '<10% of 450+'; medium for school/university split"
+  },
+  {
+    "topic": "4. Burnout / workload as reason to leave (international)",
+    "citation": "OECD (2025), Results from TALIS 2024: The State of Teaching, Ch. 2–3, Ch. 7 (Tables 2.3, 3.16, 7.1).",
+    "finding": "Excessive administrative work is the most common source of teacher stress: 52% of teachers on average report it 'quite a bit' or 'a lot'. 19% experience stress 'a lot' at work. 20% of teachers under 30 intend to leave teaching within five years (OECD avg). More hours on admin, marking, and parent communication are linked to steeper drops in well-being than more hours of teaching.",
+    "number": "52% admin = top stressor; 19% stressed 'a lot'; 20% of under-30s plan to leave within 5 yrs",
+    "design": "TALIS 2024, lower secondary, OECD average.",
+    "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2025/10/results-from-talis-2024_28fbde1d/90df6235-en.pdf",
+    "caveat": "Self-reported intentions, not actual exits. Stress shares vary widely by system (e.g., Shanghai 29% for admin stress).",
+    "confidence": "high"
+  },
+  {
+    "topic": "4. Burnout / workload as reason to leave (England)",
+    "citation": "IFF Research & UCL IOE for DfE (Nov 2025), Working lives of teachers and leaders: wave 4 – Summary report, ch. 11.",
+    "finding": "High workload was the most commonly cited reason among teachers who left English state schools: 74% of 2024–25 leavers, down from 84% in 2024. Leavers still in work averaged 34.8 h/week, and 78% said their workload was acceptable.",
+    "number": "74% of leavers cite high workload",
+    "design": "As above; 461 leavers surveyed.",
+    "url": "https://assets.publishing.service.gov.uk/media/693bdc426a12691d48491e9b/Working_lives_of_teachers_and_leaders_wave_4_summary_report.pdf",
+    "caveat": "Small leaver sample. Respondents could cite several reasons.",
+    "confidence": "high"
+  },
+  {
+    "topic": "4. Burnout (US)",
+    "citation": "RAND (2025), Teacher Well-Being, Pay, and Intentions to Leave in 2025 (RR-A1108-16).",
+    "finding": "53% of US teachers reported burnout in 2025 (down from 60% in 2024). Teachers reported worse well-being than similar working adults on every indicator. 16% intended to leave their jobs by the end of 2024-25, down from 22%.",
+    "number": "53% burnout; 16% intend to leave",
+    "design": "n=1,419 teachers, Jan–Mar 2025, weighted national.",
+    "url": "https://www.rand.org/content/dam/rand/pubs/research_reports/RRA1100/RRA1108-16/RAND_RRA1108-16.pdf",
+    "caveat": "'Intend to leave' covers leaving the current school job, not necessarily the profession.",
+    "confidence": "high"
+  },
+  {
+    "topic": "5. Students already using AI (US)",
+    "citation": "Pew Research Center (24 Feb 2026). How Teens Use and View AI.",
+    "finding": "54% of US teens ages 13–17 have used AI chatbots to get help with schoolwork. About 1 in 10 do all or most of their schoolwork with chatbot help. 59% think using AI to cheat happens at least somewhat often at their school.",
+    "number": "54% use chatbots for schoolwork; 59% say AI cheating is common",
+    "design": "Online survey of 1,458 US teens and their parents, 25 Sep–9 Oct 2025 (Ipsos KnowledgePanel).",
+    "url": "https://www.pewresearch.org/wp-content/uploads/sites/20/2026/02/PI_2026.02.24_Teens-and-AI_REPORT.pdf",
+    "caveat": "US only. Covers chatbots broadly, so it is not comparable to Pew's earlier ChatGPT-only figure (26% in fall 2024, 13% in 2023).",
+    "confidence": "high (verified in PDF)"
+  },
+  {
+    "topic": "5. Students already using AI (US, RAND)",
+    "citation": "Doss et al. (2025), RAND RR-A4180-1.",
+    "finding": "54% of US middle and high school students used AI for school in 2025. More than 80% say no teacher has explicitly taught them how to use AI for schoolwork (only 19% report teacher guidance). Half worry about being falsely accused of AI cheating.",
+    "number": "54% use; only 19% got teacher guidance",
+    "design": "RAND American Youth Panel, n=1,261 students (Jan–Feb 2025) + 852 (Feb–Mar 2025).",
+    "url": "https://www.rand.org/content/dam/rand/pubs/research_reports/RRA4100/RRA4180-1/RAND_RRA4180-1.pdf",
+    "caveat": "US only.",
+    "confidence": "high"
+  },
+  {
+    "topic": "5. Students already using AI (US, College Board)",
+    "citation": "College Board (6 Oct 2025). New research: majority of high school students use generative AI for schoolwork (AI Research Brief 1).",
+    "finding": "84% of US high school students used GenAI tools for schoolwork as of May 2025, up from 79% in January 2025. 69% used ChatGPT for schoolwork.",
+    "number": "84%",
+    "design": "College Board student, parent, and educator surveys, June 2024–June 2025.",
+    "url": "https://newsroom.collegeboard.org/new-research-majority-high-school-students-use-generative-ai-schoolwork",
+    "caveat": "The sample size and method are not stated on the newsroom page (the PDF brief was blocked). '84%' counts any use; a follow-up brief puts regular ('often/sometimes') use at ~60%.",
+    "confidence": "medium-high (newsroom page verified; methods not checked)"
+  },
+  {
+    "topic": "5. Students already using AI (China)",
+    "citation": "China Youth & Children Research Center (中国青少年研究中心), team led by Sun Hongyan (孙宏艳), survey of primary and secondary students, May–Jul 2025 (as reported by Huxiu, 36Kr, and TMTPost, 2025–2026).",
+    "finding": "61.7% of surveyed Chinese primary and secondary students had used generative AI, and 18.3% use it often. The top use was help completing homework (71.0%). 20.5% said they would rather rely on AI than think for themselves.",
+    "number": "61.7% used GenAI; 71.0% use it for homework",
+    "design": "8,563 valid questionnaires from students in 7 provinces/municipalities (Beijing, Guangdong, Jiangsu, Henan, Sichuan, Shaanxi, Liaoning).",
+    "url": "https://www.huxiu.com/article/4876867.html",
+    "caveat": "UNCONFIRMED at primary source: I did not locate the original report, and figures come from Chinese tech-media coverage. The 71.0% is likely a share of AI users, not of all students.",
+    "confidence": "low-medium"
+  }
+]

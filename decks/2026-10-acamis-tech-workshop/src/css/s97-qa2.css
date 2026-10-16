@@ -1,0 +1,27 @@
+/* ===== Fresh-eyes QA, slides 19-36 (Oct 13). Every rule is scoped to one slide's component. ===== */
+
+/* s30 Cursor: the $60B bar was squeezed by the logo row above it (114px drawn for 171px), so the
+   two bars no longer kept the source's 48.8 : 100 ratio. Bars never shrink; the plot is tall enough
+   for the tallest column (logo row + figure + full bar). */
+section.s .gcol .gb{flex:none}
+section.s .gcol .gb:not(.dot){height:calc(var(--v,0) * .9px)}
+section.s .gcol .gc{height:254px}
+
+/* s31 Tools we've taught: the grid floated low in its card, leaving an empty band under the label.
+   Fourteen tools now sit in three centered rows (5, 5, 4): the first row starts level with the 01-04 list
+   in the next card and the last row ends level with that card's closing line, so the card is evenly filled. */
+section.s .sk-l .sk-tools{display:flex;flex-wrap:wrap;justify-content:center;align-content:space-between;gap:0;margin-top:2px}
+section.s.ae .bd .sk-l .sk-tools li{flex:0 0 20%;gap:14px}
+section.s .sk-l .sk-tools img{width:76px;height:76px;border-radius:18px}
+section.s.ae .bd .sk-l .sk-tools b{font-size:18px}
+:lang(zh-CN) section.s.ae .bd .sk-l .sk-tools b{font-size:17px}
+
+/* s32 Real cases: after the body text got smaller, each card had a 110-200px empty band above the
+   skill footer. Taller photos take up that space; the longest card keeps a clear gap. */
+section.s .pbr figure{height:196px}
+:lang(zh-CN) section.s .pbr figure{height:186px}
+
+/* s33 Close: the end line grew (flex 1 0 auto) and pushed the 1-2-3 row up against the title
+   (11px gap). It no longer grows, so the row and the end line center in the space below the title. */
+section.s.ae.cl .bd .endline{flex:none}
+section.s.ae.cl .bd{justify-content:center;gap:72px}

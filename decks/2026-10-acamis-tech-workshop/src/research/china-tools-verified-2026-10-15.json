@@ -1,0 +1,380 @@
+{
+  "tools": [
+    {
+      "tool": "Kimi",
+      "name_en": "Kimi",
+      "name_zh": "Kimi",
+      "maker": "Moonshot AI (北京月之暗面科技有限公司)",
+      "url": "https://www.kimi.com (kimi.moonshot.cn redirects here)",
+      "domestic_no_vpn": true,
+      "good_for": "Long-document reading, research, agent-built slides and websites",
+      "age_policy": "Mainly for adults 18+; under-18s need guardian consent. User agreement: '如您未满18周岁，请在法定监护人陪同下仔细阅读并充分理解本协议…并征得法定监护人的同意后使用本服务。' Minor privacy policy (updated 2026-08-24): 'Kimi的产品和服务主要面向已满18周岁的成年人。'",
+      "sources": [
+        "https://www.kimi.com/user/agreement/zh/modelUse",
+        "https://www.kimi.com/user/agreement/minor-privacy-policy",
+        "https://www.kimi.com/en/help/agent/agent-overview"
+      ],
+      "confidence": "high"
+    },
+    {
+      "tool": "DeepSeek",
+      "name_en": "DeepSeek",
+      "name_zh": "深度求索 / DeepSeek",
+      "maker": "DeepSeek (杭州深度求索人工智能基础技术研究有限公司)",
+      "url": "https://chat.deepseek.com",
+      "domestic_no_vpn": true,
+      "good_for": "Strong free reasoning for math, coding, and writing",
+      "age_policy": "Mainly for adults; under-18s need guardian consent. Terms (2025-09-05) §2.1: '如果您未满18周岁，请在法定监护人陪同下阅读本协议，并在征得法定监护人的同意后使用本服务。' Privacy policy (2026-02-10): '我们不会主动收集未满14周岁的未成年人（儿童）的个人信息。'",
+      "sources": [
+        "https://cdn.deepseek.com/policies/zh-CN/deepseek-terms-of-use.html",
+        "https://cdn.deepseek.com/policies/zh-CN/deepseek-privacy-policy.html"
+      ],
+      "confidence": "high"
+    },
+    {
+      "tool": "Doubao",
+      "name_en": "Doubao",
+      "name_zh": "豆包",
+      "maker": "ByteDance (字节跳动)",
+      "url": "https://www.doubao.com",
+      "domestic_no_vpn": true,
+      "good_for": "All-round everyday assistant with voice, images, and search",
+      "age_policy": "Mainly for adults; under-18 guardian consent; under-14 prior guardian consent. Terms (eff. 2026-09-17): '如你未满18周岁…并征得法定监护人的同意后使用本软件及相关服务。' Privacy §7: '如果是不满14周岁的未成年人（\"儿童\"），在使用豆包及相关服务前，需要获得…监护人的同意。' A parent-password minor-protection mode exists (reported 2026).",
+      "sources": [
+        "https://www.doubao.com/legal/terms",
+        "https://www.doubao.com/legal/privacy",
+        "https://news.aibase.com/zh/news/20818"
+      ],
+      "confidence": "high"
+    },
+    {
+      "tool": "Qwen",
+      "name_en": "Qwen (Qwen app; formerly Tongyi / Tongyi Qianwen)",
+      "name_zh": "千问 (原通义 / 通义千问)",
+      "maker": "Alibaba (阿里巴巴)",
+      "url": "https://www.qianwen.com (tongyi.com 301-redirects here)",
+      "domestic_no_vpn": true,
+      "good_for": "General chat, documents, and Alibaba-ecosystem tasks",
+      "age_policy": "Mainly for adults; under-18 guardian consent; under-14 prior guardian consent with guardian completing registration; separate children's rules. Terms (2026-03-20): '千问产品及服务的主要适用人群为成年人，如您是未满18周岁的未成年人…在征得父母或其他监护人的同意及陪同下使用本服务。' Privacy (eff. 2026-10-07): '若您为未满14周岁的儿童，请在使用千问产品与服务前事先取得您的父母或其他法定监护人的同意…'",
+      "sources": [
+        "https://terms.alicdn.com/legal-agreement/terms/c_end_product_protocol/20231011201348415/20231011201348415.html",
+        "https://terms.alicdn.com/legal-agreement/terms/privacy_policy_full/20231011201849846/20231011201849846.html",
+        "https://terms.alicdn.com/legal-agreement/terms/privacy_kid_protect/20240119161309958/20240119161309958.html",
+        "https://www.ithome.com/0/913/084.htm"
+      ],
+      "confidence": "high"
+    },
+    {
+      "tool": "Tencent Yuanbao",
+      "name_en": "Tencent Yuanbao",
+      "name_zh": "腾讯元宝",
+      "maker": "Tencent (腾讯)",
+      "url": "https://yuanbao.tencent.com",
+      "domestic_no_vpn": true,
+      "good_for": "Chat and search, including WeChat articles and files",
+      "age_policy": "Mainly for adults; under-18 guardian consent; under-14 parent consent and parent completes registration. Terms §11.1 (eff. 2025-12-13): '本服务主要面向成年人提供。若您是未满18周岁的未成年人，您应在监护人监护、指导并获得监护人同意的情况下…方可使用本服务。' Privacy §8 (eff. 2026-09-18): '若您是14周岁以下的儿童…应当…事先取得您的家长或法定监护人的同意'.",
+      "sources": [
+        "https://rule.tencent.com/rule/202403110001",
+        "https://privacy.qq.com/document/preview/eb9be56572ab4886b6ca124e72abf413"
+      ],
+      "confidence": "high"
+    },
+    {
+      "tool": "Baidu Wenxin (ERNIE Bot)",
+      "name_en": "Baidu Wenxin assistant (formerly ERNIE Bot / Wenxiaoyan)",
+      "name_zh": "文心 / 百度文心助手 (原文心一言、文小言)",
+      "maker": "Baidu (百度)",
+      "url": "https://wenxin.baidu.com (yiyan.baidu.com redirects here)",
+      "domestic_no_vpn": true,
+      "good_for": "Search-grounded answers, writing, and image creation",
+      "age_policy": "Mainly for adults; under-18 guardian consent. Terms (2025-11-13): '本服务主要面向成年人提供。若您是未满18周岁的未成年人，您应在监护人监护、指导并获得监护人同意的情况下…方可使用本服务。' Baidu children's statement: under-14s need guardian consent for any Baidu product.",
+      "sources": [
+        "https://aisearch.cdn.bcebos.com/homepage/privacy/newest-term.html",
+        "https://privacy.baidu.com/policy/children-privacy-policy/index.html",
+        "https://www.yicai.com/news/102259779.html",
+        "https://www.jiemian.com/article/14475368.html"
+      ],
+      "confidence": "high (name: the app is '文心'; web title '百度文心助手'; no official new English name found)"
+    },
+    {
+      "tool": "Zhipu Qingyan",
+      "name_en": "Zhipu Qingyan (ChatGLM)",
+      "name_zh": "智谱清言",
+      "maker": "Zhipu AI / Z.AI (北京智谱华章科技股份有限公司)",
+      "url": "https://chatglm.cn",
+      "domestic_no_vpn": true,
+      "good_for": "Chat, PPT drafting, and data analysis with GLM",
+      "age_policy": "Under-18s need parent/guardian consent; minor learning mode. Privacy §7 (2026-08-05): '如果您是未满18周岁的未成年人，在注册/使用我们的产品前，应在您监护人的陪同下共同阅读本政策及《未成年人使用须知》，并在取得您父母或法定监护人的同意后使用我们的产品。'",
+      "sources": [
+        "https://chatglm.cn/legal/appAgreement",
+        "https://chatglm.cn/legal/privacyPolicySingle",
+        "https://tech.ifeng.com/c/8ul9s3WQ9WP"
+      ],
+      "confidence": "high (company English name changed to Z.AI; consumer app still 智谱清言)"
+    },
+    {
+      "tool": "Metaso",
+      "name_en": "Metaso AI Search",
+      "name_zh": "秘塔AI搜索",
+      "maker": "MetaSota (上海秘塔网络科技有限公司)",
+      "url": "https://metaso.cn",
+      "domestic_no_vpn": true,
+      "good_for": "Ad-free research search with cited sources",
+      "age_policy": "No age number. Privacy §10.1 (2025-10-31): '如您为未成年人的，建议您请您的父母或监护人仔细阅读本隐私权政策，并在征得您的父母或监护人同意的前提下使用我们的服务…' User agreement: no minor clause found.",
+      "sources": [
+        "https://metaso.cn/meta-private-policy",
+        "https://metaso.cn/meta-user-policy"
+      ],
+      "confidence": "high"
+    },
+    {
+      "tool": "Jimeng",
+      "name_en": "Jimeng AI (international sibling: Dreamina, dreamina.capcut.com — not the China service)",
+      "name_zh": "即梦AI",
+      "maker": "ByteDance (operator 深圳市脸萌科技有限公司)",
+      "url": "https://jimeng.jianying.com",
+      "domestic_no_vpn": true,
+      "good_for": "Text-to-image, posters, and short AI video clips",
+      "age_policy": "Mainly for adults; under-18s only after guardian agrees. Terms (eff. 2025-09-01): '若您是未满18周岁的未成年人，您应在监护人指导下认真阅读本协议，经您的监护人同意本协议后，方可使用即梦AI。'",
+      "sources": [
+        "https://lf9-cdn-tos.draftstatic.com/obj/ies-hotsoon-draft/vco/17620dba-f821-4a18-85f9-b8b11f73304a.html",
+        "https://lf3-cdn-tos.draftstatic.com/obj/ies-hotsoon-draft/vco/fadfa00e-21c4-41ac-a1ac-c694e7ccedca.html"
+      ],
+      "confidence": "high"
+    },
+    {
+      "tool": "Kolors / Kling image",
+      "name_en": "Kolors (image model; used for image generation inside Kling AI)",
+      "name_zh": "可图",
+      "maker": "Kuaishou (快手)",
+      "url": "https://kolors.kuaishou.com (model page) ; images are generated inside Kling AI",
+      "domestic_no_vpn": true,
+      "good_for": "Image generation with good Chinese text rendering",
+      "age_policy": "No separate Kolors consumer terms found; image generation inside Kling AI falls under Kling's terms (under-18 guardian consent; see Kling AI).",
+      "sources": [
+        "https://kolors.kuaishou.com",
+        "https://www.businesswire.com/news/home/20250509441257/en/From-Vision-to-Screen-How-Kling-AI-2.0-Ushers-in-New-Era-of-Content-Creation"
+      ],
+      "confidence": "medium (recommend listing as 'Kling AI (images + video)' rather than a separate tool)"
+    },
+    {
+      "tool": "LiblibAI",
+      "name_en": "LiblibAI",
+      "name_zh": "哩布哩布AI",
+      "maker": "LiblibAI (operating entity not confirmed)",
+      "url": "https://www.liblib.art",
+      "domestic_no_vpn": true,
+      "good_for": "Community models and styles for AI image design",
+      "age_policy": "Under-18s need guardian supervision and consent. Terms §9.1 (2026-05-17): '若您是未满18周岁的未成年人，您应在您的监护人监护、指导下并获得监护人同意的情况下…方可使用哩布哩布AI相关服务。'",
+      "sources": [
+        "https://www.liblib.art/activities/468ad794ccc7408d81757fd91be003ec",
+        "https://www.liblib.art/activities/7a354f41ead34f719eb49576e5292d00"
+      ],
+      "confidence": "high (age); operator entity unconfirmed"
+    },
+    {
+      "tool": "Kling AI",
+      "name_en": "Kling AI",
+      "name_zh": "可灵AI",
+      "maker": "Kuaishou (北京快手科技有限公司)",
+      "url": "https://klingai.kuaishou.com (domestic; from outside China it redirects to the global klingai.com)",
+      "domestic_no_vpn": true,
+      "good_for": "High-quality text/image-to-video and image generation",
+      "age_policy": "Under-18s need guardian supervision and consent; guardian accepts for under-16s; top-ups need guardian's explicit consent. Terms (2026-06-24): '若您是未满18周岁的未成年人，您应在监护人监护、指导并获得监护人同意的情况下，认真阅读并同意本协议后，方可使用\"可灵AI\"。'",
+      "sources": [
+        "https://ppg.viviv.com/doodle/oarzodFE.html",
+        "https://ppg.viviv.com/doodle/IzeNXAwZ.html"
+      ],
+      "confidence": "high (age); medium (exact domestic landing URL)"
+    },
+    {
+      "tool": "Hailuo AI",
+      "name_en": "Hailuo AI (domestic web branded 'Hailuo Video')",
+      "name_zh": "海螺AI (网页标题: 海螺视频)",
+      "maker": "MiniMax (operator 上海极智无界科技有限公司)",
+      "url": "https://hailuoai.com (international: hailuoai.video)",
+      "domestic_no_vpn": true,
+      "good_for": "Expressive short AI videos from text or images",
+      "age_policy": "Under-18s need legal guardian consent. User agreement (2026-07-29): '未满18周岁的未成年人需要在征得法定监护人的同意后方能使用本产品。'",
+      "sources": [
+        "https://hailuoai.com/video/doc/zh/user-agreement.html",
+        "https://hailuoai.com/video/doc/zh/privacy-policy.html"
+      ],
+      "confidence": "high"
+    },
+    {
+      "tool": "Vidu",
+      "name_en": "Vidu",
+      "name_zh": "Vidu",
+      "maker": "ShengShu Technology (北京生数科技股份有限公司)",
+      "url": "https://www.vidu.cn (international: vidu.com)",
+      "domestic_no_vpn": true,
+      "good_for": "Fast reference-based AI video generation",
+      "age_policy": "ADULTS ONLY — no service to under-18s. Terms (2026-07-03): '我们并不向未满18周岁的未成年人提供服务。' Privacy (2026-07-23): '本平台的所有服务仅面向年满18周岁的成年用户。如您未满18周岁，请勿注册、登录或以任何方式使用本平台服务。'",
+      "sources": [
+        "https://www.vidu.cn/terms",
+        "https://www.vidu.cn/privacy"
+      ],
+      "confidence": "high"
+    },
+    {
+      "tool": "TRAE China",
+      "name_en": "TRAE (China edition)",
+      "name_zh": "TRAE 国内版",
+      "maker": "ByteDance (operator 北京引力弹弓科技有限公司)",
+      "url": "https://www.trae.cn",
+      "domestic_no_vpn": true,
+      "good_for": "AI coding IDE that builds apps from prompts",
+      "age_policy": "Main audience 18+; under-18s need guardian consent to create an account or use. Terms §15.1 (2026-06-05): '若你是未满18周岁的未成年人，你应在监护人监护、指导并获得监护人同意的情况下…方可使用本软件及相关服务。' Privacy §7 (2026-08-18): '如果没有父母或监护人的同意，未成年人（不满十八周岁）不应创建任何账户或使用产品及其服务。'",
+      "sources": [
+        "https://www.trae.cn/terms-of-service",
+        "https://www.trae.cn/privacy-policy"
+      ],
+      "confidence": "high (text retrieved via trae.cn's own API; site geo-blocks non-China IPs)"
+    },
+    {
+      "tool": "Tongyi Lingma (now Qoder CN)",
+      "name_en": "Qoder CN (renamed from Tongyi Lingma on 2026-05-20)",
+      "name_zh": "Qoder CN (原通义灵码)",
+      "maker": "Alibaba Cloud (operator 通义云启（杭州）信息技术有限公司)",
+      "url": "https://qoder.cn (lingma.aliyun.com still loads)",
+      "domestic_no_vpn": true,
+      "good_for": "Code completion and agent coding in VS Code/JetBrains",
+      "age_policy": "Privacy §7.1 (eff. 2026-06-10): '我们主要面向成年人提供本服务…如您为未成年人…在征得您的父母或其他监护人同意的前提下使用我们的产品或服务。' User agreement: no age clause found.",
+      "sources": [
+        "https://help.aliyun.com/zh/lingma/qoder-cn/product-overview/what-is-qoder-cn",
+        "https://terms.alicdn.com/legal-agreement/terms/privacy_policy_full/20231023213159724/20231023213159724.html"
+      ],
+      "confidence": "high"
+    },
+    {
+      "tool": "Baidu Comate",
+      "name_en": "Baidu Comate",
+      "name_zh": "文心快码",
+      "maker": "Baidu (百度)",
+      "url": "https://comate.baidu.com",
+      "domestic_no_vpn": true,
+      "good_for": "AI coding assistant plugin for common IDEs",
+      "age_policy": "Privacy §5 (2024-06-25): '如您是未满14周岁的未成年人，在使用Baidu Comate产品和服务前…在征得您的父母或其他监护人同意的前提下使用我们的产品和服务。' Mainly for adults. User agreement: no minor clause found.",
+      "sources": [
+        "https://comate.baidu.com/zh/privacyPolicy",
+        "https://comate.baidu.com/zh/userAgreement",
+        "https://m.jiemian.com/article/15064078.html"
+      ],
+      "confidence": "high (age); note unconfirmed Sept 2026 report that Comate was folded into Baidu's DuMate (百度搭子) agent platform"
+    },
+    {
+      "tool": "Tencent CodeBuddy",
+      "name_en": "Tencent Cloud CodeBuddy (China edition)",
+      "name_zh": "腾讯云代码助手 CodeBuddy",
+      "maker": "Tencent Cloud (腾讯云计算（北京）有限责任公司)",
+      "url": "https://www.codebuddy.cn (same site at copilot.tencent.com; international: codebuddy.ai)",
+      "domestic_no_vpn": true,
+      "good_for": "AI coding IDE, plugin, and CLI from Tencent",
+      "age_policy": "Under-18 prior guardian consent; under-14 guardian must read children's privacy statement and consent. Agreement (2025-09-26): '如果您是未满14周岁的儿童用户，还应请法定监护人仔细阅读《儿童隐私保护声明》并取得同意后方可使用本软件及服务。' Privacy §10 (2026-05-15): '若您是18周岁以下的未成年人，在使用本服务前，应事先取得您的家长或法定监护人的同意。'",
+      "sources": [
+        "https://www.codebuddy.cn/agreement/",
+        "https://privacy.qq.com/document/preview/284d799a07164d09bfc7cedd0ec3e089"
+      ],
+      "confidence": "high"
+    },
+    {
+      "tool": "Kimi websites/slides",
+      "name_en": "Kimi Agent (formerly 'OK Computer' mode): Websites + Slides",
+      "name_zh": "Kimi Agent / OK Computer",
+      "maker": "Moonshot AI",
+      "url": "https://www.kimi.com",
+      "domestic_no_vpn": true,
+      "good_for": "Generate deployable websites and slide decks from prompts",
+      "age_policy": "Same as Kimi (18+ primary audience; under-18 guardian consent).",
+      "sources": [
+        "https://www.kimi.com/en/help/agent/agent-overview"
+      ],
+      "confidence": "high (help center documents website build+deploy with share link, and 'PPT creation (Slides)'; OK Computer launched 2025-09-26)"
+    }
+  ],
+  "microsoft_365_copilot_china": {
+    "finding": "Not available. Microsoft's own Copilot regions page excludes China (excluding Hong Kong SAR): 'exceptions for regions like China (excluding Hong Kong SAR)… where Copilot is either not available or not supported.' The Microsoft 365 operated by 21Vianet service description (updated 2026-06-15) lists no Copilot service in any plan table and notes 'some features that have not yet been enabled.' No Microsoft document explicitly naming '21Vianet + Copilot' was found; third-party 2026 guides state Copilot is not offered on 21Vianet and Copilot requires a global tenant. Schools on 21Vianet M365 should assume no Copilot.",
+    "sources": [
+      "https://support.microsoft.com/en-us/topic/supported-regions-and-languages-in-microsoft-copilot-26de43a1-c176-4908-bef7-29c8c37ac7ce",
+      "https://learn.microsoft.com/en-us/office365/servicedescriptions/office-365-platform-service-description/microsoft-365-operated-by-21vianet",
+      "https://www.21cloudbox.com/support/microsoft-copilot-china.html",
+      "https://www.ptsconsulting.com.hk/blog/microsoft-365-in-china-in-2025-a-practical-decision-guide-for-global-it"
+    ],
+    "confidence": "high that it is unavailable; medium on exact wording (no explicit 21Vianet+Copilot statement from Microsoft)"
+  },
+  "foreign_tools": [
+    {
+      "tool": "ChatGPT",
+      "serves_mainland_china": false,
+      "evidence": "OpenAI's supported countries list omits China (and Hong Kong/Macao); OpenAI blocked API traffic from these regions from July 9, 2024.",
+      "min_age": "13 (or local minimum); under 18 needs parent/legal guardian permission: 'You must be at least 13 years old… If you are under 18 you must have your parent or legal guardian's permission to use the Services.'",
+      "sources": [
+        "https://help.openai.com/en/articles/7947663-chatgpt-supported-countries",
+        "https://openai.com/policies/row-terms-of-use/",
+        "https://www.theregister.com/2024/06/25/openai_unsupported_countries/"
+      ],
+      "confidence": "high (supported-countries page could not be fetched directly; absence of China confirmed via search snippets and press)"
+    },
+    {
+      "tool": "Claude",
+      "serves_mainland_china": false,
+      "evidence": "Anthropic supported-countries page does not list China or Hong Kong: 'Any country or region not listed is unsupported.'",
+      "min_age": "18: 'You must be at least 18 years old or the minimum age required to consent to use the Services in your location, whichever is higher.'",
+      "sources": [
+        "https://www.anthropic.com/supported-countries",
+        "https://www.anthropic.com/legal/consumer-terms"
+      ],
+      "confidence": "high"
+    },
+    {
+      "tool": "Gemini",
+      "serves_mainland_china": "Not for consumers. Google's list shows 'Mainland China (Workspace only)' — i.e., listed only for Google Workspace accounts; personal accounts unsupported, and Google services are network-blocked in mainland China, so not usable without VPN in practice.",
+      "sources": [
+        "https://support.google.com/gemini/answer/13575153?hl=en"
+      ],
+      "confidence": "high (surprising nuance)"
+    },
+    {
+      "tool": "Perplexity",
+      "serves_mainland_china": false,
+      "evidence": "No official Perplexity supported-regions page found; third-party monitors report vendor geo-restriction plus network blocking.",
+      "sources": [
+        "https://voidly.ai/ai-blocked/is-perplexity-blocked-in-china"
+      ],
+      "confidence": "medium (no official page)"
+    },
+    {
+      "tool": "Midjourney",
+      "serves_mainland_china": false,
+      "evidence": "No official supported-regions page found; no official China service (a 2023 'Midjourney China' WeChat account was unverified and deleted). Discord, which it historically relied on, is blocked in China.",
+      "sources": [
+        "https://technews.tw/?p=1070827"
+      ],
+      "confidence": "medium (no official page)"
+    },
+    {
+      "tool": "Cursor",
+      "serves_mainland_china": "Not officially, partially. Cursor's regions doc says some model providers have location restrictions so those models disappear in restricted regions; Cursor staff state OpenAI, Anthropic and Google don't serve mainland China. Cursor has no explicit China ban page.",
+      "sources": [
+        "https://cursor.com/docs/account/regions",
+        "https://forum.cursor.com/t/this-model-provider-doesnt-serve-your-region/118453?page=5"
+      ],
+      "confidence": "medium-high"
+    }
+  ],
+  "pipl": {
+    "article_28": "敏感个人信息…包括生物识别、宗教信仰、特定身份、医疗健康、金融账户、行踪轨迹等信息，以及不满十四周岁未成年人的个人信息。 (EN, DigiChina: '…as well as the personal information of minors under the age of 14.')",
+    "article_31": "个人信息处理者处理不满十四周岁未成年人个人信息的，应当取得未成年人的父母或者其他监护人的同意。个人信息处理者处理不满十四周岁未成年人个人信息的，应当制定专门的个人信息处理规则。 (EN, DigiChina: 'Where personal information handlers handle the personal information of minors under the age of 14, they shall obtain the consent of the parent or other guardian of the minor… shall formulate specialized personal information handling rules.')",
+    "effective": "2021-11-01",
+    "sources": [
+      "https://www.cac.gov.cn/2021-08/20/c_1631050028355286.htm",
+      "https://digichina.stanford.edu/work/translation-personal-information-protection-law-of-the-peoples-republic-of-china-effective-nov-1-2021/"
+    ],
+    "confidence": "high"
+  },
+  "notes": [
+    "domestic_no_vpn=true means a Chinese-operated domestic service intended for mainland users; verified by official .cn/domestic domains and operator entities, not by live testing from a mainland network.",
+    "Every Chinese service's terms say it is mainly for adults; none sets a hard floor except Vidu (18+ only). Most require guardian consent under 18, and several add explicit under-14 rules matching PIPL Art. 31."
+  ]
+}

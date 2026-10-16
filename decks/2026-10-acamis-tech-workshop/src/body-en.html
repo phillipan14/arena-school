@@ -1,0 +1,445 @@
+<!-- 1 · Cover -->
+<section class="s ae cover aga-cv"><div class="w">
+ <div class="cv-top"></div>
+ <div class="cv-mid">
+  <p class="kick r">ACAMIS Technology Conference · October 18, 2026</p>
+  <p class="cv-lede r" style="--d:.05s">A case study from <span class="nw">the <img class="aga-isb" src="/logos/cred/isb.png" alt="International School of Beijing"></span></p>
+  <h1 class="r" style="--d:.1s">From Lab <span class="m" style="--d:1s"><em>to Classroom</em></span><span class="sub" style="--d:1.3s">Running an AI Student Program Inside a School</span></h1>
+ </div>
+ <div class="cv-foot"><span class="cv-rule"></span><a class="cv-qr" href="__URL__" target="_blank" rel="noopener"><img src="/decks/img/acamis/qr-acamis-clear.png" alt="QR code for __DISPLAY__"><span>Today’s slides, checklist, and tool guide<small>__DISPLAY_HTML__</small></span></a></div>
+</div><img class="brandmk ra-bm" src="/decks/img/acamis/a-wordmark-url-navy.png" alt="" aria-hidden="true" width="1600" height="243"><aside class="notes">Welcome. We are Arena School, and this is a case study from the International School of Beijing. Scan the code for today's slides, the planning checklist, and a guide to AI tools on school networks. Every number today comes from a public source, cited on the slide. Here is the plan for the hour.</aside></section>
+
+<!-- 2 · Contents -->
+<section class="s alt ae r7-toc"><div class="w">
+ <p class="kick r">The next 60 minutes</p>
+ <h2 class="r" style="--d:.1s">From what students built in five days <em>to what you can run at your school.</em></h2>
+ <div class="bd r" style="--d:.25s">
+  <ol class="r7-list">
+  <li class="" data-s="1"><a href="#" data-go="9"><span class="r7-n">1</span><span class="r7-t"><b>The case</b><span>What ISB students built in five days, and the 20+ AI tools they used</span></span></a></li>
+  <li class="" data-s="2"><a href="#" data-go="15"><span class="r7-n">2</span><span class="r7-t"><b>Why it worked</b><span>The research, the three skills, and the teacher’s role as coach</span></span></a></li>
+  <li class="" data-s="3"><a href="#" data-go="20"><span class="r7-n">3</span><span class="r7-t"><b>Build session</b><span>You name a school chore. We walk through building the fix with Claude&nbsp;Code.</span></span></a></li>
+  <li class="" data-s="4"><a href="#" data-go="22"><span class="r7-n">4</span><span class="r7-t"><b>Take it back</b><span>Why teachers need AI too, and what it takes to run&nbsp;this</span></span></a></li>
+  </ol>
+ </div>
+</div><aside class="notes">Four parts. First the case: what students at ISB built in five days, and why that matters. Then why it worked: the program was designed around skills AI can't hand over. Then the main event, 30 minutes: a build session together, no coding. Last, what a school needs to run this.</aside></section>
+
+<!-- 3 · About Arena School -->
+<section class="s alt ae r15-ab"><div class="w">
+ <p class="kick r">About Arena School</p>
+<div class="r16-hd"><h2 class="r" style="--d:.1s">Helping students, families, educators,<br>and schools <em>thrive in the age of&nbsp;AI.</em></h2>
+ <div class="r16-sel r" style="--d:.2s"><span class="r15-h">Selected for</span><ul><li><span class="r16-lg"><img class="r16-an" src="/decks/img/acamis/partner-anthropic.svg" alt="Anthropic"></span><small>Startup Program</small></li><li><span class="r16-lg"><img class="r16-oa" src="/decks/img/acamis/partner-openai.svg" alt="OpenAI"></span><small>Partner Network</small></li></ul></div></div>
+ <div class="bd r" style="--d:.25s">
+  <div class="r15-cols">
+   <div class="r15-c" data-s="1"><span class="r15-h">What we do</span><p>Hands-on programs where every learner, from middle schoolers to teachers and parents, makes real things with&nbsp;AI.</p></div>
+   <div class="r15-c" data-s="1"><span class="r15-h">How we teach</span><p>Every program builds three human skills: <em>agency, taste, and craft.</em> Learners make every decision; AI helps them&nbsp;build.</p></div>
+   <div class="r15-c" data-s="1"><span class="r15-h">Who we work with</span><ul><li>Students, grades 6 to 12</li><li>Teachers and schools</li><li>Parents and families</li></ul></div>
+  </div>
+  <div class="r15-team" data-s="2">
+   <p class="r15-ft"><span class="r15-h">The founding team</span></p>
+   <div class="r15-lg"><img class="r15-caltech" src="/logos/cred/caltech.png" alt="Caltech"><img class="r15-harvard" src="/logos/cred/harvard.png" alt="Harvard University"><img class="r15-brown" src="/logos/cred/brown.png" alt="Brown University"><img class="r15-tsinghua-lockup" src="/logos/cred/tsinghua-lockup.png" alt="Tsinghua University"><img class="r15-isb" src="/logos/cred/isb.png" alt="International School of Beijing"><img class="r15-mckinsey" src="/logos/cred/mckinsey.png" alt="McKinsey &amp; Company"><img class="r15-goldman" src="/logos/cred/goldman.png" alt="Goldman Sachs"><img class="r15-yc" src="/logos/cred/yc.png" alt="Y Combinator"><img class="r15-apple" src="/logos/cred/apple.png" alt="Apple"><img class="r15-microsoft-ai" src="/logos/cred/microsoft-ai.png" alt="Microsoft AI"><img class="r15-deloitte" src="/logos/cred/deloitte.png" alt="Deloitte"><img class="r15-kimi" src="/logos/cred/kimi.png" alt="Kimi (Moonshot AI)"></div>
+  </div>
+ </div>
+</div><aside class="notes">We’re Arena School. Our mission is to help students, families, educators, and schools thrive in the age of AI. We run hands-on programs where every learner makes real things with AI: middle and high school students, and also teachers, school leaders, and parents. Every program is built on three human skills: agency, taste, and craft. Learners make every decision; AI helps them build. Arena School was selected for Anthropic’s Startup Program and OpenAI’s Partner Network. (Click.) A word on who we are: Arena was founded by Jing Jing Yang and Phillip An. Between us, we studied and worked at the places on this line, from ISB, Brown, Caltech, Harvard, and Tsinghua to McKinsey, Goldman Sachs, Apple, Microsoft AI, Y Combinator, and Kimi. Jing Jing grew up in ACAMIS schools, at WAB and ISB, so this conference is a homecoming.</aside></section>
+
+<!-- 4 · The question -->
+<section class="s alt ae st aga-q"><div class="w">
+ <p class="kick r">The question we try to answer <span class="nw">at <img class="aga-wm" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School"></span></p>
+ <h2 class="r rot-h" style="--d:.1s" aria-label="When AI can do all of these in seconds, what must our students still learn to do?">When AI can <span class="rot" aria-hidden="true"><span class="rot-t"><span>draft an essay</span><span>write code</span><span>summarize an article</span><span>create a research report</span><span>design a logo</span><span>build a website</span><span>translate a speech</span><span class="fin"><span class="rot-hl">do all of these</span></span></span></span> <br>in seconds, what must our students <em>still learn to&nbsp;do?</em></h2>
+</div><aside class="notes">The examples roll by on their own: an essay, code, a summary, a research report, a logo, a website, a speech, then all of these at once. Every teacher here has seen at least one of these turned in as homework. Parents are asking the same question. It is the question we try to answer every day at Arena School.</aside></section>
+
+<!-- 5 · What parents asked -->
+<section class="s alt ae aga-pa r8-pa"><div class="w">
+ <p class="kick r">Why parents care</p>
+ <h2 class="r" style="--d:.1s">Parents are asking one practical question:<br><em>which skills will outlast the&nbsp;tools?</em></h2>
+ <p class="r11-src r" style="--d:.18s">From surveying parents in the ISB community and other local communities in mainland&nbsp;China</p>
+ <div class="bd r" style="--d:.25s"><div class="shift ac-own">
+  <div class="shx" data-s="1">
+   <div class="sh-col o"><span class="hd">What parents care about</span><ul><li>Which skills last as the tools change?</li><li>Will AI do the thinking for my child?</li><li>What should my child practice now?</li></ul></div>
+   <div class="sh-arr" aria-hidden="true"><i></i></div>
+   <div class="sh-col n"><span class="hd">What you can tell them after today</span><ul><li>Three skills outlast any tool</li><li>Used well, AI deepens thinking</li><li>Real products, in five days</li></ul></div>
+  </div>
+ </div>
+ <p class="r8-note" data-s="2">Parents don’t see AI as an academic subject, like learning to code.<br><em>They see it as a life skill: optional for many jobs today, and likely non-negotiable by the time their children start&nbsp;working.</em></p></div>
+</div><aside class="notes">We surveyed parents in the ISB community and in other local communities across mainland China. (Speak to the details here.) They weren’t asking whether their children should use AI. They were asking something practical: which skills will still matter as the tools keep changing, whether AI will do the thinking for their children, and what their children should practice now. You hear the same questions from your parents. On the right is what you’ll be able to tell them after today. (Click.) The biggest thing we heard: parents aren’t asking whether their child can code. They treat AI as a life skill, not an academic subject. Today it may still be optional for many jobs, but by the time their children graduate from college and start looking for work, they expect it to be non-negotiable.</aside></section>
+
+<!-- 6 · Teaching philosophy -->
+<section class="s alt ae r13-ph"><div class="w">
+ <p class="kick r r14-k"><img class="r14-wm" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School" width="1600" height="242"><span>Teaching philosophy</span></p>
+ <h2 class="r" style="--d:.1s">Staying competitive with AI takes three human skills.<br><em>Without them, AI does the thinking.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="r13-cols">
+  <div class="pane r13-c" data-s="1"><p class="r13-n"><i>01</i><b>Agency</b></p><p class="r13-d">Choosing what is worth doing, before anyone assigns&nbsp;it.</p><p class="r13-w"><span>Without it</span>AI picks the problem, and learners&nbsp;follow.</p></div>
+  <div class="pane r13-c" data-s="2"><p class="r13-n"><i>02</i><b>Taste</b></p><p class="r13-d">Judging whether the output is actually&nbsp;good.</p><p class="r13-w"><span>Without it</span>Learners accept the first answer AI&nbsp;gives.</p></div>
+  <div class="pane r13-c" data-s="3"><p class="r13-n"><i>03</i><b>Craft</b></p><p class="r13-d">Finishing the work so people can trust&nbsp;it.</p><p class="r13-w"><span>Without it</span>The work stays an unchecked first&nbsp;draft.</p></div>
+ </div>
+ <p class="r13-end" data-s="4">This is how we teach every learner, from students to teachers and parents, <em>and the lens for today.</em></p></div>
+</div><aside class="notes">So what do parents actually care about? At the end of the day, they want their children to stay competitive in a world with AI. What does that take? Three very human skills that AI can't supply, and that students have to practice. Agency: choosing what is worth doing before anyone assigns it. Without it, AI picks the problem and learners just follow. Taste: judging whether the output is actually good. Without it, learners accept the first answer AI gives them. Craft: finishing the work so people can trust it. Without it, the work stays an unchecked first draft. This is our teaching philosophy at Arena School, and it applies to every learner we teach: students, and also teachers and parents. If learners can't do these three things, AI can be a negative force in their learning. Keep these three in mind for everything you see today.</aside></section>
+
+<!-- 7 · Learning framework -->
+<section class="s ae fx-s"><div class="w">
+ <p class="kick r">The Arena School learning framework</p>
+ <h2 class="r" style="--d:.1s">Learners do the thinking, AI is a tool, <em>and teachers and peers give the&nbsp;feedback.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="fx-g">
+  <div class="fx-wh" data-s="1"><svg class="fx-wheel" viewBox="0 0 800 800" role="img" aria-label="Arena School learning framework: the student does the thinking; four strands; four conditions" font-family="Newsreader, Georgia, serif"><defs><marker id="cyc" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2F55A8"/></marker><path id="st00" d="M403.5,202.1 A197.9,197.9 0 0 1 597.9,396.5" fill="none"/><path id="st01" d="M402.7,244.1 A155.9,155.9 0 0 1 555.9,397.3" fill="none"/><path id="st10" d="M403.1,580.2 A180.2,180.2 0 0 0 580.2,403.1" fill="none"/><path id="st11" d="M403.9,622.2 A222.2,222.2 0 0 0 622.2,403.9" fill="none"/><path id="st20" d="M219.8,403.1 A180.2,180.2 0 0 0 396.9,580.2" fill="none"/><path id="st21" d="M177.8,403.9 A222.2,222.2 0 0 0 396.1,622.2" fill="none"/><path id="st30" d="M202.1,396.5 A197.9,197.9 0 0 1 396.5,202.1" fill="none"/><path id="st31" d="M244.1,397.3 A155.9,155.9 0 0 1 397.3,244.1" fill="none"/><path id="cd0" d="M389.6,103.1 A297.1,297.1 0 0 1 696.9,410.4" fill="none"/><path id="cd1" d="M388.9,716.7 A316.9,316.9 0 0 0 716.7,388.9" fill="none"/><path id="cd2" d="M83.3,388.9 A316.9,316.9 0 0 0 411.1,716.7" fill="none"/><path id="cd3" d="M103.1,410.4 A297.1,297.1 0 0 1 410.4,103.1" fill="none"/></defs><circle cx="400.0" cy="400.0" r="348.0" fill="#FCF3ED" stroke="#0B1A4A" stroke-opacity=".2" stroke-width="1.2"/><path d="M452.9,23.7 A380.0,380.0 0 0 1 776.3,347.1" fill="none" stroke="#2F55A8" stroke-width="2.4" stroke-linecap="round" marker-end="url(#cyc)"/><path d="M776.3,452.9 A380.0,380.0 0 0 1 452.9,776.3" fill="none" stroke="#2F55A8" stroke-width="2.4" stroke-linecap="round" marker-end="url(#cyc)"/><path d="M347.1,776.3 A380.0,380.0 0 0 1 23.7,452.9" fill="none" stroke="#2F55A8" stroke-width="2.4" stroke-linecap="round" marker-end="url(#cyc)"/><path d="M23.7,347.1 A380.0,380.0 0 0 1 347.1,23.7" fill="none" stroke="#2F55A8" stroke-width="2.4" stroke-linecap="round" marker-end="url(#cyc)"/><line x1="400.0" y1="134.0" x2="400.0" y2="52.0" stroke="#0B1A4A" stroke-opacity=".18" stroke-width="1.2"/><line x1="666.0" y1="400.0" x2="748.0" y2="400.0" stroke="#0B1A4A" stroke-opacity=".18" stroke-width="1.2"/><line x1="400.0" y1="666.0" x2="400.0" y2="748.0" stroke="#0B1A4A" stroke-opacity=".18" stroke-width="1.2"/><line x1="134.0" y1="400.0" x2="52.0" y2="400.0" stroke="#0B1A4A" stroke-opacity=".18" stroke-width="1.2"/><path d="M403.2,134.0 A266.0,266.0 0 0 1 666.0,396.8 L516.0,398.6 A116.0,116.0 0 0 0 401.4,284.0Z" fill="#2F55A8"/><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st00" startOffset="50%" text-anchor="middle">Inquiry and</textPath></text><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st01" startOffset="50%" text-anchor="middle">planning</textPath></text><path d="M666.0,403.2 A266.0,266.0 0 0 1 403.2,666.0 L401.4,516.0 A116.0,116.0 0 0 0 516.0,401.4Z" fill="#0B1A4A"/><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st10" startOffset="50%" text-anchor="middle">Research and</textPath></text><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st11" startOffset="50%" text-anchor="middle">evaluation</textPath></text><path d="M396.8,666.0 A266.0,266.0 0 0 1 134.0,403.2 L284.0,401.4 A116.0,116.0 0 0 0 398.6,516.0Z" fill="#3D5FA6"/><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st20" startOffset="50%" text-anchor="middle">Creating and</textPath></text><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st21" startOffset="50%" text-anchor="middle">communicating</textPath></text><path d="M134.0,396.8 A266.0,266.0 0 0 1 396.8,134.0 L398.6,284.0 A116.0,116.0 0 0 0 284.0,398.6Z" fill="#5670B0"/><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st30" startOffset="50%" text-anchor="middle">Collaboration</textPath></text><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st31" startOffset="50%" text-anchor="middle">and reflection</textPath></text><circle cx="400.0" cy="400.0" r="110.0" fill="#FCF3ED" stroke="#0B1A4A" stroke-opacity=".2"/><text x="400.0" y="374.6" text-anchor="middle" font-size="33" fill="#0B1A4A">The learner</text><text x="400.0" y="410.6" text-anchor="middle" font-size="33" fill="#0B1A4A">does the</text><text x="400.0" y="446.6" text-anchor="middle" font-size="33" fill="#2F55A8" font-style="italic">thinking</text><text font-size="31" fill="#0B1A4A"><textPath href="#cd0" startOffset="50%" text-anchor="middle">In person, real-time feedback</textPath></text><text font-size="31" fill="#0B1A4A"><textPath href="#cd1" startOffset="50%" text-anchor="middle">AI use disclosed and cited</textPath></text><text font-size="31" fill="#0B1A4A"><textPath href="#cd2" startOffset="50%" text-anchor="middle">Learner voice and choice</textPath></text><text font-size="31" fill="#0B1A4A"><textPath href="#cd3" startOffset="50%" text-anchor="middle">An authentic audience</textPath></text></svg></div>
+  <div class="fx-side">
+   <div class="fx-blk" data-s="2"><span class="fx-k">Built on project-based learning</span><p>Every strand gets a real purpose and a real&nbsp;audience.<br>AI speeds up the&nbsp;building.</p><small class="fx-cite">Informed by PBLWorks’ Gold Standard&nbsp;PBL.</small></div>
+   <div class="fx-call" data-s="3"><span class="fx-ck">At every check-in, the teacher asks</span><p>“How did you check&nbsp;it?”</p><span>and responds in real&nbsp;time.<br>AI can support that feedback, not replace&nbsp;it.</span></div>
+  </div>
+ </div></div>
+</div><aside class="notes">This is the Arena School learning framework. (Click.) At the center, the learner does the thinking. We say learner on purpose: the same framework runs our student programs, our teacher training, and our sessions for school leaders and parents. The arrows show it’s a cycle, not a checklist. Around that are four strands we develop in every program: inquiry and planning, research and evaluation, creating and communicating, and collaboration and reflection. On the outer ring are four teaching principles: learning in person with real-time feedback; AI use that is disclosed and cited; learner voice and choice; and an authentic audience. (Click.) It’s built on project-based learning, PBL, informed by PBLWorks’ Gold Standard PBL. PBL gives each strand a real purpose and an audience, and AI makes the building faster than ever. (Click.) At every check-in, the teacher asks one question: how did you check it? And responds in real time. AI tools can support that feedback, and many of you use them well. They don’t replace it.</aside></section>
+
+<!-- 8 · Learning outcomes -->
+<section class="s alt ae lo3-s"><div class="w">
+ <p class="kick r">Learning outcomes</p>
+ <h2 class="r" style="--d:.1s">Across every program, <em>learners will be able&nbsp;to…</em></h2>
+ <p class="lo3-sub r" style="--d:.15s">Learners are whoever a program is for: students, teachers, school leaders, or parents. The outcomes stay the same; the depth&nbsp;grows.</p>
+ <div class="bd r" style="--d:.25s"><div class="lo3-cols"><div class="lo3-c" data-s="1"><div class="lo3-h"><span class="lo3-ic">{{ic:target}}</span><b>Inquiry and planning</b></div><ul><li>Turn a broad interest into a focused, researchable&nbsp;question.</li><li>Plan a project with milestones, and adjust the plan based on&nbsp;progress.</li></ul></div><div class="lo3-c" data-s="2"><div class="lo3-h"><span class="lo3-ic">{{ic:search}}</span><b>Research and evaluation</b></div><ul><li>Find, evaluate, and cite sources, including checking the accuracy of AI&nbsp;output.</li><li>Compare options against criteria, and justify a&nbsp;choice.</li><li>Explain how AI tools work, where they fail, and the bias and privacy issues they&nbsp;raise.</li></ul></div><div class="lo3-c" data-s="3"><div class="lo3-h"><span class="lo3-ic">{{ic:file-text}}</span><b>Creating and communicating</b></div><ul><li>Build and test a product, prototype, or solution, deciding which steps to hand to AI and disclosing how they used&nbsp;it.</li><li>Structure an argument and write it clearly, in their own&nbsp;words.</li><li>Present to an authentic audience, and defend their reasoning under&nbsp;questioning.</li></ul></div><div class="lo3-c" data-s="4"><div class="lo3-h"><span class="lo3-ic">{{ic:messages-square}}</span><b>Collaboration and reflection</b></div><ul><li>Work in a team, share roles, and contribute to a shared&nbsp;product.</li><li>Give and use critique from teachers and peers to revise their&nbsp;work.</li><li>Reflect on their process and on what they would do&nbsp;differently.</li></ul></div></div>
+</div><aside class="notes">Here are the learning outcomes, written so a teacher could assess them on any project. Inquiry and planning: frame a researchable question; plan with milestones and adjust. Research and evaluation: find, evaluate, and cite sources, including checking AI output; compare options against criteria; and understand AI itself, how it works, where it fails, and the bias and privacy issues it raises. Creating and communicating: build and test a product, prototype, or solution, deciding which steps to hand to AI and disclosing how they used it; write a clear argument in their own words; present and defend their reasoning to an authentic audience. Collaboration and reflection: work in a team with shared roles; give and use critique; and reflect on their process. (Click.) A note on the word learners: these outcomes apply to every program we run, for students, teachers, school leaders, or parents. The outcomes stay the same; the depth grows, from middle school to high school and on to adults.</aside></section>
+
+<!-- 9 · Assessment -->
+<section class="s ae rb-s"><div class="w">
+ <p class="kick r">How we assess</p>
+ <h2 class="r" style="--d:.1s">We assess the process, <em>not only the&nbsp;product.</em></h2>
+ <div class="bd r" style="--d:.25s">
+  <div class="rb-t">
+   <div class="rb-hd"><div class="rb-hd-l"><span class="rb-k">Sample criterion · research and evaluation</span><b>Evaluates sources, including AI output</b></div></div>
+   <div class="rb-ls"><div class="rb-l" data-s="1"><b>Beginning</b><p>Accepts sources and AI output as given; cites&nbsp;inconsistently.</p></div><div class="rb-l" data-s="1"><b>Developing</b><p>Checks some claims against a second source; cites most&nbsp;sources.</p></div><div class="rb-l" data-s="1"><b>Proficient</b><p>Verifies key claims, including AI output, against reliable sources; discloses AI&nbsp;use.</p></div><div class="rb-l" data-s="1"><b>Extending</b><p>Explains why sources disagree, corrects AI errors, and judges which evidence to&nbsp;trust.</p></div></div>
+  </div>
+  <div class="rb-bot rb-bot2">
+   <div class="rb-ev" data-s="2"><span class="rb-k">Evidence we collect</span><ul><li>{{ic:book-open}}<span>Process journal</span></li><li>{{ic:file-text}}<span>Drafts</span></li><li>{{ic:mic}}<span>Recorded defense</span></li></ul></div>
+   <div class="rb-isb" data-s="3"><span class="rb-k">In practice</span><p>Used with students in the ISB AI Founders Program, summer&nbsp;2026.</p></div>
+  </div>
+ </div>
+</div><aside class="notes">“We assess the process” always draws the next question: what’s the rubric? Here is one sample row, from research and evaluation: evaluates sources, including AI output. Beginning: accepts sources and AI output as given. Developing: checks some claims against a second source. Proficient: verifies key claims, including AI output, against reliable sources, and discloses AI use. Extending: explains why sources disagree, corrects AI errors, and judges which evidence to trust. (Click.) The evidence we collect is the process itself: a process journal, drafts, and a recorded defense. (Click.) We used this approach with students in the ISB AI Founders Program this summer. One more thing, briefly: if your students use AI anywhere in their process, even when AI isn’t your subject, you need to be AI literate yourself to assess it.</aside></section>
+
+<!-- 10 · Part 1 -->
+<section class="s ae nv sec"><div class="w"><div class="sec-g">
+ <div>
+  <p class="sec-k"><span>Part</span><b>1</b></p>
+  <h2 class="r" style="--d:.15s">In five days, ISB students built and launched <em>working products with AI.</em></h2>
+  <p class="sl r" style="--d:.35s">The program, the week, and what students made</p>
+ </div>
+ <ol class="trk" aria-label="Parts">
+ <li class="on"><div class="row"><span class="tn">1</span><span class="tt"><b>The case</b><small>What students built</small></span></div></li>
+ <li><div class="row"><span class="tn">2</span><span class="tt"><b>Why it worked</b><small>The design</small></span></div></li>
+ <li><div class="row"><span class="tn">3</span><span class="tt"><b>Build session</b><small>With the room</small></span></div></li>
+ <li><div class="row"><span class="tn">4</span><span class="tt"><b>Take it back</b><small>What it takes</small></span></div></li>
+ </ol>
+</div></div><aside class="notes">What the program is, how the week runs, what students walked out with, and the Hong Kong course where it started.</aside></section>
+
+<!-- 11 · The program -->
+<section class="s ae ac-prog"><div class="w">
+ <p class="kick r">The case · ISB AI Founders Program, August 5–9, 2026</p>
+ <h2 class="r" style="--d:.1s">An AI builder week for grades 7 to 12: <em>learn AI skills, start a company, build something real.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="ac-dd">
+  <figure class="pane ac-ph" data-s="1"><img src="/photos/isb-2026/mentor-feedback-1600.webp" alt="Mentors react to a student demo"><figcaption>Mentors in the room every day</figcaption></figure>
+  <figure class="pane ac-ph" data-s="1"><img src="/photos/isb-2026/demo-laptop-1600.webp" alt="Students demo their product at the podium"><figcaption>Every team demos what works</figcaption></figure>
+  <div class="r11-facts" data-s="2">
+   <div class="pane"><div class="r11-in"><b>7–12</b><span>grades, selected by application</span></div></div>
+   <div class="pane"><div class="r11-in"><b>5</b><span>days, at ISB in August</span></div></div>
+   <div class="pane"><div class="r11-in"><b>0</b><span>coding experience required</span></div></div>
+  </div>
+ </div></div>
+</div><aside class="notes">This summer, ISB hosted the AI Founders Program: five days in August for students in grades 7 to 12, selected by application. No coding experience was required. The promise was simple: learn AI skills, start a company, and build something real, a live product at its own link by the final afternoon. Mentors were in the room every day, and every team demoed what worked.</aside></section>
+
+<!-- 12 · The tools -->
+<section class="s alt ae hold r4c-tk" data-mk="arrive"><div class="w">
+ <p class="kick r">The case · the toolkit, by job</p>
+ <h2 class="r" style="--d:.1s">Students learned 20+ AI tools in <span class="nw">five days,</span> <em>out of 200+ they could choose&nbsp;from.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="mk" data-hl="ChatGPT|Claude|Gemini|Perplexity|NotebookLM|DeepSeek|Manus|Grok|Mistral|Midjourney|Ideogram|Krea|Recraft|Cursor|Lovable|Replit|v0|Windsurf|Suno|ElevenLabs|CapCut|Pika|Runway">
+  <div class="mk-low">
+   <div class="mk-map pane"><p class="lab"><b><span class="mk-n">200</span><span class="mk-plus">+</span></b> AI tools students could choose from<span class="r4c-used" data-s="1"> · <b>20+</b> they used</span></p><div class="mk-field" aria-hidden="true"></div></div>
+  </div>
+  <div class="r4c-gs" data-s="2">
+   <div class="pane r4c-grp w2" style="--j:0"><p class="lab">Research</p><span class="r4c-st">Ask and search</span><ul><li><img src="/decks/img/acamis/tools/chatgpt.png" alt=""><span>ChatGPT</span></li><li><img src="/decks/img/acamis/tools/claude.png" alt=""><span>Claude</span></li><li><img src="/decks/img/acamis/tools/gemini.png" alt=""><span>Gemini</span></li><li><img src="/decks/img/acamis/tools/perplexity.png" alt=""><span>Perplexity</span></li><li><img src="/decks/img/acamis/tools/notebooklm.png" alt=""><span>NotebookLM</span></li><li><img src="/decks/img/acamis/tools/deepseek.png" alt=""><span>DeepSeek</span></li><li><img src="/decks/img/acamis/tools/manus.png" alt=""><span>Manus</span></li><li><img src="/decks/img/acamis/tools/grok.png" alt=""><span>Grok</span></li><li><img src="/decks/img/acamis/tools/mistral.png" alt=""><span>Mistral</span></li></ul></div>
+   <div class="pane r4c-grp" style="--j:1"><p class="lab">Design</p><span class="r4c-st">Logos and art</span><ul><li><img src="/decks/img/acamis/tools/midjourney.png" alt=""><span>Midjourney</span></li><li><img src="/decks/img/acamis/tools/ideogram.png" alt=""><span>Ideogram</span></li><li><img src="/decks/img/acamis/tools/krea.png" alt=""><span>Krea</span></li><li><img src="/decks/img/acamis/tools/recraft.png" alt=""><span>Recraft</span></li></ul></div>
+   <div class="pane r4c-grp" style="--j:2"><p class="lab">Build</p><span class="r4c-st">Apps and sites</span><ul><li><img src="/decks/img/acamis/tools/cursor.png" alt=""><span>Cursor</span></li><li><img src="/decks/img/acamis/tools/lovable.png" alt=""><span>Lovable</span></li><li><img src="/decks/img/acamis/tools/replit.png" alt=""><span>Replit</span></li><li><img src="/decks/img/acamis/tools/v0.png" alt=""><span>v0</span></li><li><img src="/decks/img/acamis/tools/windsurf.png" alt=""><span>Windsurf</span></li></ul></div>
+   <div class="pane r4c-grp" style="--j:3"><p class="lab">Brand</p><span class="r4c-st">Sound and video</span><ul><li><img src="/decks/img/acamis/tools/suno.png" alt=""><span>Suno</span></li><li><img src="/decks/img/acamis/tools/elevenlabs.png" alt=""><span>ElevenLabs</span></li><li><img src="/decks/img/acamis/tools/capcut.png" alt=""><span>CapCut</span></li></ul></div>
+   <div class="pane r4c-grp" style="--j:4"><p class="lab">Launch</p><span class="r4c-st">Sell and promote</span><ul><li><img src="/decks/img/acamis/tools/stripe.png" alt=""><span>Stripe</span></li><li><img src="/decks/img/acamis/tools/pika.png" alt=""><span>Pika</span></li><li><img src="/decks/img/acamis/tools/runway.png" alt=""><span>Runway</span></li></ul></div>
+  </div>
+ </div></div>
+</div><aside class="notes">This is the field students walked into: more than two hundred AI tools on the market today, and that is only a sample. New ones arrive every week. (Click.) Out of all of these, students picked up more than twenty in five days. (Click.) Here they are, grouped by the job they do: research, design, build, brand, and launch. Nobody needed to know any of them on day one. The list matters less than the habit: picking the right tool for a job, trying it fast, and judging the result. That habit outlasts any single tool.</aside></section>
+
+<!-- 13 · Ten stages, five days -->
+<section class="s alt ae agb-wk"><div class="w">
+ <p class="kick r">The case · ten stages, five days</p>
+ <h2 class="r" style="--d:.1s">Using these 20+ AI tools, <em>students run a “startup” in ten stages, over five&nbsp;days.</em></h2>
+ <div class="bd r" style="--d:.25s">
+ <div class="agb-r1">
+  <div class="pane agb-day" data-s="1"><div class="agb-dk">Day 1</div><h3>Pick a problem</h3><div class="agb-dc">A one-page plan and a first&nbsp;prototype.</div><ol class="agb-sg" start="1"><li><i>01</i><b>Find the idea</b><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/decks/img/acamis/tools/chatgpt.png" alt="ChatGPT"><img style="--j:1" src="/decks/img/acamis/tools/claude.png" alt="Claude"><img style="--j:2" src="/decks/img/acamis/tools/gemini.png" alt="Gemini"><img style="--j:3" src="/decks/img/acamis/tools/perplexity.png" alt="Perplexity"><img style="--j:4" src="/decks/img/acamis/tools/grok.png" alt="Grok"></p></li><li><i>02</i><b>Validate it</b><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/decks/img/acamis/tools/perplexity.png" alt="Perplexity"><img style="--j:1" src="/decks/img/acamis/tools/chatgpt.png" alt="ChatGPT"><img style="--j:2" src="/decks/img/acamis/tools/claude.png" alt="Claude"><img style="--j:3" src="/decks/img/acamis/tools/gemini.png" alt="Gemini"><img style="--j:4" src="/decks/img/acamis/tools/notebooklm.png" alt="NotebookLM"></p></li><li><i>03</i><b>Form the team</b><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/decks/img/acamis/tools/claude.png" alt="Claude"><img style="--j:1" src="/decks/img/acamis/tools/chatgpt.png" alt="ChatGPT"><img style="--j:2" src="/decks/img/acamis/tools/gemini.png" alt="Gemini"><img style="--j:3" src="/decks/img/acamis/tools/manus.png" alt="Manus"><img style="--j:4" src="/decks/img/acamis/tools/grok.png" alt="Grok"></p></li><li><i>04</i><b>Define it</b><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/decks/img/acamis/tools/claude.png" alt="Claude"><img style="--j:1" src="/decks/img/acamis/tools/chatgpt.png" alt="ChatGPT"><img style="--j:2" src="/decks/img/acamis/tools/gemini.png" alt="Gemini"><img style="--j:3" src="/decks/img/acamis/tools/mistral.png" alt="Mistral"><img style="--j:4" src="/decks/img/acamis/tools/deepseek.png" alt="DeepSeek"></p></li></ol></div>
+  <div class="pane agb-day" data-s="2"><div class="agb-dk">Day 2</div><h3>Go public</h3><div class="agb-dc">Real people try it. Teams fix what confuses&nbsp;them.</div><ol class="agb-sg" start="5"><li><i>05</i><b>Design it</b><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/decks/img/acamis/tools/midjourney.png" alt="Midjourney"><img style="--j:1" src="/decks/img/acamis/tools/ideogram.png" alt="Ideogram"><img style="--j:2" src="/decks/img/acamis/tools/krea.png" alt="Krea"><img style="--j:3" src="/decks/img/acamis/tools/recraft.png" alt="Recraft"><img style="--j:4" src="/decks/img/acamis/tools/chatgpt.png" alt="ChatGPT"></p></li><li><i>06</i><b>Build it</b><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/decks/img/acamis/tools/cursor.png" alt="Cursor"><img style="--j:1" src="/decks/img/acamis/tools/lovable.png" alt="Lovable"><img style="--j:2" src="/decks/img/acamis/tools/v0.png" alt="v0"><img style="--j:3" src="/decks/img/acamis/tools/replit.png" alt="Replit"><img style="--j:4" src="/decks/img/acamis/tools/windsurf.png" alt="Windsurf"></p></li><li><i>07</i><b>Ship it live</b><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/decks/img/acamis/tools/replit.png" alt="Replit"><img style="--j:1" src="/decks/img/acamis/tools/v0.png" alt="v0"><img style="--j:2" src="/decks/img/acamis/tools/lovable.png" alt="Lovable"><img style="--j:3" src="/decks/img/acamis/tools/chatgpt.png" alt="ChatGPT"><img style="--j:4" src="/decks/img/acamis/tools/claude.png" alt="Claude"></p></li></ol></div>
+ </div>
+ <div class="agb-r2">
+  <div class="pane agb-day" data-s="3"><div class="agb-dk">Day 3</div><h3>The rebuild</h3><div class="agb-dc">The best ones outgrow the first&nbsp;plan.</div><ol class="agb-sg" start="8"><li><i>08</i><b>Test and iterate</b><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/decks/img/acamis/tools/cursor.png" alt="Cursor"><img style="--j:1" src="/decks/img/acamis/tools/claude.png" alt="Claude"><img style="--j:2" src="/decks/img/acamis/tools/chatgpt.png" alt="ChatGPT"><img style="--j:3" src="/decks/img/acamis/tools/gemini.png" alt="Gemini"><img style="--j:4" src="/decks/img/acamis/tools/deepseek.png" alt="DeepSeek"></p></li></ol></div>
+  <div class="pane agb-day" data-s="4"><div class="agb-dk">Day 4</div><h3>Polish and price</h3><div class="agb-dc">A name, a landing page, a real&nbsp;price.</div><ol class="agb-sg" start="9"><li><i>09</i><b>Brand it</b><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/decks/img/acamis/tools/midjourney.png" alt="Midjourney"><img style="--j:1" src="/decks/img/acamis/tools/suno.png" alt="Suno"><img style="--j:2" src="/decks/img/acamis/tools/elevenlabs.png" alt="ElevenLabs"><img style="--j:3" src="/decks/img/acamis/tools/runway.png" alt="Runway"><img style="--j:4" src="/decks/img/acamis/tools/capcut.png" alt="CapCut"></p></li></ol></div>
+  <div class="pane agb-day" data-s="5"><div class="agb-dk">Day 5</div><h3>Demo day</h3><div class="agb-dc">Live pitches to judges and&nbsp;families.</div><ol class="agb-sg" start="10"><li><i>10</i><b>Pitch and sell</b><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/decks/img/acamis/tools/chatgpt.png" alt="ChatGPT"><img style="--j:1" src="/decks/img/acamis/tools/claude.png" alt="Claude"><img style="--j:2" src="/decks/img/acamis/tools/gemini.png" alt="Gemini"><img style="--j:3" src="/decks/img/acamis/tools/pika.png" alt="Pika"><img style="--j:4" src="/decks/img/acamis/tools/runway.png" alt="Runway"></p></li></ol></div>
+ </div>
+ </div>
+</div><aside class="notes">Using those tools, students don't study startups; they run one. The week walks every student through the same ten stages real companies run on, and the small icons are the tools used at each stage. Day one, they pick a problem: find the idea, validate it by talking to real people, form a team with roles, and cut the idea down to a one-page plan. They leave with that plan and a first prototype. Day two, they go public: design it, build it by directing AI tools, and ship it to a public link. Real people try it, don't understand it, and the team fixes it. Day three is the rebuild: they watch real users and rebuild the weak parts. Most strong projects look nothing like the day-one plan, and that's the point. Day four is polish and price: a name, a logo, a landing page, and a real price. Day five is demo day: two-minute live pitches to a panel of judges and to families.</aside></section>
+
+<!-- 14 · What children can build -->
+<section class="s alt ae"><div class="w">
+ <p class="kick r">Where it started · Bodley Academy, Hong Kong, summer 2025</p>
+ <h2 class="r" style="--d:.1s">In five days, an 11-year-old<br><em>turned sign language into speech.</em></h2>
+ <div class="bd r" style="--d:.25s">
+  <div class="cs31 ac-hk">
+   <div class="pane cs-vp">
+    <figure class="vframe cs-v"><video autoplay muted loop playsinline preload="metadata" poster="/decks/img/conversation/hands-stage-poster.webp" src="/decks/img/conversation/hands-stage.mp4" aria-label="A student tests a sign-language app on a laptop"></video><img class="vposter" src="/decks/img/conversation/hands-stage-poster.webp" alt=""></figure>
+    <span class="cs-cap">Built in five days by a seventh grader</span>
+   </div>
+   <div class="cs-side">
+    <ol class="cs-beats">
+     <li data-s="1"><span class="cs-k"><i>01</i><b>Agency</b><span>Find a problem</span></span><p>He chose sign language to speech because his cousin is deaf. Nobody assigned&nbsp;it.</p></li>
+     <li data-s="2"><span class="cs-k"><i>02</i><b>Taste</b><span>Real-user feedback</span></span><p>He kept improving it after the demo, because his grandmother couldn’t use the first version&nbsp;yet.</p></li>
+     <li data-s="3"><span class="cs-k"><i>03</i><b>Craft</b><span>Finish and launch</span></span><p>The hardest part wasn’t the AI. It was audio clear enough for her to&nbsp;trust.</p></li>
+    </ol>
+    <p class="cs-note" data-s="3">AI tools did the building. <em>He did the choosing, judging, and&nbsp;finishing.</em></p>
+   </div>
+   <div class="pane ac-st" data-s="4">
+    <div><b>20</b><span>students, each on their own&nbsp;problem</span></div>
+    <div><b>5</b><span>days, from the first idea to <span class="nw">demo day</span></span></div>
+    <div><b>9.5<small>/10</small></b><span>how likely students were to recommend&nbsp;it</span></div>
+   </div>
+  </div>
+ </div>
+</div><aside class="notes">Where it started: a five-day course Phillip taught for Bodley Academy in Hong Kong, summer 2025, with twenty students. One of them, an 11-year-old, chose his own problem, sign language to speech, because his cousin is deaf. Nobody assigned it. After the demo he kept improving it, because his grandmother couldn't use the first version yet. The hardest part wasn't the AI; it was getting the audio clear enough for her to trust it. The AI did the building; he did the choosing, judging, and finishing. Students rated the course 9.5 out of 10 on how likely they were to recommend it. A year later, the same week ran at ISB, ending in demo day.</aside></section>
+
+<!-- 15 · Demo day -->
+<section class="s ae"><div class="w">
+ <p class="kick r">The case · demo day</p>
+ <h2 class="r" style="--d:.1s">On day five, teams pitched working products <em>to judges from Harvard, Stanford, Y&nbsp;Combinator, and AI labs.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="ac-dd">
+  <figure class="pane ac-ph" data-s="1"><img src="/photos/isb-hq/isb-judges-test-1400.webp" alt="Judges test a student product on a laptop"><figcaption>Judges test each product before scoring</figcaption></figure>
+  <figure class="pane ac-ph" data-s="2"><img src="/photos/isb-hq/isb-pitch-mic-1400.webp" alt="A student pitches her team’s product"><figcaption>Every team pitched its own product</figcaption></figure>
+  <div class="pane ac-jg" data-s="3"><span class="lab">Judged by founders and operators from</span><div class="ac-lg"><img class="j-hv" src="/logos/cred/harvard.png" alt="Harvard"><img class="j-sf" src="/logos/cred/stanford.png" alt="Stanford"><img class="j-yc" src="/decks/img/conversation/inv-yc.png" alt="Y Combinator"><span class="ac-ai">and AI labs</span></div></div>
+ </div></div>
+</div><aside class="notes">On demo day, the judges didn't just watch slides. They opened each product and tried it before scoring. The panel was founders and operators from Harvard, Stanford, Y Combinator, and AI labs. Families were in the room. So why did it work?</aside></section>
+
+<!-- 16 · Part 2 -->
+<section class="s ae nv sec"><div class="w"><div class="sec-g">
+ <div>
+  <p class="sec-k"><span>Part</span><b>2</b></p>
+  <h2 class="r" style="--d:.15s">It worked because students made every decision, <em>and AI helped them build faster.</em></h2>
+  <p class="sl r" style="--d:.35s">Used well, AI deepens the thinking instead of replacing it.</p>
+ </div>
+ <ol class="trk" aria-label="Parts">
+ <li><div class="row"><span class="tn">1</span><span class="tt"><b>The case</b><small>What students built</small></span></div></li>
+ <li class="on"><div class="row"><span class="tn">2</span><span class="tt"><b>Why it worked</b><small>The design</small></span></div></li>
+ <li><div class="row"><span class="tn">3</span><span class="tt"><b>Build session</b><small>With the room</small></span></div></li>
+ <li><div class="row"><span class="tn">4</span><span class="tt"><b>Take it back</b><small>What it takes</small></span></div></li>
+ </ol>
+</div></div><aside class="notes">Here's the short answer: students made every decision, and AI helped them build faster. First, the research behind that. Then the three skills we build every Arena School program around, and how the week trained each one. And finally, what it means for the teacher in the room.</aside></section>
+
+<!-- 17 · Design is the difference -->
+<section class="s ae"><div class="w">
+ <p class="kick r">The research · two 2025 studies</p>
+ <h2 class="r" style="--d:.1s">Used as a shortcut, AI does the thinking. <em>Set up as a coach, it helps students learn more.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="duo">
+  <div class="pane" data-s="1"><div class="lr"><span class="org">High school math · nearly 1,000 students</span></div><div class="big">−17%</div><p>exam grades after practicing with plain ChatGPT. A tutor version that gave hints, not answers, largely avoided <span class="nw">the drop.</span></p></div>
+  <div class="pane dk" data-s="2"><div class="lr"><span class="org">Harvard physics · a randomized trial</span></div><div class="big">2×</div><p>the learning gains of an active-learning class, in less time, with an AI tutor built on <span class="nw">the same methods</span></p></div>
+ </div></div>
+ <p class="fn" data-s="1"><span>Bastani and others, PNAS, June 25, 2025: grades fell 17% once plain ChatGPT was taken away; with safeguards, the harm was “largely mitigated”; Kestin and others, Scientific Reports, June 3, 2025: 194 Harvard physics students, median learning gains more than double</span></p>
+</div><aside class="notes">This is the one piece of research we'll show, because it answers the worry every teacher has. In a study of nearly a thousand high school students, those who practiced math with plain ChatGPT did 17% worse on the exam once it was taken away. They used it as a crutch. But a second group used a version set up like a tutor, giving hints instead of answers, and the harm largely disappeared. And at Harvard, a randomized trial found students learned about twice as much, in less time, from an AI tutor built on good teaching methods. So the question isn't whether students use AI. It's how their use of it is designed. That's a teaching question, and it's what the week was built around.</aside></section>
+
+<!-- 18 · Agency, taste, craft, and how the week trains them -->
+<section class="s ae agC agC-sk"><div class="w">
+ <p class="kick r">Arena School’s approach · arenaschool.org/approach</p>
+ <h2 class="r" style="--d:.1s">The ISB week gave each skill<br><em>a moment students couldn’t&nbsp;skip.</em></h2>
+ <div class="bd r" style="--d:.25s"><ol class="agc-sk">
+  <li class="pane" data-s="1">
+   <div class="agc-hd"><i>01</i><b>Agency</b></div>
+   <p class="agc-def">Choosing what is worth doing, before anyone assigns&nbsp;it.</p>
+   <span class="agc-lab">How the week trained it</span>
+   <p class="agc-mo">On day one, each student chooses the problem and pitches it in three minutes, with no&nbsp;slides.</p>
+  </li>
+  <li class="pane" data-s="2">
+   <div class="agc-hd"><i>02</i><b>Taste</b></div>
+   <p class="agc-def">Judging whether the output is actually&nbsp;good.</p>
+   <span class="agc-lab">How the week trained it</span>
+   <p class="agc-mo">By midweek, a prototype is online at a public link, and real users and mentors react every&nbsp;day.</p>
+  </li>
+  <li class="pane" data-s="3">
+   <div class="agc-hd"><i>03</i><b>Craft</b></div>
+   <p class="agc-def">Finishing the work so people can trust&nbsp;it.</p>
+   <span class="agc-lab">How the week trained it</span>
+   <p class="agc-mo">Building stops at a fixed hour each day, and on demo day students explain every decision&nbsp;live.</p>
+  </li>
+ </ol></div>
+</div><aside class="notes">At Arena School we give the scarce part three names, and we build every program around them. Agency is deciding what is worth building before anyone assigns it. On day one, each student chooses the problem and pitches it in three minutes, with no slides, so nobody can hand them the answer. Taste is judging whether the output is actually good, and being able to say why. By midweek the prototype is online at a public link, real users try it and get confused, and mentors react to it every day. That's how students learn which version actually works. Craft is finishing it well enough that people can trust it. Building stops at a fixed hour each day, so teams demo only what works, and on demo day every student explains each decision live. AI is in every step, but these three stay with the student. The longer version is on our site, at arenaschool.org/approach.</aside></section>
+
+<!-- 19 · Is it cheating? -->
+<section class="s ae agC agC-ch"><div class="w">
+ <p class="kick r">Is using AI just cheating?</p>
+ <h2 class="r" style="--d:.1s">No. AI tools write the code,<br><em>and students make every decision.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="shift ac-own">
+  <div class="shx" data-s="1">
+   <div class="sh-col o"><span class="hd">AI tools and mentors handle</span><ul><li>Writing the code</li><li>Putting it online</li><li>Fixing technical errors</li></ul></div>
+   <div class="sh-arr" aria-hidden="true"><i></i></div>
+   <div class="sh-col n"><span class="hd">Students decide</span><ul><li>Which problem, and for whom</li><li>What to cut after users try it</li><li>The name, the price, and the pitch</li></ul></div>
+  </div>
+ </div></div>
+</div><aside class="notes">The question we get most from teachers: isn't this just cheating? No. Look at who does what. AI tools and mentors handle the technical complexity: writing the code, putting it online, fixing errors. Students make the product decisions: which problem, and for whom; what to cut once real users have tried it; and the name, the price, and the pitch. AI can't make those calls for them, and on demo day they explain every one of them live. That judgment is the part that compounds, and it's the part teachers already know how to coach.</aside></section>
+
+<!-- 20 · Your role, and three questions -->
+<section class="s alt ae agC agC-co"><div class="w">
+ <p class="kick r">What students need from us · try this on Monday</p>
+ <h2 class="r" style="--d:.1s">Your role becomes the coach, <em>and three questions do the coaching.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="agc-co">
+  <div class="pane dk agc-role" data-s="1">
+   <span class="agc-k">The teacher’s role</span>
+   <div class="agc-shift"><p class="agc-from">From the person with <span class="nw">the answers</span></p><span class="agc-dn" aria-hidden="true"></span><p class="agc-to">to the coach who asks <span class="nw">the questions</span></p></div>
+   <p class="agc-note">It’s what good teachers already do, and what our mentors did all&nbsp;week.</p>
+  </div>
+  <ol class="agc-q">
+   <li class="pane" data-s="2"><span class="agc-tag"><i>01</i>Agency</span><b>“Why this problem?”</b><span>They choose, not the&nbsp;AI.</span></li>
+   <li class="pane" data-s="3"><span class="agc-tag"><i>02</i>Taste</span><b>“How do you know it’s good?”</b><span>They judge what it&nbsp;made.</span></li>
+   <li class="pane" data-s="4"><span class="agc-tag"><i>03</i>Craft</span><b>“What would make someone trust it?”</b><span>They check it and finish&nbsp;it.</span></li>
+  </ol>
+ </div></div>
+</div><aside class="notes">So what do students need from us? The tools are everywhere. What's scarce is the structure around them: a real project with something at stake, honest feedback from real people, and someone who asks how they checked it. None of that is technical. It's what good teachers already do, and it's exactly what the mentors did all week. With AI in the room, the teacher moves from the person with the answers to the coach who asks the questions. And here's something you can use on Monday, in any subject, with any tool your school allows. When a student shows you something made with AI, ask three questions. Why this problem? That's agency. How do you know it's good? That's taste. What would make someone trust it? That's craft. You don't need to know how the tool works to ask any of them. Now let's show you how little you need to know to build something.</aside></section>
+
+<!-- 21 · Part 3 -->
+<section class="s ae nv sec"><div class="w"><div class="sec-g">
+ <div>
+  <p class="sec-k"><span>Part</span><b>3</b></p>
+  <h2 class="r" style="--d:.15s">Now let’s build one together. <em>No coding needed.</em></h2>
+  <p class="sl r" style="--d:.35s">Name a school chore. We walk through building the fix&nbsp;together.</p>
+ </div>
+ <ol class="trk" aria-label="Parts">
+  <li><div class="row"><span class="tn">1</span><span class="tt"><b>The case</b><small>What students built</small></span></div></li>
+  <li><div class="row"><span class="tn">2</span><span class="tt"><b>Why it worked</b><small>The design</small></span></div></li>
+  <li class="on"><div class="row"><span class="tn">3</span><span class="tt"><b>Build session</b><small>With the room</small></span></div></li>
+  <li><div class="row"><span class="tn">4</span><span class="tt"><b>Take it back</b><small>What it takes</small></span></div></li>
+ </ol>
+</div></div><aside class="notes">Thirty minutes, and it's your turn. Think of something at school that eats your time: a workflow you repeat every week, or a problem you keep running into. You bring the problem and make the decisions. We type.</aside></section>
+
+<!-- 22 · The brief -->
+<section class="s alt ae kimi3 agd-b"><div class="w">
+ <p class="kick r">Build session · 30 minutes</p>
+ <h2 class="r" style="--d:.1s">You bring a real school problem.<br><em>We walk through building the fix together.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="case3">
+  <div class="cs pane" data-s="1"><span class="lab">Step 1 · you name it</span><h3>A chore or a snag</h3><p>A workflow you repeat, or a problem you keep running&nbsp;into.</p>
+   <ul class="agd-ex" aria-label="Examples from teachers"><li>“I rewrite the same parent email every&nbsp;week.”</li><li>“Tracking which students turned in&nbsp;drafts.”</li><li>“Making one reading at three&nbsp;levels.”</li></ul></div>
+  <span class="cs-ar" data-s="2" aria-hidden="true">→</span>
+  <div class="cs pane" data-s="2"><span class="lab">Step 2 · we build it</span><h3>Claude Code writes it</h3><p>An AI tool that builds web apps from plain&nbsp;English.</p>
+   <div class="agd-cc"><div class="agd-cc-h"><img src="/logos/tools/claude.png" alt=""><b>Claude Code</b><small>by Anthropic</small></div><p class="agd-cc-p"><span>Make a page where I paste a reading and get it at three&nbsp;levels.</span></p><span class="agd-cc-o">A working web app, in&nbsp;minutes</span></div></div>
+  <span class="cs-ar" data-s="3" aria-hidden="true">→</span>
+  <div class="cs cs-out" data-s="3"><span class="lab">Step 3 · we all iterate</span><h3>Open it, then improve it</h3><p>We try it together and fix what’s off, one plain sentence at a&nbsp;time.</p>
+   <ul class="agd-ex" aria-label="Example fixes"><li>“Make the buttons&nbsp;bigger.”</li><li>“Add a column for due&nbsp;dates.”</li><li>“Use simpler words for grade&nbsp;6.”</li></ul></div>
+ </div>
+ </div>
+</div><aside class="notes">Here's how it works. Step one: call out something from your school week. A workflow you repeat, like rewriting the same parent email every Friday, or a problem you keep running into, like tracking which students have turned in drafts. We'll take a few ideas and the room picks one. Step two: we build it with Claude Code, an AI assistant from Anthropic that writes the code for a website or a small web app from plain English. We type what you said, almost word for word, and in a few minutes there's a first version on screen. Step three is the important part: we open it together and judge it. Does it actually solve the problem? Is it clear? Would you use it on Monday? Every fix is one more plain sentence, and we keep going until the room says it's good enough. It's the same loop your students would run: choose, judge, and finish. When we're done, we publish it; the link to what we built is on the session page, under slides and resources. Logistics: frame this as a build session or walkthrough, never as a guaranteed live demo. If the network holds, run it in Claude Code; if not, show the terminal and walk through a few prepared prompts and the result. Keep a recorded backup open in another tab.</aside></section>
+
+<!-- 23 · Part 4 -->
+<section class="s ae nv sec"><div class="w"><div class="sec-g">
+ <div>
+  <p class="sec-k"><span>Part</span><b>4</b></p>
+  <h2 class="r" style="--d:.15s">Take it back to your school:<br><em>teachers need AI&nbsp;too.</em></h2>
+  <p class="sl r" style="--d:.35s">What it takes to run this: teacher training and student&nbsp;programs.</p>
+ </div>
+ <ol class="trk" aria-label="Parts">
+  <li><div class="row"><span class="tn">1</span><span class="tt"><b>The case</b><small>What students built</small></span></div></li>
+  <li><div class="row"><span class="tn">2</span><span class="tt"><b>Why it worked</b><small>The design</small></span></div></li>
+  <li><div class="row"><span class="tn">3</span><span class="tt"><b>Build session</b><small>With the room</small></span></div></li>
+  <li class="on"><div class="row"><span class="tn">4</span><span class="tt"><b>Take it back</b><small>What it takes</small></span></div></li>
+ </ol>
+</div></div><aside class="notes">Parts one to three were about students: what they built, why it worked, and building one ourselves. Part four is about teachers. Teacher training matters as much as the student program. Teachers need AI to be more productive, so their time goes to students instead of repetitive housekeeping. Then, in the last few minutes: what a school needs to run a week like this, and where Arena School can help.</aside></section>
+
+<!-- 24 · AI gives teachers time back -->
+<section class="s alt ae r5b-tt"><div class="w">
+ <p class="kick r">Why teachers need AI too · EEF · Gallup</p>
+ <h2 class="r" style="--d:.1s">AI gives teachers back time<br><em>to spend on their&nbsp;students.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="r5b-g">
+  <div class="r5b-st">
+   <div class="pane r5b-n" data-s="1"><div class="big">31%</div><p>less time on lesson planning with AI in a randomized trial, with no drop in&nbsp;quality</p></div>
+   <div class="pane r5b-n" data-s="2"><div class="big">5.9<small>hours</small></div><p>saved a week by teachers who use AI weekly, about six weeks a school&nbsp;year</p></div>
+  </div>
+  <div class="pane r5b-case" data-s="3">
+   <span class="lab">From a teacher we spoke with</span>
+   <h3>A grading timer, <em>not a&nbsp;grader</em></h3>
+   <div class="r5b-tm" aria-hidden="true"><span class="r5b-tm-l">Paper 9 of 24</span><div class="r5b-tm-bar"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="on"></i><i></i><i></i><i></i></div><b class="r5b-tm-t">4:12 / 6:00</b></div>
+   <p>An English teacher built a simple timer. It grades nothing: he still reads every paper and writes the feedback&nbsp;himself.</p>
+   <p>It gives every paper the same share of his time, and keeps his marking within a set&nbsp;limit.</p>
+   <p class="r5b-tk">AI handles the housekeeping. <em>The teacher keeps the&nbsp;judgment.</em></p>
+  </div>
+ </div></div>
+ <p class="fn" data-s="1"><span>EEF/NFER, randomized trial, 259 teachers in 68 schools (2024). Gallup and Walton Family Foundation (2025): weekly AI users, n=2,232, self-reported&nbsp;estimate.</span></p>
+</div><aside class="notes">Parts one to three were about students. This part is about you, the teachers, because none of that works without you having time for it. Two numbers. First, a randomized trial in England: teachers who used AI for lesson planning spent 31% less time on it, and blind reviewers rated the plans the same. (Click.) Second, a 2025 Gallup survey of more than two thousand US teachers: those who use AI every week estimate it saves them almost six hours a week. Over a school year, that's about six weeks. (Click.) Here's what that looks like in practice. An English teacher we spoke with built himself a simple grading timer. It doesn't grade anything. He still reads every paper and writes every comment himself. What it does is time each paper, so every student gets an equal share of his attention, nobody rushed at the end of the pile and nobody over-weighted at the start, and his marking stays inside a set time. He's more accountable and more productive. That's the pattern: AI handles the housekeeping, and the teacher keeps the judgment.</aside></section>
+
+<!-- 25 · Tools teachers build -->
+<section class="s alt ae r5b-tl"><div class="w">
+ <p class="kick r">Why teachers need AI too · teachers as builders</p>
+ <h2 class="r" style="--d:.1s">Tools teachers build <em>for their own&nbsp;classrooms.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="r5b-two">
+  <div class="pane r5b-c" data-s="1">
+   <span class="lab">English · from a teacher we spoke with</span>
+   <h3>Literary devices, one click&nbsp;away</h3>
+   <div class="r5b-vis r5b-poem" aria-hidden="true"><span class="r6-src">Sonnet 18 · lines 5–7</span><p class="r5b-pl">Sometime too hot the <mark><small>Metaphor</small><span>eye of heaven</span></mark> shines,</p><p class="r5b-pl">And often is <mark class="b"><small>Personification</small><span>his gold complexion</span></mark> dimm’d;</p><p class="r5b-pl">And every <mark class="c"><small>Alliteration</small><span>fair from fair</span></mark> sometime declines,</p></div>
+   <p>Instead of color-coding a poem by hand at the board, the teacher tags each literary device before&nbsp;class.</p>
+   <p>In class, one click reveals each device and its&nbsp;label.</p>
+   <p class="r5b-out">Class time goes to discussing the&nbsp;poem.</p>
+  </div>
+  <div class="pane r5b-c" data-s="2">
+   <span class="lab">Science · what a STEM teacher can build</span>
+   <h3>A simulation made for this&nbsp;class</h3>
+   <div class="r5b-vis r5b-sim" aria-hidden="true"><svg viewBox="0 22 280 84"><line class="g" x1="10" y1="100" x2="270" y2="100"/><path class="rp" d="M30 100 L250 100 L250 30 Z"/><rect class="bk" x="134" y="39.5" width="34" height="22" rx="3" transform="rotate(-17.65 151 61.5)"/><path class="ar" d="M112.5 54.8 L73 67.4"/><path class="ah" d="M73 67.4 L83.6 58.9 M73 67.4 L86.6 68.7"/><path class="an" d="M66 100 A36 36 0 0 0 64.3 89.1"/></svg><div class="r5b-ctl"><span>Angle <b>20°</b></span><span class="r5b-sl"><i></i></span><span>Friction <b>0.3</b></span><span class="r5b-sl s2"><i></i></span></div></div>
+   <p>Students take a model apart and rebuild it, or change one variable in a physics&nbsp;setup.</p>
+   <p>Built for this lesson, not the nearest YouTube&nbsp;demo.</p>
+   <p class="r5b-out">Students test ideas instead of watching&nbsp;one.</p>
+  </div>
+ </div></div>
+</div><aside class="notes">Teachers don't only save time with AI. They build their own tools. Here's one from an English teacher we spoke with. Teaching a poem used to mean annotating it by hand, at the board, while thirty students watched and copied. Now the teacher tags each literary device before class: a metaphor, a personification, an alliteration. In class, one click highlights the phrase and brings up its label. The class spends that time talking about the poem. (Click.) The second one is an example of what a science or math teacher can build. Instead of searching YouTube for a demo that's almost right, you build a simulation for exactly this lesson: students take a model apart and put it back together, or change the angle of a ramp and watch what happens. They test the idea themselves. Neither teacher writes code. They describe what they want in plain English, the same way we just walked through in the build session. That's exactly what we build together with teachers at their own schools.</aside></section>
+
+<!-- 26 · What it takes -->
+<section class="s ae age-own"><div class="w">
+ <p class="kick r">Take it back · planning checklist</p>
+ <h2 class="r" style="--d:.1s">Your school already owns most of this. <em>Arena School can help with the&nbsp;rest.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="shift ac-own">
+  <div class="shx" data-s="1">
+   <div class="sh-col o"><span class="hd">Your school owns</span><ul><li>The learning goals and lasting skills</li><li>A five-day block on the calendar</li><li>Teachers, IT, and families on board</li><li>How students show their work</li></ul></div>
+   <div class="sh-arr" aria-hidden="true"><i></i></div>
+   <div class="sh-col n"><span class="hd age-hd"><img src="/logos/arena/seal-ivory-256.png" alt="">Where Arena School helps</span><ul><li>Matching AI tools to each task</li><li>Prompting that builds thinking</li><li>Tools that work on your network</li><li>An idea to a product in five days</li></ul></div>
+  </div>
+ </div></div>
+ <p class="fn age-fn" data-s="1"><span>Checklist and China tool guide: <a href="__URL__" target="_blank" rel="noopener">__DISPLAY__</a></span><span>How we teach: <a href="https://arenaschool.org/approach" target="_blank" rel="noopener">arenaschool.org/approach</a></span></p>
+</div><aside class="notes">On the left is what every school here already has: the learning goals, the calendar, the people, and a way for students to show their work. On the right is where Arena School comes in, because it takes practice to get right: which AI tool fits which task, how to prompt in a way that builds thinking instead of skipping it, which tools actually work on your school network, and how to get a student idea to a working product in five days. How we teach is on our website at arenaschool.org/approach. The full checklist and a guide to which tools work on school networks in China are on the session page.</aside></section>
+
+<!-- 27 · Going further -->
+<section class="s alt ae st ac-fit age-off r6-off"><div class="w">
+ <p class="kick r age-brand"><img src="/decks/img/acamis/a-wordmark-url-navy.png" alt="Arena School, arenaschool.org" width="1600" height="243"></p>
+ <h2 class="r" style="--d:.1s">Going further: we help schools bring AI <em>into teaching and learning.</em></h2>
+  <ol class="ic3 ac-off"><li data-s="1"><span class="ico">{{ic:users}}</span><b>AI for Educators</b><span class="age-d">Hands-on training at your school, with your teachers’ own lessons</span></li><li data-s="2"><span class="ico">{{ic:presentation}}</span><b>Student programs</b><span class="age-d">A five-day build week like ISB’s, co-run with your&nbsp;teachers</span></li><li data-s="3"><span class="ico">{{ic:pen-line}}</span><b>Curriculum design</b><span class="age-d">Where AI fits in your courses, and how to assess&nbsp;it</span></li></ol>
+  <div class="r6-proof" data-s="4"><span class="r6-l"><span class="r6-lab">Selected work</span><a class="r6-res" href="https://arenaschool.org/results" target="_blank" rel="noopener">arenaschool.org/results</a></span><div class="r6-logos"><img class="r6-isb" src="/logos/cred/isb.png" alt="International School of Beijing"><span class="r6-bod">Bodley Academy</span><img class="r6-ts" src="/logos/cred/tsinghua-lockup.png" alt="Tsinghua University"></div></div>
+</div><aside class="notes">Today was one hour. Building real AI fluency across a faculty, and a curriculum where students use AI to think more rather than less, takes more than that. That's what we do at Arena School. AI for Educators trains teachers at their own school, with their own lessons. Our student programs, like the five-day week at ISB, are co-run with your teachers, so you can run it again yourselves. And we help schools plan where AI fits in each course and how to assess it. Selected work: the student program at ISB this summer, a five-day course at Bodley Academy in Hong Kong last year, and staff training at Schwarzman College at Tsinghua. Each program has its own page on arenaschool.org, and the results page shows all three.</aside></section>
+
+<!-- 28 · Close -->
+<section class="s ae nv cl age-cl"><div class="w">
+ <p class="kick r">If you remember one thing</p>
+ <h2 class="r" style="--d:.1s">AI doesn’t have to do the thinking for students.<br><em>The design is up to us.</em></h2>
+ <div class="bd r" style="--d:.25s">
+  <ol class="c3x">
+   <li data-s="1"><i>1</i><b>Students can ship</b><span>Live products in five days, with no coding&nbsp;background.</span></li>
+   <li data-s="2"><i>2</i><b>Design decides</b><span>Students choose, judge, and finish.</span></li>
+   <li data-s="3"><i>3</i><b>Start small, start now</b><span>One project, one class, and three questions.</span></li>
+  </ol>
+  <div class="endline age-end" data-s="4"><p>You don’t need to code. You already know how to coach.</p><a class="age-sig" href="https://arenaschool.org" target="_blank" rel="noopener"><span>When you’re ready to run your own, Arena School can&nbsp;help.</span><b>arenaschool.org</b></a></div>
+ </div>
+</div><aside class="notes">Three things. One: students can ship; at ISB, students with no coding background had live products in five days. Two: design decides; when students choose, judge, and finish, AI makes them learn more, not less. Three: start small; one project, one class, three questions. Then the last line, with a smile: you don't need to code. You already know how to coach. And when you're ready to run your own, Arena School can help.</aside></section>
+
+<!-- 29 · Q&A -->
+<section class="s alt ae age-ty"><div class="w">
+ <p class="kick r">ACAMIS Technology Conference · October 18, 2026</p>
+ <h2 class="r" style="--d:.1s">Thank you! <em>We&nbsp;welcome your questions.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="qa age-qa">
+  <a class="qr pane qr-live age-q" href="__URL__" target="_blank" rel="noopener"><img src="/decks/img/acamis/qr-acamis-tight.png" alt="QR code for __DISPLAY__"><span>Slides and resources</span><small>__DISPLAY_HTML__</small></a>
+  <div class="pane age-cta">
+   <div class="age-ct">
+    <img class="age-wm" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School" width="1600" height="242">
+    <span class="k">Bring this to your school</span>
+    <p class="age-h">Book a call with us</p>
+    <p class="age-p">About teacher training, student programs, or curriculum&nbsp;design.</p>
+    <p class="age-ln"><a href="mailto:jingjing@arenaschool.org">jingjing@arenaschool.org</a><a href="https://arenaschool.org" target="_blank" rel="noopener">arenaschool.org</a></p>
+   </div>
+   <a class="qr qr-live age-q age-q2" href="https://arenaschool.org/contact" target="_blank" rel="noopener"><img src="/decks/img/acamis/e-qr-contact-tight.png" alt="QR code for arenaschool.org/contact"><span>Book a call</span><small>arenaschool.org/contact</small></a>
+  </div>
+ </div></div>
+</div><aside class="notes">Thank you. The slides, the checklist, and the tool guide are all at the code on the left. If you'd like to bring any of this to your school, scan the code on the right to book a call, email Jing Jing at jingjing@arenaschool.org, or find us after the session.</aside></section>

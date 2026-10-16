@@ -1,0 +1,15 @@
+/* round 13: teaching philosophy slide */
+.r13-ph .bd{display:flex;flex-direction:column;gap:30px}
+.r13-ph .r13-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap);flex:1;min-height:0}
+.ae.r13-ph .bd .r13-c{display:flex;flex-direction:column;justify-content:center;padding:34px 38px;margin:0}
+.r13-ph .r13-n{display:flex;align-items:baseline;gap:12px;margin:0 0 14px}
+.r13-ph .r13-n i{font:italic 400 24px/1 var(--serif);color:var(--ink2)}
+.r13-ph .r13-n b{font:500 46px/1.05 var(--serif);letter-spacing:-.015em;color:var(--ink)}
+.r13-ph .r13-d{margin:0;font:400 26px/1.35 var(--serif);color:var(--ink)}
+.r13-ph .r13-w{margin:22px 0 0;padding-top:20px;border-top:1px solid var(--edge);font:italic 400 23px/1.35 var(--serif);color:var(--muted)}
+.r13-ph .r13-w span{display:block;margin-bottom:6px;font:600 14px/1.2 var(--serif);font-style:normal;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
+.r13-ph .r13-end{margin:0;font:400 27px/1.4 var(--serif);color:var(--ink)}
+.r13-ph .r13-end em{font-style:italic;color:var(--ink2)}
+.ae.r13-ph .bd .r13-c{padding:36.7px 38px 31.3px}
+.ae.r8-pa .bd .ac-own .sh-col{padding:39.9px 44px 28.1px!important}
+section.s.ae.agC-sk .bd .agc-sk>li.pane{padding:36.2px 32px 25.8px}

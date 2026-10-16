@@ -1,0 +1,8 @@
+/* round 5: upright numerals centered in the stage circles */
+.agb-wk .agb-sg i{font-style:normal;font-size:15px;letter-spacing:0;font-variant-numeric:lining-nums tabular-nums;padding:0;line-height:1}
+/* round 5: tool groups are columns inside the one panel, not cards inside a card */
+.ae.r4c-tk .bd .r4c-grp{background:none!important;box-shadow:none!important;border:0;border-radius:0;padding:8px 28px 8px}
+.ae.r4c-tk .bd .r4c-grp+.r4c-grp{border-left:1px solid var(--edge)}
+.r4c-tk .r4c-gs{gap:0}
+.agb-wk .agb-sg i{padding-top:4.4px}
+.agb-wk .agb-r2 .agb-sg i{padding-top:3.4px}

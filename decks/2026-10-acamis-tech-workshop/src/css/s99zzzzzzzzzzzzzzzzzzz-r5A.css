@@ -1,0 +1,25 @@
+/* round 5 A: slides 7, 8, 9 */
+/* 7 · framework: content closer to the title, larger wheel, narrower text column */
+.ae.fx-s .bd{padding-top:14px}
+.fx-s .fx-g{column-gap:60px}
+.fx-s .fx-wheel{width:504px;height:504px}
+.fx-s .fx-side{gap:40px}
+/* 8 · outcomes: table moves up under the subtitle; rows share the freed height evenly */
+section.s.ae.lo3-s:not(.st):not(.bq)>.w>h2{min-height:0}
+.ae.lo3-s .lo3-sub{margin-top:14px}
+.ae.lo3-s .bd{padding-top:30px;justify-content:flex-start}
+.ae.lo3-s .bd>.lo3-cols{flex:1 1 auto}
+.ae.lo3-s .bd .lo3-c{flex:1 1 auto;padding:10px 0}
+.ae.lo3-s .bd .lo3-c ul{display:flex;flex-direction:column;gap:12px}
+.ae.lo3-s .bd .lo3-c li{padding:0 0 0 22px}
+.ae.lo3-s .bd .lo3-c li::before{top:11px}
+/* 9 · assessment: content up under the title; evidence items spread across the card */
+section.s.ae.rb-s:not(.st):not(.bq)>.w>h2{min-height:0}
+.ae.rb-s .bd{padding-top:30px;gap:24px}
+.rb-s .rb-ev ul{justify-content:space-between;align-items:center;gap:24px}
+.ae.rb-s .bd{gap:40px}
+.rb-s .rb-hd b{margin-bottom:16px}
+.rb-s .rb-ev,.rb-s .rb-isb{padding:30px 28px 28px}
+/* ink-centering trims (measured) */
+.ae.lo3-s .bd .lo3-c{padding:11px 0 9px}
+.rb-s .rb-isb{padding-top:30.6px;padding-bottom:27.4px}

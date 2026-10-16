@@ -1,0 +1,161 @@
+{
+ "event": "ACAMIS Technology Conference · October 18, 2026",
+ "title_html": "AI tools that work on <em>school networks in China</em>",
+ "lede": "Chinese AI services that teachers and students can usually reach without extra setup, grouped by job. All of them are Chinese-run services on Chinese domains. Access varies by school network, so test each one before class.",
+ "sections": [
+  {
+   "job": "Ask, write, and research",
+   "tools": [
+    {
+     "name": "Kimi",
+     "zh": "",
+     "maker": "Moonshot AI",
+     "good_for": "Research, writing, slides, and simple websites. Log in with WeChat or Google.",
+     "url": "kimi.com or kimi.ai"
+    },
+    {
+     "name": "DeepSeek",
+     "zh": "深度求索",
+     "maker": "DeepSeek",
+     "good_for": "Reasoning, math, writing, and coding help",
+     "url": "chat.deepseek.com"
+    },
+    {
+     "name": "Doubao",
+     "zh": "豆包",
+     "maker": "ByteDance",
+     "good_for": "Everyday questions, writing, and voice chat",
+     "url": "doubao.com"
+    },
+    {
+     "name": "Qwen",
+     "zh": "千问",
+     "maker": "Alibaba",
+     "good_for": "Writing, research, and document reading",
+     "url": "qianwen.com"
+    },
+    {
+     "name": "WorkBuddy",
+     "zh": "",
+     "maker": "Tencent",
+     "good_for": "A desktop AI agent that works through files and multi-step office tasks",
+     "url": "workbuddy.cn"
+    },
+    {
+     "name": "Wenxin",
+     "zh": "文心",
+     "maker": "Baidu",
+     "good_for": "Questions, writing, and search",
+     "url": "wenxin.baidu.com"
+    },
+    {
+     "name": "Zhipu Qingyan",
+     "zh": "智谱清言",
+     "maker": "Z.AI (Zhipu)",
+     "good_for": "Writing and study help, with a learning mode",
+     "url": "chatglm.cn"
+    },
+    {
+     "name": "Metaso AI Search",
+     "zh": "秘塔AI搜索",
+     "maker": "Metaso",
+     "good_for": "Research with cited sources",
+     "url": "metaso.cn"
+    }
+   ]
+  },
+  {
+   "job": "Images, video, and design",
+   "tools": [
+    {
+     "name": "Jimeng AI",
+     "zh": "即梦AI",
+     "maker": "ByteDance",
+     "good_for": "Images, posters, and short videos",
+     "url": "jimeng.jianying.com"
+    },
+    {
+     "name": "Kling AI",
+     "zh": "可灵AI",
+     "maker": "Kuaishou",
+     "good_for": "Video and image generation",
+     "url": "klingai.kuaishou.com"
+    },
+    {
+     "name": "Hailuo AI",
+     "zh": "海螺AI",
+     "maker": "MiniMax",
+     "good_for": "Short video generation",
+     "url": "hailuoai.com"
+    },
+    {
+     "name": "LiblibAI",
+     "zh": "哩布哩布AI",
+     "maker": "LiblibAI",
+     "good_for": "Image generation and style models",
+     "url": "liblib.art"
+    }
+   ]
+  },
+  {
+   "job": "Build websites, apps, and code",
+   "tools": [
+    {
+     "name": "TRAE",
+     "zh": "国内版",
+     "maker": "ByteDance",
+     "good_for": "AI coding editor: describe it, then build it",
+     "url": "trae.cn"
+    },
+    {
+     "name": "Qoder CN",
+     "zh": "",
+     "maker": "Alibaba (formerly Tongyi Lingma)",
+     "good_for": "AI coding assistant",
+     "url": "qoder.cn"
+    },
+    {
+     "name": "Baidu Comate",
+     "zh": "文心快码",
+     "maker": "Baidu",
+     "good_for": "AI coding assistant",
+     "url": "comate.baidu.com"
+    },
+    {
+     "name": "CodeBuddy",
+     "zh": "腾讯云代码助手",
+     "maker": "Tencent",
+     "good_for": "AI coding assistant",
+     "url": "codebuddy.cn"
+    }
+   ]
+  }
+ ],
+ "blocked": {
+  "h": "Usually not available without extra setup",
+  "p": "ChatGPT, Claude, Gemini (personal accounts), Perplexity, Midjourney, and Cursor do not officially serve mainland China. Websites published on <b>vercel.app</b> addresses are often blocked as well, so publish student work to an address your school can open."
+ },
+ "licensed": {
+  "h": "If your school uses Microsoft 365",
+  "p": "Microsoft 365 Copilot is not available on the China version of Microsoft 365 (operated by 21Vianet). Schools on a global Microsoft 365 setup should check their own license with IT."
+ },
+ "before": {
+  "h": "Before any class",
+  "items": [
+   "Test each tool on the <b>student</b> network, not only the staff network.",
+   "Keep a backup: a phone hotspot, or a second tool that does the same job.",
+   "Use placeholder data. No real student names or records in any tool.",
+   "Agree on accounts and logins with your IT team before students sign up."
+  ]
+ },
+ "minors": {
+  "h": "Students and age rules",
+  "items": [
+   "Most of these services say they are mainly for adults and require <b>guardian consent for users under 18</b>; several add extra steps for under-14s.",
+   "China's Personal Information Protection Law treats under-14s' personal information as sensitive and requires guardian consent (Articles 28 and 31).",
+   "Vidu is 18+ only and is left off this list. Claude requires users to be 18+; ChatGPT requires 13+ with parent permission under 18."
+  ]
+ },
+ "footer_left": "Checked October 15, 2026, from each tool’s official site and terms. Access and names change often; confirm with your IT team.",
+ "footer_right": "<b>Arena School</b> · arenaschool.org"
+}

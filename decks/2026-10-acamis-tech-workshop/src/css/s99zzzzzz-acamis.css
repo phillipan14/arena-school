@@ -1,0 +1,95 @@
+/* ACAMIS Tech 2026: components new to this deck, and four-part trackers */
+.cv-top .ac-wm{display:block;height:44px;width:auto}
+.toc .trk.tocf.ac4{grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap)}
+.toc .tocf.ac4 b{font-size:32px;white-space:nowrap}
+.toc .tocf.ac4 .ico{width:92px;height:92px}.toc .tocf.ac4 .ico .lic{width:42px;height:42px}
+.toc .tocf.ac4 .tn{font-size:76px}
+.sec .trk:has(li:nth-child(4)){grid-template-columns:repeat(4,minmax(0,1fr))}
+/* statement slides with a longer title */
+.ae.st.ac-fit h2{font-size:60px;line-height:1.1;max-width:20em}
+.st.ac-fit .ic3{margin-top:56px}
+.ac-fit .ic3 .ico{width:112px;height:112px;margin-bottom:14px}.ac-fit .ic3 .ico .lic{width:52px;height:52px}
+.ac-fit .ic3 b{font-size:46px}
+.ac-fit .ic3 span:last-child{font-size:27px}
+.ac-q b{font-size:42px!important}
+/* the week */
+.ac-wk h3{font-size:34px!important}
+.ac-wk p{font-size:25px!important;padding-right:18px}
+/* demo day */
+.ac-dd{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:minmax(0,1fr) auto;gap:var(--gap);height:100%;min-height:0}
+.ac-ph{margin:0;padding:0;overflow:hidden;display:flex;flex-direction:column;min-height:0}
+.ac-ph img{display:block;width:100%;flex:1;min-height:0;object-fit:cover;object-position:center 30%}
+.ac-ph figcaption{padding:16px 24px;font:italic 400 22px/1.3 var(--serif);color:var(--muted)}
+.ac-jg{grid-column:1/-1;display:flex;align-items:center;gap:40px;padding:26px 36px}
+.ac-jg .lab{flex:none;max-width:12em}
+.ac-lg{display:flex;align-items:center;gap:48px;flex:1}
+.ac-lg img{display:block;height:48px;width:auto}
+.ac-lg .j-yc{height:42px}
+.ac-ai{font:italic 400 30px/1 var(--serif);color:var(--ink)}
+/* Hong Kong stats in place of the tool strip */
+.ac-hk .ac-st{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap);align-items:center}
+.ac-st>div{display:flex;align-items:baseline;gap:16px}
+.ac-st b{font:300 64px/1 var(--serif);letter-spacing:-.03em;color:var(--ink2);white-space:nowrap}
+.ac-st b small{font-size:.45em;color:var(--muted)}
+.ac-st span{font-size:21px;line-height:1.35;color:var(--text)}
+/* skills by day: tops aligned */
+.ac-days li{justify-content:flex-start!important}
+.ac-days em{font-style:italic;color:var(--ink2)}
+/* live build QR */
+.ac-big{font:400 40px/1.25 var(--serif)!important;color:var(--ink)!important;margin:0 0 14px!important}
+/* what a school owns */
+.ac-own .sh-col li{font-size:32px;line-height:1.35}
+.ac-own .sh-col{padding:44px 48px}
+.ac-own .sh-col ul{gap:22px}
+.ac-own .hd{margin-bottom:12px}
+/* offer */
+.ac-proof{display:flex;align-items:center;gap:40px;margin-top:auto;padding:24px 36px}
+.ac-pl{display:flex;align-items:center;gap:56px}
+.ac-pl img{display:block;height:52px;width:auto}
+.ac-pt{font:500 26px/1.2 var(--serif);color:var(--ink)}
+.ae .bd .cs31.ac-hk .ac-st{grid-row:2;grid-column:1/-1;padding:18px 30px}
+.ac-dd{height:auto;grid-template-rows:auto auto}
+.ac-ph img{flex:none;height:430px}
+.ae .bd .ac-dd .ac-ph{padding:0!important;justify-content:flex-start}
+.ae .bd .ac-dd .ac-ph img{height:410px!important;width:100%!important;max-height:none;border-radius:0}
+.ae .bd .ac-dd .ac-jg{padding:20px 36px!important}
+.ae .bd .ac-lg img{height:44px!important;width:auto!important}
+.ae .bd .ac-lg .j-yc{height:40px!important}
+.ae .bd .cs31.ac-hk .cs-v{width:380px;height:262px}
+.ae.ac-fit .ac-off{margin-top:40px}
+.ac-fit .ac-off .ico{width:96px;height:96px;margin-bottom:6px}.ac-fit .ac-off .ico .lic{width:44px;height:44px}
+.ac-fit .ac-off li{padding-top:26px}
+.ac-fit .ac-off b{font-size:42px}
+.ac-fit .ac-off span:last-child{font-size:25px}
+.st.ac-fit .ac-proof{margin-top:36px}
+.ae .bd .ac-own .sh-col li{font-size:32px!important;line-height:1.35!important;margin-bottom:14px}
+.ae .bd .ac-own .sh-col{padding:44px 48px!important}
+.ae .bd .ac-own .hd{font-size:17px;margin-bottom:22px;display:block}
+.ae .bd .ac-dd .ac-ph img{height:330px!important}
+.ac-ph figcaption{padding:12px 22px;font-size:20px}
+.ae .bd .ac-lg img{height:36px!important}
+.ae .bd .ac-lg .j-yc{height:34px!important}
+.ac-jg .lab{max-width:none;white-space:nowrap}
+.ac-ai{font-size:26px}
+section.s.st.ac-fit:has(.ac-off)>.w{padding-top:calc(var(--hero-top) * .55)}
+.ae .bd .ac-dd .ac-ph img{height:316px!important}
+.ae .bd .ac-lg .j-hv{height:40px!important}
+.ae .bd .ac-lg .j-sf{height:30px!important}
+.ae .bd .ac-lg .j-yc{height:30px!important}
+section.s.st.ac-fit:has(.ac-off)>.w{padding-top:calc(var(--hero-top) * .6)}
+.ac-q b{max-width:8.6em}
+/* program facts strip under the two photos */
+.ae .bd .ac-dd .ac-facts{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap);align-items:center;padding:20px 32px}
+.ac-facts b{font-size:56px}
+/* ten stages */
+.ac-10{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--gap)}
+.ae .bd .ac-10 li{display:flex;flex-direction:column;gap:8px;padding:28px 26px}
+.ac-10 i{font:italic 400 22px/1 var(--serif);color:var(--ink2)}
+.ac-10 b{font:500 31px/1.15 var(--serif);letter-spacing:-.01em;color:var(--ink)}
+.ac-10 span{font:400 22px/1.35 var(--serif);color:var(--text)}
+.ac-10 li:nth-child(n+6){background:var(--paper-hi)}
+.ae .bd .ac-dd .ac-facts.ac-f3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.ac-prog .ae .bd .ac-dd .ac-ph img,.ae.ac-prog .bd .ac-dd .ac-ph img{height:280px!important}
+.ae .bd .ac-10 li{padding:22px 22px;gap:6px}
+.ac-10 b{font-size:29px}
+.ac-10 span{font-size:21px}

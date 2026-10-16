@@ -1,0 +1,7 @@
+/* Slide 14 (China Youth Daily survey): optical alignment for the new figures 91.1% / 56.6% */
+.arc .an:last-child .big{margin-left:-13.6px}
+:lang(zh-CN) .arc .an:last-child .big{margin-left:-11.4px}
+:lang(zh-CN) .arc .an:first-child .big{margin-left:-6.6px}
+.arc .ar2.vs span{transform:translate(-33.3px,-23px)}
+:lang(zh-CN) .arc .ar2.vs span{transform:translate(-54.3px,-18px)}
+.arc .an .big{width:max-content;max-width:100%}

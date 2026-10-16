@@ -1,0 +1,2 @@
+/* CN sign-language slide: title fits one line, so drop the two-line title reserve (same fix as slides 19 and 29) */
+:lang(zh-CN) .ae:has(.cs31):not(.st):not(.bq)>.w>h2{min-height:0}

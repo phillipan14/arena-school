@@ -1,0 +1,54 @@
+/* Slide 25 (round 4): METR exponential chart (real data, left) and the widening-gap illustration (right). */
+.xg2{display:grid;grid-template-columns:minmax(0,1.28fr) minmax(0,.72fr);gap:var(--gap);align-items:stretch;flex:1;min-height:0}
+.xg2>.pane{display:flex;flex-direction:column;padding:var(--pad-m)!important;min-height:0}
+.xg2 .lr{height:auto;margin:0}
+
+.xg-plot{position:relative;flex:1;min-height:205px;margin:16px 0 0}
+.xg-area{position:absolute;left:104px;right:18px;top:16px;bottom:33px}
+:lang(zh-CN) .xg-area{left:92px}
+.xg-grid,.xg-draw{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible}
+.xg .gl{stroke:var(--edge);stroke-width:1}
+.xg .gl:first-child{stroke:rgba(11,26,74,.32)}
+.xg .ar{fill:rgba(47,85,168,.08)}
+.xg .cv{fill:none;stroke:var(--ink2);stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round}
+.xg-yl,.xg-xl{position:absolute;font:400 17px/1 var(--serif);color:var(--muted);white-space:nowrap;font-variant-numeric:lining-nums tabular-nums}
+.xg-yl{right:calc(100% + 16px);bottom:calc(var(--y) * 1%);translate:0 50%}
+.xg-xl{top:calc(100% + 16px);left:calc(var(--x) * 1%);translate:-50% 0}
+:lang(zh-CN) .xg-yl,:lang(zh-CN) .xg-xl{font-size:18px}
+.xg-pt{position:absolute;left:calc(var(--x) * 1%);bottom:calc(var(--y) * 1%);width:18px;height:18px;margin:0 0 -9px -9px;border-radius:50%;background:var(--paper-hi);border:3px solid var(--ink2);box-sizing:border-box}
+.xg-pt.hl{background:var(--ink2)}
+.xg-lb{position:absolute;left:calc(var(--x) * 1%);bottom:calc(var(--y) * 1%);font:400 21px/1 var(--serif);color:var(--text);white-space:nowrap;padding:3px 8px;background:#F7F0E7;border-radius:4px}
+.xg-lb.hl{color:var(--ink2);font-weight:600}
+:lang(zh-CN) .xg-lb{font-size:21px}
+.xg-lb.p0{translate:-24px -26px}
+.xg-lb.p1{translate:calc(-100% + 16px) -20px}
+.xg-lb.p2{translate:calc(-100% - 2px) -26px}
+.xg-lb.p3{translate:calc(-100% - 16px) 50%}
+/* illustration */
+.xg-il .xg-plot{margin:14px 0 0}
+.xg-il .xg-area{left:0;right:4px;top:8px;bottom:33px}
+.xg-il .ax{stroke:rgba(11,26,74,.32);stroke-width:1}
+.xg-axl{position:absolute;font:400 17px/1 var(--serif);color:var(--muted)}
+.xg-axl.x{right:0;top:calc(100% + 16px)}
+.xg-axl.y{left:14px;top:0}
+:lang(zh-CN) .xg-axl{font-size:18px}
+.xg-il .gp{fill:rgba(47,85,168,.12)}
+.xg-il .cf{fill:none;stroke:var(--muted);stroke-width:3;stroke-linecap:round}
+.xg-ll,.xg-gl{position:absolute;white-space:nowrap;font:400 19px/1.15 var(--serif)}
+.xg-ll.up{right:21%;bottom:62%;color:var(--ink2);font-weight:600}
+.xg-ll.fl{right:0;bottom:calc(7.8% + 3px);color:var(--muted);padding:2px 6px;background:#F7F0E7;border-radius:4px}
+.xg-gl{left:87%;bottom:41%;translate:-50% 50%;font-style:italic;color:var(--ink2)}
+:lang(zh-CN) .xg-ll,:lang(zh-CN) .xg-gl{font-size:20px}
+:lang(zh-CN) .xg-gl{font-style:normal}
+.ae .bd .xg2 .xg-cap{margin:10px 0 0;font:italic 400 16px/1.35 var(--serif);color:var(--muted)}
+:lang(zh-CN) .ae .bd .xg2 .xg-cap{font-style:normal;font-size:16px;line-height:1.5}
+/* motion: the curve draws left to right, each point and label arrives as the line reaches it */
+.motion .xg .xg-draw{clip-path:inset(-20px -20px -20px -20px);transition:clip-path 1.6s linear .2s}
+.motion .s:not(.in) .xg .xg-draw,.motion .s.bld .xg[data-s]:not(.vis) .xg-draw{clip-path:inset(-20px calc(100% + 20px) -20px -20px);transition:none}
+.motion .xg .xg-pt{transition:scale .45s var(--e-o) calc(.2s + var(--x) * .016s),opacity .3s ease calc(.2s + var(--x) * .016s)}
+.motion .xg .xg-lb{transition:opacity .45s ease calc(.3s + var(--x) * .016s)}
+.motion .s:not(.in) .xg .xg-pt,.motion .s.bld .xg[data-s]:not(.vis) .xg-pt{scale:.2;opacity:0;transition:none}
+.motion .s:not(.in) .xg .xg-lb,.motion .s.bld .xg[data-s]:not(.vis) .xg-lb{opacity:0;transition:none}
+.motion .xg-il .xg-ll,.motion .xg-il .xg-gl{transition:opacity .5s ease 1.3s}
+.motion .s:not(.in) .xg-il .xg-ll,.motion .s:not(.in) .xg-il .xg-gl,
+.motion .s.bld .xg-il[data-s]:not(.vis) .xg-ll,.motion .s.bld .xg-il[data-s]:not(.vis) .xg-gl{opacity:0;transition:none}

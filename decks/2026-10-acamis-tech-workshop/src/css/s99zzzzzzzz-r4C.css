@@ -1,0 +1,29 @@
+/* agent C, round 4 · slide 10 (the tools): the 200+ field plays on arrival; click 1 lights up the 20+ tools students used; click 2 brings them forward, grouped by job */
+.r4c-tk .bd{display:flex;flex-direction:column}
+.r4c-tk .mk{position:relative;flex:1;min-height:0;display:flex;flex-direction:column;gap:0}
+.r4c-tk .mk-low{flex:1;min-height:0;display:flex!important;flex-direction:column;gap:0}
+.ae.r4c-tk .bd .mk-map{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:flex-start;gap:18px;padding:28px 40px 32px}
+.ae.r4c-tk .bd .mk-map .lab{margin:0;flex:none;white-space:nowrap}
+.r4c-used b{font-weight:600;color:var(--ink2)}
+.ae.r4c-tk .bd .mk-field{flex:none;height:auto;overflow:visible;text-align:justify;text-align-last:left;font-size:19px;word-spacing:10px;line-height:1.4}
+.ae.r4c-tk .bd .mk-field span{font-size:19px;line-height:1.4;transition:opacity .6s ease,color .6s ease}
+.r4c-tk .mk-field span.hl{transition:opacity .6s ease,color .6s ease,font-weight 0s}
+/* click 1: the field dims and the tools students used light up */
+.r4c-tk:has(.r4c-used.vis) .mk-field span,.export .r4c-tk .mk-field span{opacity:.16!important;animation:none!important}
+.r4c-tk:has(.r4c-used.vis) .mk-field span.hl,.export .r4c-tk .mk-field span.hl{opacity:1!important;color:var(--ink2);font-weight:600}
+/* click 2: the field clears and the used tools rise into its place, grouped by job */
+.r4c-tk:has(.r4c-gs.vis) .mk-field span,.export .r4c-tk .mk-field span,.r4c-tk:has(.r4c-gs.vis) .mk-field span.hl,.export .r4c-tk .mk-field span.hl{opacity:0!important}
+.r4c-tk .r4c-gs{position:absolute;inset:70px 0 0;display:grid;grid-template-columns:repeat(5,auto);align-content:center;gap:var(--gap-s);padding:0 16px;opacity:1!important;transform:none!important;transition:none!important;pointer-events:none}
+.ae.r4c-tk .bd .r4c-grp{display:flex;flex-direction:column;padding:26px 24px 28px;background:var(--paper-hi);box-shadow:0 22px 44px -26px rgba(11,26,74,.45),0 0 0 1px var(--edge);
+  transition:opacity .5s ease calc(var(--j) * 110ms),transform .7s var(--e-o,cubic-bezier(.2,.8,.2,1)) calc(var(--j) * 110ms)}
+.s.bld.r4c-tk .r4c-gs:not(.vis) .r4c-grp{opacity:0;transform:translateY(56px)}
+.s.nt.r4c-tk .r4c-grp,.export .r4c-tk .r4c-grp{transition:none!important}
+.export .r4c-tk .r4c-grp{opacity:1!important;transform:none!important}
+.ae.r4c-tk .bd .r4c-grp .lab{margin:0;white-space:nowrap}
+.r4c-st{display:block;margin:6px 0 18px;font:italic 400 21px/1.2 var(--serif);color:var(--muted);white-space:nowrap}
+.r4c-grp ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr;gap:12px}
+.r4c-grp.w2 ul{grid-template-columns:max-content max-content;column-gap:28px}
+.r4c-grp li{display:flex;align-items:center;gap:10px}
+.r4c-grp li img{flex:none;display:block;width:32px;height:32px;object-fit:contain}
+.r4c-grp li span{font:400 22px/1.2 var(--serif);color:var(--ink);white-space:nowrap}
+@media (prefers-reduced-motion:reduce){.ae.r4c-tk .bd .r4c-grp,.r4c-tk .mk-field span{transition:none!important}}

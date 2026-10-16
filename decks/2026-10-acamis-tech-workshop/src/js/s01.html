@@ -1,0 +1,12 @@
+<script>
+/* s01: the title-slide agenda card starts at the top of the title (not the logos or chip above it) and runs to the bottom of the left column */
+(function(){var s=document.querySelector('section.s.title'); if(!s)return;
+ var a=s.querySelector('.agenda'),h=s.querySelector('h1'),c=s.querySelector('.split .col'); if(!a||!h||!c)return;
+ function fit(){ if(matchMedia('(max-width:900px)').matches){a.style.marginTop='';return}
+  a.style.marginTop='0px'; var z=parseFloat(getComputedStyle(s.querySelector('.w')).zoom)||1;
+  /* offsetTop ignores the reveal transform, so the card lands on the title's resting position mid-animation too */
+  var d=h.offsetTop-c.offsetTop; if(!(h.offsetParent&&h.offsetParent===c.offsetParent))d=(h.getBoundingClientRect().top-c.getBoundingClientRect().top)/z; a.style.marginTop=Math.max(0,d)+'px'; }
+ fit(); addEventListener('resize',fit); addEventListener('load',fit); if(document.fonts)document.fonts.ready.then(fit);
+ var sp=window.__space; if(sp)window.__space=function(){sp.apply(this,arguments);fit()};
+})();
+</script>

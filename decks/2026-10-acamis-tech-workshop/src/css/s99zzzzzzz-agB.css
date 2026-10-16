@@ -1,0 +1,46 @@
+/* ===== Agent B: slides 7 (facts strip), 8 (ten stages with tools), new tools slide after 9 ===== */
+
+/* 7 · facts strip: a caption that wraps ends on the number's baseline; all three facts share that baseline */
+.ae.ac-prog .bd .ac-dd .ac-facts.ac-f3{align-items:last baseline}
+.ae.ac-prog .ac-facts>div{align-items:last baseline}
+
+/* 8 · ten stages: a numbered path through the cards, each card ending in the tools used at that stage */
+.agb8 .ac-10.agb-path{grid-auto-rows:1fr}
+.ae.agb8 .bd .ac-10 li{position:relative;gap:0;padding:20px 22px 20px}
+.agb8 .ac-10 i{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;width:36px;height:36px;margin:0 0 10px;border-radius:50%;
+ background-color:inherit;box-shadow:inset 0 0 0 1.5px var(--ink2);font:italic 400 17px/1 var(--serif);color:var(--ink2);font-variant-numeric:lining-nums}
+/* the path: each stage draws the line in from the previous stage's node to its own (none into 1 and 6, where a row starts) */
+.agb8 .ac-10 li:not(:nth-child(5n+1))::after{content:"";position:absolute;z-index:1;left:calc(40px - 100% - var(--gap));top:37px;width:calc(100% + var(--gap));height:1.5px;
+ background:var(--ink2);opacity:.55;transform-origin:left center}
+.agb8 .ac-10 b{font-size:28px;line-height:1.15}
+.agb8 .ac-10 span{margin-top:6px;font-size:21px;line-height:1.35}
+.agb8 .agb-tl{display:flex;flex-wrap:nowrap;gap:6px;margin:auto 0 0;padding-top:14px}
+.agb8 .agb-tl img{display:block;flex:none;width:32px;height:32px;border-radius:8px;object-fit:cover;background:#fff;box-shadow:0 0 0 1px var(--edge)}
+/* motion: each stage arrives on its own step; its line then draws on to the next node, and its tools pop in */
+.motion .agb8 .ac-10 li::after{transition:transform .4s var(--ease,ease)}
+.motion .s.bld.agb8 .ac-10 li[data-s]:not(.vis)::after{transform:scaleX(0)}
+.motion .agb8 .agb-tl img{transition:opacity .3s ease calc(.2s + var(--j) * 60ms),transform .35s var(--ease,ease) calc(.2s + var(--j) * 60ms)}
+.motion .s.bld.agb8 .ac-10 li[data-s]:not(.vis) .agb-tl img{opacity:0;transform:scale(.7)}
+.s.nt.agb8 .ac-10 li::after,.s.nt.agb8 .agb-tl img{transition:none!important}
+.export .agb8 .ac-10 li::after,.export .agb8 .agb-tl img{transform:none!important;opacity:revert;transition:none!important}
+@media (prefers-reduced-motion:reduce){.agb8 .ac-10 li::after,.agb8 .agb-tl img{transition:none!important}}
+
+/* new · the toolkit: five jobs, each with its tools (icon where we have one, a lettered tile where we don't), then the field of 200 */
+.agb-tk .mk{gap:var(--gap-s)}
+.agb-gs{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr;gap:var(--gap-s);flex:none}
+.ae.agb-tk .bd .agb-grp{display:flex;flex-direction:column;padding:16px 22px 18px}
+.ae.agb-tk .bd .agb-grp .lab{white-space:nowrap}
+.agb-st{display:block;margin:4px 0 10px;font:italic 400 19px/1.2 var(--serif);color:var(--muted);white-space:nowrap}
+.agb-grp ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr;gap:5px}
+.agb-grp.w2 ul{grid-template-columns:1fr 1fr;column-gap:20px}
+.agb-grp li{display:flex;align-items:center;gap:10px;min-width:0}
+.agb-grp li img,.agb-mono{flex:none;display:block;width:26px;height:26px;border-radius:7px;box-sizing:border-box}
+.agb-grp li img{object-fit:cover;background:#fff;box-shadow:0 0 0 1px var(--edge)}
+.agb-mono{display:flex;align-items:center;justify-content:center;background:var(--paper);box-shadow:inset 0 0 0 1px var(--edge);
+ font:italic 400 17px/1 var(--serif);color:var(--muted)}
+.agb-grp li span{font:400 21px/1.2 var(--serif);color:var(--ink);white-space:nowrap}
+.agb-tk .mk-low{grid-template-columns:minmax(0,1fr)!important;flex:1;min-height:0}
+.ae.agb-tk .bd .mk-map{padding:12px 22px 14px;gap:4px;justify-content:center}
+.ae.agb-tk .bd .agb-grp .agb-st{white-space:nowrap;font-size:20px}
+.agb-tk .mk-field{flex:none;height:auto;overflow:visible;font-size:12.5px;line-height:1.3;word-spacing:4px}
+.agb-tk .mk-field span{font-size:12.5px;line-height:1.3}

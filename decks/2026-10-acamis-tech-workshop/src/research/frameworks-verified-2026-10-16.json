@@ -1,0 +1,186 @@
+{
+  "1": {
+    "name": "IB MYP Design: design cycle and assessment criteria A-D",
+    "exact_items": [
+      "Design cycle stages (same names as the criteria): Inquiring and analysing; Developing ideas; Creating the solution; Evaluating",
+      "Criterion A: Inquiring and analysing (Yr 5 strands): i. explain and justify the need for a solution to a problem for a specified client/target audience; ii. identify and prioritize the primary and secondary research needed to develop a solution to the problem; iii. analyse a range of existing products that inspire a solution to the problem; iv. develop a detailed design brief, which summarizes the analysis of relevant research",
+      "Criterion B: Developing ideas: i. develop a design specification, which clearly states the success criteria for the design of a solution; ii. develop a range of feasible design ideas, which can be correctly interpreted by others; iii. present the final chosen design and justify its selection; iv. develop accurate and detailed planning drawings/diagrams and outline the requirements for the creation of the chosen solution",
+      "Criterion C: Creating the solution: i. construct a logical plan, which describes the efficient use of time and resources, sufficient for peers to be able to follow to create the solution; ii. demonstrate excellent technical skills when making the solution; iii. follow the plan to create the solution, which functions as intended; iv. fully justify changes made to the chosen design and plan when making the solution",
+      "Criterion D: Evaluating: i. design detailed and relevant testing methods, which generate data, to measure the success of the solution; ii. critically evaluate the success of the solution against the design specification; iii. explain how the solution could be improved; iv. explain the impact of the solution on the client/target audience"
+    ],
+    "notes": "Criterion names confirmed on the IB's official MYP Design subject brief (From 2014, (c) IBO 2015): four equally weighted criteria, each 0-8. Strand wording is from the Year 5 objectives of the current guide (the guide itself is behind the IB Programme Resource Centre login; strands taken from a school-hosted copy labeled 'IB-MYP Design guide (updated 2023)'). The current guide dropped the old C(v) strand ('present the solution as a whole...'), so C now has 4 strands. IB spelling: 'analysing', 'summarizes', 'prioritize'. Design-cycle stage names on the IB design page are phrased descriptively ('inquiry and analysis of design problems; development and creation of feasible solutions; testing and evaluation...'); the four-stage labels match the criteria. UPCOMING CHANGE: 'Enhancing the MYP' (first MYP review since 2014) is scheduled for release in 2027 (secondary sources: first teaching ~2028), reducing the number of strands, offering subject-generic criteria for Years 1-3, and moving guides to a digital platform. New Design criteria wording NOT yet confirmed; current guide still in force as of Oct 2026.",
+    "sources": [
+      "https://www.ibo.org/programmes/middle-years-programme/curriculum/design/",
+      "https://www.ibo.org/globalassets/new-structure/brochures-and-infographics/pdfs/myp-brief_design_2015.pdf",
+      "https://www.rfs.edu.ps/uploads/files/MYP%20Documents/Design%20Years%204%20%26%205.pdf",
+      "https://pds.ibo.org/Prototype10MYPBeta-EN/course/en/assets/6752a5296bbe08d1d82df1c6/file.pdf",
+      "https://www.seisen.com/connect-link/news/setagaya/~board/ib-myp-at-seisen/post/enhanced-myp"
+    ],
+    "confidence": "High for criterion names (official IB brief); medium-high for strand wording (school-hosted copy of the official guide); low for Enhanced MYP specifics"
+  },
+  "2": {
+    "name": "IB Approaches to Learning (ATL) skill categories",
+    "exact_items": [
+      "Thinking skills",
+      "Communication skills",
+      "Social skills",
+      "Self-management skills",
+      "Research skills"
+    ],
+    "notes": "IB catalogue page: 'all IB programmes develop the approaches to learning (ATL) skill categories of communication, social, self-management, research and thinking.' Order varies across IB documents. MYP subdivides into 10 clusters (e.g., collaboration under social; organization, affective, reflection under self-management; information/media literacy under research; critical/creative thinking and transfer under thinking). No change found 2024-2026; Enhanced MYP may restructure presentation (unconfirmed).",
+    "sources": [
+      "https://catalogue.ibo.org/en/workshops-ib-education/approaches-to-learning-category-3",
+      "https://www.ibo.org/contentassets/71f2f66b529f48a8a61223070887373a/atlinthedp-jennygillet.pdf"
+    ],
+    "confidence": "High"
+  },
+  "3": {
+    "name": "IB Learner Profile",
+    "exact_items": [
+      "Inquirers",
+      "Knowledgeable",
+      "Thinkers",
+      "Communicators",
+      "Principled",
+      "Open-minded",
+      "Caring",
+      "Risk-takers",
+      "Balanced",
+      "Reflective"
+    ],
+    "notes": "Verified on ibo.org learner profile page (archived June 2026 snapshot; live page behind Cloudflare). Unchanged.",
+    "sources": [
+      "https://www.ibo.org/benefits/learner-profile/"
+    ],
+    "confidence": "High"
+  },
+  "4": {
+    "name": "IB statement on ChatGPT and AI in assessment and education",
+    "exact_items": [
+      "\"The IB will not ban the use of AI software. The simplest reason is that it is an ineffective way to deal with innovation.\"",
+      "\"However, the use of AI tools should be in line with the IB's academic integrity policy.\"",
+      "\"The IB believes that artificial intelligence (AI) technology will become part of our everyday lives—like spell checkers, translation software and calculators.\"",
+      "\"Students should be aware that the IB does not regard any work produced—even only in part—by such tools, to be their own.\"",
+      "\"...as with any quote or material from another source, it must be clear that AI-generated text, image or graph included in a piece of work, has been copied from such software. The software must be credited in the body of the text and appropriately referenced in the bibliography.\"",
+      "\"As with current practice, an essay which is predominantly quotes will not get many, if any, marks with an IB mark scheme.\""
+    ],
+    "notes": "Page header: Published 01 March 2023; Last updated 19 February 2026. Text verified from an archived copy dated 20 July 2026; the core wording above is unchanged from 2023, and the Feb 2026 update's specific edits could not be isolated. Secondary sources say the IB Academic integrity policy now has an AI appendix (unconfirmed against the IB PDF). Live ibo.org is behind a Cloudflare check.",
+    "sources": [
+      "https://www.ibo.org/news/news-about-the-ib/statement-from-the-ib-about-chatgpt-and-artificial-intelligence-in-assessment-and-education/",
+      "http://web.archive.org/web/20260720140837/https://ibo.org/news/news-about-the-ib/statement-from-the-ib-about-chatgpt-and-artificial-intelligence-in-assessment-and-education/"
+    ],
+    "confidence": "High for quoted wording and dates; low for what changed in the Feb 2026 update"
+  },
+  "5": {
+    "name": "AP Seminar / AP Capstone Big Ideas (QUEST)",
+    "exact_items": [
+      "Big Idea 1: Question and Explore",
+      "Big Idea 2: Understand and Analyze",
+      "Big Idea 3: Evaluate Multiple Perspectives",
+      "Big Idea 4: Synthesize Ideas",
+      "Big Idea 5: Team, Transform, and Transmit"
+    ],
+    "notes": "Five Big Ideas, not six. The official AP Central course page lists exactly these names; the label 'QUEST' is widely used (acronym of the initials) in syllabi and AP Capstone materials but does not appear on the current course page. Some syllabi write 'Understand and Analyze Arguments' (older variant). CHANGE AHEAD: College Board announced an AP Seminar redesign for the 2027-28 school year 'to foster and protect students' writing skills in the age of AI, teach responsible AI use.' 2026-27 adds a new Implementation Guide and required annual scoring training (Dec 2026).",
+    "sources": [
+      "https://apcentral.collegeboard.org/courses/ap-seminar/course"
+    ],
+    "confidence": "High"
+  },
+  "6": {
+    "name": "College Board policy on generative AI in AP Seminar and AP Research performance tasks",
+    "exact_items": [
+      "\"all performance tasks submitted in AP Seminar and AP Research must be the student's own work.\"",
+      "Allowed (optional): \"Students can use generative AI tools as optional aids for exploration of potential topics of inquiry\", plus initial searches for sources, checking understanding of complex texts, and reviewing grammar and tone",
+      "Required: students \"must read primary and secondary sources directly\" and \"perform their own analysis and synthesis of evidence\", and make their own choices in writing and presentations",
+      "AP Seminar checkpoints: \"short conversations with students during which students make their thinking and decision-making visible\" (at the sources/research stage for IRR and IWA, and at the argument-outline stage for IWA)",
+      "AP Research checkpoints: in-progress meetings plus work in the Process and Reflection Portfolio (PREP)",
+      "Teachers affirm \"that students completed the checkpoints authentically\" and that the final submission is authentic student work",
+      "\"Failure to complete the checkpoints will result in a score of 0 on the associated task.\"",
+      "Team Multimedia Presentation: if one member violates the policy, the group can \"receive a group score of 0 for that component of the Team Project and Presentation\"",
+      "College Board may investigate suspected misuse and request students' interim work"
+    ],
+    "notes": "Currently published under 'AI Guidance for the 2026-27 Academic Year' (the policy existed in earlier years too, but which year it started was not verified here). The policy does not tie AI rules to the oral defense specifically. The oral defense (questions after the IWA presentation in Seminar; the oral defense after the AP Research presentation) remains part of the task, and the checkpoints work in a similar spirit, but the page does not call them an oral defense, so don't claim it does.",
+    "sources": [
+      "https://apcentral.collegeboard.org/exam-administration-ordering-scores/administering-exams/exam-policies/artificial-intelligence-tools",
+      "https://apcentral.collegeboard.org/courses/resources/ap-capstone-policies"
+    ],
+    "confidence": "High"
+  },
+  "7": {
+    "name": "AP Computer Science Principles Computational Thinking Practices",
+    "exact_items": [
+      "1. Computational Solution Design",
+      "2. Algorithms and Program Development",
+      "3. Abstraction in Program Development",
+      "4. Code Analysis",
+      "5. Computing Innovations",
+      "6. Responsible Computing"
+    ],
+    "notes": "Six practices on the official AP Central course page. Big Ideas: Creative Development; Data; Algorithms and Programming; Computer Systems and Networks; Impact of Computing. No 2025-27 changes to practice names found.",
+    "sources": [
+      "https://apcentral.collegeboard.org/courses/ap-computer-science-principles/course"
+    ],
+    "confidence": "High"
+  },
+  "8": {
+    "name": "ISTE Standards for Students",
+    "exact_items": [
+      "1.1 Empowered Learner",
+      "1.2 Digital Citizen",
+      "1.3 Knowledge Constructor",
+      "1.4 Innovative Designer",
+      "1.5 Computational Thinker",
+      "1.6 Creative Communicator",
+      "1.7 Global Collaborator"
+    ],
+    "notes": "Names unchanged. The official page now carries ISTE+ASCD branding and a 2024 version line ('ISTE Standards (c) 2024'). ISTE says it keeps the standards current 'through regular updates'. All seven standard names match the 2016 set. Whether the 2024 version reworded any indicators was not verified.",
+    "sources": [
+      "https://iste.org/standards/iste-standards-for-students"
+    ],
+    "confidence": "High for names; medium for the extent of the 2024 indicator edits"
+  },
+  "9": {
+    "name": "UNESCO AI Competency Framework for Students",
+    "exact_items": [
+      "Four dimensions: Human-centred mindset; Ethics of AI; AI techniques and applications; AI system design",
+      "Three progression levels: Understand; Apply; Create",
+      "12 competencies (4 dimensions x 3 levels)"
+    ],
+    "notes": "UNESCO article dated 8 August 2024 (last updated 16 January 2026); publication (c) UNESCO 2024, authors Fengchun Miao and Kelly Shiohira, ISBN 978-92-3-100709-5; launched at Digital Learning Week, September 2024. The UNESCO page writes the first dimension as 'A human-centred mindset'. British spelling 'centred'. Companion: AI Competency Framework for Teachers (same date).",
+    "sources": [
+      "https://www.unesco.org/en/articles/ai-competency-framework-students",
+      "https://unesdoc.unesco.org/ark:/48223/pf0000391105_eng"
+    ],
+    "confidence": "High"
+  },
+  "10": {
+    "name": "OECD / European Commission: Empowering Learners for the Age of AI: An AI Literacy Framework for Primary and Secondary Education (AILit Framework)",
+    "exact_items": [
+      "Engage with AI",
+      "Create with AI",
+      "Manage AI",
+      "Shape AI"
+    ],
+    "notes": "FINAL version published 2026 (approved by the PISA Governing Board 8 April 2026; launched 18 June 2026 at the European Digital Education Hub event). The 4th domain was RENAMED from the May 2025 draft's 'Design AI' to 'Shape AI'. Domain taglines: Engage with AI 'Become a critical and responsible participant in a world marked by AI'; Create with AI 'Use AI as a creative partner while maintaining human agency'; Manage AI 'Divide work intentionally between humans and AI'; Shape AI 'Improve AI systems to reflect human values'. Competence count: the draft had 22; the final PDF appears to number 19 (Engage 7, Create 4, Manage 4, Shape 4), based on text extraction, so check before citing. Feeds the PISA 2029 Media & AI Literacy (MAIL) assessment. Citation: OECD / European Union (2026), doi 10.1787/65cd27d4-en. Support from CodeAI (formerly Code.org).",
+    "sources": [
+      "https://ailiteracyframework.org/",
+      "https://ailiteracyframework.org/pdfs/framework_pdf/AILF_en.pdf",
+      "https://doi.org/10.1787/65cd27d4-en",
+      "https://ailiteracyframework.org/blog/empowering-learners-for-the-age-of-ai-literacy-framework/"
+    ],
+    "confidence": "High for domain names and final status; medium for the competence count"
+  },
+  "11": {
+    "name": "Ted Chiang, 'Why A.I. Isn't Going to Make Art', The New Yorker",
+    "exact_items": [
+      "\"Using ChatGPT to complete assignments is like bringing a forklift into the weight room; you will never improve your cognitive fitness that way.\"",
+      "Preceding context: \"...in the same way that lifting weights is useful no matter what sport an athlete plays, writing essays develops skills necessary for whatever job a college student will eventually get.\""
+    ],
+    "notes": "Confirmed in the essay text (archived New Yorker page). Published online 31 August 2024 (The Weekend Essay). The surrounding passage draws on Emily M. Bender's point that essays are assigned to build critical thinking. Chiang also repeated the analogy in a later Princeton CDH Q&A.",
+    "sources": [
+      "https://www.newyorker.com/culture/the-weekend-essay/why-ai-isnt-going-to-make-art",
+      "https://cdh.princeton.edu/blog/ted-chiang/"
+    ],
+    "confidence": "High"
+  }
+}

@@ -1,0 +1,6 @@
+/* Cover: theme line above the title, larger headline (JJ, Oct 13) */
+.cover .cv-lede{margin:22px 0 0;font:400 40px/1.25 var(--serif);letter-spacing:-.01em;color:var(--ink2)}
+:lang(zh-CN) .cover .cv-lede{font-size:38px;letter-spacing:.02em}
+.cover h1{margin-top:22px;font-size:122px;line-height:1}
+:lang(zh-CN) .cover h1{font-size:104px;line-height:1.2}
+.cover h1 .sub{margin-top:28px}

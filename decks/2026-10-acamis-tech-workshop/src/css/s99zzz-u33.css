@@ -1,0 +1,48 @@
+/* Round 6 (JJ, Oct 14): sign-language slide. The beat cards plus the summary line fill exactly the video card's height;
+   example tools are icons only, larger, evenly spread, centered with their label. --ky values are ink calibrations. */
+.cs31 .cs-side{display:flex;flex-direction:column;justify-content:flex-start;gap:18px;align-self:stretch}
+.cs31 .cs-side .cs-beats{flex:1 1 0;min-height:0;grid-auto-rows:1fr;gap:14px}
+.ae .bd .cs31 .cs-beats li{padding:0 30px 0 28px;min-height:0}
+.ae .bd .cs31 .cs-side .cs-note{flex:none}
+.ae .bd .cs31 .cs-tools,:lang(zh-CN) .ae .bd .cs31 .cs-tools{gap:44px;padding:16px 34px}
+.cs31 .cs-tools ul{justify-content:space-between;align-items:center;gap:0}
+.ae .bd .cs31 .cs-tools li{display:block;line-height:0}
+.cs31 .cs-tools img,:lang(zh-CN) .cs31 .cs-tools img{display:block;width:46px;height:46px;border-radius:11px}
+.cs31 .cs-tools ul,:lang(en) .cs31 .cs-tools ul,:lang(zh-CN) .cs31 .cs-tools ul{--ky:0px}
+.ae .bd .cs31 .cs-side .cs-note{line-height:1.12}
+:lang(zh-CN) .ae .bd .cs31 .cs-side .cs-note{line-height:1.25}
+:lang(en) .cs31 .cs-beats li:nth-child(1) .cs-k{--ky:2.78px}
+:lang(en) .cs31 .cs-beats li:nth-child(1) p{--ky:0.50px}
+:lang(en) .cs31 .cs-beats li:nth-child(2) .cs-k{--ky:3.20px}
+:lang(en) .cs31 .cs-beats li:nth-child(2) p{--ky:0.94px}
+:lang(en) .cs31 .cs-beats li:nth-child(3) .cs-k{--ky:2.81px}
+:lang(en) .cs31 .cs-beats li:nth-child(3) p{--ky:0.16px}
+:lang(zh-CN) .cs31 .cs-beats li:nth-child(1) .cs-k{--ky:1.89px}
+:lang(zh-CN) .cs31 .cs-beats li:nth-child(1) p{--ky:2.27px}
+:lang(zh-CN) .cs31 .cs-beats li:nth-child(2) .cs-k{--ky:1.89px}
+:lang(zh-CN) .cs31 .cs-beats li:nth-child(2) p{--ky:2.66px}
+:lang(zh-CN) .cs31 .cs-beats li:nth-child(3) .cs-k{--ky:1.89px}
+:lang(zh-CN) .cs31 .cs-beats li:nth-child(3) p{--ky:2.27px}
+:lang(en) .cs31 .cs-tools .cs-th{--ky:1.89px}
+:lang(zh-CN) .cs31 .cs-tools .cs-th{--ky:1.15px}
+.ae .bd .cs31 .cs-side .cs-note{line-height:1.04}
+:lang(zh-CN) .ae .bd .cs31 .cs-side .cs-note{line-height:1.0}
+/* calibration pass 2 (2x ink scan) */
+:lang(en) .cs31 .cs-beats li:nth-child(1) .cs-k{--ky:1.72px}
+:lang(en) .cs31 .cs-beats li:nth-child(1) p{--ky:0.01px}
+:lang(en) .cs31 .cs-beats li:nth-child(2) .cs-k{--ky:2.14px}
+:lang(en) .cs31 .cs-beats li:nth-child(2) p{--ky:-0.12px}
+:lang(en) .cs31 .cs-beats li:nth-child(3) .cs-k{--ky:2.32px}
+:lang(en) .cs31 .cs-beats li:nth-child(3) p{--ky:0.05px}
+:lang(zh-CN) .cs31 .cs-beats li:nth-child(1) .cs-k{--ky:1.89px}
+:lang(zh-CN) .cs31 .cs-beats li:nth-child(1) p{--ky:1.70px}
+:lang(zh-CN) .cs31 .cs-beats li:nth-child(2) .cs-k{--ky:1.28px}
+:lang(zh-CN) .cs31 .cs-beats li:nth-child(2) p{--ky:2.24px}
+:lang(zh-CN) .cs31 .cs-beats li:nth-child(3) .cs-k{--ky:1.17px}
+:lang(zh-CN) .cs31 .cs-beats li:nth-child(3) p{--ky:1.93px}
+/* the summary line's ink ends on the video card's bottom edge */
+:lang(en) .ae .bd .cs31 .cs-side .cs-note{position:relative;top:1.3px}
+:lang(zh-CN) .ae .bd .cs31 .cs-side .cs-note{position:relative;top:2.2px}
+/* the summary line starts on the same ink edge as the card labels above it */
+:lang(en) .ae .bd .cs31 .cs-side .cs-note{padding-left:28.45px}
+:lang(zh-CN) .ae .bd .cs31 .cs-side .cs-note{padding-left:28.85px}

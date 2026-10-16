@@ -1,0 +1,13 @@
+/* round 6: offer slide; three offers without URLs, then a quiet logos-only row */
+.r6-off .ac-off .age-d{margin-bottom:0}
+.r6-off .r6-proof{margin-top:auto;padding-top:34px;border-top:1px solid var(--line,rgba(21,38,54,.18));display:flex;align-items:center;gap:72px}
+.r6-off .r6-lab{flex:none;font:600 15px/1 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
+.r6-off .r6-logos{flex:1;display:flex;align-items:center;justify-content:space-between}
+.r6-off .r6-logos img{display:block;width:auto}
+.r6-off .r6-isb{height:58px}
+.r6-off .r6-ts{height:54px}
+.r6-off .r6-bod{font:500 34px/1 var(--serif);letter-spacing:.01em;color:#2b2b2b;white-space:nowrap}
+.r6-off .r6-logos{display:grid;grid-template-columns:repeat(3,1fr);justify-items:center;align-items:center}
+.r6-off .r6-proof{gap:40px}
+.r6-off .r6-l{flex:none;display:flex;flex-direction:column;gap:12px}
+.r6-off .r6-res{font:400 20px/1.2 var(--serif);color:var(--ink2);text-decoration:underline;text-decoration-color:rgba(47,85,168,.4);text-underline-offset:.2em;white-space:nowrap}

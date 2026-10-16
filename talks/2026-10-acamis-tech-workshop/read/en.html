@@ -1,0 +1,1581 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#F3E9DD">
+<meta name="format-detection" content="telephone=no">
+<title>From Lab to Classroom: Running an AI Student Program Inside a School · Arena School</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3"><link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=2">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<style>/* Phone reader for the parent-talk deck (talks/<slug>/read/en, /read/cn), built by build.py from the same body-en/body-cn.html as the deck.
+   The deck itself never reflows (DESIGN §10.2); this is a separate phone-first view of the same slides.
+   Primary target 390×844 portrait; landscape and tablets get a centred column. One slide per screen,
+   swiped sideways (native scroll-snap), each slide scrolls on its own if it is taller than the screen. */
+:root{--ink:#0B1A4A;--ink2:#2F55A8;--paper:#F3E9DD;--hi:#FCF3ED;--beige:#EFE3D4;--text:#26304F;--muted:#5B5B6B;
+ --edge:rgba(11,26,74,.14);--data:#2F55A8;--data-2:#B3BFDB;--track:rgba(11,26,74,.07);
+ --lb:#A9BEEA;--lb2:#C9D6F2;--on:#FCF3ED;--red:#C8553D;--ease:cubic-bezier(.2,.7,.2,1);
+ --serif:'Newsreader',Georgia,'Times New Roman',serif;
+ --sans:'Geist',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+ --gx:max(22px,env(safe-area-inset-left),env(safe-area-inset-right));
+ --tb:calc(52px + env(safe-area-inset-top));--bb:calc(72px + max(10px,env(safe-area-inset-bottom)));
+ --bar:var(--paper)}
+:lang(zh-CN){--serif:'Newsreader','Arena Serif SC','Noto Serif SC','Songti SC','Source Han Serif SC',serif;
+ --sans:'Geist','Arena Sans SC Punct','PingFang SC','Hiragino Sans GB','Noto Sans SC','Noto Sans CJK SC','Microsoft YaHei',system-ui,sans-serif}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%;overflow:hidden;background:var(--bar);overscroll-behavior:none}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;transition:background-color .35s}
+body{font:400 16px/1.55 var(--sans);color:var(--text);-webkit-font-smoothing:antialiased;font-variant-numeric:lining-nums;text-wrap:pretty}
+:lang(zh-CN) body{line-break:strict}
+button{font:inherit;color:inherit}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--ink2);outline-offset:3px;border-radius:6px}
+h1,h2,h3,p,ol,ul,dl,dd,figure{margin:0;padding:0}
+ol,ul{list-style:none}
+img{display:block;max-width:100%}
+.notes,.cv-foot,.qr,.lic{display:none}
+.nw{white-space:nowrap}
+
+/* ---------- pager ---------- */
+.rd{position:fixed;inset:0;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;outline:0}
+.rd::-webkit-scrollbar{display:none}
+.s{position:relative;flex:0 0 100%;width:100%;height:100%;overflow-x:hidden;overflow-y:auto;scroll-snap-align:start;scroll-snap-stop:always;overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+ background:var(--paper)}
+.s::-webkit-scrollbar{display:none}
+.s.alt{background:var(--beige)}
+.s.nv{background:var(--ink);color:var(--on)}
+
+.w{position:relative;z-index:1;min-height:100%;max-width:640px;margin:0 auto;display:flex;flex-direction:column;
+ padding:calc(var(--tb) + 20px) var(--gx) calc(var(--bb) + 16px)}
+.bd{margin-top:22px;display:flex;flex-direction:column;gap:12px}
+/* content slides: the title stays at the top, the body takes the free height and sits a touch above its centre */
+.s:not(.st):not(.sec):not(.tk):not(.bq):not(.cover):not(.cl):not(.toc) .bd{flex-grow:1}
+/* free height splits 2:3 above and below; the negative margins cancel the gap so a full slide pays nothing */
+.s:not(.st):not(.sec):not(.tk):not(.bq):not(.cover):not(.cl):not(.toc) .bd::before{content:"";flex:2 1 0;margin-bottom:-12px}
+.s:not(.st):not(.sec):not(.tk):not(.bq):not(.cover):not(.cl):not(.toc) .bd::after{content:"";flex:3 1 0;margin-top:-12px}
+/* statement slides: the title is the slide, so centre it in the screen */
+.st .w,.sec .w,.tk .w,.bq .w,.cover .w,.cl .w,.toc .w{justify-content:center}
+/* a statement slide with a source line: centre the statement in the space above the source */
+.st .w:has(>.fn)>:first-child{margin-top:auto}
+
+/* ---------- type ---------- */
+.kick,.lab,.sk-h,.w5h,.hd,.dt,.k,.sec-k span,.tk-n span,.tag,.ct,dt{font-family:var(--sans)}
+.kick{font:500 11.5px/1.5 var(--sans);letter-spacing:.11em;text-transform:uppercase;color:var(--ink2);margin-bottom:12px}
+:lang(zh-CN) .kick{font-size:13px;letter-spacing:.04em;text-transform:none}
+h1,h2{font-family:var(--serif);font-weight:400;color:var(--ink);text-wrap:balance}
+h2{font-size:clamp(25px,7.2vw,32px);line-height:1.15;letter-spacing:-.016em}
+:lang(zh-CN) h2{font-size:clamp(21px,6vw,27px);line-height:1.45;letter-spacing:0;font-weight:500}
+h2 em,h1 em{font-style:italic;color:var(--ink2)}
+:lang(zh-CN) h2 em,:lang(zh-CN) h1 em{font-style:normal}
+.st h2,.sec h2,.tk h2,.bq h2{font-size:clamp(31px,9vw,40px);line-height:1.1;letter-spacing:-.02em}
+:lang(zh-CN) .st h2,:lang(zh-CN) .sec h2,:lang(zh-CN) .tk h2,:lang(zh-CN) .bq h2{font-size:clamp(25px,7.4vw,32px);line-height:1.42;letter-spacing:0}
+.sec .sl{margin:14px 0 0;font-size:17px;line-height:1.45;color:rgba(252,243,237,.78)}
+h3{font:400 20px/1.25 var(--serif);color:var(--ink);letter-spacing:-.005em}
+:lang(zh-CN) h3{font-size:18px;line-height:1.45;font-weight:500}
+p{font-size:15.5px;line-height:1.5}
+:lang(zh-CN) p{font-size:15px;line-height:1.7}
+.lab{display:block;font:600 10.5px/1.4 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
+:lang(zh-CN) .lab{font-size:12.5px;letter-spacing:.04em;text-transform:none}
+.big{font:300 52px/1 var(--serif);letter-spacing:-.02em;color:var(--ink2);font-variant-numeric:lining-nums tabular-nums}
+.big small{font-size:.32em;font-weight:400;letter-spacing:0;color:var(--muted);margin-left:.3em}
+.big.lo{color:var(--muted)}
+.org{font:600 12px/1 var(--sans);letter-spacing:.06em;color:var(--ink)}
+.lr{display:flex;align-items:center;min-height:22px;margin-bottom:10px}
+.brand{height:20px;width:auto}
+.brand.an{height:15px}.brand.icbc{height:22px}.brand.sc{height:26px}.brand.amz{height:21px}.brand.km{height:17px}
+.fn{margin-top:auto;padding-top:20px}
+.fn>span{display:block;padding-top:12px;border-top:1px solid var(--edge);font:400 12px/1.5 var(--sans);color:var(--muted)}
+:lang(zh-CN) .fn>span{font-size:12px;line-height:1.65}
+.nv .kick{color:var(--lb)}
+.nv h1,.nv h2,.nv h3{color:var(--on)}
+.nv h2 em,.nv .big{color:var(--lb)}
+.nv p{color:rgba(252,243,237,.82)}
+.nv .fn>span{color:rgba(252,243,237,.62);border-top-color:rgba(252,243,237,.18)}
+i.cn{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--red);margin:0 5px 1px 4px;vertical-align:middle;font-style:normal}
+
+/* ---------- surfaces ---------- */
+.pane,.card,.pc,.cs{position:relative;background:rgba(252,243,237,.72);border:1px solid var(--edge);border-radius:12px;padding:18px 18px 18px}
+.alt .pane,.alt .card,.alt .pc,.alt .cs{background:var(--hi)}
+.s .pane.dk,.s .pc.dk,.s .cs-out,.s .mk-stat{background:var(--ink);border-color:var(--ink);color:var(--on)}
+.pane.dk h3,.pc.dk h3,.cs-out h3,.mk-stat h3{color:var(--on)}
+.pane.dk p,.pc.dk p,.cs-out p{color:rgba(252,243,237,.8)}
+.pane.dk .lab,.pc.dk .lab,.cs-out .lab,.mk-stat .lab{color:var(--lb)}
+.pane.dk .big,.mk-stat .big{color:var(--lb2)}
+.pane.dk .big small{color:rgba(252,243,237,.7)}
+.pane.dk .lr .brand{box-sizing:content-box;padding:4px 8px;border-radius:6px;background:var(--hi)}
+.pane.dk .lr .brand.sc{height:22px}
+
+/* ---------- cover ---------- */
+.cover .w{padding-top:calc(var(--tb) + 8px)}
+.cv-top{margin-bottom:auto;padding-bottom:28px}
+.pta{height:38px;width:auto}
+.cv-mid{margin-bottom:auto;padding-bottom:12vh}
+.cover .cv-lede{margin:10px 0 0;font:400 19px/1.35 var(--serif);color:var(--ink2)}
+:lang(zh-CN) .cover .cv-lede{font-size:17px;letter-spacing:.02em}
+.cover h1{font-size:clamp(42px,12.6vw,56px);line-height:1.02;letter-spacing:-.03em;font-weight:400}
+.cover h1 .m{display:block;margin-top:.04em}
+.cover h1 .m em{background:linear-gradient(rgba(47,85,168,.14),rgba(47,85,168,.14)) 0 88%/100% .34em no-repeat;padding-right:.06em;transition:background-size 1s .55s var(--ease)}
+.cover h1 .sub{display:block;margin-top:.62em;font-size:.44em;line-height:1.25;font-style:italic;letter-spacing:-.01em;color:var(--ink2)}
+:lang(zh-CN) .cover h1{font-size:clamp(34px,10vw,44px);line-height:1.3;letter-spacing:0;font-weight:500}
+:lang(zh-CN) .cover h1 .sub{font-style:normal;font-size:.56em;line-height:1.5;margin-top:.7em}
+
+/* ---------- contents / section / takeaway tracks ---------- */
+.tocf{background:rgba(252,243,237,.9);border:1px solid var(--edge);border-radius:12px;overflow:hidden}
+.tocf li+li{border-top:1px solid var(--edge)}
+.tocf a{display:grid;grid-template-columns:34px 1fr 18px;align-items:center;gap:12px;min-height:76px;padding:14px 16px;text-decoration:none}
+.tocf a::after{content:"→";color:var(--ink2);font-size:18px}
+.tocf a:active{background:rgba(47,85,168,.06)}
+.tocf .ico{display:none}
+.tocf .tn,.trk .tn{font:300 34px/1 var(--serif);color:var(--ink2)}
+.tt b{display:block;font:400 19px/1.25 var(--serif);color:var(--ink)}
+:lang(zh-CN) .tt b{font-size:17.5px;font-weight:500;line-height:1.45}
+.tt small{display:block;margin-top:2px;font:400 13.5px/1.4 var(--sans);color:var(--muted)}
+.sec-g{display:flex;flex-direction:column;gap:30px}
+.sec-k{display:flex;align-items:flex-end;gap:14px;margin-bottom:18px;color:var(--lb)}
+.sec-k span{font:500 11.5px/1.5 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding-bottom:12px}
+:lang(zh-CN) .sec-k span{font-size:13px;letter-spacing:.06em}
+.sec-k b{font:200 92px/.8 var(--serif);color:var(--lb);order:-1}
+.sec .trk{border-top:1px solid rgba(252,243,237,.18)}
+.sec .trk li{border-bottom:1px solid rgba(252,243,237,.18);opacity:.42}
+.sec .trk li.on{opacity:1}
+.sec .trk .row{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:center;padding:11px 0}
+.sec .trk .tn{font-size:24px;color:var(--lb)}
+.sec .tt b{color:var(--on);font-size:16.5px}
+.sec .tt small{color:rgba(252,243,237,.7);font-size:12.5px}
+.tk-g{display:flex;flex-direction:column}
+.tk-n{display:flex;align-items:flex-end;gap:14px;margin-bottom:26px}
+.tk-n b{font:200 92px/.8 var(--serif);color:var(--ink2);order:-1}
+.tk-n span{font:500 11.5px/1.5 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);padding-bottom:10px}
+:lang(zh-CN) .tk-n span{font-size:13px;letter-spacing:.06em}
+.tk-prog{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:30px}
+.tk-prog li{display:flex;flex-direction:column;gap:6px;padding-top:10px;border-top:2px solid rgba(11,26,74,.14);font:400 13px/1.35 var(--sans);color:var(--muted)}
+.tk-prog li i{font:italic 400 15px/1 var(--serif);color:var(--muted)}
+.tk-prog li.on{border-top-color:var(--ink2);color:var(--ink)}
+.tk-prog li.on i{color:var(--ink2)}
+
+/* ---------- speakers ---------- */
+.spk2{display:grid;gap:12px}
+.sp header{display:flex;align-items:center;gap:14px}
+.sp .ph{width:62px;height:62px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 3px var(--hi),0 0 0 4px var(--edge)}
+.sp h3{font-size:22px}
+.sp h3 .xn{display:block;font:400 14px/1.3 var(--serif);color:var(--muted);margin-top:2px}
+.sp .tag{margin-top:4px;font:600 10.5px/1.45 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+:lang(zh-CN) .sp .tag{font-size:12px;letter-spacing:.03em;text-transform:none}
+.sp .now{margin-top:14px;padding-top:12px;border-top:1px solid var(--edge);font:italic 400 16px/1.45 var(--serif);color:var(--ink)}
+:lang(zh-CN) .sp .now{font:400 15px/1.65 var(--sans)}
+.sp .now .ln{display:block}
+.lg{margin-top:12px;display:grid;gap:10px}
+.lg>div{display:grid;grid-template-columns:62px 1fr;align-items:center;gap:8px}
+.lg dt{font:600 10px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+:lang(zh-CN) .lg dt{font-size:12px;letter-spacing:.04em}
+.lg dd{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px}
+.lg img{width:auto;opacity:.9}
+.h-isb{height:25px}.h-br{height:21px}.h-ts{height:25px}.h-ap{height:20px}.h-de{height:14px}.h-ci{height:19px}.h-ct{height:16px}.h-hv{height:21px}.h-gs{height:20px}.h-mk{height:12px}.h-km{height:15px}.h-li{height:14px}
+
+/* ---------- bar charts: label and value on one line, the bar under them ---------- */
+.ct{font:500 13px/1.4 var(--sans);color:var(--muted);margin-bottom:14px}
+.hb{display:flex;flex-direction:column;gap:14px}
+.hb .row{display:grid;grid-template-columns:1fr auto;grid-template-areas:"k v" "i i";align-items:baseline;column-gap:12px;row-gap:7px}
+.hb .bk{grid-area:k;font:400 14.5px/1.35 var(--sans);color:var(--text)}
+.hb .row>b,.hb .cnt{grid-area:v;font:400 24px/1 var(--serif);color:var(--muted);font-variant-numeric:tabular-nums}
+.hb .row.hl>b,.hb .row.hl .cnt{color:var(--ink2)}
+.hb i,.mb i{grid-area:i;position:relative;display:block;height:12px;border-radius:3px;background:var(--track);overflow:hidden}
+.hb i::before,.mb i::before{content:"";position:absolute;left:0;top:0;bottom:0;width:calc(var(--v) * 1%);background:var(--data-2);border-radius:3px;transform-origin:0 50%;transition:transform 1s var(--ease)}
+.row.hl i::before{background:var(--data)}
+.accx .hb i{background:none}
+.hb .row:only-child,.arc .hb .row{grid-template-areas:"i"}
+i.rg::before{width:calc(var(--r) * 1%);background:linear-gradient(90deg,var(--data) 0 calc(var(--v) / var(--r) * 100%),rgba(47,85,168,.32) 0)}
+.mb{display:grid;grid-template-columns:max-content 1fr auto;align-items:center;column-gap:12px;row-gap:10px;margin-top:14px;padding-top:14px;border-top:1px solid var(--edge)}
+.mb .row{display:contents}
+.mb i{grid-area:auto}
+.mb .row>span{font:400 12.5px/1.2 var(--sans);color:var(--muted)}
+.mb .row>b{font:400 14px/1 var(--serif);color:var(--muted);min-width:3ch;text-align:right;font-variant-numeric:tabular-nums}
+.mb .row.hl>span,.mb .row.hl>b{color:var(--ink)}
+.mb i{height:8px;border-radius:2px;background:var(--track)}
+.nv .mb i{background:rgba(252,243,237,.1)}
+.nv .mb{border-top-color:rgba(252,243,237,.18)}
+.nv .mb .row>span,.nv .mb .row>b{color:rgba(252,243,237,.7)}
+.nv .mb .row.hl>span,.nv .mb .row.hl>b{color:var(--on)}
+.nv .mb i::before{background:rgba(201,214,242,.45)}
+.nv .mb .hl i::before{background:var(--lb)}
+
+/* ---------- number cards ---------- */
+.st3{display:grid;gap:10px}
+.st3 .pane{display:grid;grid-template-columns:auto 1fr;grid-template-areas:"l l" "b p" "m m";column-gap:16px;row-gap:6px;align-items:center}
+.st3 .lab{grid-area:l}.st3 .big{grid-area:b;font-size:40px}.st3 p{grid-area:p;font-size:14px;line-height:1.4}.st3 .mb{grid-area:m}
+:lang(zh-CN) .st3 p{font-size:13.5px;line-height:1.55}
+.duo,.cmp2{display:grid;gap:10px}
+.duo .pane{padding:16px 18px}
+.duo .big{margin:0 0 6px}
+.duo .big small{display:block;margin:4px 0 0;font-size:13px;font-family:var(--sans)}
+.cmp2{grid-template-columns:1fr 1fr}
+.cmp2 .pane{padding:16px 14px}
+.cm-h{display:flex;align-items:center;gap:7px;margin-bottom:12px}
+.cm-h .ico{display:none}
+.cmp2 .big{font-size:42px;margin-bottom:8px}
+.cmp2 p{font-size:13.5px;line-height:1.45}
+:lang(zh-CN) .cmp2 p{font-size:13.5px;line-height:1.6}
+.nst{margin-top:26px}
+.nst>.big{font-size:clamp(96px,30vw,132px);font-weight:200;letter-spacing:-.04em;line-height:.9}
+.nstx{margin-top:16px}
+.nstx .lr{margin-bottom:6px}
+.nst .org{color:var(--lb);letter-spacing:.12em}
+.nstx p{font-size:17px}
+.dns{display:grid;gap:10px}
+.dn{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:18px}
+.dn>.big{font-size:54px;min-width:2.2em}
+.dn .lr{margin-bottom:4px;min-height:0}
+.dn p{font-size:14.5px;line-height:1.45}
+.ring2{position:relative;width:96px;height:96px}
+.ring2 svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring2 circle{fill:none;stroke-width:9}
+.ring2 .tr{stroke:var(--track)}
+.ring2 .vl{stroke:var(--data);stroke-dasharray:100 100;stroke-dashoffset:calc(100 - var(--v));transition:stroke-dashoffset 1.2s var(--ease)}
+.ring2 .big{position:absolute;inset:0;display:grid;place-items:center;font-size:28px;font-weight:400}
+
+/* ---------- timelines (vertical on a phone) ---------- */
+.tln{position:relative;display:flex;flex-direction:column}
+.tln li{position:relative;padding:0 0 18px 26px}
+.tln li::before{content:"";position:absolute;left:5px;top:8px;bottom:-6px;width:1.5px;background:rgba(11,26,74,.18)}
+.tln li.end::before,.tln li:last-child::before{display:none}
+.tln .dot{position:absolute;left:0;top:3px;width:12px;height:12px;border-radius:50%;border:1.5px solid var(--ink);background:var(--hi)}
+.tln li.end .dot{background:var(--ink2);border-color:var(--ink2)}
+.tln .dt{display:block;font:600 10.5px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);margin-bottom:4px}
+:lang(zh-CN) .tln .dt{font-size:12px;letter-spacing:.03em}
+.tln h3{font-size:19px}
+.tln .big{font-size:40px;margin:2px 0}
+.tln p{font-size:14.5px;line-height:1.45;color:var(--text)}
+.tln-pane .lr{margin-bottom:16px}
+.accx{display:grid;gap:12px}
+.accx .tln{padding:6px 4px 0}
+
+/* ---------- quote ---------- */
+.bq h2{font-style:italic}
+:lang(zh-CN) .bq h2{font-style:normal}
+.bq h2 em{font-style:italic}
+.bqx{display:flex;align-items:center;gap:14px;margin-top:6px;padding-top:16px;border-top:1px solid var(--edge)}
+.bqx .lr{margin:0}
+.who2 b{display:block;font:500 14.5px/1.3 var(--sans);color:var(--ink)}
+.who2 span{display:block;font:400 13px/1.4 var(--sans);color:var(--muted)}
+
+/* ---------- arc: two numbers, "yet" between ---------- */
+.arow{display:flex;flex-direction:column;gap:6px}
+.an .big{font-size:46px;margin:6px 0 10px}
+.ar2{display:flex;align-items:center;gap:10px;font:italic 400 17px/1 var(--serif);color:var(--muted);margin:6px 0}
+.ar2::before,.ar2::after{content:"";flex:1;height:1px;background:var(--edge)}
+
+/* ---------- how → what ---------- */
+.shift{display:flex;flex-direction:column;gap:12px}
+.shx{display:grid;grid-template-columns:1fr 20px 1fr;align-items:stretch}
+.sh-col{border-radius:12px;padding:14px 13px;border:1px solid var(--edge);background:var(--hi)}
+.sh-col.n{background:var(--ink);border-color:var(--ink);color:var(--on)}
+.sh-col .hd{display:block;font:600 10px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+:lang(zh-CN) .sh-col .hd{font-size:12px;letter-spacing:.03em}
+.sh-col.n .hd{color:var(--lb)}
+.sh-col li{font:400 14.5px/1.35 var(--serif);padding:8px 0;border-top:1px solid var(--edge)}
+:lang(zh-CN) .sh-col li{font:400 14px/1.5 var(--sans)}
+.sh-col.o li{color:var(--muted)}
+.sh-col.n li{border-top-color:rgba(252,243,237,.16)}
+.sh-arr{display:grid;place-items:center}
+.sh-arr i::before{content:"→";font-style:normal;color:var(--ink2);font-size:16px}
+.wefx{background:var(--hi);border:1px solid var(--edge);border-radius:12px;padding:16px 18px}
+.wefx .hd{display:block;font:600 10.5px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);margin-bottom:12px}
+:lang(zh-CN) .wefx .hd{font-size:12.5px;letter-spacing:.03em}
+.wefx .hb{gap:11px}
+.wefx .hb .row>b{font-size:20px}
+
+/* ---------- five skills ---------- */
+.why5g{display:flex;flex-direction:column}
+.why5{display:contents}
+.w5h{order:0;display:flex;align-items:center;gap:10px;font:600 10.5px/1.4 var(--sans);letter-spacing:.11em;text-transform:uppercase;color:var(--ink2);margin:0 0 8px}
+:lang(zh-CN) .w5h{font-size:12.5px;letter-spacing:.04em}
+.w5h::after{content:"";flex:1;height:1px;background:currentColor;opacity:.35}
+.w5h.b{order:2;margin-top:18px;color:var(--muted)}
+.why5 li{order:1;display:grid;grid-template-columns:30px 1fr;column-gap:10px;padding:12px 16px;background:var(--hi);border:1px solid var(--edge);border-radius:12px;margin-bottom:8px}
+.why5 li:nth-child(n+4){order:3;background:transparent;border-style:dashed;border-color:rgba(11,26,74,.22)}
+.why5 i{grid-row:span 2;font:italic 400 15px/1.6 var(--serif);color:var(--ink2)}
+.why5 b{font:400 21px/1.2 var(--serif);color:var(--ink)}
+:lang(zh-CN) .why5 b{font-size:18.5px;font-weight:500;line-height:1.4}
+.why5 span{font:400 14px/1.45 var(--sans);color:var(--text);margin-top:3px}
+
+/* ---------- shortcut / tutor ---------- */
+.pair{display:grid;gap:10px}
+.pl{display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:999px;background:var(--beige);font:600 10.5px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+:lang(zh-CN) .pl{font-size:12px;letter-spacing:.04em}
+.pc.dk .pl{background:rgba(252,243,237,.14);color:var(--on)}
+.pc .say{margin:14px 0 10px;font:italic 400 24px/1.25 var(--serif);color:var(--ink)}
+:lang(zh-CN) .pc .say{font:500 20px/1.5 var(--serif)}
+.pc.dk .say{color:var(--on)}
+.pc p:last-child{font-size:14.5px}
+
+/* ---------- three needs ---------- */
+.ic3{margin-top:26px;border-top:1px solid var(--edge)}
+.ic3 li{display:grid;grid-template-columns:40px 1fr;column-gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--edge)}
+.ic3 .ico{grid-row:span 2;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--hi);color:var(--ink2)}
+.ic3 .ico .lic{display:block;width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.ic3 b{font:400 21px/1.2 var(--serif);color:var(--ink)}
+:lang(zh-CN) .ic3 b{font-size:19px;font-weight:500;line-height:1.4}
+.ic3 span:last-child{font:400 14.5px/1.4 var(--sans);color:var(--muted)}
+
+/* ---------- market map ---------- */
+.mk{display:flex;flex-direction:column;gap:10px}
+.agx{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.agx li{display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px 6px 10px;text-align:center;border-radius:12px}
+.agx img{width:40px;height:40px;border-radius:10px;object-fit:cover;background:#fff;box-shadow:0 0 0 1px var(--edge)}
+.agx img.t{padding:7px;object-fit:contain}
+.agx b{font:500 13.5px/1.2 var(--sans);color:var(--ink);white-space:nowrap}
+.mk-low{display:flex;flex-direction:column;gap:10px}
+.mk-map .lab b{font:400 15px/1 var(--serif);letter-spacing:0;color:var(--ink2);font-variant-numeric:tabular-nums}
+.mk-field{position:relative;margin-top:10px;max-height:168px;overflow:hidden;font:400 11.5px/1.75 var(--sans);color:var(--text);
+ -webkit-mask-image:linear-gradient(#000 70%,transparent);mask-image:linear-gradient(#000 70%,transparent)}
+.mk-field span{opacity:.5;margin-right:.55em}
+.mk-stat{display:grid;grid-template-columns:1fr;gap:4px}
+.mk-big{font:300 56px/1 var(--serif);color:var(--lb2);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.mk-l{font-size:14.5px}
+.mk-r{display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:8px;padding-top:10px;border-top:1px solid rgba(252,243,237,.16)}
+.mk-r span{font:italic 400 14px/1.3 var(--serif);color:var(--lb)}
+.mk-stat p{color:rgba(252,243,237,.82)}
+.mk-stat .mk-d{margin:0 0 4px;font:italic 400 16px/1.35 var(--serif);color:var(--lb)}
+:lang(zh-CN) .mk-stat .mk-d{font-style:normal;font-size:15px}
+
+/* ---------- before → after (Phillip's companies) ---------- */
+.hb2{display:flex;flex-direction:column;gap:8px}
+.hb-c{display:flex;flex-direction:column;gap:12px;padding:16px 16px 18px;border-radius:12px}
+.hb-then{background:var(--hi);box-shadow:inset 0 0 0 1px var(--edge)}
+.hb-now{background:var(--ink)}
+.hb-ar{align-self:center;transform:rotate(90deg);font-size:16px;line-height:1;color:var(--ink2)}
+.hb-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.hb-top .lab{font-size:11px;letter-spacing:.12em}
+.hb-now .lab{color:var(--lb)}
+.hb-co{display:block;flex:none;height:18px;width:auto}
+.hb-tc{display:block;width:100%;height:auto;border-radius:6px}
+.hb-num{display:flex;align-items:center;gap:12px;padding-top:12px;border-top:1px solid var(--edge)}
+.hb-num b{display:flex;align-items:baseline;gap:6px;flex:none;font:400 46px/1 var(--serif);letter-spacing:-.02em;color:var(--ink2)}
+.hb-num b small{font:italic 400 14px/1 var(--serif);letter-spacing:0;color:var(--muted)}
+:lang(zh-CN) .hb-num b small{font-style:normal}
+.hb-num p{margin:0;font-size:14px;line-height:1.45;color:var(--muted)}
+.hb-now .hb-num{border-top-color:rgba(252,243,237,.2)}
+.hb-now .hb-num b{color:var(--lb2)}
+.hb-now .hb-num p,.hb-what{color:rgba(252,243,237,.82)}
+.hb-what{margin:0;font-size:14px;line-height:1.45}
+.hb-inv{display:flex;align-items:center;flex-wrap:wrap;gap:8px 14px}
+.hb-inv .lab{font-size:11px;color:var(--muted)}
+.hb-inv img{display:block;height:13px;width:auto}
+.hb-roles ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.hb-roles li{font:500 13px/1 var(--serif);color:var(--on);padding:8px 12px 7px;border-radius:999px;box-shadow:inset 0 0 0 1px rgba(252,243,237,.3)}
+.hb-roles p{margin:10px 0 0;font:italic 400 14px/1.45 var(--serif);color:var(--lb2)}
+:lang(zh-CN) .hb-roles p{font-style:normal}
+.hb-foot p::before{display:none}
+.hb-top .lab,.hb-inv .lab{font-size:10.5px;letter-spacing:.08em;white-space:nowrap}
+.hb-co{height:16px}
+.hb-inv{gap:6px 11px;flex-wrap:nowrap}
+.hb-inv img{height:11.5px}
+
+/* ---------- case strip ---------- */
+.case3{display:flex;flex-direction:column;gap:6px}
+.cs h3{margin:6px 0 8px;font-size:19px}
+.cs p{font-size:14px;line-height:1.45;padding-top:8px;border-top:1px solid var(--edge)}
+.cs-out p{border-top-color:rgba(252,243,237,.16)}
+.cs-out h3 em{color:var(--lb)}
+.cs-out h3 a.k3-link{display:inline-flex;flex-direction:column;color:var(--on);text-decoration:none;font-size:17px;line-height:1.3}
+.k3-link span{white-space:nowrap}
+.k3-link span:first-child{color:var(--lb)}
+.k3-link span:last-child{text-decoration:underline;text-decoration-color:var(--lb);text-underline-offset:4px}
+.cs-ar{align-self:center;transform:rotate(90deg);font-size:16px;line-height:1;color:var(--ink2)}
+.k3-sub{margin:10px 0 0;font:400 15px/1.5 var(--serif);color:var(--muted)}
+:lang(zh-CN) .k3-sub{font-size:14.5px;line-height:1.65}
+.cs-foot{display:flex;align-items:center;gap:14px;margin-top:4px}
+.cs-foot p{font:italic 400 17px/1.35 var(--serif);color:var(--ink)}
+:lang(zh-CN) .cs-foot p{font:500 16px/1.55 var(--serif)}
+.cs-foot p em{color:var(--ink2)}
+
+/* ---------- then / now ---------- */
+.tn-pair{display:grid;grid-template-columns:1fr 18px 1fr;row-gap:8px}
+.tn-pair .row{display:contents}
+.tn-pair .hd{font:600 10px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-bottom:2px}
+:lang(zh-CN) .tn-pair .hd{font-size:12px;letter-spacing:.03em}
+.tn-pair .hd.n{color:var(--ink2)}
+.tn-pair p{border-radius:12px;padding:14px 13px;font-size:14.5px;line-height:1.4}
+:lang(zh-CN) .tn-pair p{font-size:14px;line-height:1.6}
+.tn-pair p.o{background:var(--hi);border:1px solid var(--edge);color:var(--muted)}
+.tn-pair p.n{background:var(--ink);color:var(--on)}
+.tn-pair .arr{display:grid;place-items:center}
+.tn-pair .arr i::before{content:"→";font-style:normal;color:var(--ink2);font-size:15px}
+
+/* ---------- growth (Cursor): a dated list with horizontal bars ---------- */
+.grow-n{display:flex;flex-direction:column}
+.grow-n li{display:flex;flex-direction:column;padding:11px 0;border-top:1px solid var(--edge)}
+.grow-n li:first-child{border-top:0;padding-top:0}
+.grow-n .dt{order:0;font:600 10.5px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+.grow-n h3{order:1;font-size:19px;margin-top:2px}
+.grow-n p{order:2;font-size:14px;color:var(--muted)}
+.grow-n .gc{order:3;display:flex;align-items:center;gap:10px;margin-top:8px}
+.grow-n li:not([style]) .gc{order:-1;position:absolute;right:0;margin:0}
+.grow-n li:not([style]){position:relative}
+.gb{display:block;height:14px;border-radius:3px;background:var(--data-2);width:calc(var(--v) * .64%);transform-origin:0 50%;transition:transform 1s var(--ease)}
+.grow-n li.end .gb{background:var(--data)}
+.gb.dot{width:11px;height:11px;border-radius:50%;background:transparent;border:1.5px solid var(--ink)}
+.grow-n li:not([style]) .gb.dot{display:none}
+.gv{display:flex;align-items:center;gap:10px;order:2}
+.gv .big{font-size:28px;font-weight:400}
+.gv .big small{font-size:.48em}
+.gv img.gl{width:26px;height:26px;border-radius:7px}
+.acq{display:flex;align-items:center;gap:6px}
+.acq .to{color:var(--muted);font-size:13px}
+.acq img.sx{height:10px;width:80px;object-fit:contain;object-position:left center;border-radius:0}
+.grow-n li.end .big{color:var(--ink2)}
+
+/* ---------- skills map ---------- */
+.skmap{display:grid;gap:10px}
+.sk-h{display:block;font:600 10.5px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);margin-bottom:12px}
+:lang(zh-CN) .sk-h{font-size:12.5px;letter-spacing:.03em}
+.sk-tools{display:grid;grid-template-columns:repeat(5,1fr);gap:12px 4px}
+.sk-tools li{display:flex;flex-direction:column;align-items:center;gap:5px;min-width:0}
+.sk-tools img{width:34px;height:34px;border-radius:9px;background:#fff;box-shadow:0 0 0 1px var(--edge);object-fit:contain}
+.sk-tools b{font:500 10.5px/1.2 var(--sans);color:var(--text);white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.sk-proc{display:grid;gap:6px}
+.sk-proc li{display:flex;align-items:center;gap:12px;min-height:42px;padding:0 14px;border-radius:9px;background:var(--ink);color:var(--on)}
+.sk-proc i{font:italic 400 14px/1 var(--serif);color:var(--lb)}
+.sk-proc b{font:400 16.5px/1.25 var(--serif)}
+:lang(zh-CN) .sk-proc b{font-size:15.5px;font-weight:500}
+.sk-note{margin-top:12px;font-size:14px;color:var(--muted)}
+
+/* ---------- proof: photo cards ---------- */
+.pbr{display:grid;gap:12px}
+.pbr .card{padding:0;overflow:hidden}
+.pbr figure{aspect-ratio:16/9;overflow:hidden;background:var(--beige)}
+.pbr figure img{width:100%;height:100%;object-fit:cover}
+.pb{padding:14px 16px 16px}
+.pb .lab{display:flex;justify-content:space-between;gap:10px}
+.pb .lab i{font:italic 400 13px/1.3 var(--serif);letter-spacing:0;text-transform:none;color:var(--muted)}
+.pb h3{margin:6px 0 6px;font-size:19px}
+.pb .q{font-size:14.5px;line-height:1.45}
+.pb .where{margin-top:10px;padding-top:9px;border-top:1px solid var(--edge);font:italic 400 14px/1.35 var(--serif);color:var(--ink2)}
+:lang(zh-CN) .pb .where{font:400 13px/1.5 var(--sans)}
+
+/* ---------- close ---------- */
+.c3x{margin-top:4px;border-top:1px solid rgba(252,243,237,.18)}
+.c3x li{display:grid;grid-template-columns:44px 1fr;column-gap:12px;padding:14px 0;border-bottom:1px solid rgba(252,243,237,.18)}
+.c3x i{grid-row:span 2;font:200 46px/.9 var(--serif);font-style:normal;color:var(--lb)}
+.c3x b{font:400 20px/1.25 var(--serif);color:var(--on)}
+:lang(zh-CN) .c3x b{font-size:18px;font-weight:500;line-height:1.45}
+.c3x span{font:400 14px/1.45 var(--sans);color:rgba(252,243,237,.75);margin-top:3px}
+.endline{margin-top:20px;font:italic 400 20px/1.35 var(--serif);color:var(--on)}
+:lang(zh-CN) .endline{font:500 18px/1.6 var(--serif)}
+
+/* ---------- Q&A ---------- */
+.qa{display:block}
+.qa-links{display:flex;flex-direction:column;gap:0;padding:4px 18px}
+.qa-item{padding:14px 0;border-bottom:1px solid var(--edge)}
+.qa-item:last-child{border-bottom:0}
+.qa-item .k{display:block;font:600 10.5px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+:lang(zh-CN) .qa-item .k{font-size:12.5px;letter-spacing:.03em}
+.qa-url{display:inline-flex;align-items:center;min-height:40px;font:400 18px/1.3 var(--serif);color:var(--ink);text-decoration:underline;text-decoration-color:rgba(11,26,74,.3);text-underline-offset:4px;word-break:break-all}
+.qa-item p{font-size:14px;color:var(--muted)}
+.qa-foot{padding:14px 0;font-size:14px;color:var(--muted)}
+.qa-foot a{color:var(--ink);font-weight:500}
+
+/* ---------- sources ---------- */
+.srcs{padding:4px 16px}
+.srcs li{display:flex;flex-direction:column;gap:3px;padding:11px 0;border-bottom:1px solid var(--edge);font:400 13.5px/1.45 var(--sans);color:var(--text)}
+.srcs li:last-child{border-bottom:0}
+.srcs b{font-weight:600;color:var(--ink)}
+.srcs .src{font-size:12px;color:var(--muted)}
+
+/* ---------- chrome: top bar, progress, bottom controls ---------- */
+.top,.bot{position:fixed;left:0;right:0;z-index:5;background:color-mix(in srgb,var(--bar) 90%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transition:background-color .35s,color .35s}
+.top{top:0;height:var(--tb);padding:env(safe-area-inset-top) var(--gx) 0;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.home{display:inline-flex;align-items:center;min-height:44px}
+.wm{height:17px;width:auto}
+.wm.i{display:none}
+.dk .wm.n{display:none}.dk .wm.i{display:block}
+.tools{display:flex;align-items:center;gap:8px}
+.lng,.lst{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;height:34px;min-width:44px;padding:0 12px;border-radius:999px;border:1px solid rgba(11,26,74,.22);font:500 13.5px/1 var(--sans);color:var(--ink);cursor:pointer;position:relative}
+.lng::after,.lst::after{content:"";position:absolute;inset:-6px -2px}
+.lng span{font-family:'PingFang SC','Hiragino Sans GB','Noto Sans SC',var(--sans)}
+.lst{padding:0;width:34px;min-width:34px}
+.lst svg{width:17px;height:17px}
+.prog{position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(11,26,74,.08)}
+.prog i{position:absolute;left:0;top:0;bottom:0;width:100%;background:var(--ink2);transform-origin:0 50%;transform:scaleX(var(--p,0));transition:transform .45s var(--ease)}
+.prog b{position:absolute;top:-2px;width:1.5px;height:6px;background:rgba(11,26,74,.3)}
+.bot{bottom:0;height:var(--bb);padding:10px var(--gx) max(10px,env(safe-area-inset-bottom));display:grid;grid-template-columns:52px 1fr auto;align-items:center;gap:12px}
+.pv,.ctr,.nx{all:unset;box-sizing:border-box;cursor:pointer;-webkit-user-select:none;user-select:none}
+.pv{width:52px;height:52px;border-radius:50%;border:1px solid rgba(11,26,74,.22);display:grid;place-items:center;transition:opacity .25s,transform .15s}
+.pv svg,.nx svg{width:20px;height:20px}
+.pv[disabled]{opacity:.28;pointer-events:none}
+.ctr{min-width:0;height:52px;display:flex;flex-direction:column;justify-content:center;padding:0 4px;border-radius:12px}
+.ctr b{font:500 15px/1.2 var(--sans);font-variant-numeric:tabular-nums;color:var(--ink)}
+.ctr b span{color:var(--muted);font-weight:400}
+.ctr b{margin-bottom:1px}
+.ctr small{font:400 12px/1.25 var(--sans);color:var(--muted);display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+.nx{height:52px;min-width:112px;padding:0 20px 0 24px;border-radius:999px;background:var(--ink);color:var(--on);display:inline-flex;align-items:center;justify-content:center;gap:10px;font:500 16px/1 var(--sans);transition:background-color .25s,color .25s,transform .15s;text-decoration:none}
+.pv:active,.nx:active{transform:scale(.96)}
+.ctr:active{background:rgba(11,26,74,.05)}
+@media (hover:hover){.nx:hover{background:#12245f}.pv:hover{border-color:var(--ink)}}
+.dk{--bar:var(--ink)}
+.dk .top,.dk .bot{color:var(--on)}
+.dk .lng,.dk .lst,.dk .pv{border-color:rgba(252,243,237,.35);color:var(--on)}
+.dk .prog{background:rgba(252,243,237,.14)}.dk .prog i{background:var(--lb)}.dk .prog b{background:rgba(252,243,237,.35)}
+.dk .ctr b{color:var(--on)}.dk .ctr b span,.dk .ctr small{color:rgba(252,243,237,.65)}
+.dk .nx{background:var(--hi);color:var(--ink)}
+.bg-alt{--bar:var(--beige)}
+
+/* first-visit hint, shown once over slide 1 */
+.tip{position:fixed;z-index:4;left:50%;bottom:calc(var(--bb) + 14px);transform:translateX(-50%);padding:9px 16px;border-radius:999px;background:rgba(11,26,74,.88);color:var(--on);font:400 13px/1.2 var(--sans);white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .4s}
+.tip.on{opacity:1}
+
+/* "more below" cue when a slide scrolls on its own */
+.more-cue{position:fixed;z-index:6;left:50%;bottom:calc(var(--bb) + 6px);transform:translateX(-50%);width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--hi);color:var(--ink2);box-shadow:0 0 0 1px var(--edge),0 8px 18px -10px rgba(11,26,74,.4);opacity:0;pointer-events:none;transition:opacity .3s}
+.more-cue svg{width:16px;height:16px}
+.bot::before{content:"";position:absolute;left:0;right:0;bottom:100%;height:64px;background:linear-gradient(color-mix(in srgb,var(--bar) 0%,transparent),var(--bar) 85%);opacity:0;transition:opacity .3s;pointer-events:none}
+.more .bot::before{opacity:1}
+.more-cue.on{opacity:1;pointer-events:auto;animation:nudge 2.4s 1s infinite}
+@keyframes nudge{0%,70%,100%{transform:translate(-50%,0)}80%{transform:translate(-50%,4px)}90%{transform:translate(-50%,0)}}
+
+/* ---------- slide list (bottom sheet) ---------- */
+.sheet{position:fixed;inset:0;z-index:20;display:flex;flex-direction:column;justify-content:flex-end;background:rgba(11,26,74,0);transition:background-color .3s;pointer-events:none}
+.sheet.open{background:rgba(11,26,74,.4);pointer-events:auto}
+.sheet[hidden]{display:none}
+.sh-p{max-height:86%;width:100%;max-width:640px;margin:0 auto;display:flex;flex-direction:column;background:var(--paper);border-radius:18px 18px 0 0;transform:translateY(100%);transition:transform .38s var(--ease);box-shadow:0 -20px 40px -24px rgba(11,26,74,.5)}
+.sheet.open .sh-p{transform:none}
+.sh-h{display:flex;align-items:center;justify-content:space-between;padding:16px var(--gx) 12px;border-bottom:1px solid var(--edge)}
+.sh-h b{font:400 21px/1.2 var(--serif);color:var(--ink)}
+.sh-x{all:unset;box-sizing:border-box;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;cursor:pointer;background:rgba(11,26,74,.06);color:var(--ink)}
+.sh-x svg{width:16px;height:16px}
+.sh-l{overflow-y:auto;overscroll-behavior:contain;padding:4px 0 max(16px,env(safe-area-inset-bottom))}
+.sh-g{padding:16px var(--gx) 6px;font:600 10.5px/1.4 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
+:lang(zh-CN) .sh-g{font-size:12.5px;letter-spacing:.04em}
+.sh-l a{display:grid;grid-template-columns:30px 1fr;gap:10px;padding:10px var(--gx);text-decoration:none;color:var(--text)}
+.sh-l a:active{background:rgba(11,26,74,.05)}
+.sh-l a i{font:italic 400 14px/1.5 var(--serif);color:var(--muted);font-variant-numeric:tabular-nums}
+.sh-l a span{font:400 15.5px/1.4 var(--serif);color:var(--ink)}
+:lang(zh-CN) .sh-l a span{font-size:15px;line-height:1.6}
+.sh-l a span em{font-style:italic;color:var(--ink2)}
+:lang(zh-CN) .sh-l a span em{font-style:normal}
+.sh-l a[aria-current] {background:rgba(47,85,168,.08)}
+.sh-l a[aria-current] i{color:var(--ink2);font-weight:500}
+
+/* ---------- motion: a slide builds once, the first time it is reached ---------- */
+.arm [data-s]{transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.arm [data-s]:not(.vis){opacity:0;transform:translateY(14px)}
+.arm [data-s]:not(.vis) i::before,.arm [data-s]:not(.vis) .gb{transform:scaleX(0)}
+.arm [data-s]:not(.vis) .ring2 .vl{stroke-dashoffset:100}
+.arm .wd,.arm .phr{display:inline-block;transition:opacity .5s var(--ease),transform .6s var(--ease);transition-delay:calc(var(--i) * 55ms + 80ms)}
+.arm .phr{display:inline;transition-property:opacity}
+.arm:not(.go) .wd{opacity:0;transform:translateY(.35em)}
+.arm:not(.go) .phr{opacity:0}
+.cover.arm:not(.go) .m em{background-size:0 .34em}
+.arm .agx li,.arm .sk-tools li{transition:opacity .45s var(--ease),transform .45s var(--ease);transition-delay:calc(var(--i) * 70ms + 200ms)}
+.arm:not(.go) .agx li,.arm:not(.go) .sk-tools li{opacity:0;transform:translateY(10px)}
+.arm .mk-field span{opacity:0}
+.arm.go .mk-field span{animation:lit .9s var(--d) both}
+@keyframes lit{0%{opacity:0;color:var(--ink2)}25%{opacity:1;color:var(--ink2)}100%{opacity:.5;color:var(--text)}}
+.arm .mk-stat{transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.arm .mk:not(.stat) .mk-stat{opacity:0;transform:translateY(12px)}
+.arm .tln li{transition:opacity .5s var(--ease),transform .5s var(--ease);transition-delay:calc(var(--i) * 160ms + 150ms)}
+.arm [data-s]:not(.vis) .tln li,.arm:not(.go) .tln-pane .tln li{opacity:0;transform:translateY(10px)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* ---------- landscape phones and wider screens ---------- */
+@media (max-height:500px) and (orientation:landscape){
+ :root{--tb:calc(44px + env(safe-area-inset-top));--bb:calc(58px + max(6px,env(safe-area-inset-bottom)))}
+ .bot{padding-top:6px;padding-bottom:max(6px,env(safe-area-inset-bottom))}
+ .pv{width:44px;height:44px}.nx{height:44px}.ctr{height:44px}
+ .w{max-width:760px;padding-top:calc(var(--tb) + 16px);padding-bottom:calc(var(--bb) + 18px)}
+ .cv-mid{padding-bottom:0}.cover h1{font-size:44px}
+ .nst>.big{font-size:96px}
+ .sec-k b,.tk-n b{font-size:64px}
+ .bot::before{height:40px}
+}
+@media (min-width:600px){
+ .spk2,.duo,.pair,.dns{grid-template-columns:1fr 1fr}
+ .st3{grid-template-columns:repeat(3,1fr)}
+ .st3 .pane{grid-template-columns:1fr;grid-template-areas:"l" "b" "p" "m"}
+ .pbr{grid-template-columns:repeat(3,1fr)}
+ .skmap{grid-template-columns:3fr 2fr}
+ .sk-tools{grid-template-columns:repeat(7,1fr)}
+ .case3{display:grid;grid-template-columns:1fr 16px 1fr 16px 1fr;align-items:stretch}
+ .cs-ar{transform:none}.cs-foot{grid-column:1/-1}
+ .agx{grid-template-columns:repeat(6,1fr)}
+ .mk-low{display:grid;grid-template-columns:3fr 2fr}
+ .accx{grid-template-columns:1fr 1fr}
+ .bot{padding-left:max(var(--gx),calc(50% - 320px + 22px));padding-right:max(var(--gx),calc(50% - 320px + 22px))}
+ .top{padding-left:max(var(--gx),calc(50% - 320px + 22px));padding-right:max(var(--gx),calc(50% - 320px + 22px))}
+}
+@media (max-width:389px){.nx{min-width:100px;padding:0 18px 0 20px}.bot{gap:10px}}
+@media (max-width:359px){
+ .w{--gx:16px}.sk-tools{grid-template-columns:repeat(4,1fr)}.cmp2 .big{font-size:36px}
+ .nx{min-width:104px;padding:0 16px 0 18px}
+}
+/* Chinese section kicker reads 第 1 部分: keep the numeral in its place between the two words */
+:lang(zh-CN) .sec-k{gap:10px}
+:lang(zh-CN) .sec-k b{order:0;font-size:80px}
+/* Cursor on a phone: the title already names SpaceX, so the logo pair waits for wider screens */
+.grow-n .acq{display:none}
+.gv .big{white-space:nowrap}
+@media (min-width:600px){.grow-n .acq{display:flex}}
+/* market map on a phone: the six agents, the lit field, and the Hugging Face figure all fit one screen */
+@media (max-width:599px){
+ .agx{gap:6px}
+ .agx li{flex-direction:row;justify-content:flex-start;gap:7px;padding:8px 8px;text-align:left}
+ .agx img{width:26px;height:26px;border-radius:7px}
+ .agx img.t{padding:4px}
+ .agx b{font-size:12.5px}
+ .agx li{position:relative}
+ /* the mainland-China dot moves to the card corner so long names keep their room */
+ .agx i.cn{position:absolute;top:6px;right:6px;margin:0;width:6px;height:6px}
+ .mk-map{padding:14px 16px}
+ .mk-field{max-height:90px;margin-top:8px;font-size:11px;line-height:1.7}
+ .mk-stat{padding:14px 16px}
+ .mk-big{font-size:46px}
+ .mk-l{font-size:13.5px;line-height:1.4}
+ .mk-r{margin-top:4px;padding-top:8px}
+ :lang(zh-CN) .mk-field{max-height:78px}
+}
+/* landscape phones: the slide column is 760 wide, so the chrome lines up with it rather than the 640 portrait column */
+@media (max-height:500px) and (orientation:landscape) and (min-width:600px){
+ .top,.bot{padding-left:max(var(--gx),calc(50% - 380px + var(--gx)));padding-right:max(var(--gx),calc(50% - 380px + var(--gx)))}
+}
+/* slide 4: the rotating task shows only its final phrase on phones, in the title accent, with the riso highlight band */
+.rot,.rot-t,.rot-t>span.fin{display:inline}
+.rot-t>span:not(.fin){display:none}
+.rot{color:var(--ink2)}
+.rot-hl{position:relative;z-index:0}
+:lang(en) .rot-hl{white-space:nowrap}
+.rot-hl::after{content:"";position:absolute;left:-.03em;right:-.03em;bottom:.06em;height:.3em;z-index:-1;background:url(/art/riso-hl.png) 0 0/6px 6px repeat}
+.rot .rot-pc{color:var(--ink)}
+.rot-h br{display:none}
+:lang(zh-CN) .rot-h br{display:inline}
+
+/* slide 19: agency, taste, and craft in practice */
+:root{--hl-light:#5B7FD1}
+.s h2 em.hl-l{color:var(--hl-light)}
+.prac .tri{padding:4px 18px}
+.prac .tri-r{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:14px 0;border-top:1px solid rgba(252,243,237,.18)}
+.prac .tri-r:first-child{border-top:0}
+.prac .tri-r p{margin:0;font-size:14.5px;line-height:1.45;color:rgba(252,243,237,.86)}
+:lang(zh-CN) .prac .tri-r p{font-size:14px;line-height:1.6}
+
+/* ---------- slide 31: a child's project (video, three beats, example tools) ---------- */
+.cs31{display:grid;gap:10px}
+.cs31 .cs-vp{display:flex;flex-direction:column;gap:8px;padding:10px}
+.cs31 .cs-v{position:relative;margin:0;aspect-ratio:4/3;border-radius:9px;overflow:hidden;background:var(--beige)}
+.cs31 .cs-v video,.cs31 .cs-v .vposter{display:block;width:100%;height:100%;object-fit:cover}
+.cs31 .cs-v .vposter{display:none}
+.cs31 .cs-cap{margin:0;text-align:center;font:italic 400 13px/1.3 var(--serif);color:var(--muted)}
+:lang(zh-CN) .cs31 .cs-cap{font-style:normal;font-size:12.5px}
+.cs31 .cs-side{display:grid;gap:8px}
+.cs31 .cs-beats{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.cs31 .cs-beats li{background:rgba(252,243,237,.72);border:1px solid var(--edge);border-radius:12px;padding:12px 14px;display:grid;gap:6px}
+.cs31 .cs-k{display:flex;align-items:baseline;flex-wrap:wrap;column-gap:8px;row-gap:2px}
+.cs31 .cs-k i{font:italic 400 14px/1 var(--serif);color:var(--ink2)}
+.cs31 .cs-k b{font:500 19px/1.15 var(--serif);color:var(--ink)}
+.cs31 .cs-k>span{margin-left:auto;font:600 10.5px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+:lang(zh-CN) .cs31 .cs-k>span{font-size:12px;letter-spacing:.03em}
+.cs31 .cs-beats p{margin:0;font:400 15px/1.45 var(--serif);color:var(--text)}
+:lang(zh-CN) .cs31 .cs-beats p{font-size:14.5px;line-height:1.6}
+.cs31 .cs-note{margin:2px 2px 0;font:400 15.5px/1.45 var(--serif);color:var(--ink)}
+.cs31 .cs-note em{color:var(--ink2)}
+.cs31 .cs-tools{padding:14px 14px 16px}
+.cs31 .cs-th{display:block;font:600 10.5px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);margin-bottom:12px;padding-left:4.7px}
+:lang(zh-CN) .cs31 .cs-th{font-size:12.5px;letter-spacing:.03em}
+.cs31 .cs-tools ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:12px 2px;justify-items:center}
+.cs31 .cs-tools li{display:flex;flex-direction:column;align-items:center;gap:4px;min-width:0}
+.cs31 .cs-tools img{display:block;width:34px;height:34px;border-radius:8px;background:#fff;box-shadow:0 0 0 1px var(--edge);object-fit:cover}
+.cs31 .cs-tools b{font:500 10px/1.2 var(--sans);color:var(--text);white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+/* slide 25 (round 4): METR curve and the gap illustration, static on phones */
+.xg2{display:flex;flex-direction:column;gap:12px}
+.xg2>.pane{display:flex;flex-direction:column}
+.xg-plot{position:relative;height:200px;margin:10px 0 0}
+.xg-area{position:absolute;left:54px;right:10px;top:10px;bottom:24px}
+.xg-grid,.xg-draw{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible}
+.xg .gl{stroke:var(--edge);stroke-width:1}.xg .gl:first-child{stroke:rgba(11,26,74,.3)}
+.xg .ar{fill:rgba(47,85,168,.08)}.xg .cv{fill:none;stroke:var(--ink2);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.xg-yl,.xg-xl{position:absolute;font:400 11px/1 var(--sans);color:var(--muted);white-space:nowrap}
+.xg-yl{right:calc(100% + 6px);bottom:calc(var(--y) * 1%);translate:0 50%}
+.xg-xl{top:calc(100% + 8px);left:calc(var(--x) * 1%);translate:-50% 0}
+.xg-pt{position:absolute;left:calc(var(--x) * 1%);bottom:calc(var(--y) * 1%);width:11px;height:11px;margin:0 0 -5.5px -5.5px;border-radius:50%;background:var(--hi);border:2px solid var(--ink2);box-sizing:border-box}
+.xg-pt.hl{background:var(--ink2)}
+.xg-lb{position:absolute;left:calc(var(--x) * 1%);bottom:calc(var(--y) * 1%);font:400 12px/1 var(--sans);color:var(--text);white-space:nowrap}
+.xg-lb.hl{color:var(--ink2);font-weight:600}
+.xg-lb.p0{translate:-8px -16px}.xg-lb.p1{translate:calc(-100% + 4px) -26px}.xg-lb.p2{translate:calc(-100% - 1px) -18px}.xg-lb.p3{translate:calc(-100% - 12px) 50%}
+.xg-il .xg-plot{height:170px}.xg-il .xg-area{left:0;right:2px;top:4px;bottom:22px}
+.xg-il .ax{stroke:rgba(11,26,74,.3);stroke-width:1}
+.xg-axl{position:absolute;font:400 11px/1 var(--sans);color:var(--muted);white-space:nowrap}.xg-axl.x{right:0;top:calc(100% + 8px)}.xg-axl.y{left:8px;top:0}
+.xg-il .gp{fill:rgba(47,85,168,.12)}.xg-il .cf{fill:none;stroke:var(--muted);stroke-width:2;stroke-linecap:round}
+.xg-ll,.xg-gl{position:absolute;white-space:nowrap;font:400 12.5px/1.2 var(--sans)}
+.xg-ll.up{right:21%;bottom:62%;color:var(--ink2);font-weight:600}.xg-ll.fl{right:0;bottom:calc(7.8% + 5px);color:var(--muted);padding:1px 4px;background:var(--hi);border-radius:3px}
+.xg-gl{left:87%;bottom:41%;translate:-50% 50%;font-style:italic;color:var(--ink2)}
+.xg-cap{margin:6px 0 0;font:italic 400 12px/1.45 var(--sans);color:var(--muted)}
+:lang(zh-CN) .xg-gl,:lang(zh-CN) .xg-cap{font-style:normal}
+/* Chinese word spans from the reader-only segmenter in body-cn.html: never break inside a word */
+:lang(zh-CN) .rd cj-w{white-space:nowrap}
+/* ACAMIS: the live-build game is a tap target on phones (the QR is for the room) */
+a.qr.qr-live[href$="/build"]{display:flex;align-items:center;justify-content:center;gap:8px;min-height:52px;margin:0 0 14px;padding:0 22px;border-radius:999px;background:var(--ink,#152636);color:#fff;text-decoration:none;font-weight:500}
+a.qr.qr-live[href$="/build"] img,a.qr.qr-live[href$="/build"] small{display:none}
+a.qr.qr-live[href$="/build"] span::after{content:"  \2192"}
+/* ACAMIS: proof strip and Hong Kong stats */
+.ac-proof{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.ac-pl{display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px}
+.ac-pl img{height:30px;width:auto}
+.ac-pt{font-size:15px}
+.ac-st{display:grid;gap:10px}
+.ac-st>div{display:flex;align-items:baseline;gap:10px}
+.ac-st b{font-size:30px;font-weight:300;color:var(--ink2,#2F55A8);white-space:nowrap}
+.ac-st span{font-size:14px}
+.ac-lg{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:8px}
+.ac-lg img{height:24px;width:auto}
+.ac-10{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ac-10 li{display:flex;flex-direction:column;gap:2px;padding:12px}
+.ac-10 i{font-size:13px;font-style:italic;color:var(--ink2,#2F55A8)}
+.ac-10 b{font-size:16px;font-weight:500}
+.ac-10 span{font-size:14px;line-height:1.35}
+.ac-facts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+/* agent A */
+.aga-cv .cv-lede .aga-isb{display:inline-block;height:2em;width:auto;vertical-align:middle;position:relative;top:-.12em}
+.aga-q .kick .aga-wm{display:inline-block;height:1.9em;width:auto;vertical-align:middle;position:relative;top:-.08em;margin-left:.15em}
+.aga-cv .cv-lede{padding-bottom:6px}
+/* agent B */
+.agb-tl{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0 0}
+.agb-tl img{width:22px;height:22px;border-radius:6px;object-fit:cover;background:#fff;box-shadow:0 0 0 1px var(--edge)}
+.agb-path li>i{display:block}
+.agb-gs{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.agb-grp{padding:12px;border-radius:12px}
+.agb-grp.w2{grid-column:1/-1}
+.agb-grp .lab{margin:0}
+.agb-st{margin:2px 0 8px;font:italic 400 13px/1.3 var(--serif);color:var(--muted)}
+.agb-grp ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr;gap:6px}
+.agb-grp.w2 ul{grid-template-columns:1fr 1fr}
+.agb-grp li{display:flex;align-items:center;gap:7px;min-width:0}
+.agb-grp li img,.agb-mono{flex:none;display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:6px;box-sizing:border-box}
+.agb-grp li img{object-fit:cover;background:#fff;box-shadow:0 0 0 1px var(--edge)}
+.agb-mono{box-shadow:inset 0 0 0 1px var(--edge);font:italic 400 12px/1 var(--serif);color:var(--muted)}
+.agb-grp li span{font-size:14px;white-space:nowrap}
+/* agent C */
+/* What students keep: browser mock, pitch photo, ownership card */
+.agc-keep{display:grid;gap:10px}
+.agc-keep .pane{margin:0;padding:0;overflow:hidden}
+.agc-win{margin:14px;border:1px solid var(--edge);border-radius:8px;overflow:hidden;background:#fff}
+.agc-bar{display:flex;align-items:center;gap:8px;height:28px;padding:0 10px;background:var(--paper);border-bottom:1px solid var(--edge)}
+.agc-dots{display:flex;gap:4px}.agc-dots i{width:7px;height:7px;border-radius:50%;background:#D4C0AA}
+.agc-url{flex:1;display:flex;align-items:center;height:18px;padding:0 9px;border-radius:999px;background:var(--hi);border:1px solid var(--edge);font:500 11px/1 var(--sans);color:var(--text)}
+.agc-lock{display:none}
+.agc-page{display:flex;flex-direction:column;gap:12px;padding:14px 16px 16px}
+.agc-nav{display:flex;align-items:center;gap:8px}
+.agc-logo{width:14px;height:14px;border-radius:4px;background:var(--ink2)}
+.agc-sk1{width:60px;height:6px;border-radius:3px;background:var(--ink);opacity:.8;margin-right:auto}
+.agc-sk2{width:30px;height:5px;border-radius:3px;background:#D4C0AA}
+.agc-hl{margin:0;font:400 22px/1.15 var(--serif);color:var(--ink)}
+.agc-hl em{font-style:italic;color:var(--ink2)}
+.agc-btns{display:flex;gap:8px}
+.agc-btns>span{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 14px;border-radius:999px;font:500 13px/1 var(--sans)}
+.agc-b1{background:var(--ink);color:var(--on)}
+.agc-b2{border:1px solid var(--ink);color:var(--ink)}
+.agc-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.agc-tiles span{height:26px;border-radius:4px;background:var(--paper);border:1px solid var(--edge)}
+.agc-keep figcaption{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:8px;margin:0;padding:10px 16px 12px;border-top:1px solid var(--edge)}
+.agc-keep figcaption b{font:400 18px/1.25 var(--serif);color:var(--ink)}
+.agc-keep figcaption span{font:italic 400 14px/1.4 var(--serif);color:var(--muted)}
+.agc-im{display:block}
+.agc-im img{display:block;width:100%;aspect-ratio:16/9;height:auto;object-fit:cover;object-position:center 42%}
+.agc-keep .agc-own{display:flex;align-items:center;gap:12px;padding:14px 16px}
+.agc-ic{flex:none;display:block;width:24px;height:24px;color:var(--lb)}
+.agc-ic .lic{display:block;width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.agc-own p{margin:0;display:flex;flex-direction:column;gap:2px}
+.agc-own b{font:400 18px/1.25 var(--serif);color:var(--on)}
+.agc-own p span{font:italic 400 14px/1.4 var(--serif);color:var(--lb)}
+/* Agency, taste, craft: definition + how the week trained it */
+.agc-sk{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.agc-sk>li{margin:0}
+.agc-hd{display:flex;align-items:baseline;gap:10px}
+.agc-hd i{font:600 11px/1 var(--sans);font-style:normal;letter-spacing:.12em;color:var(--ink2)}
+.agc-hd b{font:400 24px/1.15 var(--serif);color:var(--ink)}
+.agc-def{margin:6px 0 0;font:italic 400 16px/1.4 var(--serif);color:var(--ink2)}
+.agc-lab{display:block;margin:12px 0 0;padding:0 0 6px;border-bottom:1px solid var(--edge);font:600 10.5px/1.4 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.agc-mo{margin:8px 0 0;font:400 14px/1.5 var(--sans);color:var(--text)}
+/* Your role + three questions */
+.agc-co{display:grid;gap:10px}
+.agc-role{display:flex;flex-direction:column;gap:10px}
+.agc-k{font:600 10.5px/1.4 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--lb)}
+.agc-shift{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.agc-from{margin:0;font:400 16px/1.35 var(--serif);color:var(--lb)!important}
+.agc-to{margin:0;font:italic 400 21px/1.25 var(--serif);color:var(--on)!important}
+.agc-dn{position:relative;display:block;width:1px;height:18px;margin-left:8px;background:var(--lb)}
+.agc-dn::after{content:"";position:absolute;left:50%;bottom:0;width:6px;height:6px;border-right:1px solid var(--lb);border-bottom:1px solid var(--lb);transform:translate(-50%,0) rotate(45deg);box-sizing:border-box}
+.agc-note{margin:4px 0 0;padding-top:10px;border-top:1px solid rgba(169,190,234,.3);font:italic 400 14px/1.45 var(--serif);color:var(--lb)!important}
+.agc-q{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.agc-q>li{margin:0;display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+.agc-tag{display:inline-flex;align-items:center;height:22px;padding:0 10px;border-radius:999px;border:1px solid var(--ink2);font:600 10.5px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
+.agc-q b{margin-top:4px;font:400 20px/1.25 var(--serif);color:var(--ink)}
+.agc-q b+span{font:italic 400 14px/1.4 var(--serif);color:var(--muted)}
+/* agent D */
+.agd-ex{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+.agd-ex li{padding:8px 12px;border-radius:10px;background:var(--paper);box-shadow:inset 0 0 0 1px var(--edge);font:italic 400 15px/1.35 var(--serif);color:var(--ink)}
+.cs-out .agd-ex li{background:rgba(252,243,237,.08);box-shadow:inset 0 0 0 1px rgba(252,243,237,.2);color:var(--on)}
+.agd-cc{margin-top:10px;border-radius:10px;background:var(--paper);box-shadow:inset 0 0 0 1px var(--edge);overflow:hidden}
+.agd-cc-h{display:flex;align-items:center;gap:8px;padding:8px 12px;border-bottom:1px solid var(--edge)}
+.agd-cc-h img{display:block;width:22px;height:22px;border-radius:6px}
+.agd-cc-h b{font:600 14px/1 var(--serif);color:var(--ink)}
+.agd-cc-h small{margin-left:auto;font:italic 400 12.5px/1 var(--serif);color:var(--muted)}
+.cs .agd-cc p.agd-cc-p{margin:0;padding:10px 12px;border-top:0;font:400 13px/1.45 ui-monospace,Menlo,monospace;color:var(--ink)}
+.agd-cc-p>span::before{content:"› ";color:#C8664B;font-weight:700}
+.agd-cc-o{display:block;padding:8px 12px;border-top:1px solid var(--edge);font:italic 400 14px/1.3 var(--serif);color:var(--ink2)}
+.agd-cc-o::before{content:"→ "}
+.agd-l .qa-item .ac-big{font:400 18px/1.3 var(--serif);color:var(--ink);margin:2px 0 4px}
+.qa-links p.agd-more{display:flex;align-items:center;flex-wrap:wrap;gap:4px 8px;padding:14px 0;font-size:14px;color:var(--muted)}
+.agd-more img{display:block;width:22px;height:22px}
+.agd-more a{color:var(--ink);font-weight:500}
+/* agent E */
+/* 24: seal in the navy column label; the split footnote stacks */
+.age-hd{display:flex!important;align-items:center;gap:8px}
+.age-hd img{display:block;width:22px;height:22px;flex:none}
+.age-fn>span+span{border-top:0;padding-top:4px}
+.age-fn a{color:inherit}
+/* 25: lockup as the kicker; each offer keeps its link under the description */
+.age-brand{margin-bottom:14px;line-height:0}
+.age-brand img{display:block;height:26px;width:auto}
+.age-off .ic3 .ico{grid-row:span 3}
+.age-off .ic3 .age-d{font:400 14.5px/1.4 var(--sans);color:var(--muted)}
+.age-go{grid-column:2;display:inline-block;margin-top:4px;font:500 13.5px/1.4 var(--sans);color:var(--ink2);text-underline-offset:3px;overflow-wrap:anywhere}
+.age-proof .ac-pl{flex-direction:column;align-items:flex-start;gap:14px}
+.age-w{display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+.age-w small{font:400 12.5px/1.4 var(--sans);color:var(--muted)}
+.age-l{gap:6px}
+.age-res{font:500 13.5px/1.4 var(--sans);color:var(--ink2);text-underline-offset:3px}
+/* 26: the endline, then the pointer to Arena School */
+.age-end p{margin:0}
+.age-sig{display:block;margin-top:12px;font:400 14.5px/1.5 var(--sans);font-style:normal;color:rgba(252,243,237,.78);text-decoration:none}
+.age-sig b{display:inline-block;margin-left:4px;font-weight:500;color:var(--on);text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(252,243,237,.45)}
+/* 27: the slides QR is for the room; on a phone the call to action is the contact page as a button */
+.age-qa{display:block}
+.age-cta{display:flex;flex-direction:column;align-items:stretch;gap:16px}
+.age-ct{display:flex;flex-direction:column;align-items:flex-start}
+.age-wm{display:block;height:24px;width:auto;margin-bottom:14px}
+.age-ct .k{display:block;font:600 10.5px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+.age-h{margin:6px 0 0;font:400 23px/1.2 var(--serif);color:var(--ink)}
+.age-p{margin:6px 0 0;font-size:14.5px;line-height:1.5;color:var(--muted)}
+.age-ln{display:flex;flex-direction:column;gap:2px;margin:12px 0 0;padding-top:10px;border-top:1px solid var(--edge);width:100%}
+.age-ln a{display:inline-flex;align-items:center;min-height:40px;font:400 17px/1.3 var(--serif);color:var(--ink);text-decoration:underline;text-decoration-color:rgba(11,26,74,.3);text-underline-offset:4px}
+a.qr.qr-live.age-q2{display:flex;align-items:center;justify-content:center;min-height:52px;padding:0 22px;border-radius:999px;background:var(--ink);color:#fff;text-decoration:none;font:500 15px/1 var(--sans)}
+a.qr.qr-live.age-q2>*{display:none}
+a.qr.qr-live.age-q2::after{content:"Book a 20-minute call  \2192"}
+/* agent A (round 4): coach-slide labels as numeral + tracked label, no pill; offer-slide lockup with web address */
+.agc-tag{display:flex;align-items:baseline;gap:10px;height:auto;padding:0;border:0;border-radius:0}
+.agc-tag i{font:italic 400 22px/1 var(--serif);letter-spacing:0;color:var(--ink2)}
+.age-brand img{height:40px}
+
+/* agent B (round 4) · slide 8: ten stages on five days, one card per day, stages as a short list */
+.agb-wk .agb-r1,.agb-wk .agb-r2{display:flex;flex-direction:column;gap:10px}
+.agb-wk .agb-r1{margin-bottom:10px}
+.agb-wk .agb-day{padding:16px 18px}
+.agb-wk .agb-dk{font:600 10.5px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);margin-bottom:2px}
+.agb-wk .agb-day h3{font-size:19px;margin:0}
+.agb-wk .agb-dc{font-size:14.5px;line-height:1.45;color:var(--text);margin:2px 0 0}
+.agb-wk .agb-sg{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-direction:column;gap:10px}
+.agb-wk .agb-sg li{display:grid;grid-template-columns:28px 1fr;column-gap:10px;align-items:center}
+.agb-wk .agb-sg i{grid-row:1/3;display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;box-sizing:border-box;border:1.5px solid var(--ink2);font:italic 400 12px/1 var(--serif);color:var(--ink2)}
+.agb-wk .agb-sg b{font-size:15.5px;font-weight:500;font-style:normal;line-height:1.25}
+.agb-wk .agb-tl{display:flex;gap:6px;margin:4px 0 0;padding:0}
+.agb-wk .agb-tl img{display:block;width:20px;height:20px;object-fit:contain;background:none;box-shadow:none;border:0;border-radius:0}
+/* agent C (round 4): slide 10, the 20+ tools out of the 200+ field, grouped by job */
+.r4c-tk .mk-field span.hl{opacity:1;color:var(--ink2);font-weight:600}
+.r4c-gs{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.r4c-grp{padding:12px;border-radius:12px}
+.r4c-grp.w2{grid-column:1/-1}
+.r4c-grp .lab{margin:0}
+.r4c-st{display:block;margin:2px 0 8px;font:italic 400 13px/1.3 var(--serif);color:var(--muted)}
+.r4c-grp ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr;gap:6px}
+.r4c-grp.w2 ul{grid-template-columns:1fr 1fr}
+.r4c-grp li{display:flex;align-items:center;gap:8px;min-width:0}
+.r4c-grp li img{flex:none;display:block;width:22px;height:22px;object-fit:contain}
+.r4c-grp li span{font-size:14px;white-space:nowrap}
+/* round 7 agenda list */
+.r7-bar{display:flex;gap:4px;height:26px;margin:0 0 12px}
+.r7-bar i{flex:var(--m) 1 0;display:flex;align-items:center;padding:0 6px;border-radius:4px;background:#FBF4EA;box-shadow:inset 0 0 0 1px rgba(21,38,54,.15);font-size:11px;font-style:italic;color:#2F55A8;white-space:nowrap;overflow:hidden}
+.r7-bar i.hl{background:#0B1A4A;color:#FBF4EA}
+.r7-list{list-style:none;margin:0;padding:0;border-top:1.5px solid #0B1A4A}
+.r7-list li{border-bottom:1px solid rgba(21,38,54,.18)}
+.r7-list a{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:start;padding:12px 0;color:inherit;text-decoration:none}
+.r7-n{font-size:26px;font-weight:300;line-height:1;color:#2F55A8}
+.r7-t{display:flex;flex-direction:column;gap:3px}
+.r7-t b{font-size:18px;font-weight:500}
+.r7-t span{font-size:14px;line-height:1.4}
+.r7-m{font-size:13px;font-style:italic;white-space:nowrap}
+.r7-m b{font-size:18px;font-style:normal;font-weight:400}
+/* round 11 */
+.r11-facts{display:grid;grid-template-columns:1fr;gap:8px}
+.r11-facts .pane{display:flex;align-items:baseline;gap:10px;padding:10px 12px}
+.r11-facts b{font-size:30px;font-weight:300;color:#2F55A8}
+.r11-facts span{font-size:14px}
+.r11-src{font-size:14px;font-style:italic;margin:6px 0 0}
+/* round 13 */
+.r13-cols{display:grid;gap:10px}
+.r13-c{padding:14px}
+.r13-n{display:flex;gap:8px;align-items:baseline;margin:0 0 6px}
+.r13-n i{font-size:13px;font-style:italic;color:#2F55A8}
+.r13-n b{font-size:22px;font-weight:500}
+.r13-d{margin:0;font-size:15px}
+.r13-w{margin:10px 0 0;padding-top:8px;border-top:1px solid rgba(21,38,54,.15);font-size:14px;font-style:italic}
+.r13-w span{display:block;font-size:11px;font-style:normal;letter-spacing:.12em;text-transform:uppercase;color:#2F55A8}
+.r13-end{font-size:15px;margin:10px 0 0}
+.r14-k{display:flex;align-items:center;gap:10px}.r14-k .r14-wm{height:22px;width:auto}
+/* round 15 */
+.r15-cols{display:grid;gap:10px}.r15-c{padding:14px;border-radius:10px;background:#FBF4EA;box-shadow:inset 0 0 0 1px rgba(21,38,54,.12)}
+.r15-h{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#2F55A8;margin:0 0 6px}
+.r15-c p,.r15-c li{font-size:15px;margin:0}.r15-c ul{list-style:none;margin:0;padding:0}
+.r15-team{margin-top:12px}.r15-who{display:flex;align-items:center;gap:8px}.r15-who img{width:34px;height:34px;border-radius:50%;object-fit:cover}
+.r15-lg{display:flex;flex-wrap:wrap;gap:10px 14px;margin-top:10px}.r15-lg img{height:18px;width:auto}
+.r15-ptn{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-top:10px}.r15-pl{display:flex;gap:12px;align-items:center}.r15-an{height:10px;width:auto}.r15-oa{height:20px;width:auto}.r15-more{font-size:13px;font-style:italic}
+.r16-sel ul{list-style:none;margin:6px 0 10px;padding:0;display:flex;gap:18px}.r16-sel li{display:flex;flex-direction:column;align-items:center;gap:4px}.r16-an{height:11px;width:auto}.r16-oa{height:22px;width:auto}.r16-lg{height:24px;display:flex;align-items:center}.r16-sel small{font-size:12px;font-style:italic}.r15-ft{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+/* frameworks + outcomes */
+.fw-cols{display:grid;gap:10px}.fw-c{padding:12px}.fw-h b{display:block;font-size:17px}.fw-h span{display:block;font-size:12px;font-style:italic}
+.fw-ring{width:120px;height:120px;display:block;margin:6px auto}.fw-key,.fw-steps{list-style:none;margin:0;padding:0}
+.fw-key li,.fw-steps li{display:flex;align-items:center;gap:8px;font-size:13px;padding:3px 0}.fw-key i,.fw-steps i{flex:none;width:18px;height:18px;border-radius:4px;font-size:10px;font-style:normal;display:flex;align-items:center;justify-content:center}.fw-key b{display:none}.fw-key em,.fw-steps em{margin-left:auto;font-style:normal;font-size:11px}
+.fw-grid{display:grid;grid-template-columns:1fr repeat(3,18px);gap:4px;font-size:12px}.fw-grid>b{font-size:9px}.fw-grid>i{width:18px;height:18px;border-radius:3px}.fw-gd em{font-style:normal;margin-left:4px}
+.fw-leg{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:12px;margin-top:8px}.fw-l{display:flex;gap:5px;align-items:center}.fw-l i{width:16px;height:16px;border-radius:3px;color:#fff;font-size:9px;font-style:normal;display:flex;align-items:center;justify-content:center}.fw-x i{background:rgba(11,26,74,.1)}
+.lo-hd{display:none}.lo-r{padding:10px 0;border-bottom:1px solid rgba(21,38,54,.15)}.lo-k{display:flex;gap:8px;align-items:center;font-size:18px}.lo-k i{width:20px;height:20px;border-radius:4px;color:#fff;font-size:11px;font-style:normal;display:flex;align-items:center;justify-content:center}.lo-r p{margin:4px 0;font-size:14px}.lo-o{font-weight:500}.lo-q{font-size:14px;margin-top:10px}.lo-q span{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.fw-steps i,.fw-key i{font-size:11px!important}.fw-steps em,.fw-key em{font-size:11px!important}.fw-l i{font-size:11px!important;width:18px;height:18px}
+.lo-k b{display:flex;gap:8px;align-items:center;font-size:18px}.lo-k b i{width:20px;height:20px;border-radius:4px;color:#fff;font-size:11px;font-style:normal;display:flex;align-items:center;justify-content:center}
+.fx-wheel{width:100%;height:auto;max-width:340px;display:block;margin:0 auto 10px}.fx-k{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#2F55A8;margin:8px 0 4px}.fx-blk p{margin:0;font-size:15px}.fx-call{margin-top:10px;padding:12px;border-radius:10px;background:#0B1A4A;color:#fff}.fx-call p{margin:0 0 4px;font-size:18px;color:#fff}.fx-call span{font-size:14px}
+.lo2-cols{display:grid;gap:10px}.lo2-c{border-radius:10px;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(21,38,54,.12)}.lo2-h{display:flex;gap:8px;align-items:center;padding:8px 12px;background:var(--c);color:#fff}.lo2-h i{font-style:normal;font-size:12px}.lo2-h b{font-size:17px}.lo2-h span{margin-left:auto;font-size:13px;font-style:italic}.lo2-c ul{list-style:none;margin:0;padding:6px 12px}.lo2-c li{display:flex;gap:8px;padding:5px 0}.lo2-ic{flex:none;width:24px}.lo2-ic .lic{width:18px;height:18px}.lo2-tx b{display:block;font-size:14px}.lo2-tx span{font-size:13px}.lo2-set{display:grid;gap:6px;margin-top:10px;font-size:13px}.lo2-set b{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.lo2-loop{margin-top:10px;padding:10px;border-radius:10px;background:#0B1A4A;color:#fff}.lo2-lk{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#A9BEEA;margin-bottom:6px}.lo2-loop ol{list-style:none;margin:0;padding:0;display:grid;gap:6px}.lo2-loop b{display:block;font-size:14px}.lo2-loop span{font-size:13px;color:rgba(252,243,237,.85)}
+.fx-ck{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#A9BEEA}.fx-cite{display:block;font-size:12px;font-style:italic}
+.lo3-cols{display:grid;gap:10px}.lo3-c{padding:12px;border-radius:10px;box-shadow:inset 0 0 0 1px rgba(21,38,54,.12)}.lo3-h{display:flex;gap:8px;align-items:center;margin-bottom:6px}.lo3-ic .lic{width:18px;height:18px}.lo3-h b{font-size:16px}.lo3-c ul{margin:0;padding-left:16px}.lo3-c li{font-size:14px;margin:4px 0}
+.rb-k{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#2F55A8;margin:8px 0 4px}.rb-hd b{font-size:16px}.rb-ls{display:grid;gap:6px;margin-top:6px}.rb-l{padding:8px 10px;border-radius:8px;box-shadow:inset 0 0 0 1px rgba(21,38,54,.12)}.rb-l b{font-size:11px;letter-spacing:.1em;text-transform:uppercase}.rb-l p{margin:2px 0 0;font-size:14px}.rb-ev ul,.rb-loop ol{margin:0;padding-left:16px;font-size:14px}.rb-ev .lic{width:14px;height:14px}
+.lo3-sc{font-size:13px;font-style:italic;margin-top:8px}.rb-isb{margin-top:8px;padding:10px;border-radius:8px;background:#0B1A4A;color:#fff}.rb-isb p{margin:0;font-size:14px;color:#fff}.rb-isb .rb-k{color:#A9BEEA}
+.ev-row{display:grid;gap:8px;margin-top:10px}.ev-s{display:flex;gap:8px;align-items:baseline}.ev-s>b{font-size:22px;font-weight:300;color:#2F55A8}.ev-s>span{font-size:13px}.ev-s small{display:block;font-size:11px;font-style:italic}
+/* round 5 B */
+.r5b-g,.r5b-st,.r5b-two{display:grid;gap:10px}
+.r5b-n{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:16px}.r5b-n .big small{display:inline;margin-left:4px;font-size:16px}.r5b-n p{margin:0}
+.s .r5b-case{display:grid;gap:8px;background:var(--ink);border-color:var(--ink);color:var(--on)}
+.r5b-case h3{color:var(--on)}.r5b-case h3 em{color:var(--lb2)}.r5b-case .lab{color:var(--lb)}.r5b-case p{margin:0;color:rgba(252,243,237,.85)}
+.r5b-case p.r5b-tk{padding-top:8px;border-top:1px solid rgba(252,243,237,.25);color:var(--on)}.r5b-tk em{color:var(--lb2)}
+.r5b-tm{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;background:rgba(252,243,237,.08);box-shadow:inset 0 0 0 1px rgba(252,243,237,.18);font-size:13px;color:rgba(252,243,237,.8)}
+.r5b-tm-t{font:500 13px/1 ui-monospace,monospace;color:var(--on)}
+.r5b-tm-bar{display:grid;grid-template-columns:repeat(12,1fr);gap:2px}.r5b-tm-bar i{height:6px;border-radius:2px;background:rgba(252,243,237,.16)}.r5b-tm-bar i.d{background:var(--lb)}.r5b-tm-bar i.on{background:linear-gradient(90deg,var(--lb2) 70%,rgba(252,243,237,.16) 70%)}
+.r5b-c{display:grid;gap:8px}.r5b-c>p{margin:0}.r5b-c>p.r5b-out{padding-top:8px;border-top:1px solid var(--edge);font-style:italic;color:var(--ink2)}
+.r5b-vis{padding:10px 12px;border-radius:8px;background:rgba(239,227,212,.6);box-shadow:inset 0 0 0 1px var(--edge)}
+.r5b-pl{margin:0;font:italic 400 17px/1.4 var(--serif);color:var(--ink)}
+.r5b-poem mark{background:rgba(232,190,90,.42);color:inherit;padding:0 2px;border-radius:3px}.r5b-poem mark.b{background:rgba(120,155,225,.32)}
+.r5b-notes{display:grid;gap:4px;margin-top:6px;font-size:13.5px;color:var(--muted)}
+.r5b-notes i{display:inline-grid;place-items:center;width:18px;height:18px;margin-right:6px;border-radius:50%;font:600 11px/1 var(--serif);font-style:normal;color:var(--ink);background:rgba(232,190,90,.6)}.r5b-notes span+span i{background:rgba(120,155,225,.5)}
+.r5b-sim{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px}.r5b-sim svg{display:block;width:100%;max-width:170px;height:auto}
+.r5b-sim .g{stroke:var(--edge);stroke-width:2}.r5b-sim .rp{fill:rgba(120,155,225,.18);stroke:var(--ink2);stroke-width:2;stroke-linejoin:round}.r5b-sim .bk{fill:var(--ink)}
+.r5b-sim .ar,.r5b-sim .ah{fill:none;stroke:var(--red);stroke-width:2.5;stroke-linecap:round}.r5b-sim .an{fill:none;stroke:var(--ink2);stroke-width:1.5}
+.r5b-ctl{display:grid;grid-template-columns:auto 56px;align-items:center;gap:6px 8px;font-size:12.5px;color:var(--muted)}.r5b-ctl b{color:var(--ink)}
+.r5b-sl{position:relative;height:3px;border-radius:2px;background:var(--edge)}.r5b-sl i{position:absolute;left:34%;top:50%;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--ink2)}.r5b-sl.s2 i{left:60%}
+/* round 6: slide 25 literary-device tags */
+.r6-src{display:block;margin-bottom:4px;font:600 10.5px/1.2 var(--serif);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.r5b-poem mark.c{background:rgba(192,81,59,.2)}
+.r5b-poem mark small{display:inline-block;margin-left:6px;font:600 11px/1 var(--serif);font-style:normal;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);vertical-align:2px}
+.r5b-poem mark>small{order:2}
+.r5b-poem mark,.r5b-poem mark.b,.r5b-poem mark.c{display:inline-flex;flex-direction:row-reverse;align-items:baseline;gap:5px;padding:0;background:none}
+.r5b-poem mark>span{padding:0 2px;border-radius:3px;background:rgba(232,190,90,.42)}.r5b-poem mark.b>span{background:rgba(120,155,225,.32)}.r5b-poem mark.c>span{background:rgba(192,81,59,.2)}
+.r5b-poem mark>small{margin:0}
+</style></head><body>
+<header class="top"><a class="home" href="/talks/2026-10-acamis-tech-workshop" aria-label="Talk resources · Arena School"><img class="wm n" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School" width="1600" height="242"><img class="wm i" src="/logos/arena/wordmark-ivory-1600.png" alt="" width="1600" height="242"></a>
+ <div class="tools"><button type="button" class="lst" aria-label="All slides"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></div>
+ <div class="prog" aria-hidden="true"><i></i></div></header>
+<main class="rd" id="deck" tabindex="-1">
+<!-- 1 · Cover -->
+<section class="s ae cover aga-cv"><div class="w">
+ <div class="cv-top"></div>
+ <div class="cv-mid">
+  <p class="kick r">ACAMIS Technology Conference · October 18, 2026</p>
+  <p class="cv-lede r" style="--d:.05s">A case study from <span class="nw">the <img class="aga-isb" src="/logos/cred/isb.png" alt="International School of Beijing"></span></p>
+  <h1 class="r" style="--d:.1s">From Lab <span class="m" style="--d:1s"><em>to Classroom</em></span><span class="sub" style="--d:1.3s">Running an AI Student Program Inside a School</span></h1>
+ </div>
+ <div class="cv-foot"><span class="cv-rule"></span><a class="cv-qr" href="https://arenaschool.org/talks/2026-10-acamis-tech-workshop" target="_blank" rel="noopener"><img src="/decks/img/acamis/qr-acamis-clear.png" alt="QR code for arenaschool.org/talks/2026-10-acamis-tech-workshop"><span>Today’s slides, checklist, and tool guide<small><span class="nw">arenaschool.org/talks/</span><wbr><span class="nw">2026-10-acamis-tech-workshop</span></small></span></a></div>
+</div><img class="brandmk ra-bm" src="/decks/img/acamis/a-wordmark-url-navy.png" alt="" aria-hidden="true" width="1600" height="243"></section>
+
+<!-- 2 · Contents -->
+<section class="s alt ae r7-toc"><div class="w">
+ <p class="kick r">The next 60 minutes</p>
+ <h2 class="r" style="--d:.1s">From what students built in five days <em>to what you can run at your school.</em></h2>
+ <div class="bd r" style="--d:.25s">
+  <ol class="r7-list">
+  <li class="" data-s="1"><a href="#" data-go="9"><span class="r7-n">1</span><span class="r7-t"><b>The case</b><span>What ISB students built in five days, and the 20+ AI tools they used</span></span></a></li>
+  <li class="" data-s="2"><a href="#" data-go="15"><span class="r7-n">2</span><span class="r7-t"><b>Why it worked</b><span>The research, the three skills, and the teacher’s role as coach</span></span></a></li>
+  <li class="" data-s="3"><a href="#" data-go="20"><span class="r7-n">3</span><span class="r7-t"><b>Build session</b><span>You name a school chore. We walk through building the fix with Claude&nbsp;Code.</span></span></a></li>
+  <li class="" data-s="4"><a href="#" data-go="22"><span class="r7-n">4</span><span class="r7-t"><b>Take it back</b><span>Why teachers need AI too, and what it takes to run&nbsp;this</span></span></a></li>
+  </ol>
+ </div>
+</div></section>
+
+<!-- 3 · About Arena School -->
+<section class="s alt ae r15-ab"><div class="w">
+ <p class="kick r">About Arena School</p>
+<div class="r16-hd"><h2 class="r" style="--d:.1s">Helping students, families, educators,<br>and schools <em>thrive in the age of&nbsp;AI.</em></h2>
+ <div class="r16-sel r" style="--d:.2s"><span class="r15-h">Selected for</span><ul><li><span class="r16-lg"><img class="r16-an" src="/decks/img/acamis/partner-anthropic.svg" alt="Anthropic"></span><small>Startup Program</small></li><li><span class="r16-lg"><img class="r16-oa" src="/decks/img/acamis/partner-openai.svg" alt="OpenAI"></span><small>Partner Network</small></li></ul></div></div>
+ <div class="bd r" style="--d:.25s">
+  <div class="r15-cols">
+   <div class="r15-c" data-s="1"><span class="r15-h">What we do</span><p>Hands-on programs where every learner, from middle schoolers to teachers and parents, makes real things with&nbsp;AI.</p></div>
+   <div class="r15-c" data-s="1"><span class="r15-h">How we teach</span><p>Every program builds three human skills: <em>agency, taste, and craft.</em> Learners make every decision; AI helps them&nbsp;build.</p></div>
+   <div class="r15-c" data-s="1"><span class="r15-h">Who we work with</span><ul><li>Students, grades 6 to 12</li><li>Teachers and schools</li><li>Parents and families</li></ul></div>
+  </div>
+  <div class="r15-team" data-s="2">
+   <p class="r15-ft"><span class="r15-h">The founding team</span></p>
+   <div class="r15-lg"><img class="r15-caltech" src="/logos/cred/caltech.png" alt="Caltech"><img class="r15-harvard" src="/logos/cred/harvard.png" alt="Harvard University"><img class="r15-brown" src="/logos/cred/brown.png" alt="Brown University"><img class="r15-tsinghua-lockup" src="/logos/cred/tsinghua-lockup.png" alt="Tsinghua University"><img class="r15-isb" src="/logos/cred/isb.png" alt="International School of Beijing"><img class="r15-mckinsey" src="/logos/cred/mckinsey.png" alt="McKinsey &amp; Company"><img class="r15-goldman" src="/logos/cred/goldman.png" alt="Goldman Sachs"><img class="r15-yc" src="/logos/cred/yc.png" alt="Y Combinator"><img class="r15-apple" src="/logos/cred/apple.png" alt="Apple"><img class="r15-microsoft-ai" src="/logos/cred/microsoft-ai.png" alt="Microsoft AI"><img class="r15-deloitte" src="/logos/cred/deloitte.png" alt="Deloitte"><img class="r15-kimi" src="/logos/cred/kimi.png" alt="Kimi (Moonshot AI)"></div>
+  </div>
+ </div>
+</div></section>
+
+<!-- 4 · The question -->
+<section class="s alt ae st aga-q"><div class="w">
+ <p class="kick r">The question we try to answer <span class="nw">at <img class="aga-wm" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School"></span></p>
+ <h2 class="r rot-h" style="--d:.1s" aria-label="When AI can do all of these in seconds, what must our students still learn to do?">When AI can <span class="rot" aria-hidden="true"><span class="rot-t"><span>draft an essay</span><span>write code</span><span>summarize an article</span><span>create a research report</span><span>design a logo</span><span>build a website</span><span>translate a speech</span><span class="fin"><span class="rot-hl">do all of these</span></span></span></span> <br>in seconds, what must our students <em>still learn to&nbsp;do?</em></h2>
+</div></section>
+
+<!-- 5 · What parents asked -->
+<section class="s alt ae aga-pa r8-pa"><div class="w">
+ <p class="kick r">Why parents care</p>
+ <h2 class="r" style="--d:.1s">Parents are asking one practical question:<br><em>which skills will outlast the&nbsp;tools?</em></h2>
+ <p class="r11-src r" style="--d:.18s">From surveying parents in the ISB community and other local communities in mainland&nbsp;China</p>
+ <div class="bd r" style="--d:.25s"><div class="shift ac-own">
+  <div class="shx" data-s="1">
+   <div class="sh-col o"><span class="hd">What parents care about</span><ul><li>Which skills last as the tools change?</li><li>Will AI do the thinking for my child?</li><li>What should my child practice now?</li></ul></div>
+   <div class="sh-arr" aria-hidden="true"><i></i></div>
+   <div class="sh-col n"><span class="hd">What you can tell them after today</span><ul><li>Three skills outlast any tool</li><li>Used well, AI deepens thinking</li><li>Real products, in five days</li></ul></div>
+  </div>
+ </div>
+ <p class="r8-note" data-s="2">Parents don’t see AI as an academic subject, like learning to code.<br><em>They see it as a life skill: optional for many jobs today, and likely non-negotiable by the time their children start&nbsp;working.</em></p></div>
+</div></section>
+
+<!-- 6 · Teaching philosophy -->
+<section class="s alt ae r13-ph"><div class="w">
+ <p class="kick r r14-k"><img class="r14-wm" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School" width="1600" height="242"><span>Teaching philosophy</span></p>
+ <h2 class="r" style="--d:.1s">Staying competitive with AI takes three human skills.<br><em>Without them, AI does the thinking.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="r13-cols">
+  <div class="pane r13-c" data-s="1"><p class="r13-n"><i>01</i><b>Agency</b></p><p class="r13-d">Choosing what is worth doing, before anyone assigns&nbsp;it.</p><p class="r13-w"><span>Without it</span>AI picks the problem, and learners&nbsp;follow.</p></div>
+  <div class="pane r13-c" data-s="2"><p class="r13-n"><i>02</i><b>Taste</b></p><p class="r13-d">Judging whether the output is actually&nbsp;good.</p><p class="r13-w"><span>Without it</span>Learners accept the first answer AI&nbsp;gives.</p></div>
+  <div class="pane r13-c" data-s="3"><p class="r13-n"><i>03</i><b>Craft</b></p><p class="r13-d">Finishing the work so people can trust&nbsp;it.</p><p class="r13-w"><span>Without it</span>The work stays an unchecked first&nbsp;draft.</p></div>
+ </div>
+ <p class="r13-end" data-s="4">This is how we teach every learner, from students to teachers and parents, <em>and the lens for today.</em></p></div>
+</div></section>
+
+<!-- 7 · Learning framework -->
+<section class="s ae fx-s"><div class="w">
+ <p class="kick r">The Arena School learning framework</p>
+ <h2 class="r" style="--d:.1s">Learners do the thinking, AI is a tool, <em>and teachers and peers give the&nbsp;feedback.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="fx-g">
+  <div class="fx-wh" data-s="1"><svg class="fx-wheel" viewBox="0 0 800 800" role="img" aria-label="Arena School learning framework: the student does the thinking; four strands; four conditions" font-family="Newsreader, Georgia, serif"><defs><marker id="cyc" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2F55A8"/></marker><path id="st00" d="M403.5,202.1 A197.9,197.9 0 0 1 597.9,396.5" fill="none"/><path id="st01" d="M402.7,244.1 A155.9,155.9 0 0 1 555.9,397.3" fill="none"/><path id="st10" d="M403.1,580.2 A180.2,180.2 0 0 0 580.2,403.1" fill="none"/><path id="st11" d="M403.9,622.2 A222.2,222.2 0 0 0 622.2,403.9" fill="none"/><path id="st20" d="M219.8,403.1 A180.2,180.2 0 0 0 396.9,580.2" fill="none"/><path id="st21" d="M177.8,403.9 A222.2,222.2 0 0 0 396.1,622.2" fill="none"/><path id="st30" d="M202.1,396.5 A197.9,197.9 0 0 1 396.5,202.1" fill="none"/><path id="st31" d="M244.1,397.3 A155.9,155.9 0 0 1 397.3,244.1" fill="none"/><path id="cd0" d="M389.6,103.1 A297.1,297.1 0 0 1 696.9,410.4" fill="none"/><path id="cd1" d="M388.9,716.7 A316.9,316.9 0 0 0 716.7,388.9" fill="none"/><path id="cd2" d="M83.3,388.9 A316.9,316.9 0 0 0 411.1,716.7" fill="none"/><path id="cd3" d="M103.1,410.4 A297.1,297.1 0 0 1 410.4,103.1" fill="none"/></defs><circle cx="400.0" cy="400.0" r="348.0" fill="#FCF3ED" stroke="#0B1A4A" stroke-opacity=".2" stroke-width="1.2"/><path d="M452.9,23.7 A380.0,380.0 0 0 1 776.3,347.1" fill="none" stroke="#2F55A8" stroke-width="2.4" stroke-linecap="round" marker-end="url(#cyc)"/><path d="M776.3,452.9 A380.0,380.0 0 0 1 452.9,776.3" fill="none" stroke="#2F55A8" stroke-width="2.4" stroke-linecap="round" marker-end="url(#cyc)"/><path d="M347.1,776.3 A380.0,380.0 0 0 1 23.7,452.9" fill="none" stroke="#2F55A8" stroke-width="2.4" stroke-linecap="round" marker-end="url(#cyc)"/><path d="M23.7,347.1 A380.0,380.0 0 0 1 347.1,23.7" fill="none" stroke="#2F55A8" stroke-width="2.4" stroke-linecap="round" marker-end="url(#cyc)"/><line x1="400.0" y1="134.0" x2="400.0" y2="52.0" stroke="#0B1A4A" stroke-opacity=".18" stroke-width="1.2"/><line x1="666.0" y1="400.0" x2="748.0" y2="400.0" stroke="#0B1A4A" stroke-opacity=".18" stroke-width="1.2"/><line x1="400.0" y1="666.0" x2="400.0" y2="748.0" stroke="#0B1A4A" stroke-opacity=".18" stroke-width="1.2"/><line x1="134.0" y1="400.0" x2="52.0" y2="400.0" stroke="#0B1A4A" stroke-opacity=".18" stroke-width="1.2"/><path d="M403.2,134.0 A266.0,266.0 0 0 1 666.0,396.8 L516.0,398.6 A116.0,116.0 0 0 0 401.4,284.0Z" fill="#2F55A8"/><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st00" startOffset="50%" text-anchor="middle">Inquiry and</textPath></text><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st01" startOffset="50%" text-anchor="middle">planning</textPath></text><path d="M666.0,403.2 A266.0,266.0 0 0 1 403.2,666.0 L401.4,516.0 A116.0,116.0 0 0 0 516.0,401.4Z" fill="#0B1A4A"/><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st10" startOffset="50%" text-anchor="middle">Research and</textPath></text><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st11" startOffset="50%" text-anchor="middle">evaluation</textPath></text><path d="M396.8,666.0 A266.0,266.0 0 0 1 134.0,403.2 L284.0,401.4 A116.0,116.0 0 0 0 398.6,516.0Z" fill="#3D5FA6"/><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st20" startOffset="50%" text-anchor="middle">Creating and</textPath></text><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st21" startOffset="50%" text-anchor="middle">communicating</textPath></text><path d="M134.0,396.8 A266.0,266.0 0 0 1 396.8,134.0 L398.6,284.0 A116.0,116.0 0 0 0 284.0,398.6Z" fill="#5670B0"/><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st30" startOffset="50%" text-anchor="middle">Collaboration</textPath></text><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st31" startOffset="50%" text-anchor="middle">and reflection</textPath></text><circle cx="400.0" cy="400.0" r="110.0" fill="#FCF3ED" stroke="#0B1A4A" stroke-opacity=".2"/><text x="400.0" y="374.6" text-anchor="middle" font-size="33" fill="#0B1A4A">The learner</text><text x="400.0" y="410.6" text-anchor="middle" font-size="33" fill="#0B1A4A">does the</text><text x="400.0" y="446.6" text-anchor="middle" font-size="33" fill="#2F55A8" font-style="italic">thinking</text><text font-size="31" fill="#0B1A4A"><textPath href="#cd0" startOffset="50%" text-anchor="middle">In person, real-time feedback</textPath></text><text font-size="31" fill="#0B1A4A"><textPath href="#cd1" startOffset="50%" text-anchor="middle">AI use disclosed and cited</textPath></text><text font-size="31" fill="#0B1A4A"><textPath href="#cd2" startOffset="50%" text-anchor="middle">Learner voice and choice</textPath></text><text font-size="31" fill="#0B1A4A"><textPath href="#cd3" startOffset="50%" text-anchor="middle">An authentic audience</textPath></text></svg></div>
+  <div class="fx-side">
+   <div class="fx-blk" data-s="2"><span class="fx-k">Built on project-based learning</span><p>Every strand gets a real purpose and a real&nbsp;audience.<br>AI speeds up the&nbsp;building.</p><small class="fx-cite">Informed by PBLWorks’ Gold Standard&nbsp;PBL.</small></div>
+   <div class="fx-call" data-s="3"><span class="fx-ck">At every check-in, the teacher asks</span><p>“How did you check&nbsp;it?”</p><span>and responds in real&nbsp;time.<br>AI can support that feedback, not replace&nbsp;it.</span></div>
+  </div>
+ </div></div>
+</div></section>
+
+<!-- 8 · Learning outcomes -->
+<section class="s alt ae lo3-s"><div class="w">
+ <p class="kick r">Learning outcomes</p>
+ <h2 class="r" style="--d:.1s">Across every program, <em>learners will be able&nbsp;to…</em></h2>
+ <p class="lo3-sub r" style="--d:.15s">Learners are whoever a program is for: students, teachers, school leaders, or parents. The outcomes stay the same; the depth&nbsp;grows.</p>
+ <div class="bd r" style="--d:.25s"><div class="lo3-cols"><div class="lo3-c" data-s="1"><div class="lo3-h"><span class="lo3-ic"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /></svg></span><b>Inquiry and planning</b></div><ul><li>Turn a broad interest into a focused, researchable&nbsp;question.</li><li>Plan a project with milestones, and adjust the plan based on&nbsp;progress.</li></ul></div><div class="lo3-c" data-s="2"><div class="lo3-h"><span class="lo3-ic"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg></span><b>Research and evaluation</b></div><ul><li>Find, evaluate, and cite sources, including checking the accuracy of AI&nbsp;output.</li><li>Compare options against criteria, and justify a&nbsp;choice.</li><li>Explain how AI tools work, where they fail, and the bias and privacy issues they&nbsp;raise.</li></ul></div><div class="lo3-c" data-s="3"><div class="lo3-h"><span class="lo3-ic"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="M10 9H8" /><path d="M16 13H8" /><path d="M16 17H8" /></svg></span><b>Creating and communicating</b></div><ul><li>Build and test a product, prototype, or solution, deciding which steps to hand to AI and disclosing how they used&nbsp;it.</li><li>Structure an argument and write it clearly, in their own&nbsp;words.</li><li>Present to an authentic audience, and defend their reasoning under&nbsp;questioning.</li></ul></div><div class="lo3-c" data-s="4"><div class="lo3-h"><span class="lo3-ic"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" /><path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1" /></svg></span><b>Collaboration and reflection</b></div><ul><li>Work in a team, share roles, and contribute to a shared&nbsp;product.</li><li>Give and use critique from teachers and peers to revise their&nbsp;work.</li><li>Reflect on their process and on what they would do&nbsp;differently.</li></ul></div></div>
+</div></section>
+
+<!-- 9 · Assessment -->
+<section class="s ae rb-s"><div class="w">
+ <p class="kick r">How we assess</p>
+ <h2 class="r" style="--d:.1s">We assess the process, <em>not only the&nbsp;product.</em></h2>
+ <div class="bd r" style="--d:.25s">
+  <div class="rb-t">
+   <div class="rb-hd"><div class="rb-hd-l"><span class="rb-k">Sample criterion · research and evaluation</span><b>Evaluates sources, including AI output</b></div></div>
+   <div class="rb-ls"><div class="rb-l" data-s="1"><b>Beginning</b><p>Accepts sources and AI output as given; cites&nbsp;inconsistently.</p></div><div class="rb-l" data-s="1"><b>Developing</b><p>Checks some claims against a second source; cites most&nbsp;sources.</p></div><div class="rb-l" data-s="1"><b>Proficient</b><p>Verifies key claims, including AI output, against reliable sources; discloses AI&nbsp;use.</p></div><div class="rb-l" data-s="1"><b>Extending</b><p>Explains why sources disagree, corrects AI errors, and judges which evidence to&nbsp;trust.</p></div></div>
+  </div>
+  <div class="rb-bot rb-bot2">
+   <div class="rb-ev" data-s="2"><span class="rb-k">Evidence we collect</span><ul><li><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 7v14" /><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" /></svg><span>Process journal</span></li><li><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="M10 9H8" /><path d="M16 13H8" /><path d="M16 17H8" /></svg><span>Drafts</span></li><li><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /><line x1="12" x2="12" y1="19" y2="22" /></svg><span>Recorded defense</span></li></ul></div>
+   <div class="rb-isb" data-s="3"><span class="rb-k">In practice</span><p>Used with students in the ISB AI Founders Program, summer&nbsp;2026.</p></div>
+  </div>
+ </div>
+</div></section>
+
+<!-- 10 · Part 1 -->
+<section class="s ae nv sec"><div class="w"><div class="sec-g">
+ <div>
+  <p class="sec-k"><span>Part</span><b>1</b></p>
+  <h2 class="r" style="--d:.15s">In five days, ISB students built and launched <em>working products with AI.</em></h2>
+  <p class="sl r" style="--d:.35s">The program, the week, and what students made</p>
+ </div>
+ <ol class="trk" aria-label="Parts">
+ <li class="on"><div class="row"><span class="tn">1</span><span class="tt"><b>The case</b><small>What students built</small></span></div></li>
+ <li><div class="row"><span class="tn">2</span><span class="tt"><b>Why it worked</b><small>The design</small></span></div></li>
+ <li><div class="row"><span class="tn">3</span><span class="tt"><b>Build session</b><small>With the room</small></span></div></li>
+ <li><div class="row"><span class="tn">4</span><span class="tt"><b>Take it back</b><small>What it takes</small></span></div></li>
+ </ol>
+</div></div></section>
+
+<!-- 11 · The program -->
+<section class="s ae ac-prog"><div class="w">
+ <p class="kick r">The case · ISB AI Founders Program, August 5–9, 2026</p>
+ <h2 class="r" style="--d:.1s">An AI builder week for grades 7 to 12: <em>learn AI skills, start a company, build something real.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="ac-dd">
+  <figure class="pane ac-ph" data-s="1"><img src="/photos/isb-2026/mentor-feedback-1600.webp" alt="Mentors react to a student demo"><figcaption>Mentors in the room every day</figcaption></figure>
+  <figure class="pane ac-ph" data-s="1"><img src="/photos/isb-2026/demo-laptop-1600.webp" alt="Students demo their product at the podium"><figcaption>Every team demos what works</figcaption></figure>
+  <div class="r11-facts" data-s="2">
+   <div class="pane"><div class="r11-in"><b>7–12</b><span>grades, selected by application</span></div></div>
+   <div class="pane"><div class="r11-in"><b>5</b><span>days, at ISB in August</span></div></div>
+   <div class="pane"><div class="r11-in"><b>0</b><span>coding experience required</span></div></div>
+  </div>
+ </div></div>
+</div></section>
+
+<!-- 12 · The tools -->
+<section class="s alt ae hold r4c-tk" data-mk="arrive"><div class="w">
+ <p class="kick r">The case · the toolkit, by job</p>
+ <h2 class="r" style="--d:.1s">Students learned 20+ AI tools in <span class="nw">five days,</span> <em>out of 200+ they could choose&nbsp;from.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="mk" data-hl="ChatGPT|Claude|Gemini|Perplexity|NotebookLM|DeepSeek|Manus|Grok|Mistral|Midjourney|Ideogram|Krea|Recraft|Cursor|Lovable|Replit|v0|Windsurf|Suno|ElevenLabs|CapCut|Pika|Runway">
+  <div class="mk-low">
+   <div class="mk-map pane"><p class="lab"><b><span class="mk-n">200</span><span class="mk-plus">+</span></b> AI tools students could choose from<span class="r4c-used" data-s="1"> · <b>20+</b> they used</span></p><div class="mk-field" aria-hidden="true"></div></div>
+  </div>
+  <div class="r4c-gs" data-s="2">
+   <div class="pane r4c-grp w2" style="--j:0"><p class="lab">Research</p><span class="r4c-st">Ask and search</span><ul><li><img src="/decks/img/acamis/tools/chatgpt.png" alt=""><span>ChatGPT</span></li><li><img src="/decks/img/acamis/tools/claude.png" alt=""><span>Claude</span></li><li><img src="/decks/img/acamis/tools/gemini.png" alt=""><span>Gemini</span></li><li><img src="/decks/img/acamis/tools/perplexity.png" alt=""><span>Perplexity</span></li><li><img src="/decks/img/acamis/tools/notebooklm.png" alt=""><span>NotebookLM</span></li><li><img src="/decks/img/acamis/tools/deepseek.png" alt=""><span>DeepSeek</span></li><li><img src="/decks/img/acamis/tools/manus.png" alt=""><span>Manus</span></li><li><img src="/decks/img/acamis/tools/grok.png" alt=""><span>Grok</span></li><li><img src="/decks/img/acamis/tools/mistral.png" alt=""><span>Mistral</span></li></ul></div>
+   <div class="pane r4c-grp" style="--j:1"><p class="lab">Design</p><span class="r4c-st">Logos and art</span><ul><li><img src="/decks/img/acamis/tools/midjourney.png" alt=""><span>Midjourney</span></li><li><img src="/decks/img/acamis/tools/ideogram.png" alt=""><span>Ideogram</span></li><li><img src="/decks/img/acamis/tools/krea.png" alt=""><span>Krea</span></li><li><img src="/decks/img/acamis/tools/recraft.png" alt=""><span>Recraft</span></li></ul></div>
+   <div class="pane r4c-grp" style="--j:2"><p class="lab">Build</p><span class="r4c-st">Apps and sites</span><ul><li><img src="/decks/img/acamis/tools/cursor.png" alt=""><span>Cursor</span></li><li><img src="/decks/img/acamis/tools/lovable.png" alt=""><span>Lovable</span></li><li><img src="/decks/img/acamis/tools/replit.png" alt=""><span>Replit</span></li><li><img src="/decks/img/acamis/tools/v0.png" alt=""><span>v0</span></li><li><img src="/decks/img/acamis/tools/windsurf.png" alt=""><span>Windsurf</span></li></ul></div>
+   <div class="pane r4c-grp" style="--j:3"><p class="lab">Brand</p><span class="r4c-st">Sound and video</span><ul><li><img src="/decks/img/acamis/tools/suno.png" alt=""><span>Suno</span></li><li><img src="/decks/img/acamis/tools/elevenlabs.png" alt=""><span>ElevenLabs</span></li><li><img src="/decks/img/acamis/tools/capcut.png" alt=""><span>CapCut</span></li></ul></div>
+   <div class="pane r4c-grp" style="--j:4"><p class="lab">Launch</p><span class="r4c-st">Sell and promote</span><ul><li><img src="/decks/img/acamis/tools/stripe.png" alt=""><span>Stripe</span></li><li><img src="/decks/img/acamis/tools/pika.png" alt=""><span>Pika</span></li><li><img src="/decks/img/acamis/tools/runway.png" alt=""><span>Runway</span></li></ul></div>
+  </div>
+ </div></div>
+</div></section>
+
+<!-- 13 · Ten stages, five days -->
+<section class="s alt ae agb-wk"><div class="w">
+ <p class="kick r">The case · ten stages, five days</p>
+ <h2 class="r" style="--d:.1s">Using these 20+ AI tools, <em>students run a “startup” in ten stages, over five&nbsp;days.</em></h2>
+ <div class="bd r" style="--d:.25s">
+ <div class="agb-r1">
+  <div class="pane agb-day" data-s="1"><div class="agb-dk">Day 1</div><h3>Pick a problem</h3><div class="agb-dc">A one-page plan and a first&nbsp;prototype.</div><ol class="agb-sg" start="1"><li><i>01</i><b>Find the idea</b><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/decks/img/acamis/tools/chatgpt.png" alt="ChatGPT"><img style="--j:1" src="/decks/img/acamis/tools/claude.png" alt="Claude"><img style="--j:2" src="/decks/img/acamis/tools/gemini.png" alt="Gemini"><img style="--j:3" src="/decks/img/acamis/tools/perplexity.png" alt="Perplexity"><img style="--j:4" src="/decks/img/acamis/tools/grok.png" alt="Grok"></p></li><li><i>02</i><b>Validate it</b><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/decks/img/acamis/tools/perplexity.png" alt="Perplexity"><img style="--j:1" src="/decks/img/acamis/tools/chatgpt.png" alt="ChatGPT"><img style="--j:2" src="/decks/img/acamis/tools/claude.png" alt="Claude"><img style="--j:3" src="/decks/img/acamis/tools/gemini.png" alt="Gemini"><img style="--j:4" src="/decks/img/acamis/tools/notebooklm.png" alt="NotebookLM"></p></li><li><i>03</i><b>Form the team</b><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/decks/img/acamis/tools/claude.png" alt="Claude"><img style="--j:1" src="/decks/img/acamis/tools/chatgpt.png" alt="ChatGPT"><img style="--j:2" src="/decks/img/acamis/tools/gemini.png" alt="Gemini"><img style="--j:3" src="/decks/img/acamis/tools/manus.png" alt="Manus"><img style="--j:4" src="/decks/img/acamis/tools/grok.png" alt="Grok"></p></li><li><i>04</i><b>Define it</b><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/decks/img/acamis/tools/claude.png" alt="Claude"><img style="--j:1" src="/decks/img/acamis/tools/chatgpt.png" alt="ChatGPT"><img style="--j:2" src="/decks/img/acamis/tools/gemini.png" alt="Gemini"><img style="--j:3" src="/decks/img/acamis/tools/mistral.png" alt="Mistral"><img style="--j:4" src="/decks/img/acamis/tools/deepseek.png" alt="DeepSeek"></p></li></ol></div>
+  <div class="pane agb-day" data-s="2"><div class="agb-dk">Day 2</div><h3>Go public</h3><div class="agb-dc">Real people try it. Teams fix what confuses&nbsp;them.</div><ol class="agb-sg" start="5"><li><i>05</i><b>Design it</b><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/decks/img/acamis/tools/midjourney.png" alt="Midjourney"><img style="--j:1" src="/decks/img/acamis/tools/ideogram.png" alt="Ideogram"><img style="--j:2" src="/decks/img/acamis/tools/krea.png" alt="Krea"><img style="--j:3" src="/decks/img/acamis/tools/recraft.png" alt="Recraft"><img style="--j:4" src="/decks/img/acamis/tools/chatgpt.png" alt="ChatGPT"></p></li><li><i>06</i><b>Build it</b><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/decks/img/acamis/tools/cursor.png" alt="Cursor"><img style="--j:1" src="/decks/img/acamis/tools/lovable.png" alt="Lovable"><img style="--j:2" src="/decks/img/acamis/tools/v0.png" alt="v0"><img style="--j:3" src="/decks/img/acamis/tools/replit.png" alt="Replit"><img style="--j:4" src="/decks/img/acamis/tools/windsurf.png" alt="Windsurf"></p></li><li><i>07</i><b>Ship it live</b><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/decks/img/acamis/tools/replit.png" alt="Replit"><img style="--j:1" src="/decks/img/acamis/tools/v0.png" alt="v0"><img style="--j:2" src="/decks/img/acamis/tools/lovable.png" alt="Lovable"><img style="--j:3" src="/decks/img/acamis/tools/chatgpt.png" alt="ChatGPT"><img style="--j:4" src="/decks/img/acamis/tools/claude.png" alt="Claude"></p></li></ol></div>
+ </div>
+ <div class="agb-r2">
+  <div class="pane agb-day" data-s="3"><div class="agb-dk">Day 3</div><h3>The rebuild</h3><div class="agb-dc">The best ones outgrow the first&nbsp;plan.</div><ol class="agb-sg" start="8"><li><i>08</i><b>Test and iterate</b><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/decks/img/acamis/tools/cursor.png" alt="Cursor"><img style="--j:1" src="/decks/img/acamis/tools/claude.png" alt="Claude"><img style="--j:2" src="/decks/img/acamis/tools/chatgpt.png" alt="ChatGPT"><img style="--j:3" src="/decks/img/acamis/tools/gemini.png" alt="Gemini"><img style="--j:4" src="/decks/img/acamis/tools/deepseek.png" alt="DeepSeek"></p></li></ol></div>
+  <div class="pane agb-day" data-s="4"><div class="agb-dk">Day 4</div><h3>Polish and price</h3><div class="agb-dc">A name, a landing page, a real&nbsp;price.</div><ol class="agb-sg" start="9"><li><i>09</i><b>Brand it</b><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/decks/img/acamis/tools/midjourney.png" alt="Midjourney"><img style="--j:1" src="/decks/img/acamis/tools/suno.png" alt="Suno"><img style="--j:2" src="/decks/img/acamis/tools/elevenlabs.png" alt="ElevenLabs"><img style="--j:3" src="/decks/img/acamis/tools/runway.png" alt="Runway"><img style="--j:4" src="/decks/img/acamis/tools/capcut.png" alt="CapCut"></p></li></ol></div>
+  <div class="pane agb-day" data-s="5"><div class="agb-dk">Day 5</div><h3>Demo day</h3><div class="agb-dc">Live pitches to judges and&nbsp;families.</div><ol class="agb-sg" start="10"><li><i>10</i><b>Pitch and sell</b><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/decks/img/acamis/tools/chatgpt.png" alt="ChatGPT"><img style="--j:1" src="/decks/img/acamis/tools/claude.png" alt="Claude"><img style="--j:2" src="/decks/img/acamis/tools/gemini.png" alt="Gemini"><img style="--j:3" src="/decks/img/acamis/tools/pika.png" alt="Pika"><img style="--j:4" src="/decks/img/acamis/tools/runway.png" alt="Runway"></p></li></ol></div>
+ </div>
+ </div>
+</div></section>
+
+<!-- 14 · What children can build -->
+<section class="s alt ae"><div class="w">
+ <p class="kick r">Where it started · Bodley Academy, Hong Kong, summer 2025</p>
+ <h2 class="r" style="--d:.1s">In five days, an 11-year-old<br><em>turned sign language into speech.</em></h2>
+ <div class="bd r" style="--d:.25s">
+  <div class="cs31 ac-hk">
+   <div class="pane cs-vp">
+    <figure class="vframe cs-v"><video autoplay muted loop playsinline preload="metadata" poster="/decks/img/conversation/hands-stage-poster.webp" src="/decks/img/conversation/hands-stage.mp4" aria-label="A student tests a sign-language app on a laptop"></video><img class="vposter" src="/decks/img/conversation/hands-stage-poster.webp" alt=""></figure>
+    <span class="cs-cap">Built in five days by a seventh grader</span>
+   </div>
+   <div class="cs-side">
+    <ol class="cs-beats">
+     <li data-s="1"><span class="cs-k"><i>01</i><b>Agency</b><span>Find a problem</span></span><p>He chose sign language to speech because his cousin is deaf. Nobody assigned&nbsp;it.</p></li>
+     <li data-s="2"><span class="cs-k"><i>02</i><b>Taste</b><span>Real-user feedback</span></span><p>He kept improving it after the demo, because his grandmother couldn’t use the first version&nbsp;yet.</p></li>
+     <li data-s="3"><span class="cs-k"><i>03</i><b>Craft</b><span>Finish and launch</span></span><p>The hardest part wasn’t the AI. It was audio clear enough for her to&nbsp;trust.</p></li>
+    </ol>
+    <p class="cs-note" data-s="3">AI tools did the building. <em>He did the choosing, judging, and&nbsp;finishing.</em></p>
+   </div>
+   <div class="pane ac-st" data-s="4">
+    <div><b>20</b><span>students, each on their own&nbsp;problem</span></div>
+    <div><b>5</b><span>days, from the first idea to <span class="nw">demo day</span></span></div>
+    <div><b>9.5<small>/10</small></b><span>how likely students were to recommend&nbsp;it</span></div>
+   </div>
+  </div>
+ </div>
+</div></section>
+
+<!-- 15 · Demo day -->
+<section class="s ae"><div class="w">
+ <p class="kick r">The case · demo day</p>
+ <h2 class="r" style="--d:.1s">On day five, teams pitched working products <em>to judges from Harvard, Stanford, Y&nbsp;Combinator, and AI labs.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="ac-dd">
+  <figure class="pane ac-ph" data-s="1"><img src="/photos/isb-hq/isb-judges-test-1400.webp" alt="Judges test a student product on a laptop"><figcaption>Judges test each product before scoring</figcaption></figure>
+  <figure class="pane ac-ph" data-s="2"><img src="/photos/isb-hq/isb-pitch-mic-1400.webp" alt="A student pitches her team’s product"><figcaption>Every team pitched its own product</figcaption></figure>
+  <div class="pane ac-jg" data-s="3"><span class="lab">Judged by founders and operators from</span><div class="ac-lg"><img class="j-hv" src="/logos/cred/harvard.png" alt="Harvard"><img class="j-sf" src="/logos/cred/stanford.png" alt="Stanford"><img class="j-yc" src="/decks/img/conversation/inv-yc.png" alt="Y Combinator"><span class="ac-ai">and AI labs</span></div></div>
+ </div></div>
+</div></section>
+
+<!-- 16 · Part 2 -->
+<section class="s ae nv sec"><div class="w"><div class="sec-g">
+ <div>
+  <p class="sec-k"><span>Part</span><b>2</b></p>
+  <h2 class="r" style="--d:.15s">It worked because students made every decision, <em>and AI helped them build faster.</em></h2>
+  <p class="sl r" style="--d:.35s">Used well, AI deepens the thinking instead of replacing it.</p>
+ </div>
+ <ol class="trk" aria-label="Parts">
+ <li><div class="row"><span class="tn">1</span><span class="tt"><b>The case</b><small>What students built</small></span></div></li>
+ <li class="on"><div class="row"><span class="tn">2</span><span class="tt"><b>Why it worked</b><small>The design</small></span></div></li>
+ <li><div class="row"><span class="tn">3</span><span class="tt"><b>Build session</b><small>With the room</small></span></div></li>
+ <li><div class="row"><span class="tn">4</span><span class="tt"><b>Take it back</b><small>What it takes</small></span></div></li>
+ </ol>
+</div></div></section>
+
+<!-- 17 · Design is the difference -->
+<section class="s ae"><div class="w">
+ <p class="kick r">The research · two 2025 studies</p>
+ <h2 class="r" style="--d:.1s">Used as a shortcut, AI does the thinking. <em>Set up as a coach, it helps students learn more.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="duo">
+  <div class="pane" data-s="1"><div class="lr"><span class="org">High school math · nearly 1,000 students</span></div><div class="big">−17%</div><p>exam grades after practicing with plain ChatGPT. A tutor version that gave hints, not answers, largely avoided <span class="nw">the drop.</span></p></div>
+  <div class="pane dk" data-s="2"><div class="lr"><span class="org">Harvard physics · a randomized trial</span></div><div class="big">2×</div><p>the learning gains of an active-learning class, in less time, with an AI tutor built on <span class="nw">the same methods</span></p></div>
+ </div></div>
+ <p class="fn" data-s="1"><span>Bastani and others, PNAS, June 25, 2025: grades fell 17% once plain ChatGPT was taken away; with safeguards, the harm was “largely mitigated”; Kestin and others, Scientific Reports, June 3, 2025: 194 Harvard physics students, median learning gains more than double</span></p>
+</div></section>
+
+<!-- 18 · Agency, taste, craft, and how the week trains them -->
+<section class="s ae agC agC-sk"><div class="w">
+ <p class="kick r">Arena School’s approach · arenaschool.org/approach</p>
+ <h2 class="r" style="--d:.1s">The ISB week gave each skill<br><em>a moment students couldn’t&nbsp;skip.</em></h2>
+ <div class="bd r" style="--d:.25s"><ol class="agc-sk">
+  <li class="pane" data-s="1">
+   <div class="agc-hd"><i>01</i><b>Agency</b></div>
+   <p class="agc-def">Choosing what is worth doing, before anyone assigns&nbsp;it.</p>
+   <span class="agc-lab">How the week trained it</span>
+   <p class="agc-mo">On day one, each student chooses the problem and pitches it in three minutes, with no&nbsp;slides.</p>
+  </li>
+  <li class="pane" data-s="2">
+   <div class="agc-hd"><i>02</i><b>Taste</b></div>
+   <p class="agc-def">Judging whether the output is actually&nbsp;good.</p>
+   <span class="agc-lab">How the week trained it</span>
+   <p class="agc-mo">By midweek, a prototype is online at a public link, and real users and mentors react every&nbsp;day.</p>
+  </li>
+  <li class="pane" data-s="3">
+   <div class="agc-hd"><i>03</i><b>Craft</b></div>
+   <p class="agc-def">Finishing the work so people can trust&nbsp;it.</p>
+   <span class="agc-lab">How the week trained it</span>
+   <p class="agc-mo">Building stops at a fixed hour each day, and on demo day students explain every decision&nbsp;live.</p>
+  </li>
+ </ol></div>
+</div></section>
+
+<!-- 19 · Is it cheating? -->
+<section class="s ae agC agC-ch"><div class="w">
+ <p class="kick r">Is using AI just cheating?</p>
+ <h2 class="r" style="--d:.1s">No. AI tools write the code,<br><em>and students make every decision.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="shift ac-own">
+  <div class="shx" data-s="1">
+   <div class="sh-col o"><span class="hd">AI tools and mentors handle</span><ul><li>Writing the code</li><li>Putting it online</li><li>Fixing technical errors</li></ul></div>
+   <div class="sh-arr" aria-hidden="true"><i></i></div>
+   <div class="sh-col n"><span class="hd">Students decide</span><ul><li>Which problem, and for whom</li><li>What to cut after users try it</li><li>The name, the price, and the pitch</li></ul></div>
+  </div>
+ </div></div>
+</div></section>
+
+<!-- 20 · Your role, and three questions -->
+<section class="s alt ae agC agC-co"><div class="w">
+ <p class="kick r">What students need from us · try this on Monday</p>
+ <h2 class="r" style="--d:.1s">Your role becomes the coach, <em>and three questions do the coaching.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="agc-co">
+  <div class="pane dk agc-role" data-s="1">
+   <span class="agc-k">The teacher’s role</span>
+   <div class="agc-shift"><p class="agc-from">From the person with <span class="nw">the answers</span></p><span class="agc-dn" aria-hidden="true"></span><p class="agc-to">to the coach who asks <span class="nw">the questions</span></p></div>
+   <p class="agc-note">It’s what good teachers already do, and what our mentors did all&nbsp;week.</p>
+  </div>
+  <ol class="agc-q">
+   <li class="pane" data-s="2"><span class="agc-tag"><i>01</i>Agency</span><b>“Why this problem?”</b><span>They choose, not the&nbsp;AI.</span></li>
+   <li class="pane" data-s="3"><span class="agc-tag"><i>02</i>Taste</span><b>“How do you know it’s good?”</b><span>They judge what it&nbsp;made.</span></li>
+   <li class="pane" data-s="4"><span class="agc-tag"><i>03</i>Craft</span><b>“What would make someone trust it?”</b><span>They check it and finish&nbsp;it.</span></li>
+  </ol>
+ </div></div>
+</div></section>
+
+<!-- 21 · Part 3 -->
+<section class="s ae nv sec"><div class="w"><div class="sec-g">
+ <div>
+  <p class="sec-k"><span>Part</span><b>3</b></p>
+  <h2 class="r" style="--d:.15s">Now let’s build one together. <em>No coding needed.</em></h2>
+  <p class="sl r" style="--d:.35s">Name a school chore. We walk through building the fix&nbsp;together.</p>
+ </div>
+ <ol class="trk" aria-label="Parts">
+  <li><div class="row"><span class="tn">1</span><span class="tt"><b>The case</b><small>What students built</small></span></div></li>
+  <li><div class="row"><span class="tn">2</span><span class="tt"><b>Why it worked</b><small>The design</small></span></div></li>
+  <li class="on"><div class="row"><span class="tn">3</span><span class="tt"><b>Build session</b><small>With the room</small></span></div></li>
+  <li><div class="row"><span class="tn">4</span><span class="tt"><b>Take it back</b><small>What it takes</small></span></div></li>
+ </ol>
+</div></div></section>
+
+<!-- 22 · The brief -->
+<section class="s alt ae kimi3 agd-b"><div class="w">
+ <p class="kick r">Build session · 30 minutes</p>
+ <h2 class="r" style="--d:.1s">You bring a real school problem.<br><em>We walk through building the fix together.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="case3">
+  <div class="cs pane" data-s="1"><span class="lab">Step 1 · you name it</span><h3>A chore or a snag</h3><p>A workflow you repeat, or a problem you keep running&nbsp;into.</p>
+   <ul class="agd-ex" aria-label="Examples from teachers"><li>“I rewrite the same parent email every&nbsp;week.”</li><li>“Tracking which students turned in&nbsp;drafts.”</li><li>“Making one reading at three&nbsp;levels.”</li></ul></div>
+  <span class="cs-ar" data-s="2" aria-hidden="true">→</span>
+  <div class="cs pane" data-s="2"><span class="lab">Step 2 · we build it</span><h3>Claude Code writes it</h3><p>An AI tool that builds web apps from plain&nbsp;English.</p>
+   <div class="agd-cc"><div class="agd-cc-h"><img src="/logos/tools/claude.png" alt=""><b>Claude Code</b><small>by Anthropic</small></div><p class="agd-cc-p"><span>Make a page where I paste a reading and get it at three&nbsp;levels.</span></p><span class="agd-cc-o">A working web app, in&nbsp;minutes</span></div></div>
+  <span class="cs-ar" data-s="3" aria-hidden="true">→</span>
+  <div class="cs cs-out" data-s="3"><span class="lab">Step 3 · we all iterate</span><h3>Open it, then improve it</h3><p>We try it together and fix what’s off, one plain sentence at a&nbsp;time.</p>
+   <ul class="agd-ex" aria-label="Example fixes"><li>“Make the buttons&nbsp;bigger.”</li><li>“Add a column for due&nbsp;dates.”</li><li>“Use simpler words for grade&nbsp;6.”</li></ul></div>
+ </div>
+ </div>
+</div></section>
+
+<!-- 23 · Part 4 -->
+<section class="s ae nv sec"><div class="w"><div class="sec-g">
+ <div>
+  <p class="sec-k"><span>Part</span><b>4</b></p>
+  <h2 class="r" style="--d:.15s">Take it back to your school:<br><em>teachers need AI&nbsp;too.</em></h2>
+  <p class="sl r" style="--d:.35s">What it takes to run this: teacher training and student&nbsp;programs.</p>
+ </div>
+ <ol class="trk" aria-label="Parts">
+  <li><div class="row"><span class="tn">1</span><span class="tt"><b>The case</b><small>What students built</small></span></div></li>
+  <li><div class="row"><span class="tn">2</span><span class="tt"><b>Why it worked</b><small>The design</small></span></div></li>
+  <li><div class="row"><span class="tn">3</span><span class="tt"><b>Build session</b><small>With the room</small></span></div></li>
+  <li class="on"><div class="row"><span class="tn">4</span><span class="tt"><b>Take it back</b><small>What it takes</small></span></div></li>
+ </ol>
+</div></div></section>
+
+<!-- 24 · AI gives teachers time back -->
+<section class="s alt ae r5b-tt"><div class="w">
+ <p class="kick r">Why teachers need AI too · EEF · Gallup</p>
+ <h2 class="r" style="--d:.1s">AI gives teachers back time<br><em>to spend on their&nbsp;students.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="r5b-g">
+  <div class="r5b-st">
+   <div class="pane r5b-n" data-s="1"><div class="big">31%</div><p>less time on lesson planning with AI in a randomized trial, with no drop in&nbsp;quality</p></div>
+   <div class="pane r5b-n" data-s="2"><div class="big">5.9<small>hours</small></div><p>saved a week by teachers who use AI weekly, about six weeks a school&nbsp;year</p></div>
+  </div>
+  <div class="pane r5b-case" data-s="3">
+   <span class="lab">From a teacher we spoke with</span>
+   <h3>A grading timer, <em>not a&nbsp;grader</em></h3>
+   <div class="r5b-tm" aria-hidden="true"><span class="r5b-tm-l">Paper 9 of 24</span><div class="r5b-tm-bar"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="on"></i><i></i><i></i><i></i></div><b class="r5b-tm-t">4:12 / 6:00</b></div>
+   <p>An English teacher built a simple timer. It grades nothing: he still reads every paper and writes the feedback&nbsp;himself.</p>
+   <p>It gives every paper the same share of his time, and keeps his marking within a set&nbsp;limit.</p>
+   <p class="r5b-tk">AI handles the housekeeping. <em>The teacher keeps the&nbsp;judgment.</em></p>
+  </div>
+ </div></div>
+ <p class="fn" data-s="1"><span>EEF/NFER, randomized trial, 259 teachers in 68 schools (2024). Gallup and Walton Family Foundation (2025): weekly AI users, n=2,232, self-reported&nbsp;estimate.</span></p>
+</div></section>
+
+<!-- 25 · Tools teachers build -->
+<section class="s alt ae r5b-tl"><div class="w">
+ <p class="kick r">Why teachers need AI too · teachers as builders</p>
+ <h2 class="r" style="--d:.1s">Tools teachers build <em>for their own&nbsp;classrooms.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="r5b-two">
+  <div class="pane r5b-c" data-s="1">
+   <span class="lab">English · from a teacher we spoke with</span>
+   <h3>Literary devices, one click&nbsp;away</h3>
+   <div class="r5b-vis r5b-poem" aria-hidden="true"><span class="r6-src">Sonnet 18 · lines 5–7</span><p class="r5b-pl">Sometime too hot the <mark><small>Metaphor</small><span>eye of heaven</span></mark> shines,</p><p class="r5b-pl">And often is <mark class="b"><small>Personification</small><span>his gold complexion</span></mark> dimm’d;</p><p class="r5b-pl">And every <mark class="c"><small>Alliteration</small><span>fair from fair</span></mark> sometime declines,</p></div>
+   <p>Instead of color-coding a poem by hand at the board, the teacher tags each literary device before&nbsp;class.</p>
+   <p>In class, one click reveals each device and its&nbsp;label.</p>
+   <p class="r5b-out">Class time goes to discussing the&nbsp;poem.</p>
+  </div>
+  <div class="pane r5b-c" data-s="2">
+   <span class="lab">Science · what a STEM teacher can build</span>
+   <h3>A simulation made for this&nbsp;class</h3>
+   <div class="r5b-vis r5b-sim" aria-hidden="true"><svg viewBox="0 22 280 84"><line class="g" x1="10" y1="100" x2="270" y2="100"/><path class="rp" d="M30 100 L250 100 L250 30 Z"/><rect class="bk" x="134" y="39.5" width="34" height="22" rx="3" transform="rotate(-17.65 151 61.5)"/><path class="ar" d="M112.5 54.8 L73 67.4"/><path class="ah" d="M73 67.4 L83.6 58.9 M73 67.4 L86.6 68.7"/><path class="an" d="M66 100 A36 36 0 0 0 64.3 89.1"/></svg><div class="r5b-ctl"><span>Angle <b>20°</b></span><span class="r5b-sl"><i></i></span><span>Friction <b>0.3</b></span><span class="r5b-sl s2"><i></i></span></div></div>
+   <p>Students take a model apart and rebuild it, or change one variable in a physics&nbsp;setup.</p>
+   <p>Built for this lesson, not the nearest YouTube&nbsp;demo.</p>
+   <p class="r5b-out">Students test ideas instead of watching&nbsp;one.</p>
+  </div>
+ </div></div>
+</div></section>
+
+<!-- 26 · What it takes -->
+<section class="s ae age-own"><div class="w">
+ <p class="kick r">Take it back · planning checklist</p>
+ <h2 class="r" style="--d:.1s">Your school already owns most of this. <em>Arena School can help with the&nbsp;rest.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="shift ac-own">
+  <div class="shx" data-s="1">
+   <div class="sh-col o"><span class="hd">Your school owns</span><ul><li>The learning goals and lasting skills</li><li>A five-day block on the calendar</li><li>Teachers, IT, and families on board</li><li>How students show their work</li></ul></div>
+   <div class="sh-arr" aria-hidden="true"><i></i></div>
+   <div class="sh-col n"><span class="hd age-hd"><img src="/logos/arena/seal-ivory-256.png" alt="">Where Arena School helps</span><ul><li>Matching AI tools to each task</li><li>Prompting that builds thinking</li><li>Tools that work on your network</li><li>An idea to a product in five days</li></ul></div>
+  </div>
+ </div></div>
+ <p class="fn age-fn" data-s="1"><span>Checklist and China tool guide: <a href="https://arenaschool.org/talks/2026-10-acamis-tech-workshop" target="_blank" rel="noopener">arenaschool.org/talks/2026-10-acamis-tech-workshop</a></span><span>How we teach: <a href="https://arenaschool.org/approach" target="_blank" rel="noopener">arenaschool.org/approach</a></span></p>
+</div></section>
+
+<!-- 27 · Going further -->
+<section class="s alt ae st ac-fit age-off r6-off"><div class="w">
+ <p class="kick r age-brand"><img src="/decks/img/acamis/a-wordmark-url-navy.png" alt="Arena School, arenaschool.org" width="1600" height="243"></p>
+ <h2 class="r" style="--d:.1s">Going further: we help schools bring AI <em>into teaching and learning.</em></h2>
+  <ol class="ic3 ac-off"><li data-s="1"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><path d="M16 3.128a4 4 0 0 1 0 7.744" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><circle cx="9" cy="7" r="4" /></svg></span><b>AI for Educators</b><span class="age-d">Hands-on training at your school, with your teachers’ own lessons</span></li><li data-s="2"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2 3h20" /><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3" /><path d="m7 21 5-5 5 5" /></svg></span><b>Student programs</b><span class="age-d">A five-day build week like ISB’s, co-run with your&nbsp;teachers</span></li><li data-s="3"><span class="ico"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M13 21h8" /><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" /></svg></span><b>Curriculum design</b><span class="age-d">Where AI fits in your courses, and how to assess&nbsp;it</span></li></ol>
+  <div class="r6-proof" data-s="4"><span class="r6-l"><span class="r6-lab">Selected work</span><a class="r6-res" href="https://arenaschool.org/results" target="_blank" rel="noopener">arenaschool.org/results</a></span><div class="r6-logos"><img class="r6-isb" src="/logos/cred/isb.png" alt="International School of Beijing"><span class="r6-bod">Bodley Academy</span><img class="r6-ts" src="/logos/cred/tsinghua-lockup.png" alt="Tsinghua University"></div></div>
+</div></section>
+
+<!-- 28 · Close -->
+<section class="s ae nv cl age-cl"><div class="w">
+ <p class="kick r">If you remember one thing</p>
+ <h2 class="r" style="--d:.1s">AI doesn’t have to do the thinking for students.<br><em>The design is up to us.</em></h2>
+ <div class="bd r" style="--d:.25s">
+  <ol class="c3x">
+   <li data-s="1"><i>1</i><b>Students can ship</b><span>Live products in five days, with no coding&nbsp;background.</span></li>
+   <li data-s="2"><i>2</i><b>Design decides</b><span>Students choose, judge, and finish.</span></li>
+   <li data-s="3"><i>3</i><b>Start small, start now</b><span>One project, one class, and three questions.</span></li>
+  </ol>
+  <div class="endline age-end" data-s="4"><p>You don’t need to code. You already know how to coach.</p><a class="age-sig" href="https://arenaschool.org" target="_blank" rel="noopener"><span>When you’re ready to run your own, Arena School can&nbsp;help.</span><b>arenaschool.org</b></a></div>
+ </div>
+</div></section>
+
+<!-- 29 · Q&A -->
+<section class="s alt ae age-ty"><div class="w">
+ <p class="kick r">ACAMIS Technology Conference · October 18, 2026</p>
+ <h2 class="r" style="--d:.1s">Thank you! <em>We&nbsp;welcome your questions.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="qa age-qa">
+  <a class="qr pane qr-live age-q" href="https://arenaschool.org/talks/2026-10-acamis-tech-workshop" target="_blank" rel="noopener"><img src="/decks/img/acamis/qr-acamis-tight.png" alt="QR code for arenaschool.org/talks/2026-10-acamis-tech-workshop"><span>Slides and resources</span><small><span class="nw">arenaschool.org/talks/</span><wbr><span class="nw">2026-10-acamis-tech-workshop</span></small></a>
+  <div class="pane age-cta">
+   <div class="age-ct">
+    <img class="age-wm" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School" width="1600" height="242">
+    <span class="k">Bring this to your school</span>
+    <p class="age-h">Book a call with us</p>
+    <p class="age-p">About teacher training, student programs, or curriculum&nbsp;design.</p>
+    <p class="age-ln"><a href="mailto:jingjing@arenaschool.org">jingjing@arenaschool.org</a><a href="https://arenaschool.org" target="_blank" rel="noopener">arenaschool.org</a></p>
+   </div>
+   <a class="qr qr-live age-q age-q2" href="https://arenaschool.org/contact" target="_blank" rel="noopener"><img src="/decks/img/acamis/e-qr-contact-tight.png" alt="QR code for arenaschool.org/contact"><span>Book a call</span><small>arenaschool.org/contact</small></a>
+  </div>
+ </div></div>
+</div></section>
+
+</main>
+<nav class="bot" aria-label="All slides"><button type="button" class="pv" aria-label="Previous slide"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" class="ctr" aria-label="All slides"><b></b><small></small></button><button type="button" class="nx"><span>Next</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></nav>
+<button type="button" class="more-cue" aria-hidden="true" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="tip" role="status"></div>
+<div class="sheet" hidden role="dialog" aria-modal="true" aria-label="All slides"><div class="sh-p"><div class="sh-h"><b>All slides</b><button type="button" class="sh-x" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></div><nav class="sh-l"></nav></div></div>
+<script>/* Phone reader for the parent-talk deck. See reader.css for the layout; build.py fills ChatGPT|Claude|Gemini|DeepSeek|Doubao:豆包|Qwen:通义千问|Yuanbao:腾讯元宝|ERNIE:文心一言|Grok|Copilot|Meta AI|Le Chat|Perplexity|Poe|Character.AI|Pi|ChatGLM:智谱清言|MiniMax|Hunyuan:混元|Spark:讯飞星火|Baichuan:百川|StepFun:阶跃AI|Skywork:天工|Metaso:秘塔AI搜索|Felo|You.com|Phind|Consensus|Elicit|Scite|NotebookLM|Notion AI|Gamma|Tome|Beautiful.ai|Pitch|Canva|Figma Make|Framer|Webflow|Lovable|Bolt|v0|Replit|Cursor|Windsurf|GitHub Copilot|TRAE|Claude Code|Codex|Devin|Tabnine|Cody|Zed|Warp|JetBrains AI|Amazon Q|Gemini CLI|Qoder|CodeBuddy|Comate:文心快码|Kiro|Midjourney|DALL·E|Ideogram|Leonardo|Firefly|Stable Diffusion|FLUX|Krea|Recraft|Playground|Lovart|Dreamina:即梦|Liblib:哩布哩布|Kolors:可图|Wanxiang:通义万相|Sora|Veo|Runway|Pika|Luma|Kling:可灵|Hailuo:海螺|Vidu|PixVerse|Seedance|HeyGen|Synthesia|D-ID|CapCut:剪映|Descript|OpusClip|Captions|Hedra|Higgsfield|InVideo|Flow|Suno|Udio|ElevenLabs|Murf|Speechify|Otter|Fireflies|Granola|Whisper|Krisp|AIVA|Comet|Dia|Atlas|Flowith|Coze:扣子|Dify|n8n|Zapier|Make|Lindy|Relevance AI|Gumloop|CrewAI|LangChain|AutoGPT|Cue|WorkBuddy|Fellou|AutoGLM|Grammarly|Jasper|Copy.ai|Writesonic|Sudowrite|QuillBot|Wordtune|DeepL|Rytr|Mistral|Mem|Reflect|Superhuman|Motion|Reclaim|Clockwise|Fathom|tl;dv|Read AI|Tactiq|Zoom AI|Slack AI|Miro AI|Whimsical|Napkin|Glean|Raycast|Monica|Sider|MaxAI|Merlin|HARPA|Khanmigo|Duolingo Max|Quizlet|Photomath|Brainly|Gauth|Question.AI|Speak|Praktika|ELSA|MagicSchool|Brisk|Diffit|Curipod|SchoolAI|Squirrel AI:松鼠AI|Spline|Meshy|Tripo|Uizard|Stitch|Visily|Relume|Hugging Face|Supabase|Firebase Studio|AI Studio|OpenRouter|Ollama|LM Studio|Manus|Julius|Llama|Gemma|Adobe Express|Designer|Pictory|Lumen5|Notta|Plaud with the
+   market-map tool list from shared.js so the two views never drift.
+   One slide per screen, swiped sideways (native scroll-snap) or moved with the Next / Previous buttons and the keys.
+   Each slide builds once, the first time it is reached; reduced motion shows every slide fully built. */
+(function(){
+var H=document.documentElement,deck=document.getElementById('deck'),S=[].slice.call(deck.querySelectorAll('.s')),N=S.length;
+/* END: the closing slide (last one before the source appendix); Next there goes back to the talk's landing page */
+var END=(function(){for(var j=N-1;j>=0;j--)if(!S[j].classList.contains('s-src'))return j;return N-1})();
+var ZH=H.lang!=='en',KEY=ZH?'cn':'en',T=ZH?
+ {next:'下一页',start:'开始',done:'返回首页',prev:'上一页',all:'全部幻灯片',close:'关闭',appx:'附录',intro:'开场',tip:'左右滑动或点“下一页”翻页',slide:'第{n}页'}:
+ {next:'Next',start:'Start',done:'Back to start',prev:'Previous slide',all:'All slides',close:'Close',appx:'Appendix',intro:'Opening',tip:'Swipe or tap Next to turn the page',slide:'Slide {n}'};
+var motion=!matchMedia('(prefers-reduced-motion: reduce)').matches;
+var $=function(s,r){return (r||document).querySelector(s)};
+var nx=$('.nx'),pv=$('.pv'),ctr=$('.ctr'),bar=$('.prog'),lng=$('.lng'),cue=$('.more-cue');
+
+/* ---- sections: part titles from the navy chapter slides, so the counter can say where you are ---- */
+var part=[],cur='';
+S.forEach(function(s,i){
+ if(s.classList.contains('sec')){var on=s.querySelector('.trk li.on b');cur=on?on.textContent.trim():''}
+ if(s.classList.contains('s-src'))cur=T.appx;
+ part[i]=cur||T.intro});
+S.forEach(function(s,i){if(s.classList.contains('sec')){var t=document.createElement('b');t.style.left=(i/N*100)+'%';bar.appendChild(t)}});
+
+/* ---- build units: every [data-s] step; a slide with none builds its body as one step ---- */
+var units=S.map(function(s){var u=[].slice.call(s.querySelectorAll('[data-s]'));
+ if(!u.length){var bd=s.querySelector('.bd');if(bd&&!bd.querySelector('.mk')){bd.dataset.s=1;u=[bd]}}
+ return u});
+[].forEach.call(document.querySelectorAll('.tln,.agx,.sk-tools'),function(g){[].forEach.call(g.children,function(c,i){c.style.setProperty('--i',i)})});
+
+/* statement titles build word by word in English and phrase by phrase in Chinese */
+if(motion)[].forEach.call(document.querySelectorAll('.st h2,.sec h2,.tk h2,.bq h2,.cl h2,.cover h1'),function(h){var i=0;
+ (function walk(n){[].slice.call(n.childNodes).forEach(function(c){
+  if(c.nodeType===3){var f=document.createDocumentFragment(),parts=ZH?c.nodeValue.replace(/([，。、：；？！])/g,'$1\u0001').split('\u0001'):c.nodeValue.split(/(\s+)/);
+   parts.forEach(function(p){if(!p)return;if(!ZH&&/^\s+$/.test(p)){f.appendChild(document.createTextNode(p));return}
+    var w=document.createElement('span');w.className=ZH?'phr':'wd';w.style.setProperty('--i',i++);w.textContent=p;f.appendChild(w)});
+   n.replaceChild(f,c)}else if(c.nodeType===1&&c.tagName!=='BR'&&!c.classList.contains('rot'))walk(c)})})(h)});
+
+/* ---- market map: the same named tools as the deck, lit in a scattered order on an accelerating curve ---- */
+var TOOLS='ChatGPT|Claude|Gemini|DeepSeek|Doubao:豆包|Qwen:通义千问|Yuanbao:腾讯元宝|ERNIE:文心一言|Grok|Copilot|Meta AI|Le Chat|Perplexity|Poe|Character.AI|Pi|ChatGLM:智谱清言|MiniMax|Hunyuan:混元|Spark:讯飞星火|Baichuan:百川|StepFun:阶跃AI|Skywork:天工|Metaso:秘塔AI搜索|Felo|You.com|Phind|Consensus|Elicit|Scite|NotebookLM|Notion AI|Gamma|Tome|Beautiful.ai|Pitch|Canva|Figma Make|Framer|Webflow|Lovable|Bolt|v0|Replit|Cursor|Windsurf|GitHub Copilot|TRAE|Claude Code|Codex|Devin|Tabnine|Cody|Zed|Warp|JetBrains AI|Amazon Q|Gemini CLI|Qoder|CodeBuddy|Comate:文心快码|Kiro|Midjourney|DALL·E|Ideogram|Leonardo|Firefly|Stable Diffusion|FLUX|Krea|Recraft|Playground|Lovart|Dreamina:即梦|Liblib:哩布哩布|Kolors:可图|Wanxiang:通义万相|Sora|Veo|Runway|Pika|Luma|Kling:可灵|Hailuo:海螺|Vidu|PixVerse|Seedance|HeyGen|Synthesia|D-ID|CapCut:剪映|Descript|OpusClip|Captions|Hedra|Higgsfield|InVideo|Flow|Suno|Udio|ElevenLabs|Murf|Speechify|Otter|Fireflies|Granola|Whisper|Krisp|AIVA|Comet|Dia|Atlas|Flowith|Coze:扣子|Dify|n8n|Zapier|Make|Lindy|Relevance AI|Gumloop|CrewAI|LangChain|AutoGPT|Cue|WorkBuddy|Fellou|AutoGLM|Grammarly|Jasper|Copy.ai|Writesonic|Sudowrite|QuillBot|Wordtune|DeepL|Rytr|Mistral|Mem|Reflect|Superhuman|Motion|Reclaim|Clockwise|Fathom|tl;dv|Read AI|Tactiq|Zoom AI|Slack AI|Miro AI|Whimsical|Napkin|Glean|Raycast|Monica|Sider|MaxAI|Merlin|HARPA|Khanmigo|Duolingo Max|Quizlet|Photomath|Brainly|Gauth|Question.AI|Speak|Praktika|ELSA|MagicSchool|Brisk|Diffit|Curipod|SchoolAI|Squirrel AI:松鼠AI|Spline|Meshy|Tripo|Uizard|Stitch|Visily|Relume|Hugging Face|Supabase|Firebase Studio|AI Studio|OpenRouter|Ollama|LM Studio|Manus|Julius|Llama|Gemma|Adobe Express|Designer|Pictory|Lumen5|Notta|Plaud'.split('|');
+[].forEach.call(document.querySelectorAll('.mk'),function(mk){var box=mk.querySelector('.mk-field');if(!box)return;
+ var n=TOOLS.length,ord=TOOLS.map(function(x,i){return i}),seed=7,TF=2200,frag=document.createDocumentFragment();
+ for(var i=n-1;i>0;i--){seed=(seed*16807)%2147483647;var j=seed%(i+1),x=ord[i];ord[i]=ord[j];ord[j]=x}
+ TOOLS.forEach(function(x,i){var p=x.split(':'),el=document.createElement('span'),t=Math.round(TF*Math.pow((ord[i]+1)/n,.6));
+  el.textContent=ZH&&p[1]?p[1]:p[0];el.dataset.t=t;el.style.setProperty('--d',t+'ms');frag.appendChild(el);frag.appendChild(document.createTextNode(' '))});
+ box.appendChild(frag);mk.dataset.tf=TF;var big=mk.querySelector('.mk-big');if(big)mk.dataset.big=big.textContent.replace(/\D/g,'');
+ var c=mk.querySelector('.mk-n');if(c)c.textContent=n});
+
+/* ---- counters: the first number in each .big / .cnt counts up, keeping its prefix, commas, decimals, and unit ---- */
+function firstNum(el){var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);while(w.nextNode())if(/\d/.test(w.currentNode.nodeValue))return w.currentNode;return null}
+function countUp(roots){if(!motion)return;var els=[];
+ roots.forEach(function(r){if(r.matches('.big,.cnt'))els.push(r);[].push.apply(els,r.querySelectorAll('.big,.cnt'))});
+ els.forEach(function(el){if(el.dataset.run||el.classList.contains('nc')||el.closest('.mk'))return;
+  var t=firstNum(el);if(!t)return;var full=t.nodeValue,m=full.match(/^([^\d]*)(\d[\d,]*(?:\.\d+)?)([\s\S]*)$/);if(!m)return;
+  var raw=m[2],to=parseFloat(raw.replace(/,/g,'')),dec=(raw.split('.')[1]||'').length,cm=raw.indexOf(',')>=0,t0=0,D=to>=1000?1500:1100;
+  el.dataset.run=1;el.style.minWidth=el.getBoundingClientRect().width+'px';
+  requestAnimationFrame(function f(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/D),v=to*(1-Math.pow(1-p,4));
+   if(p>=1){t.nodeValue=full;el.style.minWidth='';return}
+   t.nodeValue=m[1]+(cm?Math.round(v).toLocaleString('en-US'):v.toFixed(dec))+m[3];requestAnimationFrame(f)})})}
+
+/* ---- builds ---- */
+var timers=[],mkRaf=0,building=-1;
+function clearT(){timers.forEach(clearTimeout);timers=[];cancelAnimationFrame(mkRaf)}
+function settle(s){s.classList.remove('arm','go');s.classList.add('seen')}
+function mkSet(mk,n,v){var c=mk.querySelector('.mk-n'),b=mk.querySelector('.mk-big');if(c)c.textContent=n;if(b)b.textContent=v.toLocaleString('en-US')}
+function finish(i){if(i<0)return;var s=S[i];if(!s.classList.contains('arm'))return;clearT();
+ s.classList.add('go');units[i].forEach(function(u){u.classList.add('vis')});
+ [].forEach.call(s.querySelectorAll('.mk'),function(mk){mk.classList.add('stat');mkSet(mk,TOOLS.length,+mk.dataset.big||0)});
+ setTimeout(function(){settle(s)},700);if(building===i)building=-1}
+function play(i){var s=S[i];if(!motion||!s.classList.contains('arm')||s.classList.contains('go'))return;
+ clearT();building=i;void s.offsetWidth;s.classList.add('go');
+ var u=units[i],groups={};u.forEach(function(e){var k=+e.dataset.s||1;(groups[k]=groups[k]||[]).push(e)});
+ var ks=Object.keys(groups).map(Number).sort(function(a,b){return a-b}),hero=s.querySelector('.wd,.phr'),
+  t0=hero?Math.min(900,s.querySelectorAll('.wd,.phr').length*55+250):280,gap=ks.length>3?320:420;
+ ks.forEach(function(k,j){timers.push(setTimeout(function(){groups[k].forEach(function(e){e.classList.add('vis')});countUp(groups[k])},t0+j*gap))});
+ var mk=s.querySelector('.mk'),end=t0+ks.length*gap+900;
+ if(mk){var sp=[].slice.call(mk.querySelectorAll('.mk-field span')),TF=+mk.dataset.tf,big=+mk.dataset.big||0,TS=TF+600,TB=900,st=performance.now();mkSet(mk,0,0);
+  (function f(now){var e=now-st,n=0;for(var q=0;q<sp.length;q++)if(+sp[q].dataset.t<=e)n++;
+   if(e>TS-250)mk.classList.add('stat');var b=e<TS?0:Math.min(1,(e-TS)/TB);mkSet(mk,n,Math.round(big*(1-Math.pow(1-b,3))));
+   if(e<TS+TB+40)mkRaf=requestAnimationFrame(f)})(st);end=Math.max(end,TS+TB+400)}
+ timers.push(setTimeout(function(){settle(s);building=-1},end+400))}
+if(motion)S.forEach(function(s){s.classList.add('arm')});
+
+/* ---- navigation ---- */
+var idx=-1,shown=-1;
+function w(){return deck.clientWidth||1}
+function at(){return Math.max(0,Math.min(N-1,Math.round(deck.scrollLeft/w())))}
+function go(i,instant){i=Math.max(0,Math.min(N-1,i));
+ deck.scrollTo({left:i*w(),behavior:instant||!motion?'instant':'smooth'})}
+function label(i){var tp=$('.tip');if(tp&&i>0)tp.classList.remove('on');
+ nx.querySelector('span').textContent=i===0?T.start:i===END||i===N-1?T.done:T.next;
+ nx.setAttribute('aria-label',i===END||i===N-1?T.done:T.next);
+ pv.disabled=i===0;
+ ctr.querySelector('b').innerHTML=(i+1)+' <span>/ '+N+'</span>';
+ ctr.querySelector('small').textContent=part[i];
+ bar.style.setProperty('--p',(i+1)/N);
+ var s=S[i];H.classList.toggle('dk',s.classList.contains('nv'));H.classList.toggle('bg-alt',s.classList.contains('alt'));
+ var m=document.querySelector('meta[name=theme-color]');if(m)m.content=s.classList.contains('nv')?'#0B1A4A':s.classList.contains('alt')?'#EFE3D4':'#F3E9DD';
+ if(lng)lng.href=lng.getAttribute('data-base')+'#'+(i+1)}
+function arrive(i){if(i===shown)return;
+ if(building>=0&&building!==i)finish(building);
+ shown=i;play(i);moreCue();
+ try{history.replaceState(null,'','#'+(i+1));localStorage.setItem('arena-talk-slide-/talks/2026-10-acamis-tech-workshop-'+KEY,i+1)}catch(e){}}
+function onScroll(){var i=at();if(i!==idx){idx=i;label(i)}
+ if(Math.abs(deck.scrollLeft-i*w())<w()*.12)arrive(i)}
+var raf=0;deck.addEventListener('scroll',function(){if(!raf)raf=requestAnimationFrame(function(){raf=0;onScroll()})},{passive:true});
+
+nx.addEventListener('click',function(){if(idx===END||idx===N-1){location.href='/talks/2026-10-acamis-tech-workshop';return}finish(idx);go(idx+1)});
+pv.addEventListener('click',function(){go(idx-1)});
+addEventListener('keydown',function(e){if(sheet.classList.contains('open')){if(e.key==='Escape')closeList();return}
+ if(e.altKey||e.ctrlKey||e.metaKey)return;
+ if(['ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();if(idx===END||idx===N-1){location.href='/talks/2026-10-acamis-tech-workshop';return}finish(idx);go(idx+1)}
+ else if(['ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();go(idx-1)}
+ else if(e.key==='Home'){e.preventDefault();go(0)}else if(e.key==='End'){e.preventDefault();go(N-1)}});
+[].forEach.call(document.querySelectorAll('[data-go]'),function(a){a.addEventListener('click',function(e){e.preventDefault();go(+a.dataset.go)})});
+/* keep the same slide in view through rotation and resizes */
+var keep=0;addEventListener('resize',function(){var i=idx;clearTimeout(keep);deck.scrollLeft=i*w();keep=setTimeout(function(){deck.scrollLeft=i*w();moreCue()},150)});
+
+/* ---- "more below": a quiet arrow when the current slide is taller than the screen ---- */
+function moreCue(){var s=S[shown];if(!s||!cue)return;var m=s.scrollHeight-s.clientHeight-s.scrollTop>8;cue.classList.toggle('on',m);H.classList.toggle('more',m)}
+S.forEach(function(s){s.addEventListener('scroll',function(){if(S[shown]===s)moreCue()},{passive:true})});
+if(cue)cue.addEventListener('click',function(){var s=S[shown];s.scrollBy({top:s.clientHeight*.7,behavior:motion?'smooth':'instant'})});
+
+/* ---- slide list ---- */
+var sheet=$('.sheet'),list=$('.sh-l'),lastFocus=null;
+(function(){var g='',html='';S.forEach(function(s,i){
+ if(part[i]!==g){g=part[i];html+='<p class="sh-g">'+esc(g)+'</p>'}
+ var h=s.querySelector('h1,h2'),t=h?h.cloneNode(true):null;
+ if(t){[].forEach.call(t.querySelectorAll('.sub,br'),function(x){x.replaceWith(' ')});}
+ var txt=t?t.innerHTML.replace(/<(?!\/?em\b)[^>]+>/g,'').replace(/\s+/g,' ').trim():'';
+ html+='<a href="#'+(i+1)+'" data-i="'+i+'"><i>'+(i+1)+'</i><span>'+txt+'</span></a>'});
+ list.innerHTML=html})();
+function esc(s){return s.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function openList(){lastFocus=document.activeElement;sheet.hidden=false;
+ [].forEach.call(list.querySelectorAll('a'),function(a){if(+a.dataset.i===idx)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current')});
+ requestAnimationFrame(function(){sheet.classList.add('open');var a=list.querySelector('[aria-current]');if(a)a.scrollIntoView({block:'center'});$('.sh-x').focus()})}
+function closeList(){sheet.classList.remove('open');setTimeout(function(){sheet.hidden=true},380);if(lastFocus)lastFocus.focus()}
+$('.lst').addEventListener('click',openList);ctr.addEventListener('click',openList);
+$('.sh-x').addEventListener('click',closeList);
+sheet.addEventListener('click',function(e){if(e.target===sheet)closeList()});
+list.addEventListener('click',function(e){var a=e.target.closest('a');if(!a)return;e.preventDefault();var i=+a.dataset.i;
+ if(i!==idx)finish(idx);closeList();go(i,true)});
+
+/* ---- start: #n opens slide n; save the language for the landing page ---- */
+try{localStorage.setItem('arena-talk-lang',ZH?'zh':'en')}catch(e){}
+var h=parseInt((location.hash||'').slice(1),10),start=h>=1&&h<=N?h-1:0;
+idx=start;label(start);
+requestAnimationFrame(function(){deck.scrollLeft=start*w();idx=at();label(idx);setTimeout(function(){arrive(idx)},motion?250:0)});
+if(start===0){var tip=$('.tip');if(tip){var seenTip=false;try{seenTip=!!localStorage.getItem('arena-talk-tip')}catch(e){}
+ if(!seenTip){tip.textContent=T.tip;setTimeout(function(){tip.classList.add('on')},1600);setTimeout(function(){tip.classList.remove('on')},6200);
+  deck.addEventListener('scroll',function(){tip.classList.remove('on')},{passive:true,once:true});try{localStorage.setItem('arena-talk-tip','1')}catch(e){}}}}
+})();
+</script>
+
+</body></html>
