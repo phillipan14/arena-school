@@ -270,7 +270,7 @@ def apply(s, c, lang, proof_mode=None):
     j = s.rfind('<section', 0, j) if j > 0 else s.index('<!-- /depth:a -->') + len('<!-- /depth:a -->') + 1
     s = s[:j] + r + '\n' + s[j:]
     # FAQ: the depth items, marked, after the page's own
-    s = re.sub(r'<details data-depth>.*?</details>', '', s)
+    s = re.sub(r'<details (?:class="faq-item" )?data-depth>.*?</details>', '', s)
     items = ''.join('<details data-depth><summary>%s</summary><p>%s</p></details>' % qa for qa in c['faq'])
     s = re.sub(r'(?s)<!-- depth:f -->.*?<!-- /depth:f -->\n?', '', s)
     if items and 'data-screen-label="FAQ"' not in s and c.get('faq_title'):
@@ -282,6 +282,9 @@ def apply(s, c, lang, proof_mode=None):
     if not items or 'data-screen-label="FAQ"' not in s:
         return s
     k = s.rfind('</details>', 0, s.find('</div>', s.rfind('<details', 0, s.find('data-screen-label="Next step"'))))
+    last = s[s.rfind('<details', 0, k):k] if k > 0 else ''
+    if 'class="faq-item"' in last:   # match the page's own item markup (question span + toggle)
+        items = ''.join('<details class="faq-item" data-depth><summary><span class="faq-q">%s</span><span class="faq-toggle" aria-hidden="true">+</span></summary><p class="faq-a">%s</p></details>' % qa for qa in c['faq'])
     if k > 0:
         k += len('</details>')
         s = s[:k] + items + s[k:]

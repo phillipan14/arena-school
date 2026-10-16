@@ -69,3 +69,24 @@ sessions (Schwarzman College staff training, the ACAMIS workshop after Oct 18) a
   Critique: still no FAQ, which every page needs; the hero headline left "A" alone on its first line.
 - **r2:** added a FAQ built from the hero facts (length, group size, language, brand, after the program); kept
   "A product-building" together. 8 sections.
+
+## Conferences and Events (EN + CN)
+- **r0:** hero, what we share, formats (three cards with empty photo placeholders), sample workshops, where we teach,
+  team, FAQ, next step.
+- **r1:** added organizer needs to answers (usable next day, mixed rooms, balance, format fit), research (Gallup/Walton,
+  EEF/NFER, RAND x2), cases replacing "where we teach" (EARCOS next March, ACAMIS next, Schwarzman), tools row, one FAQ
+  item. Critique: three format cards still showed empty "photo coming soon" boxes; the new FAQ item got a second "+"
+  marker on top of the page's own.
+- **r2:** filled the three cards with real Arena photos, each captioned with what it actually shows (a presenter at a
+  podium, Beijing 2026; a hands-on session, Hong Kong 2025; adults testing a student product, Beijing 2026); the
+  TODO notes stay so true conference photos can replace them. Depth FAQ items now copy the page's own item markup.
+
+### Photos filled (DEPTH-BRIEF "fill missing images")
+| Page | Slot | Photo | Caption |
+|---|---|---|---|
+| Conferences | Keynote or talk | photos/isb-2026/pitch-podium-800.webp | Presenting with a live demo, Beijing 2026 |
+| Conferences | Breakout workshop | photos/steps/collab-stage-poster.webp | Hands-on session, Hong Kong 2025 |
+| Conferences | Panel | photos/isb-hq/isb-judges-test-800.webp | Testing a student product, Beijing 2026 |
+| Technology | Hero, first photo | photos/hero/laptop-* (from isb-judges-test.jpg) | Testing a student product on a laptop, Beijing 2026 |
+Still wanted from a Photos export: teacher sessions, a co-founder giving a talk, a conference panel, a parent talk,
+the ISB parent coffee, a team photo for Contact, the first AI Advantage Bootcamp cohort.

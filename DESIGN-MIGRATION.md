@@ -35,3 +35,4 @@ page above 760px; `ds.css` linked on every page; "Learning approach" added to th
 | Credibility strip (every page that carries it) | logo rows | mixed sizes, marquee | yes: css/cred.css from tools/cred_css.py | 165c2c3 |
 | Schools (leaders), EN + CN | depth pass: constraints, research, cases, tools, FAQ | no evidence | yes: tools/depth.py schools | 3d94ced |
 | Partnerships, EN + CN | depth pass: concerns, research, cases, tools, new FAQ | 4 sections | yes: tools/depth.py partnerships | 575749f |
+| Conferences, EN + CN | depth pass: needs, research, cases, tools, FAQ; format photos filled | empty photo slots | yes: tools/depth.py conferences | depth-conf |
