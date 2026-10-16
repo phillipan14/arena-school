@@ -1281,3 +1281,22 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
 .p8-c3x li:last-child .p8-node{background:var(--ink);color:#FFFFFF;box-shadow:none}
 .p8-c3x li>i{grid-row:auto!important;grid-column:2;font:italic 400 15px/1.2 var(--serif)!important;color:var(--ink2)}
 .p8-c3x li>b,.p8-c3x li>span{grid-column:2}
+/* Pass 9: slide 8 key row under the wheel; slide 25 program cards and compact contacts */
+.p9-wh{max-width:340px;margin:0 auto 10px}.p9-wh .fx-wheel{max-width:100%;margin:0}
+.p9-foot{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:6px}.p9-foot .p8-key{flex-direction:row;flex-wrap:wrap;gap:6px 14px}
+.rd .p9-cg{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;min-width:0}
+.rd .p9-prog{display:grid;gap:8px;min-width:0}
+.rd .p9-lb{margin:6px 0 0;font:600 12px/1.4 var(--sans,system-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+.rd .p9-lb span{display:block;font:italic 400 14px/1.35 var(--serif);letter-spacing:0;text-transform:none;color:var(--muted)}
+.rd .p9-pg{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+.rd .p9-pc{display:grid!important;grid-template-columns:30px minmax(0,1fr);column-gap:12px;row-gap:2px;align-items:center;margin:0;padding:12px 14px;border-radius:12px;background:#FFFFFF;box-shadow:0 0 0 1px #E2E6EE}
+.rd .p9-ic{grid-row:1/4;align-self:start;display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;box-shadow:inset 0 0 0 1px #CDD3DF;color:var(--ink2)}
+.rd .p9-ic .lic{width:16px;height:16px}
+.rd .p9-pc small{grid-column:2;font:600 11px/1.3 var(--sans,system-ui);letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+.rd .p9-pc b{grid-column:2;font:500 18px/1.25 var(--serif);color:var(--ink)}
+.rd .p9-pc>span:last-child{grid-column:2;font:italic 400 15px/1.35 var(--serif);color:var(--muted)}
+.rd .p5-qr{display:flex;flex-direction:column;align-items:center;gap:2px;text-decoration:none}
+.rd .p5-qr span{font:600 10px/1.2 var(--sans,system-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+.rd .p9-ic .lic{display:block;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.rd .p9-lb span{display:inline}
+.p9-foot{justify-content:center;text-align:center}

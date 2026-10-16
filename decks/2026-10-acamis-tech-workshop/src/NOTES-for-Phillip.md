@@ -1,5 +1,22 @@
 # Notes for Phillip: ACAMIS deck restructure (Oct 16)
 
+## Pass 9 (Oct 16, late night): the wheel back on slide 8, and a combined close
+
+**Slide 8, framework wheel.** Pass 8 had swapped the wheel for a small ring that read "The learner decides". The full wheel is now back at the center of slide 8, large: "The learner does the thinking" in the middle, the four strands, the four outer conditions, and the circular arrows. It's rotated a quarter turn so each strand sits next to its card (01 Inquiry top left, 02 Research top right, 03 Creating bottom right, 04 Collaboration bottom left), and the outer conditions turn with their strands. The four cards and their click order are unchanged. The key (learner decides / AI helps / teacher asks) and "Then the next question starts the cycle again" now run along one row under the slide. The speaker notes gain one sentence naming the center and the four conditions.
+- **Palette:** the cream outer ring (#FCF3ED) is now the pro system's cool off-white (#F5F7FA) with the navy hairline, and the cream center disk is white. The backup wheel (slide 26) is recolored the same way.
+- `tools/wheel.py` now writes both copies (slide 8 with its own `w8` ids so they don't clash, and slide 26). Use `ring=` and `core=` to change the fills.
+
+**Slide 25, contact plus programs.** Following your note, the last slide combines our programs with our contact details.
+- **Top, "Our programs":** eight cards in the pro style (line icon in a hairline circle, audience label, name, one line), in the same order as the "One partner for the whole school" list on `schools.html` in `~/arena-elegance`: App Design Workshop, College Portfolio Workshop, Entrepreneurship & AI Intensive, Year-Long Project Mentorship, AI for Educators, technology teams (tech coaches and IT directors), Community Dialogues, and Conferences & Events. The names, grade bands, and lines all come from those pages' titles, descriptions, and menu taglines. Nothing is invented, and there are no prices.
+- **Bottom, "Get in touch":** compact cards for you and Jing Jing (photo, WeChat ID, WhatsApp QR code), and the navy card with the session QR code and arenaschool.org. There is no cal.com link. To fit 1080, the slide no longer shows the long session URL as text (the QR code goes there, and the phone reader still shows the full URL).
+- This replaces the old three offers (train your teachers, run a student week, design your curriculum). "Design your curriculum" isn't a program on the site, so it's gone. The speaker notes are rewritten to walk through the programs.
+
+**Checks.** `contain.py --georgia` is 0 on every line, `reader_check.py` says "reader OK", and `shots.py` reports no slide taller than 1080 and no page errors. `ink.py` is within 1px on the wheel, the program icons, and the key row. New styles are in `css/s99zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz-p9.css`, with a Pass 9 block at the end of `reader/reader.css`. `export.py` was not run.
+
+**Calls to confirm**
+- **The eighth card is Conferences & Events.** It fills the 4×2 grid and fits this audience. Swap it out if you'd rather show only the school-facing seven.
+- **The technology-teams card** uses the page's own heading, "Tech coaches and IT directors", because the site gives that offer no separate program name.
+
 ## Pass 8 (Oct 16, late night): diagrams instead of text tables
 
 Your note: the slides should be designed more visually, with more diagrams instead of just text. This pass redraws every text-heavy main slide as a visual. The running order, headlines, numbers, slide copy, and click counts are unchanged, and the Pass 6 look is kept: white and off-white grounds, navy accents, Newsreader, line icons in hairline circles, and the same 600ms fade for every build step. All new styles are in `css/s99zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz-p8.css`, with a matching Pass 8 block at the end of `reader/reader.css` for the phone reader.
