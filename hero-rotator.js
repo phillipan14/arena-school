@@ -1,41 +1,23 @@
-/* Homepage hero: rotate the audience word (students, families, educators, schools).
-   The slot (.hr-rot, inline-grid) takes each word's measured width, animated over 400ms (css/cine.css),
-   so the rest of the line glides along with no gap. Order: the old word fades out, the slot resizes,
-   then the new word fades in; two words are never visible at once. Static under reduced motion. */
+/* Homepage hero: rotate the audience word (students, families, educators, schools) with a true crossfade
+   (XFADE, Oct 17, 2026). Every word sits in the same grid cell (css/cine.css), so the slot is always as wide as
+   the widest word and the headline never moves. On each change the outgoing word fades out while the incoming
+   word fades in, in the same frame, over about 700ms: there is never an empty frame. With Reduce Motion it is a
+   plain opacity crossfade (no slide or blur). */
 (() => {
   const rot = document.querySelector('[data-rot]');
-  if (!rot || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!rot) return;
   const words = [...rot.children];
-  let i = 0;
-  const fit = () => { rot.style.width = words[i].getBoundingClientRect().width + 'px'; };
-  const after = (el, prop, ms, fn) => {
-    let done = false;
-    const go = () => { if (done) return; done = true; el.removeEventListener('transitionend', on); fn(); };
-    const on = (e) => { if (e.target === el && e.propertyName === prop) go(); };
-    el.addEventListener('transitionend', on);
-    setTimeout(go, ms);
-  };
-  rot.classList.add('is-live');
-  fit();
-  let busy = false;   // one change at a time: late timers or frames can never stack two changes
+  let i = Math.max(0, words.findIndex((w) => w.classList.contains('is-on')));
+  rot.classList.add('is-live', 'is-xfade');
   setInterval(() => {
-    if (document.hidden || busy) return;
-    busy = true;
+    if (document.hidden) return;
     const prev = words[i];
     i = (i + 1) % words.length;
     const next = words[i];
+    words.forEach((w) => { if (w !== prev) w.classList.remove('is-out'); });
     prev.classList.remove('is-on');
-    prev.classList.add('is-out');
-    // each step waits for the previous transition to finish (with a fallback), so a slow frame can
-    // never leave the old word visible when the new one appears
-    after(prev, 'opacity', 320, () => {
-      prev.classList.remove('is-out');
-      fit();
-      after(rot, 'width', 480, () => {
-        words.forEach((w) => w.classList.toggle('is-on', w === next));   // exactly one word shown
-        busy = false;
-      });
-    });
+    prev.classList.add('is-out');      // fades out ...
+    next.classList.add('is-on');       // ... while this fades in, same frame
+    setTimeout(() => prev.classList.remove('is-out'), 900);
   }, 2800);
-  addEventListener('resize', fit, { passive: true });
 })();

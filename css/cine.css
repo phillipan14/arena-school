@@ -181,3 +181,19 @@ html body main section.cine-hero .hero-riso-h1:lang(en) .m-br { display: block; 
 /* No flash on load: the hidden words start at opacity 0, so switching them from hidden to visible
    (.is-live) never shows all four words overlapping while the fade runs */
 html body main section.cine-hero .hr-rot > span:not(.is-on) { opacity: 0; }
+
+/* Hero rotating word: true crossfade (XFADE, Oct 17, 2026; hero-rotator.js). All words share one grid cell, so
+   the slot is fixed at the widest word: no layout shift. The outgoing word fades out (slight lift and blur) while
+   the incoming one fades in from 4px below, both over --xfade (700ms), with the motion-token easing. Reduce
+   Motion: opacity only. At 390 the headline is centered and the word sits alone on its line, so it centers too. */
+html body main section.cine-hero .hr-rot.is-xfade { --xfade: 700ms; width: auto !important; transition: none !important; overflow: visible !important; }
+html body main section.cine-hero .hr-rot.is-xfade > span { grid-area: 1 / 1; justify-self: start; visibility: visible !important; opacity: 0;
+  transform: translateY(4px) !important; filter: blur(2px);
+  transition: opacity var(--xfade) var(--ease-io), transform var(--xfade) var(--ease), filter var(--xfade) var(--ease) !important; }
+html body main section.cine-hero .hr-rot.is-xfade > span.is-on { opacity: 1; transform: none !important; filter: none; }
+html body main section.cine-hero .hr-rot.is-xfade > span.is-out { opacity: 0; transform: translateY(-4px) !important; filter: blur(2px); }
+@media (max-width: 760px) { html body main section.cine-hero .hr-rot.is-xfade > span { justify-self: center; } }
+@media (prefers-reduced-motion: reduce) {
+  html body main section.cine-hero .hr-rot.is-xfade > span,
+  html body main section.cine-hero .hr-rot.is-xfade > span:is(.is-on, .is-out) { transform: none !important; filter: none; transition: opacity var(--xfade) linear !important; }
+}
