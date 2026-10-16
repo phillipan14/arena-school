@@ -1,0 +1,45 @@
+/* Pass 11: Arena wordmark top right on every main slide; the cover shows one photo; slide 25 has one main code with the team logos */
+/* the wordmark: same place and size as on the Part slides, navy and a little quieter on light slides */
+section.s>.brandmk.p11-bm{opacity:.78}
+/* the cover now has one photo: no crossfade */
+.motion .p6-hero .p6-slide:only-child,.motion .p6-hero .p6-caps span:only-child{animation:none;opacity:1}
+/* slide 25: team row (two people, Member of), then one main panel (session code + team logos) */
+.ae.p10-ct .bd .p11-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;gap:12px;align-items:stretch}
+.ae.p10-ct .bd .p11-pc{display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-rows:auto auto;column-gap:18px;row-gap:4px;align-items:center;padding:10px 18px}
+.ae.p10-ct .bd .p11-pc .p5-ph{grid-column:1;grid-row:1/3;width:64px;height:64px}
+.ae.p10-ct .bd .p11-pc .p5-nm{grid-column:2;grid-row:1;align-self:end;display:flex;align-items:baseline;gap:14px}
+.ae.p10-ct .bd .p11-pc dl{grid-column:2;grid-row:2;align-self:start;margin:0;padding-top:6px;border-top:1px solid var(--pro-line);display:flex;align-items:baseline;gap:16px}
+.ae.p10-ct .bd .p11-pc dt{font:600 12px/1.3 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--pro-ink-2)}
+.ae.p10-ct .bd .p11-pc dd{margin:0;font:500 21px/1.3 var(--serif);color:var(--pro-ink);white-space:nowrap}
+.ae.p10-ct .bd .p11-sel{flex-direction:row;align-items:center;gap:28px;padding:10px 28px;box-shadow:none}
+.ae.p10-ct .bd .p11-sel .r15-h{margin:0;writing-mode:horizontal-tb}
+.ae.p10-ct .bd .p11-sel ul{gap:34px}
+.ae.p10-ct .bd .p11-sel li{gap:4px}
+/* the main panel: navy code block on the left, the two logo rows on the right */
+.ae.p10-ct .bd .p11-main{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:stretch;gap:0;margin:0;padding:0;overflow:hidden;background:#FFFFFF}
+.ae.p10-ct .bd .p11-qr{display:flex;align-items:center;gap:18px;padding:12px 26px 12px 14px;background:var(--ink);color:var(--paper-hi);text-decoration:none}
+.ae.p10-ct .bd .p11-qr>img{flex:none;display:block;width:92px;height:92px;padding:6px;border-radius:10px;background:var(--paper-hi)}
+.ae.p10-ct .bd .p11-qt{display:flex;flex-direction:column;gap:6px}
+.ae.p10-ct .bd .p11-qt b{font:500 22px/1.2 var(--serif);color:var(--paper-hi);max-width:300px}
+.ae.p10-ct .bd .p11-qt small{display:none}
+.ae.p10-ct .bd .p11-qt .p5-site{font-size:14px;color:#C9D6F2}
+.ae.p10-ct .bd .p11-lr{padding:12px 28px;gap:12px}
+.ae.p10-ct .bd .p11-lr .p6-lr{grid-template-columns:190px minmax(0,1fr)}
+/* fit pass: tighter name block, narrower code block so all twelve logos fit */
+.ae.p10-ct .bd .p11-pc .p5-nm{display:flex;flex-direction:column;align-items:flex-start;gap:2px}
+.ae.p10-ct .bd .p11-qt b{max-width:250px}
+.ae.p10-ct .bd .p11-qr{padding-right:24px}
+.ae.p10-ct .bd .p11-lr{padding:12px 24px 12px 26px}
+.ae.p10-ct .bd .p11-lr .p6-lr{grid-template-columns:auto minmax(0,1fr);gap:24px}
+.ae.p10-ct .bd .p11-lr .r15-h{width:118px;line-height:1.35}
+.ae.p10-ct .bd .p11-lr .r15-lg{gap:18px}
+/* photo slides: a soft shadow keeps the ivory mark legible on bright backgrounds */
+section.s.p7-ph>.brandmk{filter:drop-shadow(0 1px 6px rgba(8,15,38,.55))}
+/* slide 4: show the mark, and turn the Member of box into one low row that sits on the headline's last line, clear of the mark */
+section.s.r15-ab>.brandmk.p11-bm{display:block!important}
+.ae.r15-ab .r16-hd{grid-template-columns:minmax(0,1fr) auto;align-items:end}
+.ae.r15-ab .r16-hd h2{grid-column:1}
+.ae.r15-ab .r16-sel{grid-column:2;flex-direction:row;align-items:center;gap:28px;padding:14px 28px}
+.ae.r15-ab .r16-sel .r15-h{margin:0;align-self:center;text-align:left}
+.ae.r15-ab .r16-sel ul{gap:34px;justify-content:flex-start;align-self:center}
+.ae.r15-ab .r16-sel li{gap:4px}

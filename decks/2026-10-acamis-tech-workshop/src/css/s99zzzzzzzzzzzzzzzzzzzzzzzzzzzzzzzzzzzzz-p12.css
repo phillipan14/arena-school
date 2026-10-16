@@ -1,0 +1,15 @@
+/* Pass 12: slide 25 without the two person cards. The pillars, then one taller band:
+   the session code on the left; Member of, studied at, and worked at as three rows on the right */
+.ae.p10-ct .bd .p10-cg{gap:12px}
+.ae.p10-ct .bd .p12-lb{margin:24px 0 -6px}
+.ae.p10-ct .bd .p11-qr{gap:26px;padding:22px 34px 22px 22px}
+.ae.p10-ct .bd .p11-qr>img{width:150px;height:150px;padding:8px;border-radius:12px}
+.ae.p10-ct .bd .p11-qt{gap:10px}
+.ae.p10-ct .bd .p11-qt b{font-size:24px;max-width:270px}
+.ae.p10-ct .bd .p11-lr{justify-content:center;gap:0;padding:6px 28px 6px 30px}
+.ae.p10-ct .bd .p11-lr .p6-lr{padding:17px 0}
+.ae.p10-ct .bd .p11-lr .p6-lr+.p6-lr{border-top:1px solid var(--pro-line)}
+.ae.p10-ct .bd .p12-mr .r15-lg{justify-content:flex-start;gap:56px}
+.ae.p10-ct .bd .p12-m{display:flex;align-items:center;gap:14px}
+.ae.p10-ct .bd .p12-m small{font:italic 400 16px/1.2 var(--serif);color:var(--pro-muted);white-space:nowrap}
+.ae.p10-ct .bd .p12-m img{filter:grayscale(1);opacity:.8}

@@ -1,0 +1,58 @@
+/* Pass 9: the framework wheel back on slide 8 (center of the cycle), and the combined contact + programs close (slide 25) */
+.ae.p8-fw .bd .p8-cy{grid-template-columns:minmax(0,1fr) 440px minmax(0,1fr);grid-template-rows:auto auto auto;gap:12px 22px;align-items:stretch}
+.ae.p8-fw .bd .p8-hub{grid-row:1/3;gap:0}
+.ae.p8-fw .bd .p9-wh{width:440px;height:440px}
+.ae.p8-fw .bd .p9-wheel{display:block;width:100%;height:100%}
+.ae.p8-fw .bd .p8-cc{padding:16px 22px;gap:8px}
+.ae.p8-fw .bd .p8-cch{gap:10px;padding-bottom:10px}
+.ae.p8-fw .bd .p8-cch b{font-size:26px}
+.ae.p8-fw .bd .p8-cc p{font-size:21px;column-gap:12px}
+.ae.p8-fw .bd .p8-cc p .lic{width:20px;height:20px}
+.ae.p8-fw .bd .p9-foot{grid-column:1/4;grid-row:3;display:flex;align-items:center;justify-content:center;gap:40px}
+.ae.p8-fw .bd .p9-foot .p8-key{flex-direction:row;gap:28px}
+.ae.p8-fw .bd .p9-foot p.p8-again{max-width:none;align-items:center}
+.ae.p8-fw .bd .p9-foot p.p8-again .lic{margin-top:0}
+/* slide 25: programs grid over a compact contact row */
+.ae.p9-ct .bd .p9-cg{gap:12px;margin-top:0}
+.ae.p9-ct .bd .p9-lb{margin:0;font:600 13px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--pro-ink-2)}
+.ae.p9-ct .bd .p9-lb span{font:italic 400 17px/1.4 var(--serif);letter-spacing:0;text-transform:none;color:var(--pro-muted)}
+.ae.p9-ct .bd .p9-prog{display:flex;flex-direction:column;gap:12px}
+.ae.p9-ct .bd .p9-pg{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.ae.p9-ct .bd .p9-pc{display:grid;grid-template-columns:34px minmax(0,1fr);grid-template-rows:auto auto 1fr;column-gap:12px;row-gap:4px;align-items:center;margin:0;padding:16px 18px;background:#FFFFFF;border-radius:var(--r)}
+.ae.p9-ct .bd .p9-ic{grid-row:1;display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--pro-line-2);color:var(--pro-ink-2)}
+.ae.p9-ct .bd .p9-ic .lic{width:18px;height:18px;stroke-width:1.6}
+.ae.p9-ct .bd .p9-pc small{grid-row:1;grid-column:2;font:600 12px/1.3 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--pro-ink-2)}
+.ae.p9-ct .bd .p9-pc b{grid-column:1/3;margin-top:6px;font:500 22px/1.2 var(--serif);letter-spacing:-.005em;color:var(--pro-ink)}
+.ae.p9-ct .bd .p9-pc>span:last-child{grid-column:1/3;align-self:start;font:italic 400 17px/1.35 var(--serif);color:var(--pro-soft)}
+/* contact cards: photo | name + WeChat | WhatsApp code */
+.ae.p9-ct .bd .p5-ppl{gap:12px}
+.ae.p9-ct .bd .p5-pc{display:grid;grid-template-columns:auto minmax(0,1fr) auto;grid-template-rows:auto auto;column-gap:18px;row-gap:8px;align-items:center;padding:16px 20px}
+.ae.p9-ct .bd .p5-hd,.ae.p9-ct .bd .p5-cx{display:contents}
+.ae.p9-ct .bd .p5-ph{grid-column:1;grid-row:1/3;width:72px;height:72px}
+.ae.p9-ct .bd .p5-nm{grid-column:2;grid-row:1;align-self:end}
+.ae.p9-ct .bd .p5-nm>b{font-size:26px}
+.ae.p9-ct .bd .p5-role{font-size:17px}
+.ae.p9-ct .bd .p5-cx dl{grid-column:2;grid-row:2;align-self:start;padding-top:8px;border-top:1px solid var(--pro-line)}
+.ae.p9-ct .bd .p5-qr{grid-column:3;grid-row:1/3;display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none}
+.ae.p9-ct .bd .p5-qr img{width:84px;height:84px}
+.ae.p9-ct .bd .p5-qr span{font:600 11px/1.2 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--pro-ink-2)}
+.ae.p9-ct .bd .p5-res{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:18px;row-gap:6px;align-items:center;padding:16px 20px}
+.ae.p9-ct .bd .p5-res>img{grid-row:1/3;width:96px;height:96px;padding:7px}
+.ae.p9-ct .bd .p5-rt b{font-size:20px}
+.ae.p9-ct .bd .p5-rt small{font-size:15px}
+.ae.p9-ct .bd .p5-site{grid-column:2;font-size:13px}
+.ae.p9-ct .bd .p9-pc{grid-template-rows:auto auto auto;align-content:start;padding:14px 18px 16px}
+.ae.p9-ct .bd .p9-pc b{margin-top:4px}
+.ae.p9-ct .bd .p5-pc,.ae.p9-ct .bd .p5-res{padding:12px 18px}
+.ae.p9-ct .bd .p5-ph{width:64px;height:64px}
+.ae.p9-ct .bd .p5-qr img{width:74px;height:74px}
+.ae.p9-ct .bd .p5-res>img{width:84px;height:84px;padding:6px}
+.ae.p9-ct .bd .p5-cx dl{padding-top:6px}
+.ae.p9-ct .bd .p5-rt small{display:none}
+.ae.p9-ct .bd .p5-rt b{font-size:22px}
+.ae.p9-ct .bd .p5-site{font-size:14px}
+.ae.p9-ct .bd .p9-cg,.ae.p9-ct .bd .p9-prog{gap:10px}
+.ae.p9-ct .bd .p9-pg{gap:10px}
+.ae.p9-ct .bd .p9-pc{padding:13px 18px 14px}
+.ae.p9-ct .bd .p5-pc{row-gap:4px;padding:10px 18px}
+.ae.p9-ct .bd .p5-res{padding:10px 18px}

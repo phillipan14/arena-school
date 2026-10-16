@@ -1,0 +1,17 @@
+/* pass 4: outcomes and assessment on one slide (.nx-oa). Outcome rows reuse .lo3-s; the band below follows the rubric slide's evidence row. */
+.ae.lo3-s.nx-oa .bd{gap:34px}
+.ae.lo3-s.nx-oa .bd .lo3-c{padding:14px 0 12px}
+.lo3-s.nx-oa .nx-oab{flex:none;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:var(--gap)}
+.lo3-s.nx-oa .nx-oae,.lo3-s.nx-oa .nx-oai{display:flex;flex-direction:column;justify-content:center;padding:28px 28px 26px;border-radius:var(--r,14px)}
+.lo3-s.nx-oa .nx-oae{background:var(--paper-hi);box-shadow:inset 0 0 0 1px var(--edge)}
+.lo3-s.nx-oa .nx-oai{background:var(--ink)}
+.lo3-s.nx-oa .nx-oak{display:block;margin:0 0 12px;font:600 14px/1.2 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
+.lo3-s.nx-oa .nx-oai .nx-oak{color:#A9BEEA}
+.lo3-s.nx-oa .nx-oae ul{list-style:none;margin:0;padding:0;display:flex;justify-content:space-between;align-items:center;gap:24px}
+.ae.lo3-s.nx-oa .bd .nx-oae li{display:flex;align-items:center;gap:12px;margin:0;padding:0;border:0;font:400 24px/1.2 var(--serif);color:var(--ink)}
+.ae.lo3-s.nx-oa .bd .nx-oae li::before{content:none}
+.lo3-s.nx-oa .nx-oae .lic{width:24px;height:24px;color:var(--ink2);flex:none}
+.ae.lo3-s.nx-oa .bd .nx-oai p{margin:0;font:400 24px/1.35 var(--serif);color:#fff}
+.ae.lo3-s.nx-oa .bd .nx-oae ul{flex-direction:row;flex:none}
+.ae.lo3-s.nx-oa .bd>.nx-oab:last-child{flex:none!important;flex-grow:0!important}
+.ae.lo3-s.nx-oa .bd .nx-oai p{line-height:1.2}

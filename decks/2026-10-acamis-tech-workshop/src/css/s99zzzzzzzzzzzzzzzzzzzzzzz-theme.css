@@ -1,0 +1,14 @@
+/* palette trial (Oct 16): "neutral academic", opt-in with ?theme=acad. Ivory paper, charcoal ink, slate accent, no dot texture.
+   The default Arena palette is untouched; delete this file and js/zzz-theme.html to drop the trial. */
+html.th-acad{--ink:#1A2130;--ink2:#36557A;--paper:#F8F7F4;--paper-hi:#FFFFFF;--pane:#FFFFFF;--beige:#F1EFEA;--muted:#5E6470;--line:#D9D6CF;--text:#2A3140;
+ --edge:rgba(26,33,48,.14);--data:#36557A;--data-2:#B9C4D2;--track:rgba(26,33,48,.06);--dots:transparent}
+html.th-acad body,html.th-acad .s{background-image:none}
+html.th-acad .s.alt{background-color:var(--beige)}
+html.th-acad .ae .bd .pane,html.th-acad .ae .bd .nx-st li{box-shadow:0 0 0 1px var(--edge)}
+html.th-acad .fx-wheel [fill="#0B1A4A"]{fill:#1A2130}
+html.th-acad .fx-wheel [fill="#2F55A8"]{fill:#36557A}
+html.th-acad .fx-wheel [fill="#3D5FA6"]{fill:#4A6788}
+html.th-acad .fx-wheel [fill="#5670B0"]{fill:#647D99}
+html.th-acad .fx-wheel [stroke="#2F55A8"]{stroke:#36557A}
+html.th-acad .fx-wheel circle[fill="#F5F7FA"]{fill:#FFFFFF}
+html.th-acad .nx-back span{background:var(--paper)}

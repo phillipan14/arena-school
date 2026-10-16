@@ -1,0 +1,163 @@
+/* ===== Pass 6 (Oct 16): the Arena "pro" design system, ported from the site (arena-elegance dev c8d8822:
+   css/pro.css tokens and type scale, css/cine.css hero, LOGOS.md logo rules, the gentle reveal timing).
+   White and cool off-white grounds, navy as the accent, no cream and no dot grid, restrained serif headlines,
+   sans labels, hairline cards, greyscale logos at one optical height, and 400 to 700ms fades with a 12px rise.
+   The cover works like the site hero: a full-bleed photo crossfade with a slow zoom under a navy gradient, the
+   ivory crest above the headline, and a faint dot texture. Motion lives under html.motion only, so export, print,
+   ?read, the phone reader, and prefers-reduced-motion always get the finished, static slide (first photo). ===== */
+
+:root{
+ --pro-bg:#FFFFFF;--pro-alt:#F5F7FA;--pro-sunk:#EEF1F6;--pro-line:#E2E6EE;--pro-line-2:#CDD3DF;
+ --pro-ink:#0B1A4A;--pro-ink-2:#2F55A8;--pro-text:#111827;--pro-soft:#465066;--pro-muted:#5D6677;
+ --sans:'Geist',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+ /* the deck's own tokens, recolored: every slide and card reads these */
+ --paper:#FFFFFF;--paper-hi:#FFFFFF;--beige:#F5F7FA;--pane:#FFFFFF;--line:#E2E6EE;--muted:#5D6677;--text:#2A3550;
+ --edge:rgba(11,26,74,.12);--track:rgba(11,26,74,.06);--dots:transparent;
+ /* one restrained headline scale (slide px; the stage zooms ×1.32) */
+ --p6-h2:clamp(38px, 1.2rem + 1.6vw, 46px);
+ /* gentle reveal timing: 600ms, ease-out, 12px rise, never an overshoot */
+ --t-f:.6s;--t-m:.6s;--e-o:cubic-bezier(.22,.61,.36,1)
+}
+
+/* ---------- grounds: white, cool off-white for alternates, no dot grid, no cream ---------- */
+html body,.s{background:var(--pro-bg);background-image:none}
+.s.alt{background-color:var(--pro-alt);background-image:none}
+.s::before{background-image:none}
+html.nvon .nav a{background:rgba(11,26,74,.18)}
+
+/* ---------- type ---------- */
+@media (min-width:701px){
+ .ae h2{font-size:var(--p6-h2);line-height:1.12;letter-spacing:-.02em;font-weight:500}
+}
+/* labels instead of serif caps: the site's quiet sans eyebrow */
+.kick,.k,.ae .lab,.r15-h,.p5-cx dt,.p5-site,.sec-k span{font-family:var(--sans)!important;font-weight:600;letter-spacing:.1em;color:var(--pro-ink-2)}
+@media (min-width:701px){.kick{font-size:14px;letter-spacing:.11em}}
+/* every small-caps label in the deck (generated from the rules that set text-transform:uppercase) */
+.ae .bd .mm-h,.ae .bd .sp .tag,.ae.agb-wk .bd .agb-dk,.ar2.vs span,.awk,.cap b,.chip,.co,.cs31 .cs-k>span,.cs31 .cs-th,.fx-s .fx-ck,.fx-s .fx-k,.g,.grow-n .dt,.k,.kick,.lab,.lgx dt,.lo2-s .lo2-lk,.lo2-s .lo2-set b,.lo3-s.nx-oa .nx-oak,.mc b,.nx-br,.nx-hk,.nx-ho small,.nx-lk,.nx-ln b,.nx-lp small,.nx-mx .nx-rh,.nx-ock,.nx-ph3 .nx-pk,.nx-pmh span,.nx-pml span,.nx-sh small,.nx-swl span,.nx-tag,.nx-tdh small,.nx-tll span,.nx-tsk,.org,.p5-cx dt,.p5-site,.pl,.qr>span,.r13-ph .r13-w span,.r15-ab .r15-h,.r5b-tl .r5b-poem mark small,.r5b-tl .r6-src,.r6-off .r6-lab,.rb-s .rb-k,.rb-s .rb-l b,.sec-k span,.shx .hd,.sk-side .sk-h,.skmap .sk-h,.sp .lg dt,.tbl .th,.tg,.tln .dt,.tn-pair .hd,.wefx .hd,.why5g .w5h,section.s.ae.agC-co .bd .agc-k,section.s.ae.agC-co .bd .agc-q .agc-tag,section.s.ae.agC-co .bd .agc-tag,section.s.ae.agC-sk .bd .agc-lab,section.s.age-ty .age-qa .age-ct .k,section.s.age-ty .age-qa .age-q>span{font-family:var(--sans)!important}
+/* accents are italic only: no halftone marker bands */
+.m::after,.rv-d>p::before,.rv-d>.rvi::before{background:none!important;display:none}
+.rot-hl::after{background:none!important}
+
+/* ---------- cards: white with a hairline, on white or off-white ---------- */
+.ae .bd .pane,.ae .bd .r15-c,.ae .bd .nx-st li,.ae .bd .nx-pc{box-shadow:0 0 0 1px var(--pro-line),0 1px 2px rgba(11,26,74,.04)}
+/* navy cards keep their fill and drop the hairline */
+.ae .bd :is(.pane.dk,.p5-res,.r5b-case,.cs-out,.mk-stat){box-shadow:none}
+.card.rv.open,.card.rv:hover{background:var(--pro-alt)!important}
+.xg-lb,.xg-ll.fl{background:var(--pro-alt)!important}
+
+/* ---------- logos: greyscale, one optical height ---------- */
+.r15-lg img,.ac-jg .ac-lg img,.ae .r16-sel img,.ae img[src*="/acamis/tools/"],.ae img[src*="/logos/tools/"],.ae img[src*="/logos/cred/"]:not(.aga-isb){filter:grayscale(1);opacity:.8}
+.ae img[src*="/acamis/tools/"],.ae img[src*="/logos/tools/"]{opacity:.72}
+
+/* slide 4: "Our team studied at" / "Our team worked at", label left, logos right */
+.r15-ab .r15-team{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--pro-line)}
+.r15-ab .p6-lr{display:grid;grid-template-columns:230px minmax(0,1fr);column-gap:28px;align-items:center;padding:16px 0}
+.r15-ab .p6-lr+.p6-lr{border-top:1px solid var(--pro-line)}
+.r15-ab .p6-lr>.r15-h{margin:0;font-size:13px;line-height:1.3;letter-spacing:.1em;text-transform:uppercase;color:var(--pro-muted)}
+.r15-ab .p6-lr .r15-lg{display:flex;align-items:center;gap:56px;margin:0}
+.r15-ab .p6-lr .r15-lg img{opacity:.74}
+/* per-logo heights: the r15 optical sizes, which already follow the site proportions (pro.css, DESIGN.md 6.9) */
+.r15-ab .p6-lr img.r15-kimi{height:18px}.r15-ab .p6-lr img:is(.r15-mckinsey,.r15-deloitte){height:17px}
+@media screen{
+ .motion .r15-ab .p6-lr .p5-mq{padding:4px 0}
+ .motion .r15-ab .p6-lr .p5-mq .p5-set{gap:72px;padding-right:72px}
+ .motion .r15-ab .p6-st .p5-mqt{animation-duration:44s}
+ .motion .r15-ab .p6-wk .p5-mqt{animation-duration:58s}
+}
+.r15-ab .p6-lr .p5-mq .p5-dup{display:none}
+@media screen{.motion .r15-ab .p6-lr .p5-mq .p5-dup{display:flex}}
+
+/* ---------- part slides: light, a navy numeral and rule as the accent ---------- */
+.s.p6-sec{background:var(--pro-alt)}
+.p6-sec .sec-k span{color:var(--pro-ink-2)}
+.p6-sec .sec-k b{color:var(--pro-ink);font-weight:300}
+.ae.sec.p6-sec h2{color:var(--pro-ink)}
+.p6-sec h2 em{color:var(--pro-ink-2)}
+.p6-sec .sl{color:var(--pro-soft)}
+.p6-sec .trk{border-top-color:var(--pro-line-2)!important}
+.p6-sec .trk li{opacity:.5}.p6-sec .trk li.on{opacity:1}
+.p6-sec .trk li::before{background:var(--pro-ink)}
+.p6-sec .trk .tn{color:var(--pro-ink-2)}
+.p6-sec .trk b{color:var(--pro-ink)}
+.p6-sec .trk small{color:var(--pro-muted)}
+
+/* ---------- slide 24, the big picture: white, navy numerals ---------- */
+.s.p6-gs{background:var(--pro-bg)}
+.p6-gs .kick{color:var(--pro-ink-2)}
+.p6-gs h2{color:var(--pro-ink)}
+.p6-gs h2 em{color:var(--pro-ink-2)}
+.ae.p6-gs .c3x li+li{border-left-color:var(--pro-line)}
+.ae.p6-gs .c3x i{color:var(--pro-ink-2)}
+.ae.p6-gs .c3x b{color:var(--pro-ink)}
+.ae.p6-gs .c3x span{color:var(--pro-soft)}
+section.s.p6-gs .bd .age-end{border-top-color:var(--pro-line)!important}
+section.s.p6-gs .bd .age-end p{color:var(--pro-ink)}
+.p6-gs .endline{color:var(--pro-ink)}
+
+/* ---------- cover: the site hero ---------- */
+section.s.p6-hero{background:var(--pro-ink);color:#FFFFFF;isolation:isolate}
+.p6-media{position:absolute;inset:0;z-index:0;overflow:hidden;background:var(--pro-ink)}
+.p6-slide{position:absolute;inset:0;opacity:0}
+.p6-slide:first-child{opacity:1}
+.p6-slide img{width:100%;height:100%;object-fit:cover;object-position:var(--focus,50% 40%);display:block;transform:scale(1.02)}
+.p6-shade{position:absolute;inset:0;z-index:1;pointer-events:none;
+ background:linear-gradient(90deg,rgba(8,15,38,.88) 0%,rgba(8,15,38,.7) 38%,rgba(8,15,38,.26) 72%,rgba(8,15,38,.34) 100%),
+            linear-gradient(0deg,rgba(8,15,38,.6) 0%,transparent 44%)}
+/* a faint dot texture, fading out toward the photo's bright side (not the old page dot grid) */
+.p6-dots{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.22;mix-blend-mode:screen;
+ background:radial-gradient(rgba(201,214,242,.9) 1px,transparent 1.6px) 0 0/22px 22px;
+ -webkit-mask-image:linear-gradient(100deg,#000 0%,rgba(0,0,0,.55) 45%,transparent 80%);mask-image:linear-gradient(100deg,#000 0%,rgba(0,0,0,.55) 45%,transparent 80%)}
+.p6-caps{position:absolute;inset:0;z-index:3;pointer-events:none}
+.p6-caps span{position:absolute;right:var(--margin-x);bottom:calc(28px * var(--z));font:400 calc(14px * var(--z))/1.3 var(--sans);color:rgba(255,255,255,.82);text-shadow:0 1px 8px rgba(8,15,38,.6);opacity:0}
+.p6-caps span:first-child{opacity:1}
+section.s.p6-hero>.w{z-index:4}
+.p6-crest{width:92px;height:92px;margin:0 0 18px;opacity:.9;filter:drop-shadow(0 6px 24px rgba(8,15,38,.45))}
+.p6-crest img{display:block;width:100%;height:100%}
+section.s.p6-hero>.brandmk.p6-wm{height:calc(40px * var(--z))}
+.p6-hero .kick{color:#C9D6F2}
+.p6-hero .cv-lede{color:rgba(255,255,255,.9)!important}
+.p6-hero .cv-lede img{filter:brightness(0) invert(1);opacity:.92}
+.p6-hero h1{color:#FFFFFF;text-shadow:0 1px 24px rgba(8,15,38,.35);font-size:clamp(84px, 2rem + 4.2vw, 112px)!important;letter-spacing:-.03em}
+.p6-hero h1 em{color:#C9D6F2}
+.p6-hero h1 .sub{color:rgba(255,255,255,.88)!important}
+.p6-hero .cv-rule{opacity:0}
+.p6-hero .cv-qr{color:#FFFFFF}
+.p6-hero .cv-qr img{background:#FFFFFF;padding:8px;border-radius:10px;box-sizing:content-box;width:96px;height:96px}
+.p6-hero .cv-qr small{color:rgba(255,255,255,.76)!important}
+.p6-hero .cv-foot{margin-bottom:22px}
+@media screen{
+ /* four photos, 28s cycle (7s each), soft crossfade and a slow zoom, as on the site */
+ .motion .p6-hero .p6-slide{animation:p6-fade 28s linear infinite both}
+ .motion .p6-hero .p6-caps span{animation:p6-fade 28s linear infinite both}
+ .motion .p6-hero .p6-slide:nth-child(1),.motion .p6-hero .p6-caps span:nth-child(1){animation-delay:-1.5s}
+ .motion .p6-hero .p6-slide:nth-child(2),.motion .p6-hero .p6-caps span:nth-child(2){animation-delay:-22.5s}
+ .motion .p6-hero .p6-slide:nth-child(3),.motion .p6-hero .p6-caps span:nth-child(3){animation-delay:-15.5s}
+ .motion .p6-hero .p6-slide:nth-child(4),.motion .p6-hero .p6-caps span:nth-child(4){animation-delay:-8.5s}
+ .motion .p6-hero .p6-slide img{animation:p6-kb 28s ease-in-out infinite alternate both}
+ .motion .p6-hero .p6-slide:nth-child(even) img{animation-direction:alternate-reverse}
+ .motion .p6-hero .p6-dots{animation:p6-drift 90s linear infinite}
+ @keyframes p6-fade{0%{opacity:1}25%{opacity:1}30%{opacity:0}95%{opacity:0}100%{opacity:1}}
+ @keyframes p6-kb{from{transform:scale(1.02)}to{transform:scale(1.1)}}
+ @keyframes p6-drift{to{background-position:22px 44px}}
+}
+@media (prefers-reduced-motion:reduce){
+ .p6-hero .p6-slide,.p6-hero .p6-slide img,.p6-hero .p6-caps span,.p6-hero .p6-dots{animation:none!important}
+}
+/* the slide-to-slide navy curtain is retired with the navy part slides; the cover keeps its own dark ground */
+.curtain{background:var(--pro-alt)}
+
+/* ---------- motion: one gentle reveal (600ms fade, 12px rise, ease-out), no pops ---------- */
+.r{transition:opacity .6s var(--e-o) var(--d,0s),transform .6s var(--e-o) var(--d,0s)}
+@media screen{
+ .motion .nx-wk .nx-dot{transition:opacity .5s var(--e-o) .2s}
+ .motion .nx-wk.bld .nx-td:not(.vis) .nx-dot{transform:none;opacity:0}
+ .motion .tln .dot{transition:opacity .5s var(--e-o) calc(.45s + var(--i) * .32s)}
+ .motion .s:not(.in) .tln .dot{transform:none;opacity:0}
+ .motion .pg-m i.f{transition:background-color .5s ease calc(.45s + var(--i) * .2s)}
+ .motion .s:not(.in) .pg-m i.f{transform:none}
+ /* photos fade in with the rest; no settling zoom */
+ .motion .ac-ph img{transition:none}
+ .motion .s.bld .ac-ph:not(.vis) img{transform:none}
+ .motion .p5-gs.bld .c3x li:not(.vis) i{transform:translateY(12px)}
+ .motion .s:not(.in):not(.leave)>.w{transform:translateY(12px)}
+}
