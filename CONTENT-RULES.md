@@ -37,7 +37,7 @@ A section earns a place only if it passes all four questions:
 | How-we-work page (Student programs, Portfolio workshop, Community dialogues, Teacher training) | 550 | 6 |
 | How-we-work hub (Schools) | 500 | 6 |
 | Audience page (Technology teams, `/schools/technology`) | 550 | 6 |
-| Approach | 650 | 5 |
+| Approach (the full learning framework, Oct 16) | 2200 | 10 |
 | About | 650 | 5 |
 | Results | 750 | 6 |
 | Partners | 450 | 5 |
