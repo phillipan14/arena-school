@@ -1,0 +1,28 @@
+/* ===== Pass 7 (Oct 16): photo Part slides. Each Part slide gets one approved photo (PHOTO-PICKS.md), full-bleed
+   under the cover's navy gradient and dot texture, with ivory type. One photo per slide, no crossfade; under
+   html.motion the photo zooms slowly, so export, print, and reduced motion get the static frame. ===== */
+section.s.p7-ph{background:var(--pro-ink);color:#FFFFFF;isolation:isolate}
+section.s.p7-ph>.w{z-index:4}
+/* deeper at the bottom than the cover: the Parts track runs the full width there */
+.p7-ph .p6-shade{background:linear-gradient(90deg,rgba(8,15,38,.9) 0%,rgba(8,15,38,.74) 40%,rgba(8,15,38,.34) 74%,rgba(8,15,38,.42) 100%),
+ linear-gradient(0deg,rgba(8,15,38,.82) 0%,rgba(8,15,38,.4) 30%,transparent 52%)}
+.p7-ph .p7-cap{position:absolute;z-index:3;left:var(--margin-x);bottom:calc(28px * var(--z));margin:0;pointer-events:none;
+ font:400 calc(14px * var(--z))/1.3 var(--sans);color:rgba(255,255,255,.72);text-shadow:0 1px 8px rgba(8,15,38,.6)}
+.p7-ph>.pgno,.p7-ph>.pgno i{color:rgba(255,255,255,.72)!important}
+.p7-ph .sec-k span{color:#C9D6F2}
+.p7-ph .sec-k b{color:#FFFFFF}
+.ae.sec.p6-sec.p7-ph h2{color:#FFFFFF;text-shadow:0 1px 24px rgba(8,15,38,.35)}
+.p7-ph h2 em{color:#C9D6F2}
+.p7-ph .sl{color:rgba(255,255,255,.86)}
+.p7-ph .trk{border-top-color:rgba(255,255,255,.24)!important}
+.p7-ph .trk li{opacity:.62}.p7-ph .trk li.on{opacity:1}
+.p7-ph .trk li::before{background:#FFFFFF}
+.p7-ph .trk .tn{color:#C9D6F2}
+.p7-ph .trk b{color:#FFFFFF}
+.p7-ph .trk small{color:rgba(255,255,255,.74)}
+@media screen{
+ .motion .p7-ph .p6-slide img{transition:transform 9s var(--e-o)}
+ .motion .p7-ph.in .p6-slide img{transform:scale(1.07)}
+ .motion .p7-ph .p6-dots{animation:p6-drift 90s linear infinite}
+}
+@media (prefers-reduced-motion:reduce){.p7-ph .p6-slide img,.p7-ph .p6-dots{transition:none!important;animation:none!important}}

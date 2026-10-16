@@ -1076,3 +1076,13 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
 .r15-c,.r7-bar i,.p5-ways li{background:#FFFFFF!important;box-shadow:inset 0 0 0 1px #E2E6EE!important}
 .r7-bar i.hl{background:var(--ink)!important;color:#FFFFFF}
 .rd .p5-res,.rd .p5-rt,.rd .p5-rt b,.rd .p5-rt small{color:#FFFFFF}.rd .p5-res>img{background:#FFFFFF}
+/* Pass 7: photo Part slides, dark like the cover */
+.s.p7-ph{background:var(--ink);color:#FFFFFF;isolation:isolate}
+.p7-ph .w{z-index:2}
+.p7-ph .p7-cap,.p7-ph>.brandmk{display:none}
+.p7-ph .sec-k,.p7-ph .sec-k b,.p7-ph .trk .tn{color:#C9D6F2}
+.p7-ph h2{color:#FFFFFF}.p7-ph h2 em{color:#C9D6F2}
+.p7-ph .sl{color:rgba(255,255,255,.84)}
+.p7-ph .trk,.p7-ph .trk li{border-color:rgba(255,255,255,.2)}
+.p7-ph .tt b{color:#FFFFFF}.p7-ph .tt small{color:rgba(255,255,255,.72)}
+.p7-ph .p6-shade{background:linear-gradient(0deg,rgba(8,15,38,.95) 0%,rgba(8,15,38,.8) 50%,rgba(8,15,38,.58) 100%)}
