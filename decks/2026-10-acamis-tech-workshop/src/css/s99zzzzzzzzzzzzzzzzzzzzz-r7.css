@@ -1,0 +1,95 @@
+/* round 7 (restructure, Oct 16): components for the new slides. Prefix nx-. */
+
+/* ---- matrix (where AI comes in; programs map) ---- */
+.ae .bd .nx-mx{display:grid;column-gap:20px;row-gap:0;align-content:start}
+.nx-mx4{grid-template-columns:200px repeat(4,minmax(0,1fr))}
+.nx-mx3{grid-template-columns:250px repeat(3,minmax(0,1fr))}
+.nx-mx .nx-rh{display:flex;align-items:center;padding:16px 0;border-top:1px solid var(--edge);font:600 14px/1.3 var(--serif);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.nx-mx .nx-rh.nx-c0{border-top:0}
+.nx-mx .nx-ch{display:flex;flex-direction:column;gap:6px;padding:0 0 14px;font:500 25px/1.2 var(--serif);color:var(--ink)}
+.nx-mx .nx-ch i{font:italic 400 18px/1 var(--serif);color:var(--ink2)}
+.ae .bd .nx-mx p.nx-cl{display:flex;align-items:center;padding:16px 0;border-top:1px solid var(--edge);font-size:22px;line-height:1.35}
+.ae .bd .nx-mx p.nx-me{color:var(--ink);font-weight:500}
+.ae .bd .nx-mx p.nx-q{font-style:italic;color:var(--ink2)}
+.ae .bd .nx-mx .nx-ph3{display:flex;flex-direction:column;gap:4px;padding:0 0 14px}
+.nx-ph3 .nx-pk{font:600 14px/1.3 var(--serif);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
+.nx-ph3 b{font:500 28px/1.2 var(--serif);color:var(--ink)}
+.nx-ph3 small{font:italic 400 18px/1.3 var(--serif);color:var(--muted)}
+.nx-mx .nx-rh.nx-out{color:var(--ink2)}
+.ae .bd .nx-mx p.nx-o{color:var(--ink);font-weight:500}
+
+/* ---- placeholder marking (cases 2 and 3) ---- */
+.nx-tag{display:inline-block;vertical-align:middle;margin-right:14px;padding:5px 10px 4px;border:1.5px dashed #B5541C;border-radius:3px;font:600 14px/1 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:#B5541C}
+.ae .bd .nx-tbdx{color:#B5541C!important;font-style:italic}
+
+/* ---- case study flow ---- */
+.ae .bd .nx-cs{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:var(--gap)}
+.ae .bd .nx-sk{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;border:2px dashed rgba(181,84,28,.5);background:transparent}
+.ae .bd .nx-sk p{color:#B5541C;font-style:italic;text-align:center;font-size:22px}
+.ae .bd .nx-st{list-style:none;margin:0;padding:0;display:grid;grid-template-rows:repeat(4,1fr);gap:12px}
+.ae .bd .nx-st li{display:grid;grid-template-columns:300px minmax(0,1fr);align-items:center;gap:20px;padding:0 28px;background:var(--paper-hi);border-radius:var(--r)}
+.nx-sh{display:grid;grid-template-columns:44px auto;align-items:baseline;row-gap:2px}
+.nx-sh i{font:italic 400 20px/1 var(--serif);color:var(--ink2)}
+.nx-sh b{font:500 27px/1.2 var(--serif);color:var(--ink)}
+.nx-sh small{grid-column:2;font:600 13px/1.2 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.ae .bd .nx-st li p{font-size:22px;line-height:1.35}
+
+/* ---- demo day: three photos ---- */
+.ae .bd .ac-dd.nx-dd3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.ae .bd .ac-dd.nx-dd3 .ac-ph img{height:360px!important}
+.ae .bd .ac-dd.nx-dd3 .nx-win img{object-position:50% 55%}
+
+/* ---- teachers' pain points ---- */
+.ae .bd .nx-pp{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:var(--gap)}
+.ae .bd .nx-pc{display:grid;grid-template-columns:56px minmax(0,1fr);column-gap:22px;row-gap:12px;align-content:center;padding:30px 36px}
+.nx-pi{grid-row:1/3;display:flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:var(--paper);color:var(--ink2)}
+.nx-pi svg{width:28px;height:28px}
+.nx-pc>b{font:500 28px/1.25 var(--serif);color:var(--ink)}
+.ae .bd .nx-pc p{font-size:22px;line-height:1.4;color:var(--muted)}
+
+/* ---- build-session loop ---- */
+.ae .bd .nx-lp{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap)}
+.ae .bd .nx-lp li{display:flex;flex-direction:column;gap:12px;padding:32px 30px}
+.nx-lk{font:600 14px/1.3 var(--serif);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.nx-lk i{display:block;margin-bottom:10px;font:italic 400 22px/1 var(--serif);letter-spacing:0;text-transform:none;color:var(--ink2)}
+.nx-lp b{font:500 30px/1.2 var(--serif);color:var(--ink)}
+.ae .bd .nx-lp p{font-size:22px;line-height:1.4}
+.nx-lp small{margin-top:auto;font:600 14px/1.2 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
+
+/* ---- where AI helps ---- */
+.ae .bd .nx-h3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap)}
+.ae .bd .nx-hc{display:flex;flex-direction:column;gap:12px;padding:34px 34px 30px}
+.nx-hi{color:var(--ink2)}.nx-hi svg{width:34px;height:34px}
+.nx-hk{font:600 14px/1.3 var(--serif);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
+.nx-hc>b{font:500 30px/1.2 var(--serif);color:var(--ink)}
+.ae .bd .nx-hc p{font-size:22px;line-height:1.4}
+.nx-ho{margin-top:auto;padding-top:16px;border-top:1px solid var(--edge);font:italic 400 20px/1.4 var(--serif);color:var(--muted)}
+.nx-ho small{display:block;margin-bottom:6px;font:600 13px/1.2 var(--serif);font-style:normal;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* ---- founders ---- */
+.ae .bd .nx-b2{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
+.ae .bd .nx-bc{display:grid;grid-template-columns:200px minmax(0,1fr);gap:32px;align-items:start;padding:36px}
+.nx-bp{width:200px;height:240px;object-fit:cover;border-radius:var(--r)}
+.nx-bt{display:flex;flex-direction:column;gap:10px}
+.nx-bt>b{font:500 34px/1.15 var(--serif);color:var(--ink)}
+.nx-br{font:600 14px/1.2 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);margin-bottom:6px}
+.ae .bd .nx-bt p{font-size:21px;line-height:1.42}
+.nx-bt a{margin-top:6px;font:500 20px/1.3 var(--serif);color:var(--ink);text-decoration:underline;text-decoration-color:var(--ink2);text-underline-offset:.2em}
+
+/* ---- Q&A: both founders ---- */
+section.s.age-ty .bd .age-qa p.age-ln.nx-ln{gap:10px 48px}
+.nx-ln>span{display:flex;flex-direction:column;gap:4px}
+.nx-ln b{font:600 13px/1.2 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+/* fit: programs map and demo day inside 1080 */
+.ae.nx-map .bd .nx-mx p.nx-cl,.ae.nx-map .bd .nx-mx .nx-rh{padding:11px 0}
+.ae.nx-map .bd .nx-mx .nx-ph3{padding-bottom:10px}
+.ae .bd .ac-dd.nx-dd3 .ac-ph img{height:296px!important}
+/* body text never below the deck's 24px floor (contain.py phone check) */
+.ae .bd .nx-mx p.nx-cl,.ae .bd .nx-st li p,.ae .bd .nx-pc p,.ae .bd .nx-lp p,.ae .bd .nx-hc p,.ae .bd .nx-sk p{font-size:24px;line-height:1.36}
+.ae .bd .nx-bt p{font-size:24px;line-height:1.38}
+.nx-mx3{grid-template-columns:205px repeat(3,minmax(0,1fr))}
+.nx-mx4{grid-template-columns:180px repeat(4,minmax(0,1fr))}
+.ae.nx-map .bd .nx-mx p.nx-cl,.ae.nx-map .bd .nx-mx .nx-rh{padding:9px 0}
+.kick .nx-tag{margin:0 14px 0 0;padding:2px 8px 1px;font-size:13px;vertical-align:baseline}
+.ae.nx-map .bd .nx-mx p.nx-cl,.ae.nx-map .bd .nx-mx .nx-rh{padding:8px 0}
+.ae .bd .nx-bc{padding:32px 34px}
