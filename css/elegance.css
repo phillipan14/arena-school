@@ -375,3 +375,8 @@ html[lang^="zh"] .el .el-faq summary { font-size: 19px; }
   .el-person img { width: 80px; height: 80px; }
   .elg-poem { font-size: 14.5px; }
 }
+/* Partner strip divider (RES-BRIEF, Oct 16, 8:19pm): one 1px hairline between the two partners, no other marks */
+.el-partners li { position: relative; }
+.el-partners li::marker { content: none; }
+.el-partners li::after { content: none !important; }
+.el-partners li + li::before { content: ""; position: absolute; left: -16px; top: 2px; bottom: 2px; width: 1px; background: rgba(11,26,74,.14); }

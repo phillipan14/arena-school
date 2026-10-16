@@ -1,7 +1,7 @@
 /* cine.js: the site hero (cine4, approved Oct 16, 2026). tools/hero_markup.py writes the markup:
    section.cine-hero > .cine-media (photo slots; each a <picture> with a desktop <source>; the first loads
    eagerly), .cine-shade, .cine-field-light, .cine-caps, and the crest in the hero copy.
-   This file: measures the nav so the phone/tablet photo band starts right under it (--cine-top), starts the
+   This file: starts the
    Ken Burns (.is-live), loads the remaining photos once the first has loaded and starts the crossfade
    (.is-cycling), draws the faint light particle field (riso-particles.js, started when the page is idle), and centers the
    crest when the copy is centered. Under prefers-reduced-motion: one still photo, no zoom or pan. */
@@ -10,14 +10,6 @@
   var hero = document.querySelector('main section.cine-hero');
   if (!hero) return;
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  var nav = document.querySelector('.nav');
-  function top() {
-    if (!nav || window.scrollY !== 0) return;
-    var t = Math.round(nav.getBoundingClientRect().bottom - hero.getBoundingClientRect().top);
-    if (t > 0 && t < 200) hero.style.setProperty('--cine-top', t + 'px');
-  }
-  top(); window.addEventListener('resize', top);
 
   var media = hero.querySelector('.cine-media');
   var caps = hero.querySelector('.cine-caps');

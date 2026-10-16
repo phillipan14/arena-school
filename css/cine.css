@@ -14,11 +14,13 @@
    Phones/tablets: the photo sits in a band under the nav (copy below) and pans right to left with a slow zoom. */
 :root { --ease: cubic-bezier(.22, .61, .36, 1); --ease-io: cubic-bezier(.45, 0, .25, 1); }
 /* the nav's height, so the photo starts under it from the first paint (cine.js refines it to the pixel) */
-section.cine-hero { --cine-top: 75px; }
-@media (max-width: 900px) { section.cine-hero { --cine-top: 56px; } }
+/* the nav is sticky and in the flow, so the hero (and its photo) starts right under it */
+section.cine-hero { --cine-top: 0px; }
 .cine-media { position: absolute; inset: 0; z-index: 0; overflow: hidden; background: #0B1A4A; container-type: size; }
-.cine-media { --kzm: 1.035; --k0: 1.03; --k1: 1.05; --dx: -2%; top: var(--cine-top, 0px); }
-.cine-media.is-home { --kzm: 1.07; --k0: 1.04; --k1: 1.07; --dx: -3%; }
+.cine-media { --kzm: 1.035; --k0: 1.03; --k1: 1.08; --dx: -6%; --dy: -1.5%; top: var(--cine-top, 0px); }
+.cine-media.is-home { --kzm: 1.07; }
+/* desktop drift (RES-BRIEF 8:18pm: it has to read as motion): right to left 6% plus a slight rise, zoom capped at 1.08
+   for the 1600px sources. transform-origin is the left edge, so the right overhang (k-1) always covers the drift. */
 .cine-slide { --pa: var(--pa-m, 1); --pb: var(--pb-m, .5); --ps: var(--ps-m, .5); }
 .cine-slide { position: absolute; inset: 0; opacity: 0; }
 .cine-slide:first-child { opacity: 1; }
@@ -37,7 +39,7 @@ section.cine-hero { --cine-top: 75px; }
   .cine-media.is-live.n-3 .cine-slide img { animation: cine-kb-d 36s linear infinite both; animation-delay: var(--d); }
 }
 @keyframes cine-kb-d { 0% { transform: translate3d(0, 0, 0) scale(var(--k0)); animation-timing-function: var(--ease-io); }
-  37.78% { transform: translate3d(var(--dx), 0, 0) scale(var(--k1)); }
+  37.78% { transform: translate3d(var(--dx), var(--dy, 0), 0) scale(var(--k1)); }
   38.6%, 100% { transform: translate3d(0, 0, 0) scale(var(--k0)); } }
 
 /* captions: above the shade, crossfading with their photo */
@@ -49,12 +51,12 @@ section.cine-hero { --cine-top: 75px; }
 
 /* ---------- Phones and tablets: photo band under the nav, copy below, right-to-left pan ---------- */
 @media (max-width: 900px) {
-  .cine-media { --band: clamp(300px, 48svh, 460px); top: var(--cine-top, 56px); bottom: auto; height: var(--band); container-type: inline-size; }
+  .cine-media { --band: clamp(300px, 48svh, 460px); top: var(--cine-top, 0px); bottom: auto; height: var(--band); container-type: inline-size; }
   .cine-slide img { left: 0; right: auto; width: auto; min-width: 122%; height: 100%; object-position: 50% var(--pym, 22%);
     -webkit-mask-image: none; mask-image: none;
     transform-origin: 50% 40%; transform: translate3d(calc((100cqw - 100%) * var(--pa, 1)), 0, 0); }
   .cine-media.is-live.n-3 .cine-slide img { animation: cine-kb-m 36s linear infinite both; animation-delay: var(--d); }
-  .cine-caps span { bottom: auto; top: calc(var(--cine-top, 56px) + clamp(300px, 48svh, 460px) - 26px); right: 16px; font-size: 11px; }
+  .cine-caps span { bottom: auto; top: calc(var(--cine-top, 0px) + clamp(300px, 48svh, 460px) - 26px); right: 16px; font-size: 11px; }
 }
 @media (min-width: 761px) and (max-width: 900px) {
   .cine-slide { --pa: var(--pa-t, 1); --pb: var(--pb-t, .8); --ps: var(--ps-t, .8); }
@@ -75,8 +77,8 @@ section.cine-hero { --cine-top: 75px; }
 /* ---------- The section (beats the template and pro.css hero rules) ---------- */
 html body main section.cine-hero:not(#cine) {
   position: relative; overflow: hidden; isolation: isolate; background: #0B1A4A !important; background-image: none !important; border-bottom: 0;
-  min-height: min(86vh, 780px) !important; display: flex; flex-direction: column; justify-content: flex-end;
-  padding-top: clamp(132px, 15vh, 176px) !important; padding-bottom: clamp(48px, 7vh, 88px) !important;
+  min-height: min(calc(86vh - 75px), 705px) !important; display: flex; flex-direction: column; justify-content: flex-end;
+  padding-top: clamp(56px, 8vh, 104px) !important; padding-bottom: clamp(48px, 7vh, 88px) !important;
 }
 html body main section.cine-hero:not(#cine) > :is(.container, .el-wrap, .hero-riso-grid) { position: relative; z-index: 3; width: 100%; }
 html body main section.cine-hero:not(#cine) .hero-riso-grid { grid-template-columns: minmax(0, 1fr) !important; padding-block: 0 !important; }
@@ -137,8 +139,8 @@ html body main section.cine-hero .zl-hero-hosted img { filter: brightness(0) inv
 }
 @media (max-width: 900px) {
   html body main section.cine-hero:not(#cine) { min-height: 0 !important; justify-content: flex-start;
-    padding-top: calc(var(--cine-top, 56px) + clamp(300px, 48svh, 460px) + 14px) !important; padding-bottom: 44px !important; }
-  .cine-shade { top: var(--cine-top, 56px); bottom: auto; height: clamp(300px, 48svh, 460px);
+    padding-top: calc(var(--cine-top, 0px) + clamp(300px, 48svh, 460px) + 14px) !important; padding-bottom: 44px !important; }
+  .cine-shade { top: var(--cine-top, 0px); bottom: auto; height: clamp(300px, 48svh, 460px);
     background: linear-gradient(180deg, rgba(8, 15, 38, .12) 0%, rgba(8, 15, 38, 0) 30%, rgba(8, 15, 38, .25) 70%, #0B1A4A 100%); }
   html body main section.cine-hero :is(h1, .display, .cs-h1, .hero-riso-h1, .el-h1):not(#cine):not(#cine-h1) { max-width: none; }
 }

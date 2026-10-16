@@ -35,12 +35,7 @@ try{
     document.addEventListener('focusout',function(){typing=false;setTimeout(upd,50)});
   }
 
-  /* ---- 2. nav hides on scroll down ---- */
-  var lastY=window.scrollY,tick=false;
-  window.addEventListener('scroll',function(){if(tick)return;tick=true;requestAnimationFrame(function(){
-    var y=window.scrollY,d=y-lastY;
-    if(y<80||d<-6)doc.classList.remove('ph-nav-hide');else if(d>6)doc.classList.add('ph-nav-hide');
-    lastY=y;tick=false})},{passive:true});
+  /* ---- 2. nav: plain CSS position:sticky (pro.css); no hide/show on scroll (RES-BRIEF, Oct 16) ---- */
 
   /* ---- 3. orphans ---- */
   var CJK=/[㐀-鿿]/;

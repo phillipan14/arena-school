@@ -76,8 +76,6 @@ a,button,summary,[role=button],label{-webkit-tap-highlight-color:transparent}
 a:not(.btn):active{opacity:.7}
 
 /* ---------- 5. Nav: 56px bar, compact language chip, hides on scroll down ---------- */
-.nav{transition:transform .25s ease,background-color .2s}
-html.ph-nav-hide:not(.nav-open) .nav{transform:translateY(-100%)}
 .nav .nav-inner{min-height:var(--ph-nav) !important;height:var(--ph-nav) !important;padding:6px var(--ph-gut) !important;padding-top:max(6px,env(safe-area-inset-top)) !important}
 .nav .nav-brand{display:flex;align-items:center;min-height:44px}
 .nav .nav-lockup{height:20px !important;width:auto !important}
@@ -90,7 +88,7 @@ html.ph-nav-hide:not(.nav-open) .nav{transform:translateY(-100%)}
 .nav .nav-toggle{width:44px !important;height:44px !important}
 
 /* ---------- 6. Heroes: short, one primary pill, facts as a grouped list ---------- */
-main section.hero.hero-pad-md{min-height:0 !important;padding:calc(var(--ph-nav) + 36px) 0 40px !important}
+main section.hero.hero-pad-md{min-height:0 !important;padding:36px 0 40px !important}
 main section.hero .hero-copy{text-align:center}
 main section.hero .cs-h1,main section.hero h1.display{margin-bottom:16px !important}
 main section.hero .lede{max-width:34em;margin-left:auto !important;margin-right:auto !important;color:var(--ph-soft) !important}
@@ -111,7 +109,7 @@ html[lang="zh-CN"] main :is(.pc-facts,.pp-glance) b{text-transform:none}
 
 /* homepage hero: crest, headline, one line, two actions, then straight into the photos.
    No eyebrow chip on phones (user: takes space, adds little). */
-body.home section.hero-riso.hero-full{min-height:0 !important;height:auto !important;padding:calc(var(--ph-nav) + 18px) 0 28px !important}
+body.home section.hero-riso.hero-full{min-height:0 !important;height:auto !important;padding:18px 0 28px !important}
 body.home .hero-riso-grid{padding:0 var(--ph-gut) !important;gap:14px !important;row-gap:14px !important;min-height:0 !important}
 body.home .hero-art{margin:0 auto !important;padding:0 !important}
 body.home .seal-flip,body.home .seal-card{width:116px !important;height:116px !important}

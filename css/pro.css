@@ -144,8 +144,8 @@ html[lang^="zh"] .pro-logos > span { letter-spacing: .04em; font-size: 12.5px; }
 /* anchors land below the sticky nav and banner; smooth only when motion is welcome */
 html { scroll-behavior: auto; }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
-html body :is([id], section) { scroll-margin-top: calc(var(--promo-h, 40px) + 92px); }
-@media (max-width: 760px) { html body :is([id], section) { scroll-margin-top: calc(var(--promo-h, 40px) + 68px); } }
+html body :is([id], section) { scroll-margin-top: 92px; }
+@media (max-width: 760px) { html body :is([id], section) { scroll-margin-top: 68px; } }
 
 /* one visible focus ring everywhere */
 html body :is(a, button, summary, [role="tab"], input, select, textarea, [tabindex]):focus-visible {
@@ -174,4 +174,26 @@ html body .promo-tm { will-change: transform; }
 
 /* the winter banner's space is reserved before promo.js runs (html.promo-pending, set in <head>) */
 html.promo-pending:not(.promo-bar-on) body { padding-top: 40px; }
-html.promo-pending:not(.promo-bar-on) body .nav { top: 40px !important; }
+
+/* ---------- Header: scrolls with the page (RES-BRIEF, Oct 16, 8:17pm) ----------
+   Plain CSS sticky: the banner above it scrolls away normally, the nav sticks at the top.
+   No JS-driven offset, no hide/show on scroll, no transition or transform on its position.
+   (overflow-x: clip, not hidden, on html/body: hidden would turn body into a scroll container
+   and break sticky.) Beats styles.css (fixed), newsletter.css (--nlb-off top), and the phone layer. */
+html, html body { overflow-x: clip !important; }
+html body .nav:not(#pro-nav) { position: sticky !important; top: 0 !important; left: auto; right: auto;
+  transform: none !important; transition: background-color .2s ease !important; will-change: auto !important; z-index: 1000; }
+
+/* ---------- Desktop drift on framed photos (RES-BRIEF, Oct 16, 8:18pm) ----------
+   The hero's cinematic feel carried to the other large still photos (closing CTA, results cases,
+   contact, school photo rows): a slow zoom and drift, transform only, ease-in-out, back and forth.
+   Every wrapper clips (overflow: hidden) and the scale always exceeds the drift, so no edge shows.
+   Phones keep them still (the hero already moves there). Reduced motion: a still frame. */
+@keyframes pro-drift { from { transform: translate3d(0, 0, 0) scale(1.03); } to { transform: translate3d(-2.5%, -1.5%, 0) scale(1.08); } }
+@media (min-width: 901px) and (prefers-reduced-motion: no-preference) {
+  html body :is(.pp-close-photo, .pg-case-media, .pro-photo, .pg-contact-photo) > img {
+    animation: pro-drift 22s var(--ease-io, cubic-bezier(.45, 0, .55, 1)) infinite alternate both; }
+  html body :is(.pp-close-photo, .pg-case-media, .pro-photo, .pg-contact-photo):nth-of-type(even) > img { animation-delay: -9s; }
+}
+/* Pay page: its first section was padded to clear the old fixed nav; the nav is in the flow now */
+html body main > .pay-sec:first-child { padding-top: clamp(40px, 5vw, 64px) !important; }

@@ -24,3 +24,12 @@
   .ai-band .aib-prog { font-size: 13px; }
   .ai-band.aib-inline { margin-top: 32px; padding: 26px 0 0; }
 }
+/* One intentional 1px hairline between the two partners, so nothing else can read as a divider
+   in that gap (RES-BRIEF, Oct 16, 8:19pm: a stray dark pill/bar was reported between the logos).
+   The guards keep any marker or extra pseudo-element out of the row. */
+.ai-band .aib-row > li { position: relative; list-style: none; }
+.ai-band .aib-row > li::marker { content: none; }
+.ai-band .aib-row > li::after { content: none !important; }
+.ai-band .aib-row > li + li::before { content: ""; position: absolute; top: 4px; bottom: 4px;
+  left: calc(clamp(36px, 6vw, 88px) / -2); width: 1px; background: rgba(11,26,74,.14); border-radius: 0; }
+@media (max-width: 760px) { .ai-band .aib-row > li + li::before { left: -16px; } }

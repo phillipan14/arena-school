@@ -1,6 +1,6 @@
 # Logos (pro pass, 2026-10-16)
 
-All marks are files already in the repo, shown in grayscale at one optical size (per-logo heights in `css/pro.css`, proportional to the About page reference heights in DESIGN.md 6.9). Labels say where the team studied or worked; nothing implies a partnership or endorsement. Partner marks (Anthropic, OpenAI) keep their existing "Selected for" framing.
+All marks are files already in the repo, shown in grayscale at one optical size (per-logo heights in `css/pro.css`, proportional to the About page reference heights in DESIGN.md 6.9). Labels say where the team studied or worked; nothing implies a partnership or endorsement. Partner marks (Anthropic, OpenAI) keep their partner framing, now labeled "A member of" (CN 成员计划, JJ review; Oct 16).
 
 ## Tools taught (winter program page, "Learn" card)
 Scrolling strip, logo plus name. Only tools the page already lists in "The AI tools students learn".
@@ -43,6 +43,6 @@ Two rows, "Our team studied at" and "Worked at" (CN: 团队就读于 / 团队曾
 | Deloitte | `logos/cred/deloitte.png` | Jing Jing Yang: Deloitte, consulting |
 | Kimi (Moonshot AI) | `logos/cred/kimi.png` | Jing Jing Yang: Kimi, international growth |
 
-Pre-existing and unchanged: homepage and program-page credential rows, the About page rows, and the Anthropic / OpenAI "Selected for" strip.
+Pre-existing and unchanged: homepage and program-page credential rows, the About page rows, and the Anthropic / OpenAI partner strip (eyebrow now "A member of").
 
 Files (Oct 16, RES-BRIEF): the strips now load 64px-tall WebP copies from `logos/cred/sm/` and `logos/tools/sm/`, made from the PNGs listed above with `cwebp`; the PNGs are unchanged and still used elsewhere.
