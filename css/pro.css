@@ -16,8 +16,11 @@
   /* Motion tokens (MOTION2-BRIEF; recorded in the design system, DESIGN-SYSTEM.md).
      Photo crossfade: hold per photo + fade. Ken Burns (hero photos): duration, max zoom, drift.
      Drift (framed photos): duration, max zoom, drift. Reduce Motion swaps in gentler values below, never none. */
-  --xf-hold: 6s; --xf-fade: 1.4s;
-  --kb-dur: 20s; --kb-scale: 1.07; --kb-tx: -3%; --kb-ty: -1.5%;
+  /* HERO2-BRIEF (Oct 17): a photo change every 3.5s with a 1s crossfade; each photo pushes in 1.00 to 1.12 with a
+     4 to 6% pan over 7s from its fade-in (2 x hold), so the push is clearly visible while it is on screen.
+     --kb-pan scales the per-photo pan directions (css/cine.css). */
+  --xf-hold: 3.5s; --xf-fade: 1s;
+  --kb-dur: 7s; --kb-scale: 1.12; --kb-pan: 1; --kb-tx: -3%; --kb-ty: -1.5%;
   --drift-dur: 22s; --drift-scale: 1.07; --drift-tx: -2.5%; --drift-ty: -1.5%;
   /* Spacing scale (EDITORIAL-BRIEF; DESIGN-SYSTEM.md): every gap, padding and margin in css/ds.css and the migrated
      sections comes from here. --section-y is the vertical rhythm between sections; --measure caps body lines. */
@@ -41,7 +44,7 @@
 /* Reduce Motion (macOS/iOS/Windows setting): photos still move, gently; the crossfade is slower (opacity fades are
    fine for vestibular users). Only large zoom/pan and scroll-linked effects are dropped. */
 @media (prefers-reduced-motion: reduce) {
-  :root { --xf-hold: 7s; --xf-fade: 2.2s; --kb-dur: 30s; --kb-scale: 1.03; --kb-tx: -1%; --kb-ty: -.5%;
+  :root { --xf-hold: 6s; --xf-fade: 1.5s; --kb-dur: 12s; --kb-scale: 1.05; --kb-pan: .4; --kb-tx: -1%; --kb-ty: -.5%;
     --drift-dur: 30s; --drift-scale: 1.03; --drift-tx: -1%; --drift-ty: -.5%; }
 }
 

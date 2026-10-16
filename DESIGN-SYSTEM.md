@@ -48,10 +48,10 @@ photos always move; Reduce Motion gets a gentler version, never none.
 | `--ease` | cubic-bezier(.22, .61, .36, 1) | same | UI: hovers, reveals, menus |
 | `--ease-io` | cubic-bezier(.45, 0, .25, 1) | same | photo zoom and drift |
 | `--dur-fast` / `--dur-ui` / `--dur-reveal` | 180ms / 280ms / 600ms | same (reveals show content, no slide) | UI |
-| `--xf-hold` | 6s | 7s | hero crossfade, time each photo holds |
-| `--xf-fade` | 1.4s | 2.2s | hero crossfade length |
-| `--kb-dur` | 20s, alternate | 30s | hero Ken Burns |
-| `--kb-scale` / `--kb-tx` / `--kb-ty` | 1.07 / −3% / −1.5% | 1.03 / −1% / −0.5% | hero Ken Burns |
+| `--xf-hold` | 3.5s | 6s | hero crossfade, time between photo changes (HERO2-BRIEF, Oct 17) |
+| `--xf-fade` | 1s | 1.5s | hero crossfade length |
+| `--kb-dur` | 7s (2 × hold), one push per photo | 12s | hero Ken Burns, from each photo's fade-in, easing out |
+| `--kb-scale` / `--kb-pan` | 1.12 / 1 (pan 4 to 6%, per photo) | 1.05 / .4 (about 2%) | hero Ken Burns; directions per photo in css/cine.css: 1 left and up, 2 right and down, 3 left and down |
 | `--drift-dur` | 22s, alternate | 30s | framed photos |
 | `--drift-scale` / `--drift-tx` / `--drift-ty` | 1.07 / −2.5% / −1.5% | 1.03 / −1% / −0.5% | framed photos |
 
@@ -69,13 +69,15 @@ photo and navy shade, below captions and text, `pointer-events: none`. It replac
 (riso-particles.js no longer loads on hero pages).
 
 ## Rules
-- **Hero:** 3 photos. Crossfade cycle = 3 × hold (18s; 21s under Reduce Motion); slot *i* starts at *i* × hold − fade,
-  so photo 1 is fully in at load. Ken Burns runs continuously on the `img` (ease-in-out, back and forth), independent
-  of the crossfade; the slide wrapper only fades. Desktop scales from the left edge, so the right overhang always
+- **Hero (HERO2-BRIEF, Oct 17):** 3 photos. Crossfade cycle = 3 × hold (10.5s; 18s under Reduce Motion); slot *i*
+  starts at *i* × hold − fade, so photo 1 is fully in at load. Ken Burns is locked to each photo's own cycle (same
+  duration and delay): from its fade-in the photo pushes from 1.00 to `--kb-scale` and pans in its own direction over
+  `--kb-dur` = 2 × hold, easing out, so about 95% of the push happens while it is on screen; it resets while
+  invisible. The slide wrapper only fades. Desktop scales from the left edge, so the right overhang always
   covers the drift; phones pan right to left (Reduce Motion: a short pan around the faces-centered frame).
 - **Framed photos** (closing CTA, results cases, contact, school photo rows): `pro-drift` at every width.
 - **Dropped under Reduce Motion:** big zoom/pan, parallax, scroll-linked effects. **Kept:** gentle zoom, crossfades.
-- Transform and opacity only; max zoom 1.07 for the 1600px sources; every animated photo sits in a clipping frame.
+- Transform and opacity only; max zoom 1.12 for the 1600px sources (at 1440 that is 1.21 to 1.53 source px per CSS px, sharp at 1x; 0.60 to 0.77 on 2x screens); every animated photo sits in a clipping frame.
 - **Reveals** are gated on `html.js` (content never hidden without JavaScript); none inside the hero.
 - **Header:** plain CSS `position: sticky; top: 0`, solid ground, hairline bottom; no hide-on-scroll, no transform.
   The banner scrolls away above it; its space is reserved from first paint.

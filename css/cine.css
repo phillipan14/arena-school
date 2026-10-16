@@ -13,7 +13,7 @@
    slot --i starts at i x hold - fade, so photo 1 is fully in at load.
    Ken Burns: continuous and independent of the crossfade (--kb-dur, ease-in-out, back and forth).
    Desktop: the photo is right-anchored at the hero's height (no upscaling past cover), its left edge melting into
-   the navy behind the copy; it drifts right to left and up with a slow zoom (scale 1 to --kb-scale, 1.07 max:
+   the navy behind the copy; it pushes in and pans with each photo (scale 1 to --kb-scale, 1.12 max, see HERO2 below:
    1600px sources). transform-origin is the left edge, so the right overhang (scale - 1) always covers the drift.
    Phones/tablets: the photo sits in a band under the nav (copy below) and pans right to left with a slow zoom.
    Reduce Motion: the same, gentler (tokens), with a slower crossfade; nothing is switched off. */
@@ -197,3 +197,31 @@ html body main section.cine-hero .hr-rot.is-xfade > span.is-out { opacity: 0; tr
   html body main section.cine-hero .hr-rot.is-xfade > span,
   html body main section.cine-hero .hr-rot.is-xfade > span:is(.is-on, .is-out) { transform: none !important; filter: none; transition: opacity var(--xfade) linear !important; }
 }
+
+/* ---------- HERO2-BRIEF B (Oct 17, 2026): faster, clearly visible photo motion ----------
+   Tokens (css/pro.css): a change every --xf-hold (3.5s) with a --xf-fade (1s) crossfade; Reduce Motion 6s and 1.5s.
+   Ken Burns is now locked to each photo's own crossfade cycle (same duration, 3 x hold, and the same delay), so
+   every photo starts its push as it fades in: scale 1 to --kb-scale (1.12; Reduce Motion 1.05) and a pan in its
+   own direction (--kx/--ky below, x --kb-pan) over --kb-dur = 2 x hold (66.67% of the cycle), easing out, so about
+   95% of the push happens while the photo is on screen. The reset to the start happens while it is invisible. */
+.cine-slide:nth-child(1) { --kx: -5%; --ky: -2.5%; }   /* left and up */
+.cine-slide:nth-child(2) { --kx: 4.5%; --ky: 2%; }     /* right and down */
+.cine-slide:nth-child(3) { --kx: -6%; --ky: 2.5%; }    /* left and down */
+.cine-media.n-3.is-cycling .cine-slide, .cine-caps.n-3.is-cycling span { animation-name: cine-fade2; }
+/* 10.5s cycle: fade in 1s (9.52%), hold to 3.5s (33.33%), fade out by 4.5s (42.86%) while the next fades in */
+@keyframes cine-fade2 { 0% { opacity: 0; } 9.52% { opacity: 1; } 33.33% { opacity: 1; } 42.86% { opacity: 0; } 100% { opacity: 0; } }
+/* Reduce Motion, 18s cycle: fade in 1.5s (8.33%), hold to 6s, fade out by 7.5s (41.67%) */
+@keyframes cine-fade2-r { 0% { opacity: 0; } 8.33% { opacity: 1; } 33.33% { opacity: 1; } 41.67% { opacity: 0; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .cine-media.n-3.is-cycling .cine-slide, .cine-caps.n-3.is-cycling span { animation-name: cine-fade2-r; } }
+.cine-media.is-live.is-cycling .cine-slide img {
+  animation: cine-kb2 calc(3 * var(--xf-hold, 3.5s)) linear infinite both;
+  animation-delay: calc(var(--i, 0) * var(--xf-hold, 3.5s) - var(--xf-fade, 1s)); }
+@keyframes cine-kb2 {
+  0% { transform: translate3d(0, 0, 0) scale(1); animation-timing-function: cubic-bezier(.22, .61, .36, 1); }
+  66.67%, 100% { transform: translate3d(calc(var(--kx, -5%) * var(--kb-pan, 1)), calc(var(--ky, -2%) * var(--kb-pan, 1)), 0) scale(var(--kb-scale, 1.12)); } }
+@media (max-width: 900px) {
+  .cine-media.is-live.is-cycling .cine-slide img { animation-name: cine-kb2-m; }
+}
+@keyframes cine-kb2-m {
+  0% { transform: translate3d(calc((100cqw - 100%) * var(--pa)), 0, 0) scale(1); animation-timing-function: cubic-bezier(.22, .61, .36, 1); }
+  66.67%, 100% { transform: translate3d(calc((100cqw - 100%) * var(--pb)), calc(var(--ky, -2%) * var(--kb-pan, 1)), 0) scale(var(--kb-scale, 1.12)); } }
