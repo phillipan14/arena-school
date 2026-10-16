@@ -107,12 +107,10 @@ html[lang="zh-CN"] .php-teamsec .hp-cred-head .eyebrow{font-size:13.5px !importa
 .php-person .php-t1{font:500 18px/1.2 'Newsreader',Georgia,serif;color:var(--ph-ink)}
 html[lang="zh-CN"] .php-person .php-t1{font-family:'Arena Serif SC','Noto Serif SC','Songti SC',serif;font-size:var(--text-md)}
 .php-person .php-t2{margin-top:2px}
-.php-logos{margin:var(--space-5) calc(-1 * var(--ph-gut)) 0;overflow:hidden}
-.php-logos-track{display:flex;width:max-content;animation:phpLogos 38s linear infinite}
 .php-logos-set{display:flex;align-items:center;gap:var(--space-6);padding-right:var(--space-6);height:32px}
 .php-logos-set img{display:block;flex:none;width:auto;max-width:none}
 @keyframes phpLogos{to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion:reduce){.php-logos{overflow-x:auto;scrollbar-width:none}.php-logos-track{animation:none;padding:0 var(--ph-gut)}.php-logos-set[aria-hidden]{display:none}}
+@media (prefers-reduced-motion:reduce){.php-logos-set[aria-hidden]{display:none}}
 
 /* ---------- 5. FAQ (every page): one grouped container, the whole row toggles ---------- */
 main:is(.pc-faq-wrap,.pp-faq-wrap){gap:0 !important;row-gap:0 !important}

@@ -111,8 +111,6 @@ html[lang="zh-CN"] main:is(.pc-facts,.pp-glance) b{text-transform:none}
 body.home section.hero-riso.hero-full{min-height:0 !important;height:auto !important;padding:var(--space-4) 0 var(--space-5) !important}
 body.home .hero-riso-grid{padding:0 var(--ph-gut) !important;gap:var(--space-3) !important;row-gap:var(--space-3) !important;min-height:0 !important}
 body.home .hero-art{margin:0 auto !important;padding:0 !important}
-body.home .seal-flip,body.home .seal-card{width:116px !important;height:116px !important}
-body.home .seal-card img{width:100% !important;height:auto !important}
 body.home .hero-riso-copy{margin:0 !important;padding:0 !important}
 body.home .hero-riso .hero-eyebrow-row{display:none !important}
 body.home .hero-riso-h1{margin:0 0 var(--space-3) !important}
@@ -430,12 +428,10 @@ html[lang="zh-CN"] .php-teamsec .hp-cred-head .eyebrow{font-size:13.5px !importa
 .php-person .php-t1{font:500 18px/1.2 'Newsreader',Georgia,serif;color:var(--ph-ink)}
 html[lang="zh-CN"] .php-person .php-t1{font-family:'Arena Serif SC','Noto Serif SC','Songti SC',serif;font-size:var(--text-md)}
 .php-person .php-t2{margin-top:2px}
-.php-logos{margin:var(--space-5) calc(-1 * var(--ph-gut)) 0;overflow:hidden}
-.php-logos-track{display:flex;width:max-content;animation:phpLogos 38s linear infinite}
 .php-logos-set{display:flex;align-items:center;gap:var(--space-6);padding-right:var(--space-6);height:32px}
 .php-logos-set img{display:block;flex:none;width:auto;max-width:none}
 @keyframes phpLogos{to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion:reduce){.php-logos{overflow-x:auto;scrollbar-width:none}.php-logos-track{animation:none;padding:0 var(--ph-gut)}.php-logos-set[aria-hidden]{display:none}}
+@media (prefers-reduced-motion:reduce){.php-logos-set[aria-hidden]{display:none}}
 
 /* ---------- 5. FAQ (every page): one grouped container, the whole row toggles ---------- */
 main:is(.pc-faq-wrap,.pp-faq-wrap){gap:0 !important;row-gap:0 !important}
@@ -843,13 +839,12 @@ main.pc-conf .ph-seg button{font-size:var(--text-sm);padding:0 var(--space-1)}
   --ph-check-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5.5 12.5l4.2 4.2 8.8-9.4'/%3E%3C/svg%3E");
 }
 /* shared bits */
-body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .ph-cv::after,
+
 body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) :is(.pg-pillar,.pg-prog,.pg-adult,.pg-route,.pg-gl > a,.pg-proof-go,.ph-xrow)::after{
   content:"";flex:none;width:18px;height:18px;background:currentColor;opacity:.4;
   -webkit-mask:var(--ph-chev-mask) center/18px 18px no-repeat;mask:var(--ph-chev-mask) center/18px 18px no-repeat}
 body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-k{display:block;margin-bottom:var(--space-2) !important;font:600 12.5px/1.3 'Geist',system-ui,sans-serif !important;letter-spacing:.12em !important;color:var(--pg-mut) !important;padding-left:2px}
 html[lang="zh-CN"] body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-k{font-size:13.5px !important;letter-spacing:.04em !important}
-body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-note{font-size:15px !important;line-height:1.55 !important;color:var(--ph-soft) !important;margin:var(--space-3) 2px 0 !important}
 /* an inline link that became a row below its paragraph:read as plain text, tap the row instead */
 body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .ph-inlined{color:inherit !important;text-decoration:none !important;pointer-events:none;font-weight:inherit !important}
 body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .ph-xlist{margin:var(--space-4) 0 0 !important}
@@ -862,7 +857,6 @@ body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-cont
    ===================================================================== */
 body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof{display:block !important;margin-top:var(--space-6) !important;border:0 !important;border-top:1px solid var(--ph-line) !important;text-align:left !important}
 body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof > *{display:flex !important;padding:var(--space-4) 2px !important;border:0 !important;border-bottom:1px solid var(--ph-line) !important;text-align:left !important;align-items:flex-start !important}
-body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof-judges{flex-direction:column !important;gap:var(--space-3)}
 body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof-k{margin:0 !important;font-size:15px !important;line-height:1.45 !important;color:var(--ph-soft) !important;text-align:left !important}
 body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof-logos{display:flex !important;flex-wrap:wrap !important;align-items:center !important;justify-content:flex-start !important;gap:var(--space-2) var(--space-4) !important}
 body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof-logos img{height:26px !important;width:auto !important}
@@ -871,9 +865,9 @@ body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-cont
 body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof-logos span{font:400 17px/1 var(--font-display) !important;color:var(--ph-ink) !important;white-space:nowrap}
 /* staff training:logos, then the line */
 body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof-stat:not(:has(> b:not(.pg-proof-logos2))){flex-direction:column !important;gap:var(--space-2)}
-body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof-logos2,body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .ap-cred-logos{display:flex !important;align-items:center !important;justify-content:flex-start !important;gap:var(--space-4) !important;min-height:0 !important;margin:0 !important}
-body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof-logos2 img[alt="Tsinghua University"],body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .ap-cred-tsinghua{height:26px !important}
-body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof-logos2 img[alt="Schwarzman College"],body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .ap-cred-schwarzman{height:22px !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof-logos2{display:flex !important;align-items:center !important;justify-content:flex-start !important;gap:var(--space-4) !important;min-height:0 !important;margin:0 !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof-logos2 img[alt="Tsinghua University"]{height:26px !important}
+body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof-logos2 img[alt="Schwarzman College"]{height:22px !important}
 body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof-stat > span span{font-size:inherit !important;color:inherit !important}
 body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-proof-stat > span{margin:0 !important;font-size:15px !important;line-height:1.45 !important;color:var(--ph-soft) !important;text-align:left !important}
 /* the score:number left, caption right, one row */
@@ -892,7 +886,6 @@ body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-cont
 body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-steps:not(.is-3) > .pg-step{position:relative;display:block !important;margin:0 !important;padding:0 0 var(--space-5) var(--space-7) !important;border:0 !important;background:none !important;border-radius:0 !important;box-shadow:none !important;min-height:0 !important}
 body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-steps:not(.is-3) > .pg-step:last-child{padding-bottom:0 !important}
 body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-steps:not(.is-3) > .pg-step:not(:last-child)::before{content:"";position:absolute;left:var(--space-4);top:var(--space-6);bottom:var(--space-1);width:2px;background:rgba(34,69,138,.22);border-radius:1px}
-body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-steps .pg-step-n{position:absolute;left:0;top:0;display:grid !important;place-items:center;width:36px;height:36px;margin:0 !important;padding:0 !important;border:1.5px solid var(--ph-blue) !important;border-radius:50%;background:var(--ph-surface);font:500 15px/1 'Geist',system-ui,sans-serif !important;color:var(--ph-blue) !important;letter-spacing:0}
 body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-steps .pg-step small{display:block;margin:0 0 2px;padding-top:1px;font:600 15px/1.35 'Geist',system-ui,sans-serif !important;letter-spacing:0 !important;text-transform:none !important;color:var(--ph-blue2) !important}
 html[lang="zh-CN"] body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-steps .pg-step small{font-size:15px !important;letter-spacing:.02em !important}
 body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-steps .pg-step h3{margin:0 0 var(--space-1) !important;padding:0 !important;border:0 !important;font:400 20px/1.25 var(--font-display) !important;color:var(--ph-ink) !important}
@@ -992,7 +985,6 @@ body.pg-approach .ap-pcards.ph-segd > .ap-pcard:not(.ph-on){display:none !import
 body.pg-approach .ap-pcards.ph-segd > .ap-pcard{opacity:1 !important;transform:none !important;scroll-margin-top:var(--space-8)}
 body.pg-approach .ap-pcard,body.pg-approach .ap-pcard:focus-within{border-radius:var(--ph-r) !important;border:1px solid var(--ph-line) !important;background:var(--ph-surface) !important;box-shadow:none !important;transform:none !important}
 body.pg-approach .ap-pcard figure{aspect-ratio:16/8.5 !important}
-body.pg-approach .ap-pcard .pg-pcard-body{padding:var(--space-4) var(--space-4) var(--space-1) !important;gap:0 !important}
 body.pg-approach .ap-pcard-align{min-height:0 !important;gap:0 !important}
 body.pg-approach .ap-pcard h3{display:none !important}
 body.pg-approach .ap-pcard .pg-tag{margin:0 0 var(--space-2) !important;font:400 21px/1.3 var(--font-display) !important;color:var(--ph-ink) !important}
@@ -1024,18 +1016,13 @@ body.pg-approach .ap-pcard .gc-more li strong{display:block;color:var(--ph-ink);
 body.pg-approach .ap-timeline{--tc:114px;display:block !important;padding:0 !important}
 body.pg-approach .ap-timeline::before,body.pg-approach .ap-timeline::after{left:calc(var(--tc) + var(--space-5)) !important;top:var(--space-2) !important;width:2px !important}
 body.pg-approach .ap-timeline::before{bottom:var(--space-2) !important;height:auto !important;background:rgba(34,69,138,.18) !important}
-body.pg-approach .ap-timeline-wrap.in .ap-timeline::after{height:calc(100% - 20px) !important}
 body.pg-approach .ap-tl-item{display:grid !important;grid-template-columns:var(--tc) 20px 1fr !important;grid-template-areas:"time node title" "time node desc" !important;column-gap:var(--space-3) !important;padding:0 0 var(--space-5) !important;opacity:1 !important}
 body.pg-approach .ap-tl-time{grid-area:time;margin:var(--space-1) 0 0 !important;text-align:right;font:600 12.5px/1.35 'Geist',system-ui,sans-serif !important;letter-spacing:.06em !important;color:var(--pg-mut) !important;white-space:normal}
 html[lang="zh-CN"] body.pg-approach .ap-tl-time{font-size:13px !important;letter-spacing:.02em !important}
-body.pg-approach .ap-tl-node{grid-area:node;margin:var(--space-1) 0 0 !important;width:12px !important;height:12px !important;justify-self:center}
-body.pg-approach .ap-tl-title{grid-area:title;margin:0 0 var(--space-1) !important;font:400 19px/1.3 var(--font-display) !important;color:var(--ph-ink) !important}
 body.pg-approach .ap-tl-desc{grid-area:desc;margin:0 !important;font-size:15.5px !important;line-height:1.5 !important;color:var(--ph-soft) !important;opacity:1 !important}
 html[lang="zh-CN"] body.pg-approach .ap-tl-desc{line-height:1.7 !important}
 /* formats + take-home */
-body.pg-approach .ap-foot{margin-top:var(--space-6) !important;border:0 !important}
-body.pg-approach .ap-foot-row{display:block !important;padding:0 !important;border:0 !important}
-body.pg-approach .ap-foot-row + .ap-foot-row{margin-top:var(--space-5)}
+
 body.pg-approach .ap-foot-lab{display:block;margin:0 0 var(--space-2) 2px;font:600 12.5px/1.3 'Geist',system-ui,sans-serif !important;letter-spacing:.12em !important;color:var(--pg-mut) !important}
 html[lang="zh-CN"] body.pg-approach .ap-foot-lab{font-size:13.5px !important;letter-spacing:.04em !important}
 body.pg-approach .ap-foot-list{display:block !important;background:var(--ph-surface);border:1px solid var(--ph-line);border-radius:var(--ph-r);overflow:hidden}
@@ -1048,8 +1035,6 @@ body.pg-approach .ap-foot-text{font-size:var(--text-base) !important;line-height
    SCHOOLS: program rows (thumbnail, title, meta, chevron)
    ===================================================================== */
 body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) :is(.pg-progs,.pg-adults){display:block !important;overflow:hidden !important;margin:0 !important;padding:0 !important;list-style:none;background:var(--ph-surface);border:1px solid var(--ph-line);border-radius:var(--ph-r);scroll-snap-type:none !important}
-body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-progs > li{margin:0 !important}
-body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-progs > li + li,body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-adults > .pg-adult + .pg-adult{border-top:1px solid var(--ph-line) !important}
 body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) :is(.pg-prog,.pg-adult){display:flex !important;flex-direction:row !important;align-items:center !important;gap:var(--space-3);min-height:84px;height:auto !important;padding:var(--space-3) var(--space-3) var(--space-3) var(--space-3) !important;border:0 !important;border-radius:0 !important;background:none !important;color:var(--ph-ink) !important;text-decoration:none !important;box-shadow:none !important;opacity:1}
 body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) :is(.pg-prog,.pg-adult):active{background:rgba(34,69,138,.07) !important}
 body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) :is(.pg-prog,.pg-adult) figure{flex:none;width:60px !important;height:60px !important;aspect-ratio:auto !important;margin:0 !important;border:0 !important;border-radius:12px !important;overflow:hidden}
@@ -1058,7 +1043,6 @@ body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-cont
 body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) :is(.pg-prog,.pg-adult) b{order:1;font:400 18.5px/1.25 var(--font-display) !important;color:var(--ph-ink) !important}
 body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) :is(.pg-prog,.pg-adult) small{order:2;font:400 15px/1.35 'Geist',system-ui,sans-serif !important;letter-spacing:0 !important;text-transform:none !important;color:var(--pg-mut) !important}
 body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) :is(.pg-prog,.pg-adult) :is(.card-p,.pg-go){display:none !important}
-body:is(.pg-about,.pg-approach,.pg-schools,.pg-partnerships,.pg-results,.pg-contact-page,.pg-enroll-page) .pg-adults{margin-top:0 !important}
 
 /* =====================================================================
    PARTNERSHIPS: your side / our side / commercials as grouped lists
@@ -1222,7 +1206,6 @@ body.pg-approach .ap-where{font:600 15px/1.35 'Geist',system-ui,sans-serif !impo
 html[lang="zh-CN"] body.pg-approach .ap-where{font-size:15px !important}
 body.pg-approach .ap-tl-time{font:500 15px/1.3 'Geist',system-ui,sans-serif !important;letter-spacing:0 !important;text-transform:none !important}
 html[lang="zh-CN"] body.pg-approach .ap-tl-time{font-size:15px !important}
-body.pg-approach .ap-tl-node{margin-top:var(--space-1) !important}
 body.pg-contact-page .pg-route small{font:600 15px/1.3 'Geist',system-ui,sans-serif !important;letter-spacing:0 !important;text-transform:none !important;color:var(--ph-blue2) !important}
 html[lang="zh-CN"] body.pg-contact-page .pg-route small{font-size:15px !important}
 body.pg-contact-page .pg-form-card .form-row label{font-size:13px !important}
@@ -1235,19 +1218,7 @@ body.pg-results .pg-gl > a .ph-chev,body.pg-results .pg-gl > a svg:last-child{tr
 }
 @media (max-width:760px){
 /* Audience pages (2026-10-16): promise cards stack as rows, links and the programs line stay tappable */
-body.pg-schools .aud-outs{display:grid !important;grid-template-columns:1fr !important;grid-auto-flow:row !important;grid-auto-columns:auto !important;overflow:visible !important;scroll-snap-type:none !important;gap:var(--space-3) !important;padding:0 !important;margin:0 !important}
-body.pg-schools .aud-outs > li{padding:var(--space-4) var(--space-4) var(--space-4) !important;gap:var(--space-2) !important}
-body.pg-schools .aud-outs small{padding-bottom:var(--space-2) !important;font-size:20px !important}
-body.pg-schools .aud-outs b{font-size:var(--text-lg) !important}
-body.pg-schools .aud-outs .card-p{font-size:15.5px !important;line-height:1.55 !important}
-html[lang="zh-CN"] body.pg-schools .aud-outs .card-p{line-height:1.75 !important}
-body.pg-schools .aud-links{gap:0 var(--space-4) !important}
-body.pg-schools .aud-links a{display:inline-flex;align-items:center;min-height:var(--tap);font-size:15.5px}
-body.pg-schools .aud-plist{display:block !important}
-body.pg-schools .aud-plist-k{display:block;margin-bottom:var(--space-1);font-size:var(--text-xs) !important}
-html[lang="zh-CN"] body.pg-schools .aud-plist-k{font-size:13px !important}
-body.pg-schools .aud-plist-row{display:block !important}
-body.pg-schools .aud-plist-row a{display:flex;align-items:center;min-height:var(--tap);font-size:var(--text-base);border-bottom:1px solid var(--ph-line)}
+
 body.pg-schools .pg-proof.aud-proof{grid-template-columns:1fr !important}
 }
 

@@ -50,7 +50,6 @@ html[lang="zh-CN"] .nl-p{line-height:1.8}
 .nl-sheet.on .nl-sheet-bg{opacity:1}
 .nl-sheet.on .nl-sheet-panel{opacity:1;transform:none}
 .nl-sheet-top{display:flex;justify-content:flex-end;margin:-10px -12px 4px 0}
-.nl-grab{display:none}
 .nl-x{display:grid;place-items:center;width:44px;height:44px;border:0;background:none;border-radius:999px;color:#4A5470;cursor:pointer}
 .nl-x svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
 .nl-sheet .nl-h{font-size:26px}
@@ -86,7 +85,6 @@ html[lang="zh-CN"] .nl-h{font-size:21px;line-height:1.5}
 .nl-sheet.on .nl-sheet-panel{transform:none;opacity:1}
 .nl-sheet-top{position:sticky;top:-18px;z-index:2;height:0;margin:0;justify-content:flex-end}
 .nl-sheet-top .nl-x{margin:-10px -10px 0 0;background:#FFFFFF;border-radius:999px}
-.nl-grab{display:none}
 .nl-sheet .nl-k{padding-right:36px;font-size:11.5px;letter-spacing:.12em}
 .nl-sheet .nl-h{font-size:21px;margin:8px 0 6px;line-height:1.22}
 html[lang="zh-CN"] .nl-sheet .nl-h{font-size:20px;line-height:1.4}

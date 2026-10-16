@@ -2,20 +2,11 @@
    Builds on pages.css (.pg-outs cards, .pg-steps, .pg-proof). Phone rules live in phone/50-pages.css. */
 
 /* Promise cards: links pinned to the card foot so a row's links line up (DESIGN §5.2 equal heights) */
-.aud-outs li { height: 100%; }
-.aud-outs .aud-links { margin-top: auto; padding-top: 4px; display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 14.5px; }
 
 /* Programs row, merged into the promise section: one quiet line of links, not a second catalog */
-.aud-plist { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 22px; margin-top: clamp(22px, 2.4vw, 30px); padding-top: 18px; border-top: 1px solid var(--border-paper, #E2E6EE); }
-.aud-plist-k { font: 500 10.5px/1.35 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--text-ink-muted); }
-:lang(zh) .aud-plist-k { font-size: 12.5px; letter-spacing: .04em; }
-.aud-plist-row { display: flex; flex-wrap: wrap; gap: 8px 22px; }
-.aud-plist-row a { font-size: 15px; font-weight: 500; color: var(--accent, #22458A); text-decoration: none; white-space: nowrap; }
-.aud-plist-row a::after { content: " \2192"; }
-.aud-plist-row a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 /* Technology teams: 4-up promise row */
-@media (min-width: 901px) { .aud-outs.aud-outs-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
 /* Technology teams proof: two facts and the results link */
 @media (min-width: 901px) { .pg-proof.aud-proof { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto; } }
 @media (min-width: 761px) and (max-width: 900px) { .pg-proof.aud-proof > .pg-proof-stat:nth-child(2) { border-left: 1px solid var(--pg-line); padding-left: 16px; } .pg-proof.aud-proof > .pg-proof-stat:first-child { border-left: 0; } }

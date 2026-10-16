@@ -195,7 +195,6 @@ html body main .ds-section { padding-block: var(--space-8); }
 .ds-stat-t { margin: 0; font-size: var(--text-base); line-height: 1.5; color: var(--pro-text); }
 .ds-stat-src { margin-top: auto; padding-top: var(--space-3); border-top: var(--hairline); font-size: var(--text-xs); line-height: 1.45; color: var(--pro-soft); }
 .ds-stat-src a { color: var(--pro-ink-2); text-decoration: underline; text-decoration-color: var(--pro-line-2); text-underline-offset: 2px; }
-.ds-stats-note { margin: var(--space-4) 0 0; font-size: var(--text-xs); color: var(--pro-soft); }
 
 .ds-cases { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); gap: var(--space-5); }
 .ds-case { display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-6); border: var(--hairline); border-radius: var(--radius-card); background: var(--pro-bg); }

@@ -53,7 +53,6 @@ section.cine-hero { --cine-top: 0px; }
 .cine-caps span:first-child { opacity: 1; }
 .cine-caps i { font-style: normal; }
 
-
 /* ---------- Phones and tablets: photo band under the nav, copy below, right-to-left pan ---------- */
 @media (max-width: 900px) {
   .cine-media { --band: clamp(300px, 48svh, 460px); top: var(--cine-top, 0px); bottom: auto; height: var(--band); container-type: inline-size; }
@@ -160,7 +159,6 @@ html body main section.cine-hero .zl-hero-hosted img { filter: brightness(0) inv
   /* Reduce Motion on phones: a short pan around the faces-centered frame instead of the full sweep */
   .cine-slide { --pa: var(--ps) !important; --pb: max(0, calc(var(--ps) - .08)) !important; }
 }
-
 
 /* ---------- Rotating audience word (homepage) ----------
    hero-rotator.js sets the slot's width to the current word and animates it (400ms ease-in-out) between

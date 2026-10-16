@@ -1,8 +1,6 @@
 /* Team block (institution logo rows + marquee) for inner pages. Mirrors the homepage rules in
    css/index.css with the prefix removed; keep the two in sync. */
-.hp-cred-k { margin: 44px 0 6px; text-align: center; font: 500 10.5px/1 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--text-ink-muted); }
-.hp-lead .hp-cred-k { margin-top: 8px; }
-.about-creds .hp-cred-k { margin-top: 0; }
+
 .hp-cred { padding-block: clamp(72px, 9vw, 120px) !important; background: var(--paper-hi, #FFFFFF) !important; border-block: 1px solid var(--border-paper); }
 .hp-cred-head { text-align: center; max-width: 720px; margin: 0 auto clamp(40px, 5vw, 56px); }
 .hp-cred-head .eyebrow { margin: 0 auto; }
@@ -15,15 +13,12 @@
 .hp-cred-row li { display: flex; align-items: center; opacity: .82; filter: grayscale(1); transition: opacity .25s, filter .25s, transform .25s; }
 .hp-cred-row li:hover { opacity: 1; filter: none; transform: translateY(-2px); }
 .hp-cred-row img { width: auto; display: block; }
-.hp-isb { font: 500 15px/1.15 var(--font-display); color: var(--ink); text-align: left; }
-.hp-cred-more { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin: 22px 0 0; font-size: 14.5px; color: var(--text-ink-soft); }
 @media (max-width: 760px) {
   .hp-cred-row { grid-template-columns: 1fr; gap: 16px; }
   .hp-cred-row ul { justify-content: flex-start; gap: 18px 26px; }
   .hp-cred-row img { max-height: 28px; }
 }
-.hp-cred-cta { margin: 26px 0 0; text-align: center; }
-#programs .prog-links a, .hp-next .tlink, .pillars .tlink, .hp-cred-cta .btn { transition: color .2s, gap .2s; }
+#programs .prog-links a, .hp-next .tlink, .pillars .tlink{ transition: color .2s, gap .2s; }
 .hp-cred-row img[alt="Y Combinator"] { height: 30px !important; opacity: .85; }
 .hp-cred-row li { transition: opacity .25s, filter .25s, transform .3s var(--e); }
 @media (max-width: 760px) {
@@ -36,7 +31,6 @@
   .hp-cred-row img[alt*="McKinsey"], .hp-cred-row img[alt="麦肯锡"] { max-height: 16px !important; }
   .hp-cred-row img[alt="Y Combinator"] { max-height: 24px !important; }
   .hp-cred-row img[alt*="Tsinghua"], .hp-cred-row img[alt="清华大学"] { max-height: 30px !important; }
-  .hp-isb { font-size: 12.5px; }
 }
 @media (max-width: 760px) {
   .hp-cred-lab { text-align: center; }
@@ -45,8 +39,6 @@
   .hp-cred-row img[alt="Brown University"], .hp-cred-row img[alt="布朗大学"] { max-height: 30px !important; }
   .hp-cred-row img[alt="Harvard University"], .hp-cred-row img[alt="哈佛大学"] { max-height: 28px !important; }
   .hp-cred-row img[alt*="McKinsey"], .hp-cred-row img[alt="麦肯锡"] { max-height: 18px !important; }
-  .hp-isb { font-size: 13px; }
-  .hp-isb br { display: none; }
 }
 @media (max-width: 700px) {
   .hp-cred-row img[alt="International School of Beijing"], .hp-cred-row img[alt="北京顺义国际学校"] { max-height: 32px !important; }

@@ -10,6 +10,15 @@ import re
 import sys
 
 
+def dead_sel(sel, pat):
+    """A selector is dead only when a dead class sits outside parentheses: there it must match for the selector
+    to match. Inside :not(), :is(), :where(), or :has() it may be optional or negated, so the selector stays."""
+    for m in pat.finditer(sel):
+        if sel[:m.start()].count('(') == sel[:m.start()].count(')'):
+            return True
+    return False
+
+
 def prune_css(css, dead):
     pat = re.compile(r'(?<![\w-])\.(%s)(?![\w-])' % '|'.join(re.escape(c) for c in dead))
     out, i, n, removed = [], 0, len(css), 0
@@ -36,7 +45,7 @@ def prune_css(css, dead):
                 out.append(lead.rstrip(' ') if lead.strip() else lead)
         else:
             parts = [p for p in re.split(r',(?![^()]*\))', sel)]
-            keep = [p for p in parts if not pat.search(p)]
+            keep = [p for p in parts if not dead_sel(p, pat)]
             removed += len(parts) - len(keep)
             if keep:
                 out.append(lead + ','.join(keep) + '{' + body + '}')

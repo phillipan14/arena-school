@@ -87,9 +87,6 @@ html.js .ap-wheel.reveal .apw-g-out { transition-delay: .36s; }
 .ap-fw-note em { color: var(--pro-ink); }
 
 /* ---------- 3. Strands ---------- */
-.ap-domain { display: grid; gap: var(--space-3); align-content: start; }
-.ap-domain .ap-num { margin-top: var(--space-4); font: 500 var(--text-sm)/1 'Newsreader', Georgia, serif; color: var(--pro-ink-2); }
-.ap-domain p { margin: 0; font-size: var(--text-base); line-height: 1.55; color: var(--pro-soft); }
 
 /* ---------- 4. One week (the matrix lives in ds.css) ---------- */
 .ap-ex-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-3) var(--space-5); margin: var(--space-6) 0 0; font-size: var(--text-base); color: var(--pro-soft); }

@@ -47,7 +47,7 @@
 
 /* ---------- Ground and textures ---------- */
 html body { background: var(--pro-bg) !important; background-image: none !important; }
-html body .hero-bg, html body [data-riso-field], html body .hero-scrim, html body .dots-canvas, html body .page-art { display: none !important; }
+html body .hero-bg, html body [data-riso-field]{ display: none !important; }
 html body [data-dots] { background-image: none !important; }
 html body .section-alt { background: var(--pro-alt) !important; }
 /* dot grids, halftones, and the rotating seal watermark are retired (magazine texture) */
@@ -55,7 +55,6 @@ html body section.hero-opt:not(#pro) { background-image: none !important; }
 html body section.hero-opt.hero-opt-A:not(#pro)::before { display: none !important; }
 html body :is(.pp-cta-band, .pp-final, .dark-band, section.pp-cta-band)::before { background-image: none !important; }
 html body :is(.pp-cta-band, .pp-final, .zl-hero) { background-image: none !important; }
-html body .zl-hero::after { background-image: none !important; }
 html body :is(.hmark, .hw)::after { display: none !important; }
 
 /* ---------- Heroes: light, structured, hairline below ---------- */
@@ -73,7 +72,7 @@ html body .hero-inv a:not(.btn) { color: var(--pro-ink-2) !important; }
 html body .nav, html body .nav.scrolled { background: rgba(255, 255, 255, .96) !important; border-bottom: 1px solid var(--pro-line) !important; -webkit-backdrop-filter: saturate(1.2) blur(10px); backdrop-filter: saturate(1.2) blur(10px); }
 html body.zl-page .nav :is(.wordmark, .nav-links a, .nav-toggle, .nav-dd-btn) { color: var(--pro-soft) !important; }
 html body.zl-page .nav :is(.nav-links a:hover, .nav-dd-btn:hover, .nav-dd.open .nav-dd-btn) { color: var(--pro-ink) !important; }
-html body.zl-page .nav .nav-lockup, html body.zl-page .nav .nav-crest { filter: none !important; }
+html body.zl-page .nav .nav-lockup{ filter: none !important; }
 html body.zl-page .nav .lang-switch { background: #fff !important; border-color: var(--pro-line) !important; }
 html body.zl-page .nav .lang-switch a:not(.lang-active) { color: var(--pro-soft) !important; }
 html body.zl-page .nav .lang-switch a.lang-active { background: var(--pro-ink) !important; color: #fff !important; }
@@ -162,7 +161,7 @@ html[lang^="zh"] .pro-logos > span { letter-spacing: .04em; font-size: 12.5px; }
 @media (max-width: 760px) { .pro-logos { grid-template-columns: 1fr; } .pro-logos ul { gap: 12px 22px; } }
 
 /* ---------- Photo-led program heroes: a large real photo band under the hero copy ---------- */
-.pro-hero-media { position: relative; z-index: 2; margin-top: clamp(28px, 4vw, 48px); }
+
 .pro-photo.is-wide { aspect-ratio: 2 / 1; border-radius: 14px; }
 .pro-photo.is-wide img { object-position: var(--focus, 50% 40%); }
 @media (max-width: 760px) { .pro-photo.is-wide { aspect-ratio: 3 / 2; border-radius: 12px; } }

@@ -108,8 +108,6 @@ html[lang="zh-CN"] main:is(.pc-facts,.pp-glance) b{text-transform:none}
 body.home section.hero-riso.hero-full{min-height:0 !important;height:auto !important;padding:var(--space-4) 0 var(--space-5) !important}
 body.home .hero-riso-grid{padding:0 var(--ph-gut) !important;gap:var(--space-3) !important;row-gap:var(--space-3) !important;min-height:0 !important}
 body.home .hero-art{margin:0 auto !important;padding:0 !important}
-body.home .seal-flip,body.home .seal-card{width:116px !important;height:116px !important}
-body.home .seal-card img{width:100% !important;height:auto !important}
 body.home .hero-riso-copy{margin:0 !important;padding:0 !important}
 body.home .hero-riso .hero-eyebrow-row{display:none !important}
 body.home .hero-riso-h1{margin:0 0 var(--space-3) !important}
