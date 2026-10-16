@@ -1,5 +1,40 @@
 # Notes for Phillip: ACAMIS deck restructure (Oct 16)
 
+## Pass 11 (Oct 16, late night): one main code on the close, no repeated photos, and the Arena mark on every slide
+
+**Slide 25, the close** (your note: "we don't need individual QR codes… just one main one with all the logos of our team", and the Anthropic and OpenAI logos)
+- **The WhatsApp QR codes are gone** from your card and Jing Jing's. Each card keeps the photo, name, "Co-founder, Arena School", and WeChat ID as text. The team label now reads "WeChat is the fastest way to reach us".
+- **One main block at the bottom:** the navy session code (the same arenaschool.org code as the cover: today's slides, checklist, and tool guide) joined in one panel with the greyscale "Our team studied at" and "Our team worked at" logo rows.
+- **"Member of" Anthropic (Startup Program) and OpenAI (Partner Network)** now sits in the team row, next to the two cards, at full size. (It was already on the Pass 10 slide, at the bottom right. If it looked missing, you were likely looking at the public PDF, which was last exported before Passes 6 to 11 (see "Not done" below).)
+- The five pillars are unchanged. The click order is unchanged: pillars, then team and contact. The speaker notes now mention the memberships and the one code, and no longer mention WhatsApp.
+- Phone reader: the same order, stacked (pillars, two team cards, Member of, then the code with the logos under it).
+
+**Photos: each one appears once in the main deck** (your note: "we should not repeat the photos")
+Before this pass, four photos repeated: pitch-duo (slides 1, 11, 22), pitch-gesture (1, 10, 15), mentor-feedback (1, 11, 17), and collab-stage (1, 3). The cover's crossfade cycled through all four.
+- **Slide 1, cover:** now one still photo, pitch-duo (the PHOTO-PICKS #1). No crossfade.
+- **Slide 3, Part 1:** collab-stage, unchanged.
+- **Slide 10, Part 2:** pitch-gesture, unchanged.
+- **Slide 11:** mentor-feedback stays; "Every team demos what works" is now **demo-laptop** (three students at the podium).
+- **Slide 15, demo day:** "Teams defended their choices live" is now **pitch-team** (two teammates answering the panel).
+- **Slide 17, Part 3:** now **pitch-podium** (a student walking the panel through his build). Caption: "Walking the panel through a working build, Beijing 2026".
+- **Slide 22, Part 4:** now **isb-team-podium** (a team at the podium). Caption: "A team takes the podium on demo day, Beijing 2026".
+- Slides 14 (Bodley, hands-stage) and 15 (judges-test, pitch-mic) were already unique. The headshots on slide 25 appear once in the main deck (backup 33 repeats them, which is fine for Q&A).
+- All are real Arena event photos from `photos/`. No stock photos. I avoided `mentors-laptop` because it's the same scene as slide 15's judges-test photo, and the photos with prize cheques or other organizations' names.
+
+**Arena wordmark top right on every main slide** (your note: "the arena logo should be on the top right of each slide")
+- Slides 1 to 25 all carry it now, in the same spot and size as on the Part slides: on the content's right edge, level with the kicker. It's navy (slightly softened) on the light slides and ivory on the photo slides, with a faint shadow so it stays legible on bright photos. The cover keeps its larger wordmark with the URL. Backups (26 to 36) don't have it.
+- It sits at the top right, well clear of the slide nav dots (those are centered vertically on the far right edge).
+- **Slide 4:** the "Member of" box used to sit in the top right corner, where the mark goes. It's now one low row (label, then the two logos) that sits beside the headline's second line, clear of the mark.
+- Phone reader: its header bar already shows the Arena wordmark on every screen, so the slide mark is hidden there to avoid showing it twice. The PDF uses the slide version.
+
+**Checks.** `contain.py --georgia` is 0 on every line, `reader_check.py` says "reader OK", and `shots.py` reports no slide taller than 1080 and no page errors. New styles are in `css/s99zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz-p11.css`, with a Pass 11 block at the end of `reader/reader.css`.
+
+**Calls to confirm**
+- **The Part 4 photo** (team at the podium) is the weakest of the remaining real photos: serious faces, and PHOTO-PICKS calls it "low energy". Under the navy gradient it reads fine. The alternative is a plain navy Part 4 with no photo. Say if you'd prefer that.
+- **The cover no longer crossfades.** A crossfade would repeat photos that appear later, so it's one still photo now.
+
+**Not done.** I did not run `export.py`, so the public PDF, slide images, and slide count on the session page are still from before. Run it before Sunday. Nothing is pushed.
+
 ## Pass 10 (Oct 16, late night): backup review, a new close, and charts that draw in
 
 **Your three asks**

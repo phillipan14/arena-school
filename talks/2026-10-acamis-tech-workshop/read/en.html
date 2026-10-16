@@ -1324,13 +1324,40 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
 .rd .p10-cred{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;min-width:0}
 .rd .p10-cred .r16-sel{display:flex;flex-direction:column;align-items:center;padding:10px 12px;border:1px solid #E2E6EE;border-radius:12px;background:#FFFFFF}
 .rd .p10-cred .r15-h{font:600 11px/1.3 var(--sans,system-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+/* Pass 11: the reader's own header already carries the Arena wordmark on every screen, so the slide mark stays hidden here;
+   slide 25: two team cards (no QR), Member of, then one main panel with the session code and the team logos */
+.s>.brandmk.p11-bm{display:none}
+.rd .p11-tm,.rd .p11-row,.rd .p11-main{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;min-width:0}
+.rd .p11-pc{display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-rows:auto auto;column-gap:12px;row-gap:4px;align-items:center;padding:12px 14px;border-radius:12px}
+.rd .p11-pc .p5-ph{grid-row:1/3;width:56px;height:56px;border-radius:50%;object-fit:cover}
+.rd .p11-pc .p5-nm{display:flex;flex-direction:column;gap:0}
+.rd .p11-pc .p5-nm b{font:500 18px/1.2 var(--serif);color:var(--ink)}
+.rd .p11-pc .p5-role{font:italic 400 14px/1.3 var(--serif);color:var(--muted)}
+.rd .p11-pc dl{display:flex;align-items:baseline;gap:10px;margin:0;padding-top:4px;border-top:1px solid #E2E6EE}
+.rd .p11-pc dt{font:600 11px/1.3 var(--sans,system-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+.rd .p11-pc dd{margin:0;font:500 16px/1.3 var(--serif);color:var(--ink)}
+.rd .p11-sel{display:flex;flex-direction:column;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;background:#FFFFFF}
+.rd .p11-sel .r15-h{font:600 11px/1.3 var(--sans,system-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+.rd .p11-sel ul{list-style:none;margin:0;padding:0;display:flex;gap:28px}
+.rd .p11-sel li{display:flex;flex-direction:column;align-items:center;gap:4px;margin:0}
+.rd .p11-sel .r16-lg{display:flex;align-items:center;height:24px}
+.rd .p11-sel .r16-an{height:12px}.rd .p11-sel .r16-oa{height:22px}
+.rd .p11-sel small{font:italic 400 13px/1.2 var(--serif);color:var(--muted)}
+.rd .p11-main{gap:0;padding:0;overflow:hidden;border-radius:12px;background:#FFFFFF}
+.rd .p11-qr{display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--ink);color:#FFFFFF;text-decoration:none;min-width:0}
+.rd .p11-qr>img{flex:none;width:76px;height:76px;padding:6px;border-radius:8px;background:#FFFFFF}
+.rd .p11-qt{display:flex;flex-direction:column;gap:4px;min-width:0}
+.rd .p11-qt b{font:500 16px/1.25 var(--serif);color:#FFFFFF}
+.rd .p11-qt small{font:400 12px/1.3 var(--sans,system-ui);color:#C9D6F2;overflow-wrap:anywhere}
+.rd .p11-qt .p5-site{font:600 12px/1.3 var(--sans,system-ui);letter-spacing:.1em;text-transform:uppercase;color:#C9D6F2}
+.rd .p11-lr{display:grid;grid-template-columns:minmax(0,1fr);gap:0;padding:4px 14px 10px}
 </style></head><body>
 <header class="top"><a class="home" href="/talks/2026-10-acamis-tech-workshop" aria-label="Talk resources · Arena School"><img class="wm n" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School" width="1600" height="242"><img class="wm i" src="/logos/arena/wordmark-ivory-1600.png" alt="" width="1600" height="242"></a>
  <div class="tools"><button type="button" class="lst" aria-label="All slides"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></div>
  <div class="prog" aria-hidden="true"><i></i></div></header>
 <main class="rd" id="deck" tabindex="-1">
 <!-- 1 · Cover -->
-<section class="s ae cover aga-cv p6-hero"><div class="p6-media" aria-hidden="true"><div class="p6-slide"><img src="/photos/isb-2026/pitch-duo-1600.webp" alt="" decoding="async" style="--focus:62% 38%"></div><div class="p6-slide"><img src="/photos/isb-hq/isb-pitch-gesture-1400.webp" alt="" decoding="async" style="--focus:60% 26%"></div><div class="p6-slide"><img src="/photos/isb-2026/mentor-feedback-1600.webp" alt="" decoding="async" style="--focus:50% 32%"></div><div class="p6-slide"><img src="/photos/steps/collab-stage-poster.webp" alt="" decoding="async" style="--focus:55% 40%"></div></div><div class="p6-shade" aria-hidden="true"></div><div class="p6-dots" aria-hidden="true"></div><div class="p6-caps" aria-hidden="true"><span>Presenting at demo day, Beijing 2026</span><span>Pitching to the panel, Beijing 2026</span><span>Mentors react to a student demo, Beijing 2026</span><span>Building together, Hong Kong 2025</span></div><div class="w">
+<section class="s ae cover aga-cv p6-hero"><div class="p6-media" aria-hidden="true"><div class="p6-slide"><img src="/photos/isb-2026/pitch-duo-1600.webp" alt="" decoding="async" style="--focus:62% 38%"></div></div><div class="p6-shade" aria-hidden="true"></div><div class="p6-dots" aria-hidden="true"></div><div class="p6-caps" aria-hidden="true"><span>Presenting at demo day, Beijing 2026</span></div><div class="w">
  <div class="cv-top"></div>
  <div class="cv-mid">
   <div class="p6-crest r"><img src="/logos/arena/seal-ivory-512.png" alt="" width="512" height="512"></div>
@@ -1353,7 +1380,7 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
   <li data-s="4"><a href="#" data-go="21"><span class="p8-node"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M8 2v4" /><path d="M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /></svg></span><span class="p8-rn">Part 4</span><b>Wrap-up</b><span class="p8-rd">The big picture, three questions for Monday, and how to work with&nbsp;us</span></a></li>
   </ol>
  </div>
-</div></section>
+</div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
 <!-- 3 · Part 1 -->
 <section class="s ae sec p6-sec p7-ph"><div class="p6-media" aria-hidden="true"><div class="p6-slide"><img src="/photos/steps/collab-stage-poster.webp" alt="" decoding="async" style="--focus:55% 40%"></div></div><div class="p6-shade" aria-hidden="true"></div><div class="p6-dots" aria-hidden="true"></div><p class="p7-cap" aria-hidden="true">Building together, Hong Kong&nbsp;2025</p><img class="brandmk" src="/logos/arena/wordmark-ivory-1600.png" alt="" aria-hidden="true" width="1600" height="242"><div class="w"><div class="sec-g">
@@ -1386,13 +1413,13 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
    <div class="p6-lr p6-wk"><span class="r15-h">Our team worked at</span><div class="r15-lg p5-mq"><div class="p5-mqt"><span class="p5-set"><img class="r15-mckinsey" src="/logos/cred/mckinsey.png" alt="McKinsey &amp; Company"><img class="r15-goldman" src="/logos/cred/goldman.png" alt="Goldman Sachs"><img class="r15-yc" src="/logos/cred/yc.png" alt="Y Combinator"><img class="r15-apple" src="/logos/cred/apple.png" alt="Apple"><img class="r15-microsoft-ai" src="/logos/cred/microsoft-ai.png" alt="Microsoft AI"><img class="r15-deloitte" src="/logos/cred/deloitte.png" alt="Deloitte"><img class="r15-kimi" src="/logos/cred/kimi.png" alt="Kimi (Moonshot AI)"></span><span class="p5-set p5-dup" aria-hidden="true"><img class="r15-mckinsey" src="/logos/cred/mckinsey.png" alt=""><img class="r15-goldman" src="/logos/cred/goldman.png" alt=""><img class="r15-yc" src="/logos/cred/yc.png" alt=""><img class="r15-apple" src="/logos/cred/apple.png" alt=""><img class="r15-microsoft-ai" src="/logos/cred/microsoft-ai.png" alt=""><img class="r15-deloitte" src="/logos/cred/deloitte.png" alt=""><img class="r15-kimi" src="/logos/cred/kimi.png" alt=""></span><span class="p5-set p5-dup" aria-hidden="true"><img class="r15-mckinsey" src="/logos/cred/mckinsey.png" alt=""><img class="r15-goldman" src="/logos/cred/goldman.png" alt=""><img class="r15-yc" src="/logos/cred/yc.png" alt=""><img class="r15-apple" src="/logos/cred/apple.png" alt=""><img class="r15-microsoft-ai" src="/logos/cred/microsoft-ai.png" alt=""><img class="r15-deloitte" src="/logos/cred/deloitte.png" alt=""><img class="r15-kimi" src="/logos/cred/kimi.png" alt=""></span><span class="p5-set p5-dup" aria-hidden="true"><img class="r15-mckinsey" src="/logos/cred/mckinsey.png" alt=""><img class="r15-goldman" src="/logos/cred/goldman.png" alt=""><img class="r15-yc" src="/logos/cred/yc.png" alt=""><img class="r15-apple" src="/logos/cred/apple.png" alt=""><img class="r15-microsoft-ai" src="/logos/cred/microsoft-ai.png" alt=""><img class="r15-deloitte" src="/logos/cred/deloitte.png" alt=""><img class="r15-kimi" src="/logos/cred/kimi.png" alt=""></span></div></div></div>
   </div>
  </div>
-</div></section>
+</div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
 <!-- 5 · The question -->
 <section class="s alt ae st aga-q"><div class="w">
  <p class="kick r">The question we try to answer <span class="nw">at <img class="aga-wm" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School"></span></p>
  <h2 class="r rot-h" style="--d:.1s" aria-label="When AI can do all of these in seconds, what must our students still learn to do?">When AI can <span class="rot" aria-hidden="true"><span class="rot-t"><span>draft an essay</span><span>write code</span><span>summarize an article</span><span>create a research report</span><span>design a logo</span><span>build a website</span><span>translate a speech</span><span class="fin"><span class="rot-hl">do all of these</span></span></span></span> <br>in seconds, what must our students <em>still learn to&nbsp;do?</em></h2>
-</div></section>
+</div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
 <!-- 6 · Teaching philosophy -->
 <section class="s alt ae r13-ph p8-ph"><div class="w">
@@ -1406,7 +1433,7 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
   <div class="pane p8-sk" data-s="3"><div class="p8-skh"><span class="p8-ic p8-icl"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m15 12-9.373 9.373a1 1 0 0 1-3.001-3L12 9" /><path d="m18 15 4-4" /><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172v-.344a2 2 0 0 0-.586-1.414l-1.657-1.657A6 6 0 0 0 12.516 3H9l1.243 1.243A6 6 0 0 1 12 8.485V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5" /></svg></span><span class="p8-vb">03 · Finish</span><b>Craft</b></div><p class="p8-skd">Finishing the work so people can trust&nbsp;it.</p><p class="p8-wo"><span>Without it</span>The work stays an unchecked first&nbsp;draft.</p></div>
  </div>
  <p class="r13-end" data-s="4">This is how we teach every learner, from students to teachers and parents, <em>and the lens for today.</em></p></div>
-</div></section>
+</div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
 <!-- 7 · Design is the difference -->
 <section class="s ae p8-ev7"><div class="w">
@@ -1429,7 +1456,7 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
    <p class="p8-cap"><b>2×</b> the learning gains of an active-learning class, in less time, with an AI tutor built on the same&nbsp;methods</p></div>
  </div></div>
  <p class="fn" data-s="1"><span>Bastani and others, PNAS, June 25, 2025: grades fell 17% once plain ChatGPT was taken away; with safeguards, the harm was “largely mitigated”; Kestin and others, Scientific Reports, June 3, 2025: 194 Harvard physics students, median learning gains more than double</span></p>
-</div></section>
+</div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
 <!-- 8 · Learning framework · where AI comes in -->
 <section class="s ae p8-fw"><div class="w">
@@ -1443,7 +1470,7 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
   <div class="pane p8-cc p8-q4" data-s="4"><div class="p8-cch"><i>04</i><b>Collaboration and reflection</b></div><p class="p8-me"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m16 11 2 2 4-4" /><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /></svg><span>What to change after&nbsp;critique</span></p><p class="p8-ai"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" /><path d="M20 2v4" /><path d="M22 4h-4" /><circle cx="4" cy="20" r="2" /></svg><span>Gives a first round of&nbsp;feedback</span></p><p class="p8-tq"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></svg><span>“What would you do&nbsp;differently?”</span></p></div>
   <div class="p9-foot"><ul class="p8-key" aria-label="Key"><li><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m16 11 2 2 4-4" /><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /></svg><span>The learner decides</span></li><li><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" /><path d="M20 2v4" /><path d="M22 4h-4" /><circle cx="4" cy="20" r="2" /></svg><span>AI helps</span></li><li><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></svg><span>The teacher asks</span></li></ul><p class="p8-again" data-s="4"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" /><path d="M21 3v5h-5" /><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" /><path d="M8 16H3v5" /></svg><span>Then the next question starts the cycle&nbsp;again</span></p></div>
  </div></div>
-</div></section>
+</div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
 <!-- 9 · Outcomes and assessment -->
 <section class="s alt ae lo3-s nx-oa p8-as"><div class="w">
@@ -1458,7 +1485,7 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
   </div>
  </div>
  </div>
-</div></section>
+</div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
 <!-- 10 · Part 2 -->
 <section class="s ae sec p6-sec p7-ph"><div class="p6-media" aria-hidden="true"><div class="p6-slide"><img src="/photos/isb-hq/isb-pitch-gesture-1400.webp" alt="" decoding="async" style="--focus:60% 26%"></div></div><div class="p6-shade" aria-hidden="true"></div><div class="p6-dots" aria-hidden="true"></div><p class="p7-cap" aria-hidden="true">Pitching to the panel, Beijing&nbsp;2026</p><img class="brandmk" src="/logos/arena/wordmark-ivory-1600.png" alt="" aria-hidden="true" width="1600" height="242"><div class="w"><div class="sec-g">
@@ -1481,14 +1508,14 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
  <h2 class="r" style="--d:.1s">An AI builder week for grades 7 to 12: <em>learn AI skills, start a company, build something real.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="ac-dd">
   <figure class="pane ac-ph" data-s="1"><img src="/photos/isb-2026/mentor-feedback-1600.webp" alt="Mentors react to a student demo"><figcaption>Mentors in the room every day</figcaption></figure>
-  <figure class="pane ac-ph" data-s="1"><img src="/photos/isb-2026/pitch-duo-1600.webp" alt="Two students present their product at the podium"><figcaption>Every team demos what works</figcaption></figure>
+  <figure class="pane ac-ph" data-s="1"><img src="/photos/isb-2026/demo-laptop-1600.webp" alt="Three students demo their product at the podium"><figcaption>Every team demos what works</figcaption></figure>
   <div class="r11-facts" data-s="2">
    <div class="pane"><div class="r11-in"><b>7–12</b><span>grades, selected by application</span></div></div>
    <div class="pane"><div class="r11-in"><b>5</b><span>days, at ISB in August</span></div></div>
    <div class="pane"><div class="r11-in"><b>0</b><span>coding experience required</span></div></div>
   </div>
  </div></div>
-</div></section>
+</div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
 <!-- 12 · Day by day -->
 <section class="s alt ae nx-wk"><div class="w">
@@ -1503,7 +1530,7 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
   <div class="nx-td" data-s="4"><div class="nx-tdh"><span class="nx-dot" aria-hidden="true"></span><small>Day 4</small><b>Polish and price</b></div><ol class="nx-tds"><li><i>09</i>Brand it</li></ol><p class="nx-tdt" aria-label="AI tools used"><img src="/decks/img/acamis/tools/midjourney.png" alt="Midjourney"><img src="/decks/img/acamis/tools/suno.png" alt="Suno"><img src="/decks/img/acamis/tools/elevenlabs.png" alt="ElevenLabs"><img src="/decks/img/acamis/tools/runway.png" alt="Runway"><img src="/decks/img/acamis/tools/capcut.png" alt="CapCut"></p><span class="nx-tsk nx-craft">Craft</span><p class="nx-tdo">A name, a landing page, and a&nbsp;price</p></div>
   <div class="nx-td" data-s="5"><div class="nx-tdh"><span class="nx-dot" aria-hidden="true"></span><small>Day 5</small><b>Demo day</b></div><ol class="nx-tds"><li><i>10</i>Pitch and sell</li></ol><p class="nx-tdt" aria-label="AI tools used"><img src="/decks/img/acamis/tools/chatgpt.png" alt="ChatGPT"><img src="/decks/img/acamis/tools/claude.png" alt="Claude"><img src="/decks/img/acamis/tools/gemini.png" alt="Gemini"><img src="/decks/img/acamis/tools/pika.png" alt="Pika"><img src="/decks/img/acamis/tools/runway.png" alt="Runway"></p><span class="nx-tsk nx-craft">Craft</span><p class="nx-tdo">A two-minute pitch to judges and&nbsp;families</p></div>
  </div></div>
-</div></section>
+</div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
 <!-- 13 · The tools -->
 <section class="s alt ae hold r4c-tk" data-mk="arrive"><div class="w">
@@ -1521,7 +1548,7 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
    <div class="pane r4c-grp" style="--j:4"><p class="lab">Launch</p><span class="r4c-st">Sell and promote</span><ul><li><img src="/decks/img/acamis/tools/stripe.png" alt=""><span>Stripe</span></li><li><img src="/decks/img/acamis/tools/pika.png" alt=""><span>Pika</span></li><li><img src="/decks/img/acamis/tools/runway.png" alt=""><span>Runway</span></li></ul></div>
   </div>
  </div></div>
-</div></section>
+</div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
 <!-- 14 · The case · Bodley Academy -->
 <section class="s ae nx-case p8-cs"><div class="w">
@@ -1532,7 +1559,7 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
   <div class="p8-pw"><ol class="p8-path"><li data-s="1"><span class="p8-node"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" /><path d="M9 18h6" /><path d="M10 22h4" /></svg></span><div class="p8-pt"><span class="p8-ph"><i>01</i><b>Found the problem</b><small>Agency</small></span><span class="p8-pd">His cousin is deaf. Nobody assigned&nbsp;it.</span></div></li><li data-s="2"><span class="p8-node"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M13 21h8" /><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" /></svg></span><div class="p8-pt"><span class="p8-ph"><i>02</i><b>Sketched it</b><small>Agency</small></span><span class="p8-pd">Sign language in, spoken words&nbsp;out.</span></div></li><li data-s="3"><span class="p8-node"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m15 12-9.373 9.373a1 1 0 0 1-3.001-3L12 9" /><path d="m18 15 4-4" /><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172v-.344a2 2 0 0 0-.586-1.414l-1.657-1.657A6 6 0 0 0 12.516 3H9l1.243 1.243A6 6 0 0 1 12 8.485V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5" /></svg></span><div class="p8-pt"><span class="p8-ph"><i>03</i><b>Built it</b><small>Craft</small></span><span class="p8-pd">AI tools did the building. He made every&nbsp;call.</span></div></li><li data-s="4"><span class="p8-node"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" /><path d="M21 3v5h-5" /><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" /><path d="M8 16H3v5" /></svg></span><div class="p8-pt"><span class="p8-ph"><i>04</i><b>Changed it</b><small>Taste</small></span><span class="p8-pd">His grandmother couldn’t use version one, so he fixed the&nbsp;audio.</span></div></li></ol></div>
   <div class="p8-ocs" data-s="4"><span class="lab">Learning outcomes</span><span class="p8-och"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /></svg><span>Turn an interest into a focused&nbsp;question</span></span><span class="p8-och"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="M10 9H8" /><path d="M16 13H8" /><path d="M16 17H8" /></svg><span>Build and test a&nbsp;product</span></span><span class="p8-och"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" /><path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1" /></svg><span>Use critique to revise the&nbsp;work</span></span></div>
  </div></div>
-</div></section>
+</div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
 <!-- 15 · Demo day -->
 <section class="s ae"><div class="w">
@@ -1541,10 +1568,10 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
  <div class="bd r" style="--d:.25s"><div class="ac-dd nx-dd3">
   <figure class="pane ac-ph" data-s="1"><img src="/photos/isb-hq/isb-judges-test-1400.webp" alt="Judges test a student product on a laptop"><figcaption>Judges test each product before scoring</figcaption></figure>
   <figure class="pane ac-ph" data-s="2"><img src="/photos/isb-hq/isb-pitch-mic-1400.webp" alt="A student pitches her team’s product"><figcaption>Every team pitched its own product</figcaption></figure>
-  <figure class="pane ac-ph p6-gest" data-s="3"><img src="/photos/isb-hq/isb-pitch-gesture-1400.webp" alt="A student pitches to the panel while a teammate runs the demo"><figcaption>Teams defended their choices live</figcaption></figure>
+  <figure class="pane ac-ph p6-gest" data-s="3"><img src="/photos/isb-2026/pitch-team-1600.webp" alt="Two teammates answer the panel at the podium"><figcaption>Teams defended their choices live</figcaption></figure>
   <div class="pane ac-jg" data-s="4"><span class="lab">Judged by founders and operators from</span><div class="ac-lg"><img class="j-hv" src="/logos/cred/harvard.png" alt="Harvard"><img class="j-sf" src="/logos/cred/stanford.png" alt="Stanford"><img class="j-yc" src="/decks/img/conversation/inv-yc.png" alt="Y Combinator"><span class="ac-ai">and AI labs</span></div></div>
  </div></div>
-</div></section>
+</div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
 <!-- 16 · The case · how the week built each learning goal -->
 <section class="s alt ae p5-lg p8-lg"><div class="w">
@@ -1561,10 +1588,10 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
   </ol>
   <p class="p5-end p8-end" data-s="4">No worksheet and no quiz. <em>The evidence is the work&nbsp;itself.</em></p>
  </div></div>
-</div></section>
+</div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
 <!-- 17 · Part 3 -->
-<section class="s ae sec p6-sec p7-ph"><div class="p6-media" aria-hidden="true"><div class="p6-slide"><img src="/photos/isb-2026/mentor-feedback-1600.webp" alt="" decoding="async" style="--focus:50% 32%"></div></div><div class="p6-shade" aria-hidden="true"></div><div class="p6-dots" aria-hidden="true"></div><p class="p7-cap" aria-hidden="true">Mentors react to a student demo, Beijing&nbsp;2026</p><img class="brandmk" src="/logos/arena/wordmark-ivory-1600.png" alt="" aria-hidden="true" width="1600" height="242"><div class="w"><div class="sec-g">
+<section class="s ae sec p6-sec p7-ph"><div class="p6-media" aria-hidden="true"><div class="p6-slide"><img src="/photos/isb-2026/pitch-podium-1600.webp" alt="" decoding="async" style="--focus:62% 30%"></div></div><div class="p6-shade" aria-hidden="true"></div><div class="p6-dots" aria-hidden="true"></div><p class="p7-cap" aria-hidden="true">Walking the panel through a working build, Beijing&nbsp;2026</p><img class="brandmk" src="/logos/arena/wordmark-ivory-1600.png" alt="" aria-hidden="true" width="1600" height="242"><div class="w"><div class="sec-g">
  <div>
   <p class="sec-k"><span>Part</span><b>3</b></p>
   <h2 class="r" style="--d:.15s">Now let’s build one together. <em>No coding&nbsp;needed.</em></h2>
@@ -1588,7 +1615,7 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
   <div class="p8-pc" data-s="3"><div class="p8-bub"><span class="p8-bi"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 3v18" /><path d="m19 8 3 8a5 5 0 0 1-6 0zV7" /><path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1" /><path d="m5 8 3 8a5 5 0 0 1-6 0zV7" /><path d="M7 21h10" /></svg></span><b>“What about students using AI to&nbsp;cheat?”</b></div><p class="p8-ans"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg><span>Assess the process: drafts, reflections, and the reasons behind each&nbsp;change.</span></p></div>
   <div class="p8-pc" data-s="4"><div class="p8-bub"><span class="p8-bi"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M10 18v-7" /><path d="M11.119 2.205a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949z" /><path d="M14 18v-7" /><path d="M18 18v-7" /><path d="M3 22h18" /><path d="M6 18v-7" /></svg></span><b>“Our school restricts tools and student&nbsp;data.”</b></div><p class="p8-ans"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg><span>Use only the tools your school approves, with no student data in&nbsp;them.</span></p></div>
  </div></div>
-</div></section>
+</div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
 <!-- 19 · AI gives teachers time back -->
 <section class="s alt ae r5b-tt p8-tt"><div class="w">
@@ -1611,7 +1638,7 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
   </div>
  </div></div>
  <p class="fn" data-s="1"><span>EEF/NFER, randomized trial, 259 teachers in 68 schools (2024). Gallup and Walton Family Foundation (2025): weekly AI users, n=2,232, self-reported&nbsp;estimate.</span></p>
-</div></section>
+</div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
 <!-- 20 · Tools teachers build -->
 <section class="s alt ae r5b-tl"><div class="w">
@@ -1635,7 +1662,7 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
    <p class="r5b-out">Students test ideas instead of watching&nbsp;one.</p>
   </div>
  </div></div>
-</div></section>
+</div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
 <!-- 21 · The build session -->
 <section class="s alt ae kimi3 agd-b"><div class="w">
@@ -1652,10 +1679,10 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
    <ul class="agd-ex" aria-label="Example fixes"><li>“Make the buttons&nbsp;bigger.”</li><li>“Add a column for due&nbsp;dates.”</li><li>“Use simpler words for grade&nbsp;6.”</li></ul></div>
  </div>
  </div>
-</div></section>
+</div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
 <!-- 22 · Part 4 -->
-<section class="s ae sec p6-sec p7-ph"><div class="p6-media" aria-hidden="true"><div class="p6-slide"><img src="/photos/isb-2026/pitch-duo-1600.webp" alt="" decoding="async" style="--focus:62% 38%"></div></div><div class="p6-shade" aria-hidden="true"></div><div class="p6-dots" aria-hidden="true"></div><p class="p7-cap" aria-hidden="true">Presenting at demo day, Beijing&nbsp;2026</p><img class="brandmk" src="/logos/arena/wordmark-ivory-1600.png" alt="" aria-hidden="true" width="1600" height="242"><div class="w"><div class="sec-g">
+<section class="s ae sec p6-sec p7-ph"><div class="p6-media" aria-hidden="true"><div class="p6-slide"><img src="/photos/isb-hq/isb-team-podium-1400.webp" alt="" decoding="async" style="--focus:58% 30%"></div></div><div class="p6-shade" aria-hidden="true"></div><div class="p6-dots" aria-hidden="true"></div><p class="p7-cap" aria-hidden="true">A team takes the podium on demo day, Beijing&nbsp;2026</p><img class="brandmk" src="/logos/arena/wordmark-ivory-1600.png" alt="" aria-hidden="true" width="1600" height="242"><div class="w"><div class="sec-g">
  <div>
   <p class="sec-k"><span>Part</span><b>4</b></p>
   <h2 class="r" style="--d:.15s">Start small, <em>and start on&nbsp;Monday.</em></h2>
@@ -1685,7 +1712,7 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
    <li class="pane" data-s="4"><span class="p8-ic"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m15 12-9.373 9.373a1 1 0 0 1-3.001-3L12 9" /><path d="m18 15 4-4" /><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172v-.344a2 2 0 0 0-.586-1.414l-1.657-1.657A6 6 0 0 0 12.516 3H9l1.243 1.243A6 6 0 0 1 12 8.485V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5" /></svg></span><span class="agc-tag"><i>03</i>Craft</span><b>“What would make someone trust it?”</b><span>They check it and finish&nbsp;it.</span></li>
   </ol>
  </div></div>
-</div></section>
+</div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
 <!-- 24 · The big picture -->
 <section class="s ae cl age-cl p5-gs p6-gs p8-gsx"><div class="w">
@@ -1700,7 +1727,7 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
   </ol>
   <div class="endline age-end" data-s="5"><p>You don’t need to code. <span class="nw">You already know how to coach.</span></p></div>
  </div>
-</div></section>
+</div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
 <!-- 25 · Let’s work together -->
 <section class="s alt ae p5-ct p10-ct"><div class="w">
@@ -1708,18 +1735,11 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
  <h2 class="r" style="--d:.1s">Let’s build this at your school.<br><em>We’d love to work with&nbsp;you.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="p10-cg">
   <div class="p10-prog" data-s="1"><div class="p9-lb">What we run <span>· five pillars, one framework, planned with your team and run on your&nbsp;campus</span></div><ul class="p10-pg"><li class="pane p10-pl p10-stu"><div class="p10-ph"><span class="p9-ic"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M14 22v-4a2 2 0 1 0-4 0v4" /><path d="m18 10 3.447 1.724a1 1 0 0 1 .553.894V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-7.382a1 1 0 0 1 .553-.894L6 10" /><path d="M18 5v17" /><path d="m4 6 7.106-3.553a2 2 0 0 1 1.788 0L20 6" /><path d="M6 5v17" /><circle cx="12" cy="9" r="2" /></svg></span><b>Students</b></div><ul class="p10-sub"><li><b>App Design Workshop</b><span>Grades 6–9</span></li><li><b>Entrepreneurship &amp; AI Intensive</b><span>Grades 7–12</span></li><li><b>College Portfolio Workshop</b><span>Grades 10–12</span></li><li><b>Year-Long Project Mentorship</b><span>Grades 7–12</span></li></ul></li><li class="pane p10-pl"><div class="p10-ph"><span class="p9-ic"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><path d="M16 3.128a4 4 0 0 1 0 7.744" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><circle cx="9" cy="7" r="4" /></svg></span><b>Educators</b></div><ul class="p10-sub"><li><b>AI for Educators</b><span>Make the tool your class is&nbsp;missing</span></li></ul></li><li class="pane p10-pl"><div class="p10-ph"><span class="p9-ic"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="20" height="14" x="2" y="3" rx="2" /><line x1="8" x2="16" y1="21" y2="21" /><line x1="12" x2="12" y1="17" y2="21" /></svg></span><b>Tech teams</b></div><ul class="p10-sub"><li><b>Tech coaches and IT&nbsp;directors</b><span>AI training inside your school’s&nbsp;rules</span></li></ul></li><li class="pane p10-pl"><div class="p10-ph"><span class="p9-ic"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg></span><b>Families</b></div><ul class="p10-sub"><li><b>Community Dialogues</b><span>Parent talks on AI, work, and&nbsp;college</span></li></ul></li><li class="pane p10-pl"><div class="p10-ph"><span class="p9-ic"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2 3h20" /><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3" /><path d="m7 21 5-5 5 5" /></svg></span><b>Conferences</b></div><ul class="p10-sub"><li><b>Conferences &amp; Events</b><span>Talks and <span class="nw">hands-on workshops</span></span></li></ul></li></ul></div>
-  <div class="p10-team" data-s="2"><div class="p9-lb">The team <span>· the fastest way to reach us is WeChat or&nbsp;WhatsApp</span></div>
-   <div class="p5-ppl">
-   <div class="pane p5-pc"><div class="p5-hd"><img class="p5-ph" src="/photos/phillip-an-640.webp" alt="Phillip An"><div class="p5-nm"><b>Phillip An</b><span class="p5-role">Co-founder, Arena&nbsp;School</span></div></div><div class="p5-cx"><dl><dt>WeChat</dt><dd>phgan14</dd></dl><a class="p5-qr" href="https://wa.me/13143592522" target="_blank" rel="noopener"><img src="/decks/img/acamis/qr-wa-phillip-tight.png" alt="WhatsApp QR code for Phillip An"><span>WhatsApp</span></a></div></div>
-   <div class="pane p5-pc"><div class="p5-hd"><img class="p5-ph" src="/photos/jing-jing-yang-640.webp" alt="Jing Jing Yang"><div class="p5-nm"><b>Jing Jing Yang</b><span class="p5-role">Co-founder, Arena&nbsp;School</span></div></div><div class="p5-cx"><dl><dt>WeChat</dt><dd>jj-xiaohan</dd></dl><a class="p5-qr" href="https://wa.me/16177337119" target="_blank" rel="noopener"><img src="/decks/img/acamis/qr-wa-jingjing-tight.png" alt="WhatsApp QR code for Jing Jing Yang"><span>WhatsApp</span></a></div></div>
-   <a class="pane p5-res" href="https://arenaschool.org/talks/2026-10-acamis-tech-workshop" target="_blank" rel="noopener"><img src="/decks/img/acamis/qr-acamis-tight.png" alt="QR code for arenaschool.org/talks/2026-10-acamis-tech-workshop"><span class="p5-rt"><b>Today’s slides, checklist, and tool&nbsp;guide</b><small><span class="nw">arenaschool.org/talks/</span><wbr><span class="nw">2026-10-acamis-tech-workshop</span></small></span><span class="p5-site">arenaschool.org</span></a>
-   </div></div>
-  <div class="p10-cred" data-s="2">
-   <div class="p10-lr"><div class="p6-lr"><span class="r15-h">Our team studied at</span><div class="r15-lg"><img class="r15-isb" src="/logos/cred/isb.png" alt="International School of Beijing"><img class="r15-brown" src="/logos/cred/brown.png" alt="Brown University"><img class="r15-caltech" src="/logos/cred/caltech.png" alt="Caltech"><img class="r15-harvard" src="/logos/cred/harvard.png" alt="Harvard University"><img class="r15-tsinghua-lockup" src="/logos/cred/tsinghua-lockup.png" alt="Tsinghua University"></div></div><div class="p6-lr"><span class="r15-h">Our team worked at</span><div class="r15-lg"><img class="r15-mckinsey" src="/logos/cred/mckinsey.png" alt="McKinsey &amp; Company"><img class="r15-goldman" src="/logos/cred/goldman.png" alt="Goldman Sachs"><img class="r15-yc" src="/logos/cred/yc.png" alt="Y Combinator"><img class="r15-apple" src="/logos/cred/apple.png" alt="Apple"><img class="r15-microsoft-ai" src="/logos/cred/microsoft-ai.png" alt="Microsoft AI"><img class="r15-deloitte" src="/logos/cred/deloitte.png" alt="Deloitte"><img class="r15-kimi" src="/logos/cred/kimi.png" alt="Kimi (Moonshot AI)"></div></div></div>
-   <div class="r16-sel"><span class="r15-h">Member of</span><ul><li><span class="r16-lg"><img class="r16-an" src="/decks/img/acamis/partner-anthropic.svg" alt="Anthropic"></span><small>Startup Program</small></li><li><span class="r16-lg"><img class="r16-oa" src="/decks/img/acamis/partner-openai.svg" alt="OpenAI"></span><small>Partner Network</small></li></ul></div>
-  </div>
+  <div class="p11-tm" data-s="2"><div class="p9-lb">The team <span>· WeChat is the fastest way to reach&nbsp;us</span></div>
+   <div class="p11-row"><div class="pane p5-pc p11-pc"><img class="p5-ph" src="/photos/phillip-an-640.webp" alt="Phillip An"><div class="p5-nm"><b>Phillip An</b><span class="p5-role">Co-founder, Arena&nbsp;School</span></div><dl><dt>WeChat</dt><dd>phgan14</dd></dl></div><div class="pane p5-pc p11-pc"><img class="p5-ph" src="/photos/jing-jing-yang-640.webp" alt="Jing Jing Yang"><div class="p5-nm"><b>Jing Jing Yang</b><span class="p5-role">Co-founder, Arena&nbsp;School</span></div><dl><dt>WeChat</dt><dd>jj-xiaohan</dd></dl></div><div class="pane r16-sel p11-sel"><span class="r15-h">Member of</span><ul><li><span class="r16-lg"><img class="r16-an" src="/decks/img/acamis/partner-anthropic.svg" alt="Anthropic"></span><small>Startup Program</small></li><li><span class="r16-lg"><img class="r16-oa" src="/decks/img/acamis/partner-openai.svg" alt="OpenAI"></span><small>Partner Network</small></li></ul></div></div></div>
+  <div class="pane p11-main" data-s="2"><a class="p11-qr" href="https://arenaschool.org/talks/2026-10-acamis-tech-workshop" target="_blank" rel="noopener"><img src="/decks/img/acamis/qr-acamis-tight.png" alt="QR code for arenaschool.org/talks/2026-10-acamis-tech-workshop"><span class="p11-qt"><b>Today’s slides, checklist, and tool&nbsp;guide</b><small><span class="nw">arenaschool.org/talks/</span><wbr><span class="nw">2026-10-acamis-tech-workshop</span></small><span class="p5-site">arenaschool.org</span></span></a><div class="p10-lr p11-lr"><div class="p6-lr"><span class="r15-h">Our team studied at</span><div class="r15-lg"><img class="r15-isb" src="/logos/cred/isb.png" alt="International School of Beijing"><img class="r15-brown" src="/logos/cred/brown.png" alt="Brown University"><img class="r15-caltech" src="/logos/cred/caltech.png" alt="Caltech"><img class="r15-harvard" src="/logos/cred/harvard.png" alt="Harvard University"><img class="r15-tsinghua-lockup" src="/logos/cred/tsinghua-lockup.png" alt="Tsinghua University"></div></div><div class="p6-lr"><span class="r15-h">Our team worked at</span><div class="r15-lg"><img class="r15-mckinsey" src="/logos/cred/mckinsey.png" alt="McKinsey &amp; Company"><img class="r15-goldman" src="/logos/cred/goldman.png" alt="Goldman Sachs"><img class="r15-yc" src="/logos/cred/yc.png" alt="Y Combinator"><img class="r15-apple" src="/logos/cred/apple.png" alt="Apple"><img class="r15-microsoft-ai" src="/logos/cred/microsoft-ai.png" alt="Microsoft AI"><img class="r15-deloitte" src="/logos/cred/deloitte.png" alt="Deloitte"><img class="r15-kimi" src="/logos/cred/kimi.png" alt="Kimi (Moonshot AI)"></div></div></div></div>
  </div></div>
-</div></section>
+</div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
 <!-- 26 · Backup · Framework wheel -->
 <section class="s ae fx-s"><div class="w">

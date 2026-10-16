@@ -1316,3 +1316,30 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
 .rd .p10-cred{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;min-width:0}
 .rd .p10-cred .r16-sel{display:flex;flex-direction:column;align-items:center;padding:10px 12px;border:1px solid #E2E6EE;border-radius:12px;background:#FFFFFF}
 .rd .p10-cred .r15-h{font:600 11px/1.3 var(--sans,system-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+/* Pass 11: the reader's own header already carries the Arena wordmark on every screen, so the slide mark stays hidden here;
+   slide 25: two team cards (no QR), Member of, then one main panel with the session code and the team logos */
+.s>.brandmk.p11-bm{display:none}
+.rd .p11-tm,.rd .p11-row,.rd .p11-main{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;min-width:0}
+.rd .p11-pc{display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-rows:auto auto;column-gap:12px;row-gap:4px;align-items:center;padding:12px 14px;border-radius:12px}
+.rd .p11-pc .p5-ph{grid-row:1/3;width:56px;height:56px;border-radius:50%;object-fit:cover}
+.rd .p11-pc .p5-nm{display:flex;flex-direction:column;gap:0}
+.rd .p11-pc .p5-nm b{font:500 18px/1.2 var(--serif);color:var(--ink)}
+.rd .p11-pc .p5-role{font:italic 400 14px/1.3 var(--serif);color:var(--muted)}
+.rd .p11-pc dl{display:flex;align-items:baseline;gap:10px;margin:0;padding-top:4px;border-top:1px solid #E2E6EE}
+.rd .p11-pc dt{font:600 11px/1.3 var(--sans,system-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+.rd .p11-pc dd{margin:0;font:500 16px/1.3 var(--serif);color:var(--ink)}
+.rd .p11-sel{display:flex;flex-direction:column;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;background:#FFFFFF}
+.rd .p11-sel .r15-h{font:600 11px/1.3 var(--sans,system-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+.rd .p11-sel ul{list-style:none;margin:0;padding:0;display:flex;gap:28px}
+.rd .p11-sel li{display:flex;flex-direction:column;align-items:center;gap:4px;margin:0}
+.rd .p11-sel .r16-lg{display:flex;align-items:center;height:24px}
+.rd .p11-sel .r16-an{height:12px}.rd .p11-sel .r16-oa{height:22px}
+.rd .p11-sel small{font:italic 400 13px/1.2 var(--serif);color:var(--muted)}
+.rd .p11-main{gap:0;padding:0;overflow:hidden;border-radius:12px;background:#FFFFFF}
+.rd .p11-qr{display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--ink);color:#FFFFFF;text-decoration:none;min-width:0}
+.rd .p11-qr>img{flex:none;width:76px;height:76px;padding:6px;border-radius:8px;background:#FFFFFF}
+.rd .p11-qt{display:flex;flex-direction:column;gap:4px;min-width:0}
+.rd .p11-qt b{font:500 16px/1.25 var(--serif);color:#FFFFFF}
+.rd .p11-qt small{font:400 12px/1.3 var(--sans,system-ui);color:#C9D6F2;overflow-wrap:anywhere}
+.rd .p11-qt .p5-site{font:600 12px/1.3 var(--sans,system-ui);letter-spacing:.1em;text-transform:uppercase;color:#C9D6F2}
+.rd .p11-lr{display:grid;grid-template-columns:minmax(0,1fr);gap:0;padding:4px 14px 10px}
