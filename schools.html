@@ -27,40 +27,12 @@
 <link rel="stylesheet" href="/css/pages.css?v=1790806100" />
 <link rel="stylesheet" href="/css/ai-band.css?v=1" />
 <link rel="stylesheet" href="/css/audiences.css?v=1" />
-<style data-mobile>
-@media (max-width: 760px) {
-  /* Labels: lift 10.5px mono eyebrows to a readable size */
-  .pg-schools .pg-k, .pg-schools .pp-glance b { font-size: 11.5px; }
-  .pg-schools .pg-prog small, .pg-schools .pg-adult small, .pg-schools .pg-step small { font-size: 11.5px; letter-spacing: .08em; }
-  /* Student programs: hard-clipped swipe rail -> single column, same photo-left card as the adult row */
-  .pg-schools .pg-progs { grid-auto-flow: row; grid-template-columns: 1fr; grid-auto-columns: auto; overflow: visible; scroll-snap-type: none; gap: 14px; padding: 0; margin-inline: 0; }
-  .pg-schools .pg-prog { display: grid; grid-template-columns: 108px 1fr; height: auto; }
-  .pg-schools .pg-prog figure { aspect-ratio: auto; border-bottom: 0; border-right: 1px solid var(--pg-line); }
-  .pg-schools .pg-prog-body { padding: 18px 18px 18px; gap: 7px; }
-  .pg-schools .pg-prog b, .pg-schools .pg-adult b { font-size: 21px; }
-  .pg-schools .pg-prog p, .pg-schools .pg-adult p { font-size: 15px; }
-  .pg-schools .pg-adult > div { padding: 18px 18px 18px; gap: 7px; }
-  .pg-schools .pg-adults { gap: 14px; }
-  .pg-schools .pg-note { font-size: 15px; }
-  /* Partnership steps: hard-clipped swipe rail -> vertical numbered list */
-  .pg-schools .pg-steps { grid-auto-flow: row; grid-template-columns: 1fr; grid-auto-columns: auto; overflow: visible; scroll-snap-type: none; gap: 12px; padding: 0; margin-inline: 0; }
-  .pg-schools .pg-step { padding: 20px 20px 20px 74px; gap: 6px; }
-  .pg-schools .pg-step-n { position: absolute; left: 20px; top: 18px; margin: 0; padding: 0; border: 0; font-size: 30px; }
-  .pg-schools .pg-step p { font-size: 15px; }
-  /* Proof strip */
-  .pg-schools .pg-proof-stat span, .pg-schools .pg-proof-k { font-size: 14px; }
-  .pg-schools .pg-proof-go { min-height: 44px; }
-  /* Final CTA: full-width button like the hero, comfortable secondary link */
-  .pg-schools .pp-close-cta .btn { width: 100%; justify-content: center; }
-  .pg-schools .pp-close-parent a { display: inline-block; padding: 11px 0; }
-  .pg-schools .pp-close-parent { margin-top: 10px; }
-}
-</style>
+<link rel="stylesheet" href="/css/elegance.css?v=78f71616" />
 <link rel="stylesheet" href="/newsletter.css?v=66e439a2" data-nl>
-<link rel="stylesheet" href="/promo.css?v=21ea5dbe" data-promo>
+<link rel="stylesheet" href="/promo.css?v=fad9d226" data-promo>
 <link rel="stylesheet" href="/phone.css?v=5183563a" data-phone>
 </head>
-<body class="no-ticker zl-page pg pg-schools">
+<body class="no-ticker pg pg-schools el el">
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <a href="/" class="wordmark nav-brand">
@@ -68,7 +40,7 @@
     </a>
     <div class="nav-links" id="navLinks">
       <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">For students<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu nav-dd-stu"><span class="nav-dd-sub">Short courses · 2 days</span><a href="/programs/remake-your-favorite-app"><b>App Design Workshop</b><span>Grades 6–9 · rebuild an app they love</span></a><a href="/programs/website-portfolio-workshop"><b>College Portfolio Workshop</b><span>Grades 10–12 · a portfolio for applications</span></a><span class="nav-dd-sub">Longer programs</span><a href="/programs/product-intensive"><b>Entrepreneurship &amp; AI Intensive</b><span>Grades 7–12 · build, launch, and pitch</span></a><span class="nav-dd-sub">Year-long</span><a href="/mentorship"><b>Year-Long Project Mentorship</b><span>Grades 7–12 · 6 months to a year, 1:1</span></a><span class="nav-dd-sub">College &amp; career</span><a href="/zero-to-launch"><b>AI Advantage Bootcamp</b><span>College &amp; early career · workplace-ready with AI</span></a></div></div>
-      <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">For families<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu nav-dd-fam"><span class="nav-dd-sub">Year-long</span><a href="/mentorship"><b>Mentorship</b><span>Year-Long Project Mentorship · enroll directly</span></a><span class="nav-dd-sub">Holiday programs</span><a href="/events/isb-winter-2027"><b>Build Your Own AI Toolkit @ ISB</b><span>Jan 5–8, 2027 · register interest</span></a><span class="nav-dd-sub">At your child’s school</span><a href="/programs/community-dialogues"><b>Parent talks</b><span>Community Dialogues: ask your school to host one</span></a></div></div>
+      <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">For families<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu nav-dd-fam"><span class="nav-dd-sub">Year-long</span><a href="/mentorship"><b>Mentorship</b><span>Year-Long Project Mentorship · enroll directly</span></a><span class="nav-dd-sub">Holiday programs</span><a href="/events/isb-winter-2027"><b>AI Fundamentals for Students @ International School of Beijing</b><span>Jan 5–8, 2027 · register interest</span></a><span class="nav-dd-sub">At your child’s school</span><a href="/programs/community-dialogues"><b>Parent talks</b><span>Community Dialogues: ask your school to host one</span></a></div></div>
       <div class="nav-dd is-current"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">For schools<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu nav-dd-edu"><span class="nav-dd-sub">At your school</span><a href="/programs/teacher-training"><b>Teachers</b><span>AI for Educators: make the tool your class is missing</span></a><a href="/schools/technology"><b>Technology teams</b><span>Tech coaches, IT directors, and digital learning</span></a><a href="/schools" aria-current="page"><b>School leaders</b><span>Bring Arena to your whole school community</span></a><span class="nav-dd-sub">Events &amp; partners</span><a href="/programs/conferences"><b>Conferences</b><span>Talks, hands-on workshops, and pre-conference sessions</span></a><a href="/partnerships"><b>Partners</b><span>A product-building track for camps and programs</span></a></div></div>
       <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">About<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu"><a href="/about"><b>Our team</b><span>Who we are</span></a><a href="/approach"><b>Our approach</b><span>Agency, taste, and craft</span></a><a href="/results"><b>Results</b><span>What we have run</span></a></div></div>
       <a class="nav-mobile-only" href="/contact">Contact us</a>
@@ -87,75 +59,119 @@
   </div>
 </nav>
 <main id="top">
-<section class="hero hero-pad-md hero-inv" data-screen-label="Hero">
-  <div class="hero-bg" data-riso-field="static" aria-hidden="true"></div>
-  <div class="container">
-    <div class="hero-copy hero-copy-wide">
-      <div class="hero-eyebrow-row reveal"><span class="eyebrow">For school leaders</span></div>
-      <h1 class="display reveal cs-h1">AI work that fits the time, standards, and values <em>you already have.</em></h1>
-      <p class="lede sub reveal lede-56">Programs for students, teachers, and families, planned around your calendar and goals, run on your campus, and handed over to your team.</p>
-      <ul class="pp-glance reveal" aria-label="At a glance">
-        <li><b>Students</b><span>Grades 6 to 12</span></li>
-        <li><b>Adults</b><span>Teachers, parents, and boards</span></li>
-        <li><b>Where</b><span>On your campus</span></li>
-        <li><b>Language</b><span>English or Chinese</span></li>
+<section class="hero el-hero" data-screen-label="Hero">
+  <div class="el-wrap el-hero-grid">
+    <div>
+      <span class="eyebrow">For school leaders</span>
+      <h1 class="el-h1">More capacity for your staff, <em>and evidence</em> to show for it.</h1>
+      <p class="el-lede">Programs for students, teachers, and families, planned around your calendar, run on your campus, and handed over to your team.</p>
+      <div class="el-actions"><a href="/contact?program=school-partnership" class="btn btn-primary">Start the conversation <span class="arr">→</span></a><a href="#onepager" class="tlink">One-pager for your board →</a></div>
+    </div>
+    <ul class="el-facts" aria-label="At a glance"><li><b>Students</b><span>Grades 6 to 12</span></li><li><b>Adults</b><span>Teachers, parents, and boards</span></li><li><b>Where</b><span>On your campus</span></li><li><b>Language</b><span>English or Chinese</span></li></ul>
+  </div>
+</section>
+
+<section class="el-sec" id="why" data-screen-label="Why it fits">
+  <div class="el-wrap">
+    <div class="el-head">
+      <div><span class="eyebrow">Why it fits</span><h2 class="el-h2">Planned around what your school <em>already does.</em></h2></div>
+      <p class="el-p">Staff time already goes to accreditation and curriculum work. Every program fits around it.</p>
+    </div>
+    <ul class="el-points">
+      <li class="el-point">
+        <div class="el-point-fig" aria-hidden="true"><div class="elg elg-ladder" style="max-width:340px"><div>One session at a staff meeting</div><div>Department workshops</div><div>Whole faculty, coaches leading</div></div></div>
+        <span class="el-k is-coral">01 · Staff capacity</span><h3 class="el-h3">Start small, then grow</h3><p class="el-p">Begin with one live session at a staff meeting you already hold.</p>
+      </li>
+      <li class="el-point">
+        <div class="el-point-fig" aria-hidden="true"><div class="elg" style="max-width:300px"><ul class="elg-check">
+          <li><span class="elg-box"><svg viewBox="0 0 12 12"><path d="M2 6.5l2.5 2.5L10 3.5" fill="none" stroke="#0B1A4A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Clear learning goals</li>
+          <li><span class="elg-box"><svg viewBox="0 0 12 12"><path d="M2 6.5l2.5 2.5L10 3.5" fill="none" stroke="#0B1A4A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Demo day with judges</li>
+          <li><span class="elg-box"><svg viewBox="0 0 12 12"><path d="M2 6.5l2.5 2.5L10 3.5" fill="none" stroke="#0B1A4A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Rubrics stay with your team</li>
+        </ul><div class="elg-url">Live portfolio, at its own link</div></div></div>
+        <span class="el-k is-coral">02 · Evidence</span><h3 class="el-h3">Work students must show</h3><p class="el-p">Each program has clear learning goals and ends in a demo day or a live portfolio.</p>
+      </li>
+      <li class="el-point">
+        <div class="el-point-fig" aria-hidden="true"><div class="elg" style="max-width:340px"><div class="elg-cal"><i class="is-in"></i><i class="is-in"></i><i></i><i></i><i class="is-hol"></i><i></i><i></i><i class="is-hol"></i><i></i><i class="is-in"></i><i class="is-hol"></i><i class="is-hol"></i><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span></div><div class="elg-legend"><span><b></b>Holiday elective</span><span><b class="is-in"></b>Inside a course</span></div></div></div>
+        <span class="el-k is-coral">03 · Your calendar</span><h3 class="el-h3">No new class needed</h3><p class="el-p">Holiday electives outside school time, or inside a course that already fits, such as computer science.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="el-sec is-hi" id="programs" data-screen-label="Programs">
+  <div class="el-wrap">
+    <div class="el-head">
+      <div><span class="eyebrow">Programs</span><h2 class="el-h2">One partner for <em>the whole school.</em></h2></div>
+    </div>
+    <div class="el-tabs" role="tablist" aria-label="Programs by audience" data-el-tabs>
+      <button type="button" class="el-tab" role="tab" id="sl-t1" aria-controls="sl-p1" aria-selected="true"><small>01</small>Students</button>
+      <button type="button" class="el-tab" role="tab" id="sl-t2" aria-controls="sl-p2" aria-selected="false" tabindex="-1"><small>02</small>Teachers</button>
+      <button type="button" class="el-tab" role="tab" id="sl-t3" aria-controls="sl-p3" aria-selected="false" tabindex="-1"><small>03</small>Families</button>
+    </div>
+    <div class="el-tabpanel" role="tabpanel" id="sl-p1" aria-labelledby="sl-t1" style="padding-top:8px">
+      <ul class="el-plist">
+        <li><a href="/programs/remake-your-favorite-app"><b>App Design Workshop</b><span>Grades 6–9</span><i aria-hidden="true">→</i></a></li>
+        <li><a href="/programs/website-portfolio-workshop"><b>College Portfolio Workshop</b><span>Grades 10–12</span><i aria-hidden="true">→</i></a></li>
+        <li><a href="/programs/product-intensive"><b>Entrepreneurship &amp; AI Intensive</b><span>Grades 7–12</span><i aria-hidden="true">→</i></a></li>
+        <li><a href="/mentorship"><b>Year-Long Project Mentorship</b><span>Grades 7–12</span><i aria-hidden="true">→</i></a></li>
       </ul>
-      <div class="pp-hero-cta reveal"><a href="/contact?program=school-partnership" class="btn btn-primary">Start the conversation <span class="arr">→</span></a><a href="#onepager" class="btn btn-ghost">One-pager for your board</a></div>
+    </div>
+    <div class="el-tabpanel" role="tabpanel" id="sl-p2" aria-labelledby="sl-t2" style="padding-top:8px" hidden>
+      <ul class="el-plist">
+        <li><a href="/programs/teacher-training"><b>AI for Educators</b><span>Make the tool your class is missing</span><i aria-hidden="true">→</i></a></li>
+        <li><a href="/schools/technology"><b>Technology staff</b><span>Tech coaches and IT directors</span><i aria-hidden="true">→</i></a></li>
+      </ul>
+    </div>
+    <div class="el-tabpanel" role="tabpanel" id="sl-p3" aria-labelledby="sl-t3" style="padding-top:8px" hidden>
+      <ul class="el-plist">
+        <li><a href="/programs/community-dialogues"><b>Community Dialogues</b><span>Parent talks that help families follow along</span><i aria-hidden="true">→</i></a></li>
+      </ul>
     </div>
   </div>
 </section>
 
-<section class="zl-section" id="programs" data-screen-label="Why it fits">
-  <div class="container">
-    <div class="sec-head pg-head reveal"><span class="eyebrow">Why it fits</span><h2 class="h2 h2-md">Planned around what <em>your school already does.</em></h2><p class="lede">Shared staff time already goes to accreditation and curriculum work. Every program fits around it.</p></div>
-    <ul class="pg-outs pg-outs-body pg-outs-3 aud-outs"><li class="reveal"><small>01</small><b>No new class needed</b><p class="card-p">Student programs can run as holiday electives outside school time, or inside a course that already fits, such as computer science or engineering.</p></li><li class="reveal"><small>02</small><b>In the language your school uses</b><p class="card-p">Each program has clear learning goals and ends in work students must show: a demo day or a live portfolio.</p></li><li class="reveal"><small>03</small><b>Teachers and families brought along</b><p class="card-p">Teacher sessions start from teachers’ own work, with nothing left over to sort out. Parent talks help families follow along.</p><span class="aud-links"><a href="/programs/teacher-training" class="tlink">Teachers →</a> <a href="/programs/community-dialogues" class="tlink">Parent talks →</a></span></li></ul>
-    <div class="aud-plist reveal" id="plist"><span class="aud-plist-k">Programs</span><div class="aud-plist-row" role="list" aria-label="Programs"><a role="listitem" href="/programs/remake-your-favorite-app">App Design Workshop</a><a role="listitem" href="/programs/website-portfolio-workshop">College Portfolio Workshop</a><a role="listitem" href="/programs/product-intensive">Entrepreneurship &amp; AI Intensive</a><a role="listitem" href="/mentorship">Year-Long Project Mentorship</a><a role="listitem" href="/programs/teacher-training">AI for Educators</a><a role="listitem" href="/programs/community-dialogues">Community Dialogues</a></div></div>
-  </div>
-</section>
-
-<section class="zl-section section-alt" id="partnership" data-screen-label="How a partnership works">
-  <div class="container">
-    <div class="sec-head pg-head reveal"><span class="eyebrow">How a partnership works</span><h2 class="h2 h2-md">Planned with your team, <em>run on your campus.</em></h2><p class="lede">Four steps, usually starting eight to twelve weeks before the program dates.</p></div>
-    <ol class="pg-steps">
-      <li class="pg-step reveal"><span class="pg-step-n">01</span><small>Scope</small><h3>One call</h3><p>Your calendar and goals. Together we choose the format and set the dates.</p></li>
-      <li class="pg-step reveal"><span class="pg-step-n">02</span><small>Adapt</small><h3>Your context</h3><p>We tailor the plan to age and language, with parent letters included.</p></li>
-      <li class="pg-step reveal"><span class="pg-step-n">03</span><small>Run</small><h3>On your campus</h3><p>We lead the sessions with your teachers, ending with families in the room.</p></li>
-      <li class="pg-step reveal"><span class="pg-step-n">04</span><small>Hand off</small><h3>The playbook stays</h3><p>The curriculum, rubrics, and <span style="white-space:nowrap">demo-day</span> format stay with your team.</p></li>
+<section class="el-sec" id="partnership" data-screen-label="How a partnership works">
+  <div class="el-wrap">
+    <div class="el-head">
+      <div><span class="eyebrow">How a partnership works</span><h2 class="el-h2">Planned with your team, <em>run on your campus.</em></h2></div>
+      <p class="el-p">Four steps, usually starting eight to twelve weeks before the program dates.</p>
+    </div>
+    <ol class="el-steps">
+      <li class="el-step"><span class="el-k">01 · Scope</span><h3 class="el-h3">One call</h3><p class="el-p">Your calendar and goals. Together we choose the format and set the dates.</p></li>
+      <li class="el-step"><span class="el-k">02 · Adapt</span><h3 class="el-h3">Your context</h3><p class="el-p">We tailor the plan to age and language, with parent letters included.</p></li>
+      <li class="el-step"><span class="el-k">03 · Run</span><h3 class="el-h3">On your campus</h3><p class="el-p">We lead the sessions with your teachers, ending with families in the room.</p></li>
+      <li class="el-step"><span class="el-k">04 · Hand off</span><h3 class="el-h3">The playbook stays</h3><p class="el-p">The curriculum, rubrics, and demo-day format stay with your team.</p></li>
     </ol>
-    <div class="pg-proof reveal">
-      <div class="pg-proof-judges"><span class="pg-proof-k">Demo day judged by founders and <span style="white-space:nowrap">operators from</span></span><div class="pg-proof-logos"><img src="/logos/cred/harvard.png" alt="Harvard" /><img class="is-stanford" src="/logos/cred/stanford.png" alt="Stanford" /><img class="is-yc" src="/logos/cred/yc.png" alt="Y Combinator" /><span>and AI labs</span></div></div>
-      <div class="pg-proof-stat"><b class="pg-proof-logos2"><img src="/logos/cred/tsinghua-lockup.png" alt="Tsinghua University" /><img src="/logos/cred/schwarzman.png?v=2" alt="Schwarzman College" /></b><span>Staff training at Schwarzman College, <span style="white-space:nowrap">Tsinghua University</span></span></div>
-      <div class="pg-proof-stat"><b>9.5<small>/10</small></b><span>Net Promoter Score, Hong Kong 2025</span></div>
-      <a href="/results" class="pg-proof-go">See results <span>→</span></a>
-    </div>
-    <div class="ai-band aib-inline reveal"><p class="aib-k">Selected for</p><ul class="aib-row"><li><span class="aib-logo"><img class="aib-anthropic" src="/logos/partners/anthropic.svg" alt="Anthropic" width="151" height="17" /></span><span class="aib-prog">Startup Program</span></li><li><span class="aib-logo"><img class="aib-openai" src="/logos/partners/openai.svg" alt="OpenAI" width="128" height="35" /></span><span class="aib-prog">Partner Network</span></li></ul></div>
+    <ul class="el-proof" style="margin-top:56px">
+      <li><span class="el-stat">9.5<small>/10</small></span><p class="el-p">Net Promoter Score, Hong Kong 2025</p></li>
+      <li><span class="el-k">Staff training</span><h3 class="el-h3">Schwarzman College, Tsinghua University</h3></li>
+      <li><span class="el-k">Demo day judges</span><h3 class="el-h3">Harvard, Stanford, Y Combinator, and AI labs</h3><p class="el-p"><a href="/results" class="tlink">See results →</a></p></li>
+    </ul>
   </div>
 </section>
 
-<section class="zl-section-md section-alt" data-screen-label="FAQ">
-  <div class="container pp-faq-wrap">
-    <div class="sec-head reveal"><span class="eyebrow">Fair questions</span><h2 class="h2 h2-md">What school leaders ask.</h2></div>
-    <div class="faq pp-faq">
-      <details class="faq-item reveal"><summary><span class="faq-q">We have no time for more PD.</span><span class="faq-toggle" aria-hidden="true">+</span></summary><p class="faq-a">Start small: one live session at a staff meeting you already hold. Student programs can run outside school time.</p></details>
-      <details class="faq-item reveal"><summary><span class="faq-q">Will it fit our mission and values?</span><span class="faq-toggle" aria-hidden="true">+</span></summary><p class="faq-a">The scoping call starts from your goals and values, and the plan is shaped around them.</p></details>
-      <details class="faq-item reveal"><summary><span class="faq-q">Is this a gimmicky AI class?</span><span class="faq-toggle" aria-hidden="true">+</span></summary><p class="faq-a">No. Students practice agency, taste, and craft by making real work and finishing it. <a href="/approach" class="tlink">Our approach →</a></p></details>
-      <details class="faq-item reveal"><summary><span class="faq-q">What about tools and child protection?</span><span class="faq-toggle" aria-hidden="true">+</span></summary><p class="faq-a">We use only the tools your school approves and keep student data out of them. <a href="/schools/technology" class="tlink">For technology teams →</a></p></details>
-      <details class="faq-item reveal"><summary><span class="faq-q">What does the school provide?</span><span class="faq-toggle" aria-hidden="true">+</span></summary><p class="faq-a">A room, a laptop for each student, and a teacher who co-runs the sessions. We bring the lesson plan, the materials, and a setup that works with your approved tools.</p></details>
-      <details class="faq-item reveal"><summary><span class="faq-q">How is it priced?</span><span class="faq-toggle" aria-hidden="true">+</span></summary><p class="faq-a">Per cohort, based on group size, length, and format. Send grades, dates, and numbers; we reply within three working days.</p></details>
+<section class="el-sec" data-screen-label="FAQ">
+  <div class="el-wrap el-split">
+    <div><span class="eyebrow">Fair questions</span><h2 class="el-h2">What school leaders <em>ask.</em></h2></div>
+    <div class="el-faq">
+      <details><summary>We have no time for more PD.</summary><p>Start small: one live session at a staff meeting you already hold. Student programs can run outside school time.</p></details>
+      <details><summary>Is this a gimmicky AI class?</summary><p>No. Students practice agency, taste, and craft by making real work and finishing it. <a href="/approach" class="tlink">Our approach →</a></p></details>
+      <details><summary>What about tools and child protection?</summary><p>We use only the tools your school approves and agree the data rules with your technology team first. <a href="/schools/technology" class="tlink">For technology staff →</a></p></details>
+      <details><summary>What does the school provide?</summary><p>A room, a laptop for each student, and a teacher who co-runs the sessions. We bring the lesson plan, the materials, and a setup that works with your approved tools.</p></details>
+      <details><summary>How is it priced?</summary><p>Per cohort, based on group size, length, and format. Send grades, dates, and numbers; we reply within three working days.</p></details>
     </div>
   </div>
 </section>
 
-<section class="pp-final" data-screen-label="Next step">
-  <div class="container">
-    <div class="pp-final-top reveal">
-      <div>
-        <span class="eyebrow">Next step</span>
-        <h2 class="h2 h2-md">Start with <em>one conversation.</em></h2>
-        <p class="pp-close-sub">Tell us your grades and dates. We’ll reply within three working days with a format that fits.</p>
-        <div class="pp-close-cta"><a href="/contact?program=school-partnership" class="btn btn-primary">Start the conversation <span class="arr">→</span></a></div>
-      </div>
-      <div class="pp-lead" id="onepager">
+<section class="el-cta" id="next" data-screen-label="Next step">
+  <div class="el-wrap el-cta-grid">
+    <div>
+      <span class="eyebrow">Next step</span>
+      <h2 class="el-h2">Start with <em>one conversation.</em></h2>
+      <p class="el-p">Tell us your grades and dates. We’ll reply within three working days with a format that fits.</p>
+      <div class="el-actions"><a href="/contact?program=school-partnership" class="btn btn-primary">Start the conversation <span class="arr">→</span></a></div>
+    </div>
+    <div class="pp-lead el-lead el-form" id="onepager">
         <div class="pp-lead-top"><img class="pp-lead-thumb" src="/onepager/arena-school-one-pager-en.jpg?v=20261002" alt="Preview of the Arena School one-pager" width="96" height="136" loading="lazy" /><div><h3>A one-pager for your <span class="nw" style="white-space:nowrap">board</span></h3><p>Every program and what we have run.</p></div></div>
         <form class="cohort-form pp-lead-form" action="https://formsubmit.co/ajax/contact@arenaschool.org" method="POST">
           <input type="hidden" name="_subject" value="Arena School · one-pager request · School leaders" />
@@ -181,7 +197,6 @@
           <p class="pp-lead-note">Our team has your note and will reply personally within three working days.</p>
         </div>
       </div>
-    </div>
   </div>
 </section>
 </main>
@@ -191,7 +206,7 @@
       <div class="footer-brand">
         <a href="/" class="footer-lockup-link"><img class="footer-lockup" src="/logos/arena/wordmark-ivory-1600.png" alt="Arena School" width="1600" height="242" /></a>
         <p class="tag">Helping students, families, educators, and schools thrive in the age of AI.</p>
-      </div><div class="footer-col"><h4>For students</h4><a href="/programs/remake-your-favorite-app">App Design Workshop</a><a href="/programs/website-portfolio-workshop">College Portfolio Workshop</a><a href="/programs/product-intensive">Entrepreneurship &amp; AI Intensive</a><a href="/mentorship">Year-Long Project Mentorship</a><a href="/zero-to-launch">AI Advantage Bootcamp</a></div><div class="footer-col footer-col-split"><h4>For families</h4><a href="/mentorship">Mentorship</a><a href="/events/isb-winter-2027">Build Your Own AI Toolkit @ ISB</a><a href="/programs/community-dialogues">Parent talks</a><h4>For schools</h4><a href="/programs/teacher-training">Teachers</a><a href="/schools/technology">Technology teams</a><a href="/schools">School leaders</a><a href="/programs/conferences">Conferences</a><a href="/partnerships">Partners</a></div><div class="footer-col"><h4>About</h4><a href="/about">Our team</a><a href="/approach">Our approach</a><a href="/results">Results</a><a href="/contact">Contact us</a></div>
+      </div><div class="footer-col"><h4>For students</h4><a href="/programs/remake-your-favorite-app">App Design Workshop</a><a href="/programs/website-portfolio-workshop">College Portfolio Workshop</a><a href="/programs/product-intensive">Entrepreneurship &amp; AI Intensive</a><a href="/mentorship">Year-Long Project Mentorship</a><a href="/zero-to-launch">AI Advantage Bootcamp</a></div><div class="footer-col footer-col-split"><h4>For families</h4><a href="/mentorship">Mentorship</a><a href="/events/isb-winter-2027">AI Fundamentals for Students @ International School of Beijing</a><a href="/programs/community-dialogues">Parent talks</a><h4>For schools</h4><a href="/programs/teacher-training">Teachers</a><a href="/schools/technology">Technology teams</a><a href="/schools">School leaders</a><a href="/programs/conferences">Conferences</a><a href="/partnerships">Partners</a></div><div class="footer-col"><h4>About</h4><a href="/about">Our team</a><a href="/approach">Our approach</a><a href="/results">Results</a><a href="/contact">Contact us</a></div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 Arena School</span>
@@ -205,7 +220,8 @@
 <script src="/riso-interact.js?v=1790704894" defer></script>
 <script src="/faq-hover.js?v=1790803700" defer></script>
 <script src="/onepager.js?v=1790780000" defer></script>
-<script src="/promo.js?v=24dc8f3a" defer data-promo></script>
+<script src="/elegance.js?v=86305fdd" defer></script>
+<script src="/promo.js?v=12b47d15" defer data-promo></script>
 <script src="/newsletter.js?v=5484ac7d" defer data-nl></script>
 <!-- phone:start -->
 <footer class="ph-foot" data-phone hidden><img class="ph-foot-lock" src="/logos/arena/wordmark-ivory-1600.png" alt="Arena School" width="180" height="27"><p class="ph-foot-tag">Helping students, families, educators, and schools thrive in the age of AI.</p><ul class="ph-list ph-list-dark"><li><a class="ph-row" href="/contact"><span class="ph-row-t">Contact us</span><svg class="ph-chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5"/></svg></a></li><li><a class="ph-row" href="mailto:contact@arenaschool.org"><span class="ph-row-t">Email</span><span class="ph-row-v">contact@arenaschool.org</span><svg class="ph-chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5"/></svg></a></li><li><a class="ph-row" href="#nl"><span class="ph-row-t">Newsletter</span><span class="ph-row-v">Subscribe</span><svg class="ph-chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5"/></svg></a></li><li><a class="ph-row" href="#ph-menu"><span class="ph-row-t">All programs</span><svg class="ph-chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5"/></svg></a></li><li><a class="ph-row" href="https://www.linkedin.com/company/arena-school/" target="_blank" rel="noopener"><span class="ph-row-t">LinkedIn</span><svg class="ph-chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5"/></svg></a></li></ul><p class="ph-foot-c">© 2026 Arena School</p></footer>

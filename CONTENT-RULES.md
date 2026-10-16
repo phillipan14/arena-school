@@ -150,6 +150,9 @@ AI **aids** people. It never does the work *for* them. People stay the authors a
 - Results are selected examples, not a complete list.
 - No tuition or fee amounts on marketing pages.
 - Program names: App Design Workshop, College Portfolio Workshop, Entrepreneurship & AI Intensive, Year-Long Project Mentorship, AI Advantage Bootcamp, AI for Educators, Community dialogues (parent education series).
+- Winter program name (founder, 2026-10-16), identical in the nav, footer, banner, popup, and event page: **AI Fundamentals for Students @ International School of Beijing** (spell out the school; never "ISB" in the name). CN: **学生AI基础营 · 北京顺义国际学校**. Replaces "Build Your Own AI Toolkit @ ISB" / 打造专属于你的AI工具箱.
+- Teacher tools credit (2026-10-16): the poem annotator and "who is missing what" tools on the Teachers page are credited to "Ben, an English teacher at Shanghai American School (SAS)". No time-saved figures on any tool.
+- Data claims (2026-10-16): do not say "no student data goes into AI tools" or promise enterprise Copilot. Say we work only on the school's approved tools and agree the data rules with its technology team first.
 
 ## 10. Chinese style (Oct 2026, JJ: "write how a Chinese parent or educator would actually say it")
 - **No grade numbers in prose, menus, cards, or labels.** Say 初中生 (grades 6 to 9), 高中生 (grades 10 to 12), 初高中学生 (grades 7 to 12), 大学生与职场新人. Where one specific year matters, use the Chinese school-year name (高一, 高二, 高三, 准高三学生), never 10年级 / 11年级. Hero fact key is 对象, not 年级. "Tell us the grades" becomes 告诉我们学生年龄段. Numbers stay only where they are literal data: the 6 to 12 tick marks on the homepage grade map axis and the free-text 年级与学校 field on the enroll form.

@@ -28,36 +28,12 @@
 <link rel="stylesheet" href="/css/cofounders.css?v=1790941000" />
 <link rel="stylesheet" href="/css/reveals.css?v=1790805600" />
 <link rel="stylesheet" href="/css/ai-band.css?v=1" />
-<style data-mobile>
-@media (max-width:760px){
-  /* Hero facts labels and why-list process labels */
-  .pc .pc-facts li b{ font-size:12px; letter-spacing:.1em; }
-  .pc .pc-why-list .wr-k{ font-size:11px; }
-  /* Why: let the heading use the full width instead of a ragged narrow column */
-  .pc .pc-why-grid .h2{ max-width:none; }
-  /* How it runs: stack the four steps instead of a clipped swipe row */
-  .pc .pc-sel-list{ flex-direction:column; gap:8px; overflow:visible; margin-inline:0; padding:0; scroll-snap-type:none; }
-  .pc .pc-sel-list > li{ flex:0 0 auto; width:100%; }
-  .pc .pc-sel-tab{ width:100%; padding:16px 18px; gap:4px; }
-  .pc .pc-step-k, .pc .pc-sel-tab .pc-step-k, .pc .pc-step-k b{ font-size:12px; letter-spacing:.08em; }
-  .pc .pc-sel-tab .pc-sel-h{ font-size:20px; }
-  .pc .pc-sel-tab .pc-sel-p{ font-size:15px; line-height:1.6; }
-  /* Proof: tappable results link */
-  .pc .pc-proof-line .tlink{ display:inline-block; padding:12px 4px; margin:-12px 0; }
-  /* Team labels */
-  .team-sec .hp-cred-lab, .team-sec .hp-cf-k{ font-size:12px; letter-spacing:.12em; }
-  .team-sec .hp-cf-r{ font-size:12px; letter-spacing:.1em; }
-  /* Formats tags: larger, less tracking so they wrap cleanly */
-  .pc .pc-final .pp-formats small{ font-size:12px; letter-spacing:.06em; line-height:1.5; }
-  /* All programs link: full 44px tap area */
-  .pc .pp-final-all a{ display:inline-flex; align-items:center; min-height:44px; padding:0 8px; }
-}
-</style>
+<link rel="stylesheet" href="/css/elegance.css?v=78f71616" />
 <link rel="stylesheet" href="/newsletter.css?v=66e439a2" data-nl>
-<link rel="stylesheet" href="/promo.css?v=21ea5dbe" data-promo>
+<link rel="stylesheet" href="/promo.css?v=fad9d226" data-promo>
 <link rel="stylesheet" href="/phone.css?v=5183563a" data-phone>
 </head>
-<body class="no-ticker zl-page">
+<body class="no-ticker el el">
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <a href="/" class="wordmark nav-brand">
@@ -65,7 +41,7 @@
     </a>
     <div class="nav-links" id="navLinks">
       <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">For students<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu nav-dd-stu"><span class="nav-dd-sub">Short courses · 2 days</span><a href="/programs/remake-your-favorite-app"><b>App Design Workshop</b><span>Grades 6–9 · rebuild an app they love</span></a><a href="/programs/website-portfolio-workshop"><b>College Portfolio Workshop</b><span>Grades 10–12 · a portfolio for applications</span></a><span class="nav-dd-sub">Longer programs</span><a href="/programs/product-intensive"><b>Entrepreneurship &amp; AI Intensive</b><span>Grades 7–12 · build, launch, and pitch</span></a><span class="nav-dd-sub">Year-long</span><a href="/mentorship"><b>Year-Long Project Mentorship</b><span>Grades 7–12 · 6 months to a year, 1:1</span></a><span class="nav-dd-sub">College &amp; career</span><a href="/zero-to-launch"><b>AI Advantage Bootcamp</b><span>College &amp; early career · workplace-ready with AI</span></a></div></div>
-      <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">For families<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu nav-dd-fam"><span class="nav-dd-sub">Year-long</span><a href="/mentorship"><b>Mentorship</b><span>Year-Long Project Mentorship · enroll directly</span></a><span class="nav-dd-sub">Holiday programs</span><a href="/events/isb-winter-2027"><b>Build Your Own AI Toolkit @ ISB</b><span>Jan 5–8, 2027 · register interest</span></a><span class="nav-dd-sub">At your child’s school</span><a href="/programs/community-dialogues"><b>Parent talks</b><span>Community Dialogues: ask your school to host one</span></a></div></div>
+      <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">For families<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu nav-dd-fam"><span class="nav-dd-sub">Year-long</span><a href="/mentorship"><b>Mentorship</b><span>Year-Long Project Mentorship · enroll directly</span></a><span class="nav-dd-sub">Holiday programs</span><a href="/events/isb-winter-2027"><b>AI Fundamentals for Students @ International School of Beijing</b><span>Jan 5–8, 2027 · register interest</span></a><span class="nav-dd-sub">At your child’s school</span><a href="/programs/community-dialogues"><b>Parent talks</b><span>Community Dialogues: ask your school to host one</span></a></div></div>
       <div class="nav-dd is-current"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">For schools<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu nav-dd-edu"><span class="nav-dd-sub">At your school</span><a href="/programs/teacher-training" aria-current="page"><b>Teachers</b><span>AI for Educators: make the tool your class is missing</span></a><a href="/schools/technology"><b>Technology teams</b><span>Tech coaches, IT directors, and digital learning</span></a><a href="/schools"><b>School leaders</b><span>Bring Arena to your whole school community</span></a><span class="nav-dd-sub">Events &amp; partners</span><a href="/programs/conferences"><b>Conferences</b><span>Talks, hands-on workshops, and pre-conference sessions</span></a><a href="/partnerships"><b>Partners</b><span>A product-building track for camps and programs</span></a></div></div>
       <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">About<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu"><a href="/about"><b>Our team</b><span>Who we are</span></a><a href="/approach"><b>Our approach</b><span>Agency, taste, and craft</span></a><a href="/results"><b>Results</b><span>What we have run</span></a></div></div>
       <a class="nav-mobile-only" href="/contact">Contact us</a>
@@ -83,60 +59,112 @@
     </div>
   </div>
 </nav>
-<main id="top" class="pc">
-<section class="hero hero-pad-md hero-inv pc-hero" data-screen-label="Hero">
-  <div class="hero-bg" data-riso-field="static" aria-hidden="true"></div>
-  <div class="container">
-    <div class="hero-copy hero-copy-wide">
-      <div class="hero-eyebrow-row reveal"><span class="eyebrow">For teachers</span></div>
-      <h1 class="display reveal cs-h1">Make the small tool <em>your class is missing.</em></h1>
-      <p class="lede reveal lede-56">Bring one task from a class you teach. Leave with a tool you made with AI, on your school’s approved tools, with your judgment in charge.</p>
-      <ul class="pc-facts reveal" aria-label="At a glance"><li><b>Who</b><span>Teachers and curriculum leads</span></li><li><b>Subjects</b><span>Any</span></li><li><b>Where</b><span>At your school</span></li><li><b>Teachers keep</b><span>The tools they make</span></li><li><b>Coding</b><span>None needed</span></li></ul>
-      <div class="pc-cta reveal"><a href="/contact?program=teacher-training" class="btn btn-primary">Bring it to your school <span class="arr">→</span></a><a href="#onepager" class="btn btn-ghost">One-pager for your principal</a></div>
+<main id="top">
+<section class="hero el-hero" data-screen-label="Hero">
+  <div class="el-wrap el-hero-grid">
+    <div>
+      <span class="eyebrow">For teachers</span>
+      <h1 class="el-h1">Make the small tool <em>your class</em> is missing.</h1>
+      <p class="el-lede">Bring one task from grading, planning, or differentiation. Leave with a tool you made with AI, on your school’s approved tools, with your judgment in charge.</p>
+      <div class="el-actions"><a href="/contact?program=teacher-training" class="btn btn-primary">Bring it to your school <span class="arr">→</span></a><a href="#tools" class="tlink">See the tools →</a></div>
     </div>
+    <ul class="el-facts" aria-label="At a glance"><li><b>Who</b><span>Teachers and curriculum leads</span></li><li><b>Subjects</b><span>Any</span></li><li><b>Where</b><span>At your school</span></li><li><b>Coding</b><span>None needed</span></li></ul>
   </div>
 </section>
-<section class="zl-section pc-sec pc-why" data-screen-label="How we work with teachers">
-  <div class="container pc-why-grid">
-    <div class="sec-head reveal"><span class="eyebrow">How we work with teachers</span><h2 class="h2 h2-md">We start from what <em>already works</em> in your class.</h2><p class="pc-intro">Teachers already know what AI is. Each session takes one small part of one class, and the teacher judges the result.</p></div>
-    <div class="reveal"><ul class="pc-why-list has-wr"><li><h3>Your teaching, not ours</h3><p>We don’t redesign your course. You pick one task that could work better, and we start there.</p><div class="wr" aria-hidden="true"><div class="wr-in"><ol class="wr-proc" style="--n:3"><li><span class="wr-k">Start</span><b>What works now</b></li><li><span class="wr-k">Pick</span><b>One small part</b></li><li><span class="wr-k">Keep</span><b>Everything else</b></li></ol></div></div></li><li><h3>The tool you wish existed</h3><p>Teachers could make a poem-annotation tool for a literature class, or a quick view of which students are missing a particular piece of knowledge.</p><div class="wr" aria-hidden="true"><div class="wr-in"><ul class="wr-idx"><li>Poem annotation</li><li>Who is missing what</li><li>Your idea here</li></ul></div></div></li><li><h3>Assessment when students also have AI</h3><p>Assessing the process as well as the product: drafts, reflections, and the reasons students give for each change.</p><div class="wr" aria-hidden="true"><div class="wr-in"><ol class="wr-proc" style="--n:4"><li><span class="wr-k">Draft</span><b>First try</b></li><li><span class="wr-k">Revise</span><b>What changed</b></li><li><span class="wr-k">Explain</span><b>Why</b></li><li><span class="wr-k">Final</span><b>The product</b></li></ol></div></div></li></ul></div>
-  </div>
-</section>
-<section class="zl-section section-alt pc-sec pc-how" data-screen-label="How it runs">
-  <div class="container">
-    <div class="sec-head reveal"><span class="eyebrow">How it runs</span><h2 class="h2 h2-md">One session, four steps.</h2></div>
-    <div class="pc-sel pc-sel-4 reveal" data-pc-sel data-label-pause="Pause" data-label-play="Play" style="--pc-n:4"><div class="pc-sel-stage"><figure class="pc-sel-slide is-on" id="st-teacher-trai-p1" data-k="notebook-plan" role="tabpanel" aria-labelledby="st-teacher-trai-t1"><img src="/photos/stock/notebook-plan-800.webp" srcset="/photos/stock/notebook-plan-800.webp 800w, /photos/stock/notebook-plan-1400.webp 1400w" sizes="(max-width: 900px) 100vw, 58vw" alt="A notebook with a weekly plan" loading="eager" decoding="async" /></figure><figure class="pc-sel-slide" id="st-teacher-trai-p2" data-k="facilitator-whiteboard" role="tabpanel" aria-labelledby="st-teacher-trai-t2" aria-hidden="true"><img src="/photos/stock/facilitator-whiteboard-800.webp" srcset="/photos/stock/facilitator-whiteboard-800.webp 800w, /photos/stock/facilitator-whiteboard-1400.webp 1400w" sizes="(max-width: 900px) 100vw, 58vw" alt="A workshop leader explaining a task at a whiteboard" loading="lazy" decoding="async" /></figure><figure class="pc-sel-slide" id="st-teacher-trai-p3" data-k="mentor-feedback" role="tabpanel" aria-labelledby="st-teacher-trai-t3" aria-hidden="true"><img src="/photos/isb-2026/mentor-feedback-800.webp" srcset="/photos/isb-2026/mentor-feedback-800.webp 800w, /photos/isb-2026/mentor-feedback-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 58vw" alt="Mentors giving feedback during a working session" loading="lazy" decoding="async" /><figcaption>Beijing, 2026</figcaption></figure><figure class="pc-sel-slide" id="st-teacher-trai-p4" data-k="colleagues-table" role="tabpanel" aria-labelledby="st-teacher-trai-t4" aria-hidden="true"><img src="/photos/stock/colleagues-table-800.webp" srcset="/photos/stock/colleagues-table-800.webp 800w, /photos/stock/colleagues-table-1400.webp 1400w" sizes="(max-width: 900px) 100vw, 58vw" alt="Colleagues reviewing materials together at a table" loading="lazy" decoding="async" /></figure><div class="pc-sel-count" aria-hidden="true"><b>01</b><span> / 04</span></div><button type="button" class="pc-sel-pp" aria-label="Pause" hidden><span aria-hidden="true"></span></button></div><ol class="pc-sel-list" role="tablist" aria-label="One session, four steps."><li role="presentation"><button type="button" class="pc-sel-tab is-on" role="tab" id="st-teacher-trai-t1" aria-controls="st-teacher-trai-p1" aria-selected="true" tabindex="0"><span class="pc-sel-bar" aria-hidden="true"><i></i></span><span class="pc-step-k"><b>01</b> · Before</span><span class="pc-sel-h">Which tool do you wish existed?</span><span class="pc-sel-p">Each teacher brings one task from a class they teach now.</span></button></li><li role="presentation"><button type="button" class="pc-sel-tab" role="tab" id="st-teacher-trai-t2" aria-controls="st-teacher-trai-p2" aria-selected="false" tabindex="-1"><span class="pc-sel-bar" aria-hidden="true"><i></i></span><span class="pc-step-k"><b>02</b> · Show</span><span class="pc-sel-h">One tool, live</span><span class="pc-sel-p">We make one tool on screen from a plain-language description.</span></button></li><li role="presentation"><button type="button" class="pc-sel-tab" role="tab" id="st-teacher-trai-t3" aria-controls="st-teacher-trai-p3" aria-selected="false" tabindex="-1"><span class="pc-sel-bar" aria-hidden="true"><i></i></span><span class="pc-step-k"><b>03</b> · Make</span><span class="pc-sel-h">Your own tool</span><span class="pc-sel-p">Each teacher makes theirs on your approved tools and checks every result.</span></button></li><li role="presentation"><button type="button" class="pc-sel-tab" role="tab" id="st-teacher-trai-t4" aria-controls="st-teacher-trai-p4" aria-selected="false" tabindex="-1"><span class="pc-sel-bar" aria-hidden="true"><i></i></span><span class="pc-step-k"><b>04</b> · Keep</span><span class="pc-sel-h">Ready for class</span><span class="pc-sel-p">Teachers keep the tool and the prompt behind it, to reuse and share.</span></button></li></ol></div>
-    <p class="cs-note reveal pc-note">Decisions about teaching and assessment stay with your faculty.</p>
-  </div>
-</section>
-<section class="founder-strip pc-proof" data-screen-label="Proof and team">
-  <div class="container">
-    <div class="pc-proof-head reveal"><span class="eyebrow">Selected programs we have run</span></div>
-    
-    <div class="pc-proof-logos reveal"><img src="/logos/cred/tsinghua-lockup.png" alt="Tsinghua University" /><img src="/logos/cred/schwarzman.png" alt="Schwarzman College" /></div><p class="pc-proof-line reveal">We have led hands-on work with AI tools for staff at Schwarzman College, Tsinghua University. <a href="/results#tsinghua" class="tlink">See results →</a></p>
-    <div class="ai-band aib-inline reveal"><p class="aib-k">Selected for</p><ul class="aib-row"><li><span class="aib-logo"><img class="aib-anthropic" src="/logos/partners/anthropic.svg" alt="Anthropic" width="151" height="17" /></span><span class="aib-prog">Startup Program</span></li><li><span class="aib-logo"><img class="aib-openai" src="/logos/partners/openai.svg" alt="OpenAI" width="128" height="35" /></span><span class="aib-prog">Partner Network</span></li></ul></div>
-  </div>
-</section>
-<section class="zl-section pc-sec" data-screen-label="FAQ">
-  <div class="container pc-faq-wrap">
-    <div class="sec-head reveal"><span class="eyebrow">Questions</span><h2 class="h2 h2-md">Common questions</h2></div>
-    <div class="faq pc-faq reveal"><details class="faq-item"><summary><span class="faq-q">Is this more work for me?</span><span class="faq-toggle" aria-hidden="true">+</span></summary><p class="faq-a">It starts from one task you already do, and the tool is made during the session. You decide whether to keep using it.</p></details><details class="faq-item"><summary><span class="faq-q">I’m not technical. Will I keep up?</span><span class="faq-toggle" aria-hidden="true">+</span></summary><p class="faq-a">Yes. No technical background or coding is needed.</p></details><details class="faq-item"><summary><span class="faq-q">What about students using AI to cheat?</span><span class="faq-toggle" aria-hidden="true">+</span></summary><p class="faq-a">We address it directly: how to assess the process, through drafts, reflections, and the reasons behind each change, and when AI doesn’t belong.</p></details><details class="faq-item"><summary><span class="faq-q">Our school restricts tools and student data.</span><span class="faq-toggle" aria-hidden="true">+</span></summary><p class="faq-a">We use only the tools your school approves, such as enterprise Copilot or tools that work in China, and no student data goes into them. <a href="/schools/technology" class="tlink">For technology teams →</a></p></details></div>
-  </div>
-</section>
-<section id="overview" class="pp-final pc-final" data-screen-label="Next step">
-  <div class="container">
-    <div class="pp-final-top pc-final-solo reveal">
-      <div>
-        <span class="eyebrow">Next step</span>
-        <h2 class="h2 h2-md">Bring the training to your school</h2>
-        <p class="pp-close-sub">Tell us about your faculty and preferred dates. We reply within three working days.</p>
-        <div class="pp-close-cta"><a href="/contact?program=teacher-training" class="btn btn-primary">Bring it to your school <span class="arr">→</span></a></div>
+
+<section class="el-sec" id="tools" data-screen-label="Tools teachers made">
+  <div class="el-wrap" data-el-car>
+    <div class="el-head">
+      <div><span class="eyebrow">Tools teachers made</span><h2 class="el-h2">Small tools, <em>made by teachers.</em></h2></div>
+      <div class="el-head-side">
+        <p class="el-p">Each one started as a single task from a real class.</p>
+        <div class="el-car-arrows"><button type="button" class="el-arrow" data-el-prev aria-label="Previous tool"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" class="el-arrow" data-el-next aria-label="Next tool"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
       </div>
-      
     </div>
-    <div class="pp-final-grid">
-      <div class="reveal"><span class="pp-final-k">Formats</span><ol class="pp-formats"><li><span class="pp-fnum">01</span><div><b>Live session</b><small>One session, at a conference or staff meeting</small><p>We show one task live, then teachers try it on their own material.</p></div></li><li><span class="pp-fnum">02</span><div><b>Hands-on workshop</b><small>A department or team</small><p>Teachers work through several tasks on their own materials, with help in the room.</p></div></li><li><span class="pp-fnum">03</span><div><b>School-wide training</b><small>The whole faculty, by department</small><p>Each department gets a session, then a follow-up.</p></div></li></ol></div>
-      <div class="pp-lead reveal" id="onepager">
+    <ul class="el-car-track" aria-label="Tools teachers made">
+      <li class="el-card">
+        <div class="el-card-fig" aria-hidden="true"><div class="elg elg-win"><div class="elg-bar"><i></i><i></i><i></i><span>Poem annotator</span></div><div class="elg-body"><div class="elg-poem"><div><mark>Two roads diverged</mark> in a <mark class="is-2">yellow wood,</mark></div><div class="elg-note">Metaphor</div><div>And sorry I could not travel both</div><div class="elg-note is-0"></div><div>And be one traveler, <mark class="is-2">long I stood</mark></div><div class="elg-note is-2">Inversion</div><div>And looked down one as far as I could</div><div class="elg-note is-0"></div></div></div></div></div>
+        <div class="el-card-body"><span class="el-k">English · Literature</span><h3 class="el-h3">Poem annotator</h3><p class="el-p">Literary devices marked in a poem’s margin, ready for discussion.</p><p class="el-credit"><span>Made by <b>Ben</b>, an English teacher at Shanghai American School (SAS)</span></p></div>
+      </li>
+      <li class="el-card">
+        <div class="el-card-fig" aria-hidden="true"><div class="elg elg-win"><div class="elg-bar"><i></i><i></i><i></i><span>Who is missing what</span></div><div class="elg-body"><div class="elg-mx"><span></span><span class="h">Thesis</span><span class="h">Evidence</span><span class="h">Context</span><span class="h">Devices</span><span class="n">Student A</span><i class="elg-d"></i><i class="elg-d"></i><i class="elg-d is-miss"></i><i class="elg-d"></i><span class="n">Student B</span><i class="elg-d"></i><i class="elg-d is-half"></i><i class="elg-d is-miss"></i><i class="elg-d"></i><span class="n">Student C</span><i class="elg-d"></i><i class="elg-d"></i><i class="elg-d is-half"></i><i class="elg-d is-miss"></i><span class="n">Student D</span><i class="elg-d is-half"></i><i class="elg-d"></i><i class="elg-d is-miss"></i><i class="elg-d"></i><span class="n">Missing</span><span class="t">0</span><span class="t">0</span><span class="t">3</span><span class="t">1</span></div></div></div></div>
+        <div class="el-card-body"><span class="el-k">Any subject</span><h3 class="el-h3">Who is missing what</h3><p class="el-p">Which students are missing which piece of knowledge, at a glance.</p><p class="el-credit"><span>Made by <b>Ben</b>, an English teacher at Shanghai American School (SAS)</span></p></div>
+      </li>
+      <li class="el-card">
+        <div class="el-card-fig" aria-hidden="true"><div class="elg elg-win"><div class="elg-bar"><i></i><i></i><i></i><span>Feedback helper</span></div><div class="elg-body"><div class="elg-lines"><i style="width:96%"></i><i class="is-hl" style="width:82%"></i><i style="width:90%"></i><i style="width:54%"></i></div><div class="elg-bubble"><b>Rubric · Evidence</b>Suggested: name the source of the second quotation.<div class="elg-btns"><span>Edit</span><span class="is-on">Keep</span><span>Drop</span></div></div></div></div></div>
+        <div class="el-card-body"><span class="el-k">Any subject</span><h3 class="el-h3">Feedback helper</h3><p class="el-p">Comment ideas against your own rubric. You edit each one.</p></div>
+      </li>
+      <li class="el-card is-open">
+        <div class="el-card-fig" aria-hidden="true"><div class="elg-open"><b>+</b>Your task here</div></div>
+        <div class="el-card-body"><span class="el-k">Your class</span><h3 class="el-h3">The tool you wish existed</h3><p class="el-p">Bring one task. We make the first version together.</p></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="el-sec is-hi" id="how" data-screen-label="How we work with teachers">
+  <div class="el-wrap">
+    <div class="el-head">
+      <div><span class="eyebrow">How we work with teachers</span><h2 class="el-h2">We start from <em>what already works.</em></h2></div>
+      <p class="el-p">We don’t redesign your course. Each session starts from one small part of one class.</p>
+    </div>
+    <div class="el-tabs" role="tablist" aria-label="How we work with teachers" data-el-tabs>
+      <button type="button" class="el-tab" role="tab" id="tt-t1" aria-controls="tt-p1" aria-selected="true"><small>01</small>One session</button>
+      <button type="button" class="el-tab" role="tab" id="tt-t2" aria-controls="tt-p2" aria-selected="false" tabindex="-1"><small>02</small>Formats</button>
+      <button type="button" class="el-tab" role="tab" id="tt-t3" aria-controls="tt-p3" aria-selected="false" tabindex="-1"><small>03</small>Assessment with AI</button>
+    </div>
+    <div class="el-tabpanel" role="tabpanel" id="tt-p1" aria-labelledby="tt-t1">
+      <ol class="el-steps">
+        <li class="el-step"><span class="el-k">01 · Before</span><h3 class="el-h3">Which tool do you wish existed?</h3><p class="el-p">Each teacher brings one task from a class they teach now.</p></li>
+        <li class="el-step"><span class="el-k">02 · Show</span><h3 class="el-h3">One tool, live</h3><p class="el-p">We make one tool on screen from a plain-language description.</p></li>
+        <li class="el-step"><span class="el-k">03 · Make</span><h3 class="el-h3">Your own tool</h3><p class="el-p">Each teacher makes theirs on your approved tools and checks every result.</p></li>
+        <li class="el-step"><span class="el-k">04 · Keep</span><h3 class="el-h3">Ready for class</h3><p class="el-p">Teachers keep the tool and the prompt behind it, to reuse and share.</p></li>
+      </ol>
+      <p class="el-small el-note">Decisions about teaching and assessment stay with your faculty.</p>
+    </div>
+    <div class="el-tabpanel" role="tabpanel" id="tt-p2" aria-labelledby="tt-t2" hidden>
+      <ul class="el-proof">
+        <li><span class="el-k is-coral">01 · A staff meeting</span><h3 class="el-h3">Live session</h3><p class="el-p">We show one task live, then teachers try it on their own material.</p></li>
+        <li><span class="el-k is-coral">02 · A department</span><h3 class="el-h3">Hands-on workshop</h3><p class="el-p">Teachers work through several tasks on their own materials, with help in the room.</p></li>
+        <li><span class="el-k is-coral">03 · The whole faculty</span><h3 class="el-h3">School-wide training</h3><p class="el-p">Each department gets a session, then a follow-up.</p></li>
+      </ul>
+    </div>
+    <div class="el-tabpanel" role="tabpanel" id="tt-p3" aria-labelledby="tt-t3" hidden>
+      <div class="el-panel">
+        <div><h3 class="el-h3">Assessment when students also have AI</h3><p class="el-p">We assess the process as well as the product: drafts, reflections, and the reasons students give for each change.</p></div>
+        <div class="el-panel-fig" aria-hidden="true"><div class="elg elg-time is-4" style="max-width:460px"><span class="elg-chip">Draft</span><span class="elg-chip">Revise</span><span class="elg-chip">Explain</span><span class="elg-chip is-on">Final</span><div class="elg-rail"></div><span class="el-small">First try</span><span class="el-small">What changed</span><span class="el-small">Why</span><span class="el-small">The product</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="el-sec" data-screen-label="Proof">
+  <div class="el-wrap">
+    <div class="el-proof-line"><p>We have led hands-on work with AI tools for staff at Schwarzman College, Tsinghua University.</p><a href="/results#tsinghua" class="tlink">See results →</a></div>
+  </div>
+</section>
+
+<section class="el-sec is-tight" data-screen-label="FAQ">
+  <div class="el-wrap el-split">
+    <div><span class="eyebrow">Questions</span><h2 class="el-h2">Common <em>questions.</em></h2></div>
+    <div class="el-faq">
+      <details><summary>Is this more work for me?</summary><p>It starts from one task you already do, and the tool is made during the session. You decide whether to keep using it.</p></details>
+      <details><summary>I’m not technical. Will I keep up?</summary><p>Yes. No technical background or coding is needed.</p></details>
+      <details><summary>What about students using AI to cheat?</summary><p>We address it directly: how to assess the process, through drafts, reflections, and the reasons behind each change, and when AI doesn’t belong.</p></details>
+      <details><summary>Our school restricts tools and student data.</summary><p>We work only on the tools your school approves, and agree the data rules with your technology team first. <a href="/schools/technology" class="tlink">For technology staff →</a></p></details>
+    </div>
+  </div>
+</section>
+
+<section class="el-cta" id="next" data-screen-label="Next step">
+  <div class="el-wrap el-cta-grid">
+    <div>
+      <span class="eyebrow">Next step</span>
+      <h2 class="el-h2">Bring the training <em>to your school.</em></h2>
+      <p class="el-p">Tell us about your faculty and preferred dates. We reply within three working days.</p>
+      <div class="el-actions"><a href="/contact?program=teacher-training" class="btn btn-primary">Bring it to your school <span class="arr">→</span></a></div>
+    </div>
+    <div class="pp-lead el-lead el-form" id="onepager">
         <div class="pp-lead-top"><img class="pp-lead-thumb" src="/onepager/arena-school-one-pager-en.jpg?v=20261002" alt="Preview of the Arena School one-pager" width="96" height="136" loading="lazy" /><div><h3>A one-pager for your <span class="nw" style="white-space:nowrap">principal</span></h3><p>Every program and what we have run, on one page.</p></div></div>
         <form class="cohort-form pp-lead-form" action="https://formsubmit.co/ajax/contact@arenaschool.org" method="POST">
           <input type="hidden" name="_subject" value="Arena School · one-pager request · AI for Educators" />
@@ -162,8 +190,6 @@
           <p class="pp-lead-note">Our team has your note and will reply personally within three working days.</p>
         </div>
       </div>
-    </div>
-    <p class="pp-final-all reveal"><a href="/#programs">See all Arena programs →</a></p>
   </div>
 </section>
 </main>
@@ -173,7 +199,7 @@
       <div class="footer-brand">
         <a href="/" class="footer-lockup-link"><img class="footer-lockup" src="/logos/arena/wordmark-ivory-1600.png" alt="Arena School" width="1600" height="242" /></a>
         <p class="tag">Helping students, families, educators, and schools thrive in the age of AI.</p>
-      </div><div class="footer-col"><h4>For students</h4><a href="/programs/remake-your-favorite-app">App Design Workshop</a><a href="/programs/website-portfolio-workshop">College Portfolio Workshop</a><a href="/programs/product-intensive">Entrepreneurship &amp; AI Intensive</a><a href="/mentorship">Year-Long Project Mentorship</a><a href="/zero-to-launch">AI Advantage Bootcamp</a></div><div class="footer-col footer-col-split"><h4>For families</h4><a href="/mentorship">Mentorship</a><a href="/events/isb-winter-2027">Build Your Own AI Toolkit @ ISB</a><a href="/programs/community-dialogues">Parent talks</a><h4>For schools</h4><a href="/programs/teacher-training">Teachers</a><a href="/schools/technology">Technology teams</a><a href="/schools">School leaders</a><a href="/programs/conferences">Conferences</a><a href="/partnerships">Partners</a></div><div class="footer-col"><h4>About</h4><a href="/about">Our team</a><a href="/approach">Our approach</a><a href="/results">Results</a><a href="/contact">Contact us</a></div>
+      </div><div class="footer-col"><h4>For students</h4><a href="/programs/remake-your-favorite-app">App Design Workshop</a><a href="/programs/website-portfolio-workshop">College Portfolio Workshop</a><a href="/programs/product-intensive">Entrepreneurship &amp; AI Intensive</a><a href="/mentorship">Year-Long Project Mentorship</a><a href="/zero-to-launch">AI Advantage Bootcamp</a></div><div class="footer-col footer-col-split"><h4>For families</h4><a href="/mentorship">Mentorship</a><a href="/events/isb-winter-2027">AI Fundamentals for Students @ International School of Beijing</a><a href="/programs/community-dialogues">Parent talks</a><h4>For schools</h4><a href="/programs/teacher-training">Teachers</a><a href="/schools/technology">Technology teams</a><a href="/schools">School leaders</a><a href="/programs/conferences">Conferences</a><a href="/partnerships">Partners</a></div><div class="footer-col"><h4>About</h4><a href="/about">Our team</a><a href="/approach">Our approach</a><a href="/results">Results</a><a href="/contact">Contact us</a></div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 Arena School</span>
@@ -191,7 +217,8 @@
 <script src="/xpand.js?v=1790806300" defer></script>
 <script src="/faq-hover.js?v=1790806300" defer></script>
 <script src="/why-reveal.js?v=1" defer></script>
-<script src="/promo.js?v=24dc8f3a" defer data-promo></script>
+<script src="/elegance.js?v=86305fdd" defer></script>
+<script src="/promo.js?v=12b47d15" defer data-promo></script>
 <script src="/newsletter.js?v=5484ac7d" defer data-nl></script>
 <!-- phone:start -->
 <footer class="ph-foot" data-phone hidden><img class="ph-foot-lock" src="/logos/arena/wordmark-ivory-1600.png" alt="Arena School" width="180" height="27"><p class="ph-foot-tag">Helping students, families, educators, and schools thrive in the age of AI.</p><ul class="ph-list ph-list-dark"><li><a class="ph-row" href="/contact"><span class="ph-row-t">Contact us</span><svg class="ph-chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5"/></svg></a></li><li><a class="ph-row" href="mailto:contact@arenaschool.org"><span class="ph-row-t">Email</span><span class="ph-row-v">contact@arenaschool.org</span><svg class="ph-chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5"/></svg></a></li><li><a class="ph-row" href="#nl"><span class="ph-row-t">Newsletter</span><span class="ph-row-v">Subscribe</span><svg class="ph-chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5"/></svg></a></li><li><a class="ph-row" href="#ph-menu"><span class="ph-row-t">All programs</span><svg class="ph-chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5"/></svg></a></li><li><a class="ph-row" href="https://www.linkedin.com/company/arena-school/" target="_blank" rel="noopener"><span class="ph-row-t">LinkedIn</span><svg class="ph-chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5"/></svg></a></li></ul><p class="ph-foot-c">© 2026 Arena School</p></footer>

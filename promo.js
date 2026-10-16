@@ -1,5 +1,6 @@
 /* promo.js: ISB winter program promotion (EN + 中文). Not loaded on /decks, /talk, or /talks/*; off after Jan 8, 2027.
-   - Banner: a static navy strip above the nav linking to the program page; close hides it for the session.
+   - Banner: a navy strip above the nav linking to the program page; close hides it for the session. On phones the
+     program name scrolls sideways as a ticker (two copies for a seamless loop) while the Register pill stays put.
    - Popup: newsletter.js shows the program in its Arena Notes sheet (same design, plus the email sign-up)
      after 30s of cumulative time on the site in this session, then at 5 and 10 minutes if dismissed.
      Never on the program page itself. This file supplies the copy and the schedule via window.__arenaPromo.
@@ -19,14 +20,14 @@
   var WIN = '/events/isb-winter-2027' + (zh ? '-cn' : '');
   var onWin = location.pathname.indexOf('/events/isb-winter-2027') === 0;
   var T = zh ? {
-    region: '近期公告', close: '关闭', bt: '打造专属于你的AI工具箱 @ ISB · 2027年1月5–8日', bm: '打造专属于你的AI工具箱 @ ISB · 1月5–8日', bgo: '登记意向',
-    k: '打造专属于你的AI工具箱 @ ISB', h: '这个冬天，\n让孩子做出真正能用的产品', d: '2027年1月5日至8日',
+    region: '近期公告', close: '关闭', bt: '学生AI基础营 · 北京顺义国际学校 · 2027年1月5–8日', bm: '学生AI基础营 · 北京顺义国际学校 · 1月5–8日', bgo: '登记意向',
+    k: '学生AI基础营 · 北京顺义国际学校', h: '这个冬天，\n让孩子做出真正能用的产品', d: '2027年1月5日至8日',
     p: '在北京顺义国际学校（ISB），\n学生选定一个真实问题，\n借助AI做出可用的产品，并现场展示。',
     note: '2026年，已有 ISB 学生在 Arena 北京五天集训中\n做出了自己的网站和应用。',
     reg: '登记意向', or: '还在考虑？先订阅 Arena 通讯。'
   } : {
-    region: 'Announcement', close: 'Close', bt: 'Build Your Own AI Toolkit @ ISB · Jan 5–8, 2027', bm: 'Build Your Own AI Toolkit @ ISB · Jan 5–8', bgo: 'Register',
-    k: 'Build Your Own AI Toolkit @ ISB', h: 'This winter, your child builds something real.', d: 'January 5–8, 2027',
+    region: 'Announcement', close: 'Close', bt: 'AI Fundamentals for Students @ International School of Beijing · Jan 5–8, 2027', bm: 'AI Fundamentals for Students @ International School of Beijing · Jan 5–8', bgo: 'Register',
+    k: 'AI Fundamentals for Students @ International School of Beijing', h: 'This winter, your child builds something real.', d: 'January 5–8, 2027',
     p: 'At the International School of Beijing, students choose a real problem, build a working product with AI, and demo it.',
     note: 'In 2026, ISB students built websites and apps in Arena’s five-day intensive in Beijing.',
     reg: 'Register interest', or: 'Not ready yet? Get Arena Notes by email.'
@@ -54,7 +55,7 @@
   function unshift() { lastH = -1; doc.style.removeProperty('--promo-h'); doc.style.removeProperty('--sai-b'); saiB = null; window.dispatchEvent(new Event('resize')) }
   if (ss.get('bar') !== 'x') {
     bar = document.createElement('div'); bar.className = 'promo-bar'; bar.setAttribute('role', 'region'); bar.setAttribute('aria-label', T.region);
-    bar.innerHTML = '<a class="promo-link" href="' + esc(WIN) + '"><span class="promo-t"><span class="promo-td">' + esc(T.bt) + '</span><span class="promo-tm">' + esc(T.bm) + '</span></span><span class="promo-go">' + esc(T.bgo) + '<span class="promo-arr" aria-hidden="true">→</span></span></a>' +
+    bar.innerHTML = '<a class="promo-link" href="' + esc(WIN) + '"><span class="promo-t"><span class="promo-td">' + esc(T.bt) + '</span><span class="promo-tm"><span class="promo-tk">' + esc(T.bm) + '</span><span class="promo-tk" aria-hidden="true">' + esc(T.bm) + '</span></span></span><span class="promo-go">' + esc(T.bgo) + '<span class="promo-arr" aria-hidden="true">→</span></span></a>' +
       '<button type="button" class="promo-x" aria-label="' + esc(T.close) + '"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg></button>';
     if (contain) { doc.appendChild(bar); doc.classList.add('promo-contain') } else document.body.insertBefore(bar, document.body.firstChild);
     doc.classList.add('nl-bar-on', 'promo-bar-on');

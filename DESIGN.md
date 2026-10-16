@@ -600,3 +600,15 @@ Modeled on Phillip's showcase-wrap deck (portal.arenaschool.org/decks/showcase-w
 - Placements: homepage band after "Upcoming programs" + a one-time sheet ~3s after the programs section comes into view (never again after subscribing; 60 days after "Not now"); bands before the closing section on About, Approach, Results, Community Dialogues, Conferences; a "Get Arena Notes" button/row in program closing blocks; desktop footer field; phone footer row. Not on Contact, Enroll, Pay, Schools, or Partnerships bodies.
 - Copy: "Programs we're opening, talks we're giving, and what we're learning about kids and AI." No cadence promise. Role is required: "I'm a…" Parent / Student / Educator / Other.
 - Testing: `?nl=now` opens the sheet; `?nl=reset` clears the remembered "Not now" / subscribed state.
+
+## Elegance pass: audience and winter pages (2026-10-16)
+Applies to Teachers (`/programs/teacher-training`), Technology staff (`/schools/technology`), School leaders (`/schools`), and the winter program page (`/events/isb-winter-2027`), EN and CN. Founder direction: elegance and simplicity over critic scores; short pages; depth in tabs, carousels, and expandables; a small picture behind each point.
+- **Files:** `css/elegance.css` (all `.el-*` layout and `.elg-*` pictures) and `/elegance.js` (tabs and carousel arrows). Pages carry `<body class="el">` and drop `zl-page`, so the nav sits dark-on-light over a light hero.
+- **No dot grid.** Heroes are flat header paper (`#F3E9DD`) with a hairline; no `.hero-bg` riso field and no `hero-inv`.
+- **Hero:** eyebrow chip, Newsreader 500 h1 with one italic `--ink-2` phrase, lede, one primary pill plus a text link; the right column is an "at a glance" list (label/value rows on hairlines, navy top rule). Phones center the hero.
+- **Section head:** two columns, eyebrow plus Newsreader 300 h2 on the left, one short line on the right.
+- **Depth on demand:** tabs (`.el-tabs`, 2px `--ink-2` underline on the active tab), a vertical tab list with a picture panel (Technology), a scroll-snap card carousel with arrow buttons (Teachers tools; swipe on phones with an 84% peek), and hairline `<details>` FAQs.
+- **Pictures (`.elg-*`):** small HTML/CSS mockups in navy line on ivory (`#FFFDF9` windows, `#FCF3ED` panes, 1px `rgba(11,26,74,.14)` hairlines). Decorative, so `aria-hidden`. No icons, no stock art.
+- **Closing band:** navy, cream h2 with `#A9BEEA` italic, cream pill; the one-pager form sits on a flat cream card.
+- **Winter banner on phones:** the program name scrolls sideways as a ticker; the Register pill stays fixed (`promo.css`).
+
