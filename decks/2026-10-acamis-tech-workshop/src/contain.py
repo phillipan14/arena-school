@@ -67,6 +67,8 @@ JS = r"""([idx, tol, onlyNums]) => {
    if(a.closest('.lr')&&a.closest('.lr')===b.closest('.lr')&&media(a)&&media(b))continue;
    if(a.closest('.ag-fill')||b.closest('.ag-fill'))continue;
    if(a.closest('.grow-line')||b.closest('.grow-line'))continue;
+   /* live: the marquee logos scroll under their row label but are clipped by the strip's own frame (checked static in export) */
+   if((a.closest('.p5-mq')||b.closest('.p5-mq'))&&document.documentElement.classList.contains('motion'))continue;
    const A=a.getBoundingClientRect(),B=b.getBoundingClientRect();
    if(A.width<2||B.width<2||A.height<2||B.height<2)continue;
    const ix=Math.min(A.right,B.right)-Math.max(A.left,B.left),iy=Math.min(A.bottom,B.bottom)-Math.max(A.top,B.top);

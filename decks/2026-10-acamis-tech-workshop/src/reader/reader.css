@@ -1019,3 +1019,60 @@ a.qr.qr-live.age-q2::after{content:"Book a 20-minute call  \2192"}
 .rd .p5-res>img{background:#FCF3ED;padding:6px;border-radius:8px}
 .rd .p5-rt,.rd .p5-rt b,.rd .p5-rt small{color:#FCF3ED;word-break:break-word}
 .rd .p5-site{flex-basis:100%;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#A9BEEA}
+
+/* ---------- Pass 6 (Oct 16): the Arena "pro" system (see css/s99…-p6.css). White and cool off-white grounds,
+   navy accents, hairline cards, greyscale logos; the cover is the site hero on a phone: one full-bleed photo under
+   a navy gradient (a slow crossfade unless reduced motion), the crest, a faint dot texture, white type. ---------- */
+:root{--paper:#FFFFFF;--hi:#FFFFFF;--beige:#F5F7FA;--text:#2A3550;--muted:#5D6677;--edge:#E2E6EE;--on:#FFFFFF}
+.bg-alt{--bar:#F5F7FA}
+.s :is(.pane,.card,.r15-c,.nx-pc):not(.dk):not(.r5b-case):not(.cs-out):not(.mk-stat):not(.p5-res){box-shadow:0 0 0 1px #E2E6EE}
+img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r16-sel img{filter:grayscale(1);opacity:.8}
+.m em{background:none!important}
+/* logo rows: one static row each, honest labels */
+.p6-lr{display:flex;flex-direction:column;gap:8px;padding:10px 0;border-top:1px solid #E2E6EE}
+.p6-lr .p5-dup{display:none!important}
+.p6-lr .r15-lg,.p6-lr .p5-mqt,.p6-lr .p5-set{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px}
+.p6-lr .r15-lg img{height:20px;width:auto}
+.p6-lr .r15-lg img:is(.r15-mckinsey,.r15-deloitte,.r15-kimi){height:12px}.p6-lr .r15-lg img:is(.r15-caltech,.r15-microsoft-ai){height:15px}
+/* part slides and the big picture: light */
+.s.p6-sec{background:#F5F7FA}
+.p6-sec .sec-k,.p6-sec .sec-k b{color:var(--ink2)}
+.p6-sec h2{color:var(--ink)}
+.p6-sec .sl{color:var(--muted)}
+.p6-sec .trk,.p6-sec .trk li{border-color:#E2E6EE}
+.p6-sec .trk .tn{color:var(--ink2)}.p6-sec .tt b{color:var(--ink)}.p6-sec .tt small{color:var(--muted)}
+.p6-gs .c3x,.p6-gs .c3x li{border-color:#E2E6EE}
+.p6-gs .c3x i{color:var(--ink2)}.p6-gs .c3x b{color:var(--ink)}.p6-gs .c3x span{color:var(--muted)}
+.p6-gs .endline,.p6-gs .endline p{color:var(--ink)}
+/* cover */
+.s.p6-hero{background:var(--ink);color:#FFFFFF;isolation:isolate}
+.p6-media{position:absolute;inset:0;z-index:0;overflow:hidden}
+.p6-slide{position:absolute;inset:0;opacity:0}
+.p6-slide:first-child{opacity:1}
+.p6-slide img{width:100%;height:100%;max-width:none;object-fit:cover;object-position:var(--focus,50% 40%)}
+.p6-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(8,15,38,.95) 0%,rgba(8,15,38,.8) 42%,rgba(8,15,38,.3) 72%,rgba(8,15,38,.12) 100%)}
+.p6-dots{position:absolute;inset:0;z-index:1;opacity:.2;mix-blend-mode:screen;background:radial-gradient(rgba(201,214,242,.9) 1px,transparent 1.6px) 0 0/18px 18px;
+ -webkit-mask-image:linear-gradient(0deg,#000,transparent 70%);mask-image:linear-gradient(0deg,#000,transparent 70%)}
+.p6-caps{display:none}
+.p6-hero .w{z-index:2}
+.p6-crest{width:64px;height:64px;margin:0 0 14px;opacity:.9}
+.p6-crest img{width:100%;height:100%}
+.p6-hero .kick{color:#C9D6F2}
+.p6-hero .cv-lede{color:rgba(255,255,255,.9)}
+.p6-hero .cv-lede img{filter:brightness(0) invert(1);opacity:.92}
+.p6-hero h1{color:#FFFFFF}
+.p6-hero h1 .m em{color:#C9D6F2}
+.p6-hero h1 .sub{color:rgba(255,255,255,.86)}
+.p6-hero .brandmk{display:none}
+@media (prefers-reduced-motion:no-preference){
+ .p6-hero .p6-slide{animation:p6r-fade 28s linear infinite both}
+ .p6-hero .p6-slide:nth-child(1){animation-delay:-1.5s}.p6-hero .p6-slide:nth-child(2){animation-delay:-22.5s}
+ .p6-hero .p6-slide:nth-child(3){animation-delay:-15.5s}.p6-hero .p6-slide:nth-child(4){animation-delay:-8.5s}
+ .p6-hero .p6-slide img{animation:p6r-kb 28s ease-in-out infinite alternate both}
+ @keyframes p6r-fade{0%{opacity:1}25%{opacity:1}30%{opacity:0}95%{opacity:0}100%{opacity:1}}
+ @keyframes p6r-kb{from{transform:scale(1.02)}to{transform:scale(1.1)}}
+}
+.s :is(.pane,.card,.pc,.cs):not(.dk):not(.r5b-case):not(.cs-out):not(.mk-stat):not(.p5-res){background:#FFFFFF;border-color:#E2E6EE}
+.r15-c,.r7-bar i,.p5-ways li{background:#FFFFFF!important;box-shadow:inset 0 0 0 1px #E2E6EE!important}
+.r7-bar i.hl{background:var(--ink)!important;color:#FFFFFF}
+.rd .p5-res,.rd .p5-rt,.rd .p5-rt b,.rd .p5-rt small{color:#FFFFFF}.rd .p5-res>img{background:#FFFFFF}

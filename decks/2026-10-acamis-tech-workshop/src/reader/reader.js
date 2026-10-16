@@ -93,8 +93,8 @@ function label(i){var tp=$('.tip');if(tp&&i>0)tp.classList.remove('on');
  ctr.querySelector('b').innerHTML=(i+1)+' <span>/ '+N+'</span>';
  ctr.querySelector('small').textContent=part[i];
  bar.style.setProperty('--p',(i+1)/N);
- var s=S[i];H.classList.toggle('dk',s.classList.contains('nv'));H.classList.toggle('bg-alt',s.classList.contains('alt'));
- var m=document.querySelector('meta[name=theme-color]');if(m)m.content=s.classList.contains('nv')?'#0B1A4A':s.classList.contains('alt')?'#EFE3D4':'#F3E9DD';
+ var s=S[i];H.classList.toggle('dk',s.classList.contains('nv')||s.classList.contains('p6-hero'));H.classList.toggle('bg-alt',s.classList.contains('alt'));
+ var m=document.querySelector('meta[name=theme-color]');if(m)m.content=s.classList.contains('nv')||s.classList.contains('p6-hero')?'#0B1A4A':s.classList.contains('alt')||s.classList.contains('p6-sec')?'#F5F7FA':'#FFFFFF';
  if(lng)lng.href=lng.getAttribute('data-base')+'#'+(i+1)}
 function arrive(i){if(i===shown)return;
  if(building>=0&&building!==i)finish(building);

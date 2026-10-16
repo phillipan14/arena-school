@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#F3E9DD">
+<meta name="theme-color" content="#FFFFFF">
 <meta name="format-detection" content="telephone=no">
 <title>From Lab to Classroom: Running an AI Student Program Inside a School · Arena School</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3"><link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=2">
@@ -1027,21 +1027,79 @@ a.qr.qr-live.age-q2::after{content:"Book a 20-minute call  \2192"}
 .rd .p5-res>img{background:#FCF3ED;padding:6px;border-radius:8px}
 .rd .p5-rt,.rd .p5-rt b,.rd .p5-rt small{color:#FCF3ED;word-break:break-word}
 .rd .p5-site{flex-basis:100%;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#A9BEEA}
+
+/* ---------- Pass 6 (Oct 16): the Arena "pro" system (see css/s99…-p6.css). White and cool off-white grounds,
+   navy accents, hairline cards, greyscale logos; the cover is the site hero on a phone: one full-bleed photo under
+   a navy gradient (a slow crossfade unless reduced motion), the crest, a faint dot texture, white type. ---------- */
+:root{--paper:#FFFFFF;--hi:#FFFFFF;--beige:#F5F7FA;--text:#2A3550;--muted:#5D6677;--edge:#E2E6EE;--on:#FFFFFF}
+.bg-alt{--bar:#F5F7FA}
+.s :is(.pane,.card,.r15-c,.nx-pc):not(.dk):not(.r5b-case):not(.cs-out):not(.mk-stat):not(.p5-res){box-shadow:0 0 0 1px #E2E6EE}
+img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r16-sel img{filter:grayscale(1);opacity:.8}
+.m em{background:none!important}
+/* logo rows: one static row each, honest labels */
+.p6-lr{display:flex;flex-direction:column;gap:8px;padding:10px 0;border-top:1px solid #E2E6EE}
+.p6-lr .p5-dup{display:none!important}
+.p6-lr .r15-lg,.p6-lr .p5-mqt,.p6-lr .p5-set{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px}
+.p6-lr .r15-lg img{height:20px;width:auto}
+.p6-lr .r15-lg img:is(.r15-mckinsey,.r15-deloitte,.r15-kimi){height:12px}.p6-lr .r15-lg img:is(.r15-caltech,.r15-microsoft-ai){height:15px}
+/* part slides and the big picture: light */
+.s.p6-sec{background:#F5F7FA}
+.p6-sec .sec-k,.p6-sec .sec-k b{color:var(--ink2)}
+.p6-sec h2{color:var(--ink)}
+.p6-sec .sl{color:var(--muted)}
+.p6-sec .trk,.p6-sec .trk li{border-color:#E2E6EE}
+.p6-sec .trk .tn{color:var(--ink2)}.p6-sec .tt b{color:var(--ink)}.p6-sec .tt small{color:var(--muted)}
+.p6-gs .c3x,.p6-gs .c3x li{border-color:#E2E6EE}
+.p6-gs .c3x i{color:var(--ink2)}.p6-gs .c3x b{color:var(--ink)}.p6-gs .c3x span{color:var(--muted)}
+.p6-gs .endline,.p6-gs .endline p{color:var(--ink)}
+/* cover */
+.s.p6-hero{background:var(--ink);color:#FFFFFF;isolation:isolate}
+.p6-media{position:absolute;inset:0;z-index:0;overflow:hidden}
+.p6-slide{position:absolute;inset:0;opacity:0}
+.p6-slide:first-child{opacity:1}
+.p6-slide img{width:100%;height:100%;max-width:none;object-fit:cover;object-position:var(--focus,50% 40%)}
+.p6-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(8,15,38,.95) 0%,rgba(8,15,38,.8) 42%,rgba(8,15,38,.3) 72%,rgba(8,15,38,.12) 100%)}
+.p6-dots{position:absolute;inset:0;z-index:1;opacity:.2;mix-blend-mode:screen;background:radial-gradient(rgba(201,214,242,.9) 1px,transparent 1.6px) 0 0/18px 18px;
+ -webkit-mask-image:linear-gradient(0deg,#000,transparent 70%);mask-image:linear-gradient(0deg,#000,transparent 70%)}
+.p6-caps{display:none}
+.p6-hero .w{z-index:2}
+.p6-crest{width:64px;height:64px;margin:0 0 14px;opacity:.9}
+.p6-crest img{width:100%;height:100%}
+.p6-hero .kick{color:#C9D6F2}
+.p6-hero .cv-lede{color:rgba(255,255,255,.9)}
+.p6-hero .cv-lede img{filter:brightness(0) invert(1);opacity:.92}
+.p6-hero h1{color:#FFFFFF}
+.p6-hero h1 .m em{color:#C9D6F2}
+.p6-hero h1 .sub{color:rgba(255,255,255,.86)}
+.p6-hero .brandmk{display:none}
+@media (prefers-reduced-motion:no-preference){
+ .p6-hero .p6-slide{animation:p6r-fade 28s linear infinite both}
+ .p6-hero .p6-slide:nth-child(1){animation-delay:-1.5s}.p6-hero .p6-slide:nth-child(2){animation-delay:-22.5s}
+ .p6-hero .p6-slide:nth-child(3){animation-delay:-15.5s}.p6-hero .p6-slide:nth-child(4){animation-delay:-8.5s}
+ .p6-hero .p6-slide img{animation:p6r-kb 28s ease-in-out infinite alternate both}
+ @keyframes p6r-fade{0%{opacity:1}25%{opacity:1}30%{opacity:0}95%{opacity:0}100%{opacity:1}}
+ @keyframes p6r-kb{from{transform:scale(1.02)}to{transform:scale(1.1)}}
+}
+.s :is(.pane,.card,.pc,.cs):not(.dk):not(.r5b-case):not(.cs-out):not(.mk-stat):not(.p5-res){background:#FFFFFF;border-color:#E2E6EE}
+.r15-c,.r7-bar i,.p5-ways li{background:#FFFFFF!important;box-shadow:inset 0 0 0 1px #E2E6EE!important}
+.r7-bar i.hl{background:var(--ink)!important;color:#FFFFFF}
+.rd .p5-res,.rd .p5-rt,.rd .p5-rt b,.rd .p5-rt small{color:#FFFFFF}.rd .p5-res>img{background:#FFFFFF}
 </style></head><body>
 <header class="top"><a class="home" href="/talks/2026-10-acamis-tech-workshop" aria-label="Talk resources · Arena School"><img class="wm n" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School" width="1600" height="242"><img class="wm i" src="/logos/arena/wordmark-ivory-1600.png" alt="" width="1600" height="242"></a>
  <div class="tools"><button type="button" class="lst" aria-label="All slides"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></div>
  <div class="prog" aria-hidden="true"><i></i></div></header>
 <main class="rd" id="deck" tabindex="-1">
 <!-- 1 · Cover -->
-<section class="s ae cover aga-cv"><div class="w">
+<section class="s ae cover aga-cv p6-hero"><div class="p6-media" aria-hidden="true"><div class="p6-slide"><img src="/photos/isb-2026/pitch-duo-1600.webp" alt="" decoding="async" style="--focus:62% 38%"></div><div class="p6-slide"><img src="/photos/isb-hq/isb-pitch-gesture-1400.webp" alt="" decoding="async" style="--focus:60% 26%"></div><div class="p6-slide"><img src="/photos/isb-2026/mentor-feedback-1600.webp" alt="" decoding="async" style="--focus:50% 32%"></div><div class="p6-slide"><img src="/photos/steps/collab-stage-poster.webp" alt="" decoding="async" style="--focus:55% 40%"></div></div><div class="p6-shade" aria-hidden="true"></div><div class="p6-dots" aria-hidden="true"></div><div class="p6-caps" aria-hidden="true"><span>Presenting at demo day, Beijing 2026</span><span>Pitching to the panel, Beijing 2026</span><span>Mentors react to a student demo, Beijing 2026</span><span>Building together, Hong Kong 2025</span></div><div class="w">
  <div class="cv-top"></div>
  <div class="cv-mid">
+  <div class="p6-crest r"><img src="/logos/arena/seal-ivory-512.png" alt="" width="512" height="512"></div>
   <p class="kick r">ACAMIS Technology Conference · October 18, 2026</p>
   <p class="cv-lede r" style="--d:.05s">A case study from <span class="nw">the <img class="aga-isb" src="/logos/cred/isb.png" alt="International School of Beijing"></span></p>
   <h1 class="r" style="--d:.1s">From Lab <span class="m" style="--d:1s"><em>to Classroom</em></span><span class="sub" style="--d:1.3s">Running an AI Student Program Inside a School</span></h1>
  </div>
  <div class="cv-foot"><span class="cv-rule"></span><a class="cv-qr" href="https://arenaschool.org/talks/2026-10-acamis-tech-workshop" target="_blank" rel="noopener"><img src="/decks/img/acamis/qr-acamis-clear.png" alt="QR code for arenaschool.org/talks/2026-10-acamis-tech-workshop"><span>Today’s slides, checklist, and tool guide<small><span class="nw">arenaschool.org/talks/</span><wbr><span class="nw">2026-10-acamis-tech-workshop</span></small></span></a></div>
-</div><img class="brandmk ra-bm" src="/decks/img/acamis/a-wordmark-url-navy.png" alt="" aria-hidden="true" width="1600" height="243"></section>
+</div><img class="brandmk ra-bm p6-wm" src="/logos/arena/wordmark-url-ivory-1600.png" alt="" aria-hidden="true" width="1600" height="243"></section>
 
 <!-- 2 · Contents -->
 <section class="s alt ae r7-toc"><div class="w">
@@ -1058,7 +1116,7 @@ a.qr.qr-live.age-q2::after{content:"Book a 20-minute call  \2192"}
 </div></section>
 
 <!-- 3 · Part 1 -->
-<section class="s ae nv sec"><div class="w"><div class="sec-g">
+<section class="s ae sec p6-sec"><div class="w"><div class="sec-g">
  <div>
   <p class="sec-k"><span>Part</span><b>1</b></p>
   <h2 class="r" style="--d:.15s">We teach the part of learning <em>that AI can’t do for&nbsp;you.</em></h2>
@@ -1084,8 +1142,8 @@ a.qr.qr-live.age-q2::after{content:"Book a 20-minute call  \2192"}
    <div class="r15-c" data-s="1"><span class="r15-h">Who we work with</span><ul><li>Students, grades 6 to 12</li><li>Teachers and schools</li><li>Parents and families</li></ul></div>
   </div>
   <div class="r15-team" data-s="2">
-   <p class="r15-ft"><span class="r15-h">The founding team</span></p>
-   <div class="r15-lg p5-mq"><div class="p5-mqt"><span class="p5-set"><img class="r15-caltech" src="/logos/cred/caltech.png" alt="Caltech"><img class="r15-harvard" src="/logos/cred/harvard.png" alt="Harvard University"><img class="r15-brown" src="/logos/cred/brown.png" alt="Brown University"><img class="r15-tsinghua-lockup" src="/logos/cred/tsinghua-lockup.png" alt="Tsinghua University"><img class="r15-isb" src="/logos/cred/isb.png" alt="International School of Beijing"><img class="r15-mckinsey" src="/logos/cred/mckinsey.png" alt="McKinsey &amp; Company"><img class="r15-goldman" src="/logos/cred/goldman.png" alt="Goldman Sachs"><img class="r15-yc" src="/logos/cred/yc.png" alt="Y Combinator"><img class="r15-apple" src="/logos/cred/apple.png" alt="Apple"><img class="r15-microsoft-ai" src="/logos/cred/microsoft-ai.png" alt="Microsoft AI"><img class="r15-deloitte" src="/logos/cred/deloitte.png" alt="Deloitte"><img class="r15-kimi" src="/logos/cred/kimi.png" alt="Kimi (Moonshot AI)"></span><span class="p5-set p5-dup" aria-hidden="true"><img class="r15-caltech" src="/logos/cred/caltech.png" alt=""><img class="r15-harvard" src="/logos/cred/harvard.png" alt=""><img class="r15-brown" src="/logos/cred/brown.png" alt=""><img class="r15-tsinghua-lockup" src="/logos/cred/tsinghua-lockup.png" alt=""><img class="r15-isb" src="/logos/cred/isb.png" alt=""><img class="r15-mckinsey" src="/logos/cred/mckinsey.png" alt=""><img class="r15-goldman" src="/logos/cred/goldman.png" alt=""><img class="r15-yc" src="/logos/cred/yc.png" alt=""><img class="r15-apple" src="/logos/cred/apple.png" alt=""><img class="r15-microsoft-ai" src="/logos/cred/microsoft-ai.png" alt=""><img class="r15-deloitte" src="/logos/cred/deloitte.png" alt=""><img class="r15-kimi" src="/logos/cred/kimi.png" alt=""></span></div></div>
+   <div class="p6-lr p6-st"><span class="r15-h">Our team studied at</span><div class="r15-lg p5-mq"><div class="p5-mqt"><span class="p5-set"><img class="r15-isb" src="/logos/cred/isb.png" alt="International School of Beijing"><img class="r15-brown" src="/logos/cred/brown.png" alt="Brown University"><img class="r15-caltech" src="/logos/cred/caltech.png" alt="Caltech"><img class="r15-harvard" src="/logos/cred/harvard.png" alt="Harvard University"><img class="r15-tsinghua-lockup" src="/logos/cred/tsinghua-lockup.png" alt="Tsinghua University"></span><span class="p5-set p5-dup" aria-hidden="true"><img class="r15-isb" src="/logos/cred/isb.png" alt=""><img class="r15-brown" src="/logos/cred/brown.png" alt=""><img class="r15-caltech" src="/logos/cred/caltech.png" alt=""><img class="r15-harvard" src="/logos/cred/harvard.png" alt=""><img class="r15-tsinghua-lockup" src="/logos/cred/tsinghua-lockup.png" alt=""></span><span class="p5-set p5-dup" aria-hidden="true"><img class="r15-isb" src="/logos/cred/isb.png" alt=""><img class="r15-brown" src="/logos/cred/brown.png" alt=""><img class="r15-caltech" src="/logos/cred/caltech.png" alt=""><img class="r15-harvard" src="/logos/cred/harvard.png" alt=""><img class="r15-tsinghua-lockup" src="/logos/cred/tsinghua-lockup.png" alt=""></span><span class="p5-set p5-dup" aria-hidden="true"><img class="r15-isb" src="/logos/cred/isb.png" alt=""><img class="r15-brown" src="/logos/cred/brown.png" alt=""><img class="r15-caltech" src="/logos/cred/caltech.png" alt=""><img class="r15-harvard" src="/logos/cred/harvard.png" alt=""><img class="r15-tsinghua-lockup" src="/logos/cred/tsinghua-lockup.png" alt=""></span></div></div></div>
+   <div class="p6-lr p6-wk"><span class="r15-h">Our team worked at</span><div class="r15-lg p5-mq"><div class="p5-mqt"><span class="p5-set"><img class="r15-mckinsey" src="/logos/cred/mckinsey.png" alt="McKinsey &amp; Company"><img class="r15-goldman" src="/logos/cred/goldman.png" alt="Goldman Sachs"><img class="r15-yc" src="/logos/cred/yc.png" alt="Y Combinator"><img class="r15-apple" src="/logos/cred/apple.png" alt="Apple"><img class="r15-microsoft-ai" src="/logos/cred/microsoft-ai.png" alt="Microsoft AI"><img class="r15-deloitte" src="/logos/cred/deloitte.png" alt="Deloitte"><img class="r15-kimi" src="/logos/cred/kimi.png" alt="Kimi (Moonshot AI)"></span><span class="p5-set p5-dup" aria-hidden="true"><img class="r15-mckinsey" src="/logos/cred/mckinsey.png" alt=""><img class="r15-goldman" src="/logos/cred/goldman.png" alt=""><img class="r15-yc" src="/logos/cred/yc.png" alt=""><img class="r15-apple" src="/logos/cred/apple.png" alt=""><img class="r15-microsoft-ai" src="/logos/cred/microsoft-ai.png" alt=""><img class="r15-deloitte" src="/logos/cred/deloitte.png" alt=""><img class="r15-kimi" src="/logos/cred/kimi.png" alt=""></span><span class="p5-set p5-dup" aria-hidden="true"><img class="r15-mckinsey" src="/logos/cred/mckinsey.png" alt=""><img class="r15-goldman" src="/logos/cred/goldman.png" alt=""><img class="r15-yc" src="/logos/cred/yc.png" alt=""><img class="r15-apple" src="/logos/cred/apple.png" alt=""><img class="r15-microsoft-ai" src="/logos/cred/microsoft-ai.png" alt=""><img class="r15-deloitte" src="/logos/cred/deloitte.png" alt=""><img class="r15-kimi" src="/logos/cred/kimi.png" alt=""></span><span class="p5-set p5-dup" aria-hidden="true"><img class="r15-mckinsey" src="/logos/cred/mckinsey.png" alt=""><img class="r15-goldman" src="/logos/cred/goldman.png" alt=""><img class="r15-yc" src="/logos/cred/yc.png" alt=""><img class="r15-apple" src="/logos/cred/apple.png" alt=""><img class="r15-microsoft-ai" src="/logos/cred/microsoft-ai.png" alt=""><img class="r15-deloitte" src="/logos/cred/deloitte.png" alt=""><img class="r15-kimi" src="/logos/cred/kimi.png" alt=""></span></div></div></div>
   </div>
  </div>
 </div></section>
@@ -1144,7 +1202,7 @@ a.qr.qr-live.age-q2::after{content:"Book a 20-minute call  \2192"}
 </div></section>
 
 <!-- 10 · Part 2 -->
-<section class="s ae nv sec"><div class="w"><div class="sec-g">
+<section class="s ae sec p6-sec"><div class="w"><div class="sec-g">
  <div>
   <p class="sec-k"><span>Part</span><b>2</b></p>
   <h2 class="r" style="--d:.15s">In five days, ISB students built and launched <em>working products with AI.</em></h2>
@@ -1164,7 +1222,7 @@ a.qr.qr-live.age-q2::after{content:"Book a 20-minute call  \2192"}
  <h2 class="r" style="--d:.1s">An AI builder week for grades 7 to 12: <em>learn AI skills, start a company, build something real.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="ac-dd">
   <figure class="pane ac-ph" data-s="1"><img src="/photos/isb-2026/mentor-feedback-1600.webp" alt="Mentors react to a student demo"><figcaption>Mentors in the room every day</figcaption></figure>
-  <figure class="pane ac-ph" data-s="1"><img src="/photos/isb-2026/demo-laptop-1600.webp" alt="Students demo their product at the podium"><figcaption>Every team demos what works</figcaption></figure>
+  <figure class="pane ac-ph" data-s="1"><img src="/photos/isb-2026/pitch-duo-1600.webp" alt="Two students present their product at the podium"><figcaption>Every team demos what works</figcaption></figure>
   <div class="r11-facts" data-s="2">
    <div class="pane"><div class="r11-in"><b>7–12</b><span>grades, selected by application</span></div></div>
    <div class="pane"><div class="r11-in"><b>5</b><span>days, at ISB in August</span></div></div>
@@ -1224,7 +1282,7 @@ a.qr.qr-live.age-q2::after{content:"Book a 20-minute call  \2192"}
  <div class="bd r" style="--d:.25s"><div class="ac-dd nx-dd3">
   <figure class="pane ac-ph" data-s="1"><img src="/photos/isb-hq/isb-judges-test-1400.webp" alt="Judges test a student product on a laptop"><figcaption>Judges test each product before scoring</figcaption></figure>
   <figure class="pane ac-ph" data-s="2"><img src="/photos/isb-hq/isb-pitch-mic-1400.webp" alt="A student pitches her team’s product"><figcaption>Every team pitched its own product</figcaption></figure>
-  <figure class="pane ac-ph nx-win" data-s="3"><img src="/photos/isb-hq/isb-winners-1400.webp" alt="The winning team after the final pitch"><figcaption>The winning team, after the final pitch</figcaption></figure>
+  <figure class="pane ac-ph p6-gest" data-s="3"><img src="/photos/isb-hq/isb-pitch-gesture-1400.webp" alt="A student pitches to the panel while a teammate runs the demo"><figcaption>Teams defended their choices live</figcaption></figure>
   <div class="pane ac-jg" data-s="4"><span class="lab">Judged by founders and operators from</span><div class="ac-lg"><img class="j-hv" src="/logos/cred/harvard.png" alt="Harvard"><img class="j-sf" src="/logos/cred/stanford.png" alt="Stanford"><img class="j-yc" src="/decks/img/conversation/inv-yc.png" alt="Y Combinator"><span class="ac-ai">and AI labs</span></div></div>
  </div></div>
 </div></section>
@@ -1245,7 +1303,7 @@ a.qr.qr-live.age-q2::after{content:"Book a 20-minute call  \2192"}
 </div></section>
 
 <!-- 17 · Part 3 -->
-<section class="s ae nv sec"><div class="w"><div class="sec-g">
+<section class="s ae sec p6-sec"><div class="w"><div class="sec-g">
  <div>
   <p class="sec-k"><span>Part</span><b>3</b></p>
   <h2 class="r" style="--d:.15s">Now let’s build one together. <em>No coding&nbsp;needed.</em></h2>
@@ -1334,7 +1392,7 @@ a.qr.qr-live.age-q2::after{content:"Book a 20-minute call  \2192"}
 </div></section>
 
 <!-- 22 · Part 4 -->
-<section class="s ae nv sec"><div class="w"><div class="sec-g">
+<section class="s ae sec p6-sec"><div class="w"><div class="sec-g">
  <div>
   <p class="sec-k"><span>Part</span><b>4</b></p>
   <h2 class="r" style="--d:.15s">Start small, <em>and start on&nbsp;Monday.</em></h2>
@@ -1367,7 +1425,7 @@ a.qr.qr-live.age-q2::after{content:"Book a 20-minute call  \2192"}
 </div></section>
 
 <!-- 24 · The big picture -->
-<section class="s ae nv cl age-cl p5-gs"><div class="w">
+<section class="s ae cl age-cl p5-gs p6-gs"><div class="w">
  <p class="kick r">The big picture</p>
  <h2 class="r" style="--d:.1s">AI can do the making.<br><em>The thinking is still ours to&nbsp;teach.</em></h2>
  <div class="bd r" style="--d:.25s">
@@ -1650,8 +1708,8 @@ function label(i){var tp=$('.tip');if(tp&&i>0)tp.classList.remove('on');
  ctr.querySelector('b').innerHTML=(i+1)+' <span>/ '+N+'</span>';
  ctr.querySelector('small').textContent=part[i];
  bar.style.setProperty('--p',(i+1)/N);
- var s=S[i];H.classList.toggle('dk',s.classList.contains('nv'));H.classList.toggle('bg-alt',s.classList.contains('alt'));
- var m=document.querySelector('meta[name=theme-color]');if(m)m.content=s.classList.contains('nv')?'#0B1A4A':s.classList.contains('alt')?'#EFE3D4':'#F3E9DD';
+ var s=S[i];H.classList.toggle('dk',s.classList.contains('nv')||s.classList.contains('p6-hero'));H.classList.toggle('bg-alt',s.classList.contains('alt'));
+ var m=document.querySelector('meta[name=theme-color]');if(m)m.content=s.classList.contains('nv')||s.classList.contains('p6-hero')?'#0B1A4A':s.classList.contains('alt')||s.classList.contains('p6-sec')?'#F5F7FA':'#FFFFFF';
  if(lng)lng.href=lng.getAttribute('data-base')+'#'+(i+1)}
 function arrive(i){if(i===shown)return;
  if(building>=0&&building!==i)finish(building);

@@ -25,7 +25,7 @@ Slug: `2026-10-acamis-tech-workshop` (read from this folder's name by `site_path
 1. `git pull` on `main`.
 2. Edit:
    - Slides: `body-en.html`. Each slide is a `<!-- n · name -->` comment plus one `<section class="s …">`. Speaker notes are the `<aside class="notes">` inside it.
-   - Styles: `shared.css`, then `css/*.css`, loaded in alphabetical order (the later file wins). Put new rules in the **last** file (`css/s99zzzzzzzzzzzzzzzzzzzz-r6.css` today) or a new file that sorts after it, and scope them to the slide's own class.
+   - Styles: `shared.css`, then `css/*.css`, loaded in alphabetical order (the later file wins). Put new rules in the **last** file (`css/s99zzzzzzzzzzzzzzzzzzzzzzzzzzzzz-p6.css` today, the Pass 6 "pro" design layer: tokens, cover hero, labels, logos, motion) or a new file that sorts after it, and scope them to the slide's own class.
    - Phone reader layout for any new component: append to `reader/reader.css`.
    - Slide 7 wheel: don't hand-edit the SVG. Run `python3 tools/wheel.py` (key=value to change sizes), then build.
 3. Build: `python3 decks/2026-10-acamis-tech-workshop/src/build.py` (rewrites `deck.html` and `read/en.html`; never edit those directly).
