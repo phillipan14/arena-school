@@ -1,5 +1,34 @@
 # Notes for Phillip: ACAMIS deck restructure (Oct 16)
 
+## Pass 14 (Oct 16): contact on the close, and the final polish pass
+
+**Slide 25: contact** (your note: "add in Jingjing's WeChat and then maybe jingjing@arenaschool.org, and then our website as well")
+- **A Contact row now sits in the white half of the code band**, above Member of, so nothing new was stacked onto the slide: WeChat **jj-xiaohan**, email **jingjing@arenaschool.org** (a mailto link in the HTML deck), and website **arenaschool.org** (a link). Each has a small line icon and a small label. Contact and Member of share one label column and are split by a hairline.
+- The navy code panel's title now wraps to two lines, which makes room for the contact row. Its small line reads "Scan with your phone" instead of "arenaschool.org", so the website isn't printed twice.
+- The band label is now "Keep in touch · scan for today's materials, or reach us directly".
+- The four pillars, Member of, the QR, and "Our team is from" are unchanged. The click order is unchanged: the pillars, then the band.
+- **Speaker notes** now say to add Jing Jing on WeChat at jj-xiaohan or email jingjing@arenaschool.org.
+- **Phone reader:** the contact row stacks under the code (icon, label, value), then Member of.
+- Two new Lucide icons (ISC license, same set as the rest): `icons/mail.svg` and `icons/globe.svg`. WeChat uses the existing chat bubble.
+
+**Motion: one grammar for the whole deck.** I measured every animated element on slides 1 to 25 and brought the outliers into line:
+- Builds (clicks and entrances) are 0.5 to 0.7s, ease-out, a 12px rise, no overshoot or bounce anywhere.
+- The Part slide numerals rose 30px over 1s and now rise 14px over 0.7s. The chapter tracker slid 18px and now slides 12px. Word-by-word titles rose about 26px and now rise 12px. The slide 24 numerals took 0.9s and now take 0.7s.
+- Slide changes are one short crossfade with a 12px drift (it was 18px). The navy curtain on Part slides is unchanged; it's the one chapter-break transition and it's consistent.
+- Diagram draws (the slide 12 timeline, the rings) are 1.1s at most (they were up to 1.4s).
+- Reduced motion: unchanged behavior (no motion at all, every slide fully built), plus a belt-and-braces rule that turns off slide and build transitions.
+
+**Layout fixes**
+- **Slides 5 and 6 had two Arena marks** (one in the kicker and one top right). The kicker marks are now text ("The question we try to answer at Arena School", "Arena School · teaching philosophy"), and the top-right mark stays.
+- **Slide 5:** the question now sits on the slide's optical center instead of high on the slide with an empty bottom half.
+- **Slide 9:** "Inquiry and planning" is one line and the other three heads are two, so its description started higher. All four heads now share one row, so the four descriptions start on one line. Dropped the stray period after "summer 2026" to match the other labels.
+- **Slide 18:** the four question bubbles are now one height (the top row was shorter than the bottom row).
+- **Slide 24:** the first column sat 26px off the grid, so the four steps were unevenly spaced. They're now four equal columns, the connecting rule runs from the first node to the last (it used to run past the last one), and the descriptions wrap more evenly ("Live products in five days, / with no coding background.").
+
+**Checks.** `contain.py --georgia` is 0 on every line, `reader_check.py` says "reader OK", and `shots.py` shows no slide taller than 1080 and no page errors. I ran `export.py`, so the public PDF, slide images, and slide count are current. New styles are in `css/s99zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz-p14.css`, with a Pass 14 block at the end of `reader/reader.css`. Committed to `deck-edits-acamis`, not pushed or merged.
+
+**Ready to deploy** once you've looked: merge `deck-edits-acamis` into `main` and push (Vercel deploys in about a minute).
+
 ## Pass 13 (Oct 16): four visual pillars and one logo row on the close
 
 **Slide 25** (your note: "Maybe let's do four of them… it's a little bit too crowded or it's not very visual… just have one specific logo… Team from or something like that")

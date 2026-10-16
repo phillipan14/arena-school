@@ -1368,3 +1368,14 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
 .rd .p13-from .r15-lg{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;margin:0}
 .rd .p13-from .r15-lg img{height:20px;width:auto}
 .rd .p13-from .r15-lg img:is(.r15-mckinsey,.r15-deloitte,.r15-kimi){height:12px}.rd .p13-from .r15-lg img:is(.r15-caltech,.r15-microsoft-ai){height:15px}
+/* Pass 14: slide 25 contact row (WeChat, email, website) above Member of, inside the code panel */
+.rd .p14-side{display:grid;grid-template-columns:minmax(0,1fr);gap:0;min-width:0}
+.rd .p14-ct{display:flex;flex-direction:column;gap:8px;padding:12px 14px 10px;border-bottom:1px solid #E2E6EE}
+.rd .p14-ct .r15-h{margin:0;font:600 11px/1.3 var(--sans,system-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+.rd .p14-cl{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.rd .p14-cl li{margin:0;padding:0}
+.rd .p14-cl li,.rd .p14-cl a{display:flex;align-items:center;gap:10px;min-width:0;color:inherit;text-decoration:none}
+.rd .p14-ci{flex:none;display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:#EEF2FA;color:var(--ink)}
+.rd .p14-ci .lic{display:block;width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.rd .p14-cv{display:flex;flex-direction:column;gap:1px;min-width:0;font:500 16px/1.25 var(--serif);color:var(--ink);overflow-wrap:anywhere}
+.rd .p14-cv small{font:600 10px/1.2 var(--sans,system-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
