@@ -1,5 +1,23 @@
 # Notes for Phillip: ACAMIS deck restructure (Oct 16)
 
+## Pass 13 (Oct 16): four visual pillars and one logo row on the close
+
+**Slide 25** (your note: "Maybe let's do four of them… it's a little bit too crowded or it's not very visual… just have one specific logo… Team from or something like that")
+- **Four pillars instead of five.** Each card now has a large navy icon, the audience as a small label, a bold one-line outcome, and at most three program names. The grade ranges and the one-line descriptions are gone.
+  - **Students:** "Build and pitch a real product with AI". Entrepreneurship & AI Intensive, App Design Workshop, College Portfolio Workshop.
+  - **Educators:** "Make the small tool your class is missing". AI for Educators, Conference workshops like today's.
+  - **Schools and tech teams:** "AI training that works inside your school's rules". Tech coaches and IT directors.
+  - **Families and community:** "Honest talks on AI, work, and college". Community Dialogues, Parent coffees and talks.
+- **Conferences moved into Educators.** Our conference sessions are for educator audiences (this workshop is one), so "Conference workshops like today's" sits under AI for Educators and the audience can see where they are right now. It wasn't strong enough to be its own pillar.
+- **Year-Long Project Mentorship was dropped** from the slide to keep Students at three programs. The other three each have a page on arenaschool.org, and mentorship doesn't. Say if you want it back in place of the Portfolio Workshop.
+- **All outcome lines come from our own website** (the AI for Educators and technology-teams page headlines, and the Community Dialogues description), except the Students line, which sums up the intensive and its demo day. No new programs.
+- **One logo row: "Our team is from".** It replaces the "studied at" and "worked at" rows and has all 12 logos in one greyscale line under the code band, sized to one optical height (wide wordmarks like McKinsey and Deloitte sit lower, lockups like ISB and Tsinghua sit taller, so they read as the same size). Nothing says "partner".
+- **Kept:** the navy session code (now beside the Member of row in one band) and Member of Anthropic (Startup Program) and OpenAI (Partner Network). The click order is the same: the pillars, then the code, Member of, and logos.
+- **Speaker notes** are rewritten for four pillars, with conference workshops under educators.
+- **Phone reader:** the cards stack with the icon on the left, then the code, Member of, and the wrapped logo row.
+
+**Checks.** `contain.py --georgia` is 0 on every line, `reader_check.py` says "reader OK", and `shots.py` shows no slide taller than 1080 and no page errors. I ran `export.py` again, so the public PDF and slide images show the new close. New styles are in `css/s99zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz-p13.css`, with a Pass 13 block at the end of `reader/reader.css`. Committed to `deck-edits-acamis`, not pushed.
+
 ## Pass 12 (Oct 16): no person cards on the close
 
 **Slide 25** (your note: "I don't think we need the individual people. Please remove the me and Junjun's boxes")

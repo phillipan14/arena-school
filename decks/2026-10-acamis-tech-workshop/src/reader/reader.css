@@ -1351,3 +1351,20 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
 .rd .p12-m img{filter:grayscale(1);opacity:.8}
 .rd .p12-m small{font:italic 400 13px/1.2 var(--serif);color:var(--muted);white-space:nowrap}
 .rd .p12-mr{border-top:0}
+/* Pass 13: slide 25 with four pillars (icon, who, outcome, programs), the code beside Member of, and one "Our team is from" logo row */
+.rd .p13-pg{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+.rd .p13-pl{display:grid!important;grid-template-columns:auto minmax(0,1fr);column-gap:12px;row-gap:2px;align-items:start;margin:0;padding:12px 14px;border-radius:12px;background:#FFFFFF;box-shadow:0 0 0 1px #E2E6EE}
+.rd .p13-ic{grid-row:1/3;display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:var(--ink);color:#FFFFFF}
+.rd .p13-ic .lic{display:block;width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.rd .p13-who{font:600 11px/1.3 var(--sans,system-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+.rd .p13-out{display:block;font:500 18px/1.25 var(--serif);color:var(--ink)}
+.rd .p13-pr{grid-column:1/-1;list-style:none;margin:8px 0 0;padding:8px 0 0;border-top:1px solid #E2E6EE;display:grid;gap:2px}
+.rd .p13-pr li{margin:0;font:italic 400 14px/1.35 var(--serif);color:var(--muted)}
+.rd .p13-band{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;min-width:0}
+.rd .p13-mem{display:flex;flex-direction:column;gap:8px;padding:10px 14px 12px}
+.rd .p13-mem .r15-lg{display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;margin:0}
+.rd .p13-from{display:flex;flex-direction:column;gap:8px;padding:10px 0 0;border-top:1px solid #E2E6EE}
+.rd .p13-from .r15-h{margin:0}
+.rd .p13-from .r15-lg{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;margin:0}
+.rd .p13-from .r15-lg img{height:20px;width:auto}
+.rd .p13-from .r15-lg img:is(.r15-mckinsey,.r15-deloitte,.r15-kimi){height:12px}.rd .p13-from .r15-lg img:is(.r15-caltech,.r15-microsoft-ai){height:15px}
