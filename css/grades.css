@@ -1,130 +1,55 @@
-/* Homepage grade map: sits on the Programs section background (no box), bars draw in on scroll,
-   labels live inside the bars, each lane links to its program. Markup: build_gmap.py; motion: grade-map.js. */
-body.home .gmap { --cols: 8; margin-top: clamp(40px, 5vw, 64px); padding-top: 26px; border-top: 1px solid var(--border-paper); }
-body.home .gm-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 20px; margin-bottom: 22px; }
-body.home .gm-k { font: 500 11px/1 var(--font-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--coral-deep); }
-body.home .gm-note { font-size: 14px; color: var(--text-ink-muted); }
+/* Homepage "Where each program fits" (EDITORIAL-BRIEF, Oct 16, 2026): an editorial matrix on the ds-mx component
+   (css/ds.css). Grade columns grouped under school stages, a filled mark for each grade a program serves joined by
+   a hairline, program name and range in the first column. No bars, no gradients. Markup: tools/grade_matrix.py;
+   row spotlight: grade-map.js (.gmx-row). Tokens: css/pro.css. */
+html body.home #programs .gmap.gmx { margin-top: var(--space-9) !important; padding: 0 !important; border: 0 !important; }
+html body.home #programs .gmx .gm-head { display: flex !important; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--space-2) var(--space-5); margin: 0 0 var(--space-5) !important; }
+html body.home #programs .gmx .gm-note { font-size: var(--text-sm) !important; color: var(--pro-soft) !important; margin: 0 !important; }
+.ds-gmx thead th { text-align: center; font-variant-numeric: tabular-nums; }
+.ds-gmx thead th:first-child { text-align: left; }
+.ds-gmx col.c-name { width: 30%; }
+.ds-gmx col.c-col { width: 11%; }
+.ds-gmx .gmx-stages th { padding: 0 var(--space-2) var(--space-2); border-bottom: 0; text-align: left; font: 600 var(--text-xs)/1.2 'Geist', system-ui, sans-serif;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--pro-ink-2); box-shadow: inset 0 1px 0 var(--pro-ink-2); padding-top: var(--space-2); }
+.ds-gmx .gmx-stages th:last-child { color: var(--pro-soft); box-shadow: inset 0 1px 0 var(--pro-line-2); }
+:lang(zh) .ds-gmx .gmx-stages th { letter-spacing: .04em; font-size: var(--text-sm); }
+.ds-gmx .gmx-stages td { border: 0; padding: 0; }
+.ds-gmx tbody th { padding-block: var(--space-4); vertical-align: middle; }
+.ds-gmx tbody th a { display: block; text-decoration: none; color: inherit; }
+.ds-gmx tbody th a b { display: block; font-weight: 600; font-size: var(--text-base); color: var(--pro-ink); transition: color var(--dur-ui) var(--ease); }
+.ds-gmx tbody th a span { display: block; margin-top: var(--space-1); font-size: var(--text-xs); letter-spacing: .08em; text-transform: uppercase; color: var(--pro-soft); }
+:lang(zh) .ds-gmx tbody th a span { letter-spacing: .02em; font-size: var(--text-sm); text-transform: none; }
+.ds-gmx tbody th a:hover b, .ds-gmx tbody th a:focus-visible b { color: var(--pro-ink-2); }
+.ds-gmx td { vertical-align: middle; text-align: center; padding-block: var(--space-4); }
+.ds-gmx td .ds-mk { display: inline-block; margin: 0; vertical-align: middle; }
+.ds-gmx td.in::before { top: 50%; }
+.ds-gmx td.in.first::before { left: 50%; }
+.ds-gmx td.in.last::before { right: 50%; }
+.ds-gmx tbody tr { transition: opacity var(--dur-ui) var(--ease); }
+.gmx.has-focus .ds-gmx tbody tr:not(.is-focus) { opacity: .38; }
+.gmx.has-focus .ds-gmx tbody tr.is-focus th b { color: var(--pro-ink-2); }
+/* marks draw in left to right when the chart scrolls into view (grade-map.js adds .is-in) */
+html.js .gmx:not(.is-in) .ds-gmx td .ds-mk, html.js .gmx:not(.is-in) .ds-gmx td.in::before { opacity: 0; }
+.gmx .ds-gmx td .ds-mk, .gmx .ds-gmx td.in::before { transition: opacity var(--dur-reveal) var(--ease) calc(var(--i, 0) * 80ms); }
+@media (prefers-reduced-motion: reduce) { .gmx .ds-gmx td .ds-mk, .gmx .ds-gmx td.in::before { transition: none; } }
 
-/* axis: stage rules on top, grade numbers under them */
-body.home .gm-axis { display: grid; grid-template-columns: repeat(var(--cols), minmax(0, 1fr)); row-gap: 10px; }
-body.home .gm-stage { grid-row: 1; grid-column: var(--s) / var(--e); padding-top: 8px; border-top: 2px solid; font: 500 10px/1 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; margin-right: 6px; }
-body.home .gm-ms { color: var(--ink-2, #2F55A8); border-color: rgba(47,85,168,.4); }
-body.home .gm-hs { color: var(--coral-deep); border-color: rgba(229,147,117,.6); }
-body.home .gm-col { color: var(--text-ink-muted); border-color: rgba(11,26,74,.18); margin-right: 0; }
-body.home .gm-axis > span:not(.gm-stage) { grid-row: 2; grid-column: var(--c); font: 400 17px/1 var(--font-display); color: var(--ink); padding-left: 2px; }
-body.home .gm-axis > span:last-child { font: 500 10px/1.6 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--text-ink-muted); }
-
-/* lanes: faint column rules behind, bars on top */
-body.home .gm-lanes { position: relative; margin-top: 14px; display: grid; gap: 8px;
-  background-image: repeating-linear-gradient(90deg, rgba(11,26,74,.07) 0 1px, transparent 1px calc(100% / var(--cols))); }
-body.home .gm-lane { position: relative; display: grid; grid-template-columns: repeat(var(--cols), minmax(0, 1fr)); align-items: center; min-height: 50px; text-decoration: none; color: inherit; border-radius: 999px; }
-body.home .gm-lane:focus-visible { outline: 2px solid var(--ink-2, #2F55A8); outline-offset: 3px; }
-body.home .gm-bar { grid-row: 1; grid-column: var(--s) / var(--e); height: 46px; margin-right: 6px; border-radius: 999px;
-  background: linear-gradient(90deg, #26468F, var(--ink, #0B1A4A)); box-shadow: 0 10px 22px -16px rgba(11,26,74,.6);
-  transform-origin: left center; transform: scaleX(0); transition: transform 1.1s cubic-bezier(.2,.75,.15,1) calc(var(--i) * .11s), box-shadow .3s, filter .3s; }
-body.home .gm-lane[data-prog="bootcamp"] .gm-bar { background: linear-gradient(90deg, #E59375, #C4674A); }
-body.home .gm-lab { grid-row: 1; grid-column: var(--s) / var(--e); z-index: 1; display: flex; align-items: baseline; gap: 12px; min-width: 0; padding: 0 20px; color: #FFFFFF; white-space: nowrap;
-  opacity: 0; transform: translateX(-6px); transition: opacity .5s ease calc(var(--i) * .11s + .45s), transform .6s ease calc(var(--i) * .11s + .45s); }
-body.home .gm-lab b { font: 500 15px/1.2 var(--font-body); overflow: hidden; text-overflow: ellipsis; }
-body.home .gm-lab small { font: 500 10px/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; opacity: .72; }
-body.home .gm-lab em { margin-left: auto; font-style: normal; opacity: 0; transform: translateX(-4px); transition: opacity .25s, transform .3s; }
-/* short bars (one column): label sits to the left of the bar, in ink */
-body.home .gm-lane.is-short .gm-lab { grid-column: 1 / var(--s); justify-self: end; color: var(--ink); padding: 0 16px 0 0; }
-body.home .gm-lane.is-short .gm-lab small { color: var(--text-ink-muted); opacity: 1; order: -1; }
-body.home .gm-lane.is-short .gm-lab em { display: none; }
-
-body.home .gmap.is-in .gm-bar { transform: none; }
-body.home .gmap.is-in .gm-lab { opacity: 1; transform: none; }
-body.home .gm-lane:hover .gm-bar, body.home .gm-lane.on .gm-bar, body.home .gm-lane:focus-visible .gm-bar { filter: brightness(1.18); box-shadow: 0 16px 30px -16px rgba(11,26,74,.75); }
-body.home .gm-lane:hover .gm-lab em, body.home .gm-lane.on .gm-lab em { opacity: 1; transform: none; }
-body.home .gm-partner { margin-top: 26px; }
-
+/* Phones: one block per program, the name over an 8-column strip of marks, grades labelled above */
 @media (max-width: 760px) {
-  body.home .gm-axis > span:not(.gm-stage) { font-size: 13px; }
-  body.home .gm-stage { font-size: 8.5px; letter-spacing: .08em; }
-  body.home .gm-axis > span:last-child { font-size: 8px; letter-spacing: .04em; }
-  body.home .gm-lanes { gap: 14px; }
-  body.home .gm-lane { grid-template-rows: auto 10px; min-height: 0; row-gap: 6px; border-radius: 8px; }
-  body.home .gm-bar { grid-row: 2; height: 10px; margin-right: 3px; }
-  body.home .gm-lab, body.home .gm-lane.is-short .gm-lab { grid-row: 1; grid-column: 1 / -1; justify-self: start; padding: 0; color: var(--ink); white-space: normal; }
-  body.home .gm-lab small { color: var(--text-ink-muted); opacity: 1; order: 0; }
-  body.home .gm-lab em { display: none; }
-}
-@media (prefers-reduced-motion: reduce) {
-  body.home .gm-bar, body.home .gm-lab { transition: none; transform: none; opacity: 1; }
-}
-
-/* Spotlight: the focused lanes stay full; the rest fade to grey and slim down (grade-map.js) */
-body.home .gm-lane { transition: min-height .45s cubic-bezier(.2,.7,.2,1); }
-body.home .gm-bar { transition: transform 1.1s cubic-bezier(.2,.75,.15,1) calc(var(--i) * .11s), height .45s cubic-bezier(.2,.7,.2,1), background .35s, box-shadow .35s, filter .3s; }
-body.home .gmap.is-in .gm-lab { transition: opacity .35s, transform .6s ease, color .35s; }
-body.home .gmap.has-focus .gm-lane:not(.is-focus) { min-height: 32px; }
-body.home .gmap.has-focus .gm-lane:not(.is-focus) .gm-bar { height: 16px; background: #CDD3DF; box-shadow: none; filter: none; }
-body.home .gmap.has-focus .gm-lane:not(.is-focus) .gm-lab { color: var(--text-ink-muted); opacity: .75; }
-body.home .gmap.has-focus .gm-lane:not(.is-focus) .gm-lab small { opacity: .8; }
-body.home .gmap.has-focus .gm-lane.is-focus .gm-bar { filter: brightness(1.12); box-shadow: 0 18px 34px -16px rgba(11,26,74,.7); }
-body.home .gmap.has-focus .gm-lane.is-focus .gm-lab em { opacity: 1; transform: none; }
-body.home .gmap.has-focus .gm-lane.is-focus[data-prog="bootcamp"] .gm-bar { box-shadow: 0 18px 34px -16px rgba(196,103,74,.7); }
-@media (max-width: 760px) {
-  body.home .gmap.has-focus .gm-lane:not(.is-focus) { min-height: 0; }
-  body.home .gmap.has-focus .gm-lane:not(.is-focus) .gm-bar { height: 5px; }
-}
-@media (prefers-reduced-motion: reduce) { body.home .gm-lane, body.home .gm-bar { transition: none; } }
-
-/* spotlight v2: focused lanes move to the top row; the rest drop their text */
-body.home .gmap.has-focus .gm-lane.is-focus { order: -1; }
-body.home .gmap.has-focus .gm-lane:not(.is-focus) .gm-lab { opacity: 0 !important; }
-@media (max-width: 760px) { body.home .gm-lane.is-short .gm-lab small { order: 0; } }
-
-/* spotlight from the chart itself (grade-map.js adds .gm-pin): highlight in place. Lanes keep their order and
-   height so nothing moves under the pointer (moving them handed the hover to the next lane: endless flicker). */
-body.home .gmap.gm-pin.has-focus .gm-lane.is-focus { order: 0; }
-body.home .gmap.gm-pin.has-focus .gm-lane:not(.is-focus) { min-height: 50px; }
-body.home .gmap.gm-pin.has-focus .gm-lane:not(.is-focus) .gm-bar { height: 46px; }
-body.home .gmap.gm-pin.has-focus .gm-lane:not(.is-focus) .gm-lab { opacity: .55 !important; }
-@media (max-width: 760px) {
-  body.home .gmap.gm-pin.has-focus .gm-lane:not(.is-focus) { min-height: 0; }
-  body.home .gmap.gm-pin.has-focus .gm-lane:not(.is-focus) .gm-bar { height: 10px; }
-}
-
-/* Short lane (AI Advantage Bootcamp): its label sits outside the bar, so its arrow is drawn inside the bar
-   instead, matching the other lanes (same glyph, size, color, inset, and reveal on hover/focus). */
-body.home .gm-lane.is-short .gm-bar { position: relative; }
-body.home .gm-lane.is-short .gm-bar::after { content: "\2192"; position: absolute; right: 14px; top: 50%; font: 400 17px/1 var(--font-body, 'Geist', sans-serif); color: #FFFFFF; opacity: 0; transform: translate(-4px, -50%); transition: opacity .25s, transform .3s; pointer-events: none; }
-body.home .gm-lane.is-short:hover .gm-bar::after, body.home .gm-lane.is-short.on .gm-bar::after, body.home .gm-lane.is-short:focus-visible .gm-bar::after,
-body.home .gmap.has-focus .gm-lane.is-short.is-focus .gm-bar::after { opacity: 1; transform: translate(0, -50%); }
-@media (max-width: 760px) { body.home .gm-lane.is-short .gm-bar::after { display: none; } }
-
-/* ---------- Timeline polish (MOTION2-BRIEF item 2, Oct 16) ----------
-   Design-system timeline: a faint full-width track per row, 44px bars (navy family, tokens), every label
-   inside its bar, a wider College column so the AI Advantage Bootcamp bar holds its own label (it was a
-   one-column coral blob with the label outside). Phones: name, grades as text, then a thin track with the
-   program's segment, so short bars never push a label outside. */
-html body.home .gmap { --tl-track: var(--pro-alt, #F5F7FA); --tl-bar-a: var(--pro-ink-2, #2F55A8); --tl-bar-b: var(--pro-ink, #0B1A4A); }
-@media (min-width: 761px) {
-  html body.home .gmap :is(.gm-axis, .gm-lane) { grid-template-columns: repeat(7, minmax(0, 1fr)) minmax(0, 1.9fr) !important; }
-  html body.home .gmap .gm-lanes { gap: 8px; background-image: none; }   /* the row tracks carry the grid */
-  html body.home .gmap .gm-lane { min-height: 52px; }
-  html body.home .gmap .gm-lane::before { content: ""; grid-row: 1; grid-column: 1 / -1; height: 44px; border-radius: 999px; background: var(--tl-track); }
-  html body.home .gmap .gm-bar { height: 44px; background: linear-gradient(90deg, var(--tl-bar-a), var(--tl-bar-b)); }
-  html body.home .gmap .gm-lane[data-prog="bootcamp"] .gm-bar { margin-right: 0; background: linear-gradient(90deg, #3A63B8, var(--tl-bar-a)); }
-  html body.home .gmap .gm-lane:is([data-prog="bootcamp"], [data-prog="portfolio"]) .gm-lab { flex-direction: column; align-items: flex-start; justify-content: center; gap: 4px; padding: 0 16px; }
-  html body.home .gmap .gm-lane:is([data-prog="bootcamp"], [data-prog="portfolio"]) .gm-lab b { font-size: 14.5px; }
-  html body.home .gmap .gm-lane:is([data-prog="bootcamp"], [data-prog="portfolio"]) .gm-lab small { font-size: 9.5px; letter-spacing: .1em; opacity: .85; }
-  html body.home .gmap .gm-lane:is([data-prog="bootcamp"], [data-prog="portfolio"]) .gm-lab em { display: none; }
-  html body.home .gmap .gm-lab small { opacity: .85; }
-  html body.home .gmap.has-focus .gm-lane.is-focus[data-prog="bootcamp"] .gm-bar { box-shadow: 0 18px 34px -16px rgba(11,26,74,.7); }
-  html body.home .gmap .gm-axis > span:last-child { color: var(--pro-soft, #465066); }
-}
-@media (max-width: 760px) {
-  html body.home #programs .gmap .gm-lane { grid-template-rows: auto auto 8px !important; row-gap: 6px !important; min-height: 44px; padding: 14px 16px !important; }
-  html body.home #programs .gmap .gm-lane::before { content: ""; grid-row: 3; grid-column: 1 / 9; height: 8px; border-radius: 999px; background: var(--tl-track); align-self: center; }
-  html body.home #programs .gmap .gm-bar { grid-row: 3 !important; height: 8px !important; margin-right: 0 !important; z-index: 1;
-    background: linear-gradient(90deg, var(--tl-bar-a), var(--tl-bar-b)) !important; }
-  /* (two ids: beats phone.css, which paints the grade range as a pill inside the bar) */
-  html body.home #programs:not(#tl) .gmap .gm-lane .gm-lab small {
-    grid-row: 2 !important; grid-column: 1 / 9 !important; justify-self: start !important; align-self: auto !important; display: block !important;
-    margin: 0 !important; padding: 0 !important; border-radius: 0 !important; z-index: 1;
-    color: var(--ph-soft, #4A5470) !important; background: none !important; font-size: 13px !important; opacity: 1 !important; }
-  html body.home #programs .gmap .gm-chev { grid-row: 1 / 4 !important; align-self: center; }
+  .ds-gmx colgroup { display: none; }
+  html body.home #programs .gmap.gmx { margin-top: var(--space-8) !important; }
+  .ds-mx.ds-gmx, .ds-mx.ds-gmx tbody, .ds-mx.ds-gmx thead { display: block !important; }
+  .ds-mx.ds-gmx .gmx-stages { display: none !important; }
+  .ds-gmx thead tr, .ds-gmx tbody tr { display: grid !important; grid-template-columns: repeat(7, minmax(0, 1fr)) minmax(0, 1.6fr); }
+  .ds-gmx thead th:first-child { display: none; }
+  .ds-gmx thead th { display: block; width: auto !important; padding: var(--space-2) 0; font-size: var(--text-xs); }
+  .ds-gmx tbody tr { padding: var(--space-4) 0; border-bottom: var(--hairline); }
+  .ds-gmx tbody tr + tr > * { border-top: 0 !important; }
+  .ds-gmx tbody th { grid-column: 1 / -1; display: block; padding: 0 0 var(--space-3); width: auto !important; }
+  .ds-mx.ds-gmx td { display: flex !important; align-items: center; justify-content: center; width: auto !important; padding: 0; height: var(--space-4); margin: 0 !important; }
+  .ds-mx.ds-gmx td.in::before { display: block !important; top: 50%; }
+  .ds-mx.ds-gmx td.in.first::before { left: 50%; }
+  .ds-mx.ds-gmx td.in.last::before { right: 50%; }
+  .ds-mx.ds-gmx td.in.first.last::before { display: none !important; }
+  .ds-mx.ds-gmx td.on::after { content: none !important; }
+  .ds-mx.ds-gmx td .ds-mk { margin: 0 !important; transform: none !important; }
 }

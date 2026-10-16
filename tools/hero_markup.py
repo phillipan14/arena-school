@@ -79,6 +79,7 @@ PAGES = {
     'zero-to-launch': (['hands', 'gesture'], H1, 'College students and early-career professionals building with AI (first AI Advantage Bootcamp cohort)'),
     'about': (['mentors', 'hands'], H1, None),
     'approach': (['hands', 'gesture'], H1, None),
+    'learning-approach': (['mentors', 'duo'], H1_LONG, None),
     'results': (['duo', 'gesture', 'hands'], H1, None),
     'partnerships': (['hands', 'duo'], H1, None),
     'contact': (['mentors', 'duo'], H1, 'The Arena team, smiling, ready to talk (a team photo)'),

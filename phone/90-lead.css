@@ -69,7 +69,7 @@ html[lang="zh-CN"] .ph-gal-h b{font-size:13.5px;letter-spacing:.06em;text-transf
 /* user feedback 2026-10-13 */
 @media (max-width:760px){
 /* grade map: no axis header on phones (the bars already carry the grade ranges) */
-body.home .gmap .gm-axis{display:none !important}
+
 /* "Read our approach": no dead space under it */
 body.home section.pillars{padding-bottom:20px !important}
 body.home .pillars-more{margin-bottom:0 !important;padding-bottom:0 !important}

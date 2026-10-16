@@ -131,7 +131,6 @@ try{
     var sp=document.createElement('ph-nb');sp.className='nb';sp.textContent=v.slice(k);t.nodeValue=v.slice(0,k);el.appendChild(sp)});
 
   // grade map lanes: chevron at the row end (the "→" em stays, hidden by CSS)
-  document.querySelectorAll('.gmap .gm-lane').forEach(function(l){var c=chev();c.classList.add('gm-chev');l.appendChild(c)});
 
 })();
 }catch(e){console.error("phone/20-home.js",e)}

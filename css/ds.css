@@ -1,0 +1,148 @@
+/* ds.css: the design-system component layer (EDITORIAL-BRIEF + MIGRATION-BRIEF, Oct 16, 2026).
+   Every value comes from the tokens in css/pro.css (colour --pro-*, spacing --space-*, --section-y, --measure,
+   radii, type sizes); hairlines are 1px by definition. Components: section, head, eyebrow, h2, lede, grid,
+   card, icon, the editorial matrix (ds-mx, with ds-mk markers), list, and a visually-hidden helper.
+   Spec: DESIGN-SYSTEM.md and the Claude Design project (Editorial matrix and Spacing boards). */
+
+.vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- Section and head ---------- */
+html body main .ds-section { padding-block: var(--section-y); background: var(--pro-bg); }
+html body main .ds-section.is-alt { background: var(--pro-alt); }
+html body main .ds-section + .ds-section:not(.is-alt):not(.is-tight) { border-top: var(--hairline); }
+.ds-head { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); column-gap: var(--space-8); row-gap: var(--space-3);
+  align-items: end; margin-bottom: var(--space-8); }
+.ds-head > .ds-eyebrow { grid-column: 1 / -1; }
+.ds-eyebrow { display: block; font: 600 var(--text-xs)/1.3 'Geist', system-ui, sans-serif; letter-spacing: .14em; text-transform: uppercase;
+  font-variant-caps: normal; color: var(--pro-ink-2); }
+.ds-eyebrow.is-muted { color: var(--pro-soft); letter-spacing: .1em; font-weight: 500; }
+:lang(zh) .ds-eyebrow { letter-spacing: .06em; font-size: var(--text-sm); }
+.ds-h2 { margin: 0; font: 500 var(--pro-h2)/var(--lh-tight) 'Newsreader', Georgia, serif; letter-spacing: -.012em; color: var(--pro-ink); text-wrap: balance; }
+.ds-h2 em { font-style: italic; color: var(--pro-ink); }
+:lang(zh) .ds-h2 em { font-style: normal; display: block; }
+.ds-lede { margin: 0; max-width: var(--measure-narrow); font-size: var(--text-md); line-height: var(--lh-body); color: var(--pro-soft); text-wrap: pretty; }
+
+/* ---------- Grid, card, icon ---------- */
+.ds-grid { display: grid; gap: var(--space-5); margin: 0; padding: 0; list-style: none; }
+.ds-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.ds-grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.ds-card { background: var(--pro-bg); border: var(--hairline); border-radius: var(--radius-card); padding: var(--space-6); }
+.ds-ic { width: var(--ic); height: var(--ic); flex: none; color: var(--pro-ink-2); }
+.ds-ic.lg { width: var(--ic-lg); height: var(--ic-lg); }
+
+/* ---------- Editorial matrix ----------
+   A hairline grid with small caps column heads, tabular figures, and per-cell markers: filled square = practiced
+   (with its label), open square = inside the span, a 1px rule joining the span. No gradients, no pills. */
+.ds-mx-wrap { border-top: 1px solid var(--pro-ink); border-bottom: var(--hairline); }
+.ds-mx { width: 100%; border-collapse: collapse; table-layout: fixed; font-variant-numeric: tabular-nums; }
+.ds-mx th, .ds-mx td { padding: var(--space-5) var(--space-3); vertical-align: top; text-align: left; font-weight: 400; }
+.ds-mx thead th { padding-block: var(--space-4); border-bottom: var(--hairline); font-size: var(--text-sm); color: var(--pro-soft); vertical-align: bottom; }
+.ds-mx thead th:first-child { width: 26%; padding-left: 0; }
+.ds-mx thead th:last-child { width: 20%; }
+.ds-mx-k { display: block; margin-bottom: var(--space-1); font: 600 var(--text-xs)/1.2 'Geist', system-ui, sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--pro-ink-2); }
+.ds-mx tbody tr + tr > * { border-top: var(--hairline); }
+.ds-mx tbody th { padding-left: 0; }
+.ds-mx tbody th b { display: block; font-weight: 600; font-size: var(--text-base); color: var(--pro-ink); }
+.ds-mx tbody th > span:not(.ds-mx-n) { display: block; margin-top: var(--space-1); font-size: var(--text-sm); line-height: 1.45; color: var(--pro-soft); }
+.ds-mx-n { display: block; margin-bottom: var(--space-2); font: 500 var(--text-sm)/1 'Newsreader', Georgia, serif; color: var(--pro-ink-2); }
+.ds-mx-span { display: none; }
+.ds-mx td { position: relative; font-size: var(--text-sm); line-height: 1.4; color: var(--pro-text); }
+.ds-mx td.in::before { content: ""; position: absolute; top: calc(var(--space-5) + var(--mk) / 2); left: 0; right: 0; height: 1px; background: var(--pro-ink-2); }
+.ds-mx td.in.first::before { left: calc(var(--space-3) + var(--mk) / 2); }
+.ds-mx td.in.last::before { right: calc(100% - var(--space-3) - var(--mk) / 2); }
+.ds-mx td.in.first.last::before { display: none; }
+.ds-mk { position: relative; z-index: 1; display: block; width: var(--mk); height: var(--mk); margin-bottom: var(--space-3); background: var(--pro-ink); border: 1px solid var(--pro-ink); }
+.ds-mk.is-open { background: var(--pro-bg); border-color: var(--pro-ink-2); }
+.ds-mx td.ev { color: var(--pro-ink); font-weight: 500; padding-right: 0; }
+.ds-mx td.ev .ds-mx-k { display: none; }
+.ds-mx-key { display: flex; gap: var(--space-5); margin: var(--space-4) 0 0; font-size: var(--text-xs); color: var(--pro-soft); }
+.ds-mx-key span { display: inline-flex; align-items: center; gap: var(--space-2); }
+.ds-mx-key .ds-mk { display: inline-block; margin: 0; width: var(--mk-sm); height: var(--mk-sm); }
+.is-alt .ds-mk.is-open { background: var(--pro-alt); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+  .ds-grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) {
+  .ds-head { grid-template-columns: 1fr; margin-bottom: var(--space-7); }
+  .ds-grid-3 { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  .ds-grid-4 { grid-template-columns: 1fr; }
+  .ds-card { padding: var(--space-5); }
+  /* the matrix becomes one stacked block per row: name, span, the marked days as a list, evidence */
+  .ds-mx, .ds-mx tbody, .ds-mx tr, .ds-mx th, .ds-mx td { display: block; width: auto !important; }
+  .ds-mx thead { display: none; }
+  .ds-mx-wrap { border-bottom: 0; }
+  .ds-mx tbody tr { padding: var(--space-5) 0; border-bottom: var(--hairline); }
+  .ds-mx tbody tr + tr > * { border-top: 0; }
+  .ds-mx th, .ds-mx td { padding: 0; }
+  .ds-mx-span { display: block; margin-top: var(--space-2); font: 600 var(--text-xs)/1.3 'Geist', system-ui, sans-serif; font-style: normal; letter-spacing: .12em; text-transform: uppercase; color: var(--pro-ink-2); }
+  .ds-mx td:not(.on):not(.ev) { display: none; }
+  .ds-mx td.on { display: flex; align-items: baseline; gap: var(--space-3); margin-top: var(--space-3); }
+  .ds-mx td.on::before { display: none !important; }
+  .ds-mx td.on::after { content: attr(data-day); order: -1; min-width: 4.5em; font-size: var(--text-xs); letter-spacing: .08em; text-transform: uppercase; color: var(--pro-soft); }
+  .ds-mx td.on .ds-mk { margin: 0; flex: none; transform: translateY(1px); }
+  .ds-mx td.ev { margin-top: var(--space-4); padding-top: var(--space-3); border-top: var(--hairline) !important; }
+  .ds-mx td.ev .ds-mx-k { display: block; color: var(--pro-soft); }
+}
+
+/* ---------- Migrated legacy sections (MIGRATION-BRIEF) ----------
+   Pages keep their legacy classes for scripts; these rules make the ds components authoritative above 760px.
+   At 760px and below the phone layer (phone.css) keeps its own layout. */
+html body main .ds-section { padding-block: var(--space-8); }
+@media (min-width: 761px) {
+  html body main .ds-section { padding-block: var(--section-y) !important; }
+  html body main .ds-section > .container > .ds-head { display: grid !important; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) !important;
+    column-gap: var(--space-8) !important; row-gap: var(--space-3) !important; align-items: end !important; max-width: none !important;
+    margin: 0 0 var(--space-8) !important; padding: 0 !important; text-align: left !important; }
+  html body main .ds-head > .ds-eyebrow { grid-column: 1 / -1; margin: 0 !important; }
+  html body main .ds-head > .ds-h2, html body main .ds-stack .ds-h2 { margin: 0 !important; max-width: 24ch !important; font-size: var(--pro-h2) !important; line-height: var(--lh-tight) !important; }
+  html body main .ds-head > .ds-h2:only-of-type:last-child { grid-column: 1 / -1; }
+  html body main .ds-head > .ds-lede { margin: 0 !important; max-width: var(--measure-narrow) !important; font-size: var(--text-md) !important; line-height: var(--lh-body) !important; }
+  html body main .ds-section > .container > .ds-head.is-center { grid-template-columns: 1fr !important; justify-items: center; text-align: center !important; }
+  html body main .ds-section > .container > .ds-head.is-center > .ds-h2 { max-width: 30ch !important; grid-column: 1; }
+  html body main .ds-section > .container > .ds-head.is-center > .ds-eyebrow { justify-self: center; text-align: center; }
+
+  /* doors: "Who are you?" as a ruled row of four links */
+  html body main .ds-doors { display: grid !important; grid-template-columns: auto minmax(0, 1fr) !important; align-items: center; column-gap: var(--space-7) !important;
+    margin: 0 0 var(--space-7) !important; padding: var(--space-5) 0 !important; border-block: var(--hairline) !important; background: none !important; }
+  html body main .ds-doors .who-doors { display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)) !important; gap: var(--space-5) !important; }
+  html body main .ds-door { display: grid !important; grid-template-columns: 1fr auto; row-gap: var(--space-1); padding: var(--space-2) 0 !important; border: 0 !important;
+    background: none !important; box-shadow: none !important; text-decoration: none; }
+  html body main .ds-door b { font: 600 var(--text-base)/1.3 'Geist', system-ui, sans-serif !important; color: var(--pro-ink) !important; }
+  html body main .ds-door span { grid-column: 1; font-size: var(--text-sm) !important; color: var(--pro-soft) !important; }
+  html body main .ds-door i { grid-row: 1 / 3; grid-column: 2; align-self: center; font-style: normal; color: var(--pro-ink-2); transition: transform var(--dur-ui) var(--ease); }
+  html body main .ds-door:hover i, html body main .ds-door:focus-visible i { transform: translateX(var(--space-1)); }
+
+  /* cards: one card component; the media variant puts a photo on top */
+  html body main .ds-grid { gap: var(--space-5) !important; }
+  html body main .ds-card { border: var(--hairline) !important; border-radius: var(--radius-card) !important; background: var(--pro-bg) !important; box-shadow: none !important; }
+  html body main .ds-card.is-media { display: flex !important; flex-direction: column; padding: 0 0 var(--space-5) !important; overflow: hidden; }
+  html body main .ds-card.is-media > .ds-card-media { margin: 0 0 var(--space-5) !important; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 0 !important; }
+  html body main .ds-card.is-media > .ds-card-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  html body main .ds-card.is-media > :not(.ds-card-media) { margin-inline: var(--space-5) !important; }
+  html body main .ds-card .ds-eyebrow { margin: 0 0 var(--space-2) !important; }
+  html body main .ds-card-h { margin: 0 0 var(--space-2) !important; font: 500 var(--text-lg)/1.25 'Newsreader', Georgia, serif !important; color: var(--pro-ink) !important; }
+  html body main .ds-card-p { margin: 0 0 var(--space-4) !important; font-size: var(--text-sm) !important; line-height: var(--lh-body) !important; color: var(--pro-soft) !important; }
+  html body main .ds-card .prog-links { margin-top: auto !important; display: grid; gap: var(--space-2); }
+  html body main .pillar-card.ds-card { padding: var(--space-6) !important; text-align: left; }
+
+  /* list: dated rows (What's next) */
+  html body main .ds-list { margin: 0 !important; padding: 0 !important; list-style: none; border-top: 1px solid var(--pro-ink) !important; }
+  html body main .ds-list-row { display: grid !important; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr) auto !important; column-gap: var(--space-7) !important;
+    align-items: start; padding: var(--space-6) 0 !important; border-bottom: var(--hairline) !important; border-top: 0 !important; }
+  html body main .ds-list-row .cf-date b { display: block; font: 500 var(--text-lg)/1.25 'Newsreader', Georgia, serif; color: var(--pro-ink); font-variant-numeric: tabular-nums; }
+  html body main .ds-list-row .cf-date span { display: block; margin-top: var(--space-1); font-size: var(--text-xs); letter-spacing: .12em; text-transform: uppercase; color: var(--pro-soft); }
+  html body main .ds-list-row h3 { margin: 0 0 var(--space-2) !important; font: 500 var(--text-lg)/1.3 'Newsreader', Georgia, serif !important; color: var(--pro-ink) !important; }
+  html body main .ds-list-row p { margin: 0 !important; max-width: var(--measure) !important; font-size: var(--text-sm) !important; line-height: var(--lh-body) !important; color: var(--pro-soft) !important; }
+
+  /* logos: label column, rows divided by hairlines */
+  html body main .ds-logos { margin: 0 0 var(--space-8) !important; border-top: var(--hairline) !important; }
+  html body main .ds-logos > div { padding-block: var(--space-6) !important; border-bottom: var(--hairline) !important; }
+
+  /* contact: the lede column as a stack */
+  html body main .ds-stack { display: flex !important; flex-direction: column; gap: var(--space-5); }
+  html body main .ds-stack > * { margin-block: 0 !important; }
+}

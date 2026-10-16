@@ -13,16 +13,29 @@
   --pro-ink: #0B1A4A; --pro-ink-2: #2F55A8; --pro-text: #111827; --pro-soft: #465066; --pro-muted: #5D6677;
   --ease: cubic-bezier(.22, .61, .36, 1); --ease-io: cubic-bezier(.45, 0, .25, 1);
   --dur-fast: 180ms; --dur-ui: 280ms; --dur-reveal: 600ms;
-  /* Motion tokens (MOTION2-BRIEF; recorded in the design system, DESIGN-SYSTEM-MOTION.md).
+  /* Motion tokens (MOTION2-BRIEF; recorded in the design system, DESIGN-SYSTEM.md).
      Photo crossfade: hold per photo + fade. Ken Burns (hero photos): duration, max zoom, drift.
      Drift (framed photos): duration, max zoom, drift. Reduce Motion swaps in gentler values below, never none. */
   --xf-hold: 6s; --xf-fade: 1.4s;
   --kb-dur: 20s; --kb-scale: 1.07; --kb-tx: -3%; --kb-ty: -1.5%;
   --drift-dur: 22s; --drift-scale: 1.07; --drift-tx: -2.5%; --drift-ty: -1.5%;
+  /* Spacing scale (EDITORIAL-BRIEF; DESIGN-SYSTEM.md): every gap, padding and margin in css/ds.css and the migrated
+     sections comes from here. --section-y is the vertical rhythm between sections; --measure caps body lines. */
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px; --space-5: 24px;
+  --space-6: 32px; --space-7: 48px; --space-8: 64px; --space-9: 96px; --space-10: 128px;
+  --section-y: clamp(var(--space-8), 8vw, var(--space-10));
+  --measure: 68ch; --measure-narrow: 60ch;
+  --radius-ctl: 8px; --radius-card: 12px; --hairline: 1px solid var(--pro-line);
+  --text-xs: 12px; --text-sm: 14px; --text-base: 16px; --text-md: 17px; --text-lg: 19px;
+  --lh-tight: 1.15; --lh-body: 1.6;
+  --ic: 22px; --ic-lg: 28px; --mk: 11px; --mk-sm: 9px; --tap: 44px;   /* icon, matrix marker, tap target */
+  --shadow-text: 0 1px 8px rgba(8, 15, 38, .6);
   /* Texture: the deck's dot grid over hero photos (css/cine.css .cine-dots; DOTS-BRIEF) */
   --tex-dots-c: rgba(201, 214, 242, .9); --tex-dots-s: 22px; --tex-dots-o: .22;
   --pro-h1: clamp(34px, 1.1rem + 2.1vw, 52px);
   --pro-h2: clamp(26px, .95rem + 1.25vw, 36px);
+  --pro-h3: clamp(22px, 1rem + .45vw, 28px);
+  --pro-tint: #C9D6F2;   /* light accent on navy */
   --paper-art: #F5F7FA; --riso-tint: none;
 }
 /* Reduce Motion (macOS/iOS/Windows setting): photos still move, gently; the crossfade is slower (opacity fades are
@@ -210,3 +223,18 @@ html body :is(.pp-close-photo, .pg-case-media, .pro-photo, .pg-contact-photo) > 
 html body :is(.pp-close-photo, .pg-case-media, .pro-photo, .pg-contact-photo):nth-of-type(even) > img { animation-delay: -9s; }
 /* Pay page: its first section was padded to clear the old fixed nav; the nav is in the flow now */
 html body main > .pay-sec:first-child { padding-top: clamp(40px, 5vw, 64px) !important; }
+
+/* ---------- Sitewide whitespace pass (EDITORIAL-BRIEF item 5) ----------
+   Tokens only (--section-y, --space-*, --measure). Above 760px; the phone layer keeps its own rhythm.
+   Sections already on ds components (ds-section) set their own; heroes, the newsletter band, the photo
+   gallery and the logo strips are left alone. */
+@media (min-width: 761px) {
+  html body main > section:not(.cine-hero):not(.hero):not(.nl-band):not(.gallery-strip):not(.ds-section):not([class*="strip"]):not([class*="band"]) {
+    padding-block: var(--section-y) !important; }
+  /* one-line proof rows and tight sections keep a shorter rhythm */
+  html body main > section:is(.is-tight, :has(> .el-wrap > .el-proof-line:only-child)) { padding-block: var(--space-7) !important; }
+  html body main :is(.sec-head, .el-head, .pc-head, .pg-head, .pc-proof-head):not(.ds-head) { margin-bottom: var(--space-7) !important; }
+  html body main :is(.sec-head, .el-head, .pc-head, .pg-head) :is(.lede, p) { max-width: var(--measure-narrow); }
+  html body main section:not(.cine-hero) :is(p.lede, .pg-lede, .el-lede, .pc-lede, .pp-close-sub, .card-p, .el-p, .pc-p) { max-width: var(--measure); }
+  html body main :is(.pg-pcards, .el-grid, .el-cards, .pc-grid, .pc-cards, .pp-grid, .ap-pcards) { gap: var(--space-5) !important; }
+}

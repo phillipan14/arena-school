@@ -13,7 +13,7 @@
     io.observe(map);
   }
 
-  const lanes = [...map.querySelectorAll('.gm-lane')];
+  const lanes = [...map.querySelectorAll('.gm-lane, .gmx-row')];
   let clearTimer;
   // FLIP: remember where each lane is, change state (focused lanes jump to the top via CSS order),
   // then animate every lane from its old position to its new one.

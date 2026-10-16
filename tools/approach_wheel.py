@@ -1,6 +1,6 @@
 """Approach page: the Arena School learning framework wheel as inline SVG (EN and CN).
 
-Center: the learner does the thinking. Inner ring: the four learning-goal domains, a cycle (arrowheads
+Center: the learner decides. Inner ring: the four learning-goal domains, a cycle (arrowheads
 between segments). Outer ring: the four teaching principles, offset 45 degrees. Labels run on arcs and
 read upright on both halves. css/approach.css stages the reveal and turns the dashed cycle orbit slowly.
 The SVG is decorative for assistive tech (aria-hidden): the page lists the same eight items as text.
@@ -18,16 +18,16 @@ GAP = 1.6                    # degrees left empty between segments
 
 LABELS = {
     'en': {
-        'core': ['The learner', 'does the', 'thinking'],
-        'mid': ['Inquiry and planning', 'Research and evaluation', 'Creating and communicating', 'Collaboration and reflection'],
+        'core': ['The learner', 'decides'],
+        'mid': ['01  Inquiry and planning', '02  Research and evaluation', '03  Creating and communicating', '04  Collaboration and reflection'],
         'out': ['In person, real-time feedback', 'AI use disclosed and cited', 'Learner voice and choice', 'An authentic audience'],
-        'mid_size': 13.5, 'out_size': 13, 'core_size': 27,
+        'mid_size': 13.5, 'out_size': 13.5, 'core_size': 36,
     },
     'cn': {
-        'core': ['思考', '由学习者', '自己完成'],
-        'mid': ['探究与规划', '研究与评估', '创作与表达', '协作与反思'],
+        'core': ['由学习者', '做决定'],
+        'mid': ['01 探究与规划', '02 研究与评估', '03 创作与表达', '04 协作与反思'],
         'out': ['面对面，即时反馈', '使用AI须说明并注明', '学习者的声音与选择', '真实的受众'],
-        'mid_size': 15, 'out_size': 14, 'core_size': 27,
+        'mid_size': 15, 'out_size': 14.5, 'core_size': 34,
     },
 }
 MID_FILL = ['#22458A', '#2F55A8', '#1E3F86', '#3A63B8']

@@ -11,6 +11,7 @@ BANDS = {
     'index': ('home', r'<section class="partners" id="contact"'),
     'about': ('about', r'<section[^>]*class="pp-final'),
     'approach': ('approach', r'<section[^>]*class="pp-final'),
+    'learning-approach': ('approach', r'<section[^>]*class="pp-final'),
     'results': ('results', r'<section[^>]*class="pp-final'),
     'programs/community-dialogues': ('parents', r'<section[^>]*class="pp-final'),
     'programs/conferences': ('conferences', r'<section[^>]*class="pp-final'),

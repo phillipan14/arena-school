@@ -36,10 +36,8 @@ html[lang="zh-CN"] main .h2-md{font-size:21px !important;line-height:1.5 !import
 main h3{font-size:19px !important;line-height:1.3 !important}
 /* Chinese never gets faux italic or wide tracking */
 html[lang="zh-CN"] :is(em,i,.rh,cite){font-style:normal !important}
-html[lang="zh-CN"] :is(.eyebrow,.pc-facts b,.cf-date,.prog-k,.gm-lab,.dlab,.hp-cf-k){letter-spacing:.04em !important}
 /* labels: never below 12px (13px Chinese) */
-main :is(.pc-facts b,.pp-glance b,.zl-spec-row b,.cf-date,.gm-lab,.hp-cf-k,.pc-sel-count){font-size:12px !important}
-html[lang="zh-CN"] main :is(.pc-facts b,.pp-glance b,.zl-spec-row b,.cf-date,.gm-lab,.hp-cf-k,.pc-sel-count){font-size:13px !important}
+
 /* phone-only no-break spans added by phone.js (orphans) */
 .nb{white-space:nowrap}
 

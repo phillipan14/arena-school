@@ -1,4 +1,37 @@
-# Design system: motion and UX (Oct 16, 2026, MOTION2-BRIEF)
+# Arena School design system (Oct 16, 2026)
+
+Tokens live on `:root` in `css/pro.css`; components in `css/ds.css` (linked on every page by `tools/pro_markup.py`,
+right after `pro.css`). Recorded in the Claude Design project "Arena School pro system":
+https://claude.ai/artifact/6YmQtcXvpoLUVLybmrzTfq (boards: tokens and components, Motion and UX, Spacing and
+components, Editorial matrix, Learning approach). Migration status: `DESIGN-MIGRATION.md`.
+
+## Spacing, measure and type (EDITORIAL-BRIEF)
+| Token | Value | Use |
+|---|---|---|
+| `--space-1` … `--space-10` | 4, 8, 12, 16, 24, 32, 48, 64, 96, 128px | every gap, padding and margin in ds components |
+| `--section-y` | clamp(64px, 8vw, 128px) | vertical rhythm between sections (64px on phones) |
+| `--measure` / `--measure-narrow` | 68ch / 60ch | body line length; ledes use the narrow measure |
+| `--radius-ctl` / `--radius-card` | 8px / 12px | controls / cards |
+| `--hairline` | 1px solid `--pro-line` | rules between rows, card borders |
+| `--text-xs` … `--text-lg` | 12, 14, 16, 17, 19px | small caps labels to large body |
+| `--pro-h1` / `--pro-h2` / `--pro-h3` | clamp scales | display, section and card headings (Newsreader) |
+| `--lh-tight` / `--lh-body` | 1.15 / 1.6 | headings / body |
+| `--pro-ink`, `--pro-ink-2`, `--pro-soft`, `--pro-line`, `--pro-alt`, `--pro-tint` | navy, action blue, body grey, hairline, band, light accent on navy | colour |
+
+## Components (`css/ds.css`)
+- **ds-section** (`.is-alt` for the band colour): `--section-y` top and bottom; a hairline between two white sections.
+- **ds-head**: eyebrow across the top, the heading left (max 24ch), the lede right on the narrow measure; `.is-center` for a single column.
+- **ds-eyebrow** (small caps label, `.is-muted`), **ds-h2**, **ds-lede**.
+- **ds-grid** (`-3`, `-4`; collapses at 1100 / 900 / 760px) and **ds-card** (hairline, 12px radius, `--space-6` padding; `.is-media` puts a photo on top).
+- **ds-doors**: a ruled row of audience links ("Who are you?").
+- **ds-list** / **ds-list-row**: dated rows (date column, body, arrow) on hairlines.
+- **ds-logos**: logo rows with a label column.
+- **ds-mx** (editorial matrix) with **ds-mk** markers: hairline grid, small caps column heads, tabular figures; filled square = practiced, open square = in the span, a 1px rule joins the span. No gradients, no pills. Phones: one stacked block per row. Used by the Learning approach week and the homepage "Where each program fits" (`.ds-gmx`, `tools/grade_matrix.py`).
+- **ds-ic**: Lucide line icons, 1.6 stroke, `currentColor` (`tools/lucide_icons.json`, ISC).
+Migrated pages keep their legacy classes where scripts rely on them; above 760px the ds rules win. At 760px and below
+the phone layer (`phone.css`, built from `phone/*.css`) keeps its own layout until each page group is migrated.
+
+# Motion and UX (MOTION2-BRIEF)
 
 Recorded in the Claude Design project "Arena School pro system", artboard **Motion and UX · tokens, rules,
 timeline**: https://claude.ai/artifact/6YmQtcXvpoLUVLybmrzTfq (private until shared from its Share menu).
