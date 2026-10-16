@@ -143,7 +143,7 @@ html body main section.cine-hero .el-hero-grid { align-items: end; }
 @media (min-width: 1300px) { html body main section.cine-hero .el-hero-side { max-width: min(520px, 33vw); } }
 html body main section.cine-hero .pg-route { background: rgba(255, 255, 255, .95) !important; border-color: transparent !important; }
 html body main section.cine-hero .zl-hero-hosted-label { color: rgba(255, 255, 255, .72) !important; }
-html body main section.cine-hero .zl-hero-hosted img { filter: brightness(0) invert(1); opacity: .9; }
+html body main section.cine-hero .zl-hero-hosted img { filter: brightness(0) invert(1) !important; opacity: .9 !important; }
 
 @media (max-width: 900px) {
   html body main section.cine-hero .el-hero-side { display: none; }
