@@ -33,3 +33,15 @@
 .ai-band .aib-row > li + li::before { content: ""; position: absolute; top: 4px; bottom: 4px;
   left: calc(clamp(36px, 6vw, 88px) / -2); width: 1px; background: rgba(11,26,74,.14); border-radius: 0; }
 @media (max-width: 760px) { .ai-band .aib-row > li + li::before { left: -16px; } }
+
+/* Homepage placement (Oct 17, 2026): its own band directly under the hero, above the 60-second film. White paper
+   between the navy hero and the tinted film section; design-system spacing; hairline below. */
+body.home .hp-member { background: var(--pro-bg, #fff); border-bottom: var(--hairline, 1px solid rgba(11,26,74,.12)); }
+body.home .hp-member .ai-band { padding: var(--space-7, 40px) 0 var(--space-7, 40px); }
+body.home .hp-member .aib-k { margin-bottom: var(--space-5, 20px); font: 600 var(--text-xs, 12px)/1.3 'Geist', system-ui, sans-serif; letter-spacing: .14em; color: var(--pro-soft, #4A5578); }
+body.home .hp-member .aib-prog { font-size: var(--text-sm, 14px); color: var(--pro-soft, #4A5578); }
+body.home #member { scroll-margin-top: 64px; }
+@media (max-width: 760px) {
+  body.home .hp-member .ai-band { padding: var(--space-6, 32px) 0; }
+  body.home .hp-member .aib-k { margin-bottom: var(--space-4, 16px); }
+}
