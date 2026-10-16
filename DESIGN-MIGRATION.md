@@ -38,3 +38,8 @@ page above 760px; `ds.css` linked on every page; "Learning approach" added to th
 | Conferences, EN + CN | depth pass: needs, research, cases, tools, FAQ; format photos filled | empty photo slots | yes: tools/depth.py conferences | f0cd74b |
 | Community Dialogues, EN + CN | depth pass: worries, research, cases, tools, FAQ | empty proof band | yes: tools/depth.py community | 7cb25d5 |
 | Photo rules (sitewide) | banned photos | cohort and prize photos on 11 pages | yes: tools/photo_rules.py (0 left) | 7cb25d5 |
+| Entrepreneurship & AI Intensive, EN + CN | depth pass: gaps, research, cases, tools | thin stats row | yes: tools/depth.py | e0d1bfb |
+| App Design Workshop, EN + CN | depth pass: gaps, research, cases, tools | thin stats row | yes: tools/depth.py | 20cfa08 |
+| College Portfolio Workshop, EN + CN | depth pass: gaps, research, cases, tools | thin stats row | yes: tools/depth.py | 2a430bc |
+| Year-Long Project Mentorship, EN + CN | depth pass: gaps, research, cases, tools | thin stats row | yes: tools/depth.py | bfdaafd |
+| AI Advantage Bootcamp, EN + CN | depth pass: gaps, research, cases, tools | thin stats row | yes: tools/depth.py | 9da1055 |
