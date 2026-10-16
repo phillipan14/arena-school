@@ -73,7 +73,7 @@ T = {'en': dict(
   l_lede='One framework runs every Arena School program, for students, teachers, school leaders, and parents. Here is what learners practice, what they can do by the end, and how we know.',
   l_cta1='Find the right program', l_cta2='See the framework',
   toc_label='On this page',
-  toc=['Philosophy', 'Framework', 'Strands', 'One week', 'Outcomes', 'Assessment', 'Principles', 'By audience'],
+  toc=['Philosophy', 'Framework', 'One week', 'Outcomes', 'Assessment', 'Principles', 'By audience'],
   ph_k='Philosophy', ph_h='Three skills <em>AI cannot supply.</em>',
   ph_l='AI can draft the essay, write the code, and design the logo. It cannot choose the problem, judge the result, or finish the work so people trust it.',
   fw_k='Framework', fw_h='One framework, <em>every program.</em>',
@@ -194,7 +194,7 @@ T['cn'].update(
   l_lede='Arena School 的每个项目，无论面向学生、老师、学校管理者还是家长，都遵循同一套框架。下面是学习者练什么、最后能做到什么，以及我们怎样判断。',
   l_cta1='找到合适的项目', l_cta2='查看学习框架',
   toc_label='本页内容',
-  toc=['理念', '学习框架', '四条主线', '一周实例', '学习成果', '评估', '教学原则', '面向对象'],
+  toc=['理念', '学习框架', '一周实例', '学习成果', '评估', '教学原则', '面向对象'],
   ph_k='理念', ph_h='三种能力，<em>AI给不了。</em>',
   ph_l='AI能写文章、写代码、设计标志，却不能替人选问题、判断结果，也不能把作品做到让人信得过。',
   fw_k='学习框架', fw_h='一套框架，<em>贯穿每个项目。</em>',
@@ -360,7 +360,7 @@ def matrix(t):
 
 
 def learning_body(t):
-    ids = ['philosophy', 'framework', 'strands', 'week', 'outcomes', 'assessment', 'principles', 'audiences']
+    ids = ['philosophy', 'framework', 'week', 'outcomes', 'assessment', 'principles', 'audiences']
     o = [jj(t, 'Learning approach page') + '<nav class="ap-toc" aria-label="%s"><div class="container"><ol>%s</ol></div></nav>' % (
         t['toc_label'], ''.join('<li><a href="#%s"><b>%02d</b>%s</a></li>' % (i, n + 1, x) for n, (i, x) in enumerate(zip(ids, t['toc']))))]
     sk = ''.join('<li class="ap-ph reveal">%s<span class="ap-ph-n">%s</span><h3>%s</h3><p>%s</p><p class="ap-ph-w"><b>%s:</b> %s</p></li>'
@@ -375,7 +375,7 @@ def learning_body(t):
              % (wheel_svg(t['lang']), t['fw_mid_k'], mid, t['fw_out_k'], out, t['fw_q_k'], t['fw_q'], t['fw_center'], t['fw_note']), alt=True))
     doms = ''.join('<li class="ds-card ap-domain reveal">%s<span class="ap-num" aria-hidden="true">0%d</span><h3>%s</h3><p>%s</p></li>'
                    % (ic(DOM_ICONS[i], 'ds-ic lg'), i + 1, t['domains'][i], g) for i, g in enumerate(t['goals']))
-    o.append(section('strands', 'Strands', head(t['go_k'], t['go_h'], t['go_l']) + '<ol class="ds-grid ds-grid-4 ap-domains">%s</ol>' % doms))
+    # (EDITORIAL trim, Oct 17: the strands section repeated the wheel's list and the outcome columns; dropped)
     o.append(section('week', 'One week', head(t['ex_k'], t['ex_h'], t['ex_l']) + matrix(t) +
              '<p class="ap-ex-foot reveal"><span>%s</span><a class="tlink" href="%s">%s →</a></p>' % (t['ex_foot'], link(t, t['ex_link'][0]), t['ex_link'][1]), alt=True))
     cols = ''.join('<div>%s<h3>%s</h3><ul>%s</ul></div>' % (ic(DOM_ICONS[i]), t['domains'][i], ''.join('<li>%s</li>' % x for x in items))

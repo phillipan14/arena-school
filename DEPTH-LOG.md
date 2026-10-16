@@ -142,3 +142,9 @@ Sized to each page: these are a team page, case studies, a form, and event notic
 - **Winter program, ACAMIS, ISB parent coffee.** r1: research where it fits each audience (students; teachers and
   districts; students and parents), and "the work behind it" cases; the winter page's one-line proof row became cases.
   r2: checked order and CN; no further changes needed.
+
+## Learning approach trim (EN + CN)
+Before: 1,870 words, 10 sections (`/tmp/pro-pass/trim-learning-before-*.png`). The "Strands" section repeated the
+wheel's four strands and the four outcome columns; removed, with its table-of-contents entry. After: 1,800 words,
+9 sections (`trim-learning-after-*.png`). Everything else stays: philosophy, framework wheel, one week, outcomes,
+assessment, principles, by audience.
