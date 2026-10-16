@@ -17,8 +17,10 @@
   };
   rot.classList.add('is-live');
   fit();
+  let busy = false;   // one change at a time: late timers or frames can never stack two changes
   setInterval(() => {
-    if (document.hidden) return;
+    if (document.hidden || busy) return;
+    busy = true;
     const prev = words[i];
     i = (i + 1) % words.length;
     const next = words[i];
@@ -29,7 +31,10 @@
     after(prev, 'opacity', 320, () => {
       prev.classList.remove('is-out');
       fit();
-      after(rot, 'width', 480, () => next.classList.add('is-on'));
+      after(rot, 'width', 480, () => {
+        words.forEach((w) => w.classList.toggle('is-on', w === next));   // exactly one word shown
+        busy = false;
+      });
     });
   }, 2800);
   addEventListener('resize', fit, { passive: true });

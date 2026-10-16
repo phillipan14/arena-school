@@ -168,3 +168,10 @@ html body main section.cine-hero .hr-rot.is-live > span.is-out { opacity: 0; }
    slot resizes no visible text moves: no layout shift */
 html body main section.cine-hero .hero-riso-h1 .hr-lb { display: block; }
 @media (max-width: 760px) { html body main section.cine-hero .hero-riso-h1 .m-br { display: block; } }
+/* EN: the rotating word always sits on its own line, at every width. At about 1100-1300px a short word
+   ("families") fitted next to "Empowering" and a long one did not, so the headline changed between 3 and 4
+   lines with each word and moved everything below it (found when the film section went under the hero). */
+html body main section.cine-hero .hero-riso-h1:lang(en) .m-br { display: block; }
+/* No flash on load: the hidden words start at opacity 0, so switching them from hidden to visible
+   (.is-live) never shows all four words overlapping while the fade runs */
+html body main section.cine-hero .hr-rot > span:not(.is-on) { opacity: 0; }

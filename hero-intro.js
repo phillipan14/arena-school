@@ -1,7 +1,7 @@
 /* Homepage opening:
    1. The crest turns over to its navy face the first time the pointer rests on it, and stays (no flipping back).
-   2. "See what we do" glides to the photo gallery, and so does the first downward scroll from the very top
-      (wheel, trackpad, swipe, or keys), so the opening screen leads straight into the photos. */
+   2. "See what we do" glides to the next section (the 60-second film, else the photo gallery), and so does the
+      first downward scroll from the very top (wheel, trackpad, swipe, or keys). */
 (() => {
   const flip = document.querySelector('[data-seal-flip]');
   if (flip) {
@@ -10,7 +10,7 @@
     flip.addEventListener('click', turn, { once: true });
   }
 
-  const gallery = document.getElementById('gallery');
+  const gallery = document.getElementById('film') || document.getElementById('gallery');
   const cue = document.querySelector('[data-hero-more]');
   if (!gallery) return;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
