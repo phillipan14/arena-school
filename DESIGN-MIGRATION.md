@@ -22,8 +22,8 @@ page above 760px; `ds.css` linked on every page; "Learning approach" added to th
 | Home | what's next | styles.css cf-evs | yes: ds-list | 11079d9 |
 | Home | contact | index.css partners | partly: ds-section, ds-stack heading (form keeps its styles) | 11079d9 |
 | Home | phones (≤760px) | phone layer | not yet (phone layer) | |
-| App Design Workshop, College Portfolio Workshop, Entrepreneurship & AI Intensive, Year-Long Project Mentorship, AI Advantage Bootcamp (EN + CN) | sections, heads, FAQ | program-pages.css, pages.css | yes: ds-section, ds-head, ds-faq (tools/page_ds.py programs); steppers, stats and forms keep their components | chunk 2 |
-| Teachers, technology, conferences, community dialogues | all | elegance.css, program-pages.css | not yet | |
+| App Design Workshop, College Portfolio Workshop, Entrepreneurship & AI Intensive, Year-Long Project Mentorship, AI Advantage Bootcamp (EN + CN) | sections, heads, FAQ | program-pages.css, pages.css | yes: ds-section, ds-head, ds-faq (tools/page_ds.py programs); steppers, stats and forms keep their components | f6d3080 |
+| AI for Educators (teachers), Technology teams, Conferences, Community Dialogues (EN + CN) | sections, heads, FAQ | elegance.css, program-pages.css | yes: ds-section, ds-head, ds-faq (tools/page_ds.py teachers); tabs, steps and proof rows keep their components | chunk 3 |
 | Schools, partnerships, results, about, contact, enroll | all | pages.css, elegance.css | not yet | |
 | Events (winter, ACAMIS, parent coffee) | all | program-pages.css, events | not yet | |
 | CN twins | follow their EN page | | | |
