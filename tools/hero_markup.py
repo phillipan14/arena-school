@@ -41,6 +41,10 @@ P = {
                 'Mentors react to a student demo, Beijing 2026', '导师为学生展示叫好，北京，2026年',
                 [[.54, .13, .72, .42, 0], [0, .05, .17, .38, 1]],
                 dict(z=1.27, ox=.8, oy=.3, py=.20, kz=1.06, pa=1, pb=.45, pbs=.75, ps=.75, pat=1, pbt=.95, pst=.97, pym=.2)),
+    'laptop': ('/photos/isb-hq/isb-judges-test-800.webp', '/photos/isb-hq/isb-judges-test-1400.webp', 4 / 3,
+               'Testing a student product on a laptop, Beijing 2026', '在笔记本电脑上试用学生的产品，北京，2026年',
+               [[.10, .14, .24, .38, 0], [.44, .25, .56, .48, 0], [.70, .12, .83, .36, 0]],
+               dict(z=1.1, ox=.55, oy=.35, py=.22, kz=1.05, pa=1, pb=.35, pbs=.6, ps=.55, pat=1, pbt=.6, pst=.55, pym=.22)),
     'hands': ('/photos/steps/collab-stage-poster.webp', None, 4 / 3,
               'Building together, Hong Kong 2025', '一起动手做，香港，2025年',
               [[.09, .35, .21, .50, 0], [.48, .31, .58, .47, 0], [.65, .09, .77, .27, 0]],
@@ -52,9 +56,12 @@ WIDE_SUB = {}
 SET = ['duo', 'gesture', 'mentors']   # the only photos that reach 1600px (HERO-RES.md)
 
 
+EXTRA = {'laptop'}   # photos with hero exports used only where a page asks for them (Technology)
+
+
 def hero_set(keys):
-    out = [k for k in keys if k in SET]
-    return out + [k for k in SET if k not in out]
+    out = [k for k in keys if k in SET or k in EXTRA]
+    return (out + [k for k in SET if k not in out])[:3]   # the crossfade runs on exactly three photos (css/cine.css)
 
 H1 = 'clamp(36px, 1.2rem + 2.8vw, 60px)'
 H1_HOME = 'clamp(36px, 1.2rem + 3vw, 62px)'
@@ -64,7 +71,7 @@ H1_LONG = 'clamp(30px, 1rem + 2.2vw, 46px)'
 PAGES = {
     'index': (['duo', 'gesture', 'mentors'], H1_HOME, None),
     'programs/teacher-training': (['hands', 'mentors'], H1, 'Teachers at a hands-on Arena session, making a tool on their own laptops'),
-    'schools/technology': (['hands', 'mentors'], H1, 'Tech coaches and IT staff at an Arena session, working on the school’s approved tools'),
+    'schools/technology': (['laptop', 'mentors', 'duo'], H1, 'Tech coaches and IT staff at an Arena session, working on the school’s approved tools'),
     'schools': (['duo', 'gesture', 'mentors'], H1, None),
     'events/isb-winter-2027': (['duo', 'gesture', 'hands'], 'clamp(34px, 1.1rem + 2.6vw, 56px)', None),
     'events/acamis-tech-2026': (['gesture', 'duo'], H1_LONG, None),
@@ -123,7 +130,7 @@ def slide(i, n, key, home):
     the phone/tablet pan stops are per photo."""
     m = P[key][6]
     pb = m['pb'] if home else m['pbs']                                   # subpages: a shorter pan
-    px = {'duo': 82, 'gesture': 72, 'mentors': 66}.get(key, 70)   # desktop focus x when the photo is narrowed
+    px = {'duo': 82, 'gesture': 72, 'mentors': 66, 'laptop': 62}.get(key, 70)   # desktop focus x when the photo is narrowed
     mk = {'gesture': 18}.get(key, 0)   # desktop: hide more of the left edge (a second face sits there)
     style = ('--i:%d;--r:%s;--px:%s%%;--mk0:%s%%;--pa-m:%s;--pb-m:%s;--ps-m:%s;--pa-t:%s;--pb-t:%s;--ps-t:%s;--pym:%s%%'
              % (i, round(P[key][2], 4), px, mk, m['pa'], pb, m['ps'], m['pat'], m['pbt'], m['pst'], round(m['pym'] * 100, 1)))

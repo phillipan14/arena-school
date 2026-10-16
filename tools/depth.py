@@ -52,6 +52,27 @@ STATS = {
         src=dict(en='RAND, AI Use in Schools Is Quickly Increasing but Guidance Lags Behind, September 2025',
                  cn='RAND，《学校AI使用快速增长，但指导滞后》，2025年9月'),
         url='https://www.rand.org/pubs/research_reports/RRA4180-1.html'),
+    'rand-principals': dict(
+        n='45%', unit=None,
+        en='of principals reported school or district policies or guidance on the use of AI in schools.',
+        cn='的校长表示，所在学校或学区有关于在校使用AI的政策或指导。',
+        src=dict(en='RAND, AI Use in Schools Is Quickly Increasing but Guidance Lags Behind, September 2025',
+                 cn='RAND，《学校AI使用快速增长，但指导滞后》，2025年9月'),
+        url='https://www.rand.org/pubs/research_reports/RRA4180-1.html'),
+    'rand-districts': dict(
+        n='1 in 2', unit=None,
+        en='U.S. districts had trained teachers on generative AI by fall 2024, double the year before. Many built the training themselves after struggling to find outside partners.',
+        cn='的美国学区到2024年秋已为教师开展生成式AI培训，比前一年翻了一倍；不少学区在找不到合适的外部合作方后，选择自己设计培训。',
+        src=dict(en='RAND, More Districts Are Training Teachers on Artificial Intelligence, April 2025',
+                 cn='RAND，《更多学区开始为教师开展AI培训》，2025年4月'),
+        url='https://www.rand.org/pubs/research_reports/RRA956-31.html'),
+    'rand-students': dict(
+        n='80%+', unit=None,
+        en='of students said their teachers did not explicitly teach them how to use AI for schoolwork.',
+        cn='的学生表示，老师没有明确教过他们如何在学习中使用AI。',
+        src=dict(en='RAND, AI Use in Schools Is Quickly Increasing but Guidance Lags Behind, September 2025',
+                 cn='RAND，《学校AI使用快速增长，但指导滞后》，2025年9月'),
+        url='https://www.rand.org/pubs/research_reports/RRA4180-1.html'),
 }
 
 TOOL_NAMES = {'openai': 'ChatGPT', 'claude': 'Claude', 'deepseek': 'DeepSeek', 'kimi': 'Kimi', 'perplexity': 'Perplexity', 'canva': 'Canva',
@@ -110,6 +131,56 @@ PAGES = {
    tl_note='或者贵校已经认可的任何工具。工具本身不如核查每一个结果的习惯重要。',
    faq=[('培训结束后，老师能留下什么？', '自己做好的工具和背后的提示词，可以反复使用，也可以分享给同事。'),
         ('可以只面向一个教研组吗？', '可以。面向一个教研组的动手工作坊就是三种形式之一；全校培训则会为每个教研组各安排一场，之后再跟进。')])),
+ 'technology': dict(stem='schools/technology', proof_mode='keep_cred', en=dict(
+   ps_k='What technology teams face', ps_h='Four risks, <em>four safeguards.</em>',
+   ps_l='The concerns IT directors and tech coaches raise first, and how every session is set up around them.',
+   pk='The risk', sk='How we handle it',
+   ps=[('search', 'Tools arrive faster than you can review them', 'Teachers find new AI tools on their own, and each one is another review.',
+        'school', 'No new tools introduced', 'We review your approved list with you before planning. Sessions run on the systems your school already allows.'),
+       ('file-text', 'Student data and child protection', 'Every new tool raises the same questions about what data goes in and who sees it.',
+        'list-checks', 'No student records in sessions', 'The data rules are agreed with your team first, and teacher sessions use teachers’ own materials, not student records.'),
+       ('users', 'Uneven adoption across staff', 'A few teachers move fast while most wait for something they can use in class.',
+        'user-check', 'Your coaches in the room', 'Sessions run on your campus with your tech coaches there, so the people who support teachers see the work first-hand.'),
+       ('refresh-cw', 'Every tool change restarts training', 'When a product changes or is replaced, the training built around it goes with it.',
+        'route', 'What stays when tools change', 'Your coaches keep the session plans, teacher examples, and shared templates, and the method carries to the next tool.')],
+   st_k='What the research says', st_h='Use is rising fast. <em>Policy and training lag.</em>',
+   st_l='Four findings from RAND’s national surveys of districts, principals, teachers, and students. Each links to its source.',
+   stats=['rand-principals', 'rand-districts', 'rand-students', 'rand-integrity'], src_k='Source', research_before='How we plan with you',
+   cs_k='Where we have done this', cs_h='Run inside real <em>institutions.</em>',
+   cases=[dict(k='Tsinghua University · Staff training', h='Schwarzman College', p='Training for staff built around their own work, with their judgment in charge. The same format as AI for Educators.',
+               dl=[('Who', 'Staff, Schwarzman College'), ('Format', 'Hands-on workshop'), ('Taught by', 'Phillip An')], a=('/results#tsinghua', 'See results')),
+          dict(k='International School of Beijing · On campus', h='A five-day student program', p='Over five days, students built working websites and apps with AI and presented them to judges, on the school’s campus with mentors in the room.',
+               dl=[('Where', 'International School of Beijing'), ('When', 'Summer 2026')], a=('/results', 'See results')),
+          dict(k='Next · ACAMIS Technology Conference', h='Keystone Academy, Beijing', p='A 60-minute hands-on workshop for teachers and tech coaches, built on the case study from the International School of Beijing.',
+               dl=[('When', 'Sunday, October 18, 2026'), ('For', 'Teachers and tech coaches')], a=('/events/acamis-tech-2026', 'Session details'), next=True)],
+   tl_k='Tools we have worked with, when a school approves them', tools=['openai', 'claude', 'deepseek', 'kimi'],
+   tl_note='Plus Copilot, Doubao, and others your school allows. We review them with you before planning any session.',
+   faq=[('Do teachers need new accounts?', 'No new tools are introduced. Sessions run on the systems your school has already approved.')]),
+  cn=dict(
+   ps_k='技术团队面对的难题', ps_h='四种风险，<em>四道保障。</em>',
+   ps_l='IT负责人和技术教练最先提出的顾虑，以及每次培训如何围绕它们来安排。',
+   pk='风险', sk='我们的做法',
+   ps=[('search', '新工具出现的速度超过审核的速度', '老师会自己找到新的AI工具，每一个都需要再审核一次。',
+        'school', '不引入新工具', '规划之前，我们先和您一起过一遍贵校认可的工具清单；培训只在贵校已经允许的系统上进行。'),
+       ('file-text', '学生数据与儿童保护', '每个新工具都会带来同样的问题：放进去什么数据，谁能看到。',
+        'list-checks', '培训不涉及学生档案', '数据规则先与贵校团队商定；教师培训使用老师自己的材料，不涉及学生档案。'),
+       ('users', '教职员工的使用参差不齐', '少数老师走得很快，多数老师在等一个能直接用到课堂上的东西。',
+        'user-check', '技术教练全程在场', '培训在贵校校园进行，技术教练在场，负责支持老师的人第一时间看到做法。'),
+       ('refresh-cw', '工具一换，培训就得重来', '产品更新或被替换时，围绕它做的培训也随之作废。',
+        'route', '工具更换后留下什么', '技术教练留下培训方案、教师案例和共享模板，这套方法也能用到下一个工具上。')],
+   st_k='研究怎么说', st_h='使用快速增长，<em>政策与培训滞后。</em>',
+   st_l='来自 RAND 对学区、校长、教师和学生的全国调查的四项发现，每一项都附有来源链接。',
+   stats=['rand-principals', 'rand-districts', 'rand-students', 'rand-integrity'], src_k='来源', research_before='How we plan with you',
+   cs_k='我们做过的', cs_h='在真实的机构里<em>落地。</em>',
+   cases=[dict(k='清华大学 · 教职员工培训', h='苏世民书院', p='为苏世民书院教职员工开展的培训，从他们手头的实际工作出发，关键判断始终由他们自己把握。形式与我们的教育者AI培训一致。',
+               dl=[('对象', '苏世民书院教职员工'), ('形式', '实操工作坊'), ('主讲', '安广宁')], a=('/results-cn#tsinghua', '查看成果')),
+          dict(k='北京顺义国际学校 · 在校园内', h='为期五天的学生项目', p='五天里，学生借助AI做出可用的网站和应用，并向评委展示；全程在学校校园内进行，导师在场。',
+               dl=[('地点', '北京顺义国际学校'), ('时间', '2026年夏天')], a=('/results-cn', '查看成果')),
+          dict(k='即将举办 · ACAMIS 技术大会', h='北京市鼎石学校', p='面向教师和技术教练的60分钟实操工作坊，以北京顺义国际学校的案例为基础。',
+               dl=[('时间', '2026年10月18日（周日）'), ('对象', '教师和技术教练')], a=('/events/acamis-tech-2026-cn', '查看活动'), next=True)],
+   tl_k='经学校认可后我们用过的工具', tools=['openai', 'claude', 'deepseek', 'kimi'],
+   tl_note='还有 Copilot、豆包，以及贵校允许的其他工具。规划任何培训之前，我们都会和您一起先审一遍。',
+   faq=[('老师需要注册新账号吗？', '不会引入新工具。培训在贵校已经认可的系统上进行。')])),
 }
 
 
@@ -146,7 +217,7 @@ def block_b(c):
             % (head(c['cs_k'], c['cs_h']), len(c['cases']), cases, c['tl_k'], tools, c['tl_note']))
 
 
-def apply(s, c, lang):
+def apply(s, c, lang, proof_mode=None):
     (a, r), b = block_a(c, lang), block_b(c)
     # the research section sits before the section labelled c['research_before'] (or right after pressures)
     s = re.sub(r'(?s)<!-- depth:r -->.*?<!-- /depth:r -->\n?', '', s)
@@ -158,7 +229,11 @@ def apply(s, c, lang):
         i = s.index('</section>', s.index('cine-hero')) + len('</section>')
         s = s[:i] + '\n\n' + a + '\n' + s[i:]
         m = re.search(r'(?s)<section[^>]*data-screen-label="Proof">.*?</section>', s)
-        if m:
+        if m and proof_mode == 'keep_cred':
+            # the proof section keeps the credibility strip; its one-line facts move into the cases
+            sec = re.sub(r'(?s)\s*<ul class="el-proof reveal">.*?</ul>', '', m.group(0))
+            s = s[:m.start()] + b + '\n' + sec + s[m.end():]
+        elif m:
             s = s[:m.start()] + b + s[m.end():]
         else:
             j = s.find('<section', s.find('data-screen-label="FAQ"') - 200)
@@ -186,7 +261,7 @@ if __name__ == '__main__':
     for lang, f in (('en', cfg['stem'] + '.html'), ('cn', cfg['stem'] + '-cn.html')):
         p = os.path.join(ROOT, f)
         s = open(p, encoding='utf-8').read()
-        t = apply(s, cfg[lang], lang)
+        t = apply(s, cfg[lang], lang, cfg.get('proof_mode'))
         if t != s:
             n += 1
             if not check:

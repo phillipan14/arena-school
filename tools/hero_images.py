@@ -2,12 +2,13 @@
 source width: upscaling adds no detail) from the largest original in the repo. Output: photos/hero/<key>-<w>.<ext>.
 Needs ffmpeg (libsvtav1, mjpeg) and cwebp. Source search and keep/drop decisions: HERO-RES.md.
     python3 tools/hero_images.py"""
-import os, subprocess
+import os, subprocess, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = {  # key: (original, width)
     'duo': ('photos/isb-2026/pitch-duo.jpg', 1600),
     'gesture': ('photos/isb-pitch-gesture.jpg', 1600),
     'mentors': ('photos/isb-2026/mentor-feedback.jpg', 1600),
+    'laptop': ('photos/isb-judges-test.jpg', 1600),   # DEPTH-BRIEF: Technology hero
 }
 WIDTHS = (800, 1280, 1600)
 OUT = os.path.join(ROOT, 'photos', 'hero')
@@ -19,7 +20,10 @@ def run(*cmd):
 
 if __name__ == '__main__':
     os.makedirs(OUT, exist_ok=True)
+    only = sys.argv[1:]
     for key, (src, sw) in SRC.items():
+        if only and key not in only:
+            continue
         src = os.path.join(ROOT, src)
         for w in WIDTHS:
             if w > sw:

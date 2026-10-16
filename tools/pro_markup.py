@@ -63,8 +63,8 @@ def polish(s):
 if __name__ == '__main__':
     os.chdir(ROOT)
     # pro.css (tokens + polish) then ds.css (the component layer, MIGRATION-BRIEF), on every site page
-    link = ('<link rel="stylesheet" href="/css/pro.css?v=%s" data-pro>\n<link rel="stylesheet" href="/css/ds.css?v=%s" data-ds>'
-            % (ver('css/pro.css'), ver('css/ds.css')))
+    link = ('<link rel="stylesheet" href="/css/pro.css?v=%s" data-pro>\n<link rel="stylesheet" href="/css/ds.css?v=%s" data-ds>\n<link rel="stylesheet" href="/css/cred.css?v=%s" data-cred>'
+            % (ver('css/pro.css'), ver('css/ds.css'), ver('css/cred.css')))
     changed = 0
     for page in pages():
         s = open(page, encoding='utf-8').read()
@@ -73,6 +73,7 @@ if __name__ == '__main__':
         o = s
         s = re.sub(r'\n?<link rel="stylesheet" href="/css/pro\.css[^"]*" data-pro>', '', s)
         s = re.sub(r'\n?<link rel="stylesheet" href="/css/ds\.css[^"]*"( data-ds| /)?>', '', s)
+        s = re.sub(r'\n?<link rel="stylesheet" href="/css/cred\.css[^"]*"( data-cred| /)?>', '', s)
         s = LOCAL_CSS.sub(stamp, s)
         # before the newsletter/promo pair and phone.css, which their own tools re-insert just before phone.css
         at = -1
