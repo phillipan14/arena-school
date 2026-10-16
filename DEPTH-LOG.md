@@ -90,3 +90,28 @@ sessions (Schwarzman College staff training, the ACAMIS workshop after Oct 18) a
 | Technology | Hero, first photo | photos/hero/laptop-* (from isb-judges-test.jpg) | Testing a student product on a laptop, Beijing 2026 |
 Still wanted from a Photos export: teacher sessions, a co-founder giving a talk, a conference panel, a parent talk,
 the ISB parent coffee, a team photo for Contact, the first AI Advantage Bootcamp cohort.
+
+## Community Dialogues (families, EN + CN)
+- **r0:** hero, why it matters, the talk, an empty proof band, team, FAQ, next step.
+- **r1:** added family worries to honest answers (headlines, will AI do the thinking, admissions, what to do at home;
+  answers from the talk's own three parts and the page's promises), research (RAND: 54% of students use AI, 61% of
+  parents worried about critical thinking, half of students worried about false accusations, over 80% not taught),
+  cases replacing the empty band (the ISB parent coffee on Oct 14, families at the ISB demo day), tools row, one FAQ.
+  Critique: the closing section showed the cohort group photo (banned); the hero facts row ran "Parents and school
+  communities" into "Parent coffees and talks".
+- **r2:** closing photo now families at a demo day; the hero facts row wraps (sitewide fix, css/ds.css).
+
+## Photo rules, sitewide (found during the Community pass)
+`tools/photo_rules.py` swaps every banned photo for an approved real one with alt text and captions that describe the
+new photo (EN + CN), and reports anything banned that is left (now 0):
+| Where | Was | Now |
+|---|---|---|
+| Closing photo: Community Dialogues | cohort group photo | families at a student demo day, Beijing 2026 |
+| Closing photo: Entrepreneurship & AI Intensive | cohort group photo | presenting to the panel, Beijing 2026 |
+| Closing photo: App Design Workshop | cohort group photo | students present a finished product, Beijing 2026 |
+| Closing photo: College Portfolio Workshop | cohort group photo | mentors respond to a student's work, Beijing 2026 |
+| Contact | cohort group photo | mentors respond to a student's work |
+| Results: Hong Kong case | prize cheque photo | building together, Hong Kong 2025 |
+| Results: photo strip | prize cheque, cohort photo | presenting to the panel; families at demo day |
+| Homepage gallery | cohort photo, two prize cheque photos | finished product; building together; presenting to the panel |
+| Homepage gallery, Results, Portfolio workshop | Hong Kong classroom with another organization's name on the screen | the same photo with only the screen blurred (`photos/mix/pilot-classroom-noscreen-{800,1600}.webp`) |

@@ -36,3 +36,5 @@ page above 760px; `ds.css` linked on every page; "Learning approach" added to th
 | Schools (leaders), EN + CN | depth pass: constraints, research, cases, tools, FAQ | no evidence | yes: tools/depth.py schools | 3d94ced |
 | Partnerships, EN + CN | depth pass: concerns, research, cases, tools, new FAQ | 4 sections | yes: tools/depth.py partnerships | 575749f |
 | Conferences, EN + CN | depth pass: needs, research, cases, tools, FAQ; format photos filled | empty photo slots | yes: tools/depth.py conferences | f0cd74b |
+| Community Dialogues, EN + CN | depth pass: worries, research, cases, tools, FAQ | empty proof band | yes: tools/depth.py community | depth-community |
+| Photo rules (sitewide) | banned photos | cohort and prize photos on 11 pages | yes: tools/photo_rules.py (0 left) | depth-community |
