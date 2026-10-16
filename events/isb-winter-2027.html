@@ -35,6 +35,7 @@
 </style>
 <style>@media (min-width:761px){.pc-event .pc-facts{grid-template-columns:repeat(var(--evf,4),minmax(0,1fr)) !important}.pc-event .pc-facts li span,.pc-event .pc-facts li b{white-space:normal !important}}.ev-eb-m{display:none}@media (max-width:760px){.ev-eb-d{display:none}.ev-eb-m{display:inline;white-space:nowrap}}</style>
 <link rel="stylesheet" href="/css/elegance.css?v=3a41a0d7" />
+<link rel="stylesheet" href="/css/cine.css?v=0957f6a2" />
 <link rel="stylesheet" href="/css/pro.css?v=dab1d8a1" data-pro>
 <link rel="stylesheet" href="/newsletter.css?v=86fcd318" data-nl>
 <link rel="stylesheet" href="/promo.css?v=fad9d226" data-promo>
@@ -67,9 +68,12 @@
   </div>
 </nav>
 <main id="top">
-<section class="hero el-hero" data-screen-label="Hero">
+<section class="hero el-hero cine-hero" data-screen-label="Hero" style="--cine-h1:clamp(34px, 1.1rem + 2.6vw, 56px)">
+<!-- cine:start -->
+<div class="cine-media" aria-hidden="true"><div class="cine-slide"><img src="/photos/isb-2026/pitch-duo-800.webp" srcset="/photos/isb-2026/pitch-duo-800.webp 800w, /photos/isb-2026/pitch-duo-1600.webp 1600w" sizes="100vw" fetchpriority="high" loading="eager" alt="" decoding="async" style="--focus:62% 38%;--focus-m:100% 30%" /></div><div class="cine-slide"><img data-src="/photos/isb-hq/isb-pitch-gesture-800.webp" data-srcset="/photos/isb-hq/isb-pitch-gesture-800.webp 800w, /photos/isb-hq/isb-pitch-gesture-1400.webp 1600w" sizes="100vw" loading="lazy" alt="" decoding="async" style="--focus:60% 26%;--focus-m:66% 22%" /></div><div class="cine-slide"><img data-src="/photos/steps/collab-stage-poster.webp" loading="lazy" alt="" decoding="async" style="--focus:55% 40%;--focus-m:60% 40%" /></div></div><div class="cine-shade" aria-hidden="true"></div><div class="cine-field-light" aria-hidden="true"></div><div class="cine-caps" aria-hidden="true"><span>Presenting at demo day, Beijing 2026</span><span>Pitching to the panel, Beijing 2026</span><span>Building together, Hong Kong 2025</span></div>
+<!-- cine:end -->
   <div class="el-wrap el-hero-grid is-mid">
-    <div>
+    <div><!-- cine:crest --><div class="cine-crest" aria-hidden="true"><img src="/logos/arena/seal-ivory-512.png" alt="" width="108" height="108" decoding="async" /></div>
       <span class="eyebrow">Winter break · Jan 5–8, 2027</span>
       <h1 class="el-h1">AI Fundamentals <em>for Students</em><span class="el-h1-sub">@ International School of Beijing</span></h1>
       <p class="el-lede">Four days at the end of winter break. Students learn AI tools and use them to turn an idea into a real product. No STEM background or coding needed.</p>
@@ -78,11 +82,7 @@
     <div>
       <div class="el-hero-side"><ul class="el-facts" aria-label="At a glance"><li><b>Dates</b><span>Tuesday to Friday, Jan 5–8, 2027</span></li><li><b>Where</b><span>International School of Beijing</span></li><li><b>For</b><span>ISB students, grades 6 to 12</span></li></ul></div>
     </div>
-  </div>
-  <div class="el-wrap pro-hero-media">
-    <figure class="pro-photo is-wide" style="--focus:50% 45%"><img src="/photos/isb-hq/isb-cohort-800.webp" srcset="/photos/isb-hq/isb-cohort-800.webp 800w, /photos/isb-hq/isb-cohort-1400.webp 1400w" sizes="(max-width: 1240px) 100vw, 1180px" alt="ISB students with their projects, Beijing 2026" width="1400" height="700" loading="eager" decoding="async" /></figure><p class="pro-photo-cap">ISB students with their projects, Beijing 2026</p>
-  </div>
-</section>
+  </div></section>
 
 <section class="el-sec" id="why" data-screen-label="Why it matters">
   <div class="el-wrap">
@@ -230,6 +230,7 @@
 </footer>
 <script src="/hero-options.js?v=1790704894" defer></script>
 <script src="/riso-field.js?v=1790924000" defer></script>
+<script src="/cine.js?v=ff2737b9" defer></script>
 <script src="/motion.js?v=1790900500"></script>
 <script src="/riso-interact.js?v=1790704894" defer></script>
 <script src="/onepager.js?v=1790780000" defer></script>

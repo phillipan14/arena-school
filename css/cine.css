@@ -1,148 +1,102 @@
-/* cine.css: cinematic hero options (2026-10-16), previewed with ?hero=cine1 to cine5 on the
-   homepage and /schools/technology (EN + CN). cine.js sets html[data-hero] and adds the media layers;
-   without the parameter nothing here applies and each page keeps its default hero.
-     cine1  full-bleed real photos, slow crossfade with a Ken Burns zoom, dark gradient, white type
-     cine2  split hero: copy on white, a large photo panel with a soft vignette, film grain, light leak
-     cine3  the live homepage hero evolved: the riso particle field (riso-particles.js) on cool paper,
-            with the seal on the homepage, extended to subpages
-     cine4  cine1 plus the crest (medium, translucent, above the headline) and a faint light particle field
-     cine5  cine1 plus the particle field and the crest as a large faint watermark to the right
-   Real repo photos only. Only the first photo loads eagerly; the rest load after it. Static under
-   prefers-reduced-motion. */
+/* cine.css: the site hero (cine4, approved Oct 16, 2026), on every site page except decks/, talks/,
+   the business cards, and the payment page. Markup: tools/hero_markup.py. Behavior: /cine.js.
+   A full-bleed real photo crossfade (slow zoom) under a navy gradient, a faint light particle field,
+   the ivory crest above the headline, and white type. Headline size per page: --cine-h1 on the
+   section. Static under prefers-reduced-motion. */
 
-/* ---------- Shared media layers ---------- */
+/* ---------- Media layers ---------- */
 .cine-media { position: absolute; inset: 0; z-index: 0; overflow: hidden; background: #0B1A4A; }
 .cine-slide { position: absolute; inset: 0; opacity: 0; }
 .cine-slide:first-child { opacity: 1; }
-.cine-slide img { width: 100%; height: 100%; object-fit: cover; object-position: var(--focus, 50% 40%); display: block; transform-origin: var(--origin, 50% 50%); }
+.cine-slide img { width: 100%; height: 100%; object-fit: cover; object-position: var(--focus, 50% 40%); display: block; }
+/* captions sit above the shade in their own layer and crossfade with the photos (same timing rules) */
+.cine-caps { position: absolute; inset: 0; z-index: 4; pointer-events: none; }
+.cine-caps span { position: absolute; right: clamp(16px, 4vw, 56px); bottom: 14px; font-size: 12px; line-height: 1.3; color: rgba(255, 255, 255, .86); text-shadow: 0 1px 8px rgba(8, 15, 38, .6); opacity: 0; }
+.cine-caps span:first-child { opacity: 1; }
+/* four photos: 28s cycle, 7s each */
 .cine-media.is-cycling .cine-slide { animation: cine-fade 28s linear infinite both; }
+.cine-media.is-cycling ~ .cine-caps span { animation: cine-fade 28s linear infinite both; }
 .cine-media.is-cycling .cine-slide:nth-child(1) { animation-delay: -1.5s; }
+.cine-media.is-cycling ~ .cine-caps span:nth-child(1) { animation-delay: -1.5s; }
 .cine-media.is-cycling .cine-slide:nth-child(2) { animation-delay: -22.5s; }
+.cine-media.is-cycling ~ .cine-caps span:nth-child(2) { animation-delay: -22.5s; }
 .cine-media.is-cycling .cine-slide:nth-child(3) { animation-delay: -15.5s; }
+.cine-media.is-cycling ~ .cine-caps span:nth-child(3) { animation-delay: -15.5s; }
 .cine-media.is-cycling .cine-slide:nth-child(4) { animation-delay: -8.5s; }
-.cine-media .cine-slide img { animation: cine-kb 28s ease-in-out infinite alternate both; }
+.cine-media.is-cycling ~ .cine-caps span:nth-child(4) { animation-delay: -8.5s; }
+/* three photos: 21s cycle */
+.cine-media.is-cycling .cine-slide:first-child:nth-last-child(3), .cine-media.is-cycling .cine-slide:first-child:nth-last-child(3) ~ .cine-slide { animation-name: cine-fade-3; animation-duration: 21s; }
+.cine-media.is-cycling ~ .cine-caps span:first-child:nth-last-child(3), .cine-media.is-cycling ~ .cine-caps span:first-child:nth-last-child(3) ~ span { animation-name: cine-fade-3; animation-duration: 21s; }
+.cine-media.is-cycling .cine-slide:first-child:nth-last-child(3) ~ .cine-slide:nth-child(2) { animation-delay: -15.5s; }
+.cine-media.is-cycling ~ .cine-caps span:first-child:nth-last-child(3) ~ span:nth-child(2) { animation-delay: -15.5s; }
+.cine-media.is-cycling .cine-slide:first-child:nth-last-child(3) ~ .cine-slide:nth-child(3) { animation-delay: -8.5s; }
+.cine-media.is-cycling ~ .cine-caps span:first-child:nth-last-child(3) ~ span:nth-child(3) { animation-delay: -8.5s; }
+/* two photos: 14s cycle */
+.cine-media.is-cycling .cine-slide:first-child:nth-last-child(2), .cine-media.is-cycling .cine-slide:first-child:nth-last-child(2) ~ .cine-slide { animation-name: cine-fade-2; animation-duration: 14s; }
+.cine-media.is-cycling ~ .cine-caps span:first-child:nth-last-child(2), .cine-media.is-cycling ~ .cine-caps span:first-child:nth-last-child(2) ~ span { animation-name: cine-fade-2; animation-duration: 14s; }
+.cine-media.is-cycling .cine-slide:first-child:nth-last-child(2) ~ .cine-slide { animation-delay: -8.5s; }
+.cine-media.is-cycling ~ .cine-caps span:first-child:nth-last-child(2) ~ span { animation-delay: -8.5s; }
+.cine-media.is-cycling .cine-slide img { animation: cine-kb 28s ease-in-out infinite alternate both; }
 .cine-media .cine-slide:nth-child(even) img { animation-direction: alternate-reverse; }
 @keyframes cine-fade { 0% { opacity: 1; } 25% { opacity: 1; } 30% { opacity: 0; } 95% { opacity: 0; } 100% { opacity: 1; } }
-@keyframes cine-kb { from { transform: scale(1.02); } to { transform: scale(1.11); } }
+@keyframes cine-fade-3 { 0% { opacity: 1; } 33% { opacity: 1; } 40% { opacity: 0; } 93% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes cine-fade-2 { 0% { opacity: 1; } 50% { opacity: 1; } 60% { opacity: 0; } 90% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes cine-kb { from { transform: scale(1.02); } to { transform: scale(1.1); } }
 .cine-shade { position: absolute; inset: 0; z-index: 1; pointer-events: none;
-  background: linear-gradient(90deg, rgba(8, 15, 38, .82) 0%, rgba(8, 15, 38, .62) 38%, rgba(8, 15, 38, .18) 72%, rgba(8, 15, 38, .3) 100%),
-              linear-gradient(0deg, rgba(8, 15, 38, .55) 0%, transparent 40%); }
-.cine-vignette { position: absolute; inset: 0; z-index: 1; pointer-events: none; background: radial-gradient(120% 90% at 50% 45%, transparent 55%, rgba(8, 15, 38, .45) 100%); }
-.cine-grain { position: absolute; inset: -50%; z-index: 2; pointer-events: none; background: url(/art/grain.png) 0 0 / 220px 220px; opacity: .22; mix-blend-mode: overlay; animation: cine-grain 1.2s steps(6) infinite; }
-@keyframes cine-grain { 0% { transform: translate(0, 0); } 33% { transform: translate(-3%, 2%); } 66% { transform: translate(2%, -3%); } 100% { transform: translate(-1%, 1%); } }
-.cine-leak { position: absolute; inset: 0; z-index: 2; pointer-events: none; mix-blend-mode: screen; opacity: .55;
-  background: radial-gradient(60% 45% at 92% 8%, rgba(255, 196, 140, .55), transparent 70%), radial-gradient(40% 35% at 6% 100%, rgba(169, 190, 234, .35), transparent 70%);
-  animation: cine-leak 14s ease-in-out infinite alternate; }
-@keyframes cine-leak { from { opacity: .4; transform: translateX(0); } to { opacity: .65; transform: translateX(-2%); } }
-.cine-field { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
-.cine-seal { width: min(100%, 440px); aspect-ratio: 1; margin-inline: auto; border-radius: 50%; background: #FFFFFF; padding: 3%; box-shadow: 0 1px 0 rgba(11, 26, 74, .04), 0 34px 70px -34px rgba(11, 26, 74, .4); }
-.cine-seal img { width: 100%; height: auto; display: block; animation: cine-seal 240s linear infinite; }
-@keyframes cine-seal { to { transform: rotate(360deg); } }
-
-@media (prefers-reduced-motion: reduce) {
-  .cine-media .cine-slide, .cine-media .cine-slide img, .cine-grain, .cine-leak, .cine-seal img { animation: none !important; }
-  .cine-media .cine-slide:not(:first-child) { display: none; }
-}
-
-/* ---------- Nav stays solid white over photo heroes (the homepage otherwise clears it over the hero) ---------- */
-html[data-hero^="cine"] body .nav:not(#cine) { background: rgba(255, 255, 255, .97) !important; -webkit-backdrop-filter: saturate(1.2) blur(10px) !important; backdrop-filter: saturate(1.2) blur(10px) !important; border-bottom: 1px solid #E2E6EE !important; }
-
-/* ---------- Homepage (hero-riso hero-full) ---------- */
-html[data-hero^="cine"] .hero-full .pro-hero-bg { display: none; }
-html[data-hero^="cine"] body .hero-full { position: relative; overflow: hidden; }
-html[data-hero^="cine"] body .hero-full .hero-riso-grid { position: relative; z-index: 3; }
-
-/* cine1: full bleed */
-html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body section.hero-full { background: #0B1A4A !important; border-bottom: 0; min-height: min(88vh, 780px) !important; display: flex; flex-direction: column; justify-content: flex-end; }
-html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body .hero-full .hero-riso-grid { grid-template-columns: minmax(0, 1fr) !important; padding-block: clamp(140px, 16vh, 200px) clamp(56px, 8vh, 96px) !important; }
-html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body .hero-full .hero-art { display: none !important; }
-html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body .hero-full :is(.hero-riso-h1, .hero-riso-h1 *, .lede) { color: #FFFFFF !important; text-shadow: 0 1px 24px rgba(8, 15, 38, .35); }
-html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body .hero-full .hero-riso-h1 :is(em, .hr-rot, .hr-rot *) { color: #C9D6F2 !important; }
-html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body .hero-full .hero-riso-h1:not(#cine):not(#cine-h1) { max-width: 16ch !important; font-size: clamp(36px, 1.2rem + 3vw, 64px) !important; }
-html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body section.el-hero .el-h1:not(#cine):not(#cine-h1) { font-size: clamp(36px, 1.2rem + 2.8vw, 60px) !important; max-width: 18ch; }
-html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body .hero-full .lede { color: rgba(255, 255, 255, .86) !important; max-width: 52ch; }
-html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body .hero-full .eyebrow { color: #C9D6F2 !important; }
-html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body .hero-full .btn-primary { background: #FFFFFF !important; color: #0B1A4A !important; }
-html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body .hero-full .btn-ghost { background: transparent !important; color: #FFFFFF !important; border-color: rgba(255, 255, 255, .55) !important; }
-html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body .hero-full .cine-caption { position: absolute; z-index: 3; right: var(--section-px, 24px); bottom: 18px; font-size: 12px; color: rgba(255, 255, 255, .7); }
-
-/* cine2: split, photo panel bleeds to the right edge */
-html[data-hero="cine2"] body section.hero-full { background: #FFFFFF !important; min-height: min(86vh, 760px) !important; display: flex; align-items: center; }
-html[data-hero="cine2"] body .hero-full .hero-art { display: none !important; }
-html[data-hero="cine2"] body .hero-full .hero-riso-grid { grid-template-columns: minmax(0, 1fr) !important; }
-html[data-hero="cine2"] body .hero-full .hero-riso-copy { max-width: min(46vw, 560px); }
-html[data-hero="cine2"] body .cine-panel { position: absolute; z-index: 1; top: 0; right: 0; bottom: 0; width: 50%; overflow: hidden; border-radius: 0 0 0 28px; }
-html[data-hero="cine2"] body .cine-panel .cine-media { background: #0B1A4A; }
-html[data-hero="cine2"] body .cine-panel .cine-caption { position: absolute; z-index: 3; left: 20px; bottom: 16px; font-size: 12px; color: rgba(255, 255, 255, .78); }
-
-/* cine3: the live hero, evolved */
-html[data-hero="cine3"] body section.hero-full { background: #F5F7FA !important; min-height: min(92vh, 820px) !important; display: flex; align-items: center; }
-html[data-hero="cine3"] body .hero-full .hero-riso-h1:not(#cine):not(#cine-h1), html[data-hero="cine3"] body section.el-hero .el-h1:not(#cine):not(#cine-h1) { font-size: clamp(36px, 1.2rem + 2.8vw, 58px) !important; }
-html[data-hero="cine3"] body .hero-full .hero-art .pro-photo, html[data-hero="cine3"] body .hero-full .hero-art .pro-photo-cap { display: none !important; }
-html[data-hero="cine3"] body .hero-full .hero-art { order: 0 !important; justify-self: center !important; }
-html[data-hero="cine3"] body .hero-full .hero-riso-copy { order: 1 !important; }
-html[data-hero="cine3"] body .hero-full .hero-riso-grid { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr) !important; }
-
-/* ---------- Technology staff (el-hero) ---------- */
-html[data-hero^="cine"] body section.el-hero { position: relative; overflow: hidden; }
-html[data-hero^="cine"] body section.el-hero > .el-wrap { position: relative; z-index: 3; }
-html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body section.el-hero, html[data-hero="cine2"] body section.el-hero { padding-bottom: clamp(56px, 7vw, 96px); }
-html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body section.el-hero .pro-hero-media, html[data-hero="cine2"] body section.el-hero .pro-hero-media { display: none; }
-
-html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body main section.el-hero { background: #0B1A4A !important; border-bottom: 0; min-height: min(88vh, 760px); display: flex; flex-direction: column; justify-content: flex-end; }
-html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body section.el-hero :is(.el-h1, .el-lede) { color: #FFFFFF !important; }
-html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body section.el-hero .el-h1 em { color: #C9D6F2 !important; }
-html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body section.el-hero .el-lede { color: rgba(255, 255, 255, .86) !important; }
-html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body section.el-hero .eyebrow { color: #C9D6F2 !important; }
-html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body section.el-hero .btn-primary { background: #FFFFFF !important; color: #0B1A4A !important; }
-html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body section.el-hero .tlink { color: #FFFFFF !important; }
-html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body section.el-hero .el-facts { background: rgba(255, 255, 255, .94); border-color: transparent; }
-html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body section.el-hero .el-hero-grid { align-items: end; }
-html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body section.el-hero .cine-caption { position: absolute; z-index: 3; right: var(--el-gut, 24px); bottom: 14px; font-size: 12px; color: rgba(255, 255, 255, .7); }
-
-html[data-hero="cine2"] body main section.el-hero { background: #FFFFFF !important; min-height: min(84vh, 720px); display: flex; align-items: center; }
-html[data-hero="cine2"] body section.el-hero .el-hero-grid { grid-template-columns: minmax(0, 1fr); max-width: min(48vw, 600px); margin-left: max(var(--el-gut, 24px), calc((100vw - 1240px) / 2 + var(--el-gut, 24px))); margin-right: 0; padding: 0; }
-html[data-hero="cine2"] body section.el-hero .cine-panel { position: absolute; z-index: 1; top: 0; right: 0; bottom: 0; width: 46%; overflow: hidden; border-radius: 0 0 0 28px; }
-html[data-hero="cine2"] body section.el-hero .cine-panel .cine-caption { position: absolute; z-index: 3; left: 20px; bottom: 16px; font-size: 12px; color: rgba(255, 255, 255, .78); }
-
-html[data-hero="cine3"] body main section.el-hero { background: #F5F7FA !important; }
-
-/* ---------- Phones and narrow tablets ---------- */
-@media (max-width: 900px) {
-  html[data-hero="cine2"] body section.hero-full, html[data-hero="cine2"] body main section.el-hero { display: block; min-height: 0 !important; padding-top: 0 !important; }
-  html[data-hero="cine2"] body .cine-panel, html[data-hero="cine2"] body section.el-hero .cine-panel { position: relative; width: 100%; height: 56vw; max-height: 420px; border-radius: 0; margin-top: 38px; }
-  html[data-hero="cine2"] body .hero-full .hero-riso-grid { padding-block: 32px 48px !important; }
-  html[data-hero="cine2"] body .hero-full .hero-riso-copy, html[data-hero="cine2"] body section.el-hero .el-hero-grid { max-width: none; margin-left: 0; padding: 32px var(--el-gut, 20px) 0; }
-  html[data-hero="cine3"] body .hero-full .hero-riso-grid { grid-template-columns: 1fr !important; }
-  html[data-hero="cine3"] .cine-seal { width: min(64vw, 300px); }
-}
-@media (max-width: 760px) {
-  html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body section.hero-full, html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body main section.el-hero { min-height: 92svh !important; }
-  html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body .hero-full .hero-riso-grid { padding-block: 120px 40px !important; text-align: left; }
-  html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) .cine-shade { background: linear-gradient(0deg, rgba(8, 15, 38, .9) 0%, rgba(8, 15, 38, .66) 45%, rgba(8, 15, 38, .25) 100%); }
-  html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body section.el-hero .el-hero-side { display: none; }
-}
-
-/* ---------- cine4 / cine5: crest and light particles over the photo ---------- */
-.cine-field-light { z-index: 1; mix-blend-mode: screen; opacity: .38; }
-.cine-field-light canvas { filter: blur(.2px); }
-.cine-crest { width: clamp(76px, 7vw, 108px); aspect-ratio: 1; margin: 0 0 22px; opacity: .88; filter: drop-shadow(0 6px 24px rgba(8, 15, 38, .45)); }
+  background: linear-gradient(90deg, rgba(8, 15, 38, .84) 0%, rgba(8, 15, 38, .64) 40%, rgba(8, 15, 38, .2) 74%, rgba(8, 15, 38, .32) 100%),
+              linear-gradient(0deg, rgba(8, 15, 38, .55) 0%, transparent 42%); }
+.cine-field-light { position: absolute; inset: 0; z-index: 1; pointer-events: none; mix-blend-mode: screen; opacity: .38; }
+.cine-crest { width: clamp(72px, 7vw, 104px); aspect-ratio: 1; margin: 0 0 20px; opacity: .88; filter: drop-shadow(0 6px 24px rgba(8, 15, 38, .45)); }
 .cine-crest img { width: 100%; height: 100%; display: block; }
-.cine-watermark { position: absolute; z-index: 2; pointer-events: none; right: max(-4vw, -60px); top: 50%; width: min(56vh, 42vw, 560px); aspect-ratio: 1; transform: translateY(-46%); opacity: .11; }
-.cine-watermark img { width: 100%; height: 100%; display: block; animation: cine-seal 300s linear infinite; }
-html[data-hero="cine5"] body section.el-hero .cine-watermark { top: 96px; transform: none; width: min(34vh, 300px); right: 5%; }
-@media (min-width: 901px) and (max-width: 1140px) {
-  html[data-hero="cine5"] body .hero-full .cine-watermark { width: 34vw; right: -8vw; }
+.cine-crest.is-centered { margin-inline: auto; }
+
+/* ---------- The section (beats the template and pro.css hero rules) ---------- */
+html body main section.cine-hero:not(#cine) {
+  position: relative; overflow: hidden; isolation: isolate; background: #0B1A4A !important; background-image: none !important; border-bottom: 0;
+  min-height: min(86vh, 780px) !important; display: flex; flex-direction: column; justify-content: flex-end;
+  padding-top: clamp(132px, 15vh, 176px) !important; padding-bottom: clamp(48px, 7vh, 88px) !important;
 }
+html body main section.cine-hero:not(#cine) > :is(.container, .el-wrap, .hero-riso-grid) { position: relative; z-index: 3; width: 100%; }
+html body main section.cine-hero:not(#cine) .hero-riso-grid { grid-template-columns: minmax(0, 1fr) !important; padding-block: 0 !important; }
+html body main section.cine-hero :is(.hero-art, .pro-hero-bg, .hero-bg, .hero-scrim, .hero-more, .pro-hero-media) { display: none !important; }
+html body .nav:not(#cine) { background: rgba(255, 255, 255, .97) !important; -webkit-backdrop-filter: saturate(1.2) blur(10px) !important; backdrop-filter: saturate(1.2) blur(10px) !important; border-bottom: 1px solid #E2E6EE !important; }
+
+/* type */
+html body main section.cine-hero :is(h1, .display, .cs-h1, .hero-riso-h1, .el-h1):not(#cine):not(#cine-h1) {
+  font-size: var(--cine-h1, clamp(36px, 1.2rem + 2.8vw, 60px)) !important; max-width: 18ch; color: #FFFFFF !important; text-shadow: 0 1px 24px rgba(8, 15, 38, .35) !important;
+}
+html body main section.cine-hero :is(h1, .display) :is(em, .rh, .hr-rot, .hr-rot *, .hw-key) { color: #C9D6F2 !important; }
+html body main section.cine-hero :is(.lede, .sub, .el-lede, .thesis, .pc-intro, .hero-copy > p, .hero-riso-copy > p) { color: rgba(255, 255, 255, .88) !important; max-width: 56ch; text-shadow: 0 1px 16px rgba(8, 15, 38, .35); }
+html body main section.cine-hero :is(.lede, .sub) a { color: #FFFFFF !important; text-decoration: underline; text-underline-offset: 3px; }
+html body main section.cine-hero .eyebrow { color: #C9D6F2 !important; }
+html body main section.cine-hero .btn-primary { background: #FFFFFF !important; color: #0B1A4A !important; border-color: #FFFFFF !important; }
+html body main section.cine-hero .btn-ghost { background: transparent !important; color: #FFFFFF !important; border-color: rgba(255, 255, 255, .55) !important; }
+html body main section.cine-hero .tlink { color: #FFFFFF !important; }
+
+/* facts and routes on the photo */
+/* on phones the phone layer turns these into its own white rows, so the glass panel is desktop and tablet only */
+@media (min-width: 761px) {
+  html body main section.cine-hero :is(.pc-facts, .pp-glance) { background: rgba(8, 15, 38, .42); border: 1px solid rgba(255, 255, 255, .18); border-radius: 12px; padding: 4px 18px; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); max-width: 860px; }
+  html body main section.cine-hero :is(.pc-facts, .pp-glance) li { border-color: rgba(255, 255, 255, .16) !important; }
+  html body main section.cine-hero :is(.pc-facts, .pp-glance) b { color: rgba(255, 255, 255, .7) !important; }
+  html body main section.cine-hero :is(.pc-facts, .pp-glance) span { color: #FFFFFF !important; }
+}
+html body main section.cine-hero .el-facts { background: rgba(255, 255, 255, .95); border-color: transparent; }
+html body main section.cine-hero .el-hero-grid { align-items: end; }
+html body main section.cine-hero .pg-route { background: rgba(255, 255, 255, .95) !important; border-color: transparent !important; }
+html body main section.cine-hero .zl-hero-hosted-label { color: rgba(255, 255, 255, .72) !important; }
+html body main section.cine-hero .zl-hero-hosted img { filter: brightness(0) invert(1); opacity: .9; }
+
 @media (max-width: 900px) {
-  html:is([data-hero="cine4"], [data-hero="cine5"]) body section.el-hero .el-hero-side { display: none; }
-  .cine-watermark, html[data-hero="cine5"] body section.el-hero .cine-watermark { top: 76px; right: -18%; width: min(70vw, 360px); transform: none; opacity: .12; }
+  html body main section.cine-hero .el-hero-side { display: none; }
 }
 @media (max-width: 760px) {
-  html[data-hero="cine4"] body .hero-full .cine-crest { margin-inline: auto; }
-  /* phones: the watermark gets its own band above the copy, so it never sits behind text */
-  html[data-hero="cine5"] body .hero-full .hero-riso-grid { padding-top: 330px !important; }
-  html[data-hero="cine5"] body main section.el-hero { padding-top: 300px !important; }
-  .cine-watermark, html[data-hero="cine5"] body section.el-hero .cine-watermark { top: 72px; right: -14%; width: 230px; opacity: .12; }
+  html body main section.cine-hero:not(#cine) { min-height: 88svh !important; padding-top: 104px !important; padding-bottom: 40px !important; }
+  .cine-slide img { object-position: var(--focus-m, var(--focus, 50% 40%)); }
+  .cine-shade { background: linear-gradient(0deg, rgba(8, 15, 38, .92) 0%, rgba(8, 15, 38, .7) 48%, rgba(8, 15, 38, .3) 100%); }
+  .cine-caps span { right: 16px; bottom: 10px; font-size: 11px; }
 }
-@media (prefers-reduced-motion: reduce) { .cine-watermark img { animation: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .cine-media .cine-slide, .cine-media .cine-slide img, .cine-caps span { animation: none !important; }
+  .cine-media .cine-slide:not(:first-child), .cine-caps span:not(:first-child) { display: none; }
+}

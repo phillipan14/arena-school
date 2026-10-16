@@ -4,7 +4,6 @@ Every slot uses one component: `.pro-photo` in `css/pro.css` (3:2, 12px radius, 
 
 | Page (EN + CN) | Section | Slot | Photo | Caption (EN) |
 |---|---|---|---|---|
-| Homepage `/` | Hero, right column | Filled | `photos/isb-2026/demo-laptop-800.webp` (+1600) | Demo day, Beijing 2026 |
 | School leaders `/schools` | How a partnership works, under the steps ("ending with families in the room") | Filled | `photos/isb-2026/parents-audience-800.webp` (+1600) | Families at demo day, Beijing 2026 |
 | Winter program `/events/isb-winter-2027` | The four days, Day 04 tab | Filled (existing) | `photos/isb-hq/isb-team-stage-800.webp` (+1400) | (alt only) ISB students presenting on stage, Beijing 2026 |
 | Winter program `/events/isb-winter-2027` | Who teaches it | Filled (existing headshots) | `photos/jing-jing-yang-640.webp`, `photos/phillip-an-640.webp` | none |
@@ -15,27 +14,32 @@ Open questions for the team:
 - `photos/isb-hq/isb-judges-test.jpg` and `photos/isb-2026/mentors-laptop.jpg` are two crops of the same scene, labeled "Judges test the products" in one place and "Educators/Mentors working at a laptop" in another. The Technology caption is kept neutral until someone confirms who is in it.
 - Teachers, Conferences, the AI Advantage Bootcamp, and the parent coffee need real photos (TODOs in the table below).
 
-## Photo-led program heroes (added 2026-10-16, 5:11pm brief)
-Every program page hero now ends in one large photo band (`.pro-hero-media` > `.pro-photo.is-wide`: 2:1 on desktop, 3:2 on phones, focal point per photo). On the audience and winter pages this band replaces the smaller right-column hero photo; the facts panel stays at the top right. UI mockups and logo strips sit lower on the page.
+## Site hero (cine4, approved Oct 16, 2026; FINAL-BRIEF.md)
+Every site page except decks/, talks/, the four business cards (`card/*`), and the payment page now opens on the cine4 hero: a full-bleed crossfade of 1 to 4 real photos with a slow zoom, a navy gradient, a faint light particle field, and the crest above the headline. Markup comes from `tools/hero_markup.py` (the photo list per page lives there), behavior from `cine.js`, styles from `css/cine.css`. Photos follow `PHOTO-PICKS.md`: no cohort group shot, no prize cheques, no other organizations' names on screen. Each photo has a desktop and a phone focal point so faces stay in frame at 390px.
 
-| Page (EN + CN) | Hero band | Photo or TODO subject | Caption (EN) |
-|---|---|---|---|
-| Teachers `/programs/teacher-training` | **TODO** | Teachers at a hands-on Arena session, making a tool on their own laptops (real session photo, faces with consent) | none |
-| Technology staff `/schools/technology` | Real | `photos/isb-2026/mentors-laptop` | Working through a task together, Beijing 2026 |
-| School leaders `/schools` | Real | `photos/isb-2026/pitch-team` | Final pitch, Beijing 2026 |
-| Entrepreneurship & AI Intensive `/programs/product-intensive` | Real | `photos/isb-hq/isb-team-stage` | Students presenting on stage, Beijing 2026 |
-| App Design Workshop `/programs/remake-your-favorite-app` | Real | `photos/mix/pilot-cohort` | Our Hong Kong cohort, 2025 |
-| College Portfolio Workshop `/programs/website-portfolio-workshop` | Real | `photos/mix/pilot-sticky` | Mapping problems worth solving, Hong Kong 2025 |
-| Community Dialogues `/programs/community-dialogues` | Real | `photos/isb-2026/parents-audience` | Families at demo day, Beijing 2026 |
-| Conferences `/programs/conferences` | **TODO** | Arena team leading a hands-on conference workshop for teachers (e.g., ACAMIS 2026) | none |
-| Year-Long Project Mentorship `/mentorship` | Real | `photos/isb-2026/mentor-feedback` | Mentors respond to a student’s work, Beijing 2026 |
-| AI Advantage Bootcamp `/zero-to-launch` | **TODO** | College students and early-career professionals building with AI (first cohort, Guangzhou) | none |
-| Winter program `/events/isb-winter-2027` | Real | `photos/isb-hq/isb-cohort` | ISB students with their projects, Beijing 2026 |
-| ACAMIS workshop `/events/acamis-tech-2026` | Real | `photos/isb-hq/isb-pitch-mic` | The ISB case: a student presents her team’s product, Beijing 2026 |
-| ISB PTA parent coffee `/events/isb-parent-coffee` | **TODO** | ISB PTA parent coffee on Oct 14, 2026: Jing Jing Yang and Phillip An with parents | none |
+The large photo bands that the photo-led pass put under each program hero are gone: the hero itself is now the photo. The earlier homepage side photo is hidden.
 
-Section images: Conferences used three stock photos in its format cards (`photos/stock/educators-talk`, `breakout-circle`, `panel-stage`). They are now `TODO-PHOTO` placeholders: a talk to educators at a conference; teachers in a small-group discussion during an Arena workshop; the Arena team on a conference panel. No site page loads `photos/stock/` any more.
+| Page (EN + CN) | Hero photos, in order | Status |
+|---|---|---|
+| Homepage `/` | pitch-duo, isb-pitch-gesture, mentor-feedback, collab-stage-poster (Hong Kong 2025) | Relevant real photos |
+| Teachers `/programs/teacher-training` | collab-stage-poster (Hong Kong 2025), mentor-feedback | **Fallback**: TODO-PHOTO: Teachers at a hands-on Arena session, making a tool on their own laptops |
+| Technology staff `/schools/technology` | collab-stage-poster (Hong Kong 2025), mentor-feedback | **Fallback**: TODO-PHOTO: Tech coaches and IT staff at an Arena session, working on the school’s approved tools |
+| School leaders `/schools` | pitch-duo, isb-pitch-gesture, mentor-feedback | Relevant real photos |
+| Winter program `/events/isb-winter-2027` | pitch-duo, isb-pitch-gesture, collab-stage-poster (Hong Kong 2025) | Relevant real photos |
+| ACAMIS workshop `/events/acamis-tech-2026` | isb-pitch-gesture, pitch-duo | Relevant real photos |
+| ISB PTA parent coffee `/events/isb-parent-coffee` | mentor-feedback, pitch-duo | **Fallback**: TODO-PHOTO: ISB PTA parent coffee on Oct 14, 2026: Jing Jing Yang and Phillip An with parents |
+| Entrepreneurship & AI Intensive `/programs/product-intensive` | isb-pitch-gesture, pitch-duo, collab-stage-poster (Hong Kong 2025) | Relevant real photos |
+| App Design Workshop `/programs/remake-your-favorite-app` | collab-stage-poster (Hong Kong 2025), pitch-duo | Relevant real photos |
+| College Portfolio Workshop `/programs/website-portfolio-workshop` | pitch-duo, collab-stage-poster (Hong Kong 2025) | Relevant real photos |
+| Community Dialogues `/programs/community-dialogues` | mentor-feedback, pitch-duo | **Fallback**: TODO-PHOTO: A Community Dialogues parent talk: families in conversation with the Arena team |
+| Conferences `/programs/conferences` | isb-pitch-gesture, mentor-feedback | **Fallback**: TODO-PHOTO: The Arena team leading a hands-on conference workshop for teachers |
+| Year-Long Project Mentorship `/mentorship` | mentor-feedback, isb-pitch-gesture | Relevant real photos |
+| Mentorship enrollment `/enroll` | mentor-feedback, pitch-duo | Relevant real photos |
+| AI Advantage Bootcamp `/zero-to-launch` | collab-stage-poster (Hong Kong 2025), isb-pitch-gesture | **Fallback**: TODO-PHOTO: College students and early-career professionals building with AI (first AI Advantage Bootcamp cohort) |
+| About `/about` | mentor-feedback, collab-stage-poster (Hong Kong 2025) | Relevant real photos |
+| Approach `/approach` | collab-stage-poster (Hong Kong 2025), isb-pitch-gesture | Relevant real photos |
+| Results `/results` | pitch-duo, isb-pitch-gesture, collab-stage-poster (Hong Kong 2025) | Relevant real photos |
+| Partners `/partnerships` | collab-stage-poster (Hong Kong 2025), pitch-duo | Relevant real photos |
+| Contact `/contact` | mentor-feedback, pitch-duo | **Fallback**: TODO-PHOTO: The Arena team, smiling, ready to talk (a team photo) |
 
-Captions say where each photo was taken; a photo from another program (for example, Hong Kong 2025 on the App Design and Portfolio pages) is labeled as such and never presented as that program.
-
-Totals: 9 of these 13 pages (each EN + CN) have a real hero photo; 4 are placeholders: Teachers, Conferences, AI Advantage Bootcamp, and the ISB PTA parent coffee.
+Fallback pages show the best general bright photos until a fitting real photo exists; each carries a `<!-- TODO-PHOTO: ... -->` comment in its hero. Still in place below the hero: the School leaders families photo, the winter Day 04 and team photos, and the Conferences format-card placeholders.

@@ -32,7 +32,7 @@
 <link rel="stylesheet" href="/css/ai-band.css?v=d7e57164" />
 <link rel="stylesheet" href="/css/audiences.css?v=5a81f326" />
 <link rel="stylesheet" href="/css/elegance.css?v=3a41a0d7" />
-<link rel="stylesheet" href="/css/cine.css?v=ca1163f0" />
+<link rel="stylesheet" href="/css/cine.css?v=0957f6a2" />
 <link rel="stylesheet" href="/css/pro.css?v=dab1d8a1" data-pro>
 <link rel="stylesheet" href="/newsletter.css?v=86fcd318" data-nl>
 <link rel="stylesheet" href="/promo.css?v=fad9d226" data-promo>
@@ -66,9 +66,13 @@
 </nav>
 <main id="top">
 <!-- JJ review (2026-10-16 elegance pass): lines marked "new CN" below are new or reworded; the rest is the existing CN copy. -->
-<section class="hero el-hero" data-screen-label="Hero">
+<section class="hero el-hero cine-hero" data-screen-label="Hero" style="--cine-h1:clamp(36px, 1.2rem + 2.8vw, 60px)">
+<!-- cine:start -->
+<!-- TODO-PHOTO: Tech coaches and IT staff at an Arena session, working on the school’s approved tools (fallback photos until then) -->
+<div class="cine-media" aria-hidden="true"><div class="cine-slide"><img src="/photos/steps/collab-stage-poster.webp" fetchpriority="high" loading="eager" alt="" decoding="async" style="--focus:55% 40%;--focus-m:60% 40%" /></div><div class="cine-slide"><img data-src="/photos/isb-2026/mentor-feedback-800.webp" data-srcset="/photos/isb-2026/mentor-feedback-800.webp 800w, /photos/isb-2026/mentor-feedback-1600.webp 1600w" sizes="100vw" loading="lazy" alt="" decoding="async" style="--focus:50% 32%;--focus-m:66% 30%" /></div></div><div class="cine-shade" aria-hidden="true"></div><div class="cine-field-light" aria-hidden="true"></div><div class="cine-caps" aria-hidden="true"><span>一起动手做，香港，2025年</span><span>导师为学生展示叫好，北京，2026年</span></div>
+<!-- cine:end -->
   <div class="el-wrap el-hero-grid">
-    <div>
+    <div><!-- cine:crest --><div class="cine-crest" aria-hidden="true"><img src="/logos/arena/seal-ivory-512.png" alt="" width="108" height="108" decoding="async" /></div>
       <span class="eyebrow">面向技术团队</span>
       <h1 class="el-h1">在学校的规则<em>之内</em>，开展AI培训。</h1>
       <!-- new CN: lede no longer promises that student data stays out of AI tools -->
@@ -79,11 +83,7 @@
     <div class="el-hero-side">
       <ul class="el-facts" aria-label="概览"><li><b>对象</b><span>技术教练与IT负责人</span></li><li><b>工具</b><span>贵校认可的系统</span></li><li><b>环境</b><span>严格管控的环境也可以</span></li><li><b>地点</b><span>在贵校校园</span></li></ul>
     </div>
-  </div>
-  <div class="el-wrap pro-hero-media">
-    <figure class="pro-photo is-wide" style="--focus:50% 35%"><img src="/photos/isb-2026/mentors-laptop-800.webp" srcset="/photos/isb-2026/mentors-laptop-800.webp 800w, /photos/isb-2026/mentors-laptop-1600.webp 1400w" sizes="(max-width: 1240px) 100vw, 1180px" alt="一起在笔记本电脑前研究一项任务" width="1400" height="700" loading="eager" decoding="async" /></figure><p class="pro-photo-cap">一起研究一项任务，北京，2026年</p>
-  </div>
-</section>
+  </div></section>
 
 <section class="el-sec" id="get" data-screen-label="What you get">
   <div class="el-wrap">
@@ -195,7 +195,7 @@
 </footer>
 <script src="/hero-options.js?v=1790704894" defer></script>
 <script src="/riso-field.js?v=1790924000" defer></script>
-<script src="/cine.js?v=c3f47ec5" defer></script>
+<script src="/cine.js?v=ff2737b9" defer></script>
 <script src="/motion.js?v=1790900500"></script>
 <script src="/riso-interact.js?v=1790704894" defer></script>
 <script src="/faq-hover.js?v=1790803700" defer></script>
