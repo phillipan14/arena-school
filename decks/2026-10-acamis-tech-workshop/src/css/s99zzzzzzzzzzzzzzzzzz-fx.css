@@ -72,3 +72,19 @@
 .lo2-s .lo2-set>div{padding:13px 22px 11px}
 .lo2-s .lo2-set>div{gap:6px}.lo2-s .lo2-set b{margin:0}.lo2-s ul{padding:9.4px 24px .6px}
 .lo2-s ul{padding:7.7px 24px 2.3px}
+/* slide 8 assessment loop */
+.lo2-s .lo2-loop{display:flex;align-items:stretch;gap:24px;padding:16px 24px;border-radius:var(--r,14px);background:var(--ink);color:#fff}
+.lo2-s .lo2-lk{flex:none;width:190px;align-self:center;font:600 14px/1.35 var(--serif);letter-spacing:.12em;text-transform:uppercase;color:#A9BEEA}
+.lo2-s .lo2-loop ol{list-style:none;margin:0;padding:0;flex:1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:34px;counter-reset:lp}
+.lo2-s .lo2-loop li{position:relative;display:flex;flex-direction:column;justify-content:center;gap:3px}
+.lo2-s .lo2-loop li+li::before{content:"→";position:absolute;left:-26px;top:50%;transform:translateY(-50%);font:400 22px/1 var(--serif);color:#A9BEEA}
+.lo2-s .lo2-loop li:last-child::after{content:"↺";position:absolute;right:-4px;top:50%;transform:translateY(-50%);font:400 24px/1 var(--serif);color:#A9BEEA}
+.lo2-s .lo2-loop b{font:500 24px/1.15 var(--serif);color:#fff}
+.lo2-s .lo2-loop span{font:400 19px/1.3 var(--serif);color:rgba(252,243,237,.82)}
+.ae.lo2-s .bd .lo2-loop{padding:14px 28px;gap:28px;text-align:left}
+.lo2-s .lo2-lk{width:auto;font-size:13px;line-height:1.2;white-space:nowrap}
+.lo2-s .lo2-loop li{align-items:flex-start;text-align:left}
+.ae.lo2-s .bd .lo2-loop b{font-size:22px;white-space:nowrap}
+.ae.lo2-s .bd .lo2-loop span{font-size:18px;white-space:nowrap}
+.lo2-s li{padding:6px 0}
+.lo2-s ul{padding:9px 24px 1px}
