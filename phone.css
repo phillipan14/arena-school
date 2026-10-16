@@ -1251,6 +1251,22 @@ body.pg-schools .aud-plist-row a{display:flex;align-items:center;min-height:var(
 body.pg-schools .pg-proof.aud-proof{grid-template-columns:1fr !important}
 }
 
+/* (full mobile pass) leader-card logos: a still, wrapping row like every other credentials row; no clones, no
+   scroll, nothing cut off at the edge */
+@media (max-width:760px){
+body.pg-about .ph-flogos{overflow:visible !important;-webkit-mask-image:none !important;mask-image:none !important;margin:var(--space-4) 0 !important;padding:0 !important}
+body.pg-about .ph-flogos ul{animation:none !important;width:auto !important;flex-wrap:wrap !important;gap:var(--space-2) var(--space-5) !important;padding:0 !important}
+body.pg-about .ph-flogos li{padding:0 !important;height:32px !important}
+body.pg-about .ph-flogos li[aria-hidden="true"]{display:none !important}
+body.pg-about .ph-flogos img{filter:grayscale(1) contrast(1.15);opacity:.78 !important}
+/* results case stats: the number above its line, so a long number never runs into the text */
+body.pg-results .pg-stats > div:not(.pg-sj){grid-template-columns:1fr !important;row-gap:var(--space-1) !important}
+}
+@media (max-width:760px){
+/* event pages: speaker names are links; give them a full tap height */
+main section[data-screen-label="Speakers"] h3 a{display:inline-flex !important;align-items:center;min-height:var(--tap);padding-block:var(--space-2)}
+}
+
 /* ==== 90-lead.css ==== */
 /* Lead fixes from the final EN/CN review (2026-10-10). Loaded last among the partials. */
 @media (max-width:760px){

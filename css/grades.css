@@ -43,3 +43,5 @@ html.js .gmx:not(.is-in) a.ds-band { transform: scaleX(.2); opacity: 0; }
   .ds-gmx a.ds-band { min-height: var(--space-2); border-radius: 3px; display: block; }
   .ds-gmx a.ds-band > span { min-height: var(--space-2); height: var(--space-2); padding: 0; font-size: 0; border-radius: 3px; background: var(--pro-ink-tint-2); }
 }
+/* phones: the band is decoration; taps go to the program name link in the same row */
+@media (max-width: 760px) { .ds-gmx a.ds-band { pointer-events: none; } }
