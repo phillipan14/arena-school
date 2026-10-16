@@ -26,5 +26,5 @@ page above 760px; `ds.css` linked on every page; "Learning approach" added to th
 | AI for Educators (teachers), Technology teams, Conferences, Community Dialogues (EN + CN) | sections, heads, FAQ | elegance.css, program-pages.css | yes: ds-section, ds-head, ds-faq (tools/page_ds.py teachers); tabs, steps and proof rows keep their components | 7c5552b |
 | Schools (leaders), Partnerships, Results (EN + CN) | sections, heads, FAQ | pages.css, elegance.css | yes: ds-section, ds-head, ds-faq (tools/page_ds.py schools); case studies and tabs keep their components | 540ed98 |
 | About, Contact, Enroll (EN + CN) | sections, heads | pages.css | yes: ds-section, ds-head (tools/page_ds.py about); forms keep their components | 05ae5ed |
-| AI Fundamentals @ ISB (winter), ACAMIS session, ISB parent coffee (EN + CN) | sections, heads, FAQ | program-pages.css, events | yes: ds-section, ds-head, ds-faq (tools/page_ds.py events) | chunk 6 |
+| AI Fundamentals @ ISB (winter), ACAMIS session, ISB parent coffee (EN + CN) | sections, heads, FAQ | program-pages.css, events | yes: ds-section, ds-head, ds-faq (tools/page_ds.py events) | ae2bf12 |
 | CN twins | follow their EN page; Chinese headings measure in em | | yes, with each group | chunks 1 to 6 |
