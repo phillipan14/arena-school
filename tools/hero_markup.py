@@ -23,16 +23,32 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CHECK = '--check' in sys.argv
 
 # key: (small src, large src or None, desktop focus, phone focus, EN caption, CN caption)
+# key: (small src, large src or None, natural aspect w/h, EN caption, CN caption,
+#       faces as [x0, y0, x1, y1] fractions of the photo (e=1: already cut by the photo edge, so it must be cropped out),
+#       desktop crop: z (base zoom), ox/oy (zoom origin), py (object-position y),
+#       narrow pan: pa (start, 1 = right edge), pb (end), ps (still frame for reduced motion), pym (object-position y))
+# Face boxes and crops were read off a 5% grid of each photo (CROP-BRIEF, Oct 16) and are verified by the crop check.
 P = {
-    'duo': ('/photos/isb-2026/pitch-duo-800.webp', '/photos/isb-2026/pitch-duo-1600.webp', '62% 38%', '100% 30%',
-            'Presenting at demo day, Beijing 2026', '路演日展示，北京，2026年'),
-    'gesture': ('/photos/isb-hq/isb-pitch-gesture-800.webp', '/photos/isb-hq/isb-pitch-gesture-1400.webp', '60% 26%', '66% 22%',
-                'Pitching to the panel, Beijing 2026', '向评委路演，北京，2026年'),
-    'mentors': ('/photos/isb-2026/mentor-feedback-800.webp', '/photos/isb-2026/mentor-feedback-1600.webp', '50% 32%', '66% 30%',
-                'Mentors react to a student demo, Beijing 2026', '导师为学生展示叫好，北京，2026年'),
-    'hands': ('/photos/steps/collab-stage-poster.webp', None, '55% 40%', '60% 40%',
-              'Building together, Hong Kong 2025', '一起动手做，香港，2025年'),
+    'duo': ('/photos/isb-2026/pitch-duo-800.webp', '/photos/isb-2026/pitch-duo-1600.webp', 1.5,
+            'Presenting at demo day, Beijing 2026', '路演日展示，北京，2026年',
+            [[.49, .23, .63, .50, 0], [.80, .20, .93, .45, 0], [0, .20, .07, .42, 1]],
+            dict(z=1.11, ox=.72, oy=.6, py=.25, kz=1.06, pa=1, pb=.2, pbs=.9, ps=.95, pat=1, pbt=.8, pst=.8, pym=.2)),
+    'gesture': ('/photos/isb-hq/isb-pitch-gesture-800.webp', '/photos/isb-hq/isb-pitch-gesture-1400.webp', 4 / 3,
+                'Pitching to the panel, Beijing 2026', '向评委路演，北京，2026年',
+                [[.64, .11, .78, .40, 0], [.05, .11, .18, .31, 0]],
+                dict(z=1.22, ox=1.0, oy=.2, py=.20, kz=1.06, pa=1, pb=.6, pbs=.8, ps=.85, pat=1, pbt=.97, pst=.15, pym=.2)),
+    'mentors': ('/photos/isb-2026/mentor-feedback-800.webp', '/photos/isb-2026/mentor-feedback-1600.webp', 1.5,
+                'Mentors react to a student demo, Beijing 2026', '导师为学生展示叫好，北京，2026年',
+                [[.54, .13, .72, .42, 0], [0, .05, .17, .38, 1]],
+                dict(z=1.27, ox=.8, oy=.3, py=.20, kz=1.06, pa=1, pb=.45, pbs=.75, ps=.75, pat=1, pbt=.95, pst=.97, pym=.2)),
+    'hands': ('/photos/steps/collab-stage-poster.webp', None, 4 / 3,
+              'Building together, Hong Kong 2025', '一起动手做，香港，2025年',
+              [[.09, .35, .21, .50, 0], [.48, .31, .58, .47, 0], [.65, .09, .77, .27, 0]],
+              dict(z=1, ox=.5, oy=.4, py=.3, kz=1.04, pa=1, pb=.72, pbs=.85, ps=.85, pat=.4, pbt=.1, pst=.3, pym=.2)),
 }
+# The Hong Kong still has faces spread across the frame, so on desktop (where the copy sits on the left)
+# it is swapped for another photo in the same slot; it stays in the phone and tablet rotation.
+WIDE_SUB = {'hands': ['duo', 'gesture', 'mentors']}
 
 H1 = 'clamp(36px, 1.2rem + 2.8vw, 60px)'
 H1_HOME = 'clamp(36px, 1.2rem + 3vw, 62px)'
@@ -40,7 +56,7 @@ H1_LONG = 'clamp(30px, 1rem + 2.2vw, 46px)'
 
 # page stem: (photo keys, headline size, fallback TODO subject or None)
 PAGES = {
-    'index': (['duo', 'gesture', 'mentors', 'hands'], H1_HOME, None),
+    'index': (['duo', 'gesture', 'mentors'], H1_HOME, None),
     'programs/teacher-training': (['hands', 'mentors'], H1, 'Teachers at a hands-on Arena session, making a tool on their own laptops'),
     'schools/technology': (['hands', 'mentors'], H1, 'Tech coaches and IT staff at an Arena session, working on the school’s approved tools'),
     'schools': (['duo', 'gesture', 'mentors'], H1, None),
@@ -67,31 +83,70 @@ def ver(path):
     return hashlib.sha1(open(os.path.join(ROOT, path), 'rb').read()).hexdigest()[:8]
 
 
-def slide(key, i, zh):
-    small, large, focus, focus_m, cap_en, cap_cn = P[key]
-    srcset = '%s 800w, %s 1600w' % (small, large) if large else ''
-    attrs = ('src="%s"%s fetchpriority="high" loading="eager"' % (small, ' srcset="%s" sizes="100vw"' % srcset if srcset else '')) if i == 0 else \
-            ('data-src="%s"%s loading="lazy"' % (small, ' data-srcset="%s" sizes="100vw"' % srcset if srcset else ''))
-    return '<div class="cine-slide"><img %s alt="" decoding="async" style="--focus:%s;--focus-m:%s" /></div>' % (attrs, focus, focus_m)
+def delay(i, n):
+    """Animation delay for slot i of n: each photo owns a 14s window that starts with a 1.6s fade-in; at load
+    the first photo is already 1.6s in (fully visible) and every other photo is mid-gap (invisible)."""
+    return -round((1.6 - 14 * i) % (14 * n), 2) if n > 1 else 0
 
 
-def cap(key, zh):
-    return '<span>%s</span>' % html.escape(P[key][5] if zh else P[key][4])
+def srcset(key):
+    small, large = P[key][0], P[key][1]
+    return '%s 800w, %s 1600w' % (small, large) if large else '%s 1024w' % small
 
 
-def block(keys, zh, todo):
-    slides = ''.join(slide(k, i, zh) for i, k in enumerate(keys))
+def wide_list(keys):
+    """Desktop photos per slot: the Hong Kong still swaps for a photo the page does not already use."""
+    out = []
+    for k in keys:
+        if k in WIDE_SUB:
+            k = next(c for c in WIDE_SUB[k] if c not in keys and c not in out)
+        out.append(k)
+    return out
+
+
+def slide(i, n, nk, wk, home):
+    """One slot: a <picture> with the desktop photo (wk) as a source and the phone/tablet photo (nk) as the img."""
+    w, m = P[wk][6], P[nk][6]
+    kz = w['kz'] if home else round(1 + (w['kz'] - 1) / 2, 3)          # subpages: half the zoom
+    pb = m['pb'] if home else m['pbs']                                   # subpages: a shorter pan
+    style = ('--d:%ss;--z:%s;--kz:%s;--ox:%s%%;--oy:%s%%;--py:%s%%;--pa-m:%s;--pb-m:%s;--ps-m:%s;--pa-t:%s;--pb-t:%s;--ps-t:%s;--pym:%s%%'
+             % (delay(i, n), w['z'], kz, round(w['ox'] * 100, 1), round(w['oy'] * 100, 1), round(w['py'] * 100, 1),
+                m['pa'], pb, m['ps'], m['pat'], m['pbt'], m['pst'], round(m['pym'] * 100, 1)))
+    faces = 'data-wide="%s" data-narrow="%s"' % (html.escape(repr([wk, P[wk][2], P[wk][5]]).replace("'", '"')),
+                                                  html.escape(repr([nk, P[nk][2], P[nk][5]]).replace("'", '"')))
+    if i == 0:
+        src = '<source media="(min-width: 901px)" srcset="%s" sizes="100vw" />' % srcset(wk)
+        img = '<img src="%s" srcset="%s" sizes="100vw" fetchpriority="high" loading="eager"' % (P[nk][0], srcset(nk))
+    else:
+        src = '<source media="(min-width: 901px)" data-srcset="%s" sizes="100vw" />' % srcset(wk)
+        img = '<img data-src="%s" data-srcset="%s" sizes="100vw" loading="lazy"' % (P[nk][0], srcset(nk))
+    return '<div class="cine-slide" style="%s"><picture>%s%s alt="" decoding="async" %s /></picture></div>' % (style, src, img, faces)
+
+
+def cap(nk, wk, i, n, zh):
+    c = 5 if zh else 4
+    d = delay(i, n)
+    if nk == wk:
+        return '<span style="--d:%ss">%s</span>' % (d, html.escape(P[nk][c - 1]))
+    return ('<span style="--d:%ss"><i class="is-w">%s</i><i class="is-n">%s</i></span>'
+            % (d, html.escape(P[wk][c - 1]), html.escape(P[nk][c - 1])))
+
+
+def block(keys, zh, todo, home):
+    n = len(keys)
+    wkeys = wide_list(keys)
+    slides = ''.join(slide(i, n, nk, wk, home) for i, (nk, wk) in enumerate(zip(keys, wkeys)))
+    caps = ''.join(cap(nk, wk, i, n, zh) for i, (nk, wk) in enumerate(zip(keys, wkeys)))
     note = '\n<!-- TODO-PHOTO: %s (fallback photos until then) -->' % todo if todo else ''
-    caps = ''.join(cap(k, zh) for k in keys)
-    return ('<!-- cine:start -->%s\n<div class="cine-media" aria-hidden="true">%s</div>'
+    return ('<!-- cine:start -->%s\n<div class="cine-media n-%d%s" aria-hidden="true">%s</div>'
             '<div class="cine-shade" aria-hidden="true"></div><div class="cine-field-light" aria-hidden="true"></div>'
-            '<div class="cine-caps" aria-hidden="true">%s</div>\n<!-- cine:end -->' % (note, slides, caps))
+            '<div class="cine-caps n-%d" aria-hidden="true">%s</div>\n<!-- cine:end -->' % (note, n, ' is-home' if home else '', slides, n, caps))
 
 
 CREST = ('<!-- cine:crest --><div class="cine-crest" aria-hidden="true"><img src="/logos/arena/seal-ivory-512.png" alt="" width="108" height="108" decoding="async" /></div>')
 
 
-def convert(s, keys, h1, todo, zh):
+def convert(s, keys, h1, todo, zh, home=False):
     s = re.sub(r'\n?<!-- cine:start -->.*?<!-- cine:end -->', '', s, flags=re.S)
     s = s.replace(CREST, '')
     m = re.search(r'<section class="((?:hero|hero-riso)\b[^"]*)"([^>]*)>', s)
@@ -105,7 +160,7 @@ def convert(s, keys, h1, todo, zh):
     body = re.sub(r'\s*<div class="hero-scrim"[^>]*></div>', '', body)
     body = re.sub(r'\s*<div class="pro-hero-bg"[^>]*>.*?</div></div>', '', body, flags=re.S)
     body = re.sub(r'\s*(?:<!-- TODO-PHOTO:[^>]*-->\s*)?<div class="(?:container|el-wrap) pro-hero-media">.*?</div>\n?(?=\s*$)', '', body, flags=re.S)
-    body = '\n' + block(keys, zh, todo) + body
+    body = '\n' + block(keys, zh, todo, home) + body
     copy = re.search(r'<div class="(?:hero-riso-copy|hero-copy[^"]*)">|<div class="el-wrap el-hero-grid[^"]*">\s*<div>', body)
     body = body[:copy.end()] + CREST + body[copy.end():]
     s = s[:a] + open_tag + body + s[b:]
@@ -134,7 +189,7 @@ if __name__ == '__main__':
             if not os.path.exists(page):
                 continue
             s = open(page, encoding='utf-8').read()
-            n = assets(convert(s, keys, h1, todo, zh))
+            n = assets(convert(s, keys, h1, todo, zh, stem == 'index'))
             if n != s:
                 changed += 1
                 if not CHECK:
