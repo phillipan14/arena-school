@@ -4192,6 +4192,118 @@ section.s.age-ty .bd .age-qa p.age-ln.nx-ln{gap:10px 48px}
 .ae.nx-map .bd .nx-mx p.nx-cl,.ae.nx-map .bd .nx-mx .nx-rh{padding:8px 0}
 .ae .bd .nx-bc{padding:32px 34px}
 
+/* ---- s99zzzzzzzzzzzzzzzzzzzzzz-r7b.css ---- */
+/* round 7 pass 2 (Oct 16): formal diagrams. Swimlane (9), programs matrix (12), day-by-day timeline (15), case template (17-19), build loop (26). */
+.nx-sw small,.nx-pm small{display:none}
+
+/* ---- 9 · swimlane: four strands as a cycle, three lanes ---- */
+.ae .bd .nx-sw{position:relative;display:grid;grid-template-columns:170px repeat(4,minmax(0,1fr));grid-template-rows:auto auto auto auto 64px;column-gap:24px;align-content:start}
+.nx-swl,.nx-swc{grid-row:1/5;display:grid;grid-template-rows:subgrid;position:relative;z-index:1}
+.nx-swl{grid-column:1}
+.nx-swl span{display:flex;align-items:center;font:600 14px/1.3 var(--serif);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.nx-swl span.nx-swa{color:var(--ink2)}
+.nx-band{grid-column:1/-1;grid-row:3;margin:0 -20px;border-radius:var(--r);background:var(--paper-hi);box-shadow:inset 0 0 0 1px var(--edge)}
+.nx-swl span.nx-swa{padding-left:0}
+.nx-swh{position:relative;display:flex;flex-direction:column;gap:12px;padding-bottom:22px}
+.nx-swh i{display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;background:var(--ink2);font:italic 400 20px/1 var(--serif);color:var(--paper-hi)}
+.nx-swh b{font:500 26px/1.2 var(--serif);color:var(--ink)}
+.nx-swc:not(:last-child) .nx-swh::after{content:"";position:absolute;top:23px;left:60px;right:-12px;height:2px;background:var(--ink2);opacity:.45}
+.nx-swc:not(:last-child) .nx-swh::before{content:"";position:absolute;top:18px;right:-14px;border:6px solid transparent;border-left:9px solid var(--ink2);border-right:0;opacity:.7}
+.ae .bd .nx-sw p{display:flex;align-items:center;padding:18px 0;font-size:24px;line-height:1.34}
+.ae .bd .nx-sw p.nx-me{border-top:1.5px solid var(--ink);color:var(--ink);font-weight:500}
+.ae .bd .nx-sw p.nx-aip{color:var(--text)}
+.ae .bd .nx-sw p.nx-q{font-style:italic;color:var(--ink2)}
+.nx-back{grid-column:2/-1;grid-row:5;position:relative;align-self:start;height:30px;margin:8px calc((100% - 72px) / 8) 0;border:2px solid var(--ink2);border-top:0;border-radius:0 0 16px 16px;opacity:.85}
+.nx-back::before{content:"";position:absolute;left:-8px;top:-10px;border:7px solid transparent;border-bottom:11px solid var(--ink2);border-top:0}
+.nx-back span{position:absolute;left:50%;bottom:0;transform:translate(-50%,50%);padding:0 18px;background:var(--paper);white-space:nowrap;font:italic 400 22px/1.2 var(--serif);color:var(--ink2)}
+
+/* ---- 12 · programs matrix ---- */
+.ae .bd .nx-pm{position:relative;display:grid;grid-template-columns:230px repeat(3,minmax(0,1fr));grid-template-rows:repeat(6,auto);column-gap:28px;align-content:start}
+.nx-pml,.nx-pmc{grid-row:1/7;display:grid;grid-template-rows:subgrid;position:relative;z-index:1}
+.nx-pml{grid-column:1}
+.nx-pml span{display:flex;align-items:center;gap:10px;border-top:1px solid var(--edge);font:600 14px/1.3 var(--serif);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.nx-pml span:first-child{border-top:0}
+.nx-pml span i{flex:none;font:italic 400 18px/1 var(--serif);letter-spacing:0;color:var(--ink2)}
+.nx-pml span.nx-pmo{border-top:0;color:var(--paper-hi)}
+.nx-pmh{display:flex;flex-direction:column;gap:6px;padding:14px 0 14px;border-top:3px solid var(--ink)}
+.nx-pmh span{font:600 14px/1.3 var(--serif);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
+.nx-pmh b{font:500 29px/1.15 var(--serif);color:var(--ink)}
+.ae .bd .nx-pmc p{display:flex;align-items:center;padding:9px 0;border-top:1px solid var(--edge);font-size:24px;line-height:1.3}
+.ae .bd .nx-pmc p.nx-pmo{border-top:0;padding:14px 0;color:var(--paper-hi);font-weight:500}
+.nx-pmb{grid-column:1/-1;grid-row:6;margin:6px -22px 0;border-radius:var(--r);background:var(--ink)}
+.ae .bd .nx-pmc p.nx-pmo,.nx-pml span.nx-pmo{margin-top:6px}
+
+/* ---- 15 · timeline ---- */
+.ae .bd .nx-tl{position:relative;display:grid;grid-template-columns:140px repeat(5,minmax(0,1fr));grid-template-rows:repeat(5,auto);column-gap:22px;align-content:start}
+.nx-tll,.nx-td{grid-row:1/6;display:grid;grid-template-rows:subgrid;position:relative;z-index:1}
+.nx-tll{grid-column:1}
+.nx-tll span{display:flex;align-items:flex-start;padding-top:16px;font:600 14px/1.3 var(--serif);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.nx-tll span:first-child{padding:0}
+.nx-tll span:last-child{align-items:center;padding:0}
+.nx-axis{grid-column:2/-1;grid-row:1;align-self:start;height:2px;margin-top:9px;background:var(--ink2);opacity:.45}
+.nx-tlb{grid-column:1/-1;grid-row:5;margin:0 -20px;border-radius:var(--r);background:var(--paper-hi)}
+.nx-tdh{display:flex;flex-direction:column;gap:6px;padding-bottom:16px}
+.nx-dot{width:20px;height:20px;margin-bottom:8px;border-radius:50%;background:var(--ink2);box-shadow:0 0 0 6px var(--paper)}
+.alt .nx-dot{box-shadow:0 0 0 6px var(--beige)}
+.nx-tdh small{font:600 14px/1.2 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
+.nx-tdh b{font:500 28px/1.2 var(--serif);color:var(--ink)}
+.ae .bd .nx-tds{list-style:none;margin:0;padding:14px 0;border-top:1.5px solid var(--ink);display:flex;flex-direction:column;gap:8px}
+.ae .bd .nx-tds li{display:flex;gap:10px;align-items:baseline;font-size:22px;line-height:1.3;color:var(--ink)}
+.nx-tds i{font:italic 400 17px/1 var(--serif);color:var(--ink2)}
+.ae .bd p.nx-tdt{display:flex;gap:8px;align-items:center;padding:14px 0;border-top:1px solid var(--edge)}
+.nx-tdt img{width:26px;height:26px;border-radius:6px;object-fit:contain}
+.nx-tsk{align-self:center;justify-self:start;margin:12px 0 16px;padding:6px 12px 5px;border-radius:999px;font:600 14px/1 var(--serif);letter-spacing:.14em;text-transform:uppercase}
+.nx-tsk.nx-agency{background:var(--ink);color:var(--paper-hi)}
+.nx-tsk.nx-taste{background:var(--ink2);color:var(--paper-hi)}
+.nx-tsk.nx-craft{box-shadow:inset 0 0 0 1.5px var(--ink);color:var(--ink)}
+.ae .bd p.nx-tdo{display:flex;align-items:center;padding:16px 0;font-size:24px;line-height:1.3;color:var(--ink);font-style:italic}
+
+/* ---- 17-19 · case template ---- */
+.ae .bd .nx-cs{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);grid-template-rows:minmax(0,1fr) auto;gap:var(--gap)}
+.ae .bd .nx-med{grid-row:1;display:flex;flex-direction:column;gap:12px;min-height:0;padding:16px!important}
+.nx-v{flex:1;min-height:0;aspect-ratio:auto!important;margin:0;border-radius:calc(var(--r) - 4px)}
+.nx-v video,.nx-v .vposter{object-fit:cover}
+.nx-cap{text-align:center;font:italic 400 20px/1.3 var(--serif);color:var(--muted)}
+.ae .bd .nx-cs .nx-sk{padding:24px!important;border:2px dashed rgba(181,84,28,.5);border-radius:var(--r);background:transparent;align-items:center;justify-content:center;gap:18px}
+.nx-wf{width:62%;height:auto}
+.nx-wf rect,.nx-wf line,.nx-wf circle{fill:none;stroke:rgba(181,84,28,.55);stroke-width:1.5;stroke-dasharray:4 3}
+.nx-wf .f{fill:rgba(181,84,28,.1)}
+.ae .bd .nx-cs .nx-sk p{max-width:16em}
+.ae .bd .nx-st{grid-row:1;list-style:none;margin:0;padding:0;display:grid;grid-template-rows:repeat(4,minmax(0,1fr));gap:12px}
+.ae .bd .nx-st li{position:relative;display:grid;grid-template-columns:270px minmax(0,1fr);align-items:center;gap:20px;padding:0 28px;background:var(--paper-hi);border-radius:var(--r)}
+.ae .bd .nx-st li p{font-size:24px;line-height:1.34}
+.ae .bd .nx-oc{grid-column:1/-1;display:flex;align-items:center;gap:0;padding:16px 28px;border-top:1.5px solid var(--ink)}
+.nx-ock{flex:none;margin-right:28px;font:600 14px/1.3 var(--serif);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
+.nx-oc>span:not(.nx-ock){flex:1;padding:0 22px;border-left:1px solid var(--edge);font:italic 400 22px/1.3 var(--serif);color:var(--ink)}
+.nx-tbd .nx-oc>span:not(.nx-ock){color:#B5541C}
+
+/* ---- 26 · build loop ---- */
+.ae .bd .nx-lpw{display:flex;flex-direction:column}
+.ae .bd .nx-lp.nx-lp2{flex:1;column-gap:56px}
+.ae .bd .nx-lp2 li{position:relative;padding:34px 30px 30px}
+.ae .bd .nx-lp2 li:not(:last-child)::after{content:"";position:absolute;top:50%;right:-42px;width:28px;height:2px;background:var(--ink2)}
+.ae .bd .nx-lp2 li:not(:last-child)::before{content:"";position:absolute;top:calc(50% - 6px);right:-46px;border:7px solid transparent;border-left:10px solid var(--ink2);border-right:0}
+.nx-li{display:flex;align-items:center;justify-content:center;width:60px;height:60px;margin-bottom:10px;border-radius:50%;background:var(--paper);color:var(--ink2)}
+.nx-li svg{width:28px;height:28px}
+.nx-lpb{position:relative;flex:none;height:34px;margin:0 0 44px calc((100% - 168px) * .625 + 112px);width:calc((100% - 168px) / 4 + 56px);border:2px solid var(--ink2);border-top:0;border-radius:0 0 16px 16px}
+.nx-lpb::before{content:"";position:absolute;left:-8px;top:-10px;border:7px solid transparent;border-bottom:11px solid var(--ink2);border-top:0}
+.nx-lpb span{position:absolute;right:-2px;top:calc(100% + 14px);white-space:nowrap;font:italic 400 22px/1.2 var(--serif);color:var(--ink2)}
+/* explicit columns, so the full-width bands don't push columns into implicit tracks */
+.nx-sw>.nx-swc:nth-child(3){grid-column:2}.nx-sw>.nx-swc:nth-child(4){grid-column:3}.nx-sw>.nx-swc:nth-child(5){grid-column:4}.nx-sw>.nx-swc:nth-child(6){grid-column:5}
+.nx-pm>.nx-pmc:nth-child(3){grid-column:2}.nx-pm>.nx-pmc:nth-child(4){grid-column:3}.nx-pm>.nx-pmc:nth-child(5){grid-column:4}
+.nx-tl>.nx-td:nth-child(4){grid-column:2}.nx-tl>.nx-td:nth-child(5){grid-column:3}.nx-tl>.nx-td:nth-child(6){grid-column:4}.nx-tl>.nx-td:nth-child(7){grid-column:5}.nx-tl>.nx-td:nth-child(8){grid-column:6}
+.nx-sw>.nx-swc:nth-child(6) .nx-swh::after,.nx-sw>.nx-swc:nth-child(6) .nx-swh::before{content:none}
+/* case media: the video fills what the steps leave */
+.nx-v{position:relative;flex:1 1 0}
+.nx-v video,.nx-v .vposter{position:absolute;inset:0}
+/* fit 9 and 12 inside 1080 */
+.ae .bd .nx-sw p{padding:13px 0}
+.nx-swh{padding-bottom:16px}
+.ae .bd .nx-sw{grid-template-rows:auto auto auto auto 58px}
+.nx-pmh{padding:10px 0}
+.ae .bd .nx-pmc p{padding:6px 0}
+.ae .bd .nx-pmc p.nx-pmo{padding:11px 0}
+
 /* ---- snum.css ---- */
 /* slide numbers (snum): quiet folio in the bottom-right gutter of every slide except the title */
 section.s>.pgno{position:absolute;right:var(--margin-x);bottom:calc(var(--pad-bot) * var(--z) / 2 - 6px);z-index:3;pointer-events:none;user-select:none;
@@ -4306,15 +4418,14 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 <section class="s ae nx-ai"><div class="w">
  <p class="kick r">The learning framework · where AI comes in</p>
  <h2 class="r" style="--d:.1s">AI helps at every step of the cycle, <em>but the learner makes each&nbsp;call.</em></h2>
- <div class="bd r" style="--d:.25s"><div class="nx-mx nx-mx4">
-  <span class="nx-rh nx-c0"></span>
-  <b class="nx-ch" data-s="1"><i>01</i>Inquiry and planning</b><b class="nx-ch" data-s="2"><i>02</i>Research and evaluation</b><b class="nx-ch" data-s="3"><i>03</i>Creating and communicating</b><b class="nx-ch" data-s="4"><i>04</i>Collaboration and reflection</b>
-  <span class="nx-rh">The learner decides</span>
-  <p class="nx-cl nx-me" data-s="1">Which problem, for whom, and the&nbsp;plan</p><p class="nx-cl nx-me" data-s="2">Which sources and answers to&nbsp;trust</p><p class="nx-cl nx-me" data-s="3">What to build, and what to&nbsp;cut</p><p class="nx-cl nx-me" data-s="4">What to change after&nbsp;critique</p>
-  <span class="nx-rh">AI helps</span>
-  <p class="nx-cl" data-s="1">Suggests angles and drafts the&nbsp;plan</p><p class="nx-cl" data-s="2">Searches, summarizes, and compares&nbsp;options</p><p class="nx-cl" data-s="3">Writes the code, drafts, and&nbsp;visuals</p><p class="nx-cl" data-s="4">Gives a first round of&nbsp;feedback</p>
-  <span class="nx-rh">The teacher asks</span>
-  <p class="nx-cl nx-q" data-s="1">“Why this&nbsp;problem?”</p><p class="nx-cl nx-q" data-s="2">“How did you check&nbsp;it?”</p><p class="nx-cl nx-q" data-s="3">“How do you know it’s&nbsp;good?”</p><p class="nx-cl nx-q" data-s="4">“What would you do&nbsp;differently?”</p>
+ <div class="bd r" style="--d:.25s"><div class="nx-sw">
+  <div class="nx-swl" aria-hidden="true"><span></span><span>The learner decides</span><span class="nx-swa">AI helps</span><span>The teacher asks</span></div>
+  <span class="nx-band" aria-hidden="true"></span>
+  <div class="nx-swc" data-s="1"><div class="nx-swh"><i>01</i><b>Inquiry and planning</b></div><p class="nx-me"><small>The learner decides</small>Which problem, for whom, and the&nbsp;plan</p><p class="nx-aip"><small>AI helps</small>Suggests angles and drafts the&nbsp;plan</p><p class="nx-q"><small>The teacher asks</small>“Why this&nbsp;problem?”</p></div>
+  <div class="nx-swc" data-s="2"><div class="nx-swh"><i>02</i><b>Research and evaluation</b></div><p class="nx-me"><small>The learner decides</small>Which sources and answers to&nbsp;trust</p><p class="nx-aip"><small>AI helps</small>Searches, summarizes, and compares&nbsp;options</p><p class="nx-q"><small>The teacher asks</small>“How did you check&nbsp;it?”</p></div>
+  <div class="nx-swc" data-s="3"><div class="nx-swh"><i>03</i><b>Creating and communicating</b></div><p class="nx-me"><small>The learner decides</small>What to build, and what to&nbsp;cut</p><p class="nx-aip"><small>AI helps</small>Writes the code, drafts, and&nbsp;visuals</p><p class="nx-q"><small>The teacher asks</small>“How do you know it’s&nbsp;good?”</p></div>
+  <div class="nx-swc" data-s="4"><div class="nx-swh"><i>04</i><b>Collaboration and reflection</b></div><p class="nx-me"><small>The learner decides</small>What to change after&nbsp;critique</p><p class="nx-aip"><small>AI helps</small>Gives a first round of&nbsp;feedback</p><p class="nx-q"><small>The teacher asks</small>“What would you do&nbsp;differently?”</p></div>
+  <div class="nx-back" data-s="4" aria-hidden="true"><span>Then the next question starts the cycle&nbsp;again</span></div>
  </div></div>
 </div><aside class="notes">Here is where AI comes in at each step of the framework. Read it column by column. (Click.) Inquiry and planning: the learner decides which problem, for whom, and the plan. AI can suggest angles and draft a plan. The teacher asks: why this problem? (Click.) Research and evaluation: AI searches, summarizes, and compares options; the learner decides which sources and answers to trust; the teacher asks how they checked it. (Click.) Creating and communicating: AI writes the code, the drafts, and the visuals; the learner decides what to build and what to cut; the teacher asks how they know it’s good. (Click.) Collaboration and reflection: AI can give a first round of feedback; the learner decides what to change after critique from teachers and peers; the teacher asks what they would do differently. In every column, AI does more of the making, and the decision stays with the learner.</aside></section>
 
@@ -4346,21 +4457,12 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 <section class="s alt ae nx-map"><div class="w">
  <p class="kick r">One framework · three kinds of program</p>
  <h2 class="r" style="--d:.1s">The same framework runs every program. <em>The learner and the output&nbsp;change.</em></h2>
- <div class="bd r" style="--d:.25s"><div class="nx-mx nx-mx3">
-  <span class="nx-rh nx-c0"></span>
-  <div class="nx-ph3" data-s="1"><span class="nx-pk">Student short course</span><b>AI Founders week</b></div>
-  <div class="nx-ph3" data-s="2"><span class="nx-pk">Teacher training</span><b>AI for Educators</b></div>
-  <div class="nx-ph3" data-s="3"><span class="nx-pk">Curriculum design</span><b>AI in your courses</b></div>
-  <span class="nx-rh">Inquiry and planning</span>
-  <p class="nx-cl" data-s="1">Choose a problem and pitch it in three&nbsp;minutes</p><p class="nx-cl" data-s="2">Pick one task from a class you&nbsp;teach</p><p class="nx-cl" data-s="3">Map where AI fits in each&nbsp;course</p>
-  <span class="nx-rh">Research and evaluation</span>
-  <p class="nx-cl" data-s="1">Talk to the people they want to&nbsp;help</p><p class="nx-cl" data-s="2">Check every result the tool&nbsp;gives</p><p class="nx-cl" data-s="3">Decide when AI doesn’t&nbsp;belong</p>
-  <span class="nx-rh">Creating and communicating</span>
-  <p class="nx-cl" data-s="1">Build a live product at a public&nbsp;link</p><p class="nx-cl" data-s="2">Make the tool on your approved&nbsp;tools</p><p class="nx-cl" data-s="3">Write rubrics that assess the&nbsp;process</p>
-  <span class="nx-rh">Collaboration and reflection</span>
-  <p class="nx-cl" data-s="1">Defend every decision on demo&nbsp;day</p><p class="nx-cl" data-s="2">Share the tool and the prompt behind&nbsp;it</p><p class="nx-cl" data-s="3">Collect drafts, reflections, and&nbsp;reasons</p>
-  <span class="nx-rh nx-out">Learners leave with</span>
-  <p class="nx-cl nx-o" data-s="1">A live product and a&nbsp;pitch</p><p class="nx-cl nx-o" data-s="2">A tool for their own&nbsp;class</p><p class="nx-cl nx-o" data-s="3">A plan and rubrics the faculty&nbsp;owns</p>
+ <div class="bd r" style="--d:.25s"><div class="nx-pm">
+  <div class="nx-pml" aria-hidden="true"><span></span><span><i>01</i>Inquiry and planning</span><span><i>02</i>Research and evaluation</span><span><i>03</i>Creating and communicating</span><span><i>04</i>Collaboration and reflection</span><span class="nx-pmo">Learners leave with</span></div>
+  <span class="nx-pmb" aria-hidden="true"></span>
+  <div class="nx-pmc" data-s="1"><div class="nx-pmh"><span>Student short course</span><b>AI Founders week</b></div><p><small>Inquiry and planning</small>Choose a problem and pitch it in three&nbsp;minutes</p><p><small>Research and evaluation</small>Talk to the people they want to&nbsp;help</p><p><small>Creating and communicating</small>Build a live product at a public&nbsp;link</p><p><small>Collaboration and reflection</small>Defend every decision on demo&nbsp;day</p><p class="nx-pmo"><small>Learners leave with</small>A live product and a&nbsp;pitch</p></div>
+  <div class="nx-pmc" data-s="2"><div class="nx-pmh"><span>Teacher training</span><b>AI for Educators</b></div><p><small>Inquiry and planning</small>Pick one task from a class you&nbsp;teach</p><p><small>Research and evaluation</small>Check every result the tool&nbsp;gives</p><p><small>Creating and communicating</small>Make the tool on your approved&nbsp;tools</p><p><small>Collaboration and reflection</small>Share the tool and the prompt behind&nbsp;it</p><p class="nx-pmo"><small>Learners leave with</small>A tool for their own&nbsp;class</p></div>
+  <div class="nx-pmc" data-s="3"><div class="nx-pmh"><span>Curriculum design</span><b>AI in your courses</b></div><p><small>Inquiry and planning</small>Map where AI fits in each&nbsp;course</p><p><small>Research and evaluation</small>Decide when AI doesn’t&nbsp;belong</p><p><small>Creating and communicating</small>Write rubrics that assess the&nbsp;process</p><p><small>Collaboration and reflection</small>Collect drafts, reflections, and&nbsp;reasons</p><p class="nx-pmo"><small>Learners leave with</small>A plan and rubrics the faculty&nbsp;owns</p></div>
  </div></div>
 </div><aside class="notes">This is how the framework maps onto each kind of program we run. The four strands stay the same; the learner and the output change. (Click.) For students, a short course like the AI Founders week: they choose a problem and pitch it, talk to the people they want to help, build a live product, and defend every decision on demo day. They leave with a live product and a pitch. (Click.) For teachers, AI for Educators: each teacher picks one task from a class they teach, checks every result the tool gives, makes the tool on the school’s approved tools, and keeps the tool and the prompt to share. (Click.) For school leaders and departments, curriculum design: where AI fits in each course, when it doesn’t belong, and rubrics that assess the process, with drafts, reflections, and reasons as the evidence. Next, one of these programs in detail.</aside></section>
 
@@ -4395,21 +4497,19 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 </div><aside class="notes">This summer, ISB hosted the AI Founders Program: five days in August for students in grades 7 to 12, selected by application. No coding experience was required. The promise was simple: learn AI skills, start a company, and build something real, a live product at its own link by the final afternoon. Mentors were in the room every day, and every team demoed what worked.</aside></section>
 
 <!-- 15 · Day by day -->
-<section class="s alt ae agb-wk"><div class="w">
- <p class="kick r">The case · ten stages, five days</p>
+<section class="s alt ae nx-wk"><div class="w">
+ <p class="kick r">The case · the structure, day by day</p>
  <h2 class="r" style="--d:.1s">Students run a “startup” in ten stages, <em>over five&nbsp;days.</em></h2>
- <div class="bd r" style="--d:.25s">
- <div class="agb-r1">
-  <div class="pane agb-day" data-s="1"><div class="agb-dk">Day 1</div><h3>Pick a problem</h3><div class="agb-dc">A one-page plan and a first&nbsp;prototype.</div><ol class="agb-sg" start="1"><li><i>01</i><b>Find the idea</b><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/decks/img/acamis/tools/chatgpt.png" alt="ChatGPT"><img style="--j:1" src="/decks/img/acamis/tools/claude.png" alt="Claude"><img style="--j:2" src="/decks/img/acamis/tools/gemini.png" alt="Gemini"><img style="--j:3" src="/decks/img/acamis/tools/perplexity.png" alt="Perplexity"><img style="--j:4" src="/decks/img/acamis/tools/grok.png" alt="Grok"></p></li><li><i>02</i><b>Validate it</b><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/decks/img/acamis/tools/perplexity.png" alt="Perplexity"><img style="--j:1" src="/decks/img/acamis/tools/chatgpt.png" alt="ChatGPT"><img style="--j:2" src="/decks/img/acamis/tools/claude.png" alt="Claude"><img style="--j:3" src="/decks/img/acamis/tools/gemini.png" alt="Gemini"><img style="--j:4" src="/decks/img/acamis/tools/notebooklm.png" alt="NotebookLM"></p></li><li><i>03</i><b>Form the team</b><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/decks/img/acamis/tools/claude.png" alt="Claude"><img style="--j:1" src="/decks/img/acamis/tools/chatgpt.png" alt="ChatGPT"><img style="--j:2" src="/decks/img/acamis/tools/gemini.png" alt="Gemini"><img style="--j:3" src="/decks/img/acamis/tools/manus.png" alt="Manus"><img style="--j:4" src="/decks/img/acamis/tools/grok.png" alt="Grok"></p></li><li><i>04</i><b>Define it</b><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/decks/img/acamis/tools/claude.png" alt="Claude"><img style="--j:1" src="/decks/img/acamis/tools/chatgpt.png" alt="ChatGPT"><img style="--j:2" src="/decks/img/acamis/tools/gemini.png" alt="Gemini"><img style="--j:3" src="/decks/img/acamis/tools/mistral.png" alt="Mistral"><img style="--j:4" src="/decks/img/acamis/tools/deepseek.png" alt="DeepSeek"></p></li></ol></div>
-  <div class="pane agb-day" data-s="2"><div class="agb-dk">Day 2</div><h3>Go public</h3><div class="agb-dc">Real people try it. Teams fix what confuses&nbsp;them.</div><ol class="agb-sg" start="5"><li><i>05</i><b>Design it</b><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/decks/img/acamis/tools/midjourney.png" alt="Midjourney"><img style="--j:1" src="/decks/img/acamis/tools/ideogram.png" alt="Ideogram"><img style="--j:2" src="/decks/img/acamis/tools/krea.png" alt="Krea"><img style="--j:3" src="/decks/img/acamis/tools/recraft.png" alt="Recraft"><img style="--j:4" src="/decks/img/acamis/tools/chatgpt.png" alt="ChatGPT"></p></li><li><i>06</i><b>Build it</b><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/decks/img/acamis/tools/cursor.png" alt="Cursor"><img style="--j:1" src="/decks/img/acamis/tools/lovable.png" alt="Lovable"><img style="--j:2" src="/decks/img/acamis/tools/v0.png" alt="v0"><img style="--j:3" src="/decks/img/acamis/tools/replit.png" alt="Replit"><img style="--j:4" src="/decks/img/acamis/tools/windsurf.png" alt="Windsurf"></p></li><li><i>07</i><b>Ship it live</b><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/decks/img/acamis/tools/replit.png" alt="Replit"><img style="--j:1" src="/decks/img/acamis/tools/v0.png" alt="v0"><img style="--j:2" src="/decks/img/acamis/tools/lovable.png" alt="Lovable"><img style="--j:3" src="/decks/img/acamis/tools/chatgpt.png" alt="ChatGPT"><img style="--j:4" src="/decks/img/acamis/tools/claude.png" alt="Claude"></p></li></ol></div>
- </div>
- <div class="agb-r2">
-  <div class="pane agb-day" data-s="3"><div class="agb-dk">Day 3</div><h3>The rebuild</h3><div class="agb-dc">The best ones outgrow the first&nbsp;plan.</div><ol class="agb-sg" start="8"><li><i>08</i><b>Test and iterate</b><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/decks/img/acamis/tools/cursor.png" alt="Cursor"><img style="--j:1" src="/decks/img/acamis/tools/claude.png" alt="Claude"><img style="--j:2" src="/decks/img/acamis/tools/chatgpt.png" alt="ChatGPT"><img style="--j:3" src="/decks/img/acamis/tools/gemini.png" alt="Gemini"><img style="--j:4" src="/decks/img/acamis/tools/deepseek.png" alt="DeepSeek"></p></li></ol></div>
-  <div class="pane agb-day" data-s="4"><div class="agb-dk">Day 4</div><h3>Polish and price</h3><div class="agb-dc">A name, a landing page, a real&nbsp;price.</div><ol class="agb-sg" start="9"><li><i>09</i><b>Brand it</b><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/decks/img/acamis/tools/midjourney.png" alt="Midjourney"><img style="--j:1" src="/decks/img/acamis/tools/suno.png" alt="Suno"><img style="--j:2" src="/decks/img/acamis/tools/elevenlabs.png" alt="ElevenLabs"><img style="--j:3" src="/decks/img/acamis/tools/runway.png" alt="Runway"><img style="--j:4" src="/decks/img/acamis/tools/capcut.png" alt="CapCut"></p></li></ol></div>
-  <div class="pane agb-day" data-s="5"><div class="agb-dk">Day 5</div><h3>Demo day</h3><div class="agb-dc">Live pitches to judges and&nbsp;families.</div><ol class="agb-sg" start="10"><li><i>10</i><b>Pitch and sell</b><p class="agb-tl" aria-label="AI tools used"><img style="--j:0" src="/decks/img/acamis/tools/chatgpt.png" alt="ChatGPT"><img style="--j:1" src="/decks/img/acamis/tools/claude.png" alt="Claude"><img style="--j:2" src="/decks/img/acamis/tools/gemini.png" alt="Gemini"><img style="--j:3" src="/decks/img/acamis/tools/pika.png" alt="Pika"><img style="--j:4" src="/decks/img/acamis/tools/runway.png" alt="Runway"></p></li></ol></div>
- </div>
- </div>
-</div><aside class="notes">Here is the structure. Students don't study startups; they run one. The week walks every student through the same ten stages real companies run on, and the small icons are the tools used at each stage. Day one, they pick a problem: find the idea, validate it by talking to real people, form a team with roles, and cut the idea down to a one-page plan. They leave with that plan and a first prototype. Day two, they go public: design it, build it by directing AI tools, and ship it to a public link. Real people try it, don't understand it, and the team fixes it. Day three is the rebuild: they watch real users and rebuild the weak parts. Most strong projects look nothing like the day-one plan, and that's the point. Day four is polish and price: a name, a logo, a landing page, and a real price. Day five is demo day: two-minute live pitches to a panel of judges and to families.</aside></section>
+ <div class="bd r" style="--d:.25s"><div class="nx-tl">
+  <div class="nx-tll" aria-hidden="true"><span></span><span>Stages</span><span>Main tools</span><span>Skill trained</span><span>Output</span></div>
+  <span class="nx-axis" aria-hidden="true"></span><span class="nx-tlb" aria-hidden="true"></span>
+  <div class="nx-td" data-s="1"><div class="nx-tdh"><span class="nx-dot" aria-hidden="true"></span><small>Day 1</small><b>Pick a problem</b></div><ol class="nx-tds"><li><i>01</i>Find the idea</li><li><i>02</i>Validate it</li><li><i>03</i>Form the team</li><li><i>04</i>Define it</li></ol><p class="nx-tdt" aria-label="AI tools used"><img src="/decks/img/acamis/tools/chatgpt.png" alt="ChatGPT"><img src="/decks/img/acamis/tools/claude.png" alt="Claude"><img src="/decks/img/acamis/tools/gemini.png" alt="Gemini"><img src="/decks/img/acamis/tools/perplexity.png" alt="Perplexity"><img src="/decks/img/acamis/tools/grok.png" alt="Grok"></p><span class="nx-tsk nx-agency">Agency</span><p class="nx-tdo">A one-page plan and a first&nbsp;prototype</p></div>
+  <div class="nx-td" data-s="2"><div class="nx-tdh"><span class="nx-dot" aria-hidden="true"></span><small>Day 2</small><b>Go public</b></div><ol class="nx-tds"><li><i>05</i>Design it</li><li><i>06</i>Build it</li><li><i>07</i>Ship it live</li></ol><p class="nx-tdt" aria-label="AI tools used"><img src="/decks/img/acamis/tools/midjourney.png" alt="Midjourney"><img src="/decks/img/acamis/tools/ideogram.png" alt="Ideogram"><img src="/decks/img/acamis/tools/krea.png" alt="Krea"><img src="/decks/img/acamis/tools/recraft.png" alt="Recraft"><img src="/decks/img/acamis/tools/chatgpt.png" alt="ChatGPT"></p><span class="nx-tsk nx-taste">Taste</span><p class="nx-tdo">A live link that real people&nbsp;try</p></div>
+  <div class="nx-td" data-s="3"><div class="nx-tdh"><span class="nx-dot" aria-hidden="true"></span><small>Day 3</small><b>The rebuild</b></div><ol class="nx-tds"><li><i>08</i>Test and iterate</li></ol><p class="nx-tdt" aria-label="AI tools used"><img src="/decks/img/acamis/tools/cursor.png" alt="Cursor"><img src="/decks/img/acamis/tools/claude.png" alt="Claude"><img src="/decks/img/acamis/tools/chatgpt.png" alt="ChatGPT"><img src="/decks/img/acamis/tools/gemini.png" alt="Gemini"><img src="/decks/img/acamis/tools/deepseek.png" alt="DeepSeek"></p><span class="nx-tsk nx-taste">Taste</span><p class="nx-tdo">A rebuilt product, shaped by&nbsp;users</p></div>
+  <div class="nx-td" data-s="4"><div class="nx-tdh"><span class="nx-dot" aria-hidden="true"></span><small>Day 4</small><b>Polish and price</b></div><ol class="nx-tds"><li><i>09</i>Brand it</li></ol><p class="nx-tdt" aria-label="AI tools used"><img src="/decks/img/acamis/tools/midjourney.png" alt="Midjourney"><img src="/decks/img/acamis/tools/suno.png" alt="Suno"><img src="/decks/img/acamis/tools/elevenlabs.png" alt="ElevenLabs"><img src="/decks/img/acamis/tools/runway.png" alt="Runway"><img src="/decks/img/acamis/tools/capcut.png" alt="CapCut"></p><span class="nx-tsk nx-craft">Craft</span><p class="nx-tdo">A name, a landing page, and a&nbsp;price</p></div>
+  <div class="nx-td" data-s="5"><div class="nx-tdh"><span class="nx-dot" aria-hidden="true"></span><small>Day 5</small><b>Demo day</b></div><ol class="nx-tds"><li><i>10</i>Pitch and sell</li></ol><p class="nx-tdt" aria-label="AI tools used"><img src="/decks/img/acamis/tools/chatgpt.png" alt="ChatGPT"><img src="/decks/img/acamis/tools/claude.png" alt="Claude"><img src="/decks/img/acamis/tools/gemini.png" alt="Gemini"><img src="/decks/img/acamis/tools/pika.png" alt="Pika"><img src="/decks/img/acamis/tools/runway.png" alt="Runway"></p><span class="nx-tsk nx-craft">Craft</span><p class="nx-tdo">A two-minute pitch to judges and&nbsp;families</p></div>
+ </div></div>
+</div><aside class="notes">Here is the structure, day by day. Read each column top to bottom: the stages, the main AI tools, the skill that day trains, and what students walk out with. (Click.) Day one, pick a problem: find the idea, validate it by talking to real people, form a team with roles, and cut the idea down to a one-page plan. That is agency, and the output is the plan and a first prototype. (Click.) Day two, go public: design it, build it by directing AI tools, and ship it to a public link. Real people try it, don't understand it, and the team fixes it. That is taste. (Click.) Day three is the rebuild: they watch real users and rebuild the weak parts. Most strong projects look nothing like the day-one plan, and that's the point. (Click.) Day four is polish and price: a name, a logo, a landing page, and a real price, and building stops at a fixed hour. That is craft. (Click.) Day five is demo day: two-minute live pitches to a panel of judges and to families.</aside></section>
 
 <!-- 16 · The tools -->
 <section class="s alt ae hold r4c-tk" data-mk="arrive"><div class="w">
@@ -4430,61 +4530,37 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 </div><aside class="notes">This is the field students walked into: more than two hundred AI tools on the market today, and that is only a sample. New ones arrive every week. (Click.) Out of all of these, students picked up more than twenty in five days. (Click.) Here they are, grouped by the job they do: research, design, build, brand, and launch. Nobody needed to know any of them on day one. The list matters less than the habit: picking the right tool for a job, trying it fast, and judging the result. That habit outlasts any single tool.</aside></section>
 
 <!-- 17 · Case 1 · Bodley Academy -->
-<section class="s alt ae"><div class="w">
+<section class="s ae nx-case"><div class="w">
  <p class="kick r">Case 1 · where it started: Bodley Academy, Hong Kong, summer 2025</p>
- <h2 class="r" style="--d:.1s">In five days, an 11-year-old<br><em>turned sign language into speech.</em></h2>
- <div class="bd r" style="--d:.25s">
-  <div class="cs31 ac-hk">
-   <div class="pane cs-vp">
-    <figure class="vframe cs-v"><video autoplay muted loop playsinline preload="metadata" poster="/decks/img/conversation/hands-stage-poster.webp" src="/decks/img/conversation/hands-stage.mp4" aria-label="A student tests a sign-language app on a laptop"></video><img class="vposter" src="/decks/img/conversation/hands-stage-poster.webp" alt=""></figure>
-    <span class="cs-cap">Built in five days by a seventh grader</span>
-   </div>
-   <div class="cs-side">
-    <ol class="cs-beats">
-     <li data-s="1"><span class="cs-k"><i>01</i><b>Agency</b><span>Find a problem</span></span><p>He chose sign language to speech because his cousin is deaf. Nobody assigned&nbsp;it.</p></li>
-     <li data-s="2"><span class="cs-k"><i>02</i><b>Taste</b><span>Real-user feedback</span></span><p>He kept improving it after the demo, because his grandmother couldn’t use the first version&nbsp;yet.</p></li>
-     <li data-s="3"><span class="cs-k"><i>03</i><b>Craft</b><span>Finish and launch</span></span><p>The hardest part wasn’t the AI. It was audio clear enough for her to&nbsp;trust.</p></li>
-    </ol>
-    <p class="cs-note" data-s="3">AI tools did the building. <em>He did the choosing, judging, and&nbsp;finishing.</em></p>
-   </div>
-   <div class="pane ac-st" data-s="4">
-    <div><b>20</b><span>students, each on their own&nbsp;problem</span></div>
-    <div><b>5</b><span>days, from the first idea to <span class="nw">demo day</span></span></div>
-    <div><b>9.5<small>/10</small></b><span>how likely students were to recommend&nbsp;it</span></div>
-   </div>
-  </div>
- </div>
-</div><aside class="notes">Where it started: a five-day course Phillip taught for Bodley Academy in Hong Kong, summer 2025, with twenty students. One of them, an 11-year-old, chose his own problem, sign language to speech, because his cousin is deaf. Nobody assigned it. After the demo he kept improving it, because his grandmother couldn't use the first version yet. The hardest part wasn't the AI; it was getting the audio clear enough for her to trust it. The AI did the building; he did the choosing, judging, and finishing. Students rated the course 9.5 out of 10 on how likely they were to recommend it. A year later, the same week ran at ISB. Here are two teams from that week.</aside></section>
+ <h2 class="r" style="--d:.1s">In five days, an 11-year-old <em>turned sign language into&nbsp;speech.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="nx-cs">
+  <div class="pane nx-med"><figure class="vframe nx-v"><video autoplay muted loop playsinline preload="metadata" poster="/decks/img/conversation/hands-stage-poster.webp" src="/decks/img/conversation/hands-stage.mp4" aria-label="A student tests a sign-language app on a laptop"></video><img class="vposter" src="/decks/img/conversation/hands-stage-poster.webp" alt=""></figure><span class="nx-cap">Built in five days by a seventh&nbsp;grader</span></div>
+  <ol class="nx-st"><li data-s="1"><span class="nx-sh"><i>01</i><b>Found the problem</b><small>Agency</small></span><p>His cousin is deaf. Nobody assigned&nbsp;it.</p></li><li data-s="2"><span class="nx-sh"><i>02</i><b>Sketched it</b><small>Agency</small></span><p>Sign language in, spoken words&nbsp;out.</p></li><li data-s="3"><span class="nx-sh"><i>03</i><b>Built it</b><small>Craft</small></span><p>AI tools did the building. He made every&nbsp;call.</p></li><li data-s="4"><span class="nx-sh"><i>04</i><b>Changed it</b><small>Taste</small></span><p>His grandmother couldn’t use version one, so he fixed the&nbsp;audio.</p></li></ol>
+  <div class="nx-oc" data-s="4"><span class="nx-ock">Learning outcomes</span><span>Turn an interest into a focused&nbsp;question</span><span>Build and test a&nbsp;product</span><span>Use critique to revise the&nbsp;work</span></div>
+ </div></div>
+</div><aside class="notes">Where it started: a five-day course Phillip taught for Bodley Academy in Hong Kong, summer 2025, with twenty students. Every case today follows the same four steps. (Click.) He found the problem himself: sign language to speech, because his cousin is deaf. Nobody assigned it. (Click.) The idea fit in one line: sign language in, spoken words out. (Click.) AI tools did the building; he made every call. (Click.) Then real users. His grandmother couldn't use the first version yet, so he kept improving it after the demo. The hardest part wasn't the AI; it was getting the audio clear enough for her to trust. (Click.) That maps straight onto the outcomes: turning an interest into a focused question, building and testing a product, and using critique to revise. Students rated the course 9.5 out of 10 on how likely they were to recommend it. A year later, the same week ran at ISB. PLACEHOLDER: if we have his first sketch, it replaces the one-line idea in step two.</aside></section>
 
 <!-- 18 · Case 2 (placeholder) -->
 <section class="s ae nx-case nx-tbd"><div class="w">
  <p class="kick r"><span class="nx-tag">Placeholder</span>Case 2 · ISB AI Founders week, August 2026</p>
  <h2 class="r" style="--d:.1s">One ISB team, <em>from the first idea to demo&nbsp;day.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="nx-cs">
-  <div class="nx-sk pane" data-s="2"><span class="nx-tag">Placeholder</span><p>Wireframe or first sketch from the&nbsp;team</p></div>
-  <ol class="nx-st">
-   <li data-s="1"><span class="nx-sh"><i>01</i><b>Found the problem</b><small>Agency</small></span><p class="nx-tbdx">Who they talked to, and what they&nbsp;heard</p></li>
-   <li data-s="2"><span class="nx-sh"><i>02</i><b>Sketched it</b><small>Agency</small></span><p class="nx-tbdx">The first wireframe, and what it left&nbsp;out</p></li>
-   <li data-s="3"><span class="nx-sh"><i>03</i><b>Built it</b><small>Craft</small></span><p class="nx-tbdx">What it does, and which tools they&nbsp;used</p></li>
-   <li data-s="4"><span class="nx-sh"><i>04</i><b>Changed it</b><small>Taste</small></span><p class="nx-tbdx">What users got stuck on, and what they&nbsp;cut</p></li>
-  </ol>
+  <div class="nx-med nx-sk"><span class="nx-tag">Placeholder</span><svg class="nx-wf" viewBox="0 0 240 170" aria-hidden="true"><rect x="1" y="1" width="238" height="168" rx="8"/><line x1="1" y1="22" x2="239" y2="22"/><circle cx="12" cy="11.5" r="3"/><circle cx="22" cy="11.5" r="3"/><rect class="f" x="16" y="36" width="120" height="12" rx="2"/><rect x="16" y="56" width="208" height="54" rx="4"/><rect class="f" x="16" y="122" width="64" height="14" rx="3"/><rect x="16" y="144" width="150" height="8" rx="2"/></svg><p>The team’s first wireframe or sketch, then a screenshot of what they&nbsp;built</p></div>
+  <ol class="nx-st"><li data-s="1"><span class="nx-sh"><i>01</i><b>Found the problem</b><small>Agency</small></span><p class="nx-tbdx">Who they talked to, and what they&nbsp;heard</p></li><li data-s="2"><span class="nx-sh"><i>02</i><b>Sketched it</b><small>Agency</small></span><p class="nx-tbdx">The first wireframe, and what it left&nbsp;out</p></li><li data-s="3"><span class="nx-sh"><i>03</i><b>Built it</b><small>Craft</small></span><p class="nx-tbdx">What it does, and which tools they&nbsp;used</p></li><li data-s="4"><span class="nx-sh"><i>04</i><b>Changed it</b><small>Taste</small></span><p class="nx-tbdx">What users got stuck on, and what they&nbsp;cut</p></li></ol>
+  <div class="nx-oc" data-s="4"><span class="nx-ock">Learning outcomes</span><span>Outcome 1 it&nbsp;shows</span><span>Outcome 2 it&nbsp;shows</span><span>Outcome 3 it&nbsp;shows</span></div>
  </div></div>
-</div><aside class="notes">PLACEHOLDER, case 2: fill in from the ISB project records before presenting. Follow the four steps: how the team found the problem, the first sketch or wireframe, what they built and with which tools, and what changed after real users tried it. No student names, no product names, and no cohort size.</aside></section>
+</div><aside class="notes">PLACEHOLDER, case 2: fill in from the ISB project records before presenting. Follow the four steps: how the team found the problem, the first sketch or wireframe, what they built and with which tools, and what changed after real users tried it. Then pick the three learning outcomes it shows best. No student names, no product names, and no cohort size.</aside></section>
 
 <!-- 19 · Case 3 (placeholder) -->
 <section class="s ae nx-case nx-tbd"><div class="w">
  <p class="kick r"><span class="nx-tag">Placeholder</span>Case 3 · ISB AI Founders week, August 2026</p>
  <h2 class="r" style="--d:.1s">One ISB team, <em>from the first idea to demo&nbsp;day.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="nx-cs">
-  <div class="nx-sk pane" data-s="2"><span class="nx-tag">Placeholder</span><p>Wireframe or first sketch from the&nbsp;team</p></div>
-  <ol class="nx-st">
-   <li data-s="1"><span class="nx-sh"><i>01</i><b>Found the problem</b><small>Agency</small></span><p class="nx-tbdx">Who they talked to, and what they&nbsp;heard</p></li>
-   <li data-s="2"><span class="nx-sh"><i>02</i><b>Sketched it</b><small>Agency</small></span><p class="nx-tbdx">The first wireframe, and what it left&nbsp;out</p></li>
-   <li data-s="3"><span class="nx-sh"><i>03</i><b>Built it</b><small>Craft</small></span><p class="nx-tbdx">What it does, and which tools they&nbsp;used</p></li>
-   <li data-s="4"><span class="nx-sh"><i>04</i><b>Changed it</b><small>Taste</small></span><p class="nx-tbdx">What users got stuck on, and what they&nbsp;cut</p></li>
-  </ol>
+  <div class="nx-med nx-sk"><span class="nx-tag">Placeholder</span><svg class="nx-wf" viewBox="0 0 240 170" aria-hidden="true"><rect x="1" y="1" width="238" height="168" rx="8"/><line x1="1" y1="22" x2="239" y2="22"/><circle cx="12" cy="11.5" r="3"/><circle cx="22" cy="11.5" r="3"/><rect class="f" x="16" y="36" width="120" height="12" rx="2"/><rect x="16" y="56" width="208" height="54" rx="4"/><rect class="f" x="16" y="122" width="64" height="14" rx="3"/><rect x="16" y="144" width="150" height="8" rx="2"/></svg><p>The team’s first wireframe or sketch, then a screenshot of what they&nbsp;built</p></div>
+  <ol class="nx-st"><li data-s="1"><span class="nx-sh"><i>01</i><b>Found the problem</b><small>Agency</small></span><p class="nx-tbdx">Who they talked to, and what they&nbsp;heard</p></li><li data-s="2"><span class="nx-sh"><i>02</i><b>Sketched it</b><small>Agency</small></span><p class="nx-tbdx">The first wireframe, and what it left&nbsp;out</p></li><li data-s="3"><span class="nx-sh"><i>03</i><b>Built it</b><small>Craft</small></span><p class="nx-tbdx">What it does, and which tools they&nbsp;used</p></li><li data-s="4"><span class="nx-sh"><i>04</i><b>Changed it</b><small>Taste</small></span><p class="nx-tbdx">What users got stuck on, and what they&nbsp;cut</p></li></ol>
+  <div class="nx-oc" data-s="4"><span class="nx-ock">Learning outcomes</span><span>Outcome 1 it&nbsp;shows</span><span>Outcome 2 it&nbsp;shows</span><span>Outcome 3 it&nbsp;shows</span></div>
  </div></div>
-</div><aside class="notes">PLACEHOLDER, case 3: fill in from the ISB project records before presenting. Follow the four steps: how the team found the problem, the first sketch or wireframe, what they built and with which tools, and what changed after real users tried it. No student names, no product names, and no cohort size.</aside></section>
+</div><aside class="notes">PLACEHOLDER, case 3: fill in from the ISB project records before presenting. Follow the four steps: how the team found the problem, the first sketch or wireframe, what they built and with which tools, and what changed after real users tried it. Then pick the three learning outcomes it shows best. No student names, no product names, and no cohort size.</aside></section>
 
 <!-- 20 · Demo day -->
 <section class="s ae"><div class="w">
@@ -4600,12 +4676,13 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 <section class="s ae nx-loop"><div class="w">
  <p class="kick r">Build session · the framework in 30 minutes</p>
  <h2 class="r" style="--d:.1s">The build session runs the same loop <em>students ran all&nbsp;week.</em></h2>
- <div class="bd r" style="--d:.25s"><ol class="nx-lp">
-  <li class="pane" data-s="1"><span class="nx-lk"><i>01</i>Inquiry and planning</span><b>You name a chore</b><p>And who the fix is&nbsp;for.</p><small>Agency</small></li>
-  <li class="pane" data-s="2"><span class="nx-lk"><i>02</i>Creating and communicating</span><b>We describe it</b><p>To Claude Code, in plain&nbsp;English.</p><small>Craft</small></li>
-  <li class="pane" data-s="3"><span class="nx-lk"><i>03</i>Research and evaluation</span><b>The room tests it</b><p>Does it solve the&nbsp;problem?</p><small>Taste</small></li>
-  <li class="pane" data-s="4"><span class="nx-lk"><i>04</i>Collaboration and reflection</span><b>We revise together</b><p>One plain sentence at a&nbsp;time.</p><small>Craft</small></li>
- </ol></div>
+ <div class="bd r" style="--d:.25s"><div class="nx-lpw"><ol class="nx-lp nx-lp2">
+  <li class="pane" data-s="1"><span class="nx-li"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></svg></span><span class="nx-lk"><i>01</i>Inquiry and planning</span><b>You name a chore</b><p>And who the fix is&nbsp;for.</p><small>Agency</small></li>
+  <li class="pane" data-s="2"><span class="nx-li"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m18 16 4-4-4-4" /><path d="m6 8-4 4 4 4" /><path d="m14.5 4-5 16" /></svg></span><span class="nx-lk"><i>02</i>Creating and communicating</span><b>We describe it</b><p>To Claude Code, in plain&nbsp;English.</p><small>Craft</small></li>
+  <li class="pane" data-s="3"><span class="nx-li"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m8 11 2 2 4-4" /><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg></span><span class="nx-lk"><i>03</i>Research and evaluation</span><b>The room tests it</b><p>Does it solve the&nbsp;problem?</p><small>Taste</small></li>
+  <li class="pane" data-s="4"><span class="nx-li"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" /><path d="M21 3v5h-5" /><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" /><path d="M8 16H3v5" /></svg></span><span class="nx-lk"><i>04</i>Collaboration and reflection</span><b>We revise together</b><p>One plain sentence at a&nbsp;time.</p><small>Craft</small></li>
+ </ol>
+  <div class="nx-lpb" data-s="4" aria-hidden="true"><span>Repeat until it’s good enough to use on&nbsp;Monday</span></div></div></div>
 </div><aside class="notes">The build session follows the same framework as everything you have seen today. (Click.) Inquiry and planning: you name a chore, and who the fix is for. That is agency. (Click.) Creating: we describe it to Claude Code in plain English. (Click.) Research and evaluation: the room tests it. Does it actually solve the problem? That is taste. (Click.) Collaboration and reflection: we revise together, one plain sentence at a time, until it is good enough to use. That is craft. Here is how the next 25 minutes run.</aside></section>
 
 <!-- 27 · The build session -->

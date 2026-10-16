@@ -962,3 +962,30 @@ a.qr.qr-live.age-q2::after{content:"Book a 20-minute call  \2192"}
 .r5b-poem mark,.r5b-poem mark.b,.r5b-poem mark.c{display:inline-flex;flex-direction:row-reverse;align-items:baseline;gap:5px;padding:0;background:none}
 .r5b-poem mark>span{padding:0 2px;border-radius:3px;background:rgba(232,190,90,.42)}.r5b-poem mark.b>span{background:rgba(120,155,225,.32)}.r5b-poem mark.c>span{background:rgba(192,81,59,.2)}
 .r5b-poem mark>small{margin:0}
+/* round 7 (Oct 16 restructure): new components, one card per column on a phone */
+.nx-swl,.nx-band,.nx-back,.nx-pml,.nx-pmb,.nx-tll,.nx-axis,.nx-tlb,.nx-dot,.nx-wf,.nx-lpb,.nx-li{display:none}
+.nx-sw,.nx-pm,.nx-tl,.nx-pp,.nx-lp,.nx-h3,.nx-b2,.nx-cs,.nx-st{display:grid;gap:10px}
+.nx-swc,.nx-pmc,.nx-td,.nx-pc,.nx-lp li,.nx-hc,.nx-bc,.nx-st li{display:grid;gap:6px;padding:14px 16px;border-radius:12px;background:rgba(252,243,237,.72);border:1px solid var(--edge)}
+.alt .nx-swc,.alt .nx-pmc,.alt .nx-td,.alt .nx-pc,.alt .nx-lp li,.alt .nx-hc,.alt .nx-bc,.alt .nx-st li{background:var(--hi)}
+.nx-swh,.nx-pmh,.nx-tdh{display:grid;gap:2px;margin-bottom:4px}
+.nx-swh i,.nx-st i,.nx-lk i,.nx-tds i{font:italic 400 13px/1 var(--serif);color:var(--ink2);margin-right:6px}
+.nx-swh b,.nx-pmh b,.nx-tdh b,.nx-pc>b,.nx-lp b,.nx-hc>b,.nx-bt>b,.nx-sh b{font:400 19px/1.25 var(--serif);color:var(--ink)}
+.nx-sw p,.nx-pm p,.nx-td p,.nx-pc p,.nx-lp p,.nx-hc p,.nx-bt p,.nx-st p{margin:0;font-size:15px;line-height:1.45}
+.nx-sw small,.nx-pm small,.nx-pmh span,.nx-tdh small,.nx-lk,.nx-hk,.nx-ho small,.nx-br,.nx-ock,.nx-sh small,.nx-tsk,.nx-lp small{display:block;font:500 10.5px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.nx-sw p{padding-top:6px;border-top:1px solid var(--edge)}
+.nx-sw p.nx-q,.nx-pm p.nx-pmo,.nx-tdo{font-style:italic;color:var(--ink2)}
+.nx-pm p{padding-top:6px;border-top:1px solid var(--edge)}
+.nx-tds{display:grid;gap:2px;font-size:15px}
+.nx-tdt{display:flex;gap:6px}.nx-tdt img{width:18px;height:18px;object-fit:contain}
+.nx-tsk{justify-self:start;padding:3px 8px;border-radius:999px;background:var(--ink);color:var(--on)}
+.nx-pi,.nx-hi{color:var(--ink2)}.nx-pi svg,.nx-hi svg{display:block;width:22px;height:22px}
+.nx-ho{display:block;padding-top:6px;border-top:1px solid var(--edge);font-size:14px;font-style:italic;color:var(--muted)}
+.nx-bc{grid-template-columns:84px 1fr;align-items:start;gap:12px}.nx-bp{width:84px;height:100px;object-fit:cover;border-radius:8px}.nx-bt{display:grid;gap:4px}.nx-bt a{font-size:14px}
+.nx-med{padding:10px}.nx-v{position:relative;aspect-ratio:4/3;border-radius:9px;overflow:hidden}.nx-v video,.nx-v .vposter{width:100%;height:100%;object-fit:cover}.nx-v .vposter{display:none}
+.nx-cap{display:block;margin-top:6px;text-align:center;font:italic 400 13px/1.3 var(--serif);color:var(--muted)}
+.nx-sk{display:grid;gap:6px;padding:14px;border:1.5px dashed rgba(181,84,28,.5);border-radius:12px}.nx-sk p{margin:0;font-size:14px;font-style:italic;color:#B5541C}
+.nx-tag{display:inline-block;margin-right:8px;padding:1px 6px;border:1px dashed #B5541C;border-radius:3px;color:#B5541C}
+.nx-tbdx,.nx-tbd .nx-oc span:not(.nx-ock){color:#B5541C!important;font-style:italic}
+.nx-oc{display:grid;gap:4px;padding-top:8px;border-top:1px solid var(--ink)}.nx-oc span:not(.nx-ock){font-size:14px;font-style:italic;color:var(--ink)}
+.nx-ln{display:grid!important;gap:6px}.nx-ln>span{display:grid}.nx-ln b{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.ac-dd.nx-dd3{display:grid;gap:10px}
