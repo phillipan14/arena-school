@@ -1,10 +1,12 @@
-/* cine.css: cinematic hero options (2026-10-16), previewed with ?hero=cine1|cine2|cine3 on the
+/* cine.css: cinematic hero options (2026-10-16), previewed with ?hero=cine1 to cine5 on the
    homepage and /schools/technology (EN + CN). cine.js sets html[data-hero] and adds the media layers;
    without the parameter nothing here applies and each page keeps its default hero.
      cine1  full-bleed real photos, slow crossfade with a Ken Burns zoom, dark gradient, white type
      cine2  split hero: copy on white, a large photo panel with a soft vignette, film grain, light leak
      cine3  the live homepage hero evolved: the riso particle field (riso-particles.js) on cool paper,
             with the seal on the homepage, extended to subpages
+     cine4  cine1 plus the crest (medium, translucent, above the headline) and a faint light particle field
+     cine5  cine1 plus the particle field and the crest as a large faint watermark to the right
    Real repo photos only. Only the first photo loads eagerly; the rest load after it. Static under
    prefers-reduced-motion. */
 
@@ -51,18 +53,18 @@ html[data-hero^="cine"] body .hero-full { position: relative; overflow: hidden; 
 html[data-hero^="cine"] body .hero-full .hero-riso-grid { position: relative; z-index: 3; }
 
 /* cine1: full bleed */
-html[data-hero="cine1"] body section.hero-full { background: #0B1A4A !important; border-bottom: 0; min-height: min(88vh, 780px) !important; display: flex; flex-direction: column; justify-content: flex-end; }
-html[data-hero="cine1"] body .hero-full .hero-riso-grid { grid-template-columns: minmax(0, 1fr) !important; padding-block: clamp(140px, 16vh, 200px) clamp(56px, 8vh, 96px) !important; }
-html[data-hero="cine1"] body .hero-full .hero-art { display: none !important; }
-html[data-hero="cine1"] body .hero-full :is(.hero-riso-h1, .hero-riso-h1 *, .lede) { color: #FFFFFF !important; text-shadow: 0 1px 24px rgba(8, 15, 38, .35); }
-html[data-hero="cine1"] body .hero-full .hero-riso-h1 :is(em, .hr-rot, .hr-rot *) { color: #C9D6F2 !important; }
-html[data-hero="cine1"] body .hero-full .hero-riso-h1:not(#cine):not(#cine-h1) { max-width: 16ch !important; font-size: clamp(36px, 1.2rem + 3vw, 64px) !important; }
-html[data-hero="cine1"] body section.el-hero .el-h1:not(#cine):not(#cine-h1) { font-size: clamp(36px, 1.2rem + 2.8vw, 60px) !important; max-width: 18ch; }
-html[data-hero="cine1"] body .hero-full .lede { color: rgba(255, 255, 255, .86) !important; max-width: 52ch; }
-html[data-hero="cine1"] body .hero-full .eyebrow { color: #C9D6F2 !important; }
-html[data-hero="cine1"] body .hero-full .btn-primary { background: #FFFFFF !important; color: #0B1A4A !important; }
-html[data-hero="cine1"] body .hero-full .btn-ghost { background: transparent !important; color: #FFFFFF !important; border-color: rgba(255, 255, 255, .55) !important; }
-html[data-hero="cine1"] body .hero-full .cine-caption { position: absolute; z-index: 3; right: var(--section-px, 24px); bottom: 18px; font-size: 12px; color: rgba(255, 255, 255, .7); }
+html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body section.hero-full { background: #0B1A4A !important; border-bottom: 0; min-height: min(88vh, 780px) !important; display: flex; flex-direction: column; justify-content: flex-end; }
+html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body .hero-full .hero-riso-grid { grid-template-columns: minmax(0, 1fr) !important; padding-block: clamp(140px, 16vh, 200px) clamp(56px, 8vh, 96px) !important; }
+html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body .hero-full .hero-art { display: none !important; }
+html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body .hero-full :is(.hero-riso-h1, .hero-riso-h1 *, .lede) { color: #FFFFFF !important; text-shadow: 0 1px 24px rgba(8, 15, 38, .35); }
+html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body .hero-full .hero-riso-h1 :is(em, .hr-rot, .hr-rot *) { color: #C9D6F2 !important; }
+html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body .hero-full .hero-riso-h1:not(#cine):not(#cine-h1) { max-width: 16ch !important; font-size: clamp(36px, 1.2rem + 3vw, 64px) !important; }
+html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body section.el-hero .el-h1:not(#cine):not(#cine-h1) { font-size: clamp(36px, 1.2rem + 2.8vw, 60px) !important; max-width: 18ch; }
+html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body .hero-full .lede { color: rgba(255, 255, 255, .86) !important; max-width: 52ch; }
+html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body .hero-full .eyebrow { color: #C9D6F2 !important; }
+html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body .hero-full .btn-primary { background: #FFFFFF !important; color: #0B1A4A !important; }
+html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body .hero-full .btn-ghost { background: transparent !important; color: #FFFFFF !important; border-color: rgba(255, 255, 255, .55) !important; }
+html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body .hero-full .cine-caption { position: absolute; z-index: 3; right: var(--section-px, 24px); bottom: 18px; font-size: 12px; color: rgba(255, 255, 255, .7); }
 
 /* cine2: split, photo panel bleeds to the right edge */
 html[data-hero="cine2"] body section.hero-full { background: #FFFFFF !important; min-height: min(86vh, 760px) !important; display: flex; align-items: center; }
@@ -84,19 +86,19 @@ html[data-hero="cine3"] body .hero-full .hero-riso-grid { grid-template-columns:
 /* ---------- Technology staff (el-hero) ---------- */
 html[data-hero^="cine"] body section.el-hero { position: relative; overflow: hidden; }
 html[data-hero^="cine"] body section.el-hero > .el-wrap { position: relative; z-index: 3; }
-html[data-hero="cine1"] body section.el-hero, html[data-hero="cine2"] body section.el-hero { padding-bottom: clamp(56px, 7vw, 96px); }
-html[data-hero="cine1"] body section.el-hero .pro-hero-media, html[data-hero="cine2"] body section.el-hero .pro-hero-media { display: none; }
+html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body section.el-hero, html[data-hero="cine2"] body section.el-hero { padding-bottom: clamp(56px, 7vw, 96px); }
+html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body section.el-hero .pro-hero-media, html[data-hero="cine2"] body section.el-hero .pro-hero-media { display: none; }
 
-html[data-hero="cine1"] body main section.el-hero { background: #0B1A4A !important; border-bottom: 0; min-height: min(88vh, 760px); display: flex; flex-direction: column; justify-content: flex-end; }
-html[data-hero="cine1"] body section.el-hero :is(.el-h1, .el-lede) { color: #FFFFFF !important; }
-html[data-hero="cine1"] body section.el-hero .el-h1 em { color: #C9D6F2 !important; }
-html[data-hero="cine1"] body section.el-hero .el-lede { color: rgba(255, 255, 255, .86) !important; }
-html[data-hero="cine1"] body section.el-hero .eyebrow { color: #C9D6F2 !important; }
-html[data-hero="cine1"] body section.el-hero .btn-primary { background: #FFFFFF !important; color: #0B1A4A !important; }
-html[data-hero="cine1"] body section.el-hero .tlink { color: #FFFFFF !important; }
-html[data-hero="cine1"] body section.el-hero .el-facts { background: rgba(255, 255, 255, .94); border-color: transparent; }
-html[data-hero="cine1"] body section.el-hero .el-hero-grid { align-items: end; }
-html[data-hero="cine1"] body section.el-hero .cine-caption { position: absolute; z-index: 3; right: var(--el-gut, 24px); bottom: 14px; font-size: 12px; color: rgba(255, 255, 255, .7); }
+html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body main section.el-hero { background: #0B1A4A !important; border-bottom: 0; min-height: min(88vh, 760px); display: flex; flex-direction: column; justify-content: flex-end; }
+html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body section.el-hero :is(.el-h1, .el-lede) { color: #FFFFFF !important; }
+html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body section.el-hero .el-h1 em { color: #C9D6F2 !important; }
+html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body section.el-hero .el-lede { color: rgba(255, 255, 255, .86) !important; }
+html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body section.el-hero .eyebrow { color: #C9D6F2 !important; }
+html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body section.el-hero .btn-primary { background: #FFFFFF !important; color: #0B1A4A !important; }
+html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body section.el-hero .tlink { color: #FFFFFF !important; }
+html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body section.el-hero .el-facts { background: rgba(255, 255, 255, .94); border-color: transparent; }
+html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body section.el-hero .el-hero-grid { align-items: end; }
+html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body section.el-hero .cine-caption { position: absolute; z-index: 3; right: var(--el-gut, 24px); bottom: 14px; font-size: 12px; color: rgba(255, 255, 255, .7); }
 
 html[data-hero="cine2"] body main section.el-hero { background: #FFFFFF !important; min-height: min(84vh, 720px); display: flex; align-items: center; }
 html[data-hero="cine2"] body section.el-hero .el-hero-grid { grid-template-columns: minmax(0, 1fr); max-width: min(48vw, 600px); margin-left: max(var(--el-gut, 24px), calc((100vw - 1240px) / 2 + var(--el-gut, 24px))); margin-right: 0; padding: 0; }
@@ -115,8 +117,32 @@ html[data-hero="cine3"] body main section.el-hero { background: #F5F7FA !importa
   html[data-hero="cine3"] .cine-seal { width: min(64vw, 300px); }
 }
 @media (max-width: 760px) {
-  html[data-hero="cine1"] body section.hero-full, html[data-hero="cine1"] body main section.el-hero { min-height: 92svh !important; }
-  html[data-hero="cine1"] body .hero-full .hero-riso-grid { padding-block: 120px 40px !important; text-align: left; }
-  html[data-hero="cine1"] .cine-shade { background: linear-gradient(0deg, rgba(8, 15, 38, .9) 0%, rgba(8, 15, 38, .66) 45%, rgba(8, 15, 38, .25) 100%); }
-  html[data-hero="cine1"] body section.el-hero .el-hero-side { display: none; }
+  html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body section.hero-full, html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body main section.el-hero { min-height: 92svh !important; }
+  html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body .hero-full .hero-riso-grid { padding-block: 120px 40px !important; text-align: left; }
+  html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) .cine-shade { background: linear-gradient(0deg, rgba(8, 15, 38, .9) 0%, rgba(8, 15, 38, .66) 45%, rgba(8, 15, 38, .25) 100%); }
+  html:is([data-hero="cine1"], [data-hero="cine4"], [data-hero="cine5"]) body section.el-hero .el-hero-side { display: none; }
 }
+
+/* ---------- cine4 / cine5: crest and light particles over the photo ---------- */
+.cine-field-light { z-index: 1; mix-blend-mode: screen; opacity: .38; }
+.cine-field-light canvas { filter: blur(.2px); }
+.cine-crest { width: clamp(76px, 7vw, 108px); aspect-ratio: 1; margin: 0 0 22px; opacity: .88; filter: drop-shadow(0 6px 24px rgba(8, 15, 38, .45)); }
+.cine-crest img { width: 100%; height: 100%; display: block; }
+.cine-watermark { position: absolute; z-index: 2; pointer-events: none; right: max(-4vw, -60px); top: 50%; width: min(56vh, 42vw, 560px); aspect-ratio: 1; transform: translateY(-46%); opacity: .11; }
+.cine-watermark img { width: 100%; height: 100%; display: block; animation: cine-seal 300s linear infinite; }
+html[data-hero="cine5"] body section.el-hero .cine-watermark { top: 96px; transform: none; width: min(34vh, 300px); right: 5%; }
+@media (min-width: 901px) and (max-width: 1140px) {
+  html[data-hero="cine5"] body .hero-full .cine-watermark { width: 34vw; right: -8vw; }
+}
+@media (max-width: 900px) {
+  html:is([data-hero="cine4"], [data-hero="cine5"]) body section.el-hero .el-hero-side { display: none; }
+  .cine-watermark, html[data-hero="cine5"] body section.el-hero .cine-watermark { top: 76px; right: -18%; width: min(70vw, 360px); transform: none; opacity: .12; }
+}
+@media (max-width: 760px) {
+  html[data-hero="cine4"] body .hero-full .cine-crest { margin-inline: auto; }
+  /* phones: the watermark gets its own band above the copy, so it never sits behind text */
+  html[data-hero="cine5"] body .hero-full .hero-riso-grid { padding-top: 330px !important; }
+  html[data-hero="cine5"] body main section.el-hero { padding-top: 300px !important; }
+  .cine-watermark, html[data-hero="cine5"] body section.el-hero .cine-watermark { top: 72px; right: -14%; width: 230px; opacity: .12; }
+}
+@media (prefers-reduced-motion: reduce) { .cine-watermark img { animation: none; } }
