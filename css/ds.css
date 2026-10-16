@@ -301,3 +301,7 @@ html body main .ev-speakers .ev-spk { color: var(--pro-ink) !important; text-dec
   html body main :is(.pg-stats > div + div, .pc-stats > li + li) { border-left: 0 !important; border-top: var(--hairline) !important; }
   html body main .el-tab { flex: 1 1 0; justify-content: center; }
 }
+
+/* Centred heads: the eyebrow centres with its headline at every width (film section, EN + CN) */
+html body main .ds-section > .container > .ds-head.is-center > .eyebrow,
+html body main .ds-section > .container > .ds-head.is-center > .ds-eyebrow { justify-self: center !important; text-align: center !important; margin-left: auto !important; margin-right: auto !important; display: block; width: 100%; grid-column: 1 / -1; }
