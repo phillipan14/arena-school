@@ -1,0 +1,52 @@
+/* round 6: slide 7 wheel with arrows clear of the ring; narrower, airier right column */
+.fx-s .fx-wheel{width:504px;height:504px}
+.fx-s .fx-g{column-gap:84px}
+.fx-s .fx-side{gap:64px;width:600px;justify-self:center}
+/* round 6: slide 25 cards fill the body under the title; the picture row absorbs extra height */
+.ae.r5b-tl .bd{flex:1 1 auto!important;min-height:0;display:flex;flex-direction:column}
+.r5b-tl .r5b-two{grid-template-rows:auto auto minmax(0,1fr) auto auto auto}
+.ae.r5b-tl .bd .r5b-c{padding:40px 40px 36px;row-gap:16px}
+.ae.r5b-tl .bd .r5b-c>:nth-child(1){grid-row:1}
+.ae.r5b-tl .bd .r5b-c>:nth-child(2){grid-row:2}
+.ae.r5b-tl .bd .r5b-c>:nth-child(3){grid-row:3}
+.ae.r5b-tl .bd .r5b-c>:nth-child(4){grid-row:4}
+.ae.r5b-tl .bd .r5b-c>:nth-child(5){grid-row:5}
+.ae.r5b-tl .bd .r5b-c>:nth-child(6){grid-row:6}
+.ae.r5b-tl .bd .r5b-c>*{top:0}
+.r5b-tl .r5b-poem{padding:18px 26px;justify-content:center;gap:0}
+.r5b-tl .r6-src{display:block;margin:0 0 6px;font:600 13px/1.2 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.ae.r5b-tl .bd .r5b-poem p.r5b-pl{font:italic 400 25px/1 var(--serif);padding-top:30px;margin:0 0 10px}
+.r5b-tl .r5b-poem mark{position:relative;padding:2px 4px;border-radius:3px}
+.r5b-tl .r5b-poem mark.c{background:rgba(192,81,59,.2)}
+.r5b-tl .r5b-poem mark small{position:absolute;left:4px;bottom:calc(100% + 5px);white-space:nowrap;font:600 12px/1 var(--serif);font-style:normal;letter-spacing:.12em;text-transform:uppercase;color:#8A6A1E}
+.r5b-tl .r5b-poem mark.b small{color:var(--ink2)}
+.r5b-tl .r5b-poem mark.c small{color:#A2432F}
+.r5b-tl .r5b-sim{padding:18px 30px}
+.r5b-tl .r5b-sim svg{width:300px}
+.r5b-tl .r5b-ctl{font-size:20px;grid-template-columns:auto 110px;gap:14px 14px}
+.ae.r5b-tl h2{min-height:0!important}
+.ae.r5b-tl .bd{padding-top:30px!important}
+.ae.r5b-tl .bd .r5b-poem p.r5b-pl{font-size:24px;padding-top:27px;margin-bottom:8px}
+.r5b-tl .r5b-poem{padding:16px 26px 14px}
+.ae.r5b-tl .bd .r5b-c{padding:34px 40px 30px;row-gap:12px}
+.ae.r5b-tl .bd .r5b-poem p.r5b-pl{padding-top:25px;margin-bottom:5px}
+.r5b-tl .r5b-poem{padding:17px 26px 13px}
+.r5b-tl .r5b-sim{padding:17px 30px 19px}
+/* tags live inside the mark box (containment); highlight painted on the lower part only */
+.r5b-tl .r5b-poem mark{display:inline-block;padding:22px 4px 2px;border-radius:0;--hl:rgba(232,190,90,.42);background:linear-gradient(transparent 22px,var(--hl) 22px);line-height:1}
+.r5b-tl .r5b-poem mark.b{--hl:rgba(120,155,225,.32)}
+.r5b-tl .r5b-poem mark.c{--hl:rgba(192,81,59,.2)}
+.r5b-tl .r5b-poem mark small{left:4px;top:0;bottom:auto}
+.ae.r5b-tl .bd .r5b-poem p.r5b-pl{padding-top:3px;margin-bottom:5px}
+.r5b-tl .r5b-sim svg{width:100%;max-width:300px}
+.r5b-tl .r5b-poem mark,.r5b-tl .r5b-poem mark.b,.r5b-tl .r5b-poem mark.c{background:linear-gradient(transparent 22px,var(--hl) 22px)}
+.r5b-tl .r5b-poem{padding:19px 26px 11px}
+.r5b-tl .r5b-sim{gap:20px}
+.r5b-tl .r5b-ctl{grid-template-columns:auto 84px}
+.r5b-tl .r5b-poem{padding:18px 26px 12px}
+.r5b-tl .r5b-sim{padding:17.5px 30px 18.5px}
+/* fill moved to the inner span so the tag isn't inside a filled box (containment) */
+.r5b-tl .r5b-poem mark,.r5b-tl .r5b-poem mark.b,.r5b-tl .r5b-poem mark.c{background:none;padding:22px 0 0}
+.r5b-tl .r5b-poem mark>span{padding:2px 4px;border-radius:3px;background:var(--hl)}
+.r5b-tl .r5b-poem mark small{left:4px}
+.r5b-tl .r5b-poem{padding:17px 26px 13px}

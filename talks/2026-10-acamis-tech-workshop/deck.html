@@ -3640,6 +3640,7 @@ section.s.ae.agC-sk .bd .agc-sk>li.pane{padding:36.2px 32px 25.8px}
 .ae.r13-ph .bd .r13-c .r13-w span{margin-bottom:12px}
 .ae.r13-ph .bd .r13-c{padding:30.7px 38px 25.3px!important}
 .r13-ph .r14-k span{position:relative;top:1.1px}
+.ae.r13-ph .bd .r13-c .r13-w{margin:30px 0 0!important}
 
 /* ---- s99zzzzzzzzzzzzzzzzz-r15.css ---- */
 /* round 15: slide 3 is now about Arena School, with the founding team on one logo line */
@@ -4040,6 +4041,60 @@ section.s.ae.rb-s:not(.st):not(.bq)>.w>h2{min-height:0}
 .r5b-poem{padding:13px 18px 15px}
 .ae.r5b-tl .bd .r5b-c>*{position:relative;top:1.6px}
 
+/* ---- s99zzzzzzzzzzzzzzzzzzzz-r6.css ---- */
+/* round 6: slide 7 wheel with arrows clear of the ring; narrower, airier right column */
+.fx-s .fx-wheel{width:504px;height:504px}
+.fx-s .fx-g{column-gap:84px}
+.fx-s .fx-side{gap:64px;width:600px;justify-self:center}
+/* round 6: slide 25 cards fill the body under the title; the picture row absorbs extra height */
+.ae.r5b-tl .bd{flex:1 1 auto!important;min-height:0;display:flex;flex-direction:column}
+.r5b-tl .r5b-two{grid-template-rows:auto auto minmax(0,1fr) auto auto auto}
+.ae.r5b-tl .bd .r5b-c{padding:40px 40px 36px;row-gap:16px}
+.ae.r5b-tl .bd .r5b-c>:nth-child(1){grid-row:1}
+.ae.r5b-tl .bd .r5b-c>:nth-child(2){grid-row:2}
+.ae.r5b-tl .bd .r5b-c>:nth-child(3){grid-row:3}
+.ae.r5b-tl .bd .r5b-c>:nth-child(4){grid-row:4}
+.ae.r5b-tl .bd .r5b-c>:nth-child(5){grid-row:5}
+.ae.r5b-tl .bd .r5b-c>:nth-child(6){grid-row:6}
+.ae.r5b-tl .bd .r5b-c>*{top:0}
+.r5b-tl .r5b-poem{padding:18px 26px;justify-content:center;gap:0}
+.r5b-tl .r6-src{display:block;margin:0 0 6px;font:600 13px/1.2 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.ae.r5b-tl .bd .r5b-poem p.r5b-pl{font:italic 400 25px/1 var(--serif);padding-top:30px;margin:0 0 10px}
+.r5b-tl .r5b-poem mark{position:relative;padding:2px 4px;border-radius:3px}
+.r5b-tl .r5b-poem mark.c{background:rgba(192,81,59,.2)}
+.r5b-tl .r5b-poem mark small{position:absolute;left:4px;bottom:calc(100% + 5px);white-space:nowrap;font:600 12px/1 var(--serif);font-style:normal;letter-spacing:.12em;text-transform:uppercase;color:#8A6A1E}
+.r5b-tl .r5b-poem mark.b small{color:var(--ink2)}
+.r5b-tl .r5b-poem mark.c small{color:#A2432F}
+.r5b-tl .r5b-sim{padding:18px 30px}
+.r5b-tl .r5b-sim svg{width:300px}
+.r5b-tl .r5b-ctl{font-size:20px;grid-template-columns:auto 110px;gap:14px 14px}
+.ae.r5b-tl h2{min-height:0!important}
+.ae.r5b-tl .bd{padding-top:30px!important}
+.ae.r5b-tl .bd .r5b-poem p.r5b-pl{font-size:24px;padding-top:27px;margin-bottom:8px}
+.r5b-tl .r5b-poem{padding:16px 26px 14px}
+.ae.r5b-tl .bd .r5b-c{padding:34px 40px 30px;row-gap:12px}
+.ae.r5b-tl .bd .r5b-poem p.r5b-pl{padding-top:25px;margin-bottom:5px}
+.r5b-tl .r5b-poem{padding:17px 26px 13px}
+.r5b-tl .r5b-sim{padding:17px 30px 19px}
+/* tags live inside the mark box (containment); highlight painted on the lower part only */
+.r5b-tl .r5b-poem mark{display:inline-block;padding:22px 4px 2px;border-radius:0;--hl:rgba(232,190,90,.42);background:linear-gradient(transparent 22px,var(--hl) 22px);line-height:1}
+.r5b-tl .r5b-poem mark.b{--hl:rgba(120,155,225,.32)}
+.r5b-tl .r5b-poem mark.c{--hl:rgba(192,81,59,.2)}
+.r5b-tl .r5b-poem mark small{left:4px;top:0;bottom:auto}
+.ae.r5b-tl .bd .r5b-poem p.r5b-pl{padding-top:3px;margin-bottom:5px}
+.r5b-tl .r5b-sim svg{width:100%;max-width:300px}
+.r5b-tl .r5b-poem mark,.r5b-tl .r5b-poem mark.b,.r5b-tl .r5b-poem mark.c{background:linear-gradient(transparent 22px,var(--hl) 22px)}
+.r5b-tl .r5b-poem{padding:19px 26px 11px}
+.r5b-tl .r5b-sim{gap:20px}
+.r5b-tl .r5b-ctl{grid-template-columns:auto 84px}
+.r5b-tl .r5b-poem{padding:18px 26px 12px}
+.r5b-tl .r5b-sim{padding:17.5px 30px 18.5px}
+/* fill moved to the inner span so the tag isn't inside a filled box (containment) */
+.r5b-tl .r5b-poem mark,.r5b-tl .r5b-poem mark.b,.r5b-tl .r5b-poem mark.c{background:none;padding:22px 0 0}
+.r5b-tl .r5b-poem mark>span{padding:2px 4px;border-radius:3px;background:var(--hl)}
+.r5b-tl .r5b-poem mark small{left:4px}
+.r5b-tl .r5b-poem{padding:17px 26px 13px}
+
 /* ---- snum.css ---- */
 /* slide numbers (snum): quiet folio in the bottom-right gutter of every slide except the title */
 section.s>.pgno{position:absolute;right:var(--margin-x);bottom:calc(var(--pad-bot) * var(--z) / 2 - 6px);z-index:3;pointer-events:none;user-select:none;
@@ -4069,11 +4124,11 @@ section.s>.pgno i{font-style:normal;opacity:.6}
   <ol class="r7-list">
   <li class="" data-s="1"><a href="#" data-go="9"><span class="r7-n">1</span><span class="r7-t"><b>The case</b><span>What ISB students built in five days, and the 20+ AI tools they used</span></span></a></li>
   <li class="" data-s="2"><a href="#" data-go="15"><span class="r7-n">2</span><span class="r7-t"><b>Why it worked</b><span>The research, the three skills, and the teacher’s role as coach</span></span></a></li>
-  <li class="" data-s="3"><a href="#" data-go="20"><span class="r7-n">3</span><span class="r7-t"><b>Build one, live</b><span>You name a school chore. We build the fix together with Claude&nbsp;Code.</span></span></a></li>
+  <li class="" data-s="3"><a href="#" data-go="20"><span class="r7-n">3</span><span class="r7-t"><b>Build session</b><span>You name a school chore. We walk through building the fix with Claude&nbsp;Code.</span></span></a></li>
   <li class="" data-s="4"><a href="#" data-go="22"><span class="r7-n">4</span><span class="r7-t"><b>Take it back</b><span>Why teachers need AI too, and what it takes to run&nbsp;this</span></span></a></li>
   </ol>
  </div>
-</div><aside class="notes">Four parts. First the case: what students at ISB built in five days, and why that matters. Then why it worked: the program was designed around skills AI can't hand over. Then the main event, 30 minutes: we build something live with you, no coding. Last, what a school needs to run this.</aside></section>
+</div><aside class="notes">Four parts. First the case: what students at ISB built in five days, and why that matters. Then why it worked: the program was designed around skills AI can't hand over. Then the main event, 30 minutes: a build session together, no coding. Last, what a school needs to run this.</aside></section>
 
 <!-- 3 · About Arena School -->
 <section class="s alt ae r15-ab"><div class="w">
@@ -4131,10 +4186,10 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <p class="kick r">The Arena School learning framework</p>
  <h2 class="r" style="--d:.1s">Students do the thinking, AI is a tool, <em>and teachers and peers give the&nbsp;feedback.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="fx-g">
-  <div class="fx-wh" data-s="1"><svg class="fx-wheel" viewBox="0 0 720 720" role="img" aria-label="Arena School learning framework: the student does the thinking; four strands; four conditions" font-family="Newsreader, Georgia, serif"><defs><marker id="cyc" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2F55A8"/></marker><path id="st00" d="M363.4,166.4 A193.6,193.6 0 0 1 553.6,356.6" fill="none"/><path id="st01" d="M362.7,206.4 A153.6,153.6 0 0 1 513.6,357.3" fill="none"/><path id="st10" d="M363.1,536.5 A176.6,176.6 0 0 0 536.5,363.1" fill="none"/><path id="st11" d="M363.8,576.5 A216.6,216.6 0 0 0 576.5,363.8" fill="none"/><path id="st20" d="M183.5,363.1 A176.6,176.6 0 0 0 356.9,536.5" fill="none"/><path id="st21" d="M143.5,363.8 A216.6,216.6 0 0 0 356.2,576.5" fill="none"/><path id="st30" d="M166.4,356.6 A193.6,193.6 0 0 1 356.6,166.4" fill="none"/><path id="st31" d="M206.4,357.3 A153.6,153.6 0 0 1 357.3,206.4" fill="none"/><path id="cd0" d="M365.1,66.9 A293.1,293.1 0 0 1 653.1,354.9" fill="none"/><path id="cd1" d="M365.4,668.8 A308.9,308.9 0 0 0 668.8,365.4" fill="none"/><path id="cd2" d="M51.2,365.4 A308.9,308.9 0 0 0 354.6,668.8" fill="none"/><path id="cd3" d="M66.9,354.9 A293.1,293.1 0 0 1 354.9,66.9" fill="none"/></defs><circle cx="360.0" cy="360.0" r="340.0" fill="#FCF3ED" stroke="#0B1A4A" stroke-opacity=".2" stroke-width="1.2"/><path d="M409.1,10.4 A353.0,353.0 0 0 1 709.6,310.9" fill="none" stroke="#2F55A8" stroke-width="2.4" stroke-linecap="round" marker-end="url(#cyc)"/><path d="M709.6,409.1 A353.0,353.0 0 0 1 409.1,709.6" fill="none" stroke="#2F55A8" stroke-width="2.4" stroke-linecap="round" marker-end="url(#cyc)"/><path d="M310.9,709.6 A353.0,353.0 0 0 1 10.4,409.1" fill="none" stroke="#2F55A8" stroke-width="2.4" stroke-linecap="round" marker-end="url(#cyc)"/><path d="M10.4,310.9 A353.0,353.0 0 0 1 310.9,10.4" fill="none" stroke="#2F55A8" stroke-width="2.4" stroke-linecap="round" marker-end="url(#cyc)"/><line x1="360.0" y1="98.0" x2="360.0" y2="20.0" stroke="#0B1A4A" stroke-opacity=".18" stroke-width="1.2"/><line x1="622.0" y1="360.0" x2="700.0" y2="360.0" stroke="#0B1A4A" stroke-opacity=".18" stroke-width="1.2"/><line x1="360.0" y1="622.0" x2="360.0" y2="700.0" stroke="#0B1A4A" stroke-opacity=".18" stroke-width="1.2"/><line x1="98.0" y1="360.0" x2="20.0" y2="360.0" stroke="#0B1A4A" stroke-opacity=".18" stroke-width="1.2"/><path d="M363.2,98.0 A262.0,262.0 0 0 1 622.0,356.8 L468.0,358.7 A108.0,108.0 0 0 0 361.3,252.0Z" fill="#2F55A8"/><text class="fx-st" font-size="32" fill="#fff"><textPath href="#st00" startOffset="50%" text-anchor="middle">Inquiry and</textPath></text><text class="fx-st" font-size="32" fill="#fff"><textPath href="#st01" startOffset="50%" text-anchor="middle">planning</textPath></text><path d="M622.0,363.2 A262.0,262.0 0 0 1 363.2,622.0 L361.3,468.0 A108.0,108.0 0 0 0 468.0,361.3Z" fill="#0B1A4A"/><text class="fx-st" font-size="32" fill="#fff"><textPath href="#st10" startOffset="50%" text-anchor="middle">Research and</textPath></text><text class="fx-st" font-size="32" fill="#fff"><textPath href="#st11" startOffset="50%" text-anchor="middle">evaluation</textPath></text><path d="M356.8,622.0 A262.0,262.0 0 0 1 98.0,363.2 L252.0,361.3 A108.0,108.0 0 0 0 358.7,468.0Z" fill="#3D5FA6"/><text class="fx-st" font-size="32" fill="#fff"><textPath href="#st20" startOffset="50%" text-anchor="middle">Creating and</textPath></text><text class="fx-st" font-size="32" fill="#fff"><textPath href="#st21" startOffset="50%" text-anchor="middle">communicating</textPath></text><path d="M98.0,356.8 A262.0,262.0 0 0 1 356.8,98.0 L358.7,252.0 A108.0,108.0 0 0 0 252.0,358.7Z" fill="#5670B0"/><text class="fx-st" font-size="32" fill="#fff"><textPath href="#st30" startOffset="50%" text-anchor="middle">Collaboration</textPath></text><text class="fx-st" font-size="32" fill="#fff"><textPath href="#st31" startOffset="50%" text-anchor="middle">and reflection</textPath></text><circle cx="360.0" cy="360.0" r="102.0" fill="#FCF3ED" stroke="#0B1A4A" stroke-opacity=".2"/><text x="360.0" y="334.1" text-anchor="middle" font-size="31" fill="#0B1A4A">The student</text><text x="360.0" y="367.1" text-anchor="middle" font-size="31" fill="#0B1A4A">does the</text><text x="360.0" y="400.1" text-anchor="middle" font-size="31" fill="#2F55A8" font-style="italic">thinking</text><text font-size="22" fill="#0B1A4A"><textPath href="#cd0" startOffset="50%" text-anchor="middle">In person, real-time feedback</textPath></text><text font-size="22" fill="#0B1A4A"><textPath href="#cd1" startOffset="50%" text-anchor="middle">AI use disclosed and cited</textPath></text><text font-size="22" fill="#0B1A4A"><textPath href="#cd2" startOffset="50%" text-anchor="middle">Student voice and choice</textPath></text><text font-size="22" fill="#0B1A4A"><textPath href="#cd3" startOffset="50%" text-anchor="middle">An authentic audience</textPath></text></svg></div>
+  <div class="fx-wh" data-s="1"><svg class="fx-wheel" viewBox="0 0 800 800" role="img" aria-label="Arena School learning framework: the student does the thinking; four strands; four conditions" font-family="Newsreader, Georgia, serif"><defs><marker id="cyc" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2F55A8"/></marker><path id="st00" d="M403.5,202.1 A197.9,197.9 0 0 1 597.9,396.5" fill="none"/><path id="st01" d="M402.7,244.1 A155.9,155.9 0 0 1 555.9,397.3" fill="none"/><path id="st10" d="M403.1,580.2 A180.2,180.2 0 0 0 580.2,403.1" fill="none"/><path id="st11" d="M403.9,622.2 A222.2,222.2 0 0 0 622.2,403.9" fill="none"/><path id="st20" d="M219.8,403.1 A180.2,180.2 0 0 0 396.9,580.2" fill="none"/><path id="st21" d="M177.8,403.9 A222.2,222.2 0 0 0 396.1,622.2" fill="none"/><path id="st30" d="M202.1,396.5 A197.9,197.9 0 0 1 396.5,202.1" fill="none"/><path id="st31" d="M244.1,397.3 A155.9,155.9 0 0 1 397.3,244.1" fill="none"/><path id="cd0" d="M389.6,103.1 A297.1,297.1 0 0 1 696.9,410.4" fill="none"/><path id="cd1" d="M388.9,716.7 A316.9,316.9 0 0 0 716.7,388.9" fill="none"/><path id="cd2" d="M83.3,388.9 A316.9,316.9 0 0 0 411.1,716.7" fill="none"/><path id="cd3" d="M103.1,410.4 A297.1,297.1 0 0 1 410.4,103.1" fill="none"/></defs><circle cx="400.0" cy="400.0" r="348.0" fill="#FCF3ED" stroke="#0B1A4A" stroke-opacity=".2" stroke-width="1.2"/><path d="M452.9,23.7 A380.0,380.0 0 0 1 776.3,347.1" fill="none" stroke="#2F55A8" stroke-width="2.4" stroke-linecap="round" marker-end="url(#cyc)"/><path d="M776.3,452.9 A380.0,380.0 0 0 1 452.9,776.3" fill="none" stroke="#2F55A8" stroke-width="2.4" stroke-linecap="round" marker-end="url(#cyc)"/><path d="M347.1,776.3 A380.0,380.0 0 0 1 23.7,452.9" fill="none" stroke="#2F55A8" stroke-width="2.4" stroke-linecap="round" marker-end="url(#cyc)"/><path d="M23.7,347.1 A380.0,380.0 0 0 1 347.1,23.7" fill="none" stroke="#2F55A8" stroke-width="2.4" stroke-linecap="round" marker-end="url(#cyc)"/><line x1="400.0" y1="134.0" x2="400.0" y2="52.0" stroke="#0B1A4A" stroke-opacity=".18" stroke-width="1.2"/><line x1="666.0" y1="400.0" x2="748.0" y2="400.0" stroke="#0B1A4A" stroke-opacity=".18" stroke-width="1.2"/><line x1="400.0" y1="666.0" x2="400.0" y2="748.0" stroke="#0B1A4A" stroke-opacity=".18" stroke-width="1.2"/><line x1="134.0" y1="400.0" x2="52.0" y2="400.0" stroke="#0B1A4A" stroke-opacity=".18" stroke-width="1.2"/><path d="M403.2,134.0 A266.0,266.0 0 0 1 666.0,396.8 L516.0,398.6 A116.0,116.0 0 0 0 401.4,284.0Z" fill="#2F55A8"/><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st00" startOffset="50%" text-anchor="middle">Inquiry and</textPath></text><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st01" startOffset="50%" text-anchor="middle">planning</textPath></text><path d="M666.0,403.2 A266.0,266.0 0 0 1 403.2,666.0 L401.4,516.0 A116.0,116.0 0 0 0 516.0,401.4Z" fill="#0B1A4A"/><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st10" startOffset="50%" text-anchor="middle">Research and</textPath></text><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st11" startOffset="50%" text-anchor="middle">evaluation</textPath></text><path d="M396.8,666.0 A266.0,266.0 0 0 1 134.0,403.2 L284.0,401.4 A116.0,116.0 0 0 0 398.6,516.0Z" fill="#3D5FA6"/><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st20" startOffset="50%" text-anchor="middle">Creating and</textPath></text><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st21" startOffset="50%" text-anchor="middle">communicating</textPath></text><path d="M134.0,396.8 A266.0,266.0 0 0 1 396.8,134.0 L398.6,284.0 A116.0,116.0 0 0 0 284.0,398.6Z" fill="#5670B0"/><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st30" startOffset="50%" text-anchor="middle">Collaboration</textPath></text><text class="fx-st" font-size="35" fill="#fff"><textPath href="#st31" startOffset="50%" text-anchor="middle">and reflection</textPath></text><circle cx="400.0" cy="400.0" r="110.0" fill="#FCF3ED" stroke="#0B1A4A" stroke-opacity=".2"/><text x="400.0" y="374.6" text-anchor="middle" font-size="33" fill="#0B1A4A">The student</text><text x="400.0" y="410.6" text-anchor="middle" font-size="33" fill="#0B1A4A">does the</text><text x="400.0" y="446.6" text-anchor="middle" font-size="33" fill="#2F55A8" font-style="italic">thinking</text><text font-size="31" fill="#0B1A4A"><textPath href="#cd0" startOffset="50%" text-anchor="middle">In person, real-time feedback</textPath></text><text font-size="31" fill="#0B1A4A"><textPath href="#cd1" startOffset="50%" text-anchor="middle">AI use disclosed and cited</textPath></text><text font-size="31" fill="#0B1A4A"><textPath href="#cd2" startOffset="50%" text-anchor="middle">Student voice and choice</textPath></text><text font-size="31" fill="#0B1A4A"><textPath href="#cd3" startOffset="50%" text-anchor="middle">An authentic audience</textPath></text></svg></div>
   <div class="fx-side">
-   <div class="fx-blk" data-s="2"><span class="fx-k">Built on project-based learning</span><p>Project-based learning (PBL) gives each strand a real purpose and an authentic audience, and AI speeds up the&nbsp;building.</p><small class="fx-cite">Informed by PBLWorks’ Gold Standard&nbsp;PBL.</small></div>
-   <div class="fx-call" data-s="3"><span class="fx-ck">At every check-in, the teacher asks</span><p>“How did you check&nbsp;it?”</p><span>and responds in real time. AI tools can support that feedback; they don’t replace&nbsp;it.</span></div>
+   <div class="fx-blk" data-s="2"><span class="fx-k">Built on project-based learning</span><p>Every strand gets a real purpose and a real&nbsp;audience.<br>AI speeds up the&nbsp;building.</p><small class="fx-cite">Informed by PBLWorks’ Gold Standard&nbsp;PBL.</small></div>
+   <div class="fx-call" data-s="3"><span class="fx-ck">At every check-in, the teacher asks</span><p>“How did you check&nbsp;it?”</p><span>and responds in real&nbsp;time.<br>AI can support that feedback, not replace&nbsp;it.</span></div>
   </div>
  </div></div>
 </div><aside class="notes">This is the Arena School learning framework. (Click.) At the center, the student does the thinking, and the arrows show it’s a cycle, not a checklist. Around that are four strands we develop across the program: inquiry and planning, research and evaluation, creating and communicating, and collaboration and reflection. On the outer ring are four teaching principles: learning in person with real-time feedback; AI use that is disclosed and cited; student voice and choice; and an authentic audience. (Click.) It’s built on project-based learning, PBL, informed by PBLWorks’ Gold Standard PBL. PBL gives each strand a real purpose and an audience, and AI makes the building faster than ever. (Click.) At every check-in, the teacher asks one question: how did you check it? And responds in real time. AI tools can support that feedback, and many of you use them well. They don’t replace it.</aside></section>
@@ -4173,7 +4228,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <ol class="trk" aria-label="Parts">
  <li class="on"><div class="row"><span class="tn">1</span><span class="tt"><b>The case</b><small>What students built</small></span></div></li>
  <li><div class="row"><span class="tn">2</span><span class="tt"><b>Why it worked</b><small>The design</small></span></div></li>
- <li><div class="row"><span class="tn">3</span><span class="tt"><b>Build one, live</b><small>With the room</small></span></div></li>
+ <li><div class="row"><span class="tn">3</span><span class="tt"><b>Build session</b><small>With the room</small></span></div></li>
  <li><div class="row"><span class="tn">4</span><span class="tt"><b>Take it back</b><small>What it takes</small></span></div></li>
  </ol>
 </div></div><aside class="notes">What the program is, how the week runs, what students walked out with, and the Hong Kong course where it started.</aside></section>
@@ -4276,7 +4331,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <ol class="trk" aria-label="Parts">
  <li><div class="row"><span class="tn">1</span><span class="tt"><b>The case</b><small>What students built</small></span></div></li>
  <li class="on"><div class="row"><span class="tn">2</span><span class="tt"><b>Why it worked</b><small>The design</small></span></div></li>
- <li><div class="row"><span class="tn">3</span><span class="tt"><b>Build one, live</b><small>With the room</small></span></div></li>
+ <li><div class="row"><span class="tn">3</span><span class="tt"><b>Build session</b><small>With the room</small></span></div></li>
  <li><div class="row"><span class="tn">4</span><span class="tt"><b>Take it back</b><small>What it takes</small></span></div></li>
  </ol>
 </div></div><aside class="notes">Here's the short answer: students made every decision, and AI helped them build faster. First, the research behind that. Then the three skills we build every Arena School program around, and how the week trained each one. And finally, what it means for the teacher in the room.</aside></section>
@@ -4353,33 +4408,33 @@ section.s>.pgno i{font-style:normal;opacity:.6}
 <section class="s ae nv sec"><div class="w"><div class="sec-g">
  <div>
   <p class="sec-k"><span>Part</span><b>3</b></p>
-  <h2 class="r" style="--d:.15s">Now we build one together. <em>No coding needed.</em></h2>
-  <p class="sl r" style="--d:.35s">Name a school chore. We build the fix together,&nbsp;live.</p>
+  <h2 class="r" style="--d:.15s">Now let’s build one together. <em>No coding needed.</em></h2>
+  <p class="sl r" style="--d:.35s">Name a school chore. We walk through building the fix&nbsp;together.</p>
  </div>
  <ol class="trk" aria-label="Parts">
   <li><div class="row"><span class="tn">1</span><span class="tt"><b>The case</b><small>What students built</small></span></div></li>
   <li><div class="row"><span class="tn">2</span><span class="tt"><b>Why it worked</b><small>The design</small></span></div></li>
-  <li class="on"><div class="row"><span class="tn">3</span><span class="tt"><b>Build one, live</b><small>With the room</small></span></div></li>
+  <li class="on"><div class="row"><span class="tn">3</span><span class="tt"><b>Build session</b><small>With the room</small></span></div></li>
   <li><div class="row"><span class="tn">4</span><span class="tt"><b>Take it back</b><small>What it takes</small></span></div></li>
  </ol>
 </div></div><aside class="notes">Thirty minutes, and it's your turn. Think of something at school that eats your time: a workflow you repeat every week, or a problem you keep running into. You bring the problem and make the decisions. We type.</aside></section>
 
 <!-- 22 · The brief -->
 <section class="s alt ae kimi3 agd-b"><div class="w">
- <p class="kick r">Live build · 30 minutes</p>
- <h2 class="r" style="--d:.1s">You bring a real school problem.<br><em>We build the fix together, live.</em></h2>
+ <p class="kick r">Build session · 30 minutes</p>
+ <h2 class="r" style="--d:.1s">You bring a real school problem.<br><em>We walk through building the fix together.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="case3">
   <div class="cs pane" data-s="1"><span class="lab">Step 1 · you name it</span><h3>A chore or a snag</h3><p>A workflow you repeat, or a problem you keep running&nbsp;into.</p>
    <ul class="agd-ex" aria-label="Examples from teachers"><li>“I rewrite the same parent email every&nbsp;week.”</li><li>“Tracking which students turned in&nbsp;drafts.”</li><li>“Making one reading at three&nbsp;levels.”</li></ul></div>
   <span class="cs-ar" data-s="2" aria-hidden="true">→</span>
-  <div class="cs pane" data-s="2"><span class="lab">Step 2 · we build it live</span><h3>Claude Code writes it</h3><p>An AI tool that builds web apps from plain&nbsp;English.</p>
+  <div class="cs pane" data-s="2"><span class="lab">Step 2 · we build it</span><h3>Claude Code writes it</h3><p>An AI tool that builds web apps from plain&nbsp;English.</p>
    <div class="agd-cc"><div class="agd-cc-h"><img src="/logos/tools/claude.png" alt=""><b>Claude Code</b><small>by Anthropic</small></div><p class="agd-cc-p"><span>Make a page where I paste a reading and get it at three&nbsp;levels.</span></p><span class="agd-cc-o">A working web app, in&nbsp;minutes</span></div></div>
   <span class="cs-ar" data-s="3" aria-hidden="true">→</span>
   <div class="cs cs-out" data-s="3"><span class="lab">Step 3 · we all iterate</span><h3>Open it, then improve it</h3><p>We try it together and fix what’s off, one plain sentence at a&nbsp;time.</p>
    <ul class="agd-ex" aria-label="Example fixes"><li>“Make the buttons&nbsp;bigger.”</li><li>“Add a column for due&nbsp;dates.”</li><li>“Use simpler words for grade&nbsp;6.”</li></ul></div>
  </div>
  </div>
-</div><aside class="notes">Here's how it works. Step one: call out something from your school week. A workflow you repeat, like rewriting the same parent email every Friday, or a problem you keep running into, like tracking which students have turned in drafts. We'll take a few ideas and the room picks one. Step two: we build it live with Claude Code, an AI assistant from Anthropic that writes the code for a website or a small web app from plain English. We type what you said, almost word for word, and in a few minutes there's a first version on screen. Step three is the important part: we open it together and judge it. Does it actually solve the problem? Is it clear? Would you use it on Monday? Every fix is one more plain sentence, and we keep going until the room says it's good enough. It's the same loop your students would run: choose, judge, and finish. When we're done, we publish it; the link to what we built is on the session page, under slides and resources. Logistics: Claude Code needs a working internet connection, so confirm the venue network, or bring a phone hotspot, before the session starts. Keep a recorded backup of a full build open in another tab; if the network drops, switch to the recording and keep narrating the same three steps.</aside></section>
+</div><aside class="notes">Here's how it works. Step one: call out something from your school week. A workflow you repeat, like rewriting the same parent email every Friday, or a problem you keep running into, like tracking which students have turned in drafts. We'll take a few ideas and the room picks one. Step two: we build it with Claude Code, an AI assistant from Anthropic that writes the code for a website or a small web app from plain English. We type what you said, almost word for word, and in a few minutes there's a first version on screen. Step three is the important part: we open it together and judge it. Does it actually solve the problem? Is it clear? Would you use it on Monday? Every fix is one more plain sentence, and we keep going until the room says it's good enough. It's the same loop your students would run: choose, judge, and finish. When we're done, we publish it; the link to what we built is on the session page, under slides and resources. Logistics: frame this as a build session or walkthrough, never as a guaranteed live demo. If the network holds, run it in Claude Code; if not, show the terminal and walk through a few prepared prompts and the result. Keep a recorded backup open in another tab.</aside></section>
 
 <!-- 23 · Part 4 -->
 <section class="s ae nv sec"><div class="w"><div class="sec-g">
@@ -4391,7 +4446,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <ol class="trk" aria-label="Parts">
   <li><div class="row"><span class="tn">1</span><span class="tt"><b>The case</b><small>What students built</small></span></div></li>
   <li><div class="row"><span class="tn">2</span><span class="tt"><b>Why it worked</b><small>The design</small></span></div></li>
-  <li><div class="row"><span class="tn">3</span><span class="tt"><b>Build one, live</b><small>With the room</small></span></div></li>
+  <li><div class="row"><span class="tn">3</span><span class="tt"><b>Build session</b><small>With the room</small></span></div></li>
   <li class="on"><div class="row"><span class="tn">4</span><span class="tt"><b>Take it back</b><small>What it takes</small></span></div></li>
  </ol>
 </div></div><aside class="notes">Parts one to three were about students: what they built, why it worked, and building one ourselves. Part four is about teachers. Teacher training matters as much as the student program. Teachers need AI to be more productive, so their time goes to students instead of repetitive housekeeping. Then, in the last few minutes: what a school needs to run a week like this, and where Arena School can help.</aside></section>
@@ -4424,10 +4479,10 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <div class="bd r" style="--d:.25s"><div class="r5b-two">
   <div class="pane r5b-c" data-s="1">
    <span class="lab">English · from a teacher we spoke with</span>
-   <h3>Poem notes, one click&nbsp;away</h3>
-   <div class="r5b-vis r5b-poem" aria-hidden="true"><p class="r5b-pl">Shall I <mark>compare</mark> thee to a <mark class="b">summer’s day</mark>?</p><div class="r5b-notes"><span><i>1</i>The question the whole sonnet&nbsp;answers</span><span><i>2</i>Beautiful, but it&nbsp;fades</span></div></div>
-   <p>Instead of annotating a poem live while the class watches, the teacher builds the notes&nbsp;beforehand.</p>
-   <p>In class, one click highlights each line with its&nbsp;note.</p>
+   <h3>Literary devices, one click&nbsp;away</h3>
+   <div class="r5b-vis r5b-poem" aria-hidden="true"><span class="r6-src">Sonnet 18 · lines 5–7</span><p class="r5b-pl">Sometime too hot the <mark><small>Metaphor</small><span>eye of heaven</span></mark> shines,</p><p class="r5b-pl">And often is <mark class="b"><small>Personification</small><span>his gold complexion</span></mark> dimm’d;</p><p class="r5b-pl">And every <mark class="c"><small>Alliteration</small><span>fair from fair</span></mark> sometime declines,</p></div>
+   <p>Instead of color-coding a poem by hand at the board, the teacher tags each literary device before&nbsp;class.</p>
+   <p>In class, one click reveals each device and its&nbsp;label.</p>
    <p class="r5b-out">Class time goes to discussing the&nbsp;poem.</p>
   </div>
   <div class="pane r5b-c" data-s="2">
@@ -4439,7 +4494,7 @@ section.s>.pgno i{font-style:normal;opacity:.6}
    <p class="r5b-out">Students test ideas instead of watching&nbsp;one.</p>
   </div>
  </div></div>
-</div><aside class="notes">Teachers don't only save time with AI. They build their own tools. Here's one from an English teacher we spoke with. Teaching a poem used to mean annotating it live, at the board, while thirty students watched and copied. Now the notes are built before class, and in class one click highlights a line and brings up its note. The class spends that time talking about the poem. (Click.) The second one is an example of what a science or math teacher can build. Instead of searching YouTube for a demo that's almost right, you build a simulation for exactly this lesson: students take a model apart and put it back together, or change the angle of a ramp and watch what happens. They test the idea themselves. Neither teacher writes code. They describe what they want in plain English, the same way we just did together in the live build. That's exactly what we build together with teachers at their own schools.</aside></section>
+</div><aside class="notes">Teachers don't only save time with AI. They build their own tools. Here's one from an English teacher we spoke with. Teaching a poem used to mean annotating it by hand, at the board, while thirty students watched and copied. Now the teacher tags each literary device before class: a metaphor, a personification, an alliteration. In class, one click highlights the phrase and brings up its label. The class spends that time talking about the poem. (Click.) The second one is an example of what a science or math teacher can build. Instead of searching YouTube for a demo that's almost right, you build a simulation for exactly this lesson: students take a model apart and put it back together, or change the angle of a ramp and watch what happens. They test the idea themselves. Neither teacher writes code. They describe what they want in plain English, the same way we just walked through in the build session. That's exactly what we build together with teachers at their own schools.</aside></section>
 
 <!-- 26 · What it takes -->
 <section class="s ae age-own"><div class="w">
