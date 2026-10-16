@@ -268,6 +268,11 @@
     var form = document.getElementById(formId);
     var statusEl = document.getElementById(statusId);
     if (!form) return;
+    if (statusEl && !form.querySelector('.nl-formnote') && form.querySelector('input[type=email]')) {
+      var nlNote = document.createElement('p'); nlNote.className = 'nl-formnote';
+      nlNote.textContent = ZH ? '我们也会为您订阅 Arena 通讯。绝无垃圾邮件，可随时退订。' : 'We’ll also send you Arena Notes, our occasional newsletter. No spam, and you can unsubscribe anytime.';
+      form.insertBefore(nlNote, statusEl);
+    }
 
     function setStatus(msg, kind) {
       if (!statusEl) return;
@@ -323,6 +328,9 @@
 
       setLoading(true);
       setStatus(T.sending);
+      // every email we collect also goes on the Arena Notes list (quiet: no welcome email, no extra ping)
+      if (data.email) fetch('/api/subscribe', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: data.email, role: data.role, lang: ZH ? 'zh' : 'en', source: ('form: ' + subjectPrefix).slice(0, 60), page: location.pathname, quiet: true }) }).catch(function () {});
 
       fetch(action, {
         method: 'POST',

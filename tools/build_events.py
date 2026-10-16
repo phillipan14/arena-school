@@ -65,10 +65,10 @@ PAGES = {
     end_cta=('教育者AI培训','/programs/teacher-training-cn'), end_more=('联系我们的团队','/contact-cn?program=conferences')),
  },
  'isb-winter-2027': {
-  'en': dict(title='Winter Program @ ISB (Jan 5–8, 2027)',
-    desc='Winter Program @ ISB: a short Arena School program at the International School of Beijing, January 5–8, 2027, the last days of ISB’s winter break. Students choose a real problem, build a working product with AI tools, and demo it. Register interest.',
-    eyebrow='Winter Program @ ISB · Jan 5–8, 2027', eyebrow_m='Winter Program · Jan 5–8',
-    h1='Winter Program @ ISB',
+  'en': dict(title='Build Your Own AI Toolkit @ ISB (Jan 5–8, 2027)',
+    desc='Build Your Own AI Toolkit @ ISB: a short Arena School program at the International School of Beijing, January 5–8, 2027, the last days of ISB’s winter break. Students choose a real problem, build a working product with AI tools, and demo it. Register interest.',
+    eyebrow='Build Your Own AI Toolkit @ ISB',
+    h1='Build Your Own AI Toolkit @ ISB',
     lede='In the last days of ISB’s winter break, students choose a problem worth solving, build a working product with AI tools, and show it to a panel. A shorter version of the Entrepreneurship & AI Intensive we ran with ISB students in Beijing in 2026.',
     facts=[('When','Jan 5–8, 2027'),('Where','International School of Beijing'),('For','ISB students')],
     cta=[('Register interest','#register',True),('See all programs','/#programs',False)],
@@ -77,16 +77,16 @@ PAGES = {
           ('Talk to users','Teams interview the people they want to help before they build.'),
           ('Live at a link','With AI coding tools, teams make a working version anyone can open. No coding experience is needed.'),
           ('Demo','Teams present what they built and what they learned.')],
-    form=dict(k='Register interest', h='Hear first when registration opens', p='Leave your details and we will follow up with the full program details. Registering interest is not a commitment.',
+    form=dict(k='Register interest', h='Hear first when registration opens', p='Leave your details and we will follow up with the full program details, including fees. Registering interest is not a commitment.',
       name='Parent or guardian name', email='Email', contact='WeChat ID or phone (optional)', grade='Student’s grade', grades=['Grade 6','Grade 7','Grade 8','Grade 9','Grade 10','Grade 11','Grade 12','Not sure yet'],
       role='I’m a…', roles=['Parent','Student','Something else'], school='School', school_v='International School of Beijing (ISB)', btn='Register interest', sending='Sending…',
       done='Thank you. You are on the list.', note='Our team will reply personally within three working days.'),
     end_k='Proof', end_h='What ISB students built in 2026', end_p='Over five days in Beijing, ISB students built working websites and apps with AI and presented them to judges from Harvard, Stanford, Y Combinator, and AI labs.',
     end_cta=('See results','/results'), end_more=('About the five-day intensive','/programs/product-intensive')),
-  'cn': dict(title='ISB 冬季项目（2027年1月5–8日）',
-    desc='ISB 冬季项目：Arena School 于2027年1月5–8日（ISB 寒假最后几天），在北京顺义国际学校开展的短期项目：学生选择真实问题，借助AI工具做出可用的产品并展示。欢迎登记意向。',
-    eyebrow='ISB 冬季项目 · 2027年1月5–8日', eyebrow_m='冬季项目 · 1月5–8日',
-    h1='ISB 冬季项目',
+  'cn': dict(title='打造专属于你的AI工具箱 @ ISB（2027年1月5–8日）',
+    desc='打造专属于你的AI工具箱 @ ISB：Arena School 于2027年1月5–8日（ISB 寒假最后几天），在北京顺义国际学校开展的短期项目：学生选择真实问题，借助AI工具做出可用的产品并展示。欢迎登记意向。',
+    eyebrow='打造专属于你的AI工具箱 @ ISB',
+    h1='打造专属于你的AI工具箱 @ ISB',
     lede='在 ISB 寒假的最后几天，学生选择一个值得解决的问题，借助AI工具做出可用的产品，并向评委展示。这是我们2026年在北京与 ISB 学生一起开展的“创业与AI集训营”的精简版。',
     facts=[('日期','2027年1月5–8日'),('地点','北京顺义国际学校'),('对象','ISB 学生')],
     cta=[('登记意向','#register',True),('查看全部项目','/index-cn#programs',False)],
@@ -95,7 +95,7 @@ PAGES = {
           ('与用户交流','动手之前，团队先采访他们想帮助的人。'),
           ('上线可访问','借助AI编程工具，团队做出任何人都能打开的可用版本，无需编程基础。'),
           ('展示','团队展示他们做出的成果和收获。')],
-    form=dict(k='登记意向', h='报名开放时第一时间通知您', p='留下您的信息，我们会把完整的项目详情发给您。登记意向不代表报名。',
+    form=dict(k='登记意向', h='报名开放时第一时间通知您', p='留下您的信息，我们会把包括费用在内的完整项目详情发给您。登记意向不代表报名。',
       name='家长姓名', email='邮箱', contact='微信号或电话（选填）', grade='学生年级', grades=['6年级','7年级','8年级','9年级','10年级','11年级','12年级','暂不确定'],
       role='我是', roles=['家长','学生','其他'], school='学校', school_v='北京顺义国际学校（ISB）', btn='登记意向', sending='提交中…',
       done='谢谢！您已登记。', note='我们的团队会在三个工作日内亲自回复。'),
@@ -115,7 +115,7 @@ def form_html(d, lang):
     if not f: return ''
     zh = lang == 'cn'
     opts = lambda xs: ''.join('<option>%s</option>' % E(x) for x in xs)
-    prog = 'ISB Winter Program 2027'
+    prog = 'Build Your Own AI Toolkit @ ISB 2027'
     pick = '请选择' if zh else 'Pick one'
     return f'''<section class="zl-section pc-sec ev-reg" id="register" data-screen-label="Register">
   <div class="container pc-why-grid">
@@ -194,8 +194,11 @@ def main_html(d, lang):
 </main>'''
 
 ONLY = sys.argv[2:]
+# Built by its own program-page builder (arena-school-tools/isb-winter-2027/build_page.py); only rebuilt here if named explicitly.
+HANDBUILT = {'isb-winter-2027'}
 for slug, langs in PAGES.items():
     if ONLY and slug not in ONLY: continue
+    if slug in HANDBUILT and slug not in ONLY: continue
     for lang, d in langs.items():
         zh = lang == 'cn'
         tpl = open(os.path.join(ROOT, 'programs', 'community-dialogues%s.html' % ('-cn' if zh else ''))).read()

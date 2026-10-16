@@ -339,8 +339,8 @@ a.pg-prog:hover .pg-go span, .pg-adult:hover .pg-go span { transform: translateX
 .pg .en-form label.f, .pg .en-form p.f { display: block; margin: 0 0 7px; font: 500 11px/1.3 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--text-ink-muted); }
 .pg .en-form p.f { margin-bottom: 8px; }
 .pg .en-form p.f.fld { margin-top: 20px; }
-.pg .en-form input[type=text], .pg .en-form textarea { width: 100%; font: 400 15.5px/1.4 var(--font-body); padding: 12px 14px; border: 1px solid var(--border-paper); border-radius: 8px; background: #FBF8EF; color: var(--text-ink); transition: border-color .15s, box-shadow .15s; }
-.pg .en-form input[type=text]:focus, .pg .en-form textarea:focus { outline: none; border-color: var(--ink-2, #2F55A8); box-shadow: 0 0 0 3px rgba(47,85,168,.15); }
+.pg .en-form input[type=text], .pg .en-form input[type=email], .pg .en-form textarea { width: 100%; font: 400 15.5px/1.4 var(--font-body); padding: 12px 14px; border: 1px solid var(--border-paper); border-radius: 8px; background: #FBF8EF; color: var(--text-ink); transition: border-color .15s, box-shadow .15s; }
+.pg .en-form input[type=text]:focus, .pg .en-form input[type=email]:focus, .pg .en-form textarea:focus { outline: none; border-color: var(--ink-2, #2F55A8); box-shadow: 0 0 0 3px rgba(47,85,168,.15); }
 .pg .en-form textarea { resize: vertical; min-height: 84px; }
 .pg .en-form .opts2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .pg .en-form .opts3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }

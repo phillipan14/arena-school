@@ -1,0 +1,37 @@
+/* Audience pages (2026-10-16): School leaders (/schools) and Technology teams (/schools/technology).
+   Builds on pages.css (.pg-outs cards, .pg-steps, .pg-proof). Phone rules live in phone/50-pages.css. */
+
+/* Promise cards: links pinned to the card foot so a row's links line up (DESIGN §5.2 equal heights) */
+.aud-outs li { height: 100%; }
+.aud-outs .aud-links { margin-top: auto; padding-top: 4px; display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 14.5px; }
+
+/* Programs row, merged into the promise section: one quiet line of links, not a second catalog */
+.aud-plist { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 22px; margin-top: clamp(22px, 2.4vw, 30px); padding-top: 18px; border-top: 1px solid var(--border-paper, #D4C0AA); }
+.aud-plist-k { font: 500 10.5px/1.35 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--text-ink-muted); }
+:lang(zh) .aud-plist-k { font-size: 12.5px; letter-spacing: .04em; }
+.aud-plist-row { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.aud-plist-row a { font-size: 15px; font-weight: 500; color: var(--accent, #22458A); text-decoration: none; white-space: nowrap; }
+.aud-plist-row a::after { content: " \2192"; }
+.aud-plist-row a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* Technology teams: 4-up promise row */
+@media (min-width: 901px) { .aud-outs.aud-outs-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+/* Technology teams proof: two facts and the results link */
+@media (min-width: 901px) { .pg-proof.aud-proof { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto; } }
+@media (min-width: 761px) and (max-width: 900px) { .pg-proof.aud-proof > .pg-proof-stat:nth-child(2) { border-left: 1px solid var(--pg-line); padding-left: 16px; } .pg-proof.aud-proof > .pg-proof-stat:first-child { border-left: 0; } }
+
+/* Homepage "Who are you?" doors (2026-10-16): four audience doors under the Programs heading.
+   Homepage card surface and hover (DESIGN §6.1). Phones: grouped rows in phone/20-home.css. */
+.who-row { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; margin: 0 0 clamp(28px, 3vw, 40px); }
+.who-k { font: 400 clamp(20px, 1.7vw, 24px)/1.2 var(--font-display); color: var(--ink); white-space: nowrap; }
+.who-doors { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.who-door { position: relative; display: flex; flex-direction: column; gap: 3px; padding: 14px 18px 15px; border: 1px solid var(--border-paper, #D4C0AA); border-radius: 16px; background: #FBF6EF; color: inherit; text-decoration: none; transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease; }
+.who-door b { padding-right: 24px; font: 500 18px/1.2 var(--font-display); color: var(--ink); }
+.who-door span { font-size: 14px; line-height: 1.45; color: var(--text-ink-soft); text-wrap: pretty; }
+.who-door i { position: absolute; right: 16px; top: 15px; font-style: normal; color: var(--ink-2, #2F55A8); transition: transform .2s ease; }
+.who-door:hover, .who-door:focus-visible { border-color: var(--ink-2, #2F55A8); transform: translateY(-2px); box-shadow: 0 18px 40px -22px rgba(11,26,74,.38); }
+.who-door:hover i { transform: translateX(3px); }
+:lang(zh) .who-door b { font-weight: 600; }
+:lang(zh) .who-door span { font-size: 14px; }
+@media (max-width: 900px) { .who-doors { grid-template-columns: 1fr 1fr; } }
+@media (prefers-reduced-motion: reduce) { .who-door, .who-door i { transition: none; } .who-door:hover { transform: none; } }

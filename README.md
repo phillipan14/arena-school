@@ -49,6 +49,7 @@ Shared: `styles.css` (all styling), `motion.js` (animations), `photos/`, `logos/
 
 ## Forms & payments
 - Contact (homepage and `/contact`) and enrollment forms submit via formsubmit.co → phillipan14@gmail.com. Do not change form field `name=` attributes.
+- **One email list.** Every form that asks for an email also adds it to the Arena Notes newsletter (Resend segment "Arena Notes"): POST `/api/subscribe` with `{ email, role, lang, source, page, quiet: true }` (`quiet` skips the welcome email and Slack ping). `onepager.js` (all `.pp-lead-form` forms), `motion.js` (`#partnerForm`), and the enroll pages already do this. Any new form with an email field must do the same and show the notice under its button: "We’ll also send you Arena Notes, our occasional newsletter. No spam, and you can unsubscribe anytime." / "我们也会为您订阅 Arena 通讯。绝无垃圾邮件，可随时退订。" Never promise "no newsletter".
 - `pay-mentorship.html` holds the WeChat Pay QR (`pay/wechat-qr.png`).
 
 ## Deploys

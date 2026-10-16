@@ -192,3 +192,6 @@ html[lang="zh-CN"] .nl-promo-note{font:400 13.5px/1.7 var(--font-body,'Geist'),s
   .nl-sheet.nl-is-promo .nl-form .nl-btn{padding:0 16px;font-size:14px}
 }
 @media (max-height:620px){.nl-promo-note{display:none}}
+
+/* one-line notice under program and contact forms: the email also joins Arena Notes (onepager.js, motion.js) */
+.nl-formnote { margin: 12px 0 0; font-size: 13px; line-height: 1.5; color: var(--text-ink-muted, #6B7287); }
