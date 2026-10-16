@@ -50,3 +50,13 @@ sessions (Schwarzman College staff training, the ACAMIS workshop after Oct 18) a
   (h = 46.5 x aspect^-0.35, 18 to 34px, with optical weight corrections: bold wordmarks smaller, thin serif marks larger).
   The marquee is now opt-in (logo-marquee.js, data-marquee), so the rows are still. Wording untouched.
   `/tmp/pro-pass/cred-after-{1440,390}.png`, `cred-after-home-1440.png`.
+
+## Schools (school leaders, EN + CN)
+- **r0:** hero, why it fits, programs (tabs), how a partnership works (with a proof row and the credibility strip), FAQ,
+  next step. Good bones; no statement of the constraints leaders weigh, no external evidence, no case detail.
+- **r1:** added constraints to ways through (staff time, board evidence, tools and child protection, school context;
+  answers use the hand-off, demo day, data rules, and the 8 to 12 week adaptation the page already describes), research
+  (RAND: 54% of students use AI, 45% of principals with policies, over 80% of students not taught, 61% of parents worried
+  about critical thinking), cases (ISB, Bodley Academy, Schwarzman), tools row, one FAQ item.
+  Critique: the partnership section's proof row repeated the three facts the new cases now carry in full.
+- **r2:** dropped that proof row (the photo and the credibility strip stay). Checked CN. 9 sections.

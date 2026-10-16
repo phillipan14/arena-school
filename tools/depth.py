@@ -73,6 +73,27 @@ STATS = {
         src=dict(en='RAND, AI Use in Schools Is Quickly Increasing but Guidance Lags Behind, September 2025',
                  cn='RAND，《学校AI使用快速增长，但指导滞后》，2025年9月'),
         url='https://www.rand.org/pubs/research_reports/RRA4180-1.html'),
+    'rand-students-use': dict(
+        n='54%', unit=None,
+        en='of U.S. students said they used AI for school in 2025, up more than 15 points in one to two years.',
+        cn='的美国学生表示在2025年将AI用于学习，比一两年前高出15个百分点以上。',
+        src=dict(en='RAND, AI Use in Schools Is Quickly Increasing but Guidance Lags Behind, September 2025',
+                 cn='RAND，《学校AI使用快速增长，但指导滞后》，2025年9月'),
+        url='https://www.rand.org/pubs/research_reports/RRA4180-1.html'),
+    'rand-parents': dict(
+        n='61%', unit=None,
+        en='of parents agreed that greater use of AI will harm students’ critical-thinking skills.',
+        cn='的家长认为，更多地使用AI会损害学生的批判性思维能力。',
+        src=dict(en='RAND, AI Use in Schools Is Quickly Increasing but Guidance Lags Behind, September 2025',
+                 cn='RAND，《学校AI使用快速增长，但指导滞后》，2025年9月'),
+        url='https://www.rand.org/pubs/research_reports/RRA4180-1.html'),
+    'rand-false': dict(
+        n='1 in 2', unit=None,
+        en='students said they are worried they will be falsely accused of using AI to cheat.',
+        cn='的学生表示，担心自己会被误认为用AI作弊。',
+        src=dict(en='RAND, AI Use in Schools Is Quickly Increasing but Guidance Lags Behind, September 2025',
+                 cn='RAND，《学校AI使用快速增长，但指导滞后》，2025年9月'),
+        url='https://www.rand.org/pubs/research_reports/RRA4180-1.html'),
 }
 
 TOOL_NAMES = {'openai': 'ChatGPT', 'claude': 'Claude', 'deepseek': 'DeepSeek', 'kimi': 'Kimi', 'perplexity': 'Perplexity', 'canva': 'Canva',
@@ -183,6 +204,10 @@ PAGES = {
    faq=[('老师需要注册新账号吗？', '不会引入新工具。培训在贵校已经认可的系统上进行。')])),
 }
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from depth_pages import MORE  # noqa: E402
+PAGES.update(MORE)
+
 
 def head(k, h, l=None):
     return '<header class="ds-head reveal"><span class="ds-eyebrow">%s</span><h2 class="ds-h2">%s</h2>%s</header>' % (k, h, '<p class="ds-lede">%s</p>' % l if l else '')
@@ -228,16 +253,17 @@ def apply(s, c, lang, proof_mode=None):
     else:
         i = s.index('</section>', s.index('cine-hero')) + len('</section>')
         s = s[:i] + '\n\n' + a + '\n' + s[i:]
-        m = re.search(r'(?s)<section[^>]*data-screen-label="Proof">.*?</section>', s)
+        m = re.search(r'(?s)<section[^>]*data-screen-label="(?:Proof|Proof and team)">.*?</section>', s)
         if m and proof_mode == 'keep_cred':
             # the proof section keeps the credibility strip; its one-line facts move into the cases
             sec = re.sub(r'(?s)\s*<ul class="el-proof reveal">.*?</ul>', '', m.group(0))
             s = s[:m.start()] + b + '\n' + sec + s[m.end():]
         elif m:
             s = s[:m.start()] + b + s[m.end():]
-        else:
-            j = s.find('<section', s.find('data-screen-label="FAQ"') - 200)
-            j = s.rfind('<section', 0, s.find('data-screen-label="FAQ"'))
+        else:   # no proof row: the cases go before the FAQ, or before the next step when there is no FAQ
+            k = s.find('data-screen-label="FAQ"')
+            k = k if k > 0 else s.find('data-screen-label="Next step"')
+            j = s.rfind('<section', 0, k)
             s = s[:j] + b + '\n' + s[j:]
     anchor = c.get('research_before')
     j = s.find('data-screen-label="%s"' % anchor) if anchor else -1
@@ -246,6 +272,8 @@ def apply(s, c, lang, proof_mode=None):
     # FAQ: the depth items, marked, after the page's own
     s = re.sub(r'<details data-depth>.*?</details>', '', s)
     items = ''.join('<details data-depth><summary>%s</summary><p>%s</p></details>' % qa for qa in c['faq'])
+    if not items or 'data-screen-label="FAQ"' not in s:
+        return s
     k = s.rfind('</details>', 0, s.find('</div>', s.rfind('<details', 0, s.find('data-screen-label="Next step"'))))
     if k > 0:
         k += len('</details>')
@@ -262,6 +290,8 @@ if __name__ == '__main__':
         p = os.path.join(ROOT, f)
         s = open(p, encoding='utf-8').read()
         t = apply(s, cfg[lang], lang, cfg.get('proof_mode'))
+        for rx in cfg.get('drop', []):   # legacy rows that the depth sections now cover
+            t = re.sub(rx, '', t)
         if t != s:
             n += 1
             if not check:

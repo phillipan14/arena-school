@@ -33,3 +33,4 @@ page above 760px; `ds.css` linked on every page; "Learning approach" added to th
 | Teachers (AI for Educators), EN + CN | depth pass: pressures, research, cases, tools, FAQ | thin (5 sections) | yes: ds-ps, ds-stats, ds-cases, ds-tools (tools/depth.py teachers); log in DEPTH-LOG.md | 4a1c1f9 |
 | Technology teams, EN + CN | depth pass: risks, research, cases, tools, FAQ; hero photos | thin proof row | yes: tools/depth.py technology; hero laptop/mentors/duo | 165c2c3 |
 | Credibility strip (every page that carries it) | logo rows | mixed sizes, marquee | yes: css/cred.css from tools/cred_css.py | 165c2c3 |
+| Schools (leaders), EN + CN | depth pass: constraints, research, cases, tools, FAQ | no evidence | yes: tools/depth.py schools | depth-schools |
