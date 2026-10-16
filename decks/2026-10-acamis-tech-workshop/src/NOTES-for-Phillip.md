@@ -1,5 +1,35 @@
 # Notes for Phillip: ACAMIS deck restructure (Oct 16)
 
+## Pass 8 (Oct 16, late night): diagrams instead of text tables
+
+Your note: the slides should be designed more visually, with more diagrams instead of just text. This pass redraws every text-heavy main slide as a visual. The running order, headlines, numbers, slide copy, and click counts are unchanged, and the Pass 6 look is kept: white and off-white grounds, navy accents, Newsreader, line icons in hairline circles, and the same 600ms fade for every build step. All new styles are in `css/s99zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz-p8.css`, with a matching Pass 8 block at the end of `reader/reader.css` for the phone reader.
+
+**What changed, slide by slide**
+- **2, Contents:** a four-stop route. Each part gets an icon node on one line, and Part 3 is the filled navy node, labelled "the main event". The descriptions are shortened a little. The agenda links (`data-go` 2, 9, 16, 21) still work.
+- **4, About:** the three text cards are now icon cards. "How we teach" is a three-step flow (learners make every decision, AI does the building, real work for a real audience), and "Who we work with" has an icon per group. The logo rows are unchanged.
+- **6, Philosophy:** a chain, Agency → Taste → Craft, each with a large icon (compass, eye, hammer) and a verb (choose, judge, finish, the words slide 24 already uses). "Without it" sits under a dashed rule. The same three icons come back on slide 23.
+- **7, Two studies:** two charts. On the left, a zero line with three columns: without AI, plain ChatGPT (a bar dropping to −17%), and the hints-not-answers tutor (a check mark on the line, "largely avoided the drop"). On the right, two bars on one scale: an active-learning class (1×) and the AI tutor built on the same methods (2×). The footnote is unchanged.
+- **8, Framework:** a cycle. The four strands sit around a ring (01 top left, then clockwise) with arrows between them, and the center reads "The learner decides". In each card, icons mark the three rows: the learner decides, AI helps, the teacher asks. "Then the next question starts the cycle again" sits under the ring.
+- **9, Assessment:** an iceberg. Above the waterline is the tip, "The product: what AI can polish". Below it, a navy panel holds "The thinking behind it: what we assess", the four outcomes with their icons, and the evidence (process journal, drafts, recorded defense). "In practice: used with ISB students, summer 2026" now sits at the top right of the panel.
+- **14, Bodley case:** the four steps are a path of icon nodes (found, sketched, built, changed), with a dashed loop from "Changed it" back to "Built it" to show the revision. The learning outcomes are now three icon chips, using the icons from slide 9.
+- **16, Learning goals (the slide you sent):** a five-day journey. Across the top are days 1 to 5, with their icons and slide 12's day names. Each learning goal is one row: a bar spans the days that built it (pick a problem and a plan on day 1, test with users on days 1 to 3, ship on day 2 and price on day 4, rebuild on day 3 and defend on day 5), and an artifact card on the right shows what students showed. The closing line is unchanged.
+- **18, Teachers' questions:** each question is a speech bubble with its icon, answered underneath next to a check mark.
+- **19, Time back:** 31% is a bar chart of planning time, without AI and with AI, with the cut 31% shown dashed. 5.9 hours sits beside six calendar icons for "about six weeks a school year". The grading-timer card is unchanged.
+- **23, Coach:** the role shift is drawn as two icon states (a book for "the person with the answers", speech bubbles for "the coach who asks the questions") with an arrow between them. Each question card has its skill icon from slide 6.
+- **24, The big picture:** the four takeaways are four stops on one line (scale, presentation, hammer, calendar). Start on Monday is the filled navy stop.
+- **Not redrawn:** 1, 3, 10, 17, and 22 (the photo cover and Part slides), 5 (the question), 11 and 15 (photo slides), 12 (already a timeline), 13 (the tool map), 20 (already a mock-up of each tool), 21 (already a three-step flow with a Claude Code mock-up), 25 (contact), and the backup slides.
+
+**Speaker notes.** Three notes described the old column layout, so I changed only those words: slide 8 "Read each column top to bottom" became "Read each card top to bottom", and "In every column" became "In every card". Slide 16 "one per column" became "one per row, and the days of the week that built each one". Nothing else in the notes changed.
+
+**Rules held.** No new numbers. The charts plot only the deck's existing −17%, 2×, 31%, and 5.9 hours, and the tutor column has no number, because the paper says only "largely mitigated". There are no em dashes, no cohort size, no new photos, and no new names. Six Lucide icons were added to `icons/`: calendar, eye, check, arrow-right, arrow-down, and monitor.
+
+**Checks.** `contain.py --georgia` is 0 on every line, including the phone letterbox and phone type-size passes. `reader_check.py` says "reader OK", and I looked at every redrawn slide on the phone. `shots.py` reports no slide taller than 1080 and no page errors. One change to a check script: `contain.py` now treats the slide 8 ring like the existing `.ring2` diagram, so the center disk sitting on the ring isn't counted as an overlap. **`export.py --out /tmp/p8export` (a dry run) succeeded:** both PDFs are 36 pages. The presenting PDF is 5.6 MB, and `slides-en.pdf` is 5.9 MB, right at the cap. The real `export.py` was **not** run, so the public PDF and slide images still show Pass 7. Run it before deploying. (On this machine, only `/usr/bin/python3` has `pypdf`.)
+
+**Calls to confirm**
+- **Slide 7's tutor column** is a check mark on the zero line, not a bar, so it doesn't imply a number the paper doesn't give. Say if you'd rather drop that column.
+- **Slide 2** now labels Part 3 "the main event", which the notes already say. Easy to remove.
+- **Slide 16's research row** runs across days 1 to 3, as the old table said, with one label in the middle.
+
 ## Pass 6 (Oct 16, late): the Arena "pro" design system
 
 This is a visual pass only. Pass 5's structure, running order, headlines, and narrative are unchanged. The only copy edits are the slide 4 logo labels and the slide 15 photo caption, plus the two speaker-note lines that describe them.

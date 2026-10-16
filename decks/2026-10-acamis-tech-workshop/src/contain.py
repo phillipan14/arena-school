@@ -63,7 +63,7 @@ JS = r"""([idx, tol, onlyNums]) => {
    const a=items[i],b=items[j];
    if(a.contains(b)||b.contains(a))continue;
    if(a.closest('figure')&&a.closest('figure')===b.closest('figure'))continue;
-   if(a.closest('.ring2,.dn,.pg-m')&&a.closest('.ring2,.dn,.pg-m')===b.closest('.ring2,.dn,.pg-m'))continue;
+   if(a.closest('.ring2,.dn,.pg-m,.p8-ring')&&a.closest('.ring2,.dn,.pg-m,.p8-ring')===b.closest('.ring2,.dn,.pg-m,.p8-ring'))continue;
    if(a.closest('.lr')&&a.closest('.lr')===b.closest('.lr')&&media(a)&&media(b))continue;
    if(a.closest('.ag-fill')||b.closest('.ag-fill'))continue;
    if(a.closest('.grow-line')||b.closest('.grow-line'))continue;
