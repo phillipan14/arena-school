@@ -19,6 +19,8 @@
   --xf-hold: 6s; --xf-fade: 1.4s;
   --kb-dur: 20s; --kb-scale: 1.07; --kb-tx: -3%; --kb-ty: -1.5%;
   --drift-dur: 22s; --drift-scale: 1.07; --drift-tx: -2.5%; --drift-ty: -1.5%;
+  /* Texture: the deck's dot grid over hero photos (css/cine.css .cine-dots; DOTS-BRIEF) */
+  --tex-dots-c: rgba(201, 214, 242, .9); --tex-dots-s: 22px; --tex-dots-o: .22;
   --pro-h1: clamp(34px, 1.1rem + 2.1vw, 52px);
   --pro-h2: clamp(26px, .95rem + 1.25vw, 36px);
   --paper-art: #F5F7FA; --riso-tint: none;

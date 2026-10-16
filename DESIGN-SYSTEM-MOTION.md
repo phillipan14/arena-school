@@ -22,6 +22,19 @@ photos always move; Reduce Motion gets a gentler version, never none.
 | `--drift-dur` | 22s, alternate | 30s | framed photos |
 | `--drift-scale` / `--drift-tx` / `--drift-ty` | 1.07 / −2.5% / −1.5% | 1.03 / −1% / −0.5% | framed photos |
 
+## Texture: the deck dot grid (DOTS-BRIEF, Oct 16)
+Copied exactly from the ACAMIS deck's photo divider slides: selector `.p6-dots` in
+`~/arena-school/decks/2026-10-acamis-tech-workshop/src/css/s99zzzzzzzzzzzzzzzzzzzzzzzzzzzzz-p6.css` (working copy).
+| Token | Desktop | Phones and tablets (≤900px) |
+|---|---|---|
+| `--tex-dots-c` | rgba(201, 214, 242, .9) | same |
+| `--tex-dots-s` (grid) | 22px (dot 1px, soft edge to 1.6px) | 26px |
+| `--tex-dots-o` | .22, `mix-blend-mode: screen` | .14 |
+Mask: `linear-gradient(100deg, #000 0%, rgba(0,0,0,.55) 45%, transparent 80%)`, so the grid fades toward the photo's
+bright side. On the site it is `.cine-dots` (css/cine.css): static (the deck drifts it; the site does not), above the
+photo and navy shade, below captions and text, `pointer-events: none`. It replaces the old JS particle field
+(riso-particles.js no longer loads on hero pages).
+
 ## Rules
 - **Hero:** 3 photos. Crossfade cycle = 3 × hold (18s; 21s under Reduce Motion); slot *i* starts at *i* × hold − fade,
   so photo 1 is fully in at load. Ken Burns runs continuously on the `img` (ease-in-out, back and forth), independent

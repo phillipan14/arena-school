@@ -152,7 +152,7 @@ def block(keys, zh, todo, home):
     caps = ''.join(cap(k, i, n, zh) for i, k in enumerate(keys))
     note = '\n<!-- TODO-PHOTO: %s (fallback photos until then) -->' % todo if todo else ''
     return ('<!-- cine:start -->%s\n<div class="cine-media n-%d%s" aria-hidden="true">%s</div>'
-            '<div class="cine-shade" aria-hidden="true"></div><div class="cine-field-light" aria-hidden="true"></div>'
+            '<div class="cine-shade" aria-hidden="true"></div><div class="cine-dots" aria-hidden="true"></div>'
             '<div class="cine-caps n-%d" aria-hidden="true">%s</div>\n<!-- cine:end -->' % (note, n, ' is-home' if home else '', slides, n, caps))
 
 
