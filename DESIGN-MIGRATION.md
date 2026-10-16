@@ -30,3 +30,4 @@ page above 760px; `ds.css` linked on every page; "Learning approach" added to th
 | About, Contact, Enroll (EN + CN) | sections, heads | pages.css | yes: ds-section, ds-head (tools/page_ds.py about); forms keep their components | 05ae5ed |
 | AI Fundamentals @ ISB (winter), ACAMIS session, ISB parent coffee (EN + CN) | sections, heads, FAQ | program-pages.css, events | yes: ds-section, ds-head, ds-faq (tools/page_ds.py events) | ae2bf12 |
 | CN twins | follow their EN page; Chinese headings measure in em | | yes, with each group | chunks 1 to 6 |
+| Teachers (AI for Educators), EN + CN | depth pass: pressures, research, cases, tools, FAQ | thin (5 sections) | yes: ds-ps, ds-stats, ds-cases, ds-tools (tools/depth.py teachers); log in DEPTH-LOG.md | depth-teachers |

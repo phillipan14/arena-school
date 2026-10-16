@@ -1,0 +1,194 @@
+"""Depth sections for audience and program pages (DEPTH-BRIEF, Oct 16, 2026), EN and CN.
+
+Per page, between markers, idempotent:
+  <!-- depth:a -->  right after the hero: problems -> how Arena answers each (ds-ps), then what the research says (ds-stats)
+  <!-- depth:b -->  replaces the thin one-line proof section: case studies from real Arena work (ds-cases) + tools (ds-tools)
+  FAQ items appended to the page's FAQ list (marked data-depth).
+Only real facts: problems and answers restate what the page and its sources already say; stats come from STATS
+(each opened and quoted in STATS-SOURCES.md); cases describe only what existing pages state. No em dashes.
+CN is marked for JJ review. Components: css/ds.css. Log of design rounds: DEPTH-LOG.md.
+  python3 tools/depth.py PAGE [--check]        pages: teachers, technology, ...
+"""
+import json
+import os
+import re
+import sys
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ICONS = json.load(open(os.path.join(ROOT, 'tools', 'lucide_icons.json')))['icons']
+
+
+def ic(name):
+    return ('<svg class="ds-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" '
+            'stroke-linejoin="round" aria-hidden="true" focusable="false">%s</svg>' % ICONS[name])
+
+
+STATS = {
+    'gallup-hours': dict(
+        n='5.9', unit=dict(en='hours', cn='小时'),
+        en='a week saved, by their own estimate, among teachers who use AI at least weekly: about six weeks over a school year.',
+        cn='每周至少使用一次AI的教师自己估算的每周节省时间，一学年约合六周。',
+        src=dict(en='Gallup and Walton Family Foundation, survey of 2,232 U.S. public K-12 teachers, spring 2025',
+                 cn='Gallup 与 Walton Family Foundation，2025年春季对2,232名美国公立中小学教师的调查'),
+        url='https://news.gallup.com/poll/691967/schools-struggling-keep-teachers-students.aspx'),
+    'eef-planning': dict(
+        n='31%', unit=None,
+        en='less lesson-planning time for teachers in an English trial who used ChatGPT with a guide. An expert panel found no difference in quality.',
+        cn='的备课时间平均节省：在英格兰的一项随机试验中，配合使用指南使用ChatGPT的教师做到了这一点；专家评审认为课程资源质量没有差别。',
+        src=dict(en='Education Endowment Foundation trial, evaluated by NFER, reported March 2025',
+                 cn='Education Endowment Foundation 试验，NFER 评估，2025年3月发布'),
+        url='https://www.nfer.ac.uk/blogs/ai-help-or-hindrance/'),
+    'rand-use': dict(
+        n='53%', unit=None,
+        en='of English, math, and science teachers said they used AI for school in 2025, up more than 15 points in one to two years.',
+        cn='的英语语言艺术、数学和科学教师表示在2025年将AI用于教学，比一两年前高出15个百分点以上。',
+        src=dict(en='RAND, AI Use in Schools Is Quickly Increasing but Guidance Lags Behind, September 2025',
+                 cn='RAND，《学校AI使用快速增长，但指导滞后》，2025年9月'),
+        url='https://www.rand.org/pubs/research_reports/RRA4180-1.html'),
+    'rand-integrity': dict(
+        n='34%', unit=None,
+        en='of teachers reported school or district policies on AI use related to academic integrity.',
+        cn='的教师表示，所在学校或学区有关于AI使用与学术诚信的政策。',
+        src=dict(en='RAND, AI Use in Schools Is Quickly Increasing but Guidance Lags Behind, September 2025',
+                 cn='RAND，《学校AI使用快速增长，但指导滞后》，2025年9月'),
+        url='https://www.rand.org/pubs/research_reports/RRA4180-1.html'),
+}
+
+TOOL_NAMES = {'openai': 'ChatGPT', 'claude': 'Claude', 'deepseek': 'DeepSeek', 'kimi': 'Kimi', 'perplexity': 'Perplexity', 'canva': 'Canva',
+              'figma': 'Figma', 'cursor': 'Cursor', 'github': 'GitHub', 'vercel': 'Vercel'}
+
+PAGES = {
+ 'teachers': dict(stem='programs/teacher-training', en=dict(
+   ps_k='What teachers face', ps_h='Four pressures, <em>four answers.</em>',
+   ps_l='The questions we hear from teachers before every session, and how each session is built around them.',
+   pk='The pressure', sk='How we answer it',
+   ps=[('clock', 'No time to learn one more thing', 'Planning, grading, and differentiation already fill the week.',
+        'hammer', 'One task, one tool, in the session', 'Each teacher brings a task from a class they teach now and leaves with a tool made with AI.'),
+       ('file-text', 'Unclear rules on tools and data', 'Which tools are allowed, and what student data may go into them, is often still being decided.',
+        'school', 'Your approved tools, your data rules', 'We work only on the tools your school approves, and agree the data rules with your technology team first.'),
+       ('search-check', 'Polished work that hides the thinking', 'Students can hand in work AI helped produce, and the final product alone does not show who did the thinking.',
+        'list-checks', 'Assess the process', 'Drafts, reflections, and the reasons students give for each change, so the thinking is visible.'),
+       ('refresh-cw', 'Training that does not reach Monday', 'A generic demo is hard to apply to the lesson you teach next week.',
+        'route', 'Start from one part of one class', 'Teachers keep the tool and the prompt behind it, and each department gets a follow-up.')],
+   st_k='What the research says', st_h='Teachers are already using AI. <em>The rules have not caught up.</em>',
+   st_l='Four findings from recent studies. Each links to its source.',
+   stats=['gallup-hours', 'eef-planning', 'rand-use', 'rand-integrity'], src_k='Source', research_before='How we work with teachers',
+   cs_k='Where we have done this', cs_h='Built with teachers, <em>on their own work.</em>',
+   cases=[dict(k='Tsinghua University · Staff training', h='Schwarzman College', p='Training for staff built around their own work, with their judgment in charge. The same format as AI for Educators.',
+               dl=[('Who', 'Staff, Schwarzman College'), ('Format', 'Hands-on workshop'), ('Taught by', 'Phillip An')], a=('/results#tsinghua', 'See results')),
+          dict(k='Shanghai American School · A teacher’s tools', h='Ben, English teacher', p='Two small tools for his own classes: a poem annotator that marks literary devices, and a view of which students are missing which piece of knowledge.',
+               dl=[('Subject', 'English'), ('Tools', 'Poem annotator; Who is missing what')], a=('#tools', 'See the tools')),
+          dict(k='Next · ACAMIS Technology Conference', h='Keystone Academy, Beijing', p='A 60-minute hands-on workshop for teachers and tech coaches, built on a case study from the International School of Beijing.',
+               dl=[('When', 'Sunday, October 18, 2026'), ('For', 'Teachers and tech coaches')], a=('/events/acamis-tech-2026', 'Session details'), next=True)],
+   tl_k='Tools we often work with', tools=['openai', 'claude', 'deepseek', 'kimi', 'perplexity', 'canva'],
+   tl_note='Or whatever your school has approved. The tool matters less than the habit of checking every result.',
+   faq=[('What do teachers keep afterward?', 'The tool they made and the prompt behind it, to reuse and share with colleagues.'),
+        ('Can it be for one department only?', 'Yes. A hands-on workshop for one department is one of the three formats; a school-wide training gives each department its own session and a follow-up.')]),
+  cn=dict(
+   ps_k='老师面对的难题', ps_h='四个难题，<em>四种做法。</em>',
+   ps_l='每次培训前老师们最常提出的问题，以及每次培训如何围绕它们来设计。',
+   pk='难题', sk='我们的做法',
+   ps=[('clock', '没有时间再学一样新东西', '备课、批改和分层教学已经占满了一周。',
+        'hammer', '一项任务，一个工具，当场做好', '每位老师带来自己正在教的一门课里的一项任务，离开时带走一个用AI做出的工具。'),
+       ('file-text', '工具和数据规则还不明确', '哪些工具可以用、哪些学生数据可以放进去，很多学校还在商定。',
+        'school', '用贵校认可的工具，按贵校的数据规则', '我们只使用贵校认可的工具，并先和贵校技术团队商定数据规则。'),
+       ('search-check', '作品光鲜，看不出背后的思考', '学生可以交上AI帮忙做出的作品，只看成品，看不出思考出自谁。',
+        'list-checks', '评估过程', '草稿、反思，以及学生每次修改背后的理由，让思考被看见。'),
+       ('refresh-cw', '培训到了周一就用不上', '泛泛的演示，很难用到下周要上的那节课。',
+        'route', '从一门课里的一小部分出发', '老师留下做好的工具和背后的提示词，每个教研组之后还有跟进。')],
+   st_k='研究怎么说', st_h='老师已经在用AI，<em>规则还没跟上。</em>',
+   st_l='来自近期研究的四项发现，每一项都附有来源链接。',
+   stats=['gallup-hours', 'eef-planning', 'rand-use', 'rand-integrity'], src_k='来源', research_before='How we work with teachers',
+   cs_k='我们做过的', cs_h='和老师一起，<em>从他们自己的工作出发。</em>',
+   cases=[dict(k='清华大学 · 教职员工培训', h='苏世民书院', p='为苏世民书院教职员工开展的培训，从他们手头的实际工作出发，关键判断始终由他们自己把握。形式与我们的教育者AI培训一致。',
+               dl=[('对象', '苏世民书院教职员工'), ('形式', '实操工作坊'), ('主讲', '安广宁')], a=('/results-cn#tsinghua', '查看成果')),
+          dict(k='上海美国学校 · 一位老师的工具', h='英文老师 Ben', p='为自己的课堂做的两个小工具：一个在诗歌旁标出修辞手法，一个一眼看出哪些学生还没掌握哪个知识点。',
+               dl=[('学科', '英文'), ('工具', '诗歌批注；谁还没掌握哪个知识点')], a=('#tools', '看看这些工具')),
+          dict(k='即将举办 · ACAMIS 技术大会', h='北京市鼎石学校', p='面向教师和技术教练的60分钟实操工作坊，以北京顺义国际学校的案例为基础。',
+               dl=[('时间', '2026年10月18日（周日）'), ('对象', '教师和技术教练')], a=('/events/acamis-tech-2026-cn', '查看活动'), next=True)],
+   tl_k='我们常用的工具', tools=['openai', 'claude', 'deepseek', 'kimi', 'perplexity', 'canva'],
+   tl_note='或者贵校已经认可的任何工具。工具本身不如核查每一个结果的习惯重要。',
+   faq=[('培训结束后，老师能留下什么？', '自己做好的工具和背后的提示词，可以反复使用，也可以分享给同事。'),
+        ('可以只面向一个教研组吗？', '可以。面向一个教研组的动手工作坊就是三种形式之一；全校培训则会为每个教研组各安排一场，之后再跟进。')])),
+}
+
+
+def head(k, h, l=None):
+    return '<header class="ds-head reveal"><span class="ds-eyebrow">%s</span><h2 class="ds-h2">%s</h2>%s</header>' % (k, h, '<p class="ds-lede">%s</p>' % l if l else '')
+
+
+def block_a(c, lang):
+    rows = ''.join('<li class="reveal"><div class="ds-ps-p">%s<span class="k">%s</span><h3>%s</h3><p>%s</p></div><span class="ds-ps-arrow" aria-hidden="true"></span>'
+                   '<div class="ds-ps-s">%s<span class="k">%s</span><h3>%s</h3><p>%s</p></div></li>'
+                   % (ic(pi), c['pk'], ph, pp, ic(si), c['sk'], sh, sp) for pi, ph, pp, si, sh, sp in c['ps'])
+    stats = ''
+    for sid in c['stats']:
+        s = STATS[sid]
+        unit = '<small>%s</small>' % s['unit'][lang] if s['unit'] else ''
+        stats += ('<li><span class="ds-stat-n">%s%s</span><p class="ds-stat-t">%s</p><p class="ds-stat-src">%s: <a href="%s" rel="noopener" target="_blank">%s</a></p></li>'
+                  % (s['n'], unit, s[lang], c['src_k'], s['url'], s['src'][lang]))
+    jj = '<!-- JJ review: depth sections CN copy (DEPTH-BRIEF, Oct 16, 2026) -->\n' if lang == 'cn' else ''
+    return ('<!-- depth:a -->\n%s<section class="ds-section" id="pressures" data-screen-label="Pressures"><div class="container">%s<ol class="ds-ps">%s</ol></div></section>\n<!-- /depth:a -->'
+            % (jj, head(c['ps_k'], c['ps_h'], c['ps_l']), rows),
+            '<!-- depth:r -->\n<section class="ds-section is-alt" id="research" data-screen-label="Research"><div class="container">%s<ul class="ds-stats reveal" style="--n:%d">%s</ul></div></section>\n<!-- /depth:r -->'
+            % (head(c['st_k'], c['st_h'], c['st_l']), len(c['stats']), stats))
+
+
+def block_b(c):
+    cases = ''
+    for x in c['cases']:
+        dl = ''.join('<dt>%s</dt><dd>%s</dd>' % kv for kv in x['dl'])
+        cases += ('<li class="ds-case%s reveal"><span class="ds-eyebrow%s">%s</span><h3>%s</h3><p>%s</p><dl>%s</dl><a class="tlink" href="%s">%s →</a></li>'
+                  % (' is-next' if x.get('next') else '', ' is-muted' if x.get('next') else '', x['k'], x['h'], x['p'], dl, x['a'][0], x['a'][1]))
+    tools = ''.join('<li><img src="/logos/tools/sm/%s.webp" alt="" width="24" height="24" loading="lazy" decoding="async" />%s</li>' % (t, TOOL_NAMES[t]) for t in c['tools'])
+    return ('<!-- depth:b -->\n<section class="ds-section" id="cases" data-screen-label="Cases"><div class="container">%s<ul class="ds-cases" style="--n:%d">%s</ul>'
+            '<div class="reveal" style="margin-top:var(--space-8)"><span class="ds-eyebrow" style="margin-bottom:var(--space-4)">%s</span><ul class="ds-tools">%s</ul><p class="ds-tools-note">%s</p></div></div></section>\n<!-- /depth:b -->'
+            % (head(c['cs_k'], c['cs_h']), len(c['cases']), cases, c['tl_k'], tools, c['tl_note']))
+
+
+def apply(s, c, lang):
+    (a, r), b = block_a(c, lang), block_b(c)
+    # the research section sits before the section labelled c['research_before'] (or right after pressures)
+    s = re.sub(r'(?s)<!-- depth:r -->.*?<!-- /depth:r -->\n?', '', s)
+    s = re.sub(r'(?s)(<!-- depth:a -->.*?<!-- /depth:a -->)\n<section class="ds-section is-alt" id="research".*?</section>\n', r'\1\n', s)
+    if '<!-- depth:a -->' in s:
+        s = re.sub(r'(?s)<!-- depth:a -->.*?<!-- /depth:a -->', lambda m: a, s)
+        s = re.sub(r'(?s)<!-- depth:b -->.*?<!-- /depth:b -->', lambda m: b, s)
+    else:
+        i = s.index('</section>', s.index('cine-hero')) + len('</section>')
+        s = s[:i] + '\n\n' + a + '\n' + s[i:]
+        m = re.search(r'(?s)<section[^>]*data-screen-label="Proof">.*?</section>', s)
+        if m:
+            s = s[:m.start()] + b + s[m.end():]
+        else:
+            j = s.find('<section', s.find('data-screen-label="FAQ"') - 200)
+            j = s.rfind('<section', 0, s.find('data-screen-label="FAQ"'))
+            s = s[:j] + b + '\n' + s[j:]
+    anchor = c.get('research_before')
+    j = s.find('data-screen-label="%s"' % anchor) if anchor else -1
+    j = s.rfind('<section', 0, j) if j > 0 else s.index('<!-- /depth:a -->') + len('<!-- /depth:a -->') + 1
+    s = s[:j] + r + '\n' + s[j:]
+    # FAQ: the depth items, marked, after the page's own
+    s = re.sub(r'<details data-depth>.*?</details>', '', s)
+    items = ''.join('<details data-depth><summary>%s</summary><p>%s</p></details>' % qa for qa in c['faq'])
+    k = s.rfind('</details>', 0, s.find('</div>', s.rfind('<details', 0, s.find('data-screen-label="Next step"'))))
+    if k > 0:
+        k += len('</details>')
+        s = s[:k] + items + s[k:]
+    return s
+
+
+if __name__ == '__main__':
+    page = sys.argv[1]
+    check = '--check' in sys.argv
+    cfg = PAGES[page]
+    n = 0
+    for lang, f in (('en', cfg['stem'] + '.html'), ('cn', cfg['stem'] + '-cn.html')):
+        p = os.path.join(ROOT, f)
+        s = open(p, encoding='utf-8').read()
+        t = apply(s, cfg[lang], lang)
+        if t != s:
+            n += 1
+            if not check:
+                open(p, 'w', encoding='utf-8').write(t)
+    print(('Would change' if check else 'Changed') + ' %d pages' % n)
