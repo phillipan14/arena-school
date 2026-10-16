@@ -43,3 +43,9 @@ page above 760px; `ds.css` linked on every page; "Learning approach" added to th
 | College Portfolio Workshop, EN + CN | depth pass: gaps, research, cases, tools | thin stats row | yes: tools/depth.py | 2a430bc |
 | Year-Long Project Mentorship, EN + CN | depth pass: gaps, research, cases, tools | thin stats row | yes: tools/depth.py | bfdaafd |
 | AI Advantage Bootcamp, EN + CN | depth pass: gaps, research, cases, tools | thin stats row | yes: tools/depth.py | 9da1055 |
+| About, EN + CN | depth pass sized to the page | thin | yes: tools/depth.py | d5f0fa8 |
+| Results, EN + CN | depth pass sized to the page | thin | yes: tools/depth.py | 863c1dc |
+| Contact, EN + CN | depth pass sized to the page | thin | yes: tools/depth.py | 185402c |
+| AI Fundamentals @ ISB (winter), EN + CN | depth pass sized to the page | thin | yes: tools/depth.py | 45c3a59 |
+| ACAMIS session, EN + CN | depth pass sized to the page | thin | yes: tools/depth.py | 379d301 |
+| ISB parent coffee, EN + CN | depth pass sized to the page | thin | yes: tools/depth.py | 6495559 |
