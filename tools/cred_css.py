@@ -13,8 +13,8 @@ import subprocess
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 K, LO, HI = 46.5, 18, 34
-WEIGHT = {'yc': .8, 'apple': .88, 'tsinghua-lockup': 1.05, 'isb': 1.12, 'schwarzman': .95,   # optical weight: bold marks smaller,
-          'caltech': .74, 'deloitte': .7, 'kimi': .72, 'goldman': .84, 'microsoft-ai': .92, 'brown': 1.12, 'harvard': 1.08, 'mckinsey': 1.15}   # thin serif marks larger
+WEIGHT = {'yc': .62, 'apple': .6, 'kimi-wordmark': .66, 'tsinghua-lockup': 1.05, 'isb': 1.12, 'schwarzman': .95,   # optical weight: bold marks smaller,
+          'caltech': .74, 'deloitte': .7, 'kimi': .72, 'goldman': .84, 'microsoft-ai': .92, 'brown': 1.12, 'harvard': 1.08, 'mckinsey': .86}   # thin serif marks larger
 CTX = ['.pro-logos', '.hp-cred-row', '.el-partners', '.aib-row', '.pc-b-logos', '.pg-proof-logos']
 
 
@@ -56,6 +56,11 @@ html body main :is(.pro-logos > span, .hp-cred-lab, .el-partners > .el-k) { marg
 html body main :is(.pro-logos, .hp-cred-row, .el-partners) ul, html body main .hp-cred-row .hp-marq { display: grid !important; grid-template-columns: repeat(auto-fill, minmax(var(--cred-cell), 1fr)) !important;
   gap: var(--space-4) var(--space-5) !important; margin: 0 !important; padding: 0 !important; list-style: none; width: auto !important; transform: none !important; animation: none !important; overflow: visible !important; }
 html body main .el-partners ul { display: flex !important; flex-wrap: wrap; gap: var(--space-4) var(--space-8) !important; }
+/* logo rows: one equal gap between marks, so short marks (Apple, Y Combinator) leave no holes; one line from 1280 */
+html body main :is(.pro-logos, .hp-cred-row) ul, html body main .hp-cred-row .hp-marq { display: flex !important; flex-wrap: wrap !important; align-items: center !important;
+  justify-content: flex-start !important; gap: var(--space-4) clamp(2rem, 3.6vw, 3.25rem) !important; }
+@media (min-width: 1280px) { html body main :is(.pro-logos, .hp-cred-row) ul, html body main .hp-cred-row .hp-marq { flex-wrap: nowrap !important; } }
+html body main :is(.pro-logos, .hp-cred-row) li { flex: none !important; }
 html body main .el-partners li span { white-space: nowrap; }
 html body main :is(.pro-logos, .hp-cred-row, .el-partners) li { display: flex !important; align-items: center !important; gap: var(--space-3) !important; min-height: var(--space-8) !important;
   margin: 0 !important; padding: 0 !important; border: 0 !important; background: none !important; }
@@ -66,7 +71,9 @@ html body main :is(.el-partners, .aib-row) img { filter: none !important; opacit
 @media (max-width: 760px) {
   html body main :is(.pro-logos, .hp-cred-row, .el-partners) { grid-template-columns: 1fr !important; row-gap: var(--space-3) !important; text-align: left !important; }
   html body main :is(.pro-logos > span, .hp-cred-lab, .el-partners > .el-k) { text-align: left !important; justify-self: start !important; }
-  html body main :is(.pro-logos, .hp-cred-row, .el-partners) ul, html body main .hp-cred-row .hp-marq { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: var(--space-3) var(--space-4) !important; }
+  html body main :is(.pro-logos, .hp-cred-row) ul, html body main .hp-cred-row .hp-marq { gap: var(--space-3) var(--space-5) !important; }
+  html body main :is(.pro-logos, .hp-cred-row) li { min-height: var(--space-6) !important; }
+  html body main :is(.pro-logos, .hp-cred-row) img { max-height: 22px !important; }
   html body main .el-partners ul { gap: var(--space-2) !important; flex-direction: column; }
   html body main .el-partners img { max-height: 20px; transform: none !important; }
   html body main :is(.pro-logos, .hp-cred-row, .el-partners) li { min-height: var(--space-7) !important; }

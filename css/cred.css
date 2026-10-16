@@ -12,6 +12,11 @@ html body main :is(.pro-logos > span, .hp-cred-lab, .el-partners > .el-k) { marg
 html body main :is(.pro-logos, .hp-cred-row, .el-partners) ul, html body main .hp-cred-row .hp-marq { display: grid !important; grid-template-columns: repeat(auto-fill, minmax(var(--cred-cell), 1fr)) !important;
   gap: var(--space-4) var(--space-5) !important; margin: 0 !important; padding: 0 !important; list-style: none; width: auto !important; transform: none !important; animation: none !important; overflow: visible !important; }
 html body main .el-partners ul { display: flex !important; flex-wrap: wrap; gap: var(--space-4) var(--space-8) !important; }
+/* logo rows: one equal gap between marks, so short marks (Apple, Y Combinator) leave no holes; one line from 1280 */
+html body main :is(.pro-logos, .hp-cred-row) ul, html body main .hp-cred-row .hp-marq { display: flex !important; flex-wrap: wrap !important; align-items: center !important;
+  justify-content: flex-start !important; gap: var(--space-4) clamp(2rem, 3.6vw, 3.25rem) !important; }
+@media (min-width: 1280px) { html body main :is(.pro-logos, .hp-cred-row) ul, html body main .hp-cred-row .hp-marq { flex-wrap: nowrap !important; } }
+html body main :is(.pro-logos, .hp-cred-row) li { flex: none !important; }
 html body main .el-partners li span { white-space: nowrap; }
 html body main :is(.pro-logos, .hp-cred-row, .el-partners) li { display: flex !important; align-items: center !important; gap: var(--space-3) !important; min-height: var(--space-8) !important;
   margin: 0 !important; padding: 0 !important; border: 0 !important; background: none !important; }
@@ -22,7 +27,9 @@ html body main :is(.el-partners, .aib-row) img { filter: none !important; opacit
 @media (max-width: 760px) {
   html body main :is(.pro-logos, .hp-cred-row, .el-partners) { grid-template-columns: 1fr !important; row-gap: var(--space-3) !important; text-align: left !important; }
   html body main :is(.pro-logos > span, .hp-cred-lab, .el-partners > .el-k) { text-align: left !important; justify-self: start !important; }
-  html body main :is(.pro-logos, .hp-cred-row, .el-partners) ul, html body main .hp-cred-row .hp-marq { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: var(--space-3) var(--space-4) !important; }
+  html body main :is(.pro-logos, .hp-cred-row) ul, html body main .hp-cred-row .hp-marq { gap: var(--space-3) var(--space-5) !important; }
+  html body main :is(.pro-logos, .hp-cred-row) li { min-height: var(--space-6) !important; }
+  html body main :is(.pro-logos, .hp-cred-row) img { max-height: 22px !important; }
   html body main .el-partners ul { gap: var(--space-2) !important; flex-direction: column; }
   html body main .el-partners img { max-height: 20px; transform: none !important; }
   html body main :is(.pro-logos, .hp-cred-row, .el-partners) li { min-height: var(--space-7) !important; }
@@ -30,7 +37,7 @@ html body main :is(.el-partners, .aib-row) img { filter: none !important; opacit
 }
 /* per-logo heights: the same optical size for every mark (from each file's aspect ratio) */
 .pro-logos img[src*="/anthropic."], .hp-cred-row img[src*="/anthropic."], .el-partners img[src*="/anthropic."], .aib-row img[src*="/anthropic."], .pc-b-logos img[src*="/anthropic."], .pg-proof-logos img[src*="/anthropic."] { height: 21.6px !important; }
-.pro-logos img[src*="/apple."], .hp-cred-row img[src*="/apple."], .el-partners img[src*="/apple."], .aib-row img[src*="/apple."], .pc-b-logos img[src*="/apple."], .pg-proof-logos img[src*="/apple."] { height: 34px !important; }
+.pro-logos img[src*="/apple."], .hp-cred-row img[src*="/apple."], .el-partners img[src*="/apple."], .aib-row img[src*="/apple."], .pc-b-logos img[src*="/apple."], .pg-proof-logos img[src*="/apple."] { height: 30.0px !important; }
 .pro-logos img[src*="/brown."], .hp-cred-row img[src*="/brown."], .el-partners img[src*="/brown."], .aib-row img[src*="/brown."], .pc-b-logos img[src*="/brown."], .pg-proof-logos img[src*="/brown."] { height: 34px !important; }
 .pro-logos img[src*="/caltech."], .hp-cred-row img[src*="/caltech."], .el-partners img[src*="/caltech."], .aib-row img[src*="/caltech."], .pc-b-logos img[src*="/caltech."], .pg-proof-logos img[src*="/caltech."] { height: 20.9px !important; }
 .pro-logos img[src*="/cicc."], .hp-cred-row img[src*="/cicc."], .el-partners img[src*="/cicc."], .aib-row img[src*="/cicc."], .pc-b-logos img[src*="/cicc."], .pg-proof-logos img[src*="/cicc."] { height: 32.5px !important; }
@@ -39,12 +46,12 @@ html body main :is(.el-partners, .aib-row) img { filter: none !important; opacit
 .pro-logos img[src*="/harvard."], .hp-cred-row img[src*="/harvard."], .el-partners img[src*="/harvard."], .aib-row img[src*="/harvard."], .pc-b-logos img[src*="/harvard."], .pg-proof-logos img[src*="/harvard."] { height: 32.3px !important; }
 .pro-logos img[src*="/isb."], .hp-cred-row img[src*="/isb."], .el-partners img[src*="/isb."], .aib-row img[src*="/isb."], .pc-b-logos img[src*="/isb."], .pg-proof-logos img[src*="/isb."] { height: 33.9px !important; }
 .pro-logos img[src*="/kimi."], .hp-cred-row img[src*="/kimi."], .el-partners img[src*="/kimi."], .aib-row img[src*="/kimi."], .pc-b-logos img[src*="/kimi."], .pg-proof-logos img[src*="/kimi."] { height: 20.5px !important; }
-.pro-logos img[src*="/kimi-wordmark."], .hp-cred-row img[src*="/kimi-wordmark."], .el-partners img[src*="/kimi-wordmark."], .aib-row img[src*="/kimi-wordmark."], .pc-b-logos img[src*="/kimi-wordmark."], .pg-proof-logos img[src*="/kimi-wordmark."] { height: 31.8px !important; }
-.pro-logos img[src*="/mckinsey."], .hp-cred-row img[src*="/mckinsey."], .el-partners img[src*="/mckinsey."], .aib-row img[src*="/mckinsey."], .pc-b-logos img[src*="/mckinsey."], .pg-proof-logos img[src*="/mckinsey."] { height: 24.7px !important; }
+.pro-logos img[src*="/kimi-wordmark."], .hp-cred-row img[src*="/kimi-wordmark."], .el-partners img[src*="/kimi-wordmark."], .aib-row img[src*="/kimi-wordmark."], .pc-b-logos img[src*="/kimi-wordmark."], .pg-proof-logos img[src*="/kimi-wordmark."] { height: 21.0px !important; }
+.pro-logos img[src*="/mckinsey."], .hp-cred-row img[src*="/mckinsey."], .el-partners img[src*="/mckinsey."], .aib-row img[src*="/mckinsey."], .pc-b-logos img[src*="/mckinsey."], .pg-proof-logos img[src*="/mckinsey."] { height: 18.5px !important; }
 .pro-logos img[src*="/microsoft-ai."], .hp-cred-row img[src*="/microsoft-ai."], .el-partners img[src*="/microsoft-ai."], .aib-row img[src*="/microsoft-ai."], .pc-b-logos img[src*="/microsoft-ai."], .pg-proof-logos img[src*="/microsoft-ai."] { height: 27.0px !important; }
 .pro-logos img[src*="/openai."], .hp-cred-row img[src*="/openai."], .el-partners img[src*="/openai."], .aib-row img[src*="/openai."], .pc-b-logos img[src*="/openai."], .pg-proof-logos img[src*="/openai."] { height: 29.6px !important; }
 .pro-logos img[src*="/schwarzman."], .hp-cred-row img[src*="/schwarzman."], .el-partners img[src*="/schwarzman."], .aib-row img[src*="/schwarzman."], .pc-b-logos img[src*="/schwarzman."], .pg-proof-logos img[src*="/schwarzman."] { height: 25.3px !important; }
 .pro-logos img[src*="/stanford."], .hp-cred-row img[src*="/stanford."], .el-partners img[src*="/stanford."], .aib-row img[src*="/stanford."], .pc-b-logos img[src*="/stanford."], .pg-proof-logos img[src*="/stanford."] { height: 26.9px !important; }
 .pro-logos img[src*="/tsinghua."], .hp-cred-row img[src*="/tsinghua."], .el-partners img[src*="/tsinghua."], .aib-row img[src*="/tsinghua."], .pc-b-logos img[src*="/tsinghua."], .pg-proof-logos img[src*="/tsinghua."] { height: 31.9px !important; }
 .pro-logos img[src*="/tsinghua-lockup."], .hp-cred-row img[src*="/tsinghua-lockup."], .el-partners img[src*="/tsinghua-lockup."], .aib-row img[src*="/tsinghua-lockup."], .pc-b-logos img[src*="/tsinghua-lockup."], .pg-proof-logos img[src*="/tsinghua-lockup."] { height: 33.5px !important; }
-.pro-logos img[src*="/yc."], .hp-cred-row img[src*="/yc."], .el-partners img[src*="/yc."], .aib-row img[src*="/yc."], .pc-b-logos img[src*="/yc."], .pg-proof-logos img[src*="/yc."] { height: 34px !important; }
+.pro-logos img[src*="/yc."], .hp-cred-row img[src*="/yc."], .el-partners img[src*="/yc."], .aib-row img[src*="/yc."], .pc-b-logos img[src*="/yc."], .pg-proof-logos img[src*="/yc."] { height: 28.8px !important; }
