@@ -21,10 +21,10 @@ page above 760px; `ds.css` linked on every page; "Learning approach" added to th
 | Home | what we teach | index.css pillars | yes: ds-head, ds-grid, ds-card | 11079d9 |
 | Home | what's next | styles.css cf-evs | yes: ds-list | 11079d9 |
 | Home | contact | index.css partners | partly: ds-section, ds-stack heading (form keeps its styles) | 11079d9 |
-| Home | phones (≤760px) | phone layer | not yet (phone layer) | |
+| All pages | phones (≤760px) | phone layer (phone.css) | not yet: next pass moves the phone layer onto the same tokens | |
 | App Design Workshop, College Portfolio Workshop, Entrepreneurship & AI Intensive, Year-Long Project Mentorship, AI Advantage Bootcamp (EN + CN) | sections, heads, FAQ | program-pages.css, pages.css | yes: ds-section, ds-head, ds-faq (tools/page_ds.py programs); steppers, stats and forms keep their components | f6d3080 |
 | AI for Educators (teachers), Technology teams, Conferences, Community Dialogues (EN + CN) | sections, heads, FAQ | elegance.css, program-pages.css | yes: ds-section, ds-head, ds-faq (tools/page_ds.py teachers); tabs, steps and proof rows keep their components | 7c5552b |
 | Schools (leaders), Partnerships, Results (EN + CN) | sections, heads, FAQ | pages.css, elegance.css | yes: ds-section, ds-head, ds-faq (tools/page_ds.py schools); case studies and tabs keep their components | 540ed98 |
-| About, Contact, Enroll (EN + CN) | sections, heads | pages.css | yes: ds-section, ds-head (tools/page_ds.py about); forms keep their components | chunk 5 |
-| Events (winter, ACAMIS, parent coffee) | all | program-pages.css, events | not yet | |
-| CN twins | follow their EN page | | | |
+| About, Contact, Enroll (EN + CN) | sections, heads | pages.css | yes: ds-section, ds-head (tools/page_ds.py about); forms keep their components | 05ae5ed |
+| AI Fundamentals @ ISB (winter), ACAMIS session, ISB parent coffee (EN + CN) | sections, heads, FAQ | program-pages.css, events | yes: ds-section, ds-head, ds-faq (tools/page_ds.py events) | chunk 6 |
+| CN twins | follow their EN page; Chinese headings measure in em | | yes, with each group | chunks 1 to 6 |

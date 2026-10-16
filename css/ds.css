@@ -100,6 +100,8 @@ html body main .ds-section { padding-block: var(--space-8); }
   html body main .ds-head > .ds-eyebrow { grid-column: 1 / -1; margin: 0 !important; }
   html body main .ds-head > .ds-h2, html body main .ds-stack .ds-h2 { margin: 0 !important; max-width: 24ch !important; font-size: var(--pro-h2) !important; line-height: var(--lh-tight) !important; }
   html body main .ds-head > .ds-h2:only-of-type:last-child { grid-column: 1 / -1; }
+  /* ch is half a CJK character: Chinese headings measure in em */
+  html body main :lang(zh) .ds-head > .ds-h2, html body main :lang(zh) .ds-stack .ds-h2 { max-width: 16em !important; }
   html body main .ds-head > .ds-lede { margin: 0 !important; max-width: var(--measure-narrow) !important; font-size: var(--text-md) !important; line-height: var(--lh-body) !important; }
   html body main .ds-section > .container > .ds-head.is-center { grid-template-columns: 1fr !important; justify-items: center; text-align: center !important; }
   html body main .ds-section > .container > .ds-head.is-center > .ds-h2 { max-width: 30ch !important; grid-column: 1; }
