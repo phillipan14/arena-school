@@ -10,7 +10,7 @@
 
 :root {
   --pro-bg: #FFFFFF; --pro-alt: #F5F7FA; --pro-sunk: #EEF1F6; --pro-line: #E2E6EE; --pro-line-2: #CDD3DF;
-  --pro-ink: #0B1A4A; --pro-ink-2: #2F55A8; --pro-text: #111827; --pro-soft: #465066; --pro-muted: #5D6677;
+  --pro-ink: #0B1A4A; --pro-ink-2: #2F55A8; --pro-action: #22458A; --pro-text: #111827; --pro-soft: #465066; --pro-muted: #5D6677;
   --ease: cubic-bezier(.22, .61, .36, 1); --ease-io: cubic-bezier(.45, 0, .25, 1);
   --dur-fast: 180ms; --dur-ui: 280ms; --dur-reveal: 600ms;
   /* Motion tokens (MOTION2-BRIEF; recorded in the design system, DESIGN-SYSTEM.md).
@@ -105,7 +105,7 @@ html body :is(.rh, .hw-m)::after { display: none !important; }
 html body .rh { font-weight: inherit !important; color: var(--pro-ink-2); }
 
 /* ---------- Buttons: 8px ---------- */
-html body .btn { border-radius: 8px !important; }
+html body .btn { border-radius: var(--radius-ctl) !important; }
 html body .btn-primary { box-shadow: none !important; }
 html body .btn-primary:hover { box-shadow: none !important; }
 html body .btn-ghost { border-color: var(--pro-line-2); background: #fff; }

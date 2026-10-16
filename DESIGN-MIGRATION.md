@@ -21,7 +21,9 @@ page above 760px; `ds.css` linked on every page; "Learning approach" added to th
 | Home | what we teach | index.css pillars | yes: ds-head, ds-grid, ds-card | 11079d9 |
 | Home | what's next | styles.css cf-evs | yes: ds-list | 11079d9 |
 | Home | contact | index.css partners | partly: ds-section, ds-stack heading (form keeps its styles) | 11079d9 |
-| All pages | phones (≤760px) | phone layer (phone.css) | not yet: next pass moves the phone layer onto the same tokens | |
+| All pages | phone base (≤760px): tokens, type, buttons, gutters | phone/00-base.css own --ph-* values | yes: --ph-* now alias the ds tokens (colour, --space-*, --radius-*, --tap); spacing and type snapped to the scale (tools/tokenize_css.py --snap); buttons 8px radius like desktop | chunk P1 |
+| Home, sticky bar, lead form | phones | phone/20-home.css, 90-lead.css | yes: on tokens (same tool) | chunk P1 |
+| Program pages, pages, special pages | phones | phone/30-program, 40-special, 50-pages | not yet | |
 | App Design Workshop, College Portfolio Workshop, Entrepreneurship & AI Intensive, Year-Long Project Mentorship, AI Advantage Bootcamp (EN + CN) | sections, heads, FAQ | program-pages.css, pages.css | yes: ds-section, ds-head, ds-faq (tools/page_ds.py programs); steppers, stats and forms keep their components | f6d3080 |
 | AI for Educators (teachers), Technology teams, Conferences, Community Dialogues (EN + CN) | sections, heads, FAQ | elegance.css, program-pages.css | yes: ds-section, ds-head, ds-faq (tools/page_ds.py teachers); tabs, steps and proof rows keep their components | 7c5552b |
 | Schools (leaders), Partnerships, Results (EN + CN) | sections, heads, FAQ | pages.css, elegance.css | yes: ds-section, ds-head, ds-faq (tools/page_ds.py schools); case studies and tabs keep their components | 540ed98 |
