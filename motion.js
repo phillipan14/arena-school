@@ -87,6 +87,34 @@
   }
 
   /* ---------- Nav dropdowns: hover on desktop, click/tap everywhere ---------- */
+  var reduceMenu = window.matchMedia('(prefers-reduced-motion: reduce)');
+  function animH(m, from, to, done) {
+    if (reduceMenu.matches || !m.animate) { done && done(); return; }
+    m.style.overflow = 'hidden';
+    var a = m.animate([{ height: from + 'px', opacity: from ? 1 : 0 }, { height: to + 'px', opacity: to ? 1 : 0 }], { duration: 240, easing: 'cubic-bezier(.2,.7,.2,1)' });
+    a.onfinish = a.oncancel = function () { m.style.overflow = ''; done && done(); };
+  }
+  function sheetToggle(d, b, open) {
+    dds.forEach(function (o) { if (o !== d && o.classList.contains('open')) sheetToggle(o, o.querySelector('.nav-dd-btn'), false); });
+    var m = d.querySelector('.nav-dd-menu');
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) {
+      d.classList.add('open');
+      d.dataset.justOpened = String(Date.now());
+      if (m) animH(m, 0, m.scrollHeight);
+    } else if (m) {
+      var h = m.scrollHeight;
+      animH(m, h, 0, function () { if (b.getAttribute('aria-expanded') === 'false') d.classList.remove('open'); });
+      if (reduceMenu.matches || !m.animate) d.classList.remove('open');
+    } else d.classList.remove('open');
+  }
+  // the tap guard: a link in a group that opened under 400ms ago ignores the tap
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('.nav-links.open .nav-dd-menu a');
+    if (!a) return;
+    var d = a.closest('.nav-dd'), t = +(d && d.dataset.justOpened || 0);
+    if (Date.now() - t < 400) { e.preventDefault(); e.stopImmediatePropagation(); }
+  }, true);
   function closeDDs(except) {
     dds.forEach(function (d) {
       if (d === except) return;
@@ -98,11 +126,15 @@
     var b = d.querySelector('.nav-dd-btn');
     if (!b) return;
     b.addEventListener('click', function (e) {
+      e.preventDefault();
       e.stopPropagation();
       // On hover devices the menu is already open from hover; a click keeps it open.
-      // Inside the open mobile menu it is always a plain accordion toggle.
+      // Inside the open mobile menu it is always a plain accordion toggle (NAV-BRIEF 4): the height animates
+      // (instant with Reduce Motion), and for a moment after a group opens its links ignore taps, so the tap that
+      // opened it can never land on a link that appears under the finger and navigate.
       var hoverDevice = !menuIsOpen() && window.matchMedia('(hover: hover) and (min-width: 981px)').matches;
       var open = hoverDevice ? true : !d.classList.contains('open');
+      if (menuIsOpen()) { sheetToggle(d, b, open); return; }
       closeDDs(d);
       d.classList.toggle('open', open);
       b.setAttribute('aria-expanded', open ? 'true' : 'false');

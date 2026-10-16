@@ -81,7 +81,7 @@ def report():
         nav, foot = NAV_RX.search(s).group(0), (FOOT_RX.search(s) or re.search('', '')).group(0)
         cn = rel.endswith('-cn.html')
         href = '/learning-approach-cn' if cn else '/learning-approach'
-        menu = ('href="%s"' % href) in re.search(r'(?s)<div class="nav-dd-menu">(?:(?!</div>).)*?/about.*?</div>', nav).group(0)
+        menu = ('href="%s"' % href) in re.search(r'(?s)<div class="nav-dd-menu" id="nav-dd-4">.*?</div>', nav).group(0)
         ft = ('href="%s"' % href) in foot
         bad += not (menu and ft)
         print('%-46s nav menu (desktop + phone): %s   footer: %s' % (rel, 'yes' if menu else 'NO', 'yes' if ft else 'NO'))
