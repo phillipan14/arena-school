@@ -64,7 +64,8 @@ html body main .el-partners li span { font-size: var(--text-sm) !important; colo
 html body main :is(%(rows)s) img { width: auto !important; max-width: 100%% !important; object-fit: contain; filter: grayscale(1) contrast(1.15) !important; opacity: .78 !important; margin: 0 !important; }
 html body main :is(.el-partners, .aib-row) img { filter: none !important; opacity: 1 !important; }
 @media (max-width: 760px) {
-  html body main :is(.pro-logos, .hp-cred-row, .el-partners) { grid-template-columns: 1fr !important; row-gap: var(--space-3) !important; }
+  html body main :is(.pro-logos, .hp-cred-row, .el-partners) { grid-template-columns: 1fr !important; row-gap: var(--space-3) !important; text-align: left !important; }
+  html body main :is(.pro-logos > span, .hp-cred-lab, .el-partners > .el-k) { text-align: left !important; justify-self: start !important; }
   html body main :is(.pro-logos, .hp-cred-row, .el-partners) ul, html body main .hp-cred-row .hp-marq { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: var(--space-3) var(--space-4) !important; }
   html body main .el-partners ul { gap: var(--space-2) !important; flex-direction: column; }
   html body main .el-partners img { max-height: 20px; transform: none !important; }

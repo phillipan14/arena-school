@@ -264,15 +264,7 @@ try{
       return row({href:href,lead:lead,t1:txt(c.querySelector('.hp-cf-t b')),t2:txt(c.querySelector('.hp-cf-r')),cls:'php-person'});
     });
     var box=el('div','php-team');box.appendChild(list(rows));
-    /* credentials: whole navy logos, one static wrap, never cropped, never on a tile */
-    var logos=[],seen={};
-    sec.querySelectorAll('.hp-cred-grid img').forEach(function(i){var s=i.getAttribute('src');if(seen[s])return;seen[s]=1;
-      var n=el('img');n.src=s;n.alt=i.alt;n.loading='lazy';n.decoding='async';var m=(i.getAttribute('style')||'').match(/height:\s*(\d+)/);n.style.height=Math.round((m?+m[1]:30)*.6)+'px';logos.push(n)});
-    if(logos.length){var w=el('div','php-logos');w.setAttribute('role','img');w.setAttribute('aria-label',(zh?'团队曾就读和任职的机构：':'Where our team studied and worked: ')+logos.map(function(n){return n.alt}).join(', '));
-      var tr=el('div','php-logos-track');
-      [0,1].forEach(function(k){var g=el('div','php-logos-set');if(k)g.setAttribute('aria-hidden','true');
-        logos.forEach(function(n){var c=k?n.cloneNode():n;c.alt='';g.appendChild(c)});tr.appendChild(g)});
-      w.appendChild(tr);box.appendChild(w)}
+    /* credentials: the page's own logo grid stays (css/cred.css: one even grid, the same on every page; DEPTH-BRIEF) */
     cf.after(box);sec.classList.add('php-teamsec');
   });
 
