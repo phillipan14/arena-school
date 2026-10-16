@@ -252,3 +252,54 @@ html body main section.cine-hero .pc-facts > li { flex: 0 0 auto !important; }
   html body main #faq .ds-faq details[open] summary:not(:has(.faq-toggle))::after { content: "−"; }
   html body main .ds-faq details > :not(summary) { margin: 0 0 var(--space-4) !important; font-size: var(--text-base) !important; line-height: var(--lh-body) !important; color: var(--pro-soft) !important; }
 }
+
+/* ===== Inner components on the design system (mobile pass M2): steppers, stats rows, forms, tabs, case studies,
+   leader cards. Legacy markup keeps its classes; these rules give every family one look from the tokens, on
+   desktop and phone. ===== */
+
+/* steppers: numbered steps and side-by-side "who does what" cards */
+html body main :is(.el-step, .pg-side) > :is(.el-k, small) { display: block; margin: 0 0 var(--space-2) !important; font: 600 var(--text-xs)/1.3 'Geist', system-ui, sans-serif !important;
+  letter-spacing: .12em !important; text-transform: uppercase !important; color: var(--pro-action) !important; }
+html body main :is(.el-step, .pg-side) > h3 { margin: 0 0 var(--space-2) !important; font: 500 var(--text-lg)/1.3 'Newsreader', Georgia, serif !important; color: var(--pro-ink) !important; letter-spacing: 0 !important; }
+html body main :is(.el-step > .el-p, .pg-side li) { color: var(--pro-soft) !important; }
+@media (min-width: 761px) { html body main :is(.el-step > .el-p, .pg-side li) { font-size: var(--text-sm) !important; line-height: var(--lh-body) !important; } }
+html body main .pg-side { padding: var(--space-6) !important; border: var(--hairline) !important; border-radius: var(--radius-card) !important; background: var(--pro-bg) !important; box-shadow: none !important; }
+html body main .pg-side ul { margin: var(--space-4) 0 0 !important; padding: var(--space-4) 0 0 !important; border-top: var(--hairline) !important; display: grid; gap: var(--space-2); }
+
+/* stats rows: the same figure style as the research rows (ds-stats) */
+html body main :is(.pg-stats, .pc-stats) { border-top: 1px solid var(--pro-ink) !important; border-bottom: 0 !important; }
+html body main :is(.pg-stats > div, .pc-stats > li) > b { font: 400 clamp(1.75rem, 1.3rem + 1.2vw, 2.5rem)/1.05 'Newsreader', Georgia, serif !important; color: var(--pro-ink) !important; letter-spacing: -.01em !important; }
+html body main :is(.pg-stats > div, .pc-stats > li) > b small { font-size: .45em !important; color: var(--pro-soft) !important; }
+html body main :is(.pg-stats p, .pc-stats > li > span) { color: var(--pro-soft) !important; }
+@media (min-width: 761px) { html body main :is(.pg-stats p, .pc-stats > li > span) { font-size: var(--text-sm) !important; line-height: var(--lh-body) !important; } }
+html body main :is(.pg-stats > div + div, .pc-stats > li + li) { border-left: var(--hairline) !important; }
+
+/* forms: one field, one label, one button, on every form */
+html body :is(.cohort-form, .en-form) :is(input:not([type=checkbox]):not([type=radio]):not([type=hidden]), select, textarea) {
+  min-height: var(--tap) !important; padding: var(--space-2) var(--space-3) !important; border: 1px solid var(--pro-line-2) !important; border-radius: var(--radius-ctl) !important;
+  background: var(--pro-bg) !important; font: 400 var(--text-base)/1.4 'Geist', system-ui, sans-serif !important; color: var(--pro-text) !important; box-shadow: none !important; }
+html body :is(.cohort-form, .en-form) textarea { min-height: calc(var(--tap) * 2.2) !important; }
+html body :is(.cohort-form, .en-form) :is(input, select, textarea):focus-visible { outline: 2px solid var(--pro-action) !important; outline-offset: 1px !important; border-color: var(--pro-action) !important; }
+html body :is(.cohort-form, .en-form) :is(label:not(.chk):not(.opt), .fld > span:first-child) { font: 600 var(--text-xs)/1.3 'Geist', system-ui, sans-serif !important; letter-spacing: .1em !important; text-transform: uppercase !important; color: var(--pro-soft) !important; }
+html body :is(.cohort-form, .en-form) :is(button[type=submit], .cf-submit) { min-height: var(--tap) !important; border-radius: var(--radius-ctl) !important; font: 600 var(--text-sm)/1 'Geist', system-ui, sans-serif !important; }
+
+/* tabs: number, label, one underline for the selected tab */
+html body main .el-tab { min-height: var(--tap) !important; font: 500 var(--text-sm)/1.2 'Geist', system-ui, sans-serif !important; color: var(--pro-soft) !important; border-radius: 0 !important; }
+html body main .el-tab small { margin-right: var(--space-2) !important; font: 600 var(--text-xs)/1 'Geist', system-ui, sans-serif !important; color: var(--pro-action) !important; }
+html body main .el-tab[aria-selected="true"] { color: var(--pro-ink) !important; box-shadow: inset 0 -2px 0 var(--pro-action) !important; }
+
+/* case studies: eyebrow, serif title, soft body, the same as ds-case */
+html body main .pg-case :is(.eyebrow, .pg-case-k) { font: 600 var(--text-xs)/1.3 'Geist', system-ui, sans-serif !important; letter-spacing: .12em !important; color: var(--pro-action) !important; }
+html body main .pg-case :is(.pg-case-media, figure) { border-radius: var(--radius-card) !important; overflow: hidden; }
+
+/* leader cards: one card, one name style, one role style */
+html body main :is(.hp-cf-card, .pg-founder) { border: var(--hairline) !important; border-radius: var(--radius-card) !important; background: var(--pro-bg) !important; box-shadow: none !important; }
+html body main :is(.hp-cf-t b, .pg-founder h3) { font-family: 'Newsreader', Georgia, serif !important; font-weight: 500 !important; color: var(--pro-ink) !important; }
+html body main :is(.pg-founder-role, .hp-cf-t small, .hp-cf-role) { font: 600 var(--text-xs)/1.3 'Geist', system-ui, sans-serif !important; letter-spacing: .12em !important; text-transform: uppercase !important; color: var(--pro-action) !important; }
+html body main .ev-speakers .ev-spk { color: var(--pro-ink) !important; text-decoration: underline; text-decoration-color: var(--pro-line-2); text-underline-offset: .2em; }
+
+@media (max-width: 760px) {
+  html body main .pg-side { padding: var(--space-5) !important; }
+  html body main :is(.pg-stats > div + div, .pc-stats > li + li) { border-left: 0 !important; border-top: var(--hairline) !important; }
+  html body main .el-tab { flex: 1 1 0; justify-content: center; }
+}
