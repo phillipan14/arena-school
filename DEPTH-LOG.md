@@ -126,3 +126,19 @@ new photo (EN + CN), and reports anything banned that is left (now 0):
   matters" headings ran to seven lines; Mentorship's FAQ showed two "+" markers.
 - **r2:** bootcamp pairs now map the four gaps to days of the week; long program headings drop to the h3 step at
   30ch; the FAQ marker only draws where the page has no toggle of its own.
+
+## About, Results, Contact, and the three event pages (EN + CN)
+Sized to each page: these are a team page, case studies, a form, and event notices, so they get no invented
+"pressures". What each needed:
+- **About.** r0: hero, team rows, co-founders, what we teach (with a proof row), next step. r1: added "Our work so far",
+  six cards in order (Bodley, ISB, Schwarzman, then ACAMIS, the winter program, and EARCOS as next). Critique: the
+  proof row repeated three of those cards. r2: dropped the proof row.
+- **Results.** r0: hero, three case studies, next step. r1: added "Why this work matters now" (RAND 54%, 53%, over 80%)
+  and "Programs coming up" (ACAMIS, winter, EARCOS, the bootcamp with Lux Scholar). Critique: the photo strip showed the
+  families photo twice (one was a replacement for the banned cohort photo); four cards left an orphan in a 3-column
+  grid. r2: the second tile is now mentors responding to a student's work; four cards use a 2-by-2 grid.
+- **Contact.** r0: hero and form only. r1: a factual FAQ (reply time, on campus, languages, pricing, direct enrollment),
+  first placed above the form. r2: moved below the form.
+- **Winter program, ACAMIS, ISB parent coffee.** r1: research where it fits each audience (students; teachers and
+  districts; students and parents), and "the work behind it" cases; the winter page's one-line proof row became cases.
+  r2: checked order and CN; no further changes needed.

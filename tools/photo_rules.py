@@ -36,7 +36,7 @@ RULES = [
     ('contact', 'isb-hq/isb-cohort-800', 'mentors'),
     ('results', 'mix/pilot-check-800', 'collab'),
     ('results', 'isb-hq/isb-winners-800', 'pitchteam'),
-    ('results', 'isb-hq/isb-cohort-800', 'parents'),
+    ('results', 'isb-hq/isb-cohort-800', 'mentors'),   # the strip already has the families photo
     ('index', 'isb-hq/isb-cohort-800', 'demolaptop'),
     ('index', 'mix/pilot-check-800', 'collab'),
     ('index', 'isb-hq/isb-winners-800', 'pitchteam'),

@@ -216,7 +216,7 @@ def head(k, h, l=None):
 def block_a(c, lang):
     rows = ''.join('<li class="reveal"><div class="ds-ps-p">%s<span class="k">%s</span><h3>%s</h3><p>%s</p></div><span class="ds-ps-arrow" aria-hidden="true"></span>'
                    '<div class="ds-ps-s">%s<span class="k">%s</span><h3>%s</h3><p>%s</p></div></li>'
-                   % (ic(pi), c['pk'], ph, pp, ic(si), c['sk'], sh, sp) for pi, ph, pp, si, sh, sp in c['ps'])
+                   % (ic(pi), c['pk'], ph, pp, ic(si), c['sk'], sh, sp) for pi, ph, pp, si, sh, sp in c.get('ps', []))
     stats = ''
     for sid in c['stats']:
         s = STATS[sid]
@@ -224,10 +224,14 @@ def block_a(c, lang):
         stats += ('<li><span class="ds-stat-n">%s%s</span><p class="ds-stat-t">%s</p><p class="ds-stat-src">%s: <a href="%s" rel="noopener" target="_blank">%s</a></p></li>'
                   % (s['n'], unit, s[lang], c['src_k'], s['url'], s['src'][lang]))
     jj = '<!-- JJ review: depth sections CN copy (DEPTH-BRIEF, Oct 16, 2026) -->\n' if lang == 'cn' else ''
-    return ('<!-- depth:a -->\n%s<section class="ds-section" id="pressures" data-screen-label="Pressures"><div class="container">%s<ol class="ds-ps">%s</ol></div></section>\n<!-- /depth:a -->'
-            % (jj, head(c['ps_k'], c['ps_h'], c['ps_l']), rows),
-            '<!-- depth:r -->\n<section class="ds-section is-alt" id="research" data-screen-label="Research"><div class="container">%s<ul class="ds-stats reveal" style="--n:%d">%s</ul></div></section>\n<!-- /depth:r -->'
-            % (head(c['st_k'], c['st_h'], c['st_l']), len(c['stats']), stats))
+    if not c.get('ps'):
+        a_html = '<!-- depth:a -->\n%s<!-- /depth:a -->' % jj
+    else:
+        a_html = None
+    return (a_html or ('<!-- depth:a -->\n%s<section class="ds-section" id="pressures" data-screen-label="Pressures"><div class="container">%s<ol class="ds-ps">%s</ol></div></section>\n<!-- /depth:a -->'
+            % (jj, head(c['ps_k'], c['ps_h'], c['ps_l']), rows)),
+            '' if not c['stats'] else '<!-- depth:r -->\n<section class="ds-section is-alt" id="research" data-screen-label="Research"><div class="container">%s<ul class="ds-stats reveal" style="--n:%d">%s</ul></div></section>\n<!-- /depth:r -->'
+            % ((head(c['st_k'], c['st_h'], c['st_l']), len(c['stats']), stats) if c['stats'] else ()))
 
 
 def block_b(c):
@@ -236,14 +240,16 @@ def block_b(c):
         dl = ''.join('<dt>%s</dt><dd>%s</dd>' % kv for kv in x['dl'])
         cases += ('<li class="ds-case%s reveal"><span class="ds-eyebrow%s">%s</span><h3>%s</h3><p>%s</p><dl>%s</dl><a class="tlink" href="%s">%s →</a></li>'
                   % (' is-next' if x.get('next') else '', ' is-muted' if x.get('next') else '', x['k'], x['h'], x['p'], dl, x['a'][0], x['a'][1]))
-    tools = ''.join('<li><img src="/logos/tools/sm/%s.webp" alt="" width="24" height="24" loading="lazy" decoding="async" />%s</li>' % (t, TOOL_NAMES[t]) for t in c['tools'])
+    tools = ''.join('<li><img src="/logos/tools/sm/%s.webp" alt="" width="24" height="24" loading="lazy" decoding="async" />%s</li>' % (t, TOOL_NAMES[t]) for t in c.get('tools', []))
     return ('<!-- depth:b -->\n<section class="ds-section" id="cases" data-screen-label="Cases"><div class="container">%s<ul class="ds-cases" style="--n:%d">%s</ul>'
-            '<div class="reveal" style="margin-top:var(--space-8)"><span class="ds-eyebrow" style="margin-bottom:var(--space-4)">%s</span><ul class="ds-tools">%s</ul><p class="ds-tools-note">%s</p></div></div></section>\n<!-- /depth:b -->'
-            % (head(c['cs_k'], c['cs_h']), len(c['cases']), cases, c['tl_k'], tools, c['tl_note']))
+            '%s</div></section>\n<!-- /depth:b -->'
+            % (head(c['cs_k'], c['cs_h'], c.get('cs_l')), (2 if len(c['cases']) == 4 else min(len(c['cases']), 3)), cases,
+               ('<div class="reveal" style="margin-top:var(--space-8)"><span class="ds-eyebrow" style="margin-bottom:var(--space-4)">%s</span><ul class="ds-tools">%s</ul><p class="ds-tools-note">%s</p></div>'
+                % (c['tl_k'], tools, c['tl_note'])) if tools else ''))
 
 
 def apply(s, c, lang, proof_mode=None):
-    (a, r), b = block_a(c, lang), block_b(c)
+    (a, r), b = block_a(c, lang), (block_b(c) if c.get('cases') else '<!-- depth:b -->\n<!-- /depth:b -->')
     if not c['stats']:
         r = ''
     # the research section sits before the section labelled c['research_before'] (or right after pressures)
@@ -270,9 +276,10 @@ def apply(s, c, lang, proof_mode=None):
         elif m:
             s = s[:m.start()] + b + s[m.end():]
         else:   # no proof row: the cases go before the FAQ, or before the next step when there is no FAQ
-            k = s.find('data-screen-label="FAQ"')
+            k = s.find('data-screen-label="%s"' % c['cases_before']) if c.get('cases_before') else -1
+            k = k if k > 0 else s.find('data-screen-label="FAQ"')
             k = k if k > 0 else s.find('data-screen-label="Next step"')
-            j = s.rfind('<section', 0, k)
+            j = s.rfind('<section', 0, k) if k > 0 else s.rfind('</main>')
             s = s[:j] + b + '\n' + s[j:]
     anchor = c.get('research_before')
     j = s.find('data-screen-label="%s"' % anchor) if anchor else -1
@@ -287,7 +294,8 @@ def apply(s, c, lang, proof_mode=None):
         # pages without a FAQ get one built from facts the page already states
         sec = ('<!-- depth:f -->\n<section class="ds-section" id="faq" data-screen-label="Questions"><div class="container">%s<div class="faq ds-faq reveal">%s</div></div></section>\n<!-- /depth:f -->\n'
                % (head(c['faq_k'], c['faq_title']), items))
-        j = s.rfind('<section', 0, s.find('data-screen-label="Next step"'))
+        k = s.find('data-screen-label="Next step"')
+        j = s.rfind('<section', 0, k) if k > 0 else s.rfind('</main>')
         return s[:j] + sec + s[j:]
     if not items or 'data-screen-label="FAQ"' not in s:
         return s
