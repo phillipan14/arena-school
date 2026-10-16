@@ -3,7 +3,7 @@
    eagerly), .cine-shade, .cine-field-light, .cine-caps, and the crest in the hero copy.
    This file: measures the nav so the phone/tablet photo band starts right under it (--cine-top), starts the
    Ken Burns (.is-live), loads the remaining photos once the first has loaded and starts the crossfade
-   (.is-cycling), draws the faint light particle field (riso-particles.js, loaded on demand), and centers the
+   (.is-cycling), draws the faint light particle field (riso-particles.js, started when the page is idle), and centers the
    crest when the copy is centered. Under prefers-reduced-motion: one still photo, no zoom or pan. */
 (function () {
   'use strict';
@@ -39,9 +39,17 @@
     // light dots on black paper, screen-blended over the photo: the black drops out, the dots stay faint
     var opts = { paper: '#000000', paper2: '#000000', ink: '#A9BEEA', ink2: '#FFFFFF', mix: 0.6, ambient: 0.24, calm: 0.95, top: 0.6, fadeB: 0.15,
       calmSel: '.hero-riso-copy, .hero-copy, .el-hero-grid > div:first-child' };
+    if (window.innerWidth <= 900) { opts.pitch = 5.5; opts.dot = 2.2; }   // phones: fewer dots, same look
     var start = function () { if (window.RisoParticles) window.RisoParticles(dots, opts); };
-    if (window.RisoParticles) start();
-    else { var s = document.createElement('script'); s.src = '/riso-particles.js'; s.onload = start; document.head.appendChild(s); }
+    var load = function () {
+      if (window.RisoParticles) start();
+      else { var s = document.createElement('script'); s.src = '/riso-particles.js'; s.onload = start; document.head.appendChild(s); }
+    };
+    // the dots are decoration: start them only after the page has loaded and the main thread is idle,
+    // so they never compete with the first photo or the text for the first paint
+    var idle = function () { (window.requestIdleCallback || function (f) { setTimeout(f, 200); })(load, { timeout: 2500 }); };
+    if (navigator.connection && navigator.connection.saveData) { /* skip decoration on data saver */ }
+    else if (document.readyState === 'complete') idle(); else window.addEventListener('load', idle, { once: true });
   }
 
   var crest = hero.querySelector('.cine-crest');

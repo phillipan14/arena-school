@@ -48,7 +48,13 @@ P = {
 }
 # The Hong Kong still has faces spread across the frame, so on desktop (where the copy sits on the left)
 # it is swapped for another photo in the same slot; it stays in the phone and tablet rotation.
-WIDE_SUB = {'hands': ['duo', 'gesture', 'mentors']}
+WIDE_SUB = {}
+SET = ['duo', 'gesture', 'mentors']   # the only photos that reach 1600px (HERO-RES.md)
+
+
+def hero_set(keys):
+    out = [k for k in keys if k in SET]
+    return out + [k for k in SET if k not in out]
 
 H1 = 'clamp(36px, 1.2rem + 2.8vw, 60px)'
 H1_HOME = 'clamp(36px, 1.2rem + 3vw, 62px)'
@@ -84,9 +90,9 @@ def ver(path):
 
 
 def delay(i, n):
-    """Animation delay for slot i of n: each photo owns a 14s window that starts with a 1.6s fade-in; at load
+    """Animation delay for slot i of n: each photo owns a WIN-second window that starts with a 1.6s fade-in; at load
     the first photo is already 1.6s in (fully visible) and every other photo is mid-gap (invisible)."""
-    return -round((1.6 - 14 * i) % (14 * n), 2) if n > 1 else 0
+    return -round((1.6 - WIN * i) % (WIN * n), 2) if n > 1 else 0
 
 
 def srcset(key):
@@ -104,51 +110,64 @@ def wide_list(keys):
     return out
 
 
-def slide(i, n, nk, wk, home):
-    """One slot: a <picture> with the desktop photo (wk) as a source and the phone/tablet photo (nk) as the img."""
-    w, m = P[wk][6], P[nk][6]
-    kz = w['kz'] if home else round(1 + (w['kz'] - 1) / 2, 3)          # subpages: half the zoom
+WIN = 12      # seconds each photo owns; the crossfade takes 1.6s of the next window
+SIZES = '(min-width: 901px) 1300px, 700px'
+
+
+def sources(key, lazy):
+    """AVIF and WebP <source>s plus the JPEG fallback (tools/hero_images.py)."""
+    base = '/photos/hero/%s' % key
+    ss = lambda ext: ', '.join('%s-%d.%s %dw' % (base, w, ext, w) for w in (800, 1280, 1600))
+    a = 'data-srcset' if lazy else 'srcset'
+    return ('<source type="image/avif" %s="%s" sizes="%s" /><source type="image/webp" %s="%s" sizes="%s" />'
+            % (a, ss('avif'), SIZES, a, ss('webp'), SIZES), base + '-800.jpg', ss('jpg'))
+
+
+def slide(i, n, key, home):
+    """One slot: a <picture> (AVIF, WebP, JPEG). Desktop drift and zoom are shared (css/cine.css);
+    the phone/tablet pan stops are per photo."""
+    m = P[key][6]
     pb = m['pb'] if home else m['pbs']                                   # subpages: a shorter pan
-    style = ('--d:%ss;--z:%s;--kz:%s;--ox:%s%%;--oy:%s%%;--py:%s%%;--pa-m:%s;--pb-m:%s;--ps-m:%s;--pa-t:%s;--pb-t:%s;--ps-t:%s;--pym:%s%%'
-             % (delay(i, n), w['z'], kz, round(w['ox'] * 100, 1), round(w['oy'] * 100, 1), round(w['py'] * 100, 1),
-                m['pa'], pb, m['ps'], m['pat'], m['pbt'], m['pst'], round(m['pym'] * 100, 1)))
-    faces = 'data-wide="%s" data-narrow="%s"' % (html.escape(repr([wk, P[wk][2], P[wk][5]]).replace("'", '"')),
-                                                  html.escape(repr([nk, P[nk][2], P[nk][5]]).replace("'", '"')))
+    px = {'duo': 82, 'gesture': 72, 'mentors': 66}.get(key, 70)   # desktop focus x when the photo is narrowed
+    mk = {'gesture': 18}.get(key, 0)   # desktop: hide more of the left edge (a second face sits there)
+    style = ('--d:%ss;--r:%s;--px:%s%%;--mk0:%s%%;--pa-m:%s;--pb-m:%s;--ps-m:%s;--pa-t:%s;--pb-t:%s;--ps-t:%s;--pym:%s%%'
+             % (delay(i, n), round(P[key][2], 4), px, mk, m['pa'], pb, m['ps'], m['pat'], m['pbt'], m['pst'], round(m['pym'] * 100, 1)))
+    faces = 'data-faces="%s"' % html.escape(repr([key, P[key][2], P[key][5]]).replace("'", '"'))
+    src, jpg, jss = sources(key, i > 0)
+    h = int(round(1600 / P[key][2]))
     if i == 0:
-        src = '<source media="(min-width: 901px)" srcset="%s" sizes="100vw" />' % srcset(wk)
-        img = '<img src="%s" srcset="%s" sizes="100vw" fetchpriority="high" loading="eager"' % (P[nk][0], srcset(nk))
+        img = '<img src="%s" srcset="%s" sizes="%s" width="1600" height="%d" fetchpriority="high" loading="eager"' % (jpg, jss, SIZES, h)
     else:
-        src = '<source media="(min-width: 901px)" data-srcset="%s" sizes="100vw" />' % srcset(wk)
-        img = '<img data-src="%s" data-srcset="%s" sizes="100vw" loading="lazy"' % (P[nk][0], srcset(nk))
+        img = '<img data-src="%s" data-srcset="%s" sizes="%s" width="1600" height="%d" loading="lazy"' % (jpg, jss, SIZES, h)
     return '<div class="cine-slide" style="%s"><picture>%s%s alt="" decoding="async" %s /></picture></div>' % (style, src, img, faces)
 
 
-def cap(nk, wk, i, n, zh):
-    c = 5 if zh else 4
-    d = delay(i, n)
-    if nk == wk:
-        return '<span style="--d:%ss">%s</span>' % (d, html.escape(P[nk][c - 1]))
-    return ('<span style="--d:%ss"><i class="is-w">%s</i><i class="is-n">%s</i></span>'
-            % (d, html.escape(P[wk][c - 1]), html.escape(P[nk][c - 1])))
+def cap(key, i, n, zh):
+    return '<span style="--d:%ss">%s</span>' % (delay(i, n), html.escape(P[key][4] if zh else P[key][3]))
+
+
+def preload(key):
+    base = '/photos/hero/%s' % key
+    return ('<link rel="preload" as="image" type="image/avif" fetchpriority="high" imagesrcset="%s" imagesizes="%s" data-cine />'
+            % (', '.join('%s-%d.avif %dw' % (base, w, w) for w in (800, 1280, 1600)), SIZES))
 
 
 def block(keys, zh, todo, home):
     n = len(keys)
-    wkeys = wide_list(keys)
-    slides = ''.join(slide(i, n, nk, wk, home) for i, (nk, wk) in enumerate(zip(keys, wkeys)))
-    caps = ''.join(cap(nk, wk, i, n, zh) for i, (nk, wk) in enumerate(zip(keys, wkeys)))
+    slides = ''.join(slide(i, n, k, home) for i, k in enumerate(keys))
+    caps = ''.join(cap(k, i, n, zh) for i, k in enumerate(keys))
     note = '\n<!-- TODO-PHOTO: %s (fallback photos until then) -->' % todo if todo else ''
     return ('<!-- cine:start -->%s\n<div class="cine-media n-%d%s" aria-hidden="true">%s</div>'
             '<div class="cine-shade" aria-hidden="true"></div><div class="cine-field-light" aria-hidden="true"></div>'
             '<div class="cine-caps n-%d" aria-hidden="true">%s</div>\n<!-- cine:end -->' % (note, n, ' is-home' if home else '', slides, n, caps))
 
 
-CREST = ('<!-- cine:crest --><div class="cine-crest" aria-hidden="true"><img src="/logos/arena/seal-ivory-512.png" alt="" width="108" height="108" decoding="async" /></div>')
+CREST = ('<!-- cine:crest --><div class="cine-crest" aria-hidden="true"><img src="/logos/arena/seal-ivory-256.png" alt="" width="108" height="108" decoding="async" /></div>')
 
 
 def convert(s, keys, h1, todo, zh, home=False):
     s = re.sub(r'\n?<!-- cine:start -->.*?<!-- cine:end -->', '', s, flags=re.S)
-    s = s.replace(CREST, '')
+    s = re.sub(r'<!-- cine:crest --><div class="cine-crest".*?</div>', '', s)
     m = re.search(r'<section class="((?:hero|hero-riso)\b[^"]*)"([^>]*)>', s)
     a = m.start(); b = s.index('</section>', a)
     hero = s[a:b]
@@ -160,7 +179,7 @@ def convert(s, keys, h1, todo, zh, home=False):
     body = re.sub(r'\s*<div class="hero-scrim"[^>]*></div>', '', body)
     body = re.sub(r'\s*<div class="pro-hero-bg"[^>]*>.*?</div></div>', '', body, flags=re.S)
     body = re.sub(r'\s*(?:<!-- TODO-PHOTO:[^>]*-->\s*)?<div class="(?:container|el-wrap) pro-hero-media">.*?</div>\n?(?=\s*$)', '', body, flags=re.S)
-    body = '\n' + block(keys, zh, todo, home) + body
+    body = '\n' + block(hero_set(keys), zh, todo, home) + body
     copy = re.search(r'<div class="(?:hero-riso-copy|hero-copy[^"]*)">|<div class="el-wrap el-hero-grid[^"]*">\s*<div>', body)
     body = body[:copy.end()] + CREST + body[copy.end():]
     s = s[:a] + open_tag + body + s[b:]
@@ -190,6 +209,9 @@ if __name__ == '__main__':
                 continue
             s = open(page, encoding='utf-8').read()
             n = assets(convert(s, keys, h1, todo, zh, stem == 'index'))
+            # preload only the first hero photo, right after the stylesheets that the hero needs
+            n = re.sub(r'<link rel="preload" as="image"[^>]*data-cine />\n', '', n)
+            n = n.replace('<link rel="stylesheet" href="/css/cine.css', preload(hero_set(keys)[0]) + '\n<link rel="stylesheet" href="/css/cine.css', 1)
             if n != s:
                 changed += 1
                 if not CHECK:

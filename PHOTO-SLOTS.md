@@ -43,3 +43,6 @@ The large photo bands that the photo-led pass put under each program hero are go
 | Contact `/contact` | mentor-feedback, pitch-duo | **Fallback**: TODO-PHOTO: The Arena team, smiling, ready to talk (a team photo) |
 
 Fallback pages show the best general bright photos until a fitting real photo exists; each carries a `<!-- TODO-PHOTO: ... -->` comment in its hero. Still in place below the hero: the School leaders families photo, the winter Day 04 and team photos, and the Conferences format-card placeholders.
+
+## Hero photo set (RES-BRIEF, Oct 16, 2026)
+Every hero now rotates the same three photos (in a page-specific order): `pitch-duo`, `isb-pitch-gesture`, and `mentor-feedback`, served from `photos/hero/` as AVIF/WebP/JPEG. The Hong Kong hands-on still (`collab-stage-poster`) was dropped from every hero: it is a 1024px video frame (HERO-RES.md). Pages marked Fallback above keep their TODO-PHOTO comments.

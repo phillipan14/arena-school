@@ -27,6 +27,39 @@ def stamp(m):
     return 'href="/%s?v=%s"' % (path, ver(path))
 
 
+JS_FLAG = ('<script data-pro>(function(d){d.classList.add("js");'
+           # reserve the winter banner's 40px from the first paint (promo.js fills it): no layout shift
+           'try{if(self===top&&sessionStorage.getItem("arena.promo.bar")!=="x"&&new Date(Date.now()+288e5).toISOString().slice(0,10)<="2027-01-08")d.classList.add("promo-pending")}catch(e){}'
+           '})(document.documentElement)</script>')
+DEAD = re.compile(r'<script src="/(?:riso-field|hero-options|riso-interact|riso-particles)\.js[^"]*"[^>]*></script>\n')
+
+
+def lazy_imgs(seg):
+    """Below-the-fold <img> without a loading attribute: lazy and async-decoded."""
+    def fix(m):
+        tag = m.group(0)
+        if 'loading=' in tag:
+            return tag
+        return tag[:4] + ' loading="lazy" decoding="async"' + tag[4:] if 'decoding=' not in tag else tag[:4] + ' loading="lazy"' + tag[4:]
+    return re.sub(r'<img\b[^>]*>', fix, seg)
+
+
+def polish(s):
+    """Perf/UX polish (RES-BRIEF, Oct 16) for pages with the cine hero: an html.js flag so scroll reveals
+    never hide content when JS fails, no scripts whose targets are gone, and lazy images after the hero."""
+    if 'cine-hero' not in s:
+        return s
+    s = re.sub(r'<script data-pro>.*?</script>\n', '', s)
+    s = re.sub(r'(<meta charset="[^"]*"\s*/?>\n)', lambda m: m.group(1) + JS_FLAG + '\n', s, count=1)
+    s = DEAD.sub('', s)
+    a = s.find('</section>', s.find('cine-hero'))
+    z = s.find('<!-- phone:start -->')   # the phone block belongs to phone_markup.py
+    z = z if z != -1 else len(s)
+    if a != -1 and a < z:
+        s = s[:a] + lazy_imgs(s[a:z]) + s[z:]
+    return s
+
+
 if __name__ == '__main__':
     os.chdir(ROOT)
     link = '<link rel="stylesheet" href="/css/pro.css?v=%s" data-pro>' % ver('css/pro.css')
@@ -45,6 +78,7 @@ if __name__ == '__main__':
             if at != -1:
                 break
         s = s[:at] + link + '\n' + s[at:]
+        s = polish(s)
         if s != o:
             changed += 1
             if not CHECK:

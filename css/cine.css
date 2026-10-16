@@ -5,69 +5,68 @@
    section. Static under prefers-reduced-motion. */
 
 /* ---------- Media layers ----------
-   Each slot (.cine-slide) holds a <picture>: the desktop photo as a <source>, the phone/tablet photo as the <img>.
-   Per-slot vars (written by tools/hero_markup.py): --d (cycle delay), desktop --z (base zoom) --ox/--oy (zoom
-   origin) --py (object-position y); narrow --pa/--pb (pan start/end, 1 = right edge) --ps (still frame) --pym.
-   14s per photo; the photos crossfade over 1.6s. Desktop Ken Burns: a slow zoom about the main face.
-   Phone/tablet: the photo sits in a band under the nav (copy below it) and pans right to left with a slow zoom. */
-.cine-media { position: absolute; inset: 0; z-index: 0; overflow: hidden; background: #0B1A4A; container-type: inline-size; }
-.cine-media { --kzm: 1.035; top: var(--cine-top, 0px); }
-.cine-media.is-home { --kzm: 1.07; }
+   Three real photos per page (tools/hero_markup.py), each a <picture> (AVIF, WebP, JPEG; 1600px is the largest
+   original, see HERO-RES.md). Per-slot vars: --d (cycle delay), --r (aspect), --px (desktop focus x), phone/tablet
+   pan stops --pa/--pb (1 = right edge), --ps (still frame), --pym (focus y).
+   Each photo owns 12s and crossfades into the next over 1.6s (36s cycle).
+   Desktop: the photo is right-anchored at the hero's height (no upscaling past cover), its left edge melting into
+   the navy behind the copy; it drifts right to left with a slow zoom (scale never above 1.07).
+   Phones/tablets: the photo sits in a band under the nav (copy below) and pans right to left with a slow zoom. */
+:root { --ease: cubic-bezier(.22, .61, .36, 1); --ease-io: cubic-bezier(.45, 0, .25, 1); }
+/* the nav's height, so the photo starts under it from the first paint (cine.js refines it to the pixel) */
+section.cine-hero { --cine-top: 75px; }
+@media (max-width: 900px) { section.cine-hero { --cine-top: 56px; } }
+.cine-media { position: absolute; inset: 0; z-index: 0; overflow: hidden; background: #0B1A4A; container-type: size; }
+.cine-media { --kzm: 1.035; --k0: 1.03; --k1: 1.05; --dx: -2%; top: var(--cine-top, 0px); }
+.cine-media.is-home { --kzm: 1.07; --k0: 1.04; --k1: 1.07; --dx: -3%; }
 .cine-slide { --pa: var(--pa-m, 1); --pb: var(--pb-m, .5); --ps: var(--ps-m, .5); }
 .cine-slide { position: absolute; inset: 0; opacity: 0; }
 .cine-slide:first-child { opacity: 1; }
-.cine-slide img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% var(--py, 30%);
-  transform-origin: var(--ox, 50%) var(--oy, 40%); transform: scale(var(--z, 1)); will-change: transform; backface-visibility: hidden; }
+.cine-slide picture { display: contents; }
+.cine-slide img { position: absolute; top: 0; right: 0; height: 100%; width: min(calc(100cqh * var(--r, 1.5)), 82cqw); max-width: none;
+  object-fit: cover; object-position: var(--px, 75%) 30%; transform-origin: 0% 50%; transform: scale(var(--k0));
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, transparent var(--mk0, 0%), rgba(0, 0, 0, .35) calc(var(--mk0, 0%) + 16%), #000 calc(var(--mk0, 0%) + 42%)); mask-image: linear-gradient(90deg, transparent 0, transparent var(--mk0, 0%), rgba(0, 0, 0, .35) calc(var(--mk0, 0%) + 16%), #000 calc(var(--mk0, 0%) + 42%));
+  backface-visibility: hidden; }
+.cine-media.is-live .cine-slide img { will-change: transform; }
 
-.cine-media.n-2.is-cycling .cine-slide, .cine-caps.n-2.is-cycling span { animation: cine-fade-2 28s linear infinite both; animation-delay: var(--d); }
-.cine-media.n-3.is-cycling .cine-slide, .cine-caps.n-3.is-cycling span { animation: cine-fade-3 42s linear infinite both; animation-delay: var(--d); }
-/* each photo: fade in over 1.6s, hold to 14s, fade out over 1.6s while the next fades in, then wait */
-@keyframes cine-fade-2 { 0% { opacity: 0; } 5.7% { opacity: 1; } 50% { opacity: 1; } 55.7% { opacity: 0; } 100% { opacity: 0; } }
-@keyframes cine-fade-3 { 0% { opacity: 0; } 3.8% { opacity: 1; } 33.3% { opacity: 1; } 37.1% { opacity: 0; } 100% { opacity: 0; } }
+.cine-media.n-3.is-cycling .cine-slide, .cine-caps.n-3.is-cycling span { animation: cine-fade 36s linear infinite both; animation-delay: var(--d); }
+/* each photo: fade in over 1.6s, hold to 12s, fade out over 1.6s while the next fades in, then wait */
+@keyframes cine-fade { 0% { opacity: 0; } 4.44% { opacity: 1; } 33.33% { opacity: 1; } 37.78% { opacity: 0; } 100% { opacity: 0; } }
 
 @media (min-width: 901px) {
-  .cine-media.is-live.n-1 .cine-slide img { animation: cine-kb-d-1 14s ease-in-out infinite alternate both; }
-  .cine-media.is-live.n-2 .cine-slide img { animation: cine-kb-d-2 28s linear infinite both; animation-delay: var(--d); }
-  .cine-media.is-live.n-3 .cine-slide img { animation: cine-kb-d-3 42s linear infinite both; animation-delay: var(--d); }
+  .cine-media.is-live.n-3 .cine-slide img { animation: cine-kb-d 36s linear infinite both; animation-delay: var(--d); }
 }
-@keyframes cine-kb-d-1 { from { transform: scale(var(--z)); } to { transform: scale(calc(var(--z) * var(--kz))); } }
-@keyframes cine-kb-d-2 { 0% { transform: scale(var(--z)); animation-timing-function: ease-in-out; } 55.7% { transform: scale(calc(var(--z) * var(--kz))); } 56.5%, 100% { transform: scale(var(--z)); } }
-@keyframes cine-kb-d-3 { 0% { transform: scale(var(--z)); animation-timing-function: ease-in-out; } 37.1% { transform: scale(calc(var(--z) * var(--kz))); } 38%, 100% { transform: scale(var(--z)); } }
+@keyframes cine-kb-d { 0% { transform: translate3d(0, 0, 0) scale(var(--k0)); animation-timing-function: var(--ease-io); }
+  37.78% { transform: translate3d(var(--dx), 0, 0) scale(var(--k1)); }
+  38.6%, 100% { transform: translate3d(0, 0, 0) scale(var(--k0)); } }
 
 /* captions: above the shade, crossfading with their photo */
 .cine-caps { position: absolute; inset: 0; z-index: 4; pointer-events: none; }
 .cine-caps span { position: absolute; right: clamp(16px, 4vw, 56px); bottom: 14px; font-size: 12px; line-height: 1.3; color: rgba(255, 255, 255, .86); text-shadow: 0 1px 8px rgba(8, 15, 38, .6); opacity: 0; }
 .cine-caps span:first-child { opacity: 1; }
 .cine-caps i { font-style: normal; }
-.cine-caps .is-n { display: none; }
+
 
 /* ---------- Phones and tablets: photo band under the nav, copy below, right-to-left pan ---------- */
 @media (max-width: 900px) {
-  .cine-media { --band: clamp(300px, 48svh, 460px); top: var(--cine-top, 56px); bottom: auto; height: var(--band); }
-  .cine-slide img { width: auto; min-width: 122%; max-width: none; height: 100%; object-position: 50% var(--pym, 22%);
+  .cine-media { --band: clamp(300px, 48svh, 460px); top: var(--cine-top, 56px); bottom: auto; height: var(--band); container-type: inline-size; }
+  .cine-slide img { left: 0; right: auto; width: auto; min-width: 122%; height: 100%; object-position: 50% var(--pym, 22%);
+    -webkit-mask-image: none; mask-image: none;
     transform-origin: 50% 40%; transform: translate3d(calc((100cqw - 100%) * var(--pa, 1)), 0, 0); }
-  .cine-media.is-live.n-1 .cine-slide img { animation: cine-kb-m-1 14s ease-in-out infinite alternate both; }
-  .cine-media.is-live.n-2 .cine-slide img { animation: cine-kb-m-2 28s linear infinite both; animation-delay: var(--d); }
-  .cine-media.is-live.n-3 .cine-slide img { animation: cine-kb-m-3 42s linear infinite both; animation-delay: var(--d); }
-  .cine-caps .is-w { display: none; }
-  .cine-caps .is-n { display: inline; }
+  .cine-media.is-live.n-3 .cine-slide img { animation: cine-kb-m 36s linear infinite both; animation-delay: var(--d); }
   .cine-caps span { bottom: auto; top: calc(var(--cine-top, 56px) + clamp(300px, 48svh, 460px) - 26px); right: 16px; font-size: 11px; }
 }
 @media (min-width: 761px) and (max-width: 900px) {
   .cine-slide { --pa: var(--pa-t, 1); --pb: var(--pb-t, .8); --ps: var(--ps-t, .8); }
   .cine-media, .cine-media.is-home { --kzm: 1.03; }
 }
-@keyframes cine-kb-m-1 { from { transform: translate3d(calc((100cqw - 100%) * var(--pa)), 0, 0) scale(1.02); } to { transform: translate3d(calc((100cqw - 100%) * var(--pb)), 0, 0) scale(var(--kzm)); } }
-@keyframes cine-kb-m-2 { 0% { transform: translate3d(calc((100cqw - 100%) * var(--pa)), 0, 0) scale(1.02); animation-timing-function: ease-in-out; }
-  55.7% { transform: translate3d(calc((100cqw - 100%) * var(--pb)), 0, 0) scale(var(--kzm)); }
-  56.5%, 100% { transform: translate3d(calc((100cqw - 100%) * var(--pa)), 0, 0) scale(1.02); } }
-@keyframes cine-kb-m-3 { 0% { transform: translate3d(calc((100cqw - 100%) * var(--pa)), 0, 0) scale(1.02); animation-timing-function: ease-in-out; }
-  37.1% { transform: translate3d(calc((100cqw - 100%) * var(--pb)), 0, 0) scale(var(--kzm)); }
-  38%, 100% { transform: translate3d(calc((100cqw - 100%) * var(--pa)), 0, 0) scale(1.02); } }
+@keyframes cine-kb-m { 0% { transform: translate3d(calc((100cqw - 100%) * var(--pa)), 0, 0) scale(1.02); animation-timing-function: var(--ease-io); }
+  37.78% { transform: translate3d(calc((100cqw - 100%) * var(--pb)), 0, 0) scale(var(--kzm)); }
+  38.6%, 100% { transform: translate3d(calc((100cqw - 100%) * var(--pa)), 0, 0) scale(1.02); } }
 
 .cine-shade { position: absolute; inset: 0; top: var(--cine-top, 0px); z-index: 1; pointer-events: none;
-  background: linear-gradient(90deg, rgba(8, 15, 38, .86) 0%, rgba(8, 15, 38, .74) 30%, rgba(8, 15, 38, .36) 46%, rgba(8, 15, 38, .1) 58%, rgba(8, 15, 38, .1) 100%),
-              linear-gradient(0deg, rgba(8, 15, 38, .5) 0%, transparent 34%); }
+  background: linear-gradient(90deg, rgba(8, 15, 38, .5) 0%, rgba(8, 15, 38, .2) 42%, rgba(8, 15, 38, 0) 60%),
+              linear-gradient(0deg, rgba(8, 15, 38, .45) 0%, transparent 30%); }
 .cine-field-light { position: absolute; inset: 0; z-index: 1; pointer-events: none; mix-blend-mode: screen; opacity: .38; }
 .cine-crest { width: clamp(72px, 7vw, 104px); aspect-ratio: 1; margin: 0 0 20px; opacity: .88; filter: drop-shadow(0 6px 24px rgba(8, 15, 38, .45)); }
 .cine-crest img { width: 100%; height: 100%; display: block; }
@@ -163,3 +162,7 @@ html body main section.cine-hero .hr-rot.is-live > span { visibility: visible; o
 html body main section.cine-hero .hr-rot.is-live > span.is-on { opacity: 1; }
 html body main section.cine-hero .hr-rot.is-live > span.is-out { opacity: 0; }
 @media (prefers-reduced-motion: reduce) { html body main section.cine-hero .hr-rot { transition: none !important; } }
+/* the word ends its line (and on phones, where the line is centered, sits on a line of its own), so when the
+   slot resizes no visible text moves: no layout shift */
+html body main section.cine-hero .hero-riso-h1 .hr-lb { display: block; }
+@media (max-width: 760px) { html body main section.cine-hero .hero-riso-h1 .m-br { display: block; } }

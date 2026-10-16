@@ -11,6 +11,8 @@
 :root {
   --pro-bg: #FFFFFF; --pro-alt: #F5F7FA; --pro-sunk: #EEF1F6; --pro-line: #E2E6EE; --pro-line-2: #CDD3DF;
   --pro-ink: #0B1A4A; --pro-ink-2: #2F55A8; --pro-text: #111827; --pro-soft: #465066; --pro-muted: #5D6677;
+  --ease: cubic-bezier(.22, .61, .36, 1); --ease-io: cubic-bezier(.45, 0, .25, 1);
+  --dur-fast: 180ms; --dur-ui: 280ms; --dur-reveal: 600ms;
   --pro-h1: clamp(34px, 1.1rem + 2.1vw, 52px);
   --pro-h2: clamp(26px, .95rem + 1.25vw, 36px);
   --paper-art: #F5F7FA; --riso-tint: none;
@@ -101,8 +103,12 @@ html body .hero-full .hero-more { display: none !important; }
 }
 
 /* ---------- Motion: gentle reveal (reuses motion.js .reveal / .in), soft crossfades ---------- */
-html body .reveal { transform: translateY(12px); transition: opacity 600ms cubic-bezier(.22, .61, .36, 1), transform 600ms cubic-bezier(.22, .61, .36, 1); }
+html body .reveal { transform: translateY(12px); transition: opacity var(--dur-reveal) var(--ease), transform var(--dur-reveal) var(--ease); }
 html body .reveal.in { transform: none; }
+/* reveals only hide content once JS is known to run (html.js is set by an inline script in <head>) */
+html:not(.js) body .reveal { opacity: 1 !important; transform: none !important; }
+/* the hero is visible from the first paint: no reveal fade on top of the photo crossfade */
+html body main section.cine-hero .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
 @media (prefers-reduced-motion: reduce) {
   html body .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
 }
@@ -133,3 +139,39 @@ html[lang^="zh"] .pro-logos > span { letter-spacing: .04em; font-size: 12.5px; }
 .pro-photo.is-wide { aspect-ratio: 2 / 1; border-radius: 14px; }
 .pro-photo.is-wide img { object-position: var(--focus, 50% 40%); }
 @media (max-width: 760px) { .pro-photo.is-wide { aspect-ratio: 3 / 2; border-radius: 12px; } }
+
+/* ---------- UX polish (RES-BRIEF, Oct 16) ---------- */
+/* anchors land below the sticky nav and banner; smooth only when motion is welcome */
+html { scroll-behavior: auto; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+html body :is([id], section) { scroll-margin-top: calc(var(--promo-h, 40px) + 92px); }
+@media (max-width: 760px) { html body :is([id], section) { scroll-margin-top: calc(var(--promo-h, 40px) + 68px); } }
+
+/* one visible focus ring everywhere */
+html body :is(a, button, summary, [role="tab"], input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid #2F55A8; outline-offset: 3px; border-radius: 6px; box-shadow: 0 0 0 5px rgba(255, 255, 255, .85); }
+html body :is(.cine-hero, .footer, .el-cta, .pp-cta-band, .promo-bar) :is(a, button, summary):focus-visible { outline-color: #FFFFFF; box-shadow: 0 0 0 5px rgba(11, 26, 74, .6); }
+
+/* tap targets: small links and pills get a 44px hit area without changing their look */
+/* (padding with matching negative margin: a bigger hit area, the same layout and look; these links
+   already use ::after for their underline, so no pseudo-element here) */
+html body :is(.tlink, .footer-col a, .footer-contact a, .pg-hero-mail) { padding-block: 12px; margin-block: -12px; }
+html body .promo-x { min-width: 44px; }
+html body .promo-link { min-height: 40px; }
+
+/* forms: clear focus, invalid, loading, and success states */
+html body form :is(input, select, textarea) { transition: border-color var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease); }
+html body form :is(input, select, textarea):focus { border-color: #2F55A8 !important; box-shadow: 0 0 0 3px rgba(47, 85, 168, .2) !important; outline: none; }
+html body form :is(input, select, textarea):user-invalid { border-color: #B42318 !important; box-shadow: 0 0 0 3px rgba(180, 35, 24, .14) !important; }
+html body form .cf-submit[disabled], html body form .cf-submit[aria-busy="true"] { opacity: .75; cursor: progress; }
+html body .cf-status:not(:empty) { margin-top: 10px; font-size: 14px; color: #B42318; }
+html body .pp-lead-done:not([hidden]) { animation: pro-in var(--dur-ui) var(--ease) both; }
+@keyframes pro-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+/* the banner ticker runs on the compositor */
+html body .promo-tm { will-change: transform; }
+@media (prefers-reduced-motion: reduce) { html body .pp-lead-done:not([hidden]) { animation: none; } }
+
+/* the winter banner's space is reserved before promo.js runs (html.promo-pending, set in <head>) */
+html.promo-pending:not(.promo-bar-on) body { padding-top: 40px; }
+html.promo-pending:not(.promo-bar-on) body .nav { top: 40px !important; }

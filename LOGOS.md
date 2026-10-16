@@ -44,3 +44,5 @@ Two rows, "Our team studied at" and "Worked at" (CN: 团队就读于 / 团队曾
 | Kimi (Moonshot AI) | `logos/cred/kimi.png` | Jing Jing Yang: Kimi, international growth |
 
 Pre-existing and unchanged: homepage and program-page credential rows, the About page rows, and the Anthropic / OpenAI "Selected for" strip.
+
+Files (Oct 16, RES-BRIEF): the strips now load 64px-tall WebP copies from `logos/cred/sm/` and `logos/tools/sm/`, made from the PNGs listed above with `cwebp`; the PNGs are unchanged and still used elsewhere.
