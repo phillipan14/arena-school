@@ -127,3 +127,9 @@ html[lang^="zh"] .pro-logos > span { letter-spacing: .04em; font-size: 12.5px; }
 @keyframes pro-tools { to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) { .pro-tools ul { animation: none; flex-wrap: wrap; width: auto; } .pro-tools li[aria-hidden="true"] { display: none; } }
 @media (max-width: 760px) { .pro-logos { grid-template-columns: 1fr; } .pro-logos ul { gap: 12px 22px; } }
+
+/* ---------- Photo-led program heroes: a large real photo band under the hero copy ---------- */
+.pro-hero-media { position: relative; z-index: 2; margin-top: clamp(28px, 4vw, 48px); }
+.pro-photo.is-wide { aspect-ratio: 2 / 1; border-radius: 14px; }
+.pro-photo.is-wide img { object-position: var(--focus, 50% 40%); }
+@media (max-width: 760px) { .pro-photo.is-wide { aspect-ratio: 3 / 2; border-radius: 12px; } }
