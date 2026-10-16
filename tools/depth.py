@@ -272,6 +272,13 @@ def apply(s, c, lang, proof_mode=None):
     # FAQ: the depth items, marked, after the page's own
     s = re.sub(r'<details data-depth>.*?</details>', '', s)
     items = ''.join('<details data-depth><summary>%s</summary><p>%s</p></details>' % qa for qa in c['faq'])
+    s = re.sub(r'(?s)<!-- depth:f -->.*?<!-- /depth:f -->\n?', '', s)
+    if items and 'data-screen-label="FAQ"' not in s and c.get('faq_title'):
+        # pages without a FAQ get one built from facts the page already states
+        sec = ('<!-- depth:f -->\n<section class="ds-section" id="faq" data-screen-label="Questions"><div class="container">%s<div class="faq ds-faq reveal">%s</div></div></section>\n<!-- /depth:f -->\n'
+               % (head(c['faq_k'], c['faq_title']), items))
+        j = s.rfind('<section', 0, s.find('data-screen-label="Next step"'))
+        return s[:j] + sec + s[j:]
     if not items or 'data-screen-label="FAQ"' not in s:
         return s
     k = s.rfind('</details>', 0, s.find('</div>', s.rfind('<details', 0, s.find('data-screen-label="Next step"'))))

@@ -34,3 +34,4 @@ page above 760px; `ds.css` linked on every page; "Learning approach" added to th
 | Technology teams, EN + CN | depth pass: risks, research, cases, tools, FAQ; hero photos | thin proof row | yes: tools/depth.py technology; hero laptop/mentors/duo | 165c2c3 |
 | Credibility strip (every page that carries it) | logo rows | mixed sizes, marquee | yes: css/cred.css from tools/cred_css.py | 165c2c3 |
 | Schools (leaders), EN + CN | depth pass: constraints, research, cases, tools, FAQ | no evidence | yes: tools/depth.py schools | 3d94ced |
+| Partnerships, EN + CN | depth pass: concerns, research, cases, tools, new FAQ | 4 sections | yes: tools/depth.py partnerships | depth-partners |

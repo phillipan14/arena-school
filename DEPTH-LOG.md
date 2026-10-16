@@ -60,3 +60,12 @@ sessions (Schwarzman College staff training, the ACAMIS workshop after Oct 18) a
   about critical thinking), cases (ISB, Bodley Academy, Schwarzman), tools row, one FAQ item.
   Critique: the partnership section's proof row repeated the three facts the new cases now carry in full.
 - **r2:** dropped that proof row (the photo and the credibility strip stay). Checked CN. 9 sections.
+
+## Partnerships (program partners, EN + CN)
+- **r0:** hero, the track, how we work together (with a proof row), next step. No concerns, no evidence, no FAQ.
+- **r1:** added operator concerns to how the track handles each (staffing experts, brand, results families can see,
+  terms; answers from the page's own commitments), research (RAND: 54% of students use AI, over 80% not taught),
+  cases (Bodley Academy, ISB, the AI Advantage Bootcamp with Lux Scholar as next), tools row. Dropped the proof row.
+  Critique: still no FAQ, which every page needs; the hero headline left "A" alone on its first line.
+- **r2:** added a FAQ built from the hero facts (length, group size, language, brand, after the program); kept
+  "A product-building" together. 8 sections.

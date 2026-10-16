@@ -156,6 +156,9 @@ html body main .ds-section { padding-block: var(--space-8); }
   html body main .ds-faq details { border-bottom: var(--hairline) !important; border-top: 0 !important; padding: 0 !important; background: none !important; }
   html body main .ds-faq summary { display: flex !important; align-items: center; justify-content: space-between; gap: var(--space-5); min-height: var(--tap);
     padding: var(--space-5) 0 !important; font: 500 var(--text-lg)/1.35 'Newsreader', Georgia, serif !important; color: var(--pro-ink) !important; cursor: pointer; list-style: none; }
+  html body main .ds-faq summary::-webkit-details-marker { display: none; }
+  html body main .ds-section .ds-faq summary::after { content: "+"; flex: none; font: 400 var(--text-lg)/1 'Geist', system-ui, sans-serif; color: var(--pro-ink-2); }
+  html body main .ds-section .ds-faq details[open] summary::after { content: "−"; }
   html body main .ds-faq details > :not(summary) { max-width: var(--measure); margin: 0 0 var(--space-5) !important; font-size: var(--text-base) !important; line-height: var(--lh-body) !important; color: var(--pro-soft) !important; }
 
   /* contact: the lede column as a stack */
