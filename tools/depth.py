@@ -244,6 +244,8 @@ def block_b(c):
 
 def apply(s, c, lang, proof_mode=None):
     (a, r), b = block_a(c, lang), block_b(c)
+    if not c['stats']:
+        r = ''
     # the research section sits before the section labelled c['research_before'] (or right after pressures)
     s = re.sub(r'(?s)<!-- depth:r -->.*?<!-- /depth:r -->\n?', '', s)
     s = re.sub(r'(?s)(<!-- depth:a -->.*?<!-- /depth:a -->)\n<section class="ds-section is-alt" id="research".*?</section>\n', r'\1\n', s)
@@ -258,6 +260,13 @@ def apply(s, c, lang, proof_mode=None):
             # the proof section keeps the credibility strip; its one-line facts move into the cases
             sec = re.sub(r'(?s)\s*<ul class="el-proof reveal">.*?</ul>', '', m.group(0))
             s = s[:m.start()] + b + '\n' + sec + s[m.end():]
+        elif m and proof_mode == 'program':
+            # program pages: the thin stats row moves into the cases; anything else in the section stays
+            sec = m.group(0)
+            for rx in (r'(?s)\s*<div class="pc-proof-head[^"]*">.*?</div>', r'(?s)\s*<ul class="pc-stats[^"]*">.*?</ul>', r'(?s)\s*<p class="pc-proof-line[^"]*">.*?</p>'):
+                sec = re.sub(rx, '', sec, count=1)
+            inner = re.sub(r'(?s)<[^>]+>|\s', '', sec)
+            s = s[:m.start()] + b + ('\n' + sec if inner else '') + s[m.end():]
         elif m:
             s = s[:m.start()] + b + s[m.end():]
         else:   # no proof row: the cases go before the FAQ, or before the next step when there is no FAQ
@@ -268,7 +277,8 @@ def apply(s, c, lang, proof_mode=None):
     anchor = c.get('research_before')
     j = s.find('data-screen-label="%s"' % anchor) if anchor else -1
     j = s.rfind('<section', 0, j) if j > 0 else s.index('<!-- /depth:a -->') + len('<!-- /depth:a -->') + 1
-    s = s[:j] + r + '\n' + s[j:]
+    if r:
+        s = s[:j] + r + '\n' + s[j:]
     # FAQ: the depth items, marked, after the page's own
     s = re.sub(r'<details (?:class="faq-item" )?data-depth>.*?</details>', '', s)
     items = ''.join('<details data-depth><summary>%s</summary><p>%s</p></details>' % qa for qa in c['faq'])

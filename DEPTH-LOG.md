@@ -115,3 +115,14 @@ new photo (EN + CN), and reports anything banned that is left (now 0):
 | Results: photo strip | prize cheque, cohort photo | presenting to the panel; families at demo day |
 | Homepage gallery | cohort photo, two prize cheque photos | finished product; building together; presenting to the panel |
 | Homepage gallery, Results, Portfolio workshop | Hong Kong classroom with another organization's name on the screen | the same photo with only the screen blurred (`photos/mix/pilot-classroom-noscreen-{800,1600}.webp`) |
+
+## Student program pages (EN + CN): Intensive, App Design, Portfolio, Mentorship, AI Advantage Bootcamp
+- **r0:** each had hero, why it matters, how it runs, a thin "selected programs" stats row, team, FAQ, next step.
+- **r1:** added gaps paired with how the program closes each (taken from each page's own days, phases, or outcomes),
+  research (RAND: 54% of students use AI, over 80% not taught, 1 in 2 worried about false accusations; the bootcamp
+  has none, since no verified workforce figure was in hand), cases replacing the stats row (ISB, Bodley Academy, the
+  winter program as next; mentorship: ISB alumni who continued, Bodley), tools rows, one FAQ item on Mentorship.
+  Critique: the bootcamp's four pairs restated its own "What participants leave with" section; the long "why it
+  matters" headings ran to seven lines; Mentorship's FAQ showed two "+" markers.
+- **r2:** bootcamp pairs now map the four gaps to days of the week; long program headings drop to the h3 step at
+  30ch; the FAQ marker only draws where the page has no toggle of its own.
