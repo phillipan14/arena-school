@@ -108,3 +108,28 @@
 .nx-pmh{padding:10px 0}
 .ae .bd .nx-pmc p{padding:6px 0}
 .ae .bd .nx-pmc p.nx-pmo{padding:11px 0}
+/* pass 3 polish: cards on 26 and 29 carry their weight (no empty middles) */
+.ae .bd .nx-hc{padding:40px 38px 34px;gap:16px}
+.nx-hi svg{width:44px;height:44px}
+.nx-hc>b{font-size:36px;line-height:1.15}
+.ae .bd .nx-hc p{font-size:26px;line-height:1.4}
+.nx-ho{padding-top:18px;font-size:22px;color:var(--ink)}
+.nx-ho small{color:var(--ink2)}
+.ae .bd .nx-lp2 li{padding:38px 32px 32px;gap:14px}
+.nx-lp2 b{font-size:34px;line-height:1.15}
+.ae .bd .nx-lp2 p{font-size:26px;line-height:1.4}
+.nx-li{width:68px;height:68px}.nx-li svg{width:32px;height:32px}
+.nx-pc>b{font-size:30px}
+.ae .bd .nx-pc p{font-size:24px}
+.nx-hc>b{font-size:34px}
+.ae .bd .nx-lp2 li{padding:32px 30px 28px;gap:12px}
+.nx-li{width:60px;height:60px;margin-bottom:4px}.nx-li svg{width:28px;height:28px}
+.nx-lp2 b{font-size:32px}
+.ae .bd .nx-lp2 p{font-size:24px}
+/* ink centering (tools/ink.py): cards 1 and 4 have descender-free last lines */
+.ae.nx-pain .bd .nx-pc:nth-child(1){padding-top:34.85px;padding-bottom:25.15px}
+.ae.nx-pain .bd .nx-pc:nth-child(4){padding-top:34.35px;padding-bottom:25.65px}
+.ae.nx-pain .bd .nx-pc:nth-child(2){padding-top:30.85px;padding-bottom:29.15px}
+.ae.nx-pain .bd .nx-pc:nth-child(1){padding-top:33.6px;padding-bottom:26.4px}
+.ae.nx-pain .bd .nx-pc:nth-child(4){padding-top:33.5px;padding-bottom:26.5px}
+.ae.nx-pain .bd .nx-pc:nth-child(2){padding-top:30.4px;padding-bottom:29.6px}

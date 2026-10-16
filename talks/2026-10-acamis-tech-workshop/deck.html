@@ -4303,6 +4303,47 @@ section.s.age-ty .bd .age-qa p.age-ln.nx-ln{gap:10px 48px}
 .nx-pmh{padding:10px 0}
 .ae .bd .nx-pmc p{padding:6px 0}
 .ae .bd .nx-pmc p.nx-pmo{padding:11px 0}
+/* pass 3 polish: cards on 26 and 29 carry their weight (no empty middles) */
+.ae .bd .nx-hc{padding:40px 38px 34px;gap:16px}
+.nx-hi svg{width:44px;height:44px}
+.nx-hc>b{font-size:36px;line-height:1.15}
+.ae .bd .nx-hc p{font-size:26px;line-height:1.4}
+.nx-ho{padding-top:18px;font-size:22px;color:var(--ink)}
+.nx-ho small{color:var(--ink2)}
+.ae .bd .nx-lp2 li{padding:38px 32px 32px;gap:14px}
+.nx-lp2 b{font-size:34px;line-height:1.15}
+.ae .bd .nx-lp2 p{font-size:26px;line-height:1.4}
+.nx-li{width:68px;height:68px}.nx-li svg{width:32px;height:32px}
+.nx-pc>b{font-size:30px}
+.ae .bd .nx-pc p{font-size:24px}
+.nx-hc>b{font-size:34px}
+.ae .bd .nx-lp2 li{padding:32px 30px 28px;gap:12px}
+.nx-li{width:60px;height:60px;margin-bottom:4px}.nx-li svg{width:28px;height:28px}
+.nx-lp2 b{font-size:32px}
+.ae .bd .nx-lp2 p{font-size:24px}
+/* ink centering (tools/ink.py): cards 1 and 4 have descender-free last lines */
+.ae.nx-pain .bd .nx-pc:nth-child(1){padding-top:34.85px;padding-bottom:25.15px}
+.ae.nx-pain .bd .nx-pc:nth-child(4){padding-top:34.35px;padding-bottom:25.65px}
+.ae.nx-pain .bd .nx-pc:nth-child(2){padding-top:30.85px;padding-bottom:29.15px}
+.ae.nx-pain .bd .nx-pc:nth-child(1){padding-top:33.6px;padding-bottom:26.4px}
+.ae.nx-pain .bd .nx-pc:nth-child(4){padding-top:33.5px;padding-bottom:26.5px}
+.ae.nx-pain .bd .nx-pc:nth-child(2){padding-top:30.4px;padding-bottom:29.6px}
+
+/* ---- s99zzzzzzzzzzzzzzzzzzzzzzz-theme.css ---- */
+/* palette trial (Oct 16): "neutral academic", opt-in with ?theme=acad. Ivory paper, charcoal ink, slate accent, no dot texture.
+   The default Arena palette is untouched; delete this file and js/zzz-theme.html to drop the trial. */
+html.th-acad{--ink:#1A2130;--ink2:#36557A;--paper:#F8F7F4;--paper-hi:#FFFFFF;--pane:#FFFFFF;--beige:#F1EFEA;--muted:#5E6470;--line:#D9D6CF;--text:#2A3140;
+ --edge:rgba(26,33,48,.14);--data:#36557A;--data-2:#B9C4D2;--track:rgba(26,33,48,.06);--dots:transparent}
+html.th-acad body,html.th-acad .s{background-image:none}
+html.th-acad .s.alt{background-color:var(--beige)}
+html.th-acad .ae .bd .pane,html.th-acad .ae .bd .nx-st li{box-shadow:0 0 0 1px var(--edge)}
+html.th-acad .fx-wheel [fill="#0B1A4A"]{fill:#1A2130}
+html.th-acad .fx-wheel [fill="#2F55A8"]{fill:#36557A}
+html.th-acad .fx-wheel [fill="#3D5FA6"]{fill:#4A6788}
+html.th-acad .fx-wheel [fill="#5670B0"]{fill:#647D99}
+html.th-acad .fx-wheel [stroke="#2F55A8"]{stroke:#36557A}
+html.th-acad .fx-wheel circle[fill="#FCF3ED"]{fill:#FFFFFF}
+html.th-acad .nx-back span{background:var(--paper)}
 
 /* ---- snum.css ---- */
 /* slide numbers (snum): quiet folio in the bottom-right gutter of every slide except the title */
@@ -4677,10 +4718,10 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <p class="kick r">Build session · the framework in 30 minutes</p>
  <h2 class="r" style="--d:.1s">The build session runs the same loop <em>students ran all&nbsp;week.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="nx-lpw"><ol class="nx-lp nx-lp2">
-  <li class="pane" data-s="1"><span class="nx-li"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></svg></span><span class="nx-lk"><i>01</i>Inquiry and planning</span><b>You name a chore</b><p>And who the fix is&nbsp;for.</p><small>Agency</small></li>
+  <li class="pane" data-s="1"><span class="nx-li"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></svg></span><span class="nx-lk"><i>01</i>Inquiry and planning</span><b>You name it</b><p>A chore, and who the fix is&nbsp;for.</p><small>Agency</small></li>
   <li class="pane" data-s="2"><span class="nx-li"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m18 16 4-4-4-4" /><path d="m6 8-4 4 4 4" /><path d="m14.5 4-5 16" /></svg></span><span class="nx-lk"><i>02</i>Creating and communicating</span><b>We describe it</b><p>To Claude Code, in plain&nbsp;English.</p><small>Craft</small></li>
-  <li class="pane" data-s="3"><span class="nx-li"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m8 11 2 2 4-4" /><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg></span><span class="nx-lk"><i>03</i>Research and evaluation</span><b>The room tests it</b><p>Does it solve the&nbsp;problem?</p><small>Taste</small></li>
-  <li class="pane" data-s="4"><span class="nx-li"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" /><path d="M21 3v5h-5" /><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" /><path d="M8 16H3v5" /></svg></span><span class="nx-lk"><i>04</i>Collaboration and reflection</span><b>We revise together</b><p>One plain sentence at a&nbsp;time.</p><small>Craft</small></li>
+  <li class="pane" data-s="3"><span class="nx-li"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m8 11 2 2 4-4" /><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg></span><span class="nx-lk"><i>03</i>Research and evaluation</span><b>We test it</b><p>Does it solve the problem for&nbsp;you?</p><small>Taste</small></li>
+  <li class="pane" data-s="4"><span class="nx-li"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" /><path d="M21 3v5h-5" /><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" /><path d="M8 16H3v5" /></svg></span><span class="nx-lk"><i>04</i>Collaboration and reflection</span><b>We revise it</b><p>Together, one plain sentence at a&nbsp;time.</p><small>Craft</small></li>
  </ol>
   <div class="nx-lpb" data-s="4" aria-hidden="true"><span>Repeat until it’s good enough to use on&nbsp;Monday</span></div></div></div>
 </div><aside class="notes">The build session follows the same framework as everything you have seen today. (Click.) Inquiry and planning: you name a chore, and who the fix is for. That is agency. (Click.) Creating: we describe it to Claude Code in plain English. (Click.) Research and evaluation: the room tests it. Does it actually solve the problem? That is taste. (Click.) Collaboration and reflection: we revise together, one plain sentence at a time, until it is good enough to use. That is craft. Here is how the next 25 minutes run.</aside></section>
@@ -4722,11 +4763,11 @@ section.s>.pgno i{font-style:normal;opacity:.6}
  <p class="kick r">Where AI helps · tied to the learning outcomes</p>
  <h2 class="r" style="--d:.1s">Used well, AI gives every learner <em>more time for the&nbsp;thinking.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="nx-h3">
-  <div class="pane nx-hc" data-s="1"><span class="nx-hi"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="8" r="5" /><path d="M20 21a8 8 0 0 0-16 0" /></svg></span><span class="nx-hk">For students</span><b>AI does the making</b><p>So the week goes to choosing, judging, and&nbsp;finishing.</p><span class="nx-ho"><small>Outcome</small>Build and test a product, and disclose how AI&nbsp;helped</span></div>
-  <div class="pane nx-hc" data-s="2"><span class="nx-hi"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><path d="M16 3.128a4 4 0 0 1 0 7.744" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><circle cx="9" cy="7" r="4" /></svg></span><span class="nx-hk">For teachers</span><b>AI takes the housekeeping</b><p>So time goes to feedback, in person and in real&nbsp;time.</p><span class="nx-ho"><small>Outcome</small>Give and use critique to revise the&nbsp;work</span></div>
-  <div class="pane nx-hc" data-s="3"><span class="nx-hi"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M14 22v-4a2 2 0 1 0-4 0v4" /><path d="m18 10 3.447 1.724a1 1 0 0 1 .553.894V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-7.382a1 1 0 0 1 .553-.894L6 10" /><path d="M18 5v17" /><path d="m4 6 7.106-3.553a2 2 0 0 1 1.788 0L20 6" /><path d="M6 5v17" /><circle cx="12" cy="9" r="2" /></svg></span><span class="nx-hk">For schools</span><b>One framework, one rubric</b><p>Across student programs, teacher training, and&nbsp;courses.</p><span class="nx-ho"><small>Outcome</small>Evaluate sources, including AI&nbsp;output</span></div>
+  <div class="pane nx-hc" data-s="1"><span class="nx-hi"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="8" r="5" /><path d="M20 21a8 8 0 0 0-16 0" /></svg></span><span class="nx-hk">For students</span><b>AI does the making</b><p>So their time goes to choosing, judging, and&nbsp;finishing.</p><span class="nx-ho"><small>Outcome</small>Build and test a product with&nbsp;AI</span></div>
+  <div class="pane nx-hc" data-s="2"><span class="nx-hi"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><path d="M16 3.128a4 4 0 0 1 0 7.744" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><circle cx="9" cy="7" r="4" /></svg></span><span class="nx-hk">For teachers</span><b>AI takes the chores</b><p>So time goes to feedback, in person and in real&nbsp;time.</p><span class="nx-ho"><small>Outcome</small>Give and use critique to revise the&nbsp;work</span></div>
+  <div class="pane nx-hc" data-s="3"><span class="nx-hi"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M14 22v-4a2 2 0 1 0-4 0v4" /><path d="m18 10 3.447 1.724a1 1 0 0 1 .553.894V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-7.382a1 1 0 0 1 .553-.894L6 10" /><path d="M18 5v17" /><path d="m4 6 7.106-3.553a2 2 0 0 1 1.788 0L20 6" /><path d="M6 5v17" /><circle cx="12" cy="9" r="2" /></svg></span><span class="nx-hk">For schools</span><b>One framework for all</b><p>One rubric across students, teachers, and&nbsp;courses.</p><span class="nx-ho"><small>Outcome</small>Evaluate sources, including AI&nbsp;output</span></div>
  </div></div>
-</div><aside class="notes">So where does AI actually help? (Click.) For students, AI does the making, so the week goes to the parts that matter: choosing, judging, and finishing. That is the outcome of building and testing a product and disclosing how AI helped. (Click.) For teachers, AI takes the housekeeping, so your time goes to feedback, in person and in real time. That serves the outcome of giving and using critique. (Click.) For schools, one framework and one rubric across student programs, teacher training, and courses, so every learner is assessed on the same thing: whether they can evaluate sources, including AI output.</aside></section>
+</div><aside class="notes">So where does AI actually help? (Click.) For students, AI does the making, so their time goes to the parts that matter: choosing, judging, and finishing. That is the outcome of building and testing a product, and disclosing how AI helped. (Click.) For teachers, AI takes the chores, the housekeeping, so your time goes to feedback, in person and in real time. That serves the outcome of giving and using critique. (Click.) For schools, one framework and one rubric across student programs, teacher training, and courses, so every learner is assessed on the same thing: whether they can evaluate sources, including AI output.</aside></section>
 
 <!-- 30 · Your role, and three questions -->
 <section class="s alt ae agC agC-co"><div class="w">
@@ -5208,6 +5249,9 @@ lay();addEventListener('resize',lay);[].forEach.call(document.querySelectorAll('
  new MutationObserver(function(){clearTimeout(all.m);all.m=setTimeout(all,60)}).observe(document.documentElement,{attributes:true,attributeFilter:['class']});
 })();
 </script>
+
+<script>/* palette trial: ?theme=acad switches to the neutral academic palette (see css/*-theme.css); default is the Arena palette */
+if(/[?&]theme=acad\b/.test(location.search))document.documentElement.classList.add('th-acad')</script>
 
 
 </body></html>
