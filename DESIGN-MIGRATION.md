@@ -50,3 +50,4 @@ page above 760px; `ds.css` linked on every page; "Learning approach" added to th
 | AI Fundamentals @ ISB (winter), EN + CN | depth pass sized to the page | thin | yes: tools/depth.py | 45c3a59 |
 | ACAMIS session, EN + CN | depth pass sized to the page | thin | yes: tools/depth.py | 379d301 |
 | ISB parent coffee, EN + CN | depth pass sized to the page | thin | yes: tools/depth.py | 6495559 |
+| All pages with a depth FAQ (phones) | FAQ rows | browser default disclosure triangles | yes: ds-faq phone rules in css/ds.css | chunk P3 |

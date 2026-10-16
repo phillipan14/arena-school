@@ -240,3 +240,15 @@ html body main section.cine-hero .pc-facts > li { flex: 0 0 auto !important; }
 @media (min-width: 761px) {
   html body main .pc-why .ds-h2, html body main .pc-why h2 { font-size: var(--pro-h3) !important; line-height: 1.25 !important; max-width: 30ch !important; }
 }
+
+/* FAQ on phones: the same hairline rows as desktop, tap-sized, a +/- marker where the page has no toggle */
+@media (max-width: 760px) {
+  html body main .ds-faq { border-top: 1px solid var(--pro-ink) !important; border-radius: 0 !important; border-left: 0 !important; border-right: 0 !important; border-bottom: 0 !important; background: none !important; padding: 0 !important; }
+  html body main .ds-faq details { border-bottom: var(--hairline) !important; padding: 0 !important; }
+  html body main .ds-faq summary { display: flex !important; align-items: center; justify-content: space-between; gap: var(--space-4); min-height: var(--tap); padding: var(--space-4) 0 !important;
+    font: 500 var(--text-md)/1.35 'Newsreader', Georgia, serif !important; color: var(--pro-ink) !important; list-style: none; cursor: pointer; }
+  html body main .ds-faq summary::-webkit-details-marker { display: none; }
+  html body main #faq .ds-faq summary:not(:has(.faq-toggle))::after { content: "+"; flex: none; font: 400 var(--text-lg)/1 'Geist', system-ui, sans-serif; color: var(--pro-ink-2); }
+  html body main #faq .ds-faq details[open] summary:not(:has(.faq-toggle))::after { content: "−"; }
+  html body main .ds-faq details > :not(summary) { margin: 0 0 var(--space-4) !important; font-size: var(--text-base) !important; line-height: var(--lh-body) !important; color: var(--pro-soft) !important; }
+}
