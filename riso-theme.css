@@ -601,3 +601,17 @@ html[lang^="zh"] .footer .footer-col h4 { font-size: 16px !important; letter-spa
 /* footer links: same beige at 70% so the ivory section headings lead (contrast ~8:1, still AAA); full ivory on hover */
 .footer .footer-col a { color: rgba(244,236,224,.70) !important; transition: color .2s ease; }
 .footer .footer-col a:hover, .footer .footer-col a:focus-visible { color: #FCF3ED !important; }
+/* ===== Audience nav (2026-10-16): For schools = 3 roles + events & partners; For families = dropdown ===== */
+@media (min-width: 981px) {
+  .nav-dd-menu.nav-dd-edu { grid-template-rows: auto auto auto auto; min-width: 660px; }
+  .nav-dd-edu > a:nth-of-type(3) { grid-column: 1; grid-row: 4; }
+  .nav-dd-edu > a:nth-of-type(4) { grid-column: 2; grid-row: 2; }
+  .nav-dd-edu > a:nth-of-type(5) { grid-column: 2; grid-row: 3; }
+  .nav-dd-menu.nav-dd-fam { min-width: 330px; padding: 12px !important; }
+  .nav-dd-fam a { padding: 8px 12px !important; }
+  .nav-dd-fam a span { white-space: nowrap; }
+  .nav-dd-fam .nav-dd-sub:first-child { border-top: 0; padding-top: 0; margin-top: 4px; }
+}
+/* Chinese headings: keep a phrase on one line at desktop widths (DESIGN §5.3); phones may wrap */
+.cs-h1 .nw { white-space: nowrap; }
+@media (max-width: 760px) { .cs-h1 .nw { white-space: normal; } }

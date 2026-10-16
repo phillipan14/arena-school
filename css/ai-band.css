@@ -1,0 +1,26 @@
+/* "Selected for" partner strip: Anthropic Startup Program, OpenAI Partner Network (2026-10-15).
+   Shared by the homepage gallery band and the school-facing and About pages (2026-10-16).
+   Logos: logos/partners/, official marks in ink navy. Markup: .ai-band > .aib-k + ul.aib-row. */
+.ai-band { text-align: center; padding: clamp(26px, 2.8vw, 40px) 20px clamp(30px, 3.4vw, 44px); }
+.ai-band .aib-k { margin: 0 0 20px; font-size: 12px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: #4A5578; }
+.ai-band .aib-row { display: flex; justify-content: center; gap: clamp(36px, 6vw, 88px); margin: 0; padding: 0; list-style: none; }
+.ai-band .aib-row li { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.ai-band .aib-logo { height: 36px; display: flex; align-items: center; }
+.ai-band .aib-logo img { display: block; width: auto; }
+.ai-band .aib-anthropic { height: 17px; }
+.ai-band .aib-openai { height: 35px; }
+.ai-band .aib-prog { font-size: 14px; color: #4A5578; }
+:lang(zh) .ai-band .aib-k { letter-spacing: .1em; font-size: 14px; }
+/* Inner pages: the strip closes a proof or team section, under a hairline */
+.ai-band.aib-inline { margin-top: clamp(32px, 3.6vw, 48px); padding: clamp(28px, 3vw, 40px) 0 0; border-top: 1px solid rgba(11,26,74,.12); }
+@media (max-width: 760px) {
+  .ai-band { padding: 4px 16px 26px; }
+  .ai-band .aib-k { font-size: 11px; letter-spacing: .12em; margin-bottom: 16px; text-wrap: balance; }
+  :lang(zh) .ai-band .aib-k { font-size: 13px; }
+  .ai-band .aib-row { gap: 32px; }
+  .ai-band .aib-logo { height: 30px; }
+  .ai-band .aib-anthropic { height: 14px; }
+  .ai-band .aib-openai { height: 29px; }
+  .ai-band .aib-prog { font-size: 13px; }
+  .ai-band.aib-inline { margin-top: 32px; padding: 26px 0 0; }
+}
