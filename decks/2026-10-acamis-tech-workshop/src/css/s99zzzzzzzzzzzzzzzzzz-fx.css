@@ -199,3 +199,5 @@
 .ae.lo3-s .bd .lo3-c{grid-template-columns:420px minmax(0,1fr)}
 .tt-s .dns .pane.dn:first-child{padding-top:calc(var(--pad-m,40px) + 12px);padding-bottom:calc(var(--pad-m,40px) - 12px)}
 .tt-s .dns .pane.dn:first-child>*{position:relative;top:6px}
+.fx-s .fx-wheel{width:482px;height:482px}.ae.lo3-s .bd .lo3-c{padding:12px 0}
+.ae.lo3-s .bd .lo3-c{padding:9px 0}.tt-s .dns .pane.dn:first-child>*{top:0}
