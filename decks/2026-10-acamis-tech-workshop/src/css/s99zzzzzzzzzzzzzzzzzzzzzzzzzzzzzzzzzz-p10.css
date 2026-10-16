@@ -1,0 +1,105 @@
+/* Pass 10: slide 21 skill tags (merged from the backup loop slide); slide 25 five pillars, team, credentials; charts that draw in */
+/* slide 21: skill tag at the right of each step label */
+.ae.agd-b .bd .p10-sl{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.ae.agd-b .bd .p10-sl .nx-tsk{margin:0;flex:none;font-size:12px;padding:5px 10px 4px}
+.ae.agd-b .bd .cs-out .p10-sl .nx-tsk.nx-taste{background:#C9D6F2;color:var(--ink)}
+/* slide 25 */
+.ae.p10-ct .bd .p10-cg{display:flex;flex-direction:column;gap:18px;margin-top:0}
+.ae.p10-ct .bd .p9-lb{margin:0 0 10px;font:600 13px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--pro-ink-2)}
+.ae.p10-ct .bd .p9-lb span{font:italic 400 17px/1.4 var(--serif);letter-spacing:0;text-transform:none;color:var(--pro-muted)}
+.ae.p10-ct .bd .p10-pg{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1.9fr repeat(4,minmax(0,1fr));gap:12px}
+.ae.p10-ct .bd .p10-pl{display:flex;flex-direction:column;gap:12px;margin:0;padding:16px 18px 16px;background:#FFFFFF;border-radius:var(--r)}
+.ae.p10-ct .bd .p10-ph{display:flex;align-items:center;gap:12px;padding-bottom:12px;border-bottom:1px solid var(--pro-line)}
+.ae.p10-ct .bd .p9-ic{flex:none;display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--pro-line-2);color:var(--pro-ink-2)}
+.ae.p10-ct .bd .p9-ic .lic{width:18px;height:18px;stroke-width:1.6}
+.ae.p10-ct .bd .p10-ph b{font:500 24px/1.15 var(--serif);letter-spacing:-.005em;color:var(--pro-ink)}
+.ae.p10-ct .bd .p10-sub{list-style:none;margin:0;padding:0;display:grid;gap:10px 20px}
+.ae.p10-ct .bd .p10-stu .p10-sub{grid-template-columns:repeat(2,minmax(0,1fr))}
+.ae.p10-ct .bd .p10-sub li{display:flex;flex-direction:column;gap:2px;margin:0}
+.ae.p10-ct .bd .p10-sub b{font:500 19px/1.25 var(--serif);color:var(--pro-ink)}
+.ae.p10-ct .bd .p10-sub span{font:italic 400 16px/1.35 var(--serif);color:var(--pro-soft)}
+/* team row: two people and the session code */
+.ae.p10-ct .bd .p5-ppl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.ae.p10-ct .bd .p5-pc{display:grid;grid-template-columns:auto minmax(0,1fr) auto;grid-template-rows:auto auto;column-gap:18px;row-gap:4px;align-items:center;padding:12px 18px}
+.ae.p10-ct .bd .p5-hd,.ae.p10-ct .bd .p5-cx{display:contents}
+.ae.p10-ct .bd .p5-ph{grid-column:1;grid-row:1/3;width:72px;height:72px}
+.ae.p10-ct .bd .p5-nm{grid-column:2;grid-row:1;align-self:end}
+.ae.p10-ct .bd .p5-nm>b{font-size:26px}
+.ae.p10-ct .bd .p5-role{font-size:16px;white-space:nowrap}
+.ae.p10-ct .bd .p5-cx dl{grid-column:2;grid-row:2;align-self:start;padding-top:6px;border-top:1px solid var(--pro-line)}
+.ae.p10-ct .bd .p5-qr{grid-column:3;grid-row:1/3;display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none}
+.ae.p10-ct .bd .p5-qr img{width:78px;height:78px}
+.ae.p10-ct .bd .p5-qr span{font:600 11px/1.2 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--pro-ink-2)}
+.ae.p10-ct .bd .p5-res{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:18px;row-gap:6px;align-items:center;padding:12px 18px}
+.ae.p10-ct .bd .p5-res>img{grid-row:1/3;width:88px;height:88px;padding:6px}
+.ae.p10-ct .bd .p5-rt small{display:none}
+.ae.p10-ct .bd .p5-rt b{font-size:22px}
+.ae.p10-ct .bd .p5-site{grid-column:2;font-size:14px}
+/* credentials: two static logo rows, and the Member of box */
+.ae.p10-ct .bd .p10-cred{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:stretch;padding-top:16px;border-top:1px solid var(--pro-line)}
+.ae.p10-ct .bd .p10-lr{display:flex;flex-direction:column;justify-content:center;gap:14px}
+.ae.p10-ct .bd .p6-lr{display:grid;grid-template-columns:200px minmax(0,1fr);align-items:center;gap:20px}
+.ae.p10-ct .bd .r15-h{margin:0;font:600 12px/1.3 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--pro-ink-2)}
+.ae.p10-ct .bd .r15-lg{display:flex;align-items:center;justify-content:space-between;gap:26px}
+.ae.p10-ct .bd .r15-lg img{display:block;width:auto;flex:none}
+.ae.p10-ct .r15-lg .r15-isb{height:30px}.ae.p10-ct .r15-lg .r15-brown{height:26px}.ae.p10-ct .r15-lg .r15-caltech{height:20px}.ae.p10-ct .r15-lg .r15-harvard{height:26px}.ae.p10-ct .r15-lg .r15-tsinghua-lockup{height:29px}
+.ae.p10-ct .r15-lg .r15-mckinsey{height:15px}.ae.p10-ct .r15-lg .r15-goldman{height:24px}.ae.p10-ct .r15-lg .r15-yc{height:25px}.ae.p10-ct .r15-lg .r15-apple{height:25px}.ae.p10-ct .r15-lg .r15-microsoft-ai{height:20px}.ae.p10-ct .r15-lg .r15-deloitte{height:15px}.ae.p10-ct .r15-lg .r15-kimi{height:16px}
+.ae.p10-ct .bd .r16-sel{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px 30px;border:1px solid var(--pro-line-2);border-radius:var(--r);background:#FFFFFF}
+.ae.p10-ct .bd .r16-sel .r15-h{margin:0 0 12px;text-align:center}
+.ae.p10-ct .bd .r16-sel ul{list-style:none;margin:0;padding:0;display:flex;gap:40px}
+.ae.p10-ct .bd .r16-sel li{display:flex;flex-direction:column;align-items:center;gap:8px;margin:0}
+.ae.p10-ct .bd .r16-lg{display:flex;align-items:center;height:32px}
+.ae.p10-ct .r16-an{height:15px}.ae.p10-ct .r16-oa{height:31px}
+.ae.p10-ct .bd .r16-sel small{font:italic 400 16px/1.2 var(--serif);color:var(--pro-muted);white-space:nowrap}
+
+/* charts draw in when their step appears (slides 7, 16, 19): a 700ms grow from the axis, no bounce.
+   Export, print, the phone reader, and reduced motion show them fully drawn (the .motion class is never set there). */
+.motion .ae.p8-ev7 .bd .p8-hbar,.motion .ae.p8-tt .bd .p8-pbar,.motion .ae.p8-lg .bd .p8-gb{transform-origin:0 50%;transition:transform .7s var(--e-o) .2s}
+.motion .ae.p8-ev7 .bd .p8-drop{transform-origin:50% 0;transition:transform .7s var(--e-o) .2s}
+.motion .ae.p8-ev7 .bd .p8-hon .p8-hbar,.motion .ae.p8-tt .bd .p8-pon .p8-pbar{transition-delay:.45s}
+.motion .s:not(.in).p8-ev7 .p8-hbar,.motion .s.bld.p8-ev7 [data-s]:not(.vis) .p8-hbar,
+.motion .s:not(.in).p8-tt .p8-pbar,.motion .s.bld.p8-tt [data-s]:not(.vis) .p8-pbar,
+.motion .s:not(.in).p8-lg .p8-gb,.motion .s.bld.p8-lg [data-s]:not(.vis) .p8-gb{transform:scaleX(0)}
+.motion .s:not(.in).p8-ev7 .p8-drop,.motion .s.bld.p8-ev7 [data-s]:not(.vis) .p8-drop{transform:scaleY(0)}
+@media (prefers-reduced-motion:reduce){.ae .p8-hbar,.ae .p8-pbar,.ae .p8-gb,.ae .p8-drop{transform:none!important;transition:none!important}}
+/* fit pass: one-line pillar heads, one-line student programs, compact team row */
+.ae.p10-ct .bd .p10-cg{gap:16px}
+.ae.p10-ct .bd .p10-pg{grid-template-columns:1.55fr repeat(4,minmax(0,1fr))}
+.ae.p10-ct .bd .p10-pl{gap:10px;padding:14px 18px}
+.ae.p10-ct .bd .p10-ph{padding-bottom:10px}
+.ae.p10-ct .bd .p10-ph b{font-size:23px;white-space:nowrap}
+.ae.p10-ct .bd .p10-stu .p10-sub{grid-template-columns:minmax(0,1fr);gap:7px}
+.ae.p10-ct .bd .p10-stu .p10-sub li{flex-direction:row;align-items:baseline;justify-content:space-between;gap:14px}
+.ae.p10-ct .bd .p10-stu .p10-sub span{flex:none;white-space:nowrap}
+.ae.p10-ct .bd .p10-sub b{font-size:19px}
+.ae.p10-ct .bd .p10-sub span{font-size:16px}
+.ae.p10-ct .bd .p9-lb{margin-bottom:8px}
+.ae.p10-ct .bd .p5-ph{width:64px;height:64px}
+.ae.p10-ct .bd .p5-qr img{width:70px;height:70px}
+.ae.p10-ct .bd .p5-res>img{width:80px;height:80px}
+.ae.p10-ct .bd .p5-pc,.ae.p10-ct .bd .p5-res{padding:10px 18px}
+.ae.p10-ct .bd .p10-cred{padding-top:14px}
+.ae.p10-ct .bd .p10-lr{gap:10px}
+.ae.p10-ct .bd .r16-sel{padding:10px 28px}
+.ae.p10-ct .bd .p10-pg{grid-template-columns:2.1fr repeat(4,minmax(0,1fr))}
+.ae.p10-ct .bd .p10-stu .p10-sub b{white-space:nowrap}
+.ae.p10-ct .bd .p10-stu .p10-sub{gap:5px}
+.ae.p10-ct .w .bd{padding-top:12px}
+.ae.p10-ct .bd .p10-cg{gap:12px}
+.ae.p10-ct .bd .p10-pl{padding:12px 18px}
+.ae.p10-ct .bd .p10-ph{padding-bottom:8px}
+.ae.p10-ct .bd .p9-lb{margin-bottom:6px}
+.ae.p10-ct .bd .p5-pc,.ae.p10-ct .bd .p5-res{padding:8px 18px}
+.ae.p10-ct .bd .p10-cred{padding-top:12px}
+/* ink centering: trailing letter-spacing on the tags; the Lucide house sits high in its circle */
+.ae.agd-b .bd .p10-sl .nx-tsk{padding:5px calc(10px - .14em) 4px 10px}
+.ae.p10-ct .bd .p10-pl:nth-child(4) .p9-ic .lic{transform:translateY(.75px)}
+.ae.agd-b .bd .p10-sl .nx-tsk.nx-craft{padding-right:calc(7.7px - .14em)}
+.ae.agd-b .bd .p10-sl .nx-tsk.nx-taste{padding-left:8.5px}
+/* Georgia fallback: give the four single-program pillars a little more room */
+.ae.p10-ct .bd .p10-pg{grid-template-columns:1.9fr repeat(4,minmax(0,1fr))}
+.ae.p10-ct .bd .p10-ph{gap:10px}
+.ae.p10-ct .bd .p10-pl{padding:12px 16px}
+.ae.p10-ct .bd .p10-pg{grid-template-columns:2fr repeat(4,minmax(0,1fr))}
+.ae.p10-ct .bd .p10-stu .p10-sub li{gap:10px}
+.ae.p10-ct .bd .p10-stu .p10-sub b{font-size:18.5px}

@@ -1,5 +1,41 @@
 # Notes for Phillip: ACAMIS deck restructure (Oct 16)
 
+## Pass 10 (Oct 16, late night): backup review, a new close, and charts that draw in
+
+**Your three asks**
+- **"Selected for" is now "Member of"** on slide 4 and the new slide 25, in both the slides and the phone reader. The slide 4 note now says "We're members of Anthropic's Startup Program and OpenAI's Partner Network." The phrase no longer appears anywhere in the deck, the reader, or the CSS labels.
+- **Slide 25 is restructured** into three clean bands:
+  1. **What we run: five pillars.** Students (App Design Workshop, Entrepreneurship & AI Intensive, College Portfolio Workshop, and Year-Long Project Mentorship, each with its grade band), Educators (AI for Educators), Tech teams (tech coaches and IT directors), Families (Community Dialogues), and Conferences (Conferences & Events). The program names, grade bands, and one-liners are the same site-sourced ones from Pass 9. Nothing is new.
+  2. **The team.** You and Jing Jing, with your photos, WeChat IDs, and WhatsApp QR codes, next to the navy session-QR card with arenaschool.org.
+  3. **Credentials.** Two static greyscale logo rows labelled "Our team studied at" and "Our team worked at", the same logos and order as slide 4, worded as affiliations, not partners. On the right is a "Member of" box with Anthropic (Startup Program) and OpenAI (Partner Network).
+  - The slide builds in two clicks: the pillars first, then the team and credentials. The notes walk through the pillars and then the team.
+- **Main-deck polish.** See below.
+
+**Backup review: what moved, and why.** The main talk already runs about 25 minutes before the build session, with 21 slides and four takeaways. A new full slide would cost about a minute and repeat a point already made, so nothing moved in whole. Two backups were **merged** into existing slides:
+- **31, Build session loop → slide 21.** Each build step now carries its skill tag, in the same pill style as slide 12: Step 1 Agency, Step 2 Craft, and Step 3 Taste. The note says it out loud: it's the loop your students ran all week. This ties Part 3 back to the framework without an extra slide. Backup 31 stays as the long version.
+- **33, Founders → slide 25.** The final slide now shows the team, with photos and the credential logo rows. The full written bios stay in backup 33 for Q&A.
+
+**Left in backup:**
+- **26, Framework wheel.** It's already the center of slide 8.
+- **27, All learning outcomes, and 28, Rubric.** Slide 9 carries the four headline outcomes and the evidence. The full list and a rubric row are Q&A material, and slide 9's note already points to them.
+- **29, Programs map.** Its "curriculum design" column isn't a program on the site (see Pass 9), and slide 25's pillars now answer "what do you run".
+- **30, What the week trained.** Slides 12, 15, and 16 already cover each skill's moment in the week, so it would repeat.
+- **32, Where AI helps.** This is the job of takeaways 1 to 3 on slide 24. It would be a second summary.
+- **34, Why parents care.** The audience is teachers and tech staff, not parents. Keep it for a parent-heavy Q&A.
+- **35, Is it cheating?** Slide 18's third bubble answers it in one line, and backup 35 has the long answer.
+- **36, Planning checklist.** It's on the session page behind the QR code. Show it if someone asks "what would it take".
+
+**Polish pass (motion and charts)**
+- **Charts now draw in from their axis when their step appears,** at 700ms with ease-out, no bounce, and a short stagger (the second bar follows the first). This applies to slide 7 (the −17% drop grows down from the zero line, then the 1× and 2× bars grow), slide 16 (each learning goal's day bar grows across the week), and slide 19 (the without-AI and with-AI planning bars). The data is unchanged. Export, PDF, the phone reader, and reduced motion show them fully drawn, because the effect only runs under the deck's `.motion` class, with a `prefers-reduced-motion` override as well.
+- I left the rest alone on purpose. After Pass 8, every main slide is already a diagram, a chart, or a photo. Adding more would crowd slides that JJ has already checked to the pixel.
+
+**Files.** New styles are in `css/s99zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz-p10.css`, with a Pass 10 block at the end of `reader/reader.css`. The Pass 9 slide 25 classes (`p9-ct`, `p9-pg`, `p9-pc`) are no longer used on that slide.
+
+**Calls to confirm**
+- **Pillar names:** I used "Tech teams" and "Families" so each heading fits on one line. Say if you'd rather have "Technology teams" and "Families and community" with smaller type.
+- **Slide 21 tags:** I gave Step 2 (Claude Code builds it) Craft and Step 3 (open it and improve it) Taste, as backup 31 did. That means the tags read Agency, Craft, Taste, not the choose, judge, finish order used elsewhere.
+- **The team cards** show "Co-founder, Arena School" rather than written bios, because the credential logos sit right below. The bios are still in backup 33.
+
 ## Pass 9 (Oct 16, late night): the wheel back on slide 8, and a combined close
 
 **Slide 8, framework wheel.** Pass 8 had swapped the wheel for a small ring that read "The learner decides". The full wheel is now back at the center of slide 8, large: "The learner does the thinking" in the middle, the four strands, the four outer conditions, and the circular arrows. It's rotated a quarter turn so each strand sits next to its card (01 Inquiry top left, 02 Research top right, 03 Creating bottom right, 04 Collaboration bottom left), and the outer conditions turn with their strands. The four cards and their click order are unchanged. The key (learner decides / AI helps / teacher asks) and "Then the next question starts the cycle again" now run along one row under the slide. The speaker notes gain one sentence naming the center and the four conditions.
