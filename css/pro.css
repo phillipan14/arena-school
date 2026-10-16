@@ -10,7 +10,7 @@
 
 :root {
   --pro-bg: #FFFFFF; --pro-alt: #F5F7FA; --pro-sunk: #EEF1F6; --pro-line: #E2E6EE; --pro-line-2: #CDD3DF;
-  --pro-ink: #0B1A4A; --pro-ink-2: #2F55A8; --pro-action: #22458A; --pro-text: #111827; --pro-soft: #465066; --pro-muted: #5D6677;
+  --pro-ink: #0B1A4A; --pro-ink-2: #2F55A8; --pro-action: #22458A; --pro-ink-tint: rgba(47, 85, 168, .14); --pro-ink-tint-2: rgba(47, 85, 168, .30); --pro-text: #111827; --pro-soft: #465066; --pro-muted: #5D6677;
   --ease: cubic-bezier(.22, .61, .36, 1); --ease-io: cubic-bezier(.45, 0, .25, 1);
   --dur-fast: 180ms; --dur-ui: 280ms; --dur-reveal: 600ms;
   /* Motion tokens (MOTION2-BRIEF; recorded in the design system, DESIGN-SYSTEM.md).
@@ -28,7 +28,7 @@
   --radius-ctl: 8px; --radius-card: 12px; --hairline: 1px solid var(--pro-line);
   --text-xs: 12px; --text-sm: 14px; --text-base: 16px; --text-md: 17px; --text-lg: 19px;
   --lh-tight: 1.15; --lh-body: 1.6;
-  --ic: 22px; --ic-lg: 28px; --mk: 11px; --mk-sm: 9px; --tap: 44px;   /* icon, matrix marker, tap target */
+  --ic: 22px; --ic-lg: 28px; --mk: 11px; --mk-sm: 9px; --tap: 44px; --band-h: 30px; --band-r: 5px;   /* icon, matrix marker, tap target */
   --shadow-text: 0 1px 8px rgba(8, 15, 38, .6);
   /* Texture: the deck's dot grid over hero photos (css/cine.css .cine-dots; DOTS-BRIEF) */
   --tex-dots-c: rgba(201, 214, 242, .9); --tex-dots-s: 22px; --tex-dots-o: .22;

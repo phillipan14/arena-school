@@ -1,55 +1,45 @@
-/* Homepage "Where each program fits" (EDITORIAL-BRIEF, Oct 16, 2026): an editorial matrix on the ds-mx component
-   (css/ds.css). Grade columns grouped under school stages, a filled mark for each grade a program serves joined by
-   a hairline, program name and range in the first column. No bars, no gradients. Markup: tools/grade_matrix.py;
-   row spotlight: grade-map.js (.gmx-row). Tokens: css/pro.css. */
+/* Homepage "Where each program fits" (BAND-BRIEF, Oct 16, 2026): the ds-mx matrix with one flat tinted band per
+   program (css/ds.css .ds-band), its grade range inside; program names at full contrast; faint grade guides; school
+   stages as group heads; College a wide column. Every row equally vivid; on hover or focus the active band turns
+   solid navy with a white label and the other rows dim slightly. Markup: tools/grade_matrix.py; spotlight:
+   grade-map.js (.gmx-row, has-focus / is-focus). Phones: name, grades, and a thin track with the band segment. */
 html body.home #programs .gmap.gmx { margin-top: var(--space-9) !important; padding: 0 !important; border: 0 !important; }
 html body.home #programs .gmx .gm-head { display: flex !important; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--space-2) var(--space-5); margin: 0 0 var(--space-5) !important; }
 html body.home #programs .gmx .gm-note { font-size: var(--text-sm) !important; color: var(--pro-soft) !important; margin: 0 !important; }
-.ds-gmx thead th { text-align: center; font-variant-numeric: tabular-nums; }
+.ds-gmx col.c-name { width: 26%; }
+.ds-gmx col.c-col { width: 17%; }
+.ds-gmx thead th { text-align: center; }
 .ds-gmx thead th:first-child { text-align: left; }
-.ds-gmx col.c-name { width: 30%; }
-.ds-gmx col.c-col { width: 11%; }
-.ds-gmx .gmx-stages th { padding: 0 var(--space-2) var(--space-2); border-bottom: 0; text-align: left; font: 600 var(--text-xs)/1.2 'Geist', system-ui, sans-serif;
-  letter-spacing: .12em; text-transform: uppercase; color: var(--pro-ink-2); box-shadow: inset 0 1px 0 var(--pro-ink-2); padding-top: var(--space-2); }
+.ds-gmx .gmx-stages th { padding: var(--space-2) var(--space-2) var(--space-2); border-bottom: 0; text-align: left; font: 600 var(--text-xs)/1.2 'Geist', system-ui, sans-serif;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--pro-ink-2); background: none !important; box-shadow: inset 0 1px 0 var(--pro-ink-2); }
 .ds-gmx .gmx-stages th:last-child { color: var(--pro-soft); box-shadow: inset 0 1px 0 var(--pro-line-2); }
 :lang(zh) .ds-gmx .gmx-stages th { letter-spacing: .04em; font-size: var(--text-sm); }
-.ds-gmx .gmx-stages td { border: 0; padding: 0; }
-.ds-gmx tbody th { padding-block: var(--space-4); vertical-align: middle; }
+.ds-gmx .gmx-stages td { border: 0; padding: 0; background: none !important; }
 .ds-gmx tbody th a { display: block; text-decoration: none; color: inherit; }
-.ds-gmx tbody th a b { display: block; font-weight: 600; font-size: var(--text-base); color: var(--pro-ink); transition: color var(--dur-ui) var(--ease); }
-.ds-gmx tbody th a span { display: block; margin-top: var(--space-1); font-size: var(--text-xs); letter-spacing: .08em; text-transform: uppercase; color: var(--pro-soft); }
-:lang(zh) .ds-gmx tbody th a span { letter-spacing: .02em; font-size: var(--text-sm); text-transform: none; }
-.ds-gmx tbody th a:hover b, .ds-gmx tbody th a:focus-visible b { color: var(--pro-ink-2); }
-.ds-gmx td { vertical-align: middle; text-align: center; padding-block: var(--space-4); }
-.ds-gmx td .ds-mk { display: inline-block; margin: 0; vertical-align: middle; }
-.ds-gmx td.in::before { top: 50%; }
-.ds-gmx td.in.first::before { left: 50%; }
-.ds-gmx td.in.last::before { right: 50%; }
+.ds-gmx tbody th a b { color: var(--pro-ink); }
+.ds-gmx tbody th a span { display: none; }
+.ds-gmx a.ds-band { text-decoration: none; }
+.ds-gmx a.ds-band > span { justify-content: flex-start; white-space: nowrap; }
 .ds-gmx tbody tr { transition: opacity var(--dur-ui) var(--ease); }
-.gmx.has-focus .ds-gmx tbody tr:not(.is-focus) { opacity: .38; }
-.gmx.has-focus .ds-gmx tbody tr.is-focus th b { color: var(--pro-ink-2); }
-/* marks draw in left to right when the chart scrolls into view (grade-map.js adds .is-in) */
-html.js .gmx:not(.is-in) .ds-gmx td .ds-mk, html.js .gmx:not(.is-in) .ds-gmx td.in::before { opacity: 0; }
-.gmx .ds-gmx td .ds-mk, .gmx .ds-gmx td.in::before { transition: opacity var(--dur-reveal) var(--ease) calc(var(--i, 0) * 80ms); }
-@media (prefers-reduced-motion: reduce) { .gmx .ds-gmx td .ds-mk, .gmx .ds-gmx td.in::before { transition: none; } }
+.ds-gmx tbody tr:is(:hover, :focus-within, .is-focus) a.ds-band > span { background: var(--pro-ink); color: var(--pro-bg); }
+.gmx.has-focus .ds-gmx tbody tr:not(.is-focus):not(:hover):not(:focus-within) { opacity: .55; }
+.ds-gmx tbody th a:focus-visible { outline: 2px solid var(--pro-ink-2); outline-offset: var(--space-1); }
+/* bands grow in from the left when the chart scrolls into view (grade-map.js adds .is-in) */
+.gmx a.ds-band { transform-origin: left center; transition: transform var(--dur-reveal) var(--ease) calc(var(--i, 0) * 80ms), opacity var(--dur-reveal) var(--ease) calc(var(--i, 0) * 80ms); }
+html.js .gmx:not(.is-in) a.ds-band { transform: scaleX(.2); opacity: 0; }
+@media (prefers-reduced-motion: reduce) { .gmx a.ds-band { transition: none; } html.js .gmx:not(.is-in) a.ds-band { transform: none; opacity: 1; } }
 
-/* Phones: one block per program, the name over an 8-column strip of marks, grades labelled above */
+/* Phones: name, grades as text, a full-width track with the band segment */
 @media (max-width: 760px) {
-  .ds-gmx colgroup { display: none; }
   html body.home #programs .gmap.gmx { margin-top: var(--space-8) !important; }
-  .ds-mx.ds-gmx, .ds-mx.ds-gmx tbody, .ds-mx.ds-gmx thead { display: block !important; }
-  .ds-mx.ds-gmx .gmx-stages { display: none !important; }
-  .ds-gmx thead tr, .ds-gmx tbody tr { display: grid !important; grid-template-columns: repeat(7, minmax(0, 1fr)) minmax(0, 1.6fr); }
-  .ds-gmx thead th:first-child { display: none; }
-  .ds-gmx thead th { display: block; width: auto !important; padding: var(--space-2) 0; font-size: var(--text-xs); }
-  .ds-gmx tbody tr { padding: var(--space-4) 0; border-bottom: var(--hairline); }
-  .ds-gmx tbody tr + tr > * { border-top: 0 !important; }
-  .ds-gmx tbody th { grid-column: 1 / -1; display: block; padding: 0 0 var(--space-3); width: auto !important; }
-  .ds-mx.ds-gmx td { display: flex !important; align-items: center; justify-content: center; width: auto !important; padding: 0; height: var(--space-4); margin: 0 !important; }
-  .ds-mx.ds-gmx td.in::before { display: block !important; top: 50%; }
-  .ds-mx.ds-gmx td.in.first::before { left: 50%; }
-  .ds-mx.ds-gmx td.in.last::before { right: 50%; }
-  .ds-mx.ds-gmx td.in.first.last::before { display: none !important; }
-  .ds-mx.ds-gmx td.on::after { content: none !important; }
-  .ds-mx.ds-gmx td .ds-mk { margin: 0 !important; transform: none !important; }
+  .ds-mx.ds-gmx, .ds-mx.ds-gmx tbody { display: block !important; }
+  .ds-mx.ds-gmx thead { display: none !important; }
+  .ds-mx.ds-gmx tbody tr { display: grid !important; grid-template-columns: repeat(7, minmax(0, 1fr)) minmax(0, 1.6fr); row-gap: var(--space-3); padding: var(--space-4) 0; }
+  .ds-mx.ds-gmx tbody tr::after { content: ""; grid-row: 2; grid-column: 1 / -1; height: var(--space-2); border-radius: 3px; background: var(--pro-alt); }
+  .ds-mx.ds-gmx tbody th { grid-row: 1; grid-column: 1 / -1; }
+  .ds-gmx tbody th a span { display: block; margin-top: var(--space-1); font-size: var(--text-sm); color: var(--pro-soft); }
+  .ds-mx.ds-gmx td:not(.band) { display: none !important; }
+  .ds-mx.ds-gmx td.band { display: block !important; grid-row: 2; grid-column: var(--a) / var(--b); z-index: 1; margin: 0; padding: 0 !important; }
+  .ds-gmx a.ds-band { min-height: var(--space-2); border-radius: 3px; display: block; }
+  .ds-gmx a.ds-band > span { min-height: var(--space-2); height: var(--space-2); padding: 0; font-size: 0; border-radius: 3px; background: var(--pro-ink-tint-2); }
 }

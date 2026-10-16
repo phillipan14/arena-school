@@ -2,7 +2,7 @@
 
 Replaces the old pill/Gantt lanes with a real table on the ds-mx component (css/ds.css + css/grades.css): grade
 columns grouped under school stages, a filled mark for every grade a program serves, a hairline joining them, the
-program name and grade range in the first column (a link to the program). grade-map.js spotlights rows
+program name in the first column (a link to the program); one tinted band across the grades it serves, its range inside (BAND-BRIEF). grade-map.js spotlights rows
 (.gmx-row). Phones: one block per program with an 8-column mark strip under the name.
   python3 tools/grade_matrix.py           write index.html and index-cn.html
   python3 tools/grade_matrix.py --check   report pages that would change
@@ -38,16 +38,11 @@ def build(d):
     head = '<tr><th scope="col">%s</th>%s</tr>' % (d['col'], ''.join('<th scope="col">%s</th>' % g for g in d['grades']))
     rows = []
     for i, (prog, href, a, b, name, span) in enumerate(d['rows']):
-        cells = []
-        for c in range(1, 9):
-            cls = []
-            if a <= c <= b:
-                cls += ['in', 'on']
-                if c == a: cls.append('first')
-                if c == b: cls.append('last')
-                cells.append('<td class="%s"><i class="ds-mk" aria-hidden="true"></i><span class="vh">%s</span></td>' % (' '.join(cls), d['grades'][c - 1]))
-            else:
-                cells.append('<td></td>')
+        n = b - a + 1
+        cells = ['<td></td>'] * (a - 1)
+        cells.append('<td class="band" colspan="%d" style="--a:%d;--b:%d"><a class="ds-band is-solo" href="%s" tabindex="-1" aria-hidden="true"><span>%s</span></a></td>'
+                     % (n, a, b + 1, href, span))
+        cells += ['<td></td>'] * (8 - b)
         rows.append('<tr class="gmx-row" data-prog="%s" style="--i:%d"><th scope="row"><a href="%s"><b>%s</b><span>%s</span></a></th>%s</tr>'
                     % (prog, i, href, name, span, ''.join(cells)))
     return ('<!-- gmx:start -->\n<div class="gmap gmx reveal" data-lint-skip aria-label="%s" data-gmap><div class="gm-head"><span class="ds-eyebrow">%s</span><span class="gm-note">%s</span></div>'

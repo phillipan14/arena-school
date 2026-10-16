@@ -1,7 +1,7 @@
 /* ds.css: the design-system component layer (EDITORIAL-BRIEF + MIGRATION-BRIEF, Oct 16, 2026).
    Every value comes from the tokens in css/pro.css (colour --pro-*, spacing --space-*, --section-y, --measure,
    radii, type sizes); hairlines are 1px by definition. Components: section, head, eyebrow, h2, lede, grid,
-   card, icon, the editorial matrix (ds-mx, with ds-mk markers), list, and a visually-hidden helper.
+   card, icon, the editorial matrix (ds-mx, with tinted ds-band blocks), list, and a visually-hidden helper.
    Spec: DESIGN-SYSTEM.md and the Claude Design project (Editorial matrix and Spacing boards). */
 
 .vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
@@ -30,35 +30,40 @@ html body main .ds-section + .ds-section:not(.is-alt):not(.is-tight) { border-to
 .ds-ic { width: var(--ic); height: var(--ic); flex: none; color: var(--pro-ink-2); }
 .ds-ic.lg { width: var(--ic-lg); height: var(--ic-lg); }
 
-/* ---------- Editorial matrix ----------
-   A hairline grid with small caps column heads, tabular figures, and per-cell markers: filled square = practiced
-   (with its label), open square = inside the span, a 1px rule joining the span. No gradients, no pills. */
+/* ---------- Editorial matrix (BAND-BRIEF) ----------
+   A hairline grid with small caps column heads and faint column guides. Each row carries one flat tinted band
+   (--pro-ink-tint, 5px radius, --band-h tall) across the columns it covers, its label inside. Inside a band,
+   day blocks: practiced = stronger tint (--pro-ink-tint-2) with the activity, in progress = the base tint.
+   No gradients, no pills, no markers. Phones: stacked rows with a thin track (see Responsive). */
 .ds-mx-wrap { border-top: 1px solid var(--pro-ink); border-bottom: var(--hairline); }
 .ds-mx { width: 100%; border-collapse: collapse; table-layout: fixed; font-variant-numeric: tabular-nums; }
-.ds-mx th, .ds-mx td { padding: var(--space-5) var(--space-3); vertical-align: top; text-align: left; font-weight: 400; }
+.ds-mx th, .ds-mx td { padding: var(--space-4) var(--space-2); vertical-align: middle; text-align: left; font-weight: 400; }
 .ds-mx thead th { padding-block: var(--space-4); border-bottom: var(--hairline); font-size: var(--text-sm); color: var(--pro-soft); vertical-align: bottom; }
-.ds-mx thead th:first-child { width: 26%; padding-left: 0; }
-.ds-mx thead th:last-child { width: 20%; }
+.ds-mx thead th:first-child { padding-left: 0; }
 .ds-mx-k { display: block; margin-bottom: var(--space-1); font: 600 var(--text-xs)/1.2 'Geist', system-ui, sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--pro-ink-2); }
 .ds-mx tbody tr + tr > * { border-top: var(--hairline); }
-.ds-mx tbody th { padding-left: 0; }
-.ds-mx tbody th b { display: block; font-weight: 600; font-size: var(--text-base); color: var(--pro-ink); }
+.ds-mx tbody th { padding-left: 0; padding-right: var(--space-4); }
+.ds-mx tbody th b { display: block; font-weight: 600; font-size: var(--text-base); line-height: 1.3; color: var(--pro-ink); }
 .ds-mx tbody th > span:not(.ds-mx-n) { display: block; margin-top: var(--space-1); font-size: var(--text-sm); line-height: 1.45; color: var(--pro-soft); }
 .ds-mx-n { display: block; margin-bottom: var(--space-2); font: 500 var(--text-sm)/1 'Newsreader', Georgia, serif; color: var(--pro-ink-2); }
 .ds-mx-span { display: none; }
-.ds-mx td { position: relative; font-size: var(--text-sm); line-height: 1.4; color: var(--pro-text); }
-.ds-mx td.in::before { content: ""; position: absolute; top: calc(var(--space-5) + var(--mk) / 2); left: 0; right: 0; height: 1px; background: var(--pro-ink-2); }
-.ds-mx td.in.first::before { left: calc(var(--space-3) + var(--mk) / 2); }
-.ds-mx td.in.last::before { right: calc(100% - var(--space-3) - var(--mk) / 2); }
-.ds-mx td.in.first.last::before { display: none; }
-.ds-mk { position: relative; z-index: 1; display: block; width: var(--mk); height: var(--mk); margin-bottom: var(--space-3); background: var(--pro-ink); border: 1px solid var(--pro-ink); }
-.ds-mk.is-open { background: var(--pro-bg); border-color: var(--pro-ink-2); }
-.ds-mx td.ev { color: var(--pro-ink); font-weight: 500; padding-right: 0; }
+.ds-mx td { position: relative; font-size: var(--text-sm); line-height: 1.35; color: var(--pro-text); }
+/* faint column guides */
+.ds-mx td:not(.ev), .ds-mx thead th:not(:first-child):not(:last-child) { background-image: linear-gradient(var(--pro-line), var(--pro-line)); background-size: 1px 100%; background-repeat: no-repeat; background-position: 0 0; }
+.ds-mx td.band { padding-inline: var(--space-1); }
+/* the band */
+.ds-band { display: grid; grid-template-columns: repeat(var(--n, 1), minmax(0, 1fr)); gap: 2px; min-height: var(--band-h); border-radius: var(--band-r); overflow: hidden; }
+.ds-band > * { display: flex; align-items: center; min-height: var(--band-h); padding: var(--space-1) var(--space-3); background: var(--pro-ink-tint);
+  color: var(--pro-ink); font-size: var(--text-sm); font-weight: 500; line-height: 1.25; transition: background-color var(--dur-ui) var(--ease), color var(--dur-ui) var(--ease); }
+.ds-band > .on { background: var(--pro-ink-tint-2); }
+.ds-band .k { display: none; }
+.ds-band.is-solo > * { grid-column: 1 / -1; }
+.ds-mx td.ev { color: var(--pro-ink); font-weight: 500; padding-left: var(--space-4); padding-right: 0; }
 .ds-mx td.ev .ds-mx-k { display: none; }
 .ds-mx-key { display: flex; gap: var(--space-5); margin: var(--space-4) 0 0; font-size: var(--text-xs); color: var(--pro-soft); }
 .ds-mx-key span { display: inline-flex; align-items: center; gap: var(--space-2); }
-.ds-mx-key .ds-mk { display: inline-block; margin: 0; width: var(--mk-sm); height: var(--mk-sm); }
-.is-alt .ds-mk.is-open { background: var(--pro-alt); }
+.ds-mx-key i { display: inline-block; width: var(--space-5); height: var(--space-3); border-radius: 2px; background: var(--pro-ink-tint); }
+.ds-mx-key i.on { background: var(--pro-ink-tint-2); }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1100px) {
@@ -71,21 +76,23 @@ html body main .ds-section + .ds-section:not(.is-alt):not(.is-tight) { border-to
 @media (max-width: 760px) {
   .ds-grid-4 { grid-template-columns: 1fr; }
   .ds-card { padding: var(--space-5); }
-  /* the matrix becomes one stacked block per row: name, span, the marked days as a list, evidence */
+  /* the matrix becomes one card per row: name, span, the days as chips in the same tints, evidence */
   .ds-mx, .ds-mx tbody, .ds-mx tr, .ds-mx th, .ds-mx td { display: block; width: auto !important; }
-  .ds-mx thead { display: none; }
+  .ds-mx thead, .ds-mx colgroup { display: none; }
   .ds-mx-wrap { border-bottom: 0; }
   .ds-mx tbody tr { padding: var(--space-5) 0; border-bottom: var(--hairline); }
   .ds-mx tbody tr + tr > * { border-top: 0; }
-  .ds-mx th, .ds-mx td { padding: 0; }
+  .ds-mx th, .ds-mx td { padding: 0 !important; background-image: none !important; }
+  .ds-mx td:empty { display: none; }
   .ds-mx-span { display: block; margin-top: var(--space-2); font: 600 var(--text-xs)/1.3 'Geist', system-ui, sans-serif; font-style: normal; letter-spacing: .12em; text-transform: uppercase; color: var(--pro-ink-2); }
-  .ds-mx td:not(.on):not(.ev) { display: none; }
-  .ds-mx td.on { display: flex; align-items: baseline; gap: var(--space-3); margin-top: var(--space-3); }
-  .ds-mx td.on::before { display: none !important; }
-  .ds-mx td.on::after { content: attr(data-day); order: -1; min-width: 4.5em; font-size: var(--text-xs); letter-spacing: .08em; text-transform: uppercase; color: var(--pro-soft); }
-  .ds-mx td.on .ds-mk { margin: 0; flex: none; transform: translateY(1px); }
-  .ds-mx td.ev { margin-top: var(--space-4); padding-top: var(--space-3); border-top: var(--hairline) !important; }
+  .ds-mx td.band { margin-top: var(--space-3); }
+  .ds-band { display: flex; flex-wrap: wrap; gap: var(--space-2); border-radius: 0; overflow: visible; }
+  .ds-band > * { min-height: 0; padding: var(--space-2) var(--space-3); border-radius: var(--band-r); gap: var(--space-2); }
+  .ds-band .k { display: inline; font-weight: 600; color: var(--pro-ink-2); }
+  .ds-band .vh { position: static !important; width: auto; height: auto; overflow: visible; clip: auto; display: none; }
+  .ds-mx td.ev { margin-top: var(--space-4); padding-top: var(--space-3) !important; border-top: var(--hairline) !important; }
   .ds-mx td.ev .ds-mx-k { display: block; color: var(--pro-soft); }
+}
 }
 
 /* ---------- Migrated legacy sections (MIGRATION-BRIEF) ----------

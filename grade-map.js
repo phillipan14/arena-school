@@ -58,8 +58,8 @@
   const bind = (el, progs, onLeave, pin) => {
     el.addEventListener('mouseenter', () => spotlight(progs, pin));
     el.addEventListener('mouseleave', onLeave || clear);
-    el.addEventListener('focus', () => spotlight(progs, pin));
-    el.addEventListener('blur', clear);
+    el.addEventListener('focusin', () => spotlight(progs, pin));
+    el.addEventListener('focusout', clear);
   };
 
   lanes.forEach((l) => bind(l, [l.dataset.prog], null, true));

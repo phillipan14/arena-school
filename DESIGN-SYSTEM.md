@@ -26,7 +26,7 @@ components, Editorial matrix, Learning approach). Migration status: `DESIGN-MIGR
 - **ds-doors**: a ruled row of audience links ("Who are you?").
 - **ds-list** / **ds-list-row**: dated rows (date column, body, arrow) on hairlines.
 - **ds-logos**: logo rows with a label column.
-- **ds-mx** (editorial matrix) with **ds-mk** markers: hairline grid, small caps column heads, tabular figures; filled square = practiced, open square = in the span, a 1px rule joins the span. No gradients, no pills. Phones: one stacked block per row. Used by the Learning approach week and the homepage "Where each program fits" (`.ds-gmx`, `tools/grade_matrix.py`).
+- **ds-mx** (editorial matrix) with **ds-band** (BAND-BRIEF): hairline grid, small caps heads, faint column guides; one flat tinted band per row (`--pro-ink-tint` 14% of the action blue, 5px radius, 30px), label inside; worked-example days as blocks, practiced in `--pro-ink-tint-2`. Hover/focus: the band turns solid navy, other rows dim. Phones: name, grades, a thin track with the band; day chips in the same tints. Used by the Learning approach week and the homepage "Where each program fits" (`.ds-gmx`, `tools/grade_matrix.py`).
 - **ds-ic**: Lucide line icons, 1.6 stroke, `currentColor` (`tools/lucide_icons.json`, ISC).
 Migrated pages keep their legacy classes where scripts rely on them; above 760px the ds rules win. At 760px and below
 the phone layer (`phone.css`, built from `phone/*.css`) keeps its own layout until each page group is migrated.

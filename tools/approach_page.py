@@ -88,7 +88,7 @@ T = {'en': dict(
   go_l='Every project moves through all four, then starts again with what it learned.',
   goals=['Turn an interest into a focused question, and plan the work.', 'Check sources, including AI output, and choose on evidence.', 'Build and test it with AI, and explain it clearly.', 'Use critique from teachers and peers to revise the work.'],
   ex_k='One week', ex_h='Five days, <em>all four strands.</em>',
-  ex_l='A five-day student build week, as run at the International School of Beijing in summer 2026. Filled marks show where each strand is practiced.',
+  ex_l='A five-day student build week, as run at the International School of Beijing in summer 2026. Darker blocks show the day each strand is practiced.',
   ex_goal_col='Strand', ex_ev_col='Evidence',
   days=[('Day 1', 'Pick a problem'), ('Day 2', 'Go public'), ('Day 3', 'The rebuild'), ('Day 4', 'Polish and price'), ('Day 5', 'Demo day')],
   ex_rows=[
@@ -209,7 +209,7 @@ T['cn'].update(
   go_l='每个项目都会走完这四步，再带着学到的东西重新开始。',
   goals=['把兴趣聚焦成一个具体的问题，并规划工作。', '核查资料来源，包括AI的输出，依据证据做选择。', '借助AI做出并测试作品，并清楚地讲明白。', '利用老师和同伴的批评意见修改作品。'],
   ex_k='一周实例', ex_h='五天，<em>走完四条主线。</em>',
-  ex_l='一个为期五天的学生实战周，2026年夏天在北京顺义国际学校开展。实心标记表示该主线在哪一天得到练习。',
+  ex_l='一个为期五天的学生实战周，2026年夏天在北京顺义国际学校开展。深色色块表示该主线在哪一天得到练习。',
   ex_goal_col='主线', ex_ev_col='证据',
   days=[('第1天', '选定问题'), ('第2天', '公开上线'), ('第3天', '推倒重来'), ('第4天', '打磨与定价'), ('第5天', '路演日')],
   ex_rows=[
@@ -336,30 +336,26 @@ def approach_body(t):
 
 # ---------- Learning approach ----------
 def matrix(t):
-    """The editorial matrix (css/ds.css .ds-mx): hairline grid, filled marks where a strand is practiced (with the
-    activity), open marks for days in its span, a hairline joining them. Phones: one stacked block per strand."""
+    """The editorial matrix (css/ds.css .ds-mx, BAND-BRIEF): hairline grid, faint day guides, one tinted band per
+    strand across its days; inside it, practiced days in the stronger tint with the activity, the rest in the base
+    tint. Phones: one card per strand with the days as chips in the same tints."""
     ths = ''.join('<th scope="col"><span class="ds-mx-k">%s</span>%s</th>' % d for d in t['days'])
     rows = []
     for i, (goal, a, b, labels, ev, dayk) in enumerate(t['ex_rows']):
-        cells = []
-        for d in range(1, 6):
-            cls = []
-            if a <= d <= b:
-                cls.append('in')
-                if d == a: cls.append('first')
-                if d == b: cls.append('last')
+        n = b - a + 1
+        days = []
+        for d in range(a, b + 1):
+            k = '<b class="k">%s</b>' % t['days'][d - 1][0]
             if d in labels:
-                cls.append('on')
-                mark = '<i class="ds-mk" aria-hidden="true"></i><span>%s</span>' % labels[d]
-            elif a <= d <= b:
-                mark = '<i class="ds-mk is-open" aria-hidden="true"></i><span class="vh">%s</span>' % t['ex_key'][1]
+                days.append('<span class="on">%s<span>%s</span></span>' % (k, labels[d]))
             else:
-                mark = ''
-            cells.append('<td class="%s" data-day="%s">%s</td>' % (' '.join(cls), t['days'][d - 1][0], mark))
+                days.append('<span>%s<span class="vh">%s</span></span>' % (k, t['ex_key'][1]))
+        cells = ['<td></td>'] * (a - 1) + ['<td class="band" colspan="%d"><div class="ds-band" style="--n:%d">%s</div></td>' % (n, n, ''.join(days))] + ['<td></td>'] * (5 - b)
         rows.append('<tr><th scope="row"><span class="ds-mx-n">0%d</span><b>%s</b><span>%s</span><em class="ds-mx-span">%s</em></th>%s<td class="ev"><span class="ds-mx-k">%s</span>%s</td></tr>'
                     % (i + 1, t['domains'][i], goal, dayk, ''.join(cells), t['ex_ev_col'], ev))
-    key = '<p class="ds-mx-key" aria-hidden="true"><span><i class="ds-mk"></i>%s</span><span><i class="ds-mk is-open"></i>%s</span></p>' % t['ex_key']
-    return ('<div class="ds-mx-wrap reveal"><table class="ds-mx"><thead><tr><th scope="col">%s</th>%s<th scope="col">%s</th></tr></thead><tbody>%s</tbody></table></div>%s'
+    key = '<p class="ds-mx-key" aria-hidden="true"><span><i class="on"></i>%s</span><span><i></i>%s</span></p>' % t['ex_key']
+    return ('<div class="ds-mx-wrap reveal"><table class="ds-mx"><colgroup><col style="width:24%%" /><col span="5" /><col style="width:19%%" /></colgroup>'
+            '<thead><tr><th scope="col">%s</th>%s<th scope="col">%s</th></tr></thead><tbody>%s</tbody></table></div>%s'
             % (t['ex_goal_col'], ths, t['ex_ev_col'], ''.join(rows), key))
 
 
