@@ -989,3 +989,5 @@ a.qr.qr-live.age-q2::after{content:"Book a 20-minute call  \2192"}
 .nx-oc{display:grid;gap:4px;padding-top:8px;border-top:1px solid var(--ink)}.nx-oc span:not(.nx-ock){font-size:14px;font-style:italic;color:var(--ink)}
 .nx-ln{display:grid!important;gap:6px}.nx-ln>span{display:grid}.nx-ln b{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .ac-dd.nx-dd3{display:grid;gap:10px}
+/* pass 4: outcomes and assessment band (.nx-oa) */
+.nx-oab{display:grid;gap:8px;margin-top:10px}.nx-oae,.nx-oai{padding:10px 12px;border-radius:8px}.nx-oae{box-shadow:inset 0 0 0 1px rgba(21,38,54,.12)}.nx-oai{background:#0B1A4A}.nx-oak{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#2F55A8;margin:0 0 6px}.nx-oai .nx-oak{color:#A9BEEA}.nx-oae ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 14px}.nx-oae li{display:flex;align-items:center;gap:6px;font-size:14px}.nx-oae .lic{width:16px;height:16px}.nx-oai p{margin:0;font-size:14px;color:#fff}

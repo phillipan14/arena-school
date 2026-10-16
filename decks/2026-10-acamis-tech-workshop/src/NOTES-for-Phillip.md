@@ -1,5 +1,68 @@
 # Notes for Phillip: ACAMIS deck restructure (Oct 16)
 
+## Pass 4 (Oct 16, evening): compress, one case, unblur, narrative
+
+This section supersedes the running order, the "cases 2 and 3" and "prize amount" items, and the timing risk further down.
+
+**What changed**
+- **Framework block, 6 slides down to 3:** philosophy (6), the framework as the "where AI comes in" swimlane (8), and **one new slide (9) merging outcomes and assessment**: one outcome per strand plus the evidence band (process journal, drafts, recorded defense; used at ISB). The wheel, the full outcomes list, the rubric, and the programs map moved to backup.
+- **One case study:** Bodley is the case (14), retitled "The case · where it started". The placeholder cases 2 and 3 are deleted, not moved, since they had no content.
+- **Winner photo:** the deck uses the original `isb-winners-1400.webp` again, and the blurred copy is deleted.
+- **Repetition cut:** the About slide no longer names agency, taste, and craft (slide 6 does that, once). The founders' bios moved to backup, so slide 4's logo strip and its notes are the only "who we are" moment. "Week analysis", "build loop", and "where AI helps" moved to backup because they re-explained the three skills or the build steps.
+- **Part 4** is now "Start small, and start on Monday." The tracker label and agenda item 4 match. The close slide's three points are reordered to follow the takeaways (design decides, students can ship, start small), and "one project" became "one tool".
+- **Speaker notes:** all 25 main slides are rewritten so each ends by setting up the next one.
+
+**Running order: 25 main slides (20 before the build), then 11 backup slides**
+
+## The four takeaways
+1. **Design decides.** With AI, learners still have to do the thinking (agency, taste, and craft), and whether AI helps or hurts depends on how the work is designed.
+2. **Students can ship.** A five-day program inside a school took students with no coding background to live products that real users and judges tried.
+3. **Teachers can build too.** AI gives teachers time back, and in plain English you can build a tool for your own class. The build session proves it in the room.
+4. **Start small on Monday.** You become the coach who asks three questions: one tool, one class. Arena can help you go further.
+
+## Narration arc, one line per slide
+| # | Slide | Takeaway | The one point, and the handoff |
+|---|---|---|---|
+| 1 | Cover | | A case study from ISB; scan for the resources. "Here is the hour." |
+| 2 | Contents | | Four parts, and the build is the main event. |
+| 3 | Part 1 | 1 | Who we are, and the one idea behind everything. |
+| 4 | About Arena | 1 | Hands-on programs where learners decide and AI builds; credibility strip; Jing Jing's homecoming. "It starts from one question." |
+| 5 | The question | 1 | When AI can do all of this, what must students still learn? "Here is our answer." |
+| 6 | Philosophy | 1 | Three human skills: agency, taste, and craft (named once, here). "And this isn't only our opinion." |
+| 7 | Research | 1 | Same AI, opposite results (−17% vs 2×): the design decides. "That's what our framework is for." |
+| 8 | Framework | 1 | Four strands as a cycle: AI does the making, the learner decides, the teacher asks. |
+| 9 | Outcomes and assessment | 1 | One outcome per strand, assessed on the process. "So what does this look like in a real school?" |
+| 10 | Part 2 | 2 | The framework running for real at ISB. |
+| 11 | The program | 2 | Five days, grades 7 to 12, no coding, a live product by Friday. |
+| 12 | Day by day | 2 | Each day trains one skill and ends with something real. |
+| 13 | The tools | 2 | 200+ tools; they learned the habit of choosing, not the list. "Here's one student." |
+| 14 | Bodley case | 2 | An 11-year-old's sign-language app: chose it, built it, revised it for his grandmother. Three outcomes from slide 9. |
+| 15 | Demo day | 2 | Judges tried every product; same tools, and the three skills made the difference. "None of it works without teachers." |
+| 16 | Part 3 | 3 | Now it's about you. |
+| 17 | Pain points | 3 | Teachers lack time, approved tools, and a place to start. "Let's start with time." |
+| 18 | Time back | 3 | 31% and 5.9 hours; the grading timer. AI handles the housekeeping, and the teacher keeps the judgment. |
+| 19 | Teachers build | 3 | Literary devices and simulations, in plain English. "That's what we'll do now." |
+| 20 | Build session | 3 | Name it, build it, judge it, the same loop students run. **Then the 30-minute build.** |
+| 21 | Part 4 | 4 | Back to Monday. |
+| 22 | Coach | 4 | From the person with the answers to the coach with three questions. |
+| 23 | What we offer | 4 | Three programs on the same framework, for when one hour isn't enough. |
+| 24 | Close | 1, 2, 4 | Design decides; students can ship; start small. "You already know how to coach." |
+| 25 | Q&A | | Resources and contacts. |
+
+**Backup (26 to 36):** framework wheel · all learning outcomes · assessment rubric · programs map · what the week trained (three-skill analysis) · build session as the framework loop · where AI helps · founders' bios · what parents asked · is it cheating? · planning checklist. Every backup kicker starts with "Backup ·". Agenda links are now `data-go` 2, 9, 15, 20.
+
+**Timing:** 20 slides before the build, at about 75 seconds each, comes to about 25 minutes, then 30 for the build and about 5 for slides 21 to 25. If you're running long before the build, skip 13 (tools) or 7 (research) first.
+
+## Pass 4: open items
+- **Bodley first sketch:** optional, as before.
+- **Founders' bios:** I moved them to backup because slide 4 already covers the team, and after a 30-minute build the closing minutes are better spent on Monday. If you want them on screen, pull slide 33 forward to sit after slide 4, and drop the logo strip on slide 4 so the two don't repeat.
+- **Demo-day analysis:** this is now one spoken line on slide 15, taken from the old slide 21 text ("every team had the same tools; the three skills made the difference"). Real judging criteria would make it stronger.
+- **Public results page:** it still shows the winner photo with the amount visible (`results.html`). With the blur dropped, this no longer conflicts with the deck. Note that the deck's own rule ("no prize amounts") applies to text, and the cheque is legible in the photo at full size.
+
+---
+
+## Earlier passes (1 to 3)
+
 Branch `deck-edits-acamis`, four commits, **not pushed**. `main` and the live site are untouched.
 
 | Commit | Pass |
