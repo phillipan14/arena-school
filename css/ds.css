@@ -93,7 +93,6 @@ html body main .ds-section + .ds-section:not(.is-alt):not(.is-tight) { border-to
   .ds-mx td.ev { margin-top: var(--space-4); padding-top: var(--space-3) !important; border-top: var(--hairline) !important; }
   .ds-mx td.ev .ds-mx-k { display: block; color: var(--pro-soft); }
 }
-}
 
 /* ---------- Migrated legacy sections (MIGRATION-BRIEF) ----------
    Pages keep their legacy classes for scripts; these rules make the ds components authoritative above 760px.
