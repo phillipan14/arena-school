@@ -1,4 +1,4 @@
-# Slide principles for the parent talk
+# Slide principles (written for the ISB parent talk; the same rules apply here)
 
 A short checklist for writing and laying out this deck. Every rule here comes from a named source and has been adapted to this deck: a 20-minute talk to ISB parents, most of them not specialists, read in English and Chinese, then shared as a PDF. House rules in `/DESIGN.md` and `/CONTENT-RULES.md` still apply and win any conflict.
 

@@ -1,0 +1,342 @@
+[
+  {
+    "topic": "1. Project-based learning",
+    "citation": "Saavedra, A. R., Lock Morgan, K., Liu, Y., Garland, M. W., Rapaport, A., Hu, A., Hoepfner, D., & Haderlein, S. K. (2022). The impact of project-based learning on AP exam performance. Educational Evaluation and Policy Analysis, 44(4), 638-666.",
+    "finding": "In year 1, the Knowledge in Action PBL curriculum raised the share of students earning a qualifying AP score (3+) from about 37% to 45%, roughly 8 percentage points. Students of teachers in their second year with KIA gained about 10 points.",
+    "number": "+8 percentage points in AP pass rate (37% to 45%), year 1; +10 points, year 2",
+    "design": "Cluster RCT, AP U.S. Government and AP Environmental Science, 5 mostly urban districts. Year 1: 3,645 exam-takers, 74 teachers, 68 schools (38% low-income). Year 2 follow-up: 2,946 students, 53 teachers.",
+    "url": "https://doi.org/10.3102/01623737221084355 (pass-rate figures: Lucas Education Research / College Board brief, https://apcentral.collegeboard.org/media/pdf/project-based-learning-boosts-student-achievement-in-ap-courses.pdf)",
+    "caveat": "The paper is in EEPA (2022), not AERA Open (2021). The 37%-to-45% and 8- and 10-point figures come from the funder brief, not the abstract. The brief's 'effect sizes' (0.457 year 1) are not standard-deviation units, so don't quote them as SDs. The intervention bundled heavy professional development with the curriculum. About a third of teachers dropped out of the year-2 sample.",
+    "confidence": "high"
+  },
+  {
+    "topic": "1. Project-based learning",
+    "citation": "Duke, N. K., Halvorsen, A.-L., Strachan, S. L., Kim, J., & Konstantopoulos, S. (2021). Putting PjBL to the test: The impact of project-based learning on second graders' social studies and literacy learning and motivation in low-SES school settings. American Educational Research Journal, 58(1), 160-200.",
+    "finding": "In high-poverty schools, second graders in PBL classrooms outscored the comparison group by 0.48 SD in social studies, described as a 63% gain or about 5-6 months of extra learning. Informational reading was +0.18 SD (a 23% gain). There was no effect on writing or motivation.",
+    "number": "ES = 0.48 SD in social studies (63% gain); 0.18 SD in informational reading (23% gain)",
+    "design": "Cluster RCT: 48 teachers randomized in within-school pairs; about 560-630 students analyzed per outcome; schools with 65-100% free or reduced-price lunch.",
+    "url": "https://doi.org/10.3102/0002831220929638",
+    "caveat": "The abstract confirms the design and the direction of the results. The exact numbers (0.482, 0.181, 63%, 23%) come from the authors' 2018 working-paper version on pblworks.org; the 5-6 months figure also appears in the UMich release. Published values could differ slightly. Writing and motivation showed no effect.",
+    "confidence": "medium-high"
+  },
+  {
+    "topic": "1. Project-based learning",
+    "citation": "Krajcik, J. S., Schneider, B., Miller, E. C. A., Chen, I.-C., Bradford, L., Baker, Q., ... Peek-Brown, D. (2023). Assessing the effect of project-based learning on science learning in elementary schools. American Educational Research Journal, 60(1), 70-102.",
+    "finding": "Third graders in the Multiple Literacies in PBL (ML-PBL) science program scored 0.277 SD higher on a standardized science test. They also reported more self-reflection and collaboration.",
+    "number": "+0.277 SD on a standardized science test (UMich: 8 percentage points higher on the state science test)",
+    "design": "Cluster RCT, 46 Michigan schools, 2,371 students.",
+    "url": "https://doi.org/10.3102/00028312221129247",
+    "caveat": "Single US state. The intervention included curriculum and professional learning. The 8-percentage-point figure is from the university press release, not the abstract.",
+    "confidence": "high"
+  },
+  {
+    "topic": "1. Project-based learning",
+    "citation": "Chen, C.-H., & Yang, Y.-C. (2019). Revisiting the effects of project-based learning on students' academic achievement: A meta-analysis investigating moderators. Educational Research Review, 26, 71-81.",
+    "finding": "Compared with traditional instruction, PBL had a medium-to-large positive effect on academic achievement.",
+    "number": "d+ = 0.71",
+    "design": "Meta-analysis: 46 effect sizes from 30 journal articles (1998-2017); 12,585 students, 189 schools, 9 countries.",
+    "url": "https://doi.org/10.1016/j.edurev.2018.11.001",
+    "caveat": "Most included studies are quasi-experimental and small, so the effect is likely inflated next to RCTs (compare 0.28 SD in Krajcik). Results vary by subject, location, hours, and IT support.",
+    "confidence": "high"
+  },
+  {
+    "topic": "2. Feedback and formative assessment",
+    "citation": "Wisniewski, B., Zierer, K., & Hattie, J. (2020). The power of feedback revisited: A meta-analysis of educational feedback research. Frontiers in Psychology, 10, 3087.",
+    "finding": "Feedback has a medium average effect on learning. The more information it carries, the better it works: high-information feedback d = 0.99, corrective d = 0.46, praise or reward and punishment d = 0.24.",
+    "number": "d = 0.48 overall; d = 0.99 for high-information feedback",
+    "design": "Meta-analysis: 435 studies, k = 994 effects, N > 61,000.",
+    "url": "https://doi.org/10.3389/fpsyg.2019.03087",
+    "caveat": "Heterogeneity is very high, and the authors warn that feedback is not one consistent treatment. This 0.48 replaces Hattie & Timperley's older 0.79.",
+    "confidence": "high"
+  },
+  {
+    "topic": "2. Feedback and formative assessment",
+    "citation": "Hattie, J., & Timperley, H. (2007). The power of feedback. Review of Educational Research, 77(1), 81-112.",
+    "finding": "Across prior meta-analyses, the average effect of feedback was 0.79, about twice the average educational effect. Effects ranged widely, and some were negative.",
+    "number": "average ES = 0.79 (12 meta-analyses, 196 studies, 6,972 effect sizes)",
+    "design": "Synthesis of 12 prior meta-analyses (conceptual review plus model).",
+    "url": "https://doi.org/10.3102/003465430298487",
+    "caveat": "The abstract has no number; 0.79 is from the article body, checked only through secondary sources. It is a synthesis of syntheses, and the 2020 replication found 0.48. Better cited for its feed-up/feed-back/feed-forward model than for the number.",
+    "confidence": "medium"
+  },
+  {
+    "topic": "2. Feedback and formative assessment",
+    "citation": "Kluger, A. N., & DeNisi, A. (1996). The effects of feedback interventions on performance: A historical review, a meta-analysis, and a preliminary feedback intervention theory. Psychological Bulletin, 119(2), 254-284.",
+    "finding": "Feedback improved performance on average, but over one-third of feedback interventions made performance worse, especially feedback aimed at the self rather than the task.",
+    "number": "d = 0.41 average; >1/3 of feedback interventions decreased performance",
+    "design": "Meta-analysis: 607 effect sizes, 23,663 observations.",
+    "url": "https://doi.org/10.1037/0033-2909.119.2.254",
+    "caveat": "Not school-specific: it mixes lab, workplace, and education studies.",
+    "confidence": "high"
+  },
+  {
+    "topic": "2. Feedback and formative assessment",
+    "citation": "Black, P., & Wiliam, D. (1998). Assessment and classroom learning. Assessment in Education: Principles, Policy & Practice, 5(1), 7-74. Companion piece: Black & Wiliam (1998), Inside the black box: Raising standards through classroom assessment. Phi Delta Kappan, 80(2), 139-148.",
+    "finding": "Formative assessment experiments produce typical effect sizes of 0.4 to 0.7, larger than most educational interventions.",
+    "number": "typical ES 0.4-0.7",
+    "design": "Narrative review of about 250 sources (the review count is from the 1998 paper and was not re-checked here).",
+    "url": "https://doi.org/10.1080/0969595980050102",
+    "caveat": "The 0.4-0.7 range appears in 'Inside the Black Box' (checked in the authors' 2001 BERA version), not in the AiE abstract. It is not a formal pooled meta-analysis, and later critics (e.g., Kingston & Nash 2011) estimated about 0.2.",
+    "confidence": "medium-high"
+  },
+  {
+    "topic": "2. Feedback and formative assessment",
+    "citation": "Education Endowment Foundation. Teaching and Learning Toolkit: Feedback (review last updated June 2021).",
+    "finding": "Feedback adds +6 months of progress on average. Verbal feedback averages +7 months and written feedback +5.",
+    "number": "+6 months (verbal +7, written +5, digital +4)",
+    "design": "Toolkit meta-synthesis, 155 studies; evidence security rated high.",
+    "url": "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/feedback",
+    "caveat": "Months-of-progress is a translated effect-size metric. The EEF site blocks bots, so this was checked via a Wayback snapshot from September-October 2026.",
+    "confidence": "high"
+  },
+  {
+    "topic": "3. Human teacher/tutor vs AI; hybrid human+AI",
+    "citation": "Wang, R. E., Ribeiro, A. T., Robinson, C. D., Loeb, S., & Demszky, D. (2024; rev. 2026). Tutor CoPilot: A human-AI approach for scaling real-time expertise. arXiv:2410.03017 (v3, Oct 10, 2026); also Annenberg EdWorkingPaper 24-1054.",
+    "finding": "Students whose human tutors had real-time AI suggestions were 4 percentage points more likely to master topics. Students of lower-rated tutors gained 9 points. Tutors with the tool asked more guiding questions and gave away answers less.",
+    "number": "+4 pp topic mastery (p<0.01); +9 pp for lower-rated tutors; about $20 per tutor per year",
+    "design": "Preregistered RCT in live K-12 math tutoring; 900 tutors, 1,800 students from historically under-served communities; 550,000+ messages analyzed.",
+    "url": "https://arxiv.org/abs/2410.03017",
+    "caveat": "This is a preprint or working paper, not peer-reviewed. Older versions report a smaller sample (>700 tutors, about 1,000 students). Mastery was measured by end-of-session checks, not standardized tests. It shows AI helping a human, not replacing one.",
+    "confidence": "high (for the numbers); peer-review status: preprint"
+  },
+  {
+    "topic": "3. Human teacher/tutor vs AI; hybrid human+AI",
+    "citation": "Bastani, H., Bastani, O., Sungu, A., Ge, H., Kabakcı, Ö., & Mariman, R. (2025). Generative AI without guardrails can harm learning: Evidence from high school mathematics. PNAS, 122(26), e2422633122.",
+    "finding": "With GPT-4 access, practice grades rose 48% (GPT Base) and 127% (GPT Tutor). When access was taken away, the GPT Base group scored 17% lower than students who never had it. The tutor-style guardrails largely mitigated this harm.",
+    "number": "-17% on unassisted exam (GPT Base); +48% / +127% during practice",
+    "design": "Field experiment with nearly 1,000 high school math students in Turkey.",
+    "url": "https://doi.org/10.1073/pnas.2422633122",
+    "caveat": "One country and subject. The finding is about tool design (guardrails), not human vs AI directly.",
+    "confidence": "high"
+  },
+  {
+    "topic": "3. Human teacher/tutor vs AI; hybrid human+AI",
+    "citation": "Nickow, A., Oreopoulos, P., & Quan, V. (2024). The promise of tutoring for PreK-12 learning: A systematic review and meta-analysis of the experimental evidence. American Educational Research Journal, 61(1), 74-107.",
+    "finding": "Human tutoring has a consistently substantial effect. Effects are largest when teachers or paraprofessionals tutor, in earlier grades, at least 3 days a week, and during school.",
+    "number": "pooled ES = 0.288 SD (SE 0.029)",
+    "design": "Meta-analysis of randomized field experiments of PreK-12 tutoring (96 RCTs per the NBER version; count not re-checked).",
+    "url": "https://doi.org/10.3102/00028312231208687",
+    "caveat": "Covers human tutoring only; there is no AI comparison arm. Useful as the benchmark that AI tools are measured against.",
+    "confidence": "high"
+  },
+  {
+    "topic": "3. Human teacher/tutor vs AI; hybrid human+AI",
+    "citation": "Fan, Y., Tang, L., Le, H., Shen, K., Tan, S., Zhao, Y., Shen, Y., Li, X., & Gašević, D. (2025). Beware of metacognitive laziness: Effects of generative artificial intelligence on learning motivation, processes, and performance. British Journal of Educational Technology, 56(2), 489-530.",
+    "finding": "Compared with a human expert, a checklist tool, and no support, the ChatGPT group improved essay scores most. Knowledge gain and transfer did not differ, and the authors flag 'metacognitive laziness' (dependence on the tool).",
+    "number": "No significant difference in knowledge gain or transfer despite higher essay-score improvement (no single headline number in the abstract)",
+    "design": "Randomized lab experiment, 117 university students, 4 arms (ChatGPT, human expert chat, writing analytics, none).",
+    "url": "https://doi.org/10.1111/bjet.13544",
+    "caveat": "Small lab study with university students and a single writing task.",
+    "confidence": "high"
+  },
+  {
+    "topic": "4. Student voice, choice, autonomy",
+    "citation": "Patall, E. A., Cooper, H., & Robinson, J. C. (2008). The effects of choice on intrinsic motivation and related outcomes: A meta-analysis of research findings. Psychological Bulletin, 134(2), 270-300.",
+    "finding": "Giving choice raised intrinsic motivation, effort, task performance, and perceived competence. The effect was strongest with 2-4 choices: d = 0.61 vs 0.21 for a single choice and 0.32 for 5+.",
+    "number": "d = 0.30 (fixed) / 0.36 (random) on intrinsic motivation; task performance d = 0.32 / 0.36",
+    "design": "Meta-analysis of 41 studies (46 overall effects on intrinsic motivation); child and adult samples.",
+    "url": "https://doi.org/10.1037/0033-2909.134.2.270",
+    "caveat": "Trim-and-fill shrinks the motivation effect by about a third (d ≈ 0.21-0.24). Many studies are lab-based. Effects are larger for children and for instructionally irrelevant choices, so more choice is not always better.",
+    "confidence": "high"
+  },
+  {
+    "topic": "4. Student voice, choice, autonomy",
+    "citation": "Bureau, J. S., Howard, J. L., Chong, J. X. Y., & Guay, F. (2022). Pathways to student motivation: A meta-analysis of antecedents of autonomous and controlled motivations. Review of Educational Research, 92(1), 46-72.",
+    "finding": "Teacher autonomy support predicts students' need satisfaction and self-determined motivation more strongly than parental autonomy support. Competence is the strongest predictor of self-determined motivation, followed by autonomy and then relatedness.",
+    "number": "144 studies, >79,000 students (no single headline coefficient in the abstract)",
+    "design": "Meta-analysis (correlational, SDT framework).",
+    "url": "https://doi.org/10.3102/00346543211042426",
+    "caveat": "Correlational, so it cannot show causation. Effect coefficients would need the full text.",
+    "confidence": "high"
+  },
+  {
+    "topic": "4. Student voice, choice, autonomy",
+    "citation": "Howard, J. L., Bureau, J. S., Guay, F., Chong, J. X. Y., & Ryan, R. M. (2021). Student motivation and associated outcomes: A meta-analysis from self-determination theory. Perspectives on Psychological Science, 16(6), 1300-1323.",
+    "finding": "Intrinsic motivation is linked to student success and well-being, and identified regulation (personal value) to persistence. External regulation (rewards or punishment) is not linked to performance or persistence and goes with lower well-being.",
+    "number": "344 samples, 223,209 participants",
+    "design": "Meta-analysis, correlational.",
+    "url": "https://doi.org/10.1177/1745691620966789",
+    "caveat": "Correlational; abstract gives no headline effect size.",
+    "confidence": "high"
+  },
+  {
+    "topic": "5. Authentic audience / authentic tasks",
+    "citation": "Newmann, F. M., Bryk, A. S., & Nagaoka, J. K. (2001). Authentic intellectual work and standardized tests: Conflict or coexistence? Consortium on Chicago School Research, University of Chicago.",
+    "finding": "In Chicago classrooms with high-quality assignments demanding authentic intellectual work, students posted one-year learning gains 20% greater than the national average. Classrooms with low-demand assignments were 25% (reading) and 22% (math) below the national average.",
+    "number": "+20% vs national average annual gain (high-authenticity classrooms)",
+    "design": "Observational: 2,017 assignments from 74-116 teachers per year (1997-1999), grades 3, 6, and 8, 12-19 Chicago elementary schools; linked to ITBS/IGAP gains.",
+    "url": "https://consortium.uchicago.edu/sites/default/files/2018-10/p0a02.pdf",
+    "caveat": "A classic research report, not peer-reviewed or randomized. 'Authentic' here means intellectual demand plus connection to the world beyond school, not specifically an external audience. Some subgroup differences were not significant.",
+    "confidence": "high (numbers checked in report)"
+  },
+  {
+    "topic": "5. Authentic audience / authentic tasks",
+    "citation": "Purcell-Gates, V., Duke, N. K., & Martineau, J. A. (2007). Learning to read and write genre-specific text: Roles of authentic experience and explicit teaching. Reading Research Quarterly, 42(1), 8-45.",
+    "finding": "How authentic the reading and writing activities were (real-life purposes and audiences) was strongly related to growth on 4 of 7 literacy outcomes. Explicit genre teaching showed no effect on 6 of 7.",
+    "number": "Authenticity related to growth on 4 of 7 outcomes (no single effect size in abstract)",
+    "design": "Experimental + correlational, HLM; 16 grade-2 classes, 10 followed to grade 3; N = 420.",
+    "url": "https://doi.org/10.1598/rrq.42.1.1",
+    "caveat": "The authenticity finding is correlational, not the randomized contrast.",
+    "confidence": "high"
+  },
+  {
+    "topic": "5. Authentic audience / authentic tasks",
+    "citation": "Block, M. K., & Strachan, S. L. (2019). The impact of external audience on second graders' writing quality. Reading Horizons, 58(2).",
+    "finding": "Second graders wrote higher-quality pieces for an external audience than for their teacher.",
+    "number": "No number confirmed (abstract reports direction only)",
+    "design": "Within-subjects comparison, second grade.",
+    "url": "https://scholarworks.wmich.edu/reading_horizons/vol58/iss2/5",
+    "caveat": "Small study in a practitioner journal. Sample size and effect sizes are unconfirmed.",
+    "confidence": "medium (number unconfirmed)"
+  },
+  {
+    "topic": "6. Rubrics, self-assessment, process-based assessment",
+    "citation": "Panadero, E., Jonsson, A., Pinedo, L., & Fernández-Castilla, B. (2023). Effects of rubrics on academic performance, self-regulated learning, and self-efficacy: A meta-analytic review. Educational Psychology Review, 35(4), Article 113.",
+    "finding": "After correcting for publication bias, rubrics had a moderate positive effect on academic performance and small effects on self-regulated learning (g = 0.23) and self-efficacy (g = 0.18).",
+    "number": "g = 0.45 on academic performance (k = 21 studies, 54 effects)",
+    "design": "Meta-analysis.",
+    "url": "https://doi.org/10.1007/s10648-023-09823-4",
+    "caveat": "Few studies. The SRL and self-efficacy confidence intervals cross zero. Most moderators were non-significant.",
+    "confidence": "high"
+  },
+  {
+    "topic": "6. Rubrics, self-assessment, process-based assessment",
+    "citation": "Yan, Z., Lao, H., Panadero, E., Fernández-Castilla, B., Yang, L., & Yang, M. (2022). Effects of self-assessment and peer-assessment interventions on academic performance: A meta-analysis. Educational Research Review, 37, 100484.",
+    "finding": "Self-assessment and peer-assessment interventions both meaningfully improved academic performance.",
+    "number": "self-assessment g = 0.585; peer assessment g = 0.606; combined g = 0.448",
+    "design": "Meta-analysis: 175 studies, 626 effect sizes, 19,383 participants.",
+    "url": "https://doi.org/10.1016/j.edurev.2022.100484",
+    "caveat": "Repeated-measures designs inflate effects relative to experimental and quasi-experimental ones.",
+    "confidence": "high"
+  },
+  {
+    "topic": "6. Rubrics, self-assessment, process-based assessment",
+    "citation": "Panadero, E., Jonsson, A., & Botella, J. (2017). Effects of self-assessment on self-regulated learning and self-efficacy: Four meta-analyses. Educational Research Review, 22, 74-98.",
+    "finding": "Self-assessment interventions improved self-regulated learning (effects 0.23, 0.65, and 0.43 across three SRL measures) and self-efficacy.",
+    "number": "self-efficacy ES = 0.73",
+    "design": "Four meta-analyses, 19 studies, N = 2,305.",
+    "url": "https://doi.org/10.1016/j.edurev.2017.08.004",
+    "caveat": "Numbers come from the abstract as shown in a search-engine snippet; the publisher abstract was not retrieved directly. Small number of studies.",
+    "confidence": "medium"
+  },
+  {
+    "topic": "6. Rubrics, self-assessment, process-based assessment",
+    "citation": "Panadero, E., & Jonsson, A. (2013). The use of scoring rubrics for formative assessment purposes revisited: A review. Educational Research Review, 9, 129-144.",
+    "finding": "Used formatively, rubrics may positively influence learning and self-regulation, through several different mechanisms.",
+    "number": "21 studies reviewed (no pooled effect size)",
+    "design": "Narrative/content-analysis review.",
+    "url": "https://doi.org/10.1016/j.edurev.2013.01.002",
+    "caveat": "Qualitative review with no effect size.",
+    "confidence": "high"
+  },
+  {
+    "topic": "6. Rubrics, self-assessment, process-based assessment",
+    "citation": "Brookhart, S. M. (2018). Appropriate criteria: Key to effective rubrics. Frontiers in Education, 3, 22.",
+    "finding": "All reviewed higher-education rubric studies reported positive outcomes. 7 of 51 'rubrics' used rating-scale language instead of describing quality.",
+    "number": "7 of 51 rubrics used rating-scale or counting language",
+    "design": "Review of higher-education rubric studies, 2005-2017.",
+    "url": "https://doi.org/10.3389/feduc.2018.00022",
+    "caveat": "Higher education only; descriptive review.",
+    "confidence": "high"
+  },
+  {
+    "topic": "6. Rubrics, self-assessment, process-based assessment",
+    "citation": "Jonsson, A., & Svingby, G. (2007). The use of scoring rubrics: Reliability, validity and educational consequences. Educational Research Review, 2(2), 130-144.",
+    "finding": "Rubrics can make scoring more reliable, especially analytic, topic-specific rubrics with exemplars and rater training, and may promote learning through transparent criteria.",
+    "number": "UNCONFIRMED: study count (often cited as 75) not checked at the source",
+    "design": "Review.",
+    "url": "https://doi.org/10.1016/j.edurev.2007.05.002",
+    "caveat": "The publisher abstract could not be retrieved, so the finding paraphrases the commonly cited conclusion. Use Panadero et al. 2023 for a number.",
+    "confidence": "low (unconfirmed)"
+  },
+  {
+    "topic": "7. Reflection / metacognition",
+    "citation": "Education Endowment Foundation. Teaching and Learning Toolkit: Metacognition and self-regulation (review last updated May 2025).",
+    "finding": "Teaching pupils to plan, monitor, and evaluate their learning adds about 8 months of progress on average. EEF notes this impact can be hard to realize in practice.",
+    "number": "+8 months (current); it was +7 after a 2022 update and went back to +8 in the May 2025 review",
+    "design": "Toolkit meta-synthesis, 355 studies; evidence rated high (lost a padlock because many studies were not independent evaluations).",
+    "url": "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation",
+    "caveat": "Your deck's '+7 months' is out of date: the live page (Wayback snapshot 2 Oct 2026) says +8. The EEF site blocks direct fetches, so check it in a browser before presenting.",
+    "confidence": "high"
+  },
+  {
+    "topic": "7. Reflection / metacognition",
+    "citation": "de Boer, H., Donker, A. S., Kostons, D. D. N. M., & van der Werf, G. P. C. (2018). Long-term effects of metacognitive strategy instruction on student academic performance: A meta-analysis. Educational Research Review, 24, 98-115.",
+    "finding": "The effects of metacognitive strategy instruction persisted and grew slightly from posttest to follow-up. Low-SES students benefited most in the long term.",
+    "number": "g = 0.50 at posttest, rising to 0.63 at follow-up",
+    "design": "Meta-analysis of 48 interventions.",
+    "url": "https://doi.org/10.1016/j.edurev.2018.03.002",
+    "caveat": "Heterogeneous interventions; follow-up intervals vary.",
+    "confidence": "high"
+  },
+  {
+    "topic": "8. Collaborative learning",
+    "citation": "Education Endowment Foundation. Teaching and Learning Toolkit: Collaborative learning approaches (review last updated July 2021).",
+    "finding": "Collaborative learning adds +5 months on average (science +10, math +5, literacy +3). Structured groups of 3-5 working toward a shared outcome do best, and digital delivery is lower (+3).",
+    "number": "+5 months",
+    "design": "Toolkit meta-synthesis, 212 studies; evidence security rated LOW (lost 3 padlocks).",
+    "url": "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/collaborative-learning-approaches",
+    "caveat": "Evidence strength is low: few recent studies and many non-independent evaluations. Checked via a Wayback snapshot from Sept 2026.",
+    "confidence": "high (for the figure)"
+  },
+  {
+    "topic": "8. Collaborative learning",
+    "citation": "Kyndt, E., Raes, E., Lismont, B., Timmers, F., Cascallar, E., & Dochy, F. (2013). A meta-analysis of the effects of face-to-face cooperative learning: Do recent studies falsify or verify earlier findings? Educational Research Review, 10, 133-149.",
+    "finding": "Face-to-face cooperative learning had a positive effect on achievement and a smaller one on attitudes, strongest in science and math.",
+    "number": "ES = 0.54 achievement; 0.15 attitudes",
+    "design": "Meta-analysis of 65 articles (1995 onward), real classrooms, primary through tertiary.",
+    "url": "https://doi.org/10.1016/j.edurev.2013.02.002",
+    "caveat": "Effect sizes come from the TUM Clearing House Unterricht summary, not the publisher abstract (which was not retrievable). Treat as medium confidence.",
+    "confidence": "medium"
+  },
+  {
+    "topic": "9. Student AI use and over-trust",
+    "citation": "Pew Research Center (McClain, C., Anderson, M., Sidoti, O., & Bishop, W.). (2026, Feb 24). How teens use and view AI.",
+    "finding": "54% of US teens use AI chatbots for help with schoolwork, and about 1 in 10 do all or most of their schoolwork with chatbot help.",
+    "number": "54%; ~10% all or most",
+    "design": "Online survey of 1,458 US teens aged 13-17 and their parents, Sept 25-Oct 9, 2025.",
+    "url": "https://www.pewresearch.org/internet/2026/02/24/how-teens-use-and-view-ai/",
+    "caveat": "US only and self-reported. Not comparable with Pew's earlier ChatGPT-only figures (13% in 2023, 26% in 2024).",
+    "confidence": "high"
+  },
+  {
+    "topic": "9. Student AI use and over-trust",
+    "citation": "Schwartz, H. L., & Diliberti, M. K. (2026). More students use AI for homework, and more believe it harms critical thinking: Selected findings from the American Youth Panel (RR-A4742-1). RAND.",
+    "finding": "From May to December 2025, the share of students using AI for homework rose from 48% to 62%. 67% agreed that more AI use for schoolwork will harm students' critical thinking.",
+    "number": "48% to 62% (homework AI use); 67% expect critical-thinking harm",
+    "design": "Survey of 1,214 youth aged 12-29 (RAND American Youth Panel), December 2025.",
+    "url": "https://www.rand.org/pubs/research_reports/RRA4742-1.html",
+    "caveat": "Includes college students. The high-school-only figure (reported as 63% or 60%) was not confirmed at the source.",
+    "confidence": "high"
+  },
+  {
+    "topic": "9. Student AI use and over-trust",
+    "citation": "College Board. (2025, Oct 6). New research: Majority of high school students use generative AI for schoolwork (AI Research Brief 1).",
+    "finding": "The share of high school students using generative AI for schoolwork rose from 79% in January to 84% in May 2025. 69% used ChatGPT for assignments.",
+    "number": "84% (May 2025)",
+    "design": "College Board surveys of students, parents, and educators, June 2024-June 2025.",
+    "url": "https://newsroom.collegeboard.org/new-research-majority-high-school-students-use-generative-ai-schoolwork",
+    "caveat": "The sample size was not shown on the press page. Industry source.",
+    "confidence": "medium-high"
+  },
+  {
+    "topic": "9. Student AI use and over-trust",
+    "citation": "Lee, H.-P., Sarkar, A., Tankelevitch, L., Drosos, I., Rintel, S., Banks, R., & Wilson, N. (2025). The impact of generative AI on critical thinking: Self-reported reductions in cognitive effort and confidence effects from a survey of knowledge workers. Proceedings of CHI 2025 (ACM).",
+    "finding": "Higher confidence in GenAI was associated with less critical thinking, while higher self-confidence was associated with more. This is evidence of over-trust.",
+    "number": "319 workers, 936 real task examples (association; no single headline effect size)",
+    "design": "Survey of 319 knowledge workers.",
+    "url": "https://doi.org/10.1145/3706598.3713778",
+    "caveat": "Adults, not students; self-reported and correlational.",
+    "confidence": "high"
+  },
+  {
+    "topic": "9. Student AI use and over-trust",
+    "citation": "Bastani et al. (2025), PNAS (see Topic 3).",
+    "finding": "Students used ungated GPT-4 as a 'crutch'. Practice grades rose 48%, but scores fell 17% once access was removed.",
+    "number": "-17% on unassisted exam",
+    "design": "Field experiment, ~1,000 high school students.",
+    "url": "https://doi.org/10.1073/pnas.2422633122",
+    "caveat": "See Topic 3.",
+    "confidence": "high"
+  }
+]

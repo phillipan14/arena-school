@@ -1,80 +1,57 @@
-# Parent talk deck: source
+# ACAMIS Tech workshop deck: source
 
-Source for the Oct 18, 2026 ACAMIS Technology Conference workshop deck, "From Lab to Classroom: Running an AI Student Program Inside a School" (English only; copied from the ISB parent-talk deck).
+Source for "From Lab to Classroom: Running an AI Student Program Inside a School", Arena School's workshop at the ACAMIS Technology Conference (Sun Oct 18, 2026, 11:20 to 12:20, Breakout D, Keystone Academy). English only, 29 slides.
 
-## Where everything lives (one permanent folder per talk)
+**This folder on `main` is the one copy of the deck.** Edit here, push to `main`, and Vercel deploys to arenaschool.org. Don't keep edits in other folders, branches, or local copies.
 
-Every talk gets its own dated slug, `<yyyy-mm>-<host>-<format>`, and its address never changes or gets reused. This talk's slug is `2026-10-isb-parent-coffee` (taken from this folder's name by `site_paths.py`).
+## Where everything lives
+
+Slug: `2026-10-acamis-tech-workshop` (read from this folder's name by `site_paths.py`).
 
 | What | Public address | File in the repo |
 |---|---|---|
-| Landing page (QR target) | arenaschool.org/talks/2026-10-isb-parent-coffee | `talks/<slug>/index.html` (hand-edited; export.py only updates its slide counts) |
-| HTML deck (noindex) | …/deck and …/deck-cn | `talks/<slug>/deck.html`, `deck-cn.html` (built) |
-| Phone reader | …/read/en and …/read/cn | `talks/<slug>/read/en.html`, `read/cn.html` (built) |
-| PDFs | …/slides-en.pdf, …/slides-cn.pdf | `talks/<slug>/slides-*.pdf` (export.py) |
-| Slide images | …/slides/{en,cn}/NN.jpg | `talks/<slug>/slides/` (export.py) |
-| Source (not deployed) | none | `decks/<slug>/src/` (this folder; see `.vercelignore`) |
+| Session page (QR target) | arenaschool.org/talks/2026-10-acamis-tech-workshop | `talks/<slug>/index.html` (hand-edited; export.py only updates its slide count) |
+| HTML deck (noindex) | …/deck | `talks/<slug>/deck.html` (built) |
+| Phone reader | …/read/en | `talks/<slug>/read/en.html` (built) |
+| Slides PDF | …/slides-en.pdf | `talks/<slug>/slides-en.pdf` (export.py) |
+| Slide images | …/slides/en/NN.jpg | `talks/<slug>/slides/en/` (export.py) |
+| China AI tool guide PDF | …/china-ai-tool-guide.pdf | built by `guide/build_guide.py` from `guide/tools.json` |
+| Build-session page (placeholder) | …/build/ | `talks/<slug>/build/index.html` (hand-edited) |
+| Presenting PDF (with QR) | not deployed | `src/exports/` (git-ignored; export.py writes it) |
+| Source | not deployed | this folder (`decks/*/src` is in `.vercelignore`) |
 
-The old addresses (`/talk`, `/talk/en`, `/talk/cn`, `/decks/conversation`, `/decks/conversation-cn`, and the old PDF and gallery links) redirect here permanently in `vercel.json`, so QR codes already scanned keep working.
+## Edit, check, deploy
 
-### Starting a new talk
+1. `git pull` on `main`.
+2. Edit:
+   - Slides: `body-en.html`. Each slide is a `<!-- n · name -->` comment plus one `<section class="s …">`. Speaker notes are the `<aside class="notes">` inside it.
+   - Styles: `shared.css`, then `css/*.css`, loaded in alphabetical order (the later file wins). Put new rules in the **last** file (`css/s99zzzzzzzzzzzzzzzzzzzz-r6.css` today) or a new file that sorts after it, and scope them to the slide's own class.
+   - Phone reader layout for any new component: append to `reader/reader.css`.
+   - Slide 7 wheel: don't hand-edit the SVG. Run `python3 tools/wheel.py` (key=value to change sizes), then build.
+3. Build: `python3 decks/2026-10-acamis-tech-workshop/src/build.py` (rewrites `deck.html` and `read/en.html`; never edit those directly).
+4. Look: `python3 -m http.server 8780` from the repo root, then open http://127.0.0.1:8780/talks/2026-10-acamis-tech-workshop/deck.html. Add `?notes` for speaker notes. Browsers cache hard: add `?v=1`, `?v=2`… or press Cmd+Shift+R.
+5. Check (all must pass):
+   - `python3 decks/2026-10-acamis-tech-workshop/src/contain.py --georgia` → every line says 0.
+   - `python3 decks/2026-10-acamis-tech-workshop/src/reader_check.py --shots /tmp/reader` → "reader OK".
+   - `python3 decks/2026-10-acamis-tech-workshop/src/tools/shots.py /tmp/shots 7,25` → "taller than 1080: none". Look at the PNGs.
+6. Export: `python3 decks/2026-10-acamis-tech-workshop/src/export.py` (rebuilds, refuses to run if a slide is too tall or anything overflows, then writes the PDFs, slide images, and slide count).
+7. Commit the source and the built files together, then push to `main`. Vercel deploys in about a minute.
 
-1. Copy `decks/<old-slug>/` to `decks/<new-slug>/` and copy `talks/<old-slug>/index.html` to `talks/<new-slug>/index.html`.
-2. In the new landing page, replace the old slug in its links (search for `/talks/<old-slug>`), and update the title, date, and text.
-3. Make the QR images for the new address (they encode `site_paths.URL`; see how `qr-isb-parent-coffee-*.png` in `decks/img/conversation/` were made: navy #0B1A4A modules on transparent, error correction M, a 1-module margin for the `-clear` version and none for `-tight`) and point `body-en/cn.html` at them.
-4. Edit the slides, then run `build.py` and `export.py` from the new folder. Nothing in an older talk's folder changes.
+First time on a machine: `pip install playwright pillow pypdf numpy && python3 -m playwright install chromium`.
 
-## Editing workflow
+## Tools (`tools/`)
 
-1. Pull `main`.
-2. Edit the content:
-   - English slides: `body-en.html`. Chinese slides: `body-cn.html`. Each slide is a `<section class="s">`.
-   - **Keep the two languages in step:** add, cut, or reorder a slide in both files.
-3. Edit the styles: `shared.css` for shared styles, `css/sNN.css` for per-slide overrides. Behavior lives in `shared.js` and `js/*.html`.
-4. Rebuild with `python3 decks/<slug>/src/build.py`. This rewrites `talks/<slug>/deck.html`, `deck-cn.html`, and the phone reader `talks/<slug>/read/en.html` and `read/cn.html`. Never edit those four files directly; the next build overwrites them. In `body-*.html`, `__URL__`, `__DISPLAY__`, and `__DISPLAY_HTML__` become this talk's address at build time.
-5. Check locally:
-   - From the repo root, run `python3 -m http.server 8780` and open http://127.0.0.1:8780/talks/<slug>/deck.html.
-   - Keys: arrows or space to move. The EN · 中文 pill at top right switches language.
-   - Every screen shows the real 1920×1080 slide, scaled to fit and letterboxed: the page loads itself at `?stage` into a fixed 1920×1080 frame, so phones never reflow. On touch screens a swipe or a tap moves one step (a tap on the left third goes back). Open `?stage` to see the bare deck at the window's own size (export.py uses it); add `?read` to show every step at once.
-   - Speaker notes live in each slide's `<aside class="notes">`. Add `?notes` to show them in a bar along the bottom; they never appear otherwise or in the PDF.
-6. Commit the source and the rebuilt HTML together, then push to `main`. Vercel deploys within about a minute.
+| Script | What it does |
+|---|---|
+| `shots.py OUTDIR [7,25]` | Screenshots slides in their final state; reports slides taller than 1080px and page errors. |
+| `sheet.py SHOTDIR 6,7,8 OUT.png` | Contact sheet of those screenshots, two per row. |
+| `ink.py SLIDE "selector" [--inset 30]` | Measures how centered the visible ink is inside each matching box (top/bottom, left/right). Aim for a difference within 1.5px. |
+| `wheel.py [key=value…]` | Regenerates the slide 7 framework wheel SVG and pastes it into `body-en.html`. |
 
-## The phone reader (read/en, read/cn)
+## Research (`research/`)
 
-Parents scan the QR code to the landing page. On a phone (under 960px wide) the first screen is a language chooser; one tap opens the reader, a phone-first view of the same slides: one slide per screen, swipe or the big Next / Previous buttons at the bottom (arrow keys and space on a keyboard), a progress line, and an "All slides" list. `#12` opens slide 12; the EN · 中文 pill keeps the slide. Each slide builds once the first time it is reached (steps, bars, counters, the market map); reduced motion shows everything at once. Speaker notes are left out.
+Verified sources behind the deck's claims: the framework references (`frameworks-verified-2026-10-16.json`), the research stats on slides 17 and 24 (`evidence-framework.json`, `evidence-teachers.json`), and the China tool facts (`china-tools-verified-2026-10-15.json`). Check a new number at its source and add it here before it goes on a slide.
 
-- Source: `reader/reader.css` (layout for every slide component, phone first) and `reader/reader.js`. The content is `body-en.html` / `body-cn.html`, so editing a slide updates the deck and the reader together. If you add a new component class to a slide, give it a phone layout in `reader.css`.
-- The market-map tool names are read from `shared.js` at build time, so the two views never drift.
-- Check: `python3 decks/<slug>/src/reader_check.py` loads both readers at 390×844 and 844×390 and fails on sideways overflow, text under 10px, or missing images; it writes a screenshot of every slide to `/tmp/reader-shots` (`--shots DIR` to change).
-- Locally, open http://127.0.0.1:8780/talks/<slug>/read/en.html (the dev server has no clean URLs; Vercel serves `/talks/<slug>/read/en`).
+## House rules
 
-House rules (full detail in `/DESIGN.md` and `/CONTENT-RULES.md`):
-- English and Chinese only. The bilingual deck is retired.
-- Never write "X年级" in Chinese.
-- No student names or counts, prize amounts, or fees.
-- Every slide must fit 1920×1080. Fix overflow by tightening spacing, never by shrinking the type.
-
-## Finalizing: publish the PDFs on the landing page
-
-**Status (Oct 14, 2026): finalized and moved to talks/2026-10-isb-parent-coffee.** Both PDFs and the slide images are on main.
-
-Run this only once the slides are final:
-
-```
-pip install playwright pillow pypdf && python3 -m playwright install chromium   # first time only
-python3 decks/<slug>/src/export.py
-```
-
-The script:
-- rebuilds the deck;
-- aborts if any slide is taller than 1080px in export mode;
-- aborts if any text, image, or card sits outside its own card, pane, or pill (`contain.py`; run it alone with `python3 decks/<slug>/src/contain.py`, add `--georgia` to also test the wider Georgia metrics a phone shows when the web fonts fail to load);
-- writes `talks/<slug>/slides-en.pdf` and `slides-cn.pdf` (no QR); each PDF is kept under 6 MB for phones and WeChat by lowering the JPEG quality step by step (it prints the quality used);
-- regenerates the slide images (`talks/<slug>/slides/{en,cn}/NN.jpg`) and the landing page's slide counts;
-- writes a presenting copy with the QR to `decks/<slug>/src/exports/` (git-ignored, not deployed).
-
-Then:
-- open http://127.0.0.1:8780/talks/<slug>/ and check that both PDF buttons work;
-- commit and push. The PDFs go live on arenaschool.org/talks/<slug>.
-
-To try it without touching the published files, run `python3 decks/<slug>/src/export.py --out /tmp/deck-test`.
+See `CLAUDE.md` in this folder (also loaded automatically by Claude Code), `PRINCIPLES.md`, `/DESIGN.md`, and `/CONTENT-RULES.md`.
