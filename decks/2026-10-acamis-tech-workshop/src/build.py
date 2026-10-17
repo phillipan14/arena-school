@@ -1,7 +1,7 @@
 import re, copy, os, sys
 H=os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0,H)
-from site_paths import OUT, BASE, URL, DISPLAY, DISPLAY_HTML
+from site_paths import OUT, BASE, URL, DISPLAY, DISPLAY_HTML, QR_URL, QR_DISPLAY, QR_DISPLAY_HTML
 R=lambda f: open(os.path.join(H,f),encoding='utf-8').read()
 D=sys.argv[1] if len(sys.argv)>1 else OUT+'/'  # default: talks/<slug>/ (see site_paths.py)
 import glob
@@ -13,7 +13,7 @@ def icon(m):
     s=re.sub(r'<!--.*?-->','',R('icons/'+m.group(1)+'.svg'),flags=re.S)
     s=re.sub(r'\s*class="[^"]*"|\s*width="24"|\s*height="24"|\s*xmlns="[^"]*"','',s)
     return re.sub(r'\s+',' ',s).replace('> <','><').strip().replace('<svg','<svg class="lic" aria-hidden="true"',1)
-bodies={k:re.sub(r'\{\{ic:([\w-]+)\}\}',icon,R(f)).replace('__URL__',URL).replace('__DISPLAY_HTML__',DISPLAY_HTML).replace('__DISPLAY__',DISPLAY) for k,f in (('en','body-en.html'),)}  # English only for ACAMIS
+bodies={k:re.sub(r'\{\{ic:([\w-]+)\}\}',icon,R(f)).replace('__QR_URL__',QR_URL).replace('__QR_DISPLAY_HTML__',QR_DISPLAY_HTML).replace('__QR_DISPLAY__',QR_DISPLAY).replace('__URL__',URL).replace('__DISPLAY_HTML__',DISPLAY_HTML).replace('__DISPLAY__',DISPLAY) for k,f in (('en','body-en.html'),)}  # English only for ACAMIS
 V=[('en','en','deck.html','From Lab to Classroom: Running an AI Student Program Inside a School','↓ / → next · ↑ / ← back','Swipe or tap to go on','Slides',''),]
 # without ?stage the page is the player: it loads itself at ?stage into a 1920×1080 frame (see the player in shared.js).
 # export.py and the frame use ?stage directly; without JavaScript the page falls back to the phone reading layout.

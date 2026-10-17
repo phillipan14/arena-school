@@ -16,3 +16,7 @@ URL = 'https://arenaschool.org' + BASE            # what the QR codes encode
 DISPLAY = 'arenaschool.org' + BASE                # printed under the QR codes
 # printed form with one deliberate break point after "talks/" and none inside the slug
 DISPLAY_HTML = '<span class="nw">arenaschool.org/talks/</span><wbr><span class="nw">' + SLUG + '</span>'
+# the slide QR codes open the download page (name, institution, email, then the files); see tools/qr.py
+QR_URL = URL + '/download'
+QR_DISPLAY = DISPLAY + '/download'
+QR_DISPLAY_HTML = DISPLAY_HTML[:-len('</span>')] + '/download</span>'

@@ -10,7 +10,8 @@ Slug: `2026-10-acamis-tech-workshop` (read from this folder's name by `site_path
 
 | What | Public address | File in the repo |
 |---|---|---|
-| Session page (QR target) | arenaschool.org/talks/2026-10-acamis-tech-workshop | `talks/<slug>/index.html` (hand-edited; export.py only updates its slide count) |
+| Session page | arenaschool.org/talks/2026-10-acamis-tech-workshop | `talks/<slug>/index.html` (hand-edited; export.py only updates its slide count) |
+| Download page (QR target) | …/download | `talks/<slug>/download.html` (hand-edited; name, institution, email via `/api/deck-download` posts the lead to Slack #conferences, then shows the files; QR images from `tools/qr.py`, URL in `site_paths.py` QR_URL) |
 | HTML deck (noindex) | …/deck | `talks/<slug>/deck.html` (built) |
 | Phone reader | …/read/en | `talks/<slug>/read/en.html` (built) |
 | Slides PDF | …/slides-en.pdf | `talks/<slug>/slides-en.pdf` (export.py) |
