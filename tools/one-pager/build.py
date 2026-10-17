@@ -48,19 +48,19 @@ L = {
    member='A member of', anth='Startup Program', oai='Partner Network', studied='Our team studied at', worked='Our team worked at',
    web='arenaschool.org', mail='phillip@arenaschool.org', proof='Run with',
    # audience tiles: key -> (icon, label, one line, formats, [proof marks], proof caption)
-   T={'students': ('graduation-cap', 'Students', 'Build and launch real products with AI.', 'Workshops · intensives · mentorship', ['isb', 'bodley'], 'Five-day student programs'),
-      'schools': ('school', 'Teachers &amp; schools', 'Make the tools classes need, inside school rules.', 'Sessions · workshops · school-wide', ['tsinghua'], 'Staff training, Schwarzman College'),
+   T={'students': ('graduation-cap', 'Students', 'Build and launch real products with AI.', 'Workshops · mentorship', ['isb', 'bodley'], 'Five-day student programs'),
+      'schools': ('school', 'Educators', 'Make the tools classes need, inside school rules.', 'Sessions · workshops', ['tsinghua'], 'Staff training, Schwarzman College'),
       'families': ('heart-handshake', 'Families', 'One project with a mentor, and parent talks.', '1:1 mentorship · parent talks', ['pta'], 'Parent talk, ISB PTA'),
-      'career': ('briefcase', 'University &amp; career', 'Launch a live AI product, ready for work.', 'Bootcamp', ['lux'], 'Jointly hosted with Lux Scholar'),
+      'career': ('briefcase', 'Career', 'Launch a live AI product, ready for work.', 'Bootcamp', ['lux'], 'Jointly hosted with Lux Scholar'),
       # teacher variant
       'teachers': ('wrench', 'Teachers', 'Make the tool your class is missing.', 'Session · workshop · school-wide', ['tsinghua'], 'Staff training, Schwarzman College'),
-      'tech': ('monitor-cog', 'Technology teams', 'Training on your approved systems.', 'Planning · sessions', [], ''),
+      'tech': ('monitor-cog', 'Tech teams', 'Training on your approved systems.', 'Planning · sessions', [], ''),
       'leaders': ('building-2', 'School leaders', 'Programs for the whole school community.', 'Planned with your team', ['isb'], 'Student program on campus'),
       'conf': ('mic', 'Conferences', 'Talks and hands-on workshops.', 'Keynote · workshop · panel', ['acamis'], 'Next: ACAMIS workshop'),
       # parent variant
-      'workshops': ('smartphone', 'Hands-on workshops', 'Rebuild an app, or build a portfolio site.', 'At your child’s school', [], ''),
+      'workshops': ('smartphone', 'Workshops', 'Rebuild an app, or build a portfolio site.', 'At your child’s school', [], ''),
       'intensive': ('rocket', 'Intensives', 'Teams launch a real product and pitch it.', 'With mentors in the room', ['isb', 'bodley'], 'Five-day student programs'),
-      'mentor': ('route', 'Year-long mentorship', 'One project, 1:1, at their own pace.', 'Weekly check-ins, hybrid', ['isb'], 'ISB alumni continue here'),
+      'mentor': ('route', 'Mentorship', 'One project, 1:1, at their own pace.', 'Weekly check-ins, hybrid', ['isb'], 'ISB alumni continue here'),
       'talks': ('messages-square', 'Parent talks', 'How AI is changing work and college.', 'At your child’s school', ['pta'], 'Parent talk, ISB PTA')},
    formats_k='Formats',
    skills=[('compass', 'Agency', 'Choose what is worth doing.'), ('search-check', 'Taste', 'Judge whether it is actually good.'), ('badge-check', 'Craft', 'Finish it so people can trust it.')],
@@ -107,7 +107,7 @@ DOCS = {
    en=dict(eyebrow='For families', h1='What your child makes, learns, and keeps <em>at Arena School.</em>'),
    cn=dict(eyebrow='写给家长', h1='孩子在 Arena School <em>做什么、学什么、带走什么。</em>')),
 }
-STUDIED = [('caltech', 3.2), ('harvard', 4.0), ('brown', 4.2), ('tsinghua-lockup', 4.6), ('isb', 4.6)]
+STUDIED = [('caltech', 3.2), ('harvard', 4.4), ('brown', 5.2), ('tsinghua-lockup', 4.6), ('isb', 4.6)]
 WORKED = [('mckinsey', 2.6), ('goldman', 4.0), ('yc', 3.8), ('apple', 4.0), ('microsoft-ai', 3.2), ('deloitte', 2.7), ('kimi-wordmark', 2.8)]
 
 S = {
@@ -228,15 +228,14 @@ def tiles(lang, keys):
 
 def teach(lang, wide=True):
     c, t = L[lang], A.T['cn' if lang == 'cn' else 'en']
-    skills = ''.join('<div class="sk"><div class="skh">%s<b>%s</b></div><span>%s</span></div>' % (ic(i), a, b) for i, a, b in c['skills'])
     dom = ['target', 'search-check', 'hammer', 'messages-square']
-    strands = ''.join('<li>%s<span>%s</span></li>' % (ic(dom[k]), d) for k, d in enumerate(t['domains']))
-    if wide:
-        return ('<div class="g12 teach"><div class="c1-4 wheel">%s</div><div class="c5-12 teach-r"><p class="loop">%s</p>'
-                '<div class="skills">%s</div><span class="k">%s</span><ul class="strands">%s</ul></div></div>'
-                % (W.svg('cn' if lang == 'cn' else 'en'), c['loop'], skills, c['strands_k'], strands))
-    return ('<div class="teach narrow"><div class="wheel">%s</div><p class="loop">%s</p><div class="skills">%s</div></div>'
-            % (W.svg('cn' if lang == 'cn' else 'en'), c['loop'], skills))
+    skills = ''.join('<div class="%s sk"><div class="skh">%s<b>%s</b></div><span>%s</span></div>' % (sp, ic(i), a, b)
+                     for sp, (i, a, b) in zip(['c4-6', 'c7-9', 'c10-12'], c['skills']))
+    strands = ''.join('<div class="%s st">%s<span>%s</span></div>' % (sp, ic(dom[k]), d)
+                      for k, (sp, d) in enumerate(zip(['c1-3', 'c4-6', 'c7-9', 'c10-12'], t['domains'])))
+    return ('<div class="g12 teach"><div class="c1-3 wheel">%s</div><div class="c4-12 loopc"><p class="loop">%s</p></div>%s</div>'
+            '<div class="g12 strandk"><span class="c1-12 k">%s</span></div><div class="g12 strow">%s</div>'
+            % (W.svg('cn' if lang == 'cn' else 'en'), c['loop'], skills, c['strands_k'], strands))
 
 
 def stairs(items, descs=True):
@@ -282,7 +281,7 @@ def general(lang, d):
         return (sec(1, 'who', lang, tiles(lang, DOCS['general']['tiles'])) +
                 '<section class="sec"><div class="g12 halves"><div class="c1-6">%s%s</div><div class="c7-12">%s%s%s</div></div></section>'
                 % ('<div class="g6h">%s</div>' % shead(2, 'teach', lang, ''), teach(lang, False), '<div class="g6h">%s</div>' % shead(3, 'data', lang, ''), account(lang), commits(lang, (0, 1))))
-    return (sec(1, 'who', lang, tiles(lang, DOCS['general']['tiles'])) + sec(2, 'teach', lang, teach(lang)) + sec(3, 'data', lang, data(lang)))
+    return (sec(1, 'who', lang, tiles(lang, DOCS['general']['tiles'])) + sec(2, 'teach', lang, teach(lang)) + sec(3, 'data', lang, data(lang, (0, 1, 2))))
 
 
 def teacher(lang, d):
@@ -332,33 +331,35 @@ em { font-style: italic; }
 .k, .lab, .eyebrow { font: 600 7.2pt/1.2 'Geist', system-ui, sans-serif; letter-spacing: .12em; text-transform: uppercase; color: #4A5578; }
 :lang(zh) .k, :lang(zh) .lab, :lang(zh) .eyebrow { letter-spacing: .04em; font-size: 7.6pt; }
 /* header: the v2 band (navy, wordmark, large headline with italic accent, intro, demo-day photo right) */
-.top { position: relative; background: #0B1A4A; color: #fff; height: 55mm; overflow: hidden; }
+.top { position: relative; background: #0B1A4A; color: #fff; height: 52mm; overflow: hidden; }
 .topgrid { position: relative; z-index: 2; height: 100%; align-items: center; }
 .top-copy { padding: 0; }
-.wm { height: 5mm; width: auto; display: block; margin-bottom: 4mm; }
+.wm { height: 5mm; width: auto; display: block; margin-bottom: 3.4mm; }
 .top .eyebrow { color: #C9D6F2; }
-.top h1 { color: #fff; font-size: 21pt; line-height: 1.1; margin: 2mm 0 3.4mm; letter-spacing: -.006em; }
+.top h1 { color: #fff; font-size: 19pt; line-height: 1.1; margin: 1.6mm 0 2.6mm; letter-spacing: -.006em; }
 :lang(zh) .top h1 { font-size: 18.5pt; line-height: 1.26; }
+.general:lang(en) .top h1, .general .top h1:lang(en) { font-size: 17.5pt; }
 .top h1 em { color: #C9D6F2; white-space: nowrap; }
-.lede { margin: 0; font-size: 9pt; line-height: 1.5; color: rgba(255,255,255,.86); max-width: 112mm; }
+.lede { margin: 0; font-size: 8.6pt; line-height: 1.5; color: rgba(255,255,255,.86); max-width: 112mm; }
 .photo { position: absolute; top: 0; right: 0; bottom: 0; width: 48%; margin: 0; }
 .photo img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 30%; display: block;
   -webkit-mask-image: linear-gradient(90deg, transparent 0, rgba(0,0,0,.6) 22%, #000 46%); mask-image: linear-gradient(90deg, transparent 0, rgba(0,0,0,.6) 22%, #000 46%); }
-.photo figcaption { position: absolute; right: 10mm; bottom: 4mm; font-size: 7pt; color: rgba(255,255,255,.88); }
+.photo::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 14mm; background: linear-gradient(180deg, rgba(11,26,74,0), rgba(11,26,74,.78)); }
+.photo figcaption { position: absolute; z-index: 2; right: 10mm; bottom: 3.4mm; font-size: 7pt; color: #fff; text-shadow: 0 1px 4px rgba(8,15,38,.7); }
 /* body: three sections, equal gaps */
 .body { flex: 1; display: flex; flex-direction: column; justify-content: space-evenly; padding: 2mm 0; }
 /* section header: a navy number block, a serif title, a one-line dek */
-.sh { display: flex; align-items: center; gap: 3.4mm; margin-bottom: 3.4mm; }
+.sh { display: flex; align-items: center; gap: 3.4mm; margin-bottom: 3mm; }
 .num { flex: none; width: 9mm; height: 9mm; display: grid; place-items: center; background: #0B1A4A; color: #fff; font: 400 12pt/1 SERIF; border-radius: 1.2mm; }
 .sht h2 { font-size: 14.5pt; line-height: 1.1; }
 .sht p { margin: .8mm 0 0; font-size: 8.4pt; color: #4A5578; }
 /* cards */
-.card { border: 1px solid var(--pro-line); border-radius: 2mm; padding: 3.4mm; background: #fff; display: flex; flex-direction: column; gap: 1.6mm; min-width: 0; }
+.card { border: 1px solid var(--pro-line); border-radius: 2mm; padding: 3mm 3.2mm; background: #fff; display: flex; flex-direction: column; gap: 1.6mm; min-width: 0; }
 .nm { display: block; font-size: 11.5pt; line-height: 1.2; margin-top: 1mm; }
 .out { display: block; font-size: 8.4pt; line-height: 1.4; color: #3A4466; }
 .fm { display: block; font: 600 7.6pt/1.3 'Geist', system-ui, sans-serif; color: var(--pro-action); }
 .rrow { align-items: stretch; }
-.tile .proof { margin-top: auto; padding-top: 3mm; border-top: 1px solid var(--pro-line); display: grid; gap: 1.4mm; }
+.tile .proof { margin-top: auto; padding-top: 2.4mm; border-top: 1px solid var(--pro-line); display: grid; gap: 1.4mm; }
 .tile .proof.empty { border-top-color: transparent; }
 .marks { height: 6mm; display: flex; align-items: center; gap: 2.6mm; overflow: visible; }
 .marks img { width: auto; display: block; filter: grayscale(1) contrast(1.1); opacity: .85; }
@@ -367,10 +368,15 @@ em { font-style: italic; }
 /* tile and skill heads: icon inline with the name */
 .th { display: flex; align-items: center; gap: 2.2mm; } .th .nm { margin: 0; }
 .skh { display: flex; align-items: center; gap: 1.6mm; }
+/* wheel at print size: ring labels would be under 7pt, so only the core text shows (strands are listed beside) */
+.wheel .apw-out-t, .wheel .apw-mid-t { display: none; }
 /* how we teach */
-.teach { align-items: center; }
-.wheel .apw { width: 100%; max-width: 44mm; height: auto; display: block; }
-.loop { font-size: 14pt; line-height: 1.22; margin-bottom: 3.4mm; }
+.teach { grid-template-rows: 1fr 1fr; row-gap: 3.4mm; } .teach .wheel { grid-row: 1 / span 2; align-self: center; } .loopc { align-self: end; } .teach .sk { align-self: start; }
+.strandk { margin-top: 2.4mm; } .strandk .k { display: block; margin-bottom: 1.2mm; }
+:lang(zh) .wheel .apw { max-width: 44.5mm; }
+.strow .st { display: flex; align-items: center; gap: 2mm; padding-top: 1.8mm; border-top: 1px solid var(--pro-line); font-size: 8.6pt; font-weight: 500; color: var(--pro-ink); }
+.wheel .apw { width: 100%; max-width: 42mm; height: auto; display: block; }
+.loop { font-size: 14pt; line-height: 1.22; margin: 0; }
 .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; margin-bottom: 3.4mm; }
 .sk { display: grid; gap: 1mm; padding-top: 2.4mm; border-top: 2px solid var(--pro-action); }
 .sk b { font: 600 10pt/1.2 'Geist', system-ui, sans-serif; color: var(--pro-ink); } .sk span { font-size: 8.4pt; color: #3A4466; }
@@ -378,8 +384,9 @@ em { font-style: italic; }
 .strands li { display: flex; align-items: center; gap: 2mm; font-size: 8.6pt; font-weight: 500; color: var(--pro-ink); }
 /* staircase: steps carry the number and name; descriptions sit below, one column each */
 .stairs { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 2.4mm; align-items: end; }
-.stairs li { height: calc(11mm + var(--s) * 4.2mm); border-top: 2.4px solid var(--pro-action); background: color-mix(in srgb, var(--pro-action) calc(7% + var(--s) * 5%), #fff);
-  padding: 2.2mm 2.6mm; display: flex; flex-direction: column; justify-content: flex-start; border-radius: 0 0 1.2mm 1.2mm; }
+.stairs li { height: calc(15mm + var(--s) * 3mm); border-top: 2.4px solid var(--pro-action); background: color-mix(in srgb, var(--pro-action) calc(7% + var(--s) * 5%), #fff);
+  padding: 2.4mm 2.6mm; display: flex; flex-direction: column; justify-content: flex-start; border-radius: 0 0 1.2mm 1.2mm; }
+.stairs li > * { flex: none; }
 .stairs i { font: 400 13pt/1 SERIF; color: var(--pro-action); font-style: normal; }
 .stairs b { font: 600 9pt/1.2 'Geist', system-ui, sans-serif; color: var(--pro-ink); margin-top: 1mm; }
 .stairs-d { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2.4mm; margin-top: 2.4mm; }
@@ -408,6 +415,7 @@ em { font-style: italic; }
 .strip .lab { white-space: nowrap; }
 .logos { display: flex; align-items: center; justify-content: space-between; flex-wrap: nowrap; min-width: 0; }
 .logos img { width: auto; display: block; filter: grayscale(1) contrast(1.15); opacity: .8; }
+.logos img[src*='/brown.'], .logos img[src*='/harvard.'] { filter: grayscale(1) contrast(1.6) brightness(.72); opacity: 1; }
 .member { justify-content: flex-start; gap: 12mm; } .member img { filter: none; opacity: 1; }
 .m { display: inline-flex; align-items: center; gap: 2mm; white-space: nowrap; } .m em { font-style: normal; font-size: 7.6pt; color: #4A5578; }
 /* closing band */
@@ -447,11 +455,17 @@ const { chromium } = require('playwright');
       if (!starts.some(s => Math.abs(s - r.left) < .6) || !ends.some(e => Math.abs(e - r.right) < .6)) bad.push((c.className || c.tagName) + ' ' + r.left.toFixed(1) + '-' + r.right.toFixed(1)); });
     const uneven = [];
     document.querySelectorAll('.rrow').forEach(row => { const hs = [...row.children].map(c => Math.round(c.getBoundingClientRect().height)); if (Math.max(...hs) - Math.min(...hs) > 1) uneven.push(hs.join('/')); });
+    document.querySelectorAll('.rrow').forEach(row => { const th = [...row.querySelectorAll('.th')].map(t => Math.round(t.getBoundingClientRect().height)); if (th.length && Math.max(...th) - Math.min(...th) > 1) uneven.push('titles ' + th.join('/')); });
+    const stepBad = []; document.querySelectorAll('.stairs li').forEach(li => { const r = li.getBoundingClientRect(), pad = parseFloat(getComputedStyle(li).paddingBottom); [...li.children].forEach(c => { if (c.getBoundingClientRect().bottom > r.bottom - pad + .5) stepBad.push(c.textContent); }); });
+    const stepTops = [...new Set([...document.querySelectorAll('.stairs li i')].map(i => Math.round((i.getBoundingClientRect().top - i.parentElement.getBoundingClientRect().top) * 10) / 10))];
+    let svgMin = 99; document.querySelectorAll('svg.apw text').forEach(t => { if (getComputedStyle(t).display === 'none') return; const sv = t.ownerSVGElement; const k = sv.getBoundingClientRect().width / sv.viewBox.baseVal.width; svgMin = Math.min(svgMin, parseFloat(t.getAttribute('font-size') || getComputedStyle(t).fontSize) * k); });
+    const hb = document.querySelector('.top').getBoundingClientRect(), hc = document.querySelector('.top-copy').getBoundingClientRect();
+    if (hc.top < hb.top + 8 || hc.bottom > hb.bottom - 8) stepBad.push('header copy outside band');
     const tops = []; document.querySelectorAll('.sh').forEach(d => tops.push(Math.round(d.getBoundingClientRect().left)));
     let min = 99; document.querySelectorAll('.op *').forEach(e => { if ([...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim()) && !e.closest('svg')) min = Math.min(min, parseFloat(getComputedStyle(e).fontSize)); });
     const clipped = []; document.querySelectorAll('.marks, .logos').forEach(l => { const p = l.closest('.card, .row'); const pr = p.getBoundingClientRect(); [...l.children].forEach(c => { const r = c.getBoundingClientRect(); if (r.right > pr.right - 1 || r.left < pr.left) clipped.push(c.textContent || c.getAttribute('src')); }); });
     const wrapped = []; document.querySelectorAll('.logos, .marks').forEach(l => { const ys = [...l.children].map(c => Math.round(c.getBoundingClientRect().top + c.getBoundingClientRect().height / 2)); if (Math.max(...ys) - Math.min(...ys) > 4) wrapped.push(l.className); });
-    return { over: Math.max(over, inner), secOver, clipped, nbad: bad.length, bad: bad.slice(0, 4), uneven, shLeft: [...new Set(tops)], minPt: +(min * .75).toFixed(2), wrapped,
+    return { over: Math.max(over, inner), stepBad, stepTops, svgPt: +(svgMin * .75).toFixed(2), secOver, clipped, nbad: bad.length, bad: bad.slice(0, 4), uneven, shLeft: [...new Set(tops)], minPt: +(min * .75).toFixed(2), wrapped,
              cols: starts.map((s, i) => [Math.round(s), Math.round(ends[i])]) };
   });
   await p.pdf({ path: pdf, format: 'A4', printBackground: true, preferCSSPageSize: true, margin: { top: 0, right: 0, bottom: 0, left: 0 } });
@@ -494,9 +508,9 @@ def build(doc, lang, opt, pngdir=None):
         base = os.path.join(pngdir, name)
         subprocess.run(['pdftoppm', '-png', '-r', '150', '-singlefile', pdf, base], check=True)
         overlay(base + '.png', base + '-grid.png')
-    ok = not r['secOver'] and not r['clipped'] and pages == '1' and r['over'] <= 1 and r['nbad'] == 0 and not r['uneven'] and r['minPt'] >= 6.95 and not r['wrapped'] and len(r['shLeft']) <= 1
-    print('%-40s clipped %s | pages %s | overflow %spx | off-grid %d %s | uneven %s | header lefts %s | logo rows wrapped %s | min %spt | %s'
-          % (name, r['clipped'], pages, r['over'], r['nbad'], r['bad'][:2], r['uneven'], r['shLeft'], r['wrapped'], r['minPt'], 'OK' if ok else 'FAIL'))
+    ok = not r['stepBad'] and len(r['stepTops']) <= 1 and r['svgPt'] >= 6.95 and not r['secOver'] and not r['clipped'] and pages == '1' and r['over'] <= 1 and r['nbad'] == 0 and not r['uneven'] and r['minPt'] >= 6.95 and not r['wrapped'] and len(r['shLeft']) <= 1
+    print('%-40s steps %s tops %s | svg %spt | clipped %s | pages %s | overflow %spx | off-grid %d %s | uneven %s | header lefts %s | logo rows wrapped %s | min %spt | %s'
+          % (name, r['stepBad'], r['stepTops'], r['svgPt'], r['clipped'], pages, r['over'], r['nbad'], r['bad'][:2], r['uneven'], r['shLeft'], r['wrapped'], r['minPt'], 'OK' if ok else 'FAIL'))
     return ok
 
 

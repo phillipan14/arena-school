@@ -77,3 +77,6 @@ brown, tsinghua-lockup, isb, mckinsey, goldman, yc, apple, microsoft-ai, deloitt
 - **Credentials strip** (A member of, Our team studied at, Worked at) moved to the bottom, directly above the contact
   footer, each row on one line.
 - Same file paths; link stamps `?v=20261017c`.
+- **v4.1 (review 1):** even staircase steps; wheel without the unreadable ring labels, strands in their own row; Brown and
+  Harvard logos matched in weight; one-line tile titles; skills on the 12-column thirds; header copy fits its band;
+  legible photo caption. Stamps `?v=20261017d`.

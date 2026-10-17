@@ -241,3 +241,11 @@ v2 photo header restored on all three ("Demo day, Beijing, 2026"); credentials s
 - **r4.** Tile and skill icons inline with their names (also aligns Agency with Taste and Craft); tighter data rows.
 - **r5.** Header 55mm, band padding 3mm; CN headline and data rows trimmed. All six one page, nothing clipped, grid
   verified, text 7pt or larger. Final: headline accent phrases kept on one line (no lone "keeps." or "么。").
+- **Review 1 (Phillip, ONEPAGER3-REVIEW1.md).** (1) Steps: minimum 15mm, rising 3mm, number and name top-aligned at the
+  same offset in every step (build checks both). (2) Wheel: ring labels (under 7pt at print size) dropped; the core text
+  stays (7.1pt+, checked); the four strands now sit in their own quarters row. (3) Brown and Harvard darkened and sized to
+  match Caltech in the strip. (4) Tile titles shortened to one line in every tile (Educators, Career, Workshops,
+  Mentorship, Tech teams); the build checks equal title heights per row. (5) Agency, Taste, Craft on the 12-column thirds
+  (c4-6, c7-9, c10-12), sharing left edges with the strands row, tops aligned. Also: header 52mm with the general EN
+  headline at 17.5pt so the copy sits inside the band (checked), a gradient under the photo caption, three data
+  commitments on the general page. All six: one page, on grid, nothing clipped.
