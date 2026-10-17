@@ -49,6 +49,7 @@
 </head>
 <body>
 <header>
+  <a class="tb-back" href="../" style="display:inline-block;margin:0 0 10px;font:600 15px/1 -apple-system,BlinkMacSystemFont,sans-serif;color:#2F55A8;text-decoration:none">&larr; Teacher Toolbox</a>
   <h1>Lab Group Maker</h1>
   <p>Paste your class, pick a group size, and get fair, even groups for lab work. Add a * after a name to spread those students out, one per group.</p>
 </header>
@@ -178,5 +179,6 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') proj(false);
 render();
 if (!state.groups) make();
 </script>
+<script src="../live.js"></script>
 </body>
 </html>
