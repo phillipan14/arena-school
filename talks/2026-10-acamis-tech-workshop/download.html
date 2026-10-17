@@ -37,24 +37,26 @@
 <link rel="stylesheet" href="/phone.css?v=503e0926" data-phone>
 <style>
 /* Gated download page (QR target at the ACAMIS session). Site system: tokens from css/pro.css, eyebrow and h2 from
-   css/ds.css. Phone first: hero copy, then the card (file tiles + form), then the photo. */
-.dl-hero { padding-block: clamp(var(--space-6), 5vw, var(--space-9)) clamp(var(--space-7), 6vw, var(--space-9)); background: var(--pro-alt); border-bottom: var(--hairline); }
-.dl-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 500px); grid-template-areas: "copy card" "photo card";
-  grid-template-rows: auto 1fr; column-gap: clamp(var(--space-7), 6vw, 104px); row-gap: var(--space-7); align-items: start; }
+   css/ds.css. No photos (2026-10-17, Phillip): cool off-white, navy, a serif headline, and a faint abstract line accent.
+   Phone first: hero copy, then the card (file tiles + form). */
+.dl-hero { position: relative; overflow: clip; padding-block: clamp(var(--space-6), 5vw, var(--space-9)) clamp(var(--space-7), 6vw, var(--space-9));
+  background: radial-gradient(120% 90% at 0% 0%, rgba(47, 85, 168, .07), transparent 60%), radial-gradient(80% 70% at 100% 100%, rgba(11, 26, 74, .05), transparent 65%), var(--pro-alt);
+  border-bottom: var(--hairline); }
+.dl-lines { position: absolute; left: 0; bottom: 0; width: min(900px, 70vw); height: auto; color: var(--pro-ink); opacity: .09; pointer-events: none; }
+.dl-lines path { fill: none; stroke: currentColor; stroke-width: 1; vector-effect: non-scaling-stroke; }
+.dl-grid { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 500px); grid-template-areas: "copy card";
+  column-gap: clamp(var(--space-7), 6vw, 104px); align-items: center; }
 .dl-copy { grid-area: copy; }
 .dl-card { grid-area: card; }
-.dl-photo { grid-area: photo; }
-.dl-copy .ds-eyebrow { margin-bottom: var(--space-4); }
-.dl-h1 { margin: 0; max-width: 14ch; font: 500 clamp(38px, 1.2rem + 3vw, 64px)/1.04 'Newsreader', Georgia, serif; letter-spacing: -.022em; color: var(--pro-ink); text-wrap: balance; }
+.dl-copy .ds-eyebrow { display: block; margin-bottom: var(--space-4); }
+.dl-h1 { margin: 0; max-width: 14ch; font: 500 clamp(38px, 1.2rem + 3vw, 68px)/1.04 'Newsreader', Georgia, serif; letter-spacing: -.022em; color: var(--pro-ink); text-wrap: balance; }
 .dl-h1 em { font-style: italic; color: var(--pro-ink-2); }
 .dl-sub { margin: var(--space-4) 0 0; max-width: 30ch; font: 400 clamp(19px, .9rem + .7vw, 25px)/1.35 'Newsreader', Georgia, serif; color: var(--pro-soft); text-wrap: balance; }
-.dl-photo { margin: 0; }
-.dl-photo .pro-photo { aspect-ratio: 16 / 10; }
-.dl-photo .pro-photo img { object-position: 50% 60%; }
+.dl-rule { display: block; width: 56px; height: 2px; margin-top: var(--space-6); border-radius: 2px; background: linear-gradient(90deg, var(--pro-ink), var(--pro-ink-2)); transform-origin: left center; }
 
 /* the card */
 .dl-card { background: var(--pro-bg); border: var(--hairline); border-radius: 14px; padding: clamp(var(--space-5), 3vw, 40px);
-  box-shadow: 0 30px 60px -40px rgba(11, 26, 74, .35); }
+  box-shadow: 0 1px 2px rgba(11, 26, 74, .04), 0 32px 64px -40px rgba(11, 26, 74, .32); }
 .dl-card .ds-eyebrow { margin-bottom: var(--space-2); }
 .dl-card .ds-h2 { font-size: clamp(26px, 1rem + 1vw, 32px); }
 .dl-lede { margin: var(--space-3) 0 0; font-size: var(--text-base); line-height: 1.55; color: var(--pro-soft); text-wrap: pretty; }
@@ -64,48 +66,54 @@
 .dl-tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-3); margin: var(--space-5) 0 0; padding: 0; list-style: none; }
 .dl-tile { position: relative; display: flex; flex-direction: column; height: 100%; min-height: 128px; padding: var(--space-4) var(--space-3) var(--space-3);
   border: var(--hairline); border-radius: 10px; background: var(--pro-alt); color: var(--pro-ink); text-decoration: none;
-  transition: border-color var(--dur-ui) var(--ease), background-color var(--dur-ui) var(--ease), color var(--dur-ui) var(--ease), transform var(--dur-ui) var(--ease); }
+  transition: border-color var(--dur-ui) var(--ease), background-color var(--dur-ui) var(--ease), color var(--dur-ui) var(--ease), transform var(--dur-ui) var(--ease), box-shadow var(--dur-ui) var(--ease); }
 .dl-tile svg { display: block; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 .dl-tile .ic { width: 28px; height: 28px; color: var(--pro-ink-2); }
 .dl-tile b { display: block; margin-top: auto; padding-top: var(--space-4); font: 600 15px/1.25 'Geist', system-ui, sans-serif; color: inherit; }
 .dl-tile small { display: block; margin-top: 3px; font-size: 12.5px; line-height: 1.35; color: var(--pro-muted); }
-.dl-tile .st { position: absolute; top: var(--space-3); right: var(--space-3); width: 16px; height: 16px; color: var(--pro-muted); }
-.dl-tile .st-go { display: none; }
+.dl-tile .st { position: absolute; top: var(--space-3); right: var(--space-3); width: 16px; height: 16px; color: var(--pro-muted);
+  transition: opacity 360ms var(--ease), transform 360ms var(--ease), color var(--dur-ui) var(--ease); }
+.dl-tile .st-go { opacity: 0; transform: translateY(-5px) scale(.85); }
 html:not(.unlocked) .dl-tile { pointer-events: none; }
 html:not(.unlocked) .dl-tile .ic { color: var(--pro-muted); }
 html.unlocked .dl-tile { background: var(--pro-bg); border-color: var(--pro-line-2); cursor: pointer; }
-html.unlocked .dl-tile .st-lock { display: none; }
-html.unlocked .dl-tile .st-go { display: block; color: var(--pro-ink-2); }
+html.unlocked .dl-tile .st-lock { opacity: 0; transform: scale(.7); }
+html.unlocked .dl-tile .st-go { opacity: 1; transform: none; color: var(--pro-ink-2); }
 html.unlocked .dl-tile.is-main { background: var(--pro-action); border-color: var(--pro-action); color: #fff; }
 html.unlocked .dl-tile.is-main :is(.ic, small, .st-go) { color: rgba(255, 255, 255, .86); }
 html.unlocked .dl-tile:active { transform: scale(.98); }
 @media (hover: hover) {
-  html.unlocked .dl-tile:hover { border-color: var(--pro-ink-2); }
+  html.unlocked .dl-tile:hover { border-color: var(--pro-ink-2); transform: translateY(-2px); box-shadow: 0 12px 24px -16px rgba(11, 26, 74, .35); }
   html.unlocked .dl-tile.is-main:hover { background: #183366; border-color: #183366; }
 }
 .dl-tile:focus-visible { outline: 2px solid var(--pro-ink-2); outline-offset: 2px; }
-/* the tiles light up one after another when they unlock */
-html.unlocking .dl-tiles > li { animation: dl-rise 520ms var(--ease) both; }
-html.unlocking .dl-tiles > li:nth-child(2) { animation-delay: 80ms; }
-html.unlocking .dl-tiles > li:nth-child(3) { animation-delay: 160ms; }
-html.unlocking .dl-unlocked { animation: dl-rise 520ms var(--ease) 120ms both; }
-@keyframes dl-rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+/* unlock: each tile in turn swaps its lock for a download arrow and glows softly (--t = tile index) */
+html.unlocking .dl-tile { animation: dl-glow 900ms var(--ease) calc(var(--t) * 120ms + 80ms) both;
+  transition-delay: calc(var(--t) * 120ms + 80ms); }
+html.unlocking .dl-tile .st { transition-delay: calc(var(--t) * 120ms + 140ms); }
+html.unlocking .dl-unlocked, html.unlocking #files { animation: dl-rise 560ms var(--ease) both; }
+html.unlocking .dl-unlocked { animation-delay: 380ms; }
+@keyframes dl-glow { 0% { box-shadow: 0 0 0 0 rgba(47, 85, 168, 0); } 40% { box-shadow: 0 0 0 5px rgba(47, 85, 168, .16); } 100% { box-shadow: 0 0 0 0 rgba(47, 85, 168, 0); } }
+@keyframes dl-rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 
 /* form */
 .dl-form { display: flex; flex-direction: column; gap: var(--space-4); margin-top: var(--space-6); padding-top: var(--space-6); border-top: var(--hairline); }
-.dl-f label { display: block; margin-bottom: 6px; font: 500 14px/1.3 'Geist', system-ui, sans-serif; color: var(--pro-ink); }
+.dl-f label { display: block; margin-bottom: 6px; font: 500 14px/1.3 'Geist', system-ui, sans-serif; color: var(--pro-ink); transition: color var(--dur-ui) var(--ease); }
+.dl-f:focus-within label { color: var(--pro-ink-2); }
 .dl-f input { display: block; width: 100%; min-height: 50px; padding: 12px 14px; border: 1px solid var(--pro-line-2); border-radius: var(--radius-ctl); background: #fff;
-  font: 400 17px/1.3 'Geist', system-ui, sans-serif; color: var(--pro-text); transition: border-color var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease); }
-.dl-f input:focus { outline: none; border-color: var(--pro-ink-2); box-shadow: 0 0 0 3px rgba(47, 85, 168, .14); }
+  font: 400 17px/1.3 'Geist', system-ui, sans-serif; color: var(--pro-text); transition: border-color var(--dur-ui) var(--ease), box-shadow var(--dur-ui) var(--ease), background-color var(--dur-ui) var(--ease); }
+@media (hover: hover) { .dl-f input:hover:not(:focus) { border-color: #B4BDCE; } }
+.dl-f input:focus { outline: none; border-color: var(--pro-ink-2); box-shadow: 0 0 0 4px rgba(47, 85, 168, .12); }
 .dl-f input[aria-invalid="true"] { border-color: #9B2C2C; }
 .dl-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .dl-submit { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 54px; margin-top: var(--space-1); padding: 12px 22px;
   border: 0; border-radius: var(--radius-ctl); background: var(--pro-action); color: #fff; font: 500 16px/1.2 'Geist', system-ui, sans-serif; cursor: pointer;
-  transition: background-color var(--dur-fast) var(--ease), opacity var(--dur-fast) var(--ease); }
+  box-shadow: 0 1px 2px rgba(11, 26, 74, .12);
+  transition: background-color var(--dur-ui) var(--ease), opacity var(--dur-fast) var(--ease), transform var(--dur-ui) var(--ease), box-shadow var(--dur-ui) var(--ease); }
 .dl-submit .arr { transition: transform var(--dur-fast) var(--ease); }
-.dl-submit:active { background: #183366; }
+.dl-submit:active { background: #183366; transform: translateY(0); box-shadow: 0 1px 2px rgba(11, 26, 74, .12); }
 .dl-submit[disabled] { opacity: .65; cursor: progress; }
-@media (hover: hover) { .dl-submit:hover { background: #183366; } .dl-submit:hover .arr { transform: translateX(3px); } }
+@media (hover: hover) { .dl-submit:hover:not([disabled]) { background: #183366; transform: translateY(-2px); box-shadow: 0 14px 26px -14px rgba(11, 26, 74, .55); } .dl-submit:hover .arr { transform: translateX(3px); } }
 .dl-submit:focus-visible { outline: 2px solid var(--pro-ink-2); outline-offset: 3px; }
 .status { margin: 0; font-size: 15px; line-height: 1.5; color: #9B2C2C; }
 .status:empty { display: none; }
@@ -126,22 +134,23 @@ html.unlocked .files { display: block; }
 html.unlocked .gate { display: none; }
 #files:focus { outline: none; }
 
-/* gentle entrance on first paint */
-.dl-in { animation: dl-rise 600ms var(--ease) both; }
-.dl-card.dl-in { animation-delay: 120ms; }
-.dl-photo.dl-in { animation-delay: 220ms; }
+/* entrance: a staggered fade-up (12px, 600ms, 75ms apart; --i = order) */
+html.js .dl-up { animation: dl-rise 600ms var(--ease) calc(var(--i, 0) * 75ms + 60ms) both; }
+html.js .dl-rule.dl-up { animation-name: dl-draw; }
+@keyframes dl-draw { from { opacity: 0; transform: scaleX(0); } to { opacity: 1; transform: none; } }
 
 @media (max-width: 900px) {
-  .dl-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "copy" "card" "photo"; grid-template-rows: none; row-gap: var(--space-6); }
+  .dl-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "copy" "card"; row-gap: var(--space-6); }
   .dl-card { max-width: 560px; }
-  .dl-photo { max-width: 560px; }
+  .dl-lines { width: 140%; }
 }
 @media (max-width: 760px) {
   .dl-hero { padding-block: var(--space-6) var(--space-7); }
   .dl-copy { text-align: center; }
   .dl-h1 { margin-inline: auto; }
   .dl-sub { margin-inline: auto; }
-  .dl-card, .dl-photo { margin-inline: auto; width: 100%; }
+  .dl-rule { margin-inline: auto; transform-origin: center; }
+  .dl-card { margin-inline: auto; width: 100%; }
   .dl-card { padding: var(--space-5) 20px; }
 }
 @media (max-width: 560px) {
@@ -155,10 +164,12 @@ html.unlocked .gate { display: none; }
   .dl-tile b { grid-column: 2; margin: 0; padding: 0; align-self: end; }
   .dl-tile small { grid-column: 2; margin-top: 1px; align-self: start; }
   .dl-tile .st { position: static; grid-column: 3; grid-row: 1 / 3; width: 18px; height: 18px; }
+  html.unlocked .dl-tile:hover { transform: none; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .dl-in, html.unlocking .dl-tiles > li, html.unlocking .dl-unlocked { animation-duration: 1ms; animation-delay: 0ms; }
-  .dl-tile, .dl-submit, .dl-submit .arr, .dl-more svg { transition: none; }
+  html.js .dl-up, html.unlocking .dl-tile, html.unlocking .dl-unlocked, html.unlocking #files { animation: none; }
+  .dl-tile, .dl-tile .st, .dl-f label, .dl-f input, .dl-submit, .dl-submit .arr, .dl-more svg { transition: none; }
+  html.unlocked .dl-tile:hover, .dl-submit:hover:not([disabled]) { transform: none; }
 }
 </style>
 </head>
@@ -190,18 +201,24 @@ html.unlocked .gate { display: none; }
 </nav>
 <main id="top">
 <section class="dl-hero" data-screen-label="Download">
+  <svg class="dl-lines" viewBox="0 0 900 420" preserveAspectRatio="xMinYMax meet" aria-hidden="true">
+    <path d="M-20 400C160 330 260 210 430 200S700 300 920 120"/>
+    <path d="M-20 420C170 360 280 250 440 238S710 330 920 168"/>
+    <path d="M-20 440C180 390 300 290 450 276S720 360 920 216"/>
+  </svg>
   <div class="container dl-grid">
-    <div class="dl-copy dl-in">
-      <span class="ds-eyebrow dl-ev">ACAMIS Technology Conference<span class="dl-ev-sep"> · </span><span class="dl-ev-d">Oct 18, 2026</span></span>
-      <h1 class="dl-h1">From Lab <em>to Classroom</em></h1>
-      <p class="dl-sub">Running an AI Student Program <span class="nw">Inside a School</span></p>
+    <div class="dl-copy">
+      <span class="ds-eyebrow dl-ev dl-up" style="--i:0">ACAMIS Technology Conference<span class="dl-ev-sep"> · </span><span class="dl-ev-d">Oct 18, 2026</span></span>
+      <h1 class="dl-h1 dl-up" style="--i:1">From Lab <em>to Classroom</em></h1>
+      <p class="dl-sub dl-up" style="--i:2">Running an AI Student Program <span class="nw">Inside a School</span></p>
+      <span class="dl-rule dl-up" style="--i:3" aria-hidden="true"></span>
     </div>
 
-    <div class="dl-card dl-in">
+    <div class="dl-card dl-up" style="--i:2">
       <div class="gate">
-        <span class="ds-eyebrow">Download</span>
-        <h2 class="ds-h2" id="h-gate">Get today’s materials</h2>
-        <p class="dl-lede">Fill in the form to download today’s materials.</p>
+        <span class="ds-eyebrow dl-up" style="--i:3">Download</span>
+        <h2 class="ds-h2 dl-up" style="--i:4" id="h-gate">Get today’s materials</h2>
+        <p class="dl-lede dl-up" style="--i:5">Fill in the form to download today’s materials.</p>
       </div>
       <div class="files" id="files" aria-labelledby="h-files" tabindex="-1">
         <span class="ds-eyebrow">Your downloads</span>
@@ -210,17 +227,17 @@ html.unlocked .gate { display: none; }
       </div>
 
       <ul class="dl-tiles" aria-label="Session files">
-        <li><a class="dl-tile is-main" href="/talks/2026-10-acamis-tech-workshop/slides-en.pdf" type="application/pdf" download>
+        <li class="dl-up" style="--i:6"><a style="--t:0" class="dl-tile is-main" href="/talks/2026-10-acamis-tech-workshop/slides-en.pdf" type="application/pdf" download>
           <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 3h20"/><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/><path d="m7 21 5-5 5 5"/></svg>
           <svg class="st st-lock" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
           <svg class="st st-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg>
           <b>Slides</b><small>PDF, 36 slides</small></a></li>
-        <li><a class="dl-tile" href="/talks/2026-10-acamis-tech-workshop/china-ai-tool-guide.pdf" type="application/pdf" download>
+        <li class="dl-up" style="--i:7"><a style="--t:1" class="dl-tile" href="/talks/2026-10-acamis-tech-workshop/china-ai-tool-guide.pdf" type="application/pdf" download>
           <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
           <svg class="st st-lock" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
           <svg class="st st-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg>
           <b>China AI tool guide</b><small>PDF, 2 pages</small></a></li>
-        <li><a class="dl-tile" href="/talks/2026-10-acamis-tech-workshop/deck" target="_blank" rel="noopener">
+        <li class="dl-up" style="--i:8"><a style="--t:2" class="dl-tile" href="/talks/2026-10-acamis-tech-workshop/deck" target="_blank" rel="noopener">
           <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M12 17v4"/><path d="M8 21h8"/><path d="m10 7 5 3-5 3Z"/></svg>
           <svg class="st st-lock" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
           <svg class="st st-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
@@ -228,15 +245,15 @@ html.unlocked .gate { display: none; }
       </ul>
 
       <form id="dl-form" class="dl-form gate" novalidate>
-        <div class="dl-f">
+        <div class="dl-f dl-up" style="--i:9">
           <label for="f-name">Name</label>
           <input id="f-name" name="name" type="text" autocomplete="name" maxlength="120" required>
         </div>
-        <div class="dl-f">
+        <div class="dl-f dl-up" style="--i:10">
           <label for="f-inst">Institution</label>
           <input id="f-inst" name="institution" type="text" autocomplete="organization" maxlength="160" required>
         </div>
-        <div class="dl-f">
+        <div class="dl-f dl-up" style="--i:11">
           <label for="f-email">Email</label>
           <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false" maxlength="200" required>
         </div>
@@ -244,9 +261,9 @@ html.unlocked .gate { display: none; }
           <label for="f-honey">Leave this field empty</label>
           <input id="f-honey" name="_honey" type="text" tabindex="-1" autocomplete="off">
         </div>
-        <button class="dl-submit" type="submit">Get the downloads <span class="arr" aria-hidden="true">→</span></button>
+        <button class="dl-submit dl-up" style="--i:12" type="submit">Get the downloads <span class="arr" aria-hidden="true">→</span></button>
         <p class="status" role="alert" aria-live="polite"></p>
-        <p class="dl-note">We use this only to follow up about the session. No spam.</p>
+        <p class="dl-note dl-up" style="--i:13">We use this only to follow up about the session. No spam.</p>
       </form>
 
       <div class="files dl-unlocked">
@@ -259,10 +276,6 @@ html.unlocked .gate { display: none; }
       </div>
     </div>
 
-    <figure class="dl-photo dl-in">
-      <div class="pro-photo"><img src="/photos/mix/pilot-classroom-noscreen-800.webp" srcset="/photos/mix/pilot-classroom-noscreen-800.webp 800w, /photos/mix/pilot-classroom-noscreen-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 46vw" width="800" height="600" alt="Students at laptops during the Hong Kong course" decoding="async"></div>
-      <figcaption class="pro-photo-cap">The Hong Kong course in session, 2025</figcaption>
-    </figure>
   </div>
 </section>
 </main>
@@ -312,7 +325,7 @@ html.unlocked .gate { display: none; }
     if (remember) { try { localStorage.setItem(KEY, JSON.stringify({ name: name, at: Date.now() })); } catch (e) {} }
     greet(name);
     root.classList.add('unlocked', 'unlocking');
-    setTimeout(function () { root.classList.remove('unlocking'); }, 900);
+    setTimeout(function () { root.classList.remove('unlocking'); }, 1400);
     setTiles();
     files.focus({ preventScroll: true });
     window.scrollTo(0, 0);
