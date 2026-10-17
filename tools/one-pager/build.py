@@ -160,7 +160,7 @@ H1 = {'general': DOCS['general'],
                   'cn': dict(eyebrow='面向教师与学校管理层', h1='全体教职员工的AI素养，<em>始终在学校的规则之内。</em>')},
       'parent': {'en': dict(eyebrow='For families', h1='What your child <em>makes, learns and keeps.</em>'),
                  'cn': dict(eyebrow='写给家长', h1='孩子在这里<em>做什么、学什么、带走什么。</em>')}}
-CAP = {'en': 'Demo day, Beijing, 2026', 'cn': '路演日，北京，2026年'}
+CAP = {'en': 'Demo day at the International School of Beijing, 2026', 'cn': '<!-- JJ review: 照片说明 (CAPTION-BRIEF) -->北京顺义国际学校路演日'}
 # section titles: (title, one-line dek)
 SEC = {
  'en': dict(who=('Who we serve', 'And where we have run it.'), teach=('How we teach', 'One framework in every program.'),
@@ -392,7 +392,7 @@ em { font-style: italic; }
 .photo img { width: 100%; height: 100%; object-fit: cover; object-position: 68% 30%; display: block;
   }
 .photo::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 14mm; background: linear-gradient(180deg, rgba(11,26,74,0), rgba(11,26,74,.78)); }
-.photo figcaption { position: absolute; z-index: 2; right: 10mm; bottom: 3.4mm; font-size: 7pt; color: #fff; text-shadow: 0 1px 4px rgba(8,15,38,.7); }
+.photo figcaption { position: absolute; z-index: 2; right: 10mm; bottom: 3.4mm; font-size: 7pt; color: #fff; white-space: nowrap; text-shadow: 0 1px 4px rgba(8,15,38,.85); }
 /* body: three sections, equal gaps */
 .body { flex: 1; display: flex; flex-direction: column; justify-content: space-evenly; padding: 2mm 0; }
 /* section header: a navy number block, a serif title, a one-line dek */
@@ -537,6 +537,7 @@ const { chromium } = require('playwright');
     const tc = cents('.team .lc'), mc = cents('.member .lc');
     for (let i = 6; i < tc.length; i++) if (Math.abs(tc[i] - tc[i - 6]) > 1) uneven.push('team col ' + i);
     document.querySelectorAll('.acc li').forEach(li => { if (li.getBoundingClientRect().height > 16) uneven.push('acc wrap: ' + li.textContent); });
+    const fc = document.querySelector('.photo figcaption'); if (fc.getBoundingClientRect().height > 14) stepBad.push('caption wraps');
     const tops = []; document.querySelectorAll('.sh').forEach(d => tops.push(Math.round(d.getBoundingClientRect().left)));
     let min = 99; document.querySelectorAll('.op *').forEach(e => { if ([...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim()) && !e.closest('svg')) min = Math.min(min, parseFloat(getComputedStyle(e).fontSize)); });
     const clipped = []; document.querySelectorAll('.marks, .logos, .team .tl, .prac .pi, .memtop .mt').forEach(l => { const p = l.closest('.card, .row, .prac, .memtop'); const pr = p.getBoundingClientRect(); [...l.children].forEach(c => { const r = c.getBoundingClientRect(); if (r.right > pr.right - 1 || r.left < pr.left) clipped.push(c.textContent || c.getAttribute('src')); }); });

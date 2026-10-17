@@ -108,3 +108,5 @@ brown, tsinghua-lockup, isb, mckinsey, goldman, yc, apple, microsoft-ai, deloitt
 - **Header photo:** no hard seam; the photo fades in from the navy (solid behind the headline, clear by the students'
   faces), as on the site's hero.
 - Stamps `?v=20261017h`.
+- **v5.3 (CAPTION-BRIEF):** header photo caption "Demo day at the International School of Beijing, 2026" (fits one line),
+  CN "北京顺义国际学校路演日" (JJ review comment in the source); one line checked by the build. Stamps `?v=20261017i`.
