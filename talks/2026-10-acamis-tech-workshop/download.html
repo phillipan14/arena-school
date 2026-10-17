@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script data-pro>(function(d){d.classList.add("js")})(document.documentElement)</script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#FBF4EA">
+<meta name="theme-color" content="#FFFFFF">
 <meta name="format-detection" content="telephone=no">
 <title>Download the Slides · Arena School</title>
 <meta name="description" content="Download the slides, the China AI tool guide, and the web deck from “From Lab to Classroom: Running an AI Student Program Inside a School” at the ACAMIS Technology Conference, October 18, 2026.">
@@ -26,142 +27,261 @@
 /* Returning visitors who already unlocked the files skip the form (set after a successful submit below). */
 (function(){ try { if (localStorage.getItem('arena-dl:2026-10-acamis-tech-workshop')) document.documentElement.className += ' unlocked'; } catch (e) {} })();
 </script>
-<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/styles.css?v=0a9b5b85">
+<link rel="stylesheet" href="/riso-theme.css?v=c3127032">
+<link rel="stylesheet" href="/mobile.css?v=f7aab9eb">
+<link rel="stylesheet" href="/css/pages.css?v=3b6d3dac">
+<link rel="stylesheet" href="/css/elegance.css?v=e6ed9eb8">
+<link rel="stylesheet" href="/css/pro.css?v=379147ad" data-pro>
+<link rel="stylesheet" href="/css/ds.css?v=8a17ccdd" data-ds>
+<link rel="stylesheet" href="/phone.css?v=503e0926" data-phone>
 <style>
-:root{
-  --ink:#152636;--ink2:#4A5768;--btn:#152636;--btn-h:#22385a;
-  --paper:#F3E9DD;--paper-h:#FBF4EA;--card:#FBF4EA;--line:rgba(21,38,54,.12);
-  --text:#152636;--soft:#4A5768;--muted:#7A8492;--err:#9B2C2C;
-  --serif:'Newsreader',Georgia,'Times New Roman',serif;
-  --sans:'Geist',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
-  --gut:max(20px,env(safe-area-inset-left));
+/* Gated download page (QR target at the ACAMIS session). Site system: tokens from css/pro.css, eyebrow and h2 from
+   css/ds.css. Phone first: hero copy, then the card (file tiles + form), then the photo. */
+.dl-hero { padding-block: clamp(var(--space-6), 5vw, var(--space-9)) clamp(var(--space-7), 6vw, var(--space-9)); background: var(--pro-alt); border-bottom: var(--hairline); }
+.dl-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 500px); grid-template-areas: "copy card" "photo card";
+  grid-template-rows: auto 1fr; column-gap: clamp(var(--space-7), 6vw, 104px); row-gap: var(--space-7); align-items: start; }
+.dl-copy { grid-area: copy; }
+.dl-card { grid-area: card; }
+.dl-photo { grid-area: photo; }
+.dl-copy .ds-eyebrow { margin-bottom: var(--space-4); }
+.dl-h1 { margin: 0; max-width: 14ch; font: 500 clamp(38px, 1.2rem + 3vw, 64px)/1.04 'Newsreader', Georgia, serif; letter-spacing: -.022em; color: var(--pro-ink); text-wrap: balance; }
+.dl-h1 em { font-style: italic; color: var(--pro-ink-2); }
+.dl-sub { margin: var(--space-4) 0 0; max-width: 30ch; font: 400 clamp(19px, .9rem + .7vw, 25px)/1.35 'Newsreader', Georgia, serif; color: var(--pro-soft); text-wrap: balance; }
+.dl-photo { margin: 0; }
+.dl-photo .pro-photo { aspect-ratio: 16 / 10; }
+.dl-photo .pro-photo img { object-position: 50% 60%; }
+
+/* the card */
+.dl-card { background: var(--pro-bg); border: var(--hairline); border-radius: 14px; padding: clamp(var(--space-5), 3vw, 40px);
+  box-shadow: 0 30px 60px -40px rgba(11, 26, 74, .35); }
+.dl-card .ds-eyebrow { margin-bottom: var(--space-2); }
+.dl-card .ds-h2 { font-size: clamp(26px, 1rem + 1vw, 32px); }
+.dl-lede { margin: var(--space-3) 0 0; font-size: var(--text-base); line-height: 1.55; color: var(--pro-soft); text-wrap: pretty; }
+.dl-thanks { margin: var(--space-3) 0 0; font: 400 19px/1.4 'Newsreader', Georgia, serif; color: var(--pro-ink); }
+
+/* three file tiles: a locked preview before the form, download buttons after it */
+.dl-tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-3); margin: var(--space-5) 0 0; padding: 0; list-style: none; }
+.dl-tile { position: relative; display: flex; flex-direction: column; height: 100%; min-height: 128px; padding: var(--space-4) var(--space-3) var(--space-3);
+  border: var(--hairline); border-radius: 10px; background: var(--pro-alt); color: var(--pro-ink); text-decoration: none;
+  transition: border-color var(--dur-ui) var(--ease), background-color var(--dur-ui) var(--ease), color var(--dur-ui) var(--ease), transform var(--dur-ui) var(--ease); }
+.dl-tile svg { display: block; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.dl-tile .ic { width: 28px; height: 28px; color: var(--pro-ink-2); }
+.dl-tile b { display: block; margin-top: auto; padding-top: var(--space-4); font: 600 15px/1.25 'Geist', system-ui, sans-serif; color: inherit; }
+.dl-tile small { display: block; margin-top: 3px; font-size: 12.5px; line-height: 1.35; color: var(--pro-muted); }
+.dl-tile .st { position: absolute; top: var(--space-3); right: var(--space-3); width: 16px; height: 16px; color: var(--pro-muted); }
+.dl-tile .st-go { display: none; }
+html:not(.unlocked) .dl-tile { pointer-events: none; }
+html:not(.unlocked) .dl-tile .ic { color: var(--pro-muted); }
+html.unlocked .dl-tile { background: var(--pro-bg); border-color: var(--pro-line-2); cursor: pointer; }
+html.unlocked .dl-tile .st-lock { display: none; }
+html.unlocked .dl-tile .st-go { display: block; color: var(--pro-ink-2); }
+html.unlocked .dl-tile.is-main { background: var(--pro-action); border-color: var(--pro-action); color: #fff; }
+html.unlocked .dl-tile.is-main :is(.ic, small, .st-go) { color: rgba(255, 255, 255, .86); }
+html.unlocked .dl-tile:active { transform: scale(.98); }
+@media (hover: hover) {
+  html.unlocked .dl-tile:hover { border-color: var(--pro-ink-2); }
+  html.unlocked .dl-tile.is-main:hover { background: #183366; border-color: #183366; }
 }
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html{background:var(--paper);-webkit-text-size-adjust:100%;text-size-adjust:100%}
-body{margin:0;font:400 17px/1.6 var(--sans);color:var(--text);background:var(--paper);-webkit-font-smoothing:antialiased;overflow-wrap:break-word;text-wrap:pretty}
-a{color:inherit}
-p{margin:0}
-.nw{white-space:nowrap}
-.page{max-width:560px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column}
-.hd{position:relative;overflow:hidden;background-color:var(--paper-h);
-  padding:calc(env(safe-area-inset-top) + 10px) max(20px,env(safe-area-inset-right)) 26px var(--gut);border-bottom:1px solid var(--line)}
-.bar{display:flex;align-items:center;min-height:48px}
-.bar a.home{display:inline-flex;align-items:center;min-height:48px}
-.wm{display:block;height:auto;width:204px}
-.intro{margin-top:14px}
-.ev{margin:0 0 10px;font:500 12px/1.45 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
-h1{margin:0;font:400 36px/1.08 var(--serif);letter-spacing:-.022em;color:var(--ink)}
-h1 em{font-style:italic;color:#2B4A8B}
-.t2{margin-top:8px;font:400 18px/1.4 var(--serif);color:var(--ink2)}
-main{flex:1;padding:8px max(20px,env(safe-area-inset-right)) 0 var(--gut)}
-section{padding:26px 0 4px}
-.k{margin:0 0 6px;font:600 12px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
-h2{margin:0 0 10px;font:400 26px/1.15 var(--serif);letter-spacing:-.018em;color:var(--ink)}
-.lede{font-size:15.5px;line-height:1.6;color:var(--soft)}
-form{margin-top:18px;display:flex;flex-direction:column;gap:14px}
-.f label{display:block;margin-bottom:6px;font:500 14px/1.3 var(--sans);color:var(--ink)}
-.f input{display:block;width:100%;min-height:52px;padding:12px 16px;border:1px solid rgba(21,38,54,.25);border-radius:12px;background:var(--card);
-  font:400 17px/1.3 var(--sans);color:var(--ink);transition:border-color .2s,box-shadow .2s}
-.f input:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 3px rgba(21,38,54,.12)}
-.f input[aria-invalid="true"]{border-color:var(--err)}
-.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-.btn{display:flex;align-items:center;justify-content:flex-start;gap:14px;min-height:64px;padding:10px 22px 10px 20px;border-radius:14px;border:0;text-decoration:none;
-  font:500 17px/1.25 var(--sans);text-align:left;cursor:pointer;transition:background-color .2s,border-color .2s,opacity .2s}
-.btn .ic{flex:none;width:30px;height:30px}
-.btn .lbl{flex:1}
-.btn small{display:block;font-size:13px;font-weight:400;opacity:.78;margin-top:2px}
-.btn .ar{font-size:20px;line-height:1;flex:none}
-.btn.pri{background:var(--btn);color:#F7F1E7}
-.btn.gh{background:var(--card);color:var(--ink);border:1px solid rgba(21,38,54,.25)}
-.btn.pri:active{background:var(--btn-h)}
-.btn[disabled]{opacity:.6;cursor:progress}
-@media (hover:hover){.btn.pri:hover{background:var(--btn-h)}.btn.gh:hover{border-color:var(--ink2)}}
-.status{font-size:15px;line-height:1.5;color:var(--err)}
-.status:empty{display:none}
-.note{font-size:13.5px;line-height:1.55;color:var(--muted)}
-.dl{display:flex;flex-direction:column;gap:12px;margin-top:16px}
-.more{list-style:none;margin:22px 0 0;padding:0;border-top:1px solid var(--line)}
-.more a{display:flex;align-items:center;gap:12px;min-height:60px;padding:12px 2px;border-bottom:1px solid var(--line);text-decoration:none}
-.more .t{flex:1;font-size:16px;font-weight:500;color:var(--ink)}
-.more .t small{display:block;font-size:14px;font-weight:400;color:var(--soft);margin-top:2px}
-.more .ar{font-size:18px;color:var(--btn);transition:transform .2s}
-@media (hover:hover){.more a:hover .ar{transform:translateX(3px)}}
-.thanks{margin-top:4px;font:400 19px/1.4 var(--serif);color:var(--ink)}
-.again{margin-top:18px;font-size:13.5px;color:var(--muted)}
-.again button{padding:0;border:0;background:none;font:inherit;color:inherit;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
-.files{display:none}
-html.unlocked .files{display:block}
-html.unlocked .gate{display:none}
-footer{padding:30px max(20px,env(safe-area-inset-right)) calc(env(safe-area-inset-bottom) + 28px) var(--gut);font-size:13.5px;color:var(--muted)}
-footer a{color:inherit;text-underline-offset:3px}
-@media (min-width:600px){h1{font-size:42px}.hd{padding-top:28px;padding-bottom:32px}}
-@media (max-width:370px){.wm{width:180px}h1{font-size:32px}}
-@media (prefers-reduced-motion:reduce){*{transition:none !important}}
+.dl-tile:focus-visible { outline: 2px solid var(--pro-ink-2); outline-offset: 2px; }
+/* the tiles light up one after another when they unlock */
+html.unlocking .dl-tiles > li { animation: dl-rise 520ms var(--ease) both; }
+html.unlocking .dl-tiles > li:nth-child(2) { animation-delay: 80ms; }
+html.unlocking .dl-tiles > li:nth-child(3) { animation-delay: 160ms; }
+html.unlocking .dl-unlocked { animation: dl-rise 520ms var(--ease) 120ms both; }
+@keyframes dl-rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+/* form */
+.dl-form { display: flex; flex-direction: column; gap: var(--space-4); margin-top: var(--space-6); padding-top: var(--space-6); border-top: var(--hairline); }
+.dl-f label { display: block; margin-bottom: 6px; font: 500 14px/1.3 'Geist', system-ui, sans-serif; color: var(--pro-ink); }
+.dl-f input { display: block; width: 100%; min-height: 50px; padding: 12px 14px; border: 1px solid var(--pro-line-2); border-radius: var(--radius-ctl); background: #fff;
+  font: 400 17px/1.3 'Geist', system-ui, sans-serif; color: var(--pro-text); transition: border-color var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease); }
+.dl-f input:focus { outline: none; border-color: var(--pro-ink-2); box-shadow: 0 0 0 3px rgba(47, 85, 168, .14); }
+.dl-f input[aria-invalid="true"] { border-color: #9B2C2C; }
+.dl-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.dl-submit { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 54px; margin-top: var(--space-1); padding: 12px 22px;
+  border: 0; border-radius: var(--radius-ctl); background: var(--pro-action); color: #fff; font: 500 16px/1.2 'Geist', system-ui, sans-serif; cursor: pointer;
+  transition: background-color var(--dur-fast) var(--ease), opacity var(--dur-fast) var(--ease); }
+.dl-submit .arr { transition: transform var(--dur-fast) var(--ease); }
+.dl-submit:active { background: #183366; }
+.dl-submit[disabled] { opacity: .65; cursor: progress; }
+@media (hover: hover) { .dl-submit:hover { background: #183366; } .dl-submit:hover .arr { transform: translateX(3px); } }
+.dl-submit:focus-visible { outline: 2px solid var(--pro-ink-2); outline-offset: 3px; }
+.status { margin: 0; font-size: 15px; line-height: 1.5; color: #9B2C2C; }
+.status:empty { display: none; }
+.dl-note { margin: 0; font-size: 13.5px; line-height: 1.5; color: var(--pro-muted); text-align: center; }
+
+/* after unlock: more from the session */
+.dl-more { margin: var(--space-6) 0 0; padding: 0; list-style: none; border-top: var(--hairline); }
+.dl-more a { display: flex; align-items: center; gap: var(--space-3); min-height: 60px; padding: var(--space-3) 2px; border-bottom: var(--hairline); text-decoration: none; color: var(--pro-ink); }
+.dl-more .t { flex: 1; font-size: 15.5px; font-weight: 500; }
+.dl-more .t small { display: block; margin-top: 2px; font-size: 14px; font-weight: 400; color: var(--pro-soft); }
+.dl-more svg { flex: none; width: 18px; height: 18px; fill: none; stroke: var(--pro-ink-2); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: transform var(--dur-fast) var(--ease); }
+@media (hover: hover) { .dl-more a:hover svg { transform: translateX(3px); } }
+.again { margin: var(--space-5) 0 0; font-size: 13.5px; color: var(--pro-muted); }
+.again button { min-height: 44px; padding: 0; border: 0; background: none; font: inherit; color: var(--pro-ink-2); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+
+.files { display: none; }
+html.unlocked .files { display: block; }
+html.unlocked .gate { display: none; }
+#files:focus { outline: none; }
+
+/* gentle entrance on first paint */
+.dl-in { animation: dl-rise 600ms var(--ease) both; }
+.dl-card.dl-in { animation-delay: 120ms; }
+.dl-photo.dl-in { animation-delay: 220ms; }
+
+@media (max-width: 900px) {
+  .dl-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "copy" "card" "photo"; grid-template-rows: none; row-gap: var(--space-6); }
+  .dl-card { max-width: 560px; }
+  .dl-photo { max-width: 560px; }
+}
+@media (max-width: 760px) {
+  .dl-hero { padding-block: var(--space-6) var(--space-7); }
+  .dl-copy { text-align: center; }
+  .dl-h1 { margin-inline: auto; }
+  .dl-sub { margin-inline: auto; }
+  .dl-card, .dl-photo { margin-inline: auto; width: 100%; }
+  .dl-card { padding: var(--space-5) 20px; }
+}
+@media (max-width: 560px) {
+  .dl-ev-sep { display: none; }
+  .dl-ev-d { display: block; margin-top: 4px; }
+  /* phones: the three files stack as full-width rows (icon, name and size, status glyph) */
+  .dl-tiles { grid-template-columns: minmax(0, 1fr); gap: var(--space-2); }
+  .dl-tile { display: grid; grid-template-columns: 28px minmax(0, 1fr) 18px; grid-template-rows: auto auto; column-gap: var(--space-4); align-items: center;
+    min-height: 64px; padding: var(--space-3) var(--space-4); }
+  .dl-tile .ic { grid-row: 1 / 3; }
+  .dl-tile b { grid-column: 2; margin: 0; padding: 0; align-self: end; }
+  .dl-tile small { grid-column: 2; margin-top: 1px; align-self: start; }
+  .dl-tile .st { position: static; grid-column: 3; grid-row: 1 / 3; width: 18px; height: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dl-in, html.unlocking .dl-tiles > li, html.unlocking .dl-unlocked { animation-duration: 1ms; animation-delay: 0ms; }
+  .dl-tile, .dl-submit, .dl-submit .arr, .dl-more svg { transition: none; }
+}
 </style>
 </head>
-<body>
-<div class="page">
-<header class="hd">
-  <div class="bar">
-    <a class="home" href="https://arenaschool.org/" aria-label="Arena School"><img class="wm" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School" width="1600" height="242"></a>
-  </div>
-  <div class="intro">
-    <p class="ev">ACAMIS Technology Conference · Oct 18, 2026</p>
-    <h1>From Lab <em>to Classroom</em></h1>
-    <p class="t2">Running an AI Student Program <span class="nw">Inside a School</span></p>
-  </div>
-</header>
-
-<main>
-  <section class="gate" aria-labelledby="h-gate">
-    <p class="k">Download</p>
-    <h2 id="h-gate">Get today’s materials</h2>
-    <p class="lede">The slides, the China AI tool guide, and the web deck. Tell us who you are and the downloads open right&nbsp;here.</p>
-    <form id="dl-form" novalidate>
-      <div class="f">
-        <label for="f-name">Name</label>
-        <input id="f-name" name="name" type="text" autocomplete="name" maxlength="120" required>
-      </div>
-      <div class="f">
-        <label for="f-inst">Institution</label>
-        <input id="f-inst" name="institution" type="text" autocomplete="organization" maxlength="160" required>
-      </div>
-      <div class="f">
-        <label for="f-email">Email</label>
-        <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false" maxlength="200" required>
-      </div>
-      <div class="hp" aria-hidden="true">
-        <label for="f-honey">Leave this field empty</label>
-        <input id="f-honey" name="_honey" type="text" tabindex="-1" autocomplete="off">
-      </div>
-      <button class="btn pri" type="submit"><span class="lbl">Get the downloads<small>Slides, tool guide, and web deck</small></span><span class="ar" aria-hidden="true">→</span></button>
-      <p class="status" role="alert" aria-live="polite"></p>
-      <p class="note">We use this only to follow up about the session. No spam.</p>
-    </form>
-  </section>
-
-  <section class="files" id="files" aria-labelledby="h-files" tabindex="-1">
-    <p class="k">Your downloads</p>
-    <h2 id="h-files">Today’s materials</h2>
-    <p class="thanks" hidden></p>
-    <div class="dl">
-      <a class="btn pri" href="/talks/2026-10-acamis-tech-workshop/slides-en.pdf" type="application/pdf" download><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.75h8.2L19.25 7.8V20a1.25 1.25 0 0 1-1.25 1.25H6A1.25 1.25 0 0 1 4.75 20V4A1.25 1.25 0 0 1 6 2.75Z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M14 2.9V8h5.1" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="17.2" text-anchor="middle" font-size="5.6" font-weight="700" font-family="Arial,Helvetica,sans-serif" fill="currentColor">PDF</text></svg><span class="lbl">Slides<small>PDF · 36 slides · 5.6 MB</small></span></a>
-      <a class="btn gh" href="/talks/2026-10-acamis-tech-workshop/china-ai-tool-guide.pdf" type="application/pdf" download><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.75h8.2L19.25 7.8V20a1.25 1.25 0 0 1-1.25 1.25H6A1.25 1.25 0 0 1 4.75 20V4A1.25 1.25 0 0 1 6 2.75Z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M14 2.9V8h5.1" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="17.2" text-anchor="middle" font-size="5.6" font-weight="700" font-family="Arial,Helvetica,sans-serif" fill="currentColor">PDF</text></svg><span class="lbl">China AI tool guide<small>PDF · two pages · checked Oct 15</small></span></a>
-      <a class="btn gh" href="/talks/2026-10-acamis-tech-workshop/deck" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.75" width="18" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 16.75v3.5M8.5 20.25h7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span class="lbl">Web deck<small>The live slides, with animations</small></span><span class="ar" aria-hidden="true">→</span></a>
+<body class="no-ticker pg el pg-download">
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="wordmark nav-brand">
+      <img class="nav-lockup" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School" width="1600" height="242" />
+    </a>
+    <div class="nav-links" id="navLinks">
+      <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="nav-dd-1">For students<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu nav-dd-stu" id="nav-dd-1"><span class="nav-dd-sub">Short courses · 2 days</span><a href="/programs/remake-your-favorite-app"><b>App Design Workshop</b><span>Grades 6–9 · rebuild an app they love</span></a><a href="/programs/website-portfolio-workshop"><b>College Portfolio Workshop</b><span>Grades 10–12 · a portfolio for applications</span></a><span class="nav-dd-sub">Longer programs</span><a href="/programs/product-intensive"><b>Entrepreneurship &amp; AI Intensive</b><span>Grades 7–12 · build, launch, and pitch</span></a><span class="nav-dd-sub">Year-long</span><a href="/mentorship"><b>Year-Long Project Mentorship</b><span>Grades 7–12 · 6 months to a year, 1:1</span></a><span class="nav-dd-sub">College &amp; career</span><a href="/zero-to-launch"><b>AI Advantage Bootcamp</b><span>College &amp; early career · workplace-ready with AI</span></a></div></div>
+      <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="nav-dd-2">For families<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu nav-dd-fam" id="nav-dd-2"><span class="nav-dd-sub">Year-long</span><a href="/mentorship"><b>Mentorship</b><span>Year-Long Project Mentorship · enroll directly</span></a><span class="nav-dd-sub">Holiday programs</span><a href="/events/isb-winter-2027"><b>AI Fundamentals for Students @ International School of Beijing</b><span>Jan 5–8, 2027 · register interest</span></a><span class="nav-dd-sub">At your child’s school</span><a href="/programs/community-dialogues"><b>Parent talks</b><span>Community Dialogues: ask your school to host one</span></a></div></div>
+      <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="nav-dd-3">For schools<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu nav-dd-edu" id="nav-dd-3"><span class="nav-dd-sub">At your school</span><a href="/programs/teacher-training"><b>Teachers</b><span>AI for Educators: make the tool your class is missing</span></a><a href="/schools/technology"><b>Technology teams</b><span>Tech coaches, IT directors, and digital learning</span></a><a href="/schools"><b>School leaders</b><span>Bring Arena to your whole school community</span></a><span class="nav-dd-sub">Events &amp; partners</span><a href="/programs/conferences"><b>Conferences</b><span>Talks, hands-on workshops, and pre-conference sessions</span></a><a href="/partnerships"><b>Partners</b><span>A product-building track for camps and programs</span></a></div></div>
+      <div class="nav-dd"><button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="nav-dd-4">About<svg class="nav-dd-chev" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-dd-menu" id="nav-dd-4"><a href="/about"><b>Our team</b><span>Who we are</span></a><a href="/approach"><b>Our approach</b><span>Agency, taste, and craft</span></a><a href="/learning-approach"><b>Learning approach</b><span>Framework, outcomes, assessment</span></a><a href="/results"><b>Results</b><span>What we have run</span></a><a href="/past-talks"><b>Past talks</b><span>Talks and workshops</span></a></div></div>
+      <a class="nav-mobile-only" href="/contact">Contact us</a>
     </div>
-    <ul class="more">
-      <li><a href="/talks/2026-10-acamis-tech-workshop/read/en"><span class="t">Phone reader<small>Read the slides one by one on your phone</small></span><span class="ar" aria-hidden="true">→</span></a></li>
-      <li><a href="/talks/2026-10-acamis-tech-workshop/build"><span class="t">What we built in the session<small>The school chore the room named, built with Claude Code</small></span><span class="ar" aria-hidden="true">→</span></a></li>
-      <li><a href="/talks/2026-10-acamis-tech-workshop"><span class="t">Session page<small>Planning checklist and ways to work with us</small></span><span class="ar" aria-hidden="true">→</span></a></li>
-    </ul>
-    <p class="again">On a shared device? <button type="button" id="dl-forget">Forget me on this device</button></p>
-  </section>
+    <div class="nav-cta">
+      <div class="lang-switch" role="group" aria-label="Language">
+        <a href="/talks/2026-10-acamis-tech-workshop/download" class="lang-active" aria-current="true">EN</a>
+        <a href="/talks/2026-10-acamis-tech-workshop/download" aria-current="page">中文</a>
+      </div>
+      <span class="nav-divider" aria-hidden="true"></span>
+      <a href="/contact" class="btn btn-primary">Contact us <span class="arr">→</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+<main id="top">
+<section class="dl-hero" data-screen-label="Download">
+  <div class="container dl-grid">
+    <div class="dl-copy dl-in">
+      <span class="ds-eyebrow dl-ev">ACAMIS Technology Conference<span class="dl-ev-sep"> · </span><span class="dl-ev-d">Oct 18, 2026</span></span>
+      <h1 class="dl-h1">From Lab <em>to Classroom</em></h1>
+      <p class="dl-sub">Running an AI Student Program <span class="nw">Inside a School</span></p>
+    </div>
+
+    <div class="dl-card dl-in">
+      <div class="gate">
+        <span class="ds-eyebrow">Download</span>
+        <h2 class="ds-h2" id="h-gate">Get today’s materials</h2>
+        <p class="dl-lede">Tell us who you are and the three files open right here.</p>
+      </div>
+      <div class="files" id="files" aria-labelledby="h-files" tabindex="-1">
+        <span class="ds-eyebrow">Your downloads</span>
+        <h2 class="ds-h2" id="h-files">Today’s materials</h2>
+        <p class="thanks dl-thanks" hidden></p>
+      </div>
+
+      <ul class="dl-tiles" aria-label="Session files">
+        <li><a class="dl-tile is-main" href="/talks/2026-10-acamis-tech-workshop/slides-en.pdf" type="application/pdf" download>
+          <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 3h20"/><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/><path d="m7 21 5-5 5 5"/></svg>
+          <svg class="st st-lock" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <svg class="st st-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg>
+          <b>Slides</b><small>PDF, 36 slides</small></a></li>
+        <li><a class="dl-tile" href="/talks/2026-10-acamis-tech-workshop/china-ai-tool-guide.pdf" type="application/pdf" download>
+          <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+          <svg class="st st-lock" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <svg class="st st-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg>
+          <b>China AI tool guide</b><small>PDF, 2 pages</small></a></li>
+        <li><a class="dl-tile" href="/talks/2026-10-acamis-tech-workshop/deck" target="_blank" rel="noopener">
+          <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M12 17v4"/><path d="M8 21h8"/><path d="m10 7 5 3-5 3Z"/></svg>
+          <svg class="st st-lock" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <svg class="st st-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+          <b>Web deck</b><small>Live, with animations</small></a></li>
+      </ul>
+
+      <form id="dl-form" class="dl-form gate" novalidate>
+        <div class="dl-f">
+          <label for="f-name">Name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" maxlength="120" required>
+        </div>
+        <div class="dl-f">
+          <label for="f-inst">Institution</label>
+          <input id="f-inst" name="institution" type="text" autocomplete="organization" maxlength="160" required>
+        </div>
+        <div class="dl-f">
+          <label for="f-email">Email</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false" maxlength="200" required>
+        </div>
+        <div class="dl-hp" aria-hidden="true">
+          <label for="f-honey">Leave this field empty</label>
+          <input id="f-honey" name="_honey" type="text" tabindex="-1" autocomplete="off">
+        </div>
+        <button class="dl-submit" type="submit">Get the downloads <span class="arr" aria-hidden="true">→</span></button>
+        <p class="status" role="alert" aria-live="polite"></p>
+        <p class="dl-note">We use this only to follow up about the session. No spam.</p>
+      </form>
+
+      <div class="files dl-unlocked">
+        <ul class="dl-more">
+          <li><a href="/talks/2026-10-acamis-tech-workshop/read/en"><span class="t">Phone reader<small>Read the slides one by one <span class="nw">on your phone</span></small></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          <li><a href="/talks/2026-10-acamis-tech-workshop/build"><span class="t">What we built in the session<small>The school chore the room named, built with Claude Code</small></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          <li><a href="/talks/2026-10-acamis-tech-workshop"><span class="t">Session page<small>Planning checklist and ways to <span class="nw">work with us</span></small></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+        </ul>
+        <p class="again">On a shared device? <button type="button" id="dl-forget">Forget me on this device</button></p>
+      </div>
+    </div>
+
+    <figure class="dl-photo dl-in">
+      <div class="pro-photo"><img src="/photos/mix/pilot-classroom-noscreen-800.webp" srcset="/photos/mix/pilot-classroom-noscreen-800.webp 800w, /photos/mix/pilot-classroom-noscreen-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 46vw" width="800" height="600" alt="Students at laptops during the Hong Kong course" decoding="async"></div>
+      <figcaption class="pro-photo-cap">The Hong Kong course in session, 2025</figcaption>
+    </figure>
+  </div>
+</section>
 </main>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="footer-lockup-link"><img loading="lazy" decoding="async" class="footer-lockup" src="/logos/arena/wordmark-ivory-1600.png" alt="Arena School" width="1600" height="242" /></a>
+        <p class="tag">Helping students, families, educators, and schools thrive in the age of AI.</p>
+      </div><div class="footer-col"><h4>For students</h4><a href="/programs/remake-your-favorite-app">App Design Workshop</a><a href="/programs/website-portfolio-workshop">College Portfolio Workshop</a><a href="/programs/product-intensive">Entrepreneurship &amp; AI Intensive</a><a href="/mentorship">Year-Long Project Mentorship</a><a href="/zero-to-launch">AI Advantage Bootcamp</a></div><div class="footer-col footer-col-split"><h4>For families</h4><a href="/mentorship">Mentorship</a><a href="/events/isb-winter-2027">AI Fundamentals for Students @ International School of Beijing</a><a href="/programs/community-dialogues">Parent talks</a><h4>For schools</h4><a href="/programs/teacher-training">Teachers</a><a href="/schools/technology">Technology teams</a><a href="/schools">School leaders</a><a href="/programs/conferences">Conferences</a><a href="/partnerships">Partners</a></div><div class="footer-col"><h4>About</h4><a href="/about">Our team</a><a href="/approach">Our approach</a><a href="/learning-approach">Learning approach</a><a href="/results">Results</a><a href="/past-talks">Past talks</a><a href="/contact">Contact us</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Arena School</span>
+      <span class="footer-contact"><a href="mailto:contact@arenaschool.org"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" d="M3.5 6.5h17v11h-17z M3.8 7l8.2 6.2L20.2 7"/></svg><span>contact@arenaschool.org</span></a><a href="https://www.linkedin.com/company/arena-school/" target="_blank" rel="noopener" aria-label="Arena School on LinkedIn"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4v11H3v-11Zm6.5 0h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4v-11Z"/></svg><span>LinkedIn</span></a></span>
+    </div>
+  </div>
+</footer>
 
-<footer>© 2026 Arena School · <a href="https://arenaschool.org/">arenaschool.org</a></footer>
-</div>
-
-<noscript><style>.files{display:block}.gate{display:none}</style></noscript>
+<noscript><style>.files{display:block}.gate{display:none}.dl-tile{pointer-events:auto!important}.dl-tile .st-lock{display:none!important}</style></noscript>
 <script>
 (function () {
   var KEY = 'arena-dl:2026-10-acamis-tech-workshop';
@@ -172,8 +292,17 @@ footer a{color:inherit;text-underline-offset:3px}
   var btn = form.querySelector('button[type="submit"]');
   var files = document.getElementById('files');
   var thanks = files.querySelector('.thanks');
+  var tiles = document.querySelectorAll('.dl-tile');
   var EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
+  // Locked tiles are a preview only: keep them out of the tab order until the files open.
+  function setTiles() {
+    var on = root.classList.contains('unlocked');
+    [].forEach.call(tiles, function (a) {
+      if (on) { a.removeAttribute('tabindex'); a.removeAttribute('aria-disabled'); }
+      else { a.setAttribute('tabindex', '-1'); a.setAttribute('aria-disabled', 'true'); }
+    });
+  }
   function greet(name) {
     var first = String(name || '').trim().split(' ')[0];
     thanks.textContent = first ? 'Thank you, ' + first + '. Here is everything from the session.' : '';
@@ -182,11 +311,14 @@ footer a{color:inherit;text-underline-offset:3px}
   function unlock(name, remember) {
     if (remember) { try { localStorage.setItem(KEY, JSON.stringify({ name: name, at: Date.now() })); } catch (e) {} }
     greet(name);
-    root.classList.add('unlocked');
+    root.classList.add('unlocked', 'unlocking');
+    setTimeout(function () { root.classList.remove('unlocking'); }, 900);
+    setTiles();
     files.focus({ preventScroll: true });
     window.scrollTo(0, 0);
   }
   try { var saved = JSON.parse(localStorage.getItem(KEY) || 'null'); if (saved) greet(saved.name); } catch (e) {}
+  setTiles();
 
   function check() {
     var bad = null;
@@ -226,9 +358,16 @@ footer a{color:inherit;text-underline-offset:3px}
     try { localStorage.removeItem(KEY); } catch (e) {}
     form.reset(); status.textContent = ''; thanks.hidden = true;
     root.classList.remove('unlocked');
+    setTiles();
     form.elements.name.focus();
   });
 })();
 </script>
+<script src="/motion.js?v=fd2b1666"></script>
+<script src="/elegance.js?v=81cd3955" defer></script>
+<!-- phone:start -->
+<footer class="ph-foot" data-phone hidden><img class="ph-foot-lock" src="/logos/arena/wordmark-ivory-1600.png" alt="Arena School" width="180" height="27"><p class="ph-foot-tag">Helping students, families, educators, and schools thrive in the age of AI.</p><ul class="ph-list ph-list-dark"><li><a class="ph-row" href="/contact"><span class="ph-row-t">Contact us</span><svg class="ph-chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5"/></svg></a></li><li><a class="ph-row" href="mailto:contact@arenaschool.org"><span class="ph-row-t">Email</span><span class="ph-row-v">contact@arenaschool.org</span><svg class="ph-chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5"/></svg></a></li><li><a class="ph-row" href="#ph-menu"><span class="ph-row-t">All programs</span><svg class="ph-chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5"/></svg></a></li><li><a class="ph-row" href="https://www.linkedin.com/company/arena-school/" target="_blank" rel="noopener"><span class="ph-row-t">LinkedIn</span><svg class="ph-chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5"/></svg></a></li></ul><p class="ph-foot-c">© 2026 Arena School</p></footer>
+<script src="/phone.js?v=6a317094" defer data-phone></script>
+<!-- phone:end -->
 </body>
 </html>

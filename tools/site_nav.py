@@ -1,7 +1,7 @@
 """One source for the site header and footer (NAV-BRIEF, Oct 17, 2026).
 
 partials/nav-en.html, nav-cn.html, footer-en.html, footer-cn.html are the only copies. This tool writes them into
-every EN and CN site page (card/, decks/, talks/ have their own layouts), then adds the per-page parts:
+every EN and CN site page (card/, decks/, talks/ have their own layouts; INCLUDE lists the talks/ pages that don't), then adds the per-page parts:
   - aria-current="page" on every menu link to the current page, and is-current on the first dropdown holding one
   - the language switch, pointing at the page and its twin ({{LANG}} in the partial)
   - the Bootcamp's Lux Scholar co-brand, kept from the page ({{COBRAND}} slot after the lockup)
@@ -18,6 +18,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SKIP = ('decks', 'talks', 'card', 'partials', 'node_modules')
 NAV_RX = re.compile(r'(?s)<nav class="nav" id="nav">.*?</nav>')
 FOOT_RX = re.compile(r'(?s)<footer class="footer">.*?</footer>')
+# talks/ pages keep their own layouts, except these, which use the site header and footer
+INCLUDE = ('talks/2026-10-acamis-tech-workshop/download.html',)
 COBRAND_RX = re.compile(r'(?s)\s*<span class="zl-cobrand".*?</span>\s*</span>')
 
 
@@ -29,6 +31,8 @@ def pages():
                 p = os.path.join(d, f)
                 if NAV_RX.search(open(p, encoding='utf-8').read()):
                     yield os.path.relpath(p, ROOT)
+    for rel in INCLUDE:
+        yield rel
 
 
 def urls(rel):
