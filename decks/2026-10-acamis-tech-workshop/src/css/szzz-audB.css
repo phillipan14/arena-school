@@ -1,0 +1,30 @@
+/* audit B: slides 8-14, scoped by au<N> classes. Screen px = CSS px x 1.32 inside .w */
+/* 10 · teaching philosophy: equal card padding by ink (42px screen), header text centered on its circle */
+.ae.au10 .bd .p8-sk{padding:32px 32px 27.7px}
+.ae.au10 .bd .p8-skh .p8-vb,.ae.au10 .bd .p8-skh b{position:relative;top:5px}
+/* 11 · two studies: pane padding matches the sides, numerals centered on their captions and on the left edge, footnote on the grid */
+.ae.au11 .bd .p8-ev>.pane{padding:29.2px 32px 22.7px}
+.ae.au11 .bd .p8-ev{flex:none;height:403.5px;margin-top:auto}
+.ae.au11>.w>.bd{padding-bottom:30px}
+.ae.au11 .bd .p8-dv,.ae.au11 .bd .p8-hb{position:relative;top:-1.45px}
+.ae.au11 .bd p.p8-cap{padding-top:28.1px}
+.ae.au11 .bd p.p8-cap>b{position:relative;top:3.6px}
+.ae.au11 .bd .p8-st1 p.p8-cap>b{left:-3.4px}
+.ae.au11 .bd .p8-st2 p.p8-cap>b{left:-2.3px}
+.ae.au11>.w>.fn{padding:0}
+/* 12 · framework: card padding equal by ink (30px screen) */
+.ae.au12 .bd .p8-cc{padding:20.4px 22px 18.8px}
+/* 13 · outcomes: strand names centered on their icons, bullets on the x-height */
+.ae.au13 .bd .lo3-h b{position:relative;top:3.4px}
+.ae.au13 .bd .lo3-c li::before{top:8.8px}
+/* 14 · iceberg: sea padding matches its sides (47.5px screen), headings centered on their circles, evidence row centered under its divider */
+.ae.au14 .bd .p8-sea{padding-top:33.3px;padding-bottom:32.7px}
+.ae.au14 .bd .p8-evr{padding-top:32.5px}
+.ae.au14 .bd .p8-o b{position:relative;top:3.4px}
+/* balance: each content block sits midway between the title's ink and the slide bottom */
+section.s.au9.st.aga-q>.w{padding-top:88px}
+.ae.au10>.w>.bd{position:relative;top:8.2px}
+.ae.au12>.w>.bd{position:relative;top:11.5px}
+.ae.au14>.w>.bd{position:relative;top:32.6px}
+/* 14 · "The product" label centered in the band between the berg's peak and the waterline */
+.ae.au14 .bd p.p8-tl{top:17.7px}
