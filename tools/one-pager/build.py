@@ -168,12 +168,12 @@ SEC = {
             data=('Student data comes first', 'Before which tool, ask whose account it is.'),
             fl=('Five levels of AI fluency', 'A baseline, then every teacher moves up one level a term.'), move=('One session, one working tool', 'Then every teacher moves up one level a term.'), run_k='How a session runs',
             whyt=('Why now', ''), whyp=('Why it matters now', ''), whyg=('Why now', ''),
-            kids=('What your child builds and learns', 'Five days, from a problem to demo day.'), lead=('What they keep', 'For college, summer program, scholarship, and internship applications.')),
+            kids=('How they get there', 'Five days, from a problem to demo day.'), lead=('What your child walks away with', 'For college, summer program, scholarship, and internship applications.')),
  'cn': dict(who=('我们服务谁', '每类对象，以及他们为什么来。'), teach=('学习者实际做什么', '每个项目都是同样的三个动作。'),
             data=('学生数据放在第一位', '先别问用哪个工具，先问是谁的账号。'),
             fl=('AI素养的五个层级', '先做基线评估，每位老师每学期提升一级。'), move=('一次培训，一个能用的工具', '之后每位老师每学期提升一级。'), run_k='一次培训怎么进行',
             whyt=('为什么是现在', ''), whyp=('为什么是现在', ''), whyg=('为什么是现在', ''),
-            kids=('孩子做什么、学什么', '五天，从选题到路演日。'), lead=('孩子带走什么', '可用于大学、暑期项目、奖学金和实习申请。')),
+            kids=('怎样做到', '五天，从选题到路演日。'), lead=('孩子带走什么', '可用于大学、暑期项目、奖学金和实习申请。')),
 }
 # proof marks normalized to one optical height (mm) inside a 7mm slot; text labels in the same serif, no box
 PROOF_H = {'isb': 5.0, 'tsinghua': 4.6, 'pta': 4.8, 'lux': 5.2, 'schwarzman': 4.2}
@@ -185,9 +185,18 @@ def header(lang, d):
             '<div class="brandrow"><img class="wm" src="/logos/arena/wordmark-ivory-1600.png" alt="Arena School" /><span class="bsep"></span>'
             '<span class="bmem"><span class="blab">%s</span><img src="/logos/partners/anthropic.svg" alt="Anthropic Startup Program" style="height:2.2mm" />'
             '<img src="/logos/partners/openai.svg" alt="OpenAI Partner Network" style="height:4mm" /></span></div>'
-            '<span class="eyebrow">%s</span><h1>%s</h1><p class="lede">%s</p></div></div>'
+            '<span class="eyebrow">%s</span><h1>%s</h1><p class="lede">%s</p>%s</div></div>'
             '<figure class="photo"><img src="/photos/isb-2026/pitch-duo-1600.webp" alt="" /><figcaption>%s</figcaption></figure></header>'
-            % (L[lang]['member'], t['eyebrow'], t['h1'], INTRO[d][lang], CAP[lang]))
+            % (L[lang]['member'], t['eyebrow'], t['h1'], INTRO[d][lang], hstat(lang) if (d == 'parent' and PDIR == 'A') else '', CAP[lang]))
+
+
+PDIR = os.environ.get('PDIR', 'B')   # parent layout direction (PARENT3-BRIEF): A stat in header, B stat beside outcomes, C stat as intro
+
+
+def hstat(lang):
+    import depth as D
+    st = D.STATS['rand-students']
+    return '<div class="hstat"><b>%s</b><span>%s</span></div>' % (st['n'], st['cn' if lang == 'cn' else 'en'])
 
 
 def strip(lang):
@@ -414,13 +423,52 @@ PX = {
 }
 
 
+def outcomes(lang, spans):
+    px = PX[lang]
+    return ''.join('<div class="%s oc2"><div class="otop"><span class="onum">%02d</span>%s</div><div class="oh"><b>%s</b></div><span class="od">%s</span></div>'
+                   % (sp, k + 1, ic(i, 'ic big'), a, b) for k, (sp, (i, a, b)) in enumerate(zip(spans, px['keep'])))
+
+
+def runrow(lang, marks):
+    cells = ''.join('<span class="lc">%s</span>' % (('<img src="%s" alt="" style="height:%smm" />' % (LOGO[m][0], RUN_H2[m])) if LOGO[m][0] else '<span class="wordmark big">%s</span>' % LOGO[m][1]) for m in marks)
+    return '<div class="g12 runrow"><span class="c1-3 lab">%s</span><div class="c4-12 rcells">%s</div></div>' % (PROG[lang]['run'], cells)
+
+
+RUN_H2 = {'isb': 7.4}
+
+
+def timeline2(lang):
+    g = PROG[lang]
+    days = ''.join('<div class="dy%s%s"><span class="dn">%s%s</span><b>%s</b><span class="dd">%s</span></div>'
+                   % (' is-m' if k in g['mile'] else '', ' is-top' if k == len(g['days']) - 1 else '', dn, '<span class="ms">%s</span>' % g['mile'][k] if k in g['mile'] else '', t, d)
+                   for k, (dn, t, d) in enumerate(g['days']))
+    tools = ''.join('<span class="tc"><img src="/logos/tools/sm/%s.webp" alt="" /><em>%s</em></span>' % (t, TOOLN[t]) for t in TOOLS)
+    stretch = ''.join('<span class="sg">%s%s</span>' % (ic('trending-up', 'mk'), x) for x in g['stretch_items'])
+    return ('<div class="g12"><div class="c1-12 frame tl2"><span class="k fk">%s</span><div class="days">%s</div></div></div>'
+            '<div class="g12 trow2"><span class="c1-3 lab">%s</span><div class="c4-12 tools2">%s</div></div>'
+            '<div class="g12 trow2"><span class="c1-3 lab">%s</span><div class="c4-12 stretch2">%s</div></div>'
+            % (g['k'], days, g['tools_k'], tools, g['stretch'], stretch))
+
+
+TOOLN = {'openai': 'ChatGPT', 'claude': 'Claude', 'deepseek': 'DeepSeek', 'kimi': 'Kimi', 'figma': 'Figma', 'canva': 'Canva'}
+
+
 def parent(lang, d):
     px = PX[lang]
-    keep = '<div class="g12 rrow">%s</div>' % ''.join('<div class="%s card kp"><div class="th">%s<b class="nm">%s</b></div><span class="out">%s</span></div>' % (sp, ic(i, 'ic big'), a, b)
-                                                       for sp, (i, a, b) in zip(['c1-6', 'c7-12', 'c1-6', 'c7-12'], px['keep']))
-    return (sec(1, 'whyp', lang, hero(lang, 'rand-students')) +
-            sec(2, 'kids', lang, timeline(lang)) +
-            sec(3, 'lead', lang, keep + runat(lang, ['isb', 'bodley']) + '<div class="g12"><p class="c1-12 note">%s</p></div>' % px['note']))
+    note = '<div class="g12"><p class="c1-12 note">%s</p></div>' % px['note']
+    if PDIR == 'A':
+        s1 = sec(1, 'lead', lang, '<div class="g12 rrow">%s</div>' % outcomes(lang, ['c1-3', 'c4-6', 'c7-9', 'c10-12']) + runrow(lang, ['isb', 'bodley']) + note)
+    elif PDIR == 'B':
+        import depth as D
+        st = D.STATS['rand-students']
+        statc = '<div class="c1-4 sidestat"><b>%s</b><span>%s</span></div>' % (st['n'], st['cn' if lang == 'cn' else 'en'])
+        s1 = sec(1, 'lead', lang, '<div class="g12 rrow">%s<div class="c5-12 ocg">%s</div></div>' % (statc, outcomes(lang, ['', '', '', ''])) + runrow(lang, ['isb', 'bodley']) + note)
+    else:
+        import depth as D
+        st = D.STATS['rand-students']
+        intro = '<div class="g12 sint"><p class="c1-12"><b>%s</b> %s</p></div>' % (st['n'], st['cn' if lang == 'cn' else 'en'])
+        s1 = sec(1, 'lead', lang, intro + '<div class="g12 rrow">%s</div>' % outcomes(lang, ['c1-6', 'c7-12', 'c1-6', 'c7-12']) + runrow(lang, ['isb', 'bodley']) + note)
+    return s1 + sec(2, 'kids', lang, timeline2(lang), 'tlsec')
 
 
 BODY = {'general': general, 'teacher': teacher, 'parent': parent}
@@ -630,6 +678,30 @@ em { font-style: italic; }
 .parent .dy { padding-top: 4mm; padding-bottom: 4mm; }
 /* teacher: one frame for the session flow and the fluency levels */
 .flow4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; } .fk2 { margin-top: 3.6mm; }
+/* ===== parent v8 (PARENT3-BRIEF) ===== */
+.hstat { display: flex; align-items: baseline; gap: 3mm; margin-top: 3.4mm; padding-top: 2.6mm; border-top: 1px solid rgba(255,255,255,.25); max-width: 112mm; }
+.hstat b { font: 400 22pt/1 SERIF; color: #C9D6F2; } .hstat span { font-size: 8.4pt; line-height: 1.35; color: rgba(255,255,255,.88); }
+.oc2 { position: relative; display: flex; flex-direction: column; gap: 1.6mm; padding: 4mm 4mm 4.2mm; background: #fff; border: 1px solid var(--pro-line); border-top: 3px solid #0B1A4A; border-radius: 0 0 2mm 2mm; min-width: 0; }
+.onum { font: 400 22pt/1 SERIF; color: var(--pro-action); }
+.oh { display: flex; align-items: center; gap: 2.2mm; } .oh b { font: 500 12pt/1.2 SERIF; color: var(--pro-ink); white-space: nowrap; }
+.otop { display: flex; align-items: center; justify-content: space-between; }
+.ocg .oc2 { padding: 3.6mm 3.4mm 3.8mm; }
+.od { font-size: 8.6pt; line-height: 1.4; color: #3A4466; }
+.ocg { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+.sidestat { display: flex; flex-direction: column; justify-content: center; gap: 3mm; padding: 5mm; background: #0B1A4A; border-radius: 2mm; color: #fff; }
+.sidestat b { font: 400 46pt/1 SERIF; color: #C9D6F2; } .sidestat span { font: 400 11pt/1.4 SERIF; color: #fff; }
+.sint p { margin: 0 0 3.4mm; font: 400 12pt/1.4 SERIF; color: var(--pro-ink); } .sint b { font: 400 20pt/1 SERIF; color: var(--pro-action); margin-right: 1.4mm; }
+.runrow { align-items: center; margin-top: 4mm; padding-top: 3.4mm; border-top: 1px solid var(--pro-line); }
+.rcells { display: flex; align-items: center; gap: 12mm; } .rcells img { width: auto; filter: grayscale(1) brightness(0); opacity: .72; }
+.wordmark.big { font: 600 12pt/1 SERIF; color: #3A4466; border: 0; padding: 0; max-width: none; white-space: nowrap; }
+.tl2 .days { grid-template-columns: repeat(5, 1fr); }
+.trow2 { align-items: center; margin-top: 3.6mm; } .trow2 + .trow2 { margin-top: 2.8mm; }
+.tools2 { display: grid; grid-template-columns: repeat(6, 1fr); } .tc { display: flex; align-items: center; gap: 1.8mm; }
+.tc img { height: 6mm; width: auto; border-radius: 1.2mm; } .tc em { font-style: normal; font-size: 8.4pt; font-weight: 500; color: var(--pro-ink); }
+.stretch2 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; }
+.sg { display: flex; align-items: center; gap: 2mm; padding: 2mm 2.4mm; border: 1px dashed var(--pro-line-2); border-radius: 1.4mm; font: 500 9pt/1.2 SERIF; color: var(--pro-ink); }
+.sg .mk { color: var(--pro-action); width: 3.6mm; height: 3.6mm; }
+.sg i { font-style: normal; font: 600 7pt/1 'Geist', system-ui, sans-serif; color: #fff; background: var(--pro-action); border-radius: 50%; width: 4.2mm; height: 4.2mm; display: grid; place-items: center; flex: none; }
 /* closing band */
 .cta { background: #0B1A4A; color: #fff; padding-top: 4.4mm; padding-bottom: 4.4mm; align-items: center; }
 .cta h2 { color: #fff; font-size: 13pt; } .cta p { margin: 1mm 0 0; font-size: 8.2pt; color: rgba(255,255,255,.84); }
@@ -690,7 +762,7 @@ const { chromium } = require('playwright');
     rights.forEach(sel => document.querySelectorAll(sel).forEach(e => { if (e.closest('.frame')) return; const x = e.getBoundingClientRect().right; if (Math.abs(x - R0) > 1) edges.push('R ' + sel + ' ' + Math.round(x - R0)); }));
     const tops = []; document.querySelectorAll('.sh').forEach(d => tops.push(Math.round(d.getBoundingClientRect().left)));
     let min = 99; document.querySelectorAll('.op *').forEach(e => { if ([...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim()) && !e.closest('svg')) min = Math.min(min, parseFloat(getComputedStyle(e).fontSize)); });
-    const clipped = []; document.querySelectorAll('.marks, .logos, .team .tl, .prac .pi, .memtop .mt').forEach(l => { const p = l.closest('.card, .row, .prac, .memtop, .pf'); const pr = p.getBoundingClientRect(); [...l.children].forEach(c => { const r = c.getBoundingClientRect(); if (r.right > pr.right - 1 || r.left < pr.left) clipped.push(c.textContent || c.getAttribute('src')); }); });
+    const clipped = []; document.querySelectorAll('.marks, .logos, .team .tl, .prac .pi, .memtop .mt, .oc2 .oh').forEach(l => { const p = l.closest('.card, .row, .prac, .memtop, .pf, .oc2'); const pr = p.getBoundingClientRect(); [...l.children].forEach(c => { const r = c.getBoundingClientRect(); if (r.right > pr.right - 1 || r.left < pr.left) clipped.push(c.textContent || c.getAttribute('src')); }); });
     const wrapped = []; document.querySelectorAll('.logos, .marks').forEach(l => { const ys = [...l.children].map(c => Math.round(c.getBoundingClientRect().top + c.getBoundingClientRect().height / 2)); if (Math.max(...ys) - Math.min(...ys) > 4) wrapped.push(l.className); });
     return { over: Math.max(over, inner), edges, stepBad, stepTops, svgPt: +(svgMin * .75).toFixed(2), secOver, clipped, nbad: bad.length, bad: bad.slice(0, 4), uneven, shLeft: [...new Set(tops)], minPt: +(min * .75).toFixed(2), wrapped,
              cols: starts.map((s, i) => [Math.round(s), Math.round(ends[i])]) };

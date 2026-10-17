@@ -163,3 +163,7 @@ brown, tsinghua-lockup, isb, mckinsey, goldman, yc, apple, microsoft-ai, deloitt
   cells and grey as the team row, label in columns 1-3. Team rows spread evenly across columns 4-12 (outer columns on
   the edges). Parent day 5 (Demo day) in navy as the climax; tools row labelled "AI tools they use" (CN 孩子用的AI工具).
   Stamps `?v=20261017n`.
+- **v8 parent (PARENT3-BRIEF):** outcomes lead. 01 "What your child walks away with": a navy 80%+ stat panel beside four
+  numbered outcome frames, then "Programs run at" ISB and Bodley (larger, on the grid) and the admissions line. 02 "How
+  they get there": the five-day timeline in its frame, then two rows: AI tools they use (named) and stretch goals in
+  year-long mentorship. Direction B of three (see DEPTH-LOG.md). Stamps `?v=20261017o`.

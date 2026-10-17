@@ -311,3 +311,16 @@ general intro without "or online" (not on the site). All six pass edges, grid, 7
   (scoped both). Round 2: general and parent still had air above their last band; diagram rows, wheel, and keep cards
   enlarged to fill it; teacher frame label "How a session runs" instead of repeating the section title. Round 3: general
   "What they make" column widened so entries stay on one line. All six pass.
+
+## Parent one-pager v8 (PARENT3-BRIEF): outcomes first
+Directions (parent EN): **A** stat inside the header: header overflowed its band (failed), outcome titles wrapped 2-3
+lines in quarter cards, dead air under the logos. **B** navy stat panel (columns 1-4) beside a 2 x 2 of numbered outcome
+frames (5-12): clearest hierarchy, the stat joins the outcomes instead of floating, balanced left/right weight. **C** stat
+as an intro line over a full-width 2 x 2: clean but the stat loses its weight. **Chosen: B.**
+- r1: B built; outcome titles to one line; ISB logo enlarged against the Bodley label.
+- r2: "People who know their work" overflowed its card; title size down, outcome titles added to the clip check; stretch
+  goals as plain pills with a trend icon (the 2-5 numbering read as a sequence missing 1).
+- r3: outcome card restructured: number and icon on the top line, title full width, description below. Timeline frame
+  holds only the five days; "AI tools they use" (named icons, six even cells) and "Stretch goals in year-long mentorship"
+  sit in their own rows below on the 12-column grid; "Programs run at" integrated under the outcomes with larger logos.
+  General and teacher re-rendered: pixel-identical. All six pass every check.
