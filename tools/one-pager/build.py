@@ -41,7 +41,7 @@ def ic(name, cls='ic'):
 
 # real partner marks in the repo (logo file) or a text label where none exists
 LOGO = {'isb': ('/logos/cred/isb.png', 6.4), 'tsinghua': ('/logos/cred/tsinghua-lockup.png', 6.4), 'pta': ('/decks/img/conversation/pta-logo.png', 6.2),
-        'lux': ('/logos/lux/lux-navy-horizontal.png', 6.6), 'bodley': (None, 'Bodley Academy'), 'acamis': (None, 'ACAMIS')}
+        'lux': ('/logos/lux/lux-navy-horizontal.png', 6.6), 'schwarzman': ('/logos/cred/schwarzman.png', 4.6), 'bodley': (None, 'Bodley Academy'), 'acamis': (None, 'ACAMIS')}
 
 L = {
  'en': dict(
@@ -49,11 +49,11 @@ L = {
    web='arenaschool.org', mail='phillip@arenaschool.org', proof='Run with',
    # audience tiles: key -> (icon, label, one line, formats, [proof marks], proof caption)
    T={'students': ('graduation-cap', 'Students', 'Build and launch real products with AI.', 'Workshops · mentorship', ['isb', 'bodley'], 'Five-day student programs'),
-      'schools': ('school', 'Educators', 'Make the tools classes need, inside school rules.', 'Sessions · workshops', ['tsinghua'], 'Staff training, Schwarzman College'),
+      'schools': ('school', 'Educators', 'Make the tools classes need, inside school rules.', 'Sessions · workshops', ['tsinghua', 'schwarzman'], 'Staff training, Schwarzman College'),
       'families': ('heart-handshake', 'Families', 'One project with a mentor, and parent talks.', '1:1 mentorship · parent talks', ['pta'], 'Parent talk, ISB PTA'),
       'career': ('briefcase', 'Career', 'Launch a live AI product, ready for work.', 'Bootcamp', ['lux'], 'Jointly hosted with Lux Scholar'),
       # teacher variant
-      'teachers': ('wrench', 'Teachers &amp; tech teams', 'Make the tool your class is missing, on your approved systems.', 'Session · workshop · school-wide', ['tsinghua'], 'Staff training, Schwarzman College'),
+      'teachers': ('wrench', 'Teachers &amp; tech teams', 'Make the tool your class is missing, on your approved systems.', 'Session · workshop · school-wide', ['tsinghua', 'schwarzman'], 'Staff training, Schwarzman College'),
       'tech': ('monitor-cog', 'Tech teams', 'Training on your approved systems.', 'Planning · sessions', [], ''),
       'leaders': ('building-2', 'School leaders', 'Programs for the whole school community.', 'Planned with your team', ['isb'], 'Student program on campus'),
       'conf': ('mic', 'Conferences', 'Talks and hands-on workshops.', 'Keynote · workshop · panel', ['acamis'], 'Next: ACAMIS workshop'),
@@ -74,10 +74,10 @@ L = {
    member='成员计划', anth='初创企业计划', oai='合作伙伴网络', studied='团队来自', worked='',
    web='arenaschool.org', mail='phillip@arenaschool.org', proof='合作',
    T={'students': ('graduation-cap', '学生', '借助AI做出并上线真实的产品。', '工作坊 · 集训营 · 导师计划', ['isb', 'bodley'], '五天学生项目'),
-      'schools': ('school', '教师与学校', '在学校规则之内，做出课堂需要的工具。', '分享 · 工作坊 · 全校培训', ['tsinghua'], '苏世民书院教职员工培训'),
+      'schools': ('school', '教师与学校', '在学校规则之内，做出课堂需要的工具。', '分享 · 工作坊 · 全校培训', ['tsinghua', 'schwarzman'], '苏世民书院教职员工培训'),
       'families': ('heart-handshake', '家庭', '与导师一起完成一个项目，以及家长讲座。', '一对一导师 · 家长讲座', ['pta'], 'ISB PTA 家长讲座'),
       'career': ('briefcase', '大学与职场', '做出上线的AI产品，为工作做好准备。', '训练营', ['lux'], '与千麓学者联合举办'),
-      'teachers': ('wrench', '教师与技术团队', '在学校认可的系统上，为课堂做一个正缺的小工具。', '现场分享 · 工作坊 · 全校培训', ['tsinghua'], '苏世民书院教职员工培训'),
+      'teachers': ('wrench', '教师与技术团队', '在学校认可的系统上，为课堂做一个正缺的小工具。', '现场分享 · 工作坊 · 全校培训', ['tsinghua', 'schwarzman'], '苏世民书院教职员工培训'),
       'tech': ('monitor-cog', '技术团队', '在学校认可的系统上开展培训。', '规划 · 培训', [], ''),
       'leaders': ('building-2', '校长与管理层', '服务整个学校社群的项目。', '与贵校团队共同规划', ['isb'], '在校园内开展的学生项目'),
       'conf': ('mic', '会议与活动', '主题演讲与动手工作坊。', '演讲 · 工作坊 · 圆桌', ['acamis'], '即将举行：ACAMIS 工作坊'),
@@ -177,7 +177,7 @@ SEC = {
             safe=('安全与学生数据', '学生数据只放在学校认可的账号里。')),
 }
 # proof marks normalized to one optical height (mm) inside a 7mm slot; text labels in the same serif, no box
-PROOF_H = {'isb': 5.0, 'tsinghua': 5.0, 'pta': 4.8, 'lux': 5.2}
+PROOF_H = {'isb': 5.0, 'tsinghua': 4.6, 'pta': 4.8, 'lux': 5.2, 'schwarzman': 4.2}
 
 
 def header(lang, d):
@@ -197,11 +197,17 @@ def strip(lang):
     marks = [(k, h[k]) for k in order]
     cell = lambda k, h: '<span class="lc%s"><img src="/logos/cred/%s.png" alt="" style="height:%smm" /></span>' % (' w2' if k == 'mckinsey' else '', k, h)
     return ('<section class="strip">'
-            '<div class="g12 row"><span class="c1-3 lab">%s</span><div class="c4-12 six member">'
-            '<span class="lc m"><img src="/logos/partners/anthropic.svg" alt="Anthropic" style="height:2.3mm" /><em>%s</em></span>'
-            '<span class="lc m"><img src="/logos/partners/openai.svg" alt="OpenAI" style="height:4.4mm" /><em>%s</em></span></div></div>'
             '<div class="g12 row"><span class="c1-3 lab">%s</span><div class="c4-12 six team">%s</div></div></section>'
-            % (c['member'], c['anth'], c['oai'], c['studied'], ''.join(cell(k, h) for k, h in marks)))
+            % (c['studied'], ''.join(cell(k, h) for k, h in marks)))
+
+
+def memtop(lang):
+    """Slim "A member of" strip under the photo header, as on the homepage: a small centred label and two marks."""
+    c = L[lang]
+    return ('<section class="memtop"><span class="lab">%s</span><div class="mt">'
+            '<span class="m"><img src="/logos/partners/anthropic.svg" alt="Anthropic" style="height:2.6mm" /><em>%s</em></span>'
+            '<span class="m"><img src="/logos/partners/openai.svg" alt="OpenAI" style="height:4.8mm" /><em>%s</em></span></div></section>'
+            % (c['member'], c['anth'], c['oai']))
 
 
 def shead(n, key, lang, span='c1-12'):
@@ -351,8 +357,8 @@ def page(doc, lang, d):
     root = re.search(r'(?s):root\s*\{.*?\n\}', open(os.path.join(ROOT, 'css', 'pro.css'), encoding='utf-8').read()).group(0)
     wcss = '\n'.join(l for l in open(os.path.join(ROOT, 'css', 'approach.css'), encoding='utf-8').read().splitlines() if l.startswith('.apw'))
     return ('<!doctype html>\n<html lang="%s">\n<head>\n<meta charset="utf-8" />\n<title>Arena School one-pager</title>\n%s%s\n<style>\n%s\n%s\n%s\n</style>\n</head>\n<body>\n'
-            '<main class="op %s dir-%s">\n%s\n<div class="body">%s</div>\n%s\n%s\n</main>\n</body>\n</html>\n'
-            % ('zh-CN' if cn else 'en', jj, fonts, root, wcss, CSS.replace('SERIF', serif), doc, d, header(lang, doc), BODY[doc](lang, d), strip(lang), footer(lang, doc)))
+            '<main class="op %s dir-%s">\n%s\n%s\n<div class="body">%s</div>\n%s\n%s\n</main>\n</body>\n</html>\n'
+            % ('zh-CN' if cn else 'en', jj, fonts, root, wcss, CSS.replace('SERIF', serif), doc, d, header(lang, doc), memtop(lang), BODY[doc](lang, d), strip(lang), footer(lang, doc)))
 
 
 CSS = r"""
@@ -380,8 +386,10 @@ em { font-style: italic; }
 .general:lang(en) .top h1, .general .top h1:lang(en) { font-size: 17.5pt; }
 .top h1 em { color: #C9D6F2; white-space: nowrap; }
 .lede { margin: 0; font-size: 8.6pt; line-height: 1.5; color: rgba(255,255,255,.86); max-width: 112mm; }
-.photo { position: absolute; top: 0; right: 0; bottom: 0; left: 123.2mm; margin: 0; }   /* the start of column 8: a clean vertical edge */
-.photo img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 30%; display: block;
+.photo { position: absolute; top: 0; right: 0; bottom: 0; left: 92mm; margin: 0; }
+/* a soft left-to-right fade from the navy into the photo (as on the site's hero); the headline area stays solid navy */
+.photo::before { content: ''; position: absolute; top: 0; bottom: 0; right: 0; left: -1mm; z-index: 1; background: linear-gradient(90deg, #0B1A4A 0, #0B1A4A 18%, rgba(11,26,74,.6) 30%, rgba(11,26,74,0) 44%); }
+.photo img { width: 100%; height: 100%; object-fit: cover; object-position: 68% 30%; display: block;
   }
 .photo::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 14mm; background: linear-gradient(180deg, rgba(11,26,74,0), rgba(11,26,74,.78)); }
 .photo figcaption { position: absolute; z-index: 2; right: 10mm; bottom: 3.4mm; font-size: 7pt; color: #fff; text-shadow: 0 1px 4px rgba(8,15,38,.7); }
@@ -454,6 +462,10 @@ em { font-style: italic; }
 .commit li:last-child { border-bottom: 1px solid var(--pro-line); }
 :lang(zh) .commit li { padding: 1.7mm 0; }
 .commit b { font: 600 9pt/1.3 'Geist', system-ui, sans-serif; color: var(--pro-ink); }
+/* "A member of" under the header: centred label, two marks with captions */
+.memtop { display: flex; align-items: center; justify-content: center; gap: 9mm; padding: 2.6mm 10mm; border-bottom: 1px solid var(--pro-line); }
+.memtop .mt { display: flex; align-items: center; gap: 9mm; }
+.memtop .m { display: inline-flex; align-items: center; gap: 2mm; white-space: nowrap; } .memtop .m em { font-style: normal; font-size: 7.4pt; color: #4A5578; }
 /* bottom credentials strip */
 .strip { padding: 3mm 0; border-top: 1px solid var(--pro-line); display: grid; gap: 2.2mm; background: #F6F7FA; }
 .strip .row { align-items: center; }
@@ -524,11 +536,10 @@ const { chromium } = require('playwright');
     const cents = sel => [...document.querySelectorAll(sel)].map(e => { const r = e.getBoundingClientRect(); return Math.round(r.left + r.width / 2); });
     const tc = cents('.team .lc'), mc = cents('.member .lc');
     for (let i = 6; i < tc.length; i++) if (Math.abs(tc[i] - tc[i - 6]) > 1) uneven.push('team col ' + i);
-    mc.forEach((c, i) => { if (Math.abs(c - tc[i]) > 1) uneven.push('member col ' + i); });
     document.querySelectorAll('.acc li').forEach(li => { if (li.getBoundingClientRect().height > 16) uneven.push('acc wrap: ' + li.textContent); });
     const tops = []; document.querySelectorAll('.sh').forEach(d => tops.push(Math.round(d.getBoundingClientRect().left)));
     let min = 99; document.querySelectorAll('.op *').forEach(e => { if ([...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim()) && !e.closest('svg')) min = Math.min(min, parseFloat(getComputedStyle(e).fontSize)); });
-    const clipped = []; document.querySelectorAll('.marks, .logos, .team .tl, .prac .pi').forEach(l => { const p = l.closest('.card, .row, .prac'); const pr = p.getBoundingClientRect(); [...l.children].forEach(c => { const r = c.getBoundingClientRect(); if (r.right > pr.right - 1 || r.left < pr.left) clipped.push(c.textContent || c.getAttribute('src')); }); });
+    const clipped = []; document.querySelectorAll('.marks, .logos, .team .tl, .prac .pi, .memtop .mt').forEach(l => { const p = l.closest('.card, .row, .prac, .memtop'); const pr = p.getBoundingClientRect(); [...l.children].forEach(c => { const r = c.getBoundingClientRect(); if (r.right > pr.right - 1 || r.left < pr.left) clipped.push(c.textContent || c.getAttribute('src')); }); });
     const wrapped = []; document.querySelectorAll('.logos, .marks').forEach(l => { const ys = [...l.children].map(c => Math.round(c.getBoundingClientRect().top + c.getBoundingClientRect().height / 2)); if (Math.max(...ys) - Math.min(...ys) > 4) wrapped.push(l.className); });
     return { over: Math.max(over, inner), stepBad, stepTops, svgPt: +(svgMin * .75).toFixed(2), secOver, clipped, nbad: bad.length, bad: bad.slice(0, 4), uneven, shLeft: [...new Set(tops)], minPt: +(min * .75).toFixed(2), wrapped,
              cols: starts.map((s, i) => [Math.round(s), Math.round(ends[i])]) };

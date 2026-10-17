@@ -96,3 +96,15 @@ brown, tsinghua-lockup, isb, mckinsey, goldman, yc, apple, microsoft-ai, deloitt
 - Stamps `?v=20261017f`.
 - **v5.1 (review):** credentials on one shared 6-column grid (two lines of six, centred); "Cleared for student data" on
   one line; tile proof slots aligned across rows; parent keep row with more presence. Stamps `?v=20261017g`.
+
+## v5.2 (Oct 17, SCHWARZMAN-BRIEF + UPDATE)
+- **Schwarzman proof:** wherever a proof line says "Staff training, Schwarzman College" (general Educators tile,
+  teacher "Teachers & tech teams" tile; EN + CN), the Tsinghua University logo now sits beside the official Schwarzman
+  Scholars logo (shield and wordmark), one optical height, the same greyscale treatment. Logo file: the repo's existing
+  `logos/cred/schwarzman.png` (in use on the site since Sep 30, 2026, commit aabca87), not a new download. The repo's
+  `logos/schwarzman.svg` is plain typeset text, not the official mark, so it is not used.
+- **"A member of"** moved to a slim strip directly under the photo header, styled like the homepage strip (small
+  centred label, Anthropic Startup Program and OpenAI Partner Network). "Team from" stays at the bottom.
+- **Header photo:** no hard seam; the photo fades in from the navy (solid behind the headline, clear by the students'
+  faces), as on the site's hero.
+- Stamps `?v=20261017h`.

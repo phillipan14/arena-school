@@ -280,3 +280,7 @@ Board: OnePagerV5Final. Renders + overlays: `/tmp/pro-pass/{,teacher-,parent-}on
   (CN unchanged, already short), one line; cards and list share height. (3) Parent 03: more space above "What they keep";
   the note on the grid edge; parent ladder rise 2mm (level 1 still 15mm). (4) Tile proof slot at a fixed 17mm pinned to
   the card bottom; the build checks dividers align per row.
+- **Schwarzman (SCHWARZMAN-BRIEF + UPDATE).** Tsinghua + Schwarzman Scholars marks side by side in the staff-training
+  proof lines (repo file `logos/cred/schwarzman.png`); "A member of" as a slim strip under the header; photo fades from
+  the navy. Critique round: the first fade darkened the left student's face (tightened to clear before the faces) and
+  left a sub-pixel hairline at the photo edge (overlay extended 1mm). All six pass every build check.
