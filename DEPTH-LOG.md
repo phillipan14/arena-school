@@ -178,3 +178,16 @@ Board: StudentData in the Claude Design project. Shots: `/tmp/pro-pass/data-*-{1
   screen and on paper; (3) printing kept the rest of the page as blank space (11 pages).
 - **r2.** Short row labels on one line; numbers only in the checklist; print removes everything but the checklist
   (one A4 page). Budgets raised for the section (CONTENT-RULES.md).
+
+## AI fluency for the whole staff (FLUENCY-BRIEF 1, Oct 17; Teachers and Schools, EN + CN)
+Board: AIFluency. Shots: `/tmp/pro-pass/fluency-{teachers,schools}-{1440,390}.png`, `fluency-widget-390.png`.
+- **r1.** New section after the student data section (tools/fluency_section.py): "A few early adopters are there. We
+  bring everyone else up." Five-level scale as a rising staircase, the model (baseline, one level up, each term,
+  in-house coaches; link to the student-data guardrails), an illustrative two-curve chart labeled "not data" (no
+  percentages anywhere), and a self-assessment (native radio buttons; result in place; nothing sent or stored).
+  Critique: (1) the staircase shared a half-width column with the chart, so level descriptions wrapped into narrow
+  columns; (2) the result line read "Designer: Builds AI" mid-sentence; (3) the selected answer's fill was heavier
+  than the rest of the system.
+- **r2.** Staircase full width, the model and chart side by side below; result "Next: level 4, Designer. Builds AI
+  ..."; a lighter selected fill. Keyboard: arrow keys move between levels (Chromium and WebKit); no network request or
+  storage on picking. Budgets: Teachers 1,800 / 11, Schools 2,000 / 12.

@@ -11,8 +11,8 @@ BUDGET = {  # page -> (max words, max sections). Raised Oct 17, 2026 (Phillip): 
     'case-studies/student-programs': (1200, 10), 'case-studies/skill-workshops': (1200, 10),
     'case-studies/parent-talks': (1200, 10), 'case-studies/teacher-training': (1200, 10),
     'programs/website-portfolio-workshop': (1500, 11), 'programs/product-intensive': (1500, 11), 'programs/remake-your-favorite-app': (1500, 11),
-    'programs/community-dialogues': (1200, 10), 'programs/teacher-training': (1600, 10), 'programs/conferences': (1200, 10),
-    'schools': (1800, 11), 'schools/technology': (1800, 11), 'curriculum': (650, 5), 'approach': (1600, 7), 'approach-cn': (1600, 7), 'learning-approach': (1000, 8), 'learning-approach-cn': (1000, 8),  # NAV-BRIEF (Oct 17): principles + audiences moved to Our approach
+    'programs/community-dialogues': (1200, 10), 'programs/teacher-training': (1800, 11), 'programs/conferences': (1200, 10),
+    'schools': (2000, 12), 'schools/technology': (1800, 11), 'curriculum': (650, 5), 'approach': (1600, 7), 'approach-cn': (1600, 7), 'learning-approach': (1000, 8), 'learning-approach-cn': (1000, 8),  # NAV-BRIEF (Oct 17): principles + audiences moved to Our approach
     'about': (850, 7),
     'results': (850, 8), 'partnerships': (1200, 10), 'contact': (200, 3),
 }

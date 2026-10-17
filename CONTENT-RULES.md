@@ -35,7 +35,7 @@ A section earns a place only if it passes all four questions:
 | Homepage | 620 | 7 |
 | Program page (Mentorship, Bootcamp, the four student programs, any new program) | 1500 | 11 |
 | How-we-work page (Student programs, Portfolio workshop, Community dialogues, Teacher training, Conferences) | 1200 | 10 |
-| How-we-work hub (Schools) | 1800 | 11 |
+| How-we-work hub (Schools) | 2000 | 12 |
 | Audience page (Technology teams, `/schools/technology`) | 1800 | 11 |
 | Our approach (why we teach this way: skills, principles, by audience; NAV-BRIEF, Oct 17) | 1600 | 7 |
 | Learning approach (the framework: wheel and goals, worked week, outcomes, assessment; NAV-BRIEF, Oct 17) | 1000 | 8 |
@@ -47,6 +47,7 @@ A section earns a place only if it passes all four questions:
 Budgets raised Oct 17, 2026 (Phillip's decision): pages now carry the DEPTH-BRIEF sections (pressures and answers,
 research, cases, tools, FAQ), 8 to 10 per page. Each new budget is about 10% above the largest page in its group.
 Block limits below are unchanged.
+AI fluency section (FLUENCY-BRIEF, Oct 17): Teachers 1,800 / 11, Schools 2,000 / 12.
 Student data section (DATA-BRIEF, Oct 17): Schools and Technology 1,800 / 11 (full section: diagram, commitments, law, checklist), Teachers 1,600 / 10, Partners 1,200 / 10.
 Homepage 600 to 620 (Oct 17, HERO2-BRIEF D): the requested "Past talks" link took the page to 601 words.
 
