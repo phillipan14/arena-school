@@ -343,3 +343,62 @@ html body main .pt-cta { margin-top: var(--space-6); }
 }
 /* homepage "Upcoming programs and sessions" header: a right-aligned Past talks link */
 html body main .hp-next .ds-head .pt-past { justify-self: end; align-self: end; white-space: nowrap; }
+
+/* ===== Student data (DATA-BRIEF, tools/data_section.py): whose account is it, how we handle it, the law, checklist ===== */
+html body main .dt-pair { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); margin-top: var(--space-2); }
+html body main .dt-col { padding: var(--space-6); border: var(--hairline); border-radius: var(--radius-card); background: var(--pro-bg); }
+html body main .dt-col.is-school { border: 1px solid var(--pro-ink); box-shadow: inset 0 3px 0 var(--pro-action); }
+html body main .dt-col > .ds-ic { color: var(--pro-soft); }
+html body main .dt-col.is-school > .ds-ic { color: var(--pro-action); }
+html body main .dt-col h3 { margin: var(--space-3) 0 var(--space-1); font: 500 var(--text-lg)/1.3 'Newsreader', Georgia, serif; color: var(--pro-ink); }
+html body main .dt-sub { margin: 0 0 var(--space-4); font-size: var(--text-sm); color: var(--pro-soft); }
+html body main .dt-col dl { margin: 0; }
+html body main .dt-row { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: var(--space-4); padding: var(--space-3) 0; border-top: var(--hairline); }
+html body main .dt-row dt { white-space: nowrap; font-size: var(--text-xs); letter-spacing: .1em; text-transform: uppercase; color: var(--pro-soft); padding-top: 3px; }
+html body main .dt-row dd { margin: 0; display: flex; gap: var(--space-2); align-items: flex-start; font-size: var(--text-sm); color: var(--pro-text); }
+html body main .dt-mk { flex: none; width: 16px; height: 16px; margin-top: 2px; }
+html body main .is-personal .dt-mk { color: #9A3B2E; }
+html body main .is-school .dt-mk { color: var(--pro-action); }
+html body main .dt-vs { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--pro-bg); border: var(--hairline); font: 600 var(--text-xs)/1 'Geist', system-ui, sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--pro-soft); }
+html body main .dt-block { margin-top: var(--space-8); }
+html body main .dt-block > .ds-eyebrow { display: block; margin-bottom: var(--space-4); }
+html body main .dt-commit { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-5) var(--space-6); border-top: 1px solid var(--pro-ink); padding-top: var(--space-5); }
+html body main .dt-commit li { display: flex; gap: var(--space-3); align-items: flex-start; }
+html body main .dt-commit li > .ds-ic { flex: none; color: var(--pro-action); margin-top: 2px; }
+html body main .dt-commit h3 { margin: 0 0 var(--space-1); font: 600 var(--text-base)/1.35 'Geist', system-ui, sans-serif; color: var(--pro-ink); }
+html body main .dt-commit p { margin: 0; font-size: var(--text-sm); line-height: var(--lh-body); color: var(--pro-soft); }
+html body main .dt-laws { margin: 0; padding: 0; list-style: none; }
+html body main .dt-laws li { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-5); }
+html body main .dt-laws h3 { margin: 0; font: 500 var(--text-base)/1.35 'Newsreader', Georgia, serif; color: var(--pro-ink); }
+html body main .dt-laws p { margin: 0; font-size: var(--text-sm); line-height: var(--lh-body); color: var(--pro-text); }
+html body main .dt-laws .tlink { margin-top: auto; font-size: var(--text-sm); }
+html body main .dt-note { margin: var(--space-4) 0 0; font-size: var(--text-xs); color: var(--pro-soft); }
+html body main .dt-check { margin-top: var(--space-8); padding: var(--space-6); border: 1px solid var(--pro-ink); border-radius: var(--radius-card); background: var(--pro-bg); }
+html body main .dt-check-head { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--space-4); flex-wrap: wrap; margin-bottom: var(--space-5); }
+html body main .dt-check-head h3 { margin: var(--space-2) 0 0; font: 500 var(--text-lg)/1.3 'Newsreader', Georgia, serif; color: var(--pro-ink); }
+html body main .dt-print { display: inline-flex; align-items: center; gap: var(--space-2); }
+html body main .dt-check ol { margin: 0; padding: 0; list-style: none; counter-reset: dtc; display: grid; grid-template-columns: 1fr 1fr; gap: 0 var(--space-6); }
+html body main .dt-check li { counter-increment: dtc; display: grid; grid-template-columns: 2.5rem minmax(0, 1fr); gap: var(--space-3); align-items: start; padding: var(--space-4) 0; border-top: var(--hairline); }
+html body main .dt-check li::before { content: counter(dtc, decimal-leading-zero); font: 400 var(--text-lg)/1.1 'Newsreader', Georgia, serif; color: var(--pro-action); }
+html body main .dt-check li > .ds-ic { width: 20px; height: 20px; color: var(--pro-soft); margin-top: 3px; }
+html body main .dt-check li b { display: block; font: 600 var(--text-base)/1.35 'Geist', system-ui, sans-serif; color: var(--pro-ink); }
+html body main .dt-check li span { display: block; margin-top: 2px; font-size: var(--text-sm); color: var(--pro-soft); }
+html body main .dt-more { margin-top: var(--space-6); }
+@media (max-width: 760px) {
+  html body main .dt-pair { grid-template-columns: 1fr; gap: var(--space-4); }
+  html body main .dt-vs { position: static; transform: none; margin: calc(-1 * var(--space-2)) auto; }
+  html body main .dt-col { padding: var(--space-5); }
+  html body main .dt-row { grid-template-columns: 1fr; gap: var(--space-1); }
+  html body main .dt-commit, html body main .dt-check ol { grid-template-columns: 1fr; }
+  html body main .dt-check { padding: var(--space-5); }
+}
+@media (min-width: 761px) and (max-width: 1080px) { html body main .dt-commit { grid-template-columns: 1fr 1fr; } }
+/* print: the button prints only the checklist, on one page (everything else leaves the print layout) */
+@media print {
+  html.print-checklist body > *:not(main), html.print-checklist main > *:not(#student-data),
+  html.print-checklist #student-data .container > *:not(#data-checklist), html.print-checklist .dt-print { display: none !important; }
+  html.print-checklist #student-data { padding: 0 !important; background: none !important; }
+  html.print-checklist #data-checklist { margin: 0; border: 0; padding: 0; opacity: 1 !important; transform: none !important; }
+  html.print-checklist #data-checklist ol { grid-template-columns: 1fr; }
+}

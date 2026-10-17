@@ -124,7 +124,7 @@ PAGES = {
                dl=[('When', 'Sunday, October 18, 2026'), ('For', 'Teachers and tech coaches')], a=('/events/acamis-tech-2026', 'Session details'), next=True)],
    tl_k='Tools we often work with', tools=['openai', 'claude', 'deepseek', 'kimi', 'perplexity', 'canva'],
    tl_note='Or whatever your school has approved. The tool matters less than the habit of checking every result.',
-   faq=[('What do teachers keep afterward?', 'The tool they made and the prompt behind it, to reuse and share with colleagues.'),
+   faq=[('Can I use my personal AI account with my class?', 'Not with student data. A personal account runs on consumer terms, with no data agreement with your school. We work in the accounts your school approves, and practice with sample data.'), ('What do teachers keep afterward?', 'The tool they made and the prompt behind it, to reuse and share with colleagues.'),
         ('Can it be for one department only?', 'Yes. A hands-on workshop for one department is one of the three formats; a school-wide training gives each department its own session and a follow-up.')]),
   cn=dict(
    ps_k='老师面对的难题', ps_h='四个难题，<em>四种做法。</em>',
@@ -150,7 +150,7 @@ PAGES = {
                dl=[('时间', '2026年10月18日（周日）'), ('对象', '教师和技术教练')], a=('/events/acamis-tech-2026-cn', '查看活动'), next=True)],
    tl_k='我们常用的工具', tools=['openai', 'claude', 'deepseek', 'kimi', 'perplexity', 'canva'],
    tl_note='或者贵校已经认可的任何工具。工具本身不如核查每一个结果的习惯重要。',
-   faq=[('培训结束后，老师能留下什么？', '自己做好的工具和背后的提示词，可以反复使用，也可以分享给同事。'),
+   faq=[('我可以用自己的个人AI账号带学生吗？', '涉及学生数据时不可以。个人账号适用面向消费者的条款，与学校之间没有数据协议。我们在学校认可的账号里工作，练习时使用示例数据。'), ('培训结束后，老师能留下什么？', '自己做好的工具和背后的提示词，可以反复使用，也可以分享给同事。'),
         ('可以只面向一个教研组吗？', '可以。面向一个教研组的动手工作坊就是三种形式之一；全校培训则会为每个教研组各安排一场，之后再跟进。')])),
  'technology': dict(stem='schools/technology', proof_mode='keep_cred', en=dict(
    ps_k='What technology teams face', ps_h='Four risks, <em>four safeguards.</em>',
@@ -176,7 +176,7 @@ PAGES = {
                dl=[('When', 'Sunday, October 18, 2026'), ('For', 'Teachers and tech coaches')], a=('/events/acamis-tech-2026', 'Session details'), next=True)],
    tl_k='Tools we have worked with, when a school approves them', tools=['openai', 'claude', 'deepseek', 'kimi'],
    tl_note='Plus Copilot, Doubao, and others your school allows. We review them with you before planning any session.',
-   faq=[('Do teachers need new accounts?', 'No new tools are introduced. Sessions run on the systems your school has already approved.')]),
+   faq=[('Which privacy laws apply to us?', 'It depends on where your school is and who your families are: for example PIPL in China, the GDPR for EU families, or PDPA in Thailand. Your data-protection lead decides; we work inside their policy.'), ('Do teachers need new accounts?', 'No new tools are introduced. Sessions run on the systems your school has already approved.')]),
   cn=dict(
    ps_k='技术团队面对的难题', ps_h='四种风险，<em>四道保障。</em>',
    ps_l='IT负责人和技术教练最先提出的顾虑，以及每次培训如何围绕它们来安排。',
@@ -201,7 +201,7 @@ PAGES = {
                dl=[('时间', '2026年10月18日（周日）'), ('对象', '教师和技术教练')], a=('/events/acamis-tech-2026-cn', '查看活动'), next=True)],
    tl_k='经学校认可后我们用过的工具', tools=['openai', 'claude', 'deepseek', 'kimi'],
    tl_note='还有 Copilot、豆包，以及贵校允许的其他工具。规划任何培训之前，我们都会和您一起先审一遍。',
-   faq=[('老师需要注册新账号吗？', '不会引入新工具。培训在贵校已经认可的系统上进行。')])),
+   faq=[('我们需要遵守哪些隐私法规？', '取决于学校所在地和学生家庭的情况，例如中国的《个人信息保护法》、面向欧盟家庭的GDPR，或泰国的PDPA。由贵校的数据保护负责人判断，我们在其政策范围内工作。'), ('老师需要注册新账号吗？', '不会引入新工具。培训在贵校已经认可的系统上进行。')])),
 }
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))

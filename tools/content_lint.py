@@ -11,10 +11,10 @@ BUDGET = {  # page -> (max words, max sections). Raised Oct 17, 2026 (Phillip): 
     'case-studies/student-programs': (1200, 10), 'case-studies/skill-workshops': (1200, 10),
     'case-studies/parent-talks': (1200, 10), 'case-studies/teacher-training': (1200, 10),
     'programs/website-portfolio-workshop': (1500, 11), 'programs/product-intensive': (1500, 11), 'programs/remake-your-favorite-app': (1500, 11),
-    'programs/community-dialogues': (1200, 10), 'programs/teacher-training': (1200, 10), 'programs/conferences': (1200, 10),
-    'schools': (1200, 10), 'schools/technology': (1200, 10), 'curriculum': (650, 5), 'approach': (1600, 7), 'approach-cn': (1600, 7), 'learning-approach': (1000, 8), 'learning-approach-cn': (1000, 8),  # NAV-BRIEF (Oct 17): principles + audiences moved to Our approach
+    'programs/community-dialogues': (1200, 10), 'programs/teacher-training': (1600, 10), 'programs/conferences': (1200, 10),
+    'schools': (1800, 11), 'schools/technology': (1800, 11), 'curriculum': (650, 5), 'approach': (1600, 7), 'approach-cn': (1600, 7), 'learning-approach': (1000, 8), 'learning-approach-cn': (1000, 8),  # NAV-BRIEF (Oct 17): principles + audiences moved to Our approach
     'about': (850, 7),
-    'results': (850, 8), 'partnerships': (900, 9), 'contact': (200, 3),
+    'results': (850, 8), 'partnerships': (1200, 10), 'contact': (200, 3),
 }
 BLOCK = {'lede': 30, 'card': 25, 'detail': 30, 'faq': 45}
 BANNED = [r'instead of writ', r'you (just )?review', r'type less', r'does (it|the work) for you', r'replace (you|teachers|your)', r'in minutes, not', r'never (mark|grade|write) again', r'\bweekend of marking', r'AI (builds|writes|grades|marks) (it|the|your)', r'替您完成', r'不再负责写', r'取代(老师|您|教师)', r'\bunlike school', r'school never', r'career teacher', r'\bNot [A-Z][^.]{0,40}\. Not ', r'waiting room', r'eulogy',

@@ -70,7 +70,7 @@ MORE = {
    cases=[ISB_EN, BODLEY_EN, SCHWARZMAN_EN],
    tl_k='Tools students and staff have learned, when a school approves them', tools=['openai', 'claude', 'deepseek', 'kimi', 'figma', 'canva'],
    tl_note='Or the tools your school allows. What carries over is the method: choose, judge, and finish.',
-   faq=[('How far ahead should we plan?', 'Usually eight to twelve weeks before the program dates, starting with one call about your calendar and goals.')]),
+   faq=[('Who controls student data in a program?', 'Your school does. We work inside your approved platforms and policy, agree the data rules with your team first, and keep student personal data out of personal accounts.'), ('How far ahead should we plan?', 'Usually eight to twelve weeks before the program dates, starting with one call about your calendar and goals.')]),
   cn=dict(
    ps_k='学校管理者的考量', ps_h='四个限制，<em>四条出路。</em>',
    ps_l='管理者点头之前最常问的问题，以及每次合作要为学校留下什么。',
@@ -90,7 +90,7 @@ MORE = {
    cases=[ISB_CN, BODLEY_CN, SCHWARZMAN_CN],
    tl_k='经学校认可后，学生和教职员工学过的工具', tools=['openai', 'claude', 'deepseek', 'kimi', 'figma', 'canva'],
    tl_note='或者贵校允许的工具。真正能延续下去的是方法：选择、判断、做完。',
-   faq=[('需要提前多久规划？', '通常在项目日期前八到十二周，从一次关于贵校校历和目标的通话开始。')])),
+   faq=[('项目中的学生数据由谁掌控？', '由贵校掌控。我们在学校认可的平台和政策范围内工作，事先与贵校团队商定数据规则，学生个人数据不进入个人账号。'), ('需要提前多久规划？', '通常在项目日期前八到十二周，从一次关于贵校校历和目标的通话开始。')])),
 
  'partnerships': dict(stem='partnerships', drop=[r'(?s)\n    <div class="pg-proof reveal">.*?</a>\n    </div>'], en=dict(
    ps_k='What program operators weigh', ps_h='Four concerns, <em>one track.</em>',
@@ -111,7 +111,7 @@ MORE = {
    cases=[BODLEY_EN, ISB_EN, LUX_EN],
    tl_k='Tools students build with', tools=['openai', 'claude', 'deepseek', 'figma', 'github', 'vercel'],
    tl_note='Accounts are set up as part of the track.', faq_k='Questions', faq_title='What operators <em>ask.</em>',
-   faq=[('How long is the track?', 'Two to seven days, set with you to fit your program.'),
+   faq=[('Whose platform do participants use?', 'Yours, when it is approved for student data. We work inside your platforms and policy; student personal data stays out of personal and consumer accounts.'), ('How long is the track?', 'Two to seven days, set with you to fit your program.'),
         ('How many students?', 'Ten to twenty-five students per group.'),
         ('Which languages?', 'English and Chinese.'),
         ('Whose brand do families see?', 'Yours. Your team keeps the family relationship, recruiting, venue, and operations.'),
@@ -135,7 +135,7 @@ MORE = {
    cases=[BODLEY_CN, ISB_CN, LUX_CN],
    tl_k='学生用来开发的工具', tools=['openai', 'claude', 'deepseek', 'figma', 'github', 'vercel'],
    tl_note='账号开通包含在模块之内。', faq_k='常见问题', faq_title='运营方常问的<em>问题。</em>',
-   faq=[('模块需要多长时间？', '两到七天，根据您的项目安排共同确定。'),
+   faq=[('学员使用谁的平台？', '在获准处理学生数据的前提下，使用贵方的平台。我们在贵方的平台和政策范围内工作；学生个人数据不进入个人或面向消费者的账号。'), ('模块需要多长时间？', '两到七天，根据您的项目安排共同确定。'),
         ('每组多少名学生？', '每组十到二十五名学生。'),
         ('用什么语言？', '中英双语。'),
         ('家长看到的是谁的品牌？', '您的品牌。家长关系、招生、场地和运营都由您的团队负责。'),
