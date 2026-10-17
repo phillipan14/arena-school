@@ -37,14 +37,19 @@ srv = http.server.ThreadingHTTPServer(('127.0.0.1', 0), Handler)
 threading.Thread(target=srv.serve_forever, daemon=True).start()
 SERVER = f'http://127.0.0.1:{srv.server_address[1]}'
 
-JOBS = [  # (deck, pdf path, hide QR, gallery folder, JPEG quality: download PDFs are lighter for phones)
-    ('deck', os.path.join(PRESENT, SLUG + '-EN-Presenting.pdf'), False, None, 92),
-    ('deck', os.path.join(TALK, 'slides-en.pdf'), True, 'en', 80),
+# the download PDF and slide images stop before the appendix: the first `<!-- n · Backup ·` slide in body-en.html
+_body = open(os.path.join(SRC, 'body-en.html'), encoding='utf-8').read()
+_bk = re.search(r'<!-- (\d+) · Backup ·', _body)
+MAIN = int(_bk.group(1)) - 1 if _bk else None
+
+JOBS = [  # (deck, pdf path, hide QR, gallery folder, JPEG quality: download PDFs are lighter for phones, main slides only)
+    ('deck', os.path.join(PRESENT, SLUG + '-EN-Presenting.pdf'), False, None, 92, False),
+    ('deck', os.path.join(TALK, 'slides-en.pdf'), True, 'en', 80, True),
 ]
 counts = {}
 with sync_playwright() as p:
     b = p.chromium.launch()
-    for deck, out, noqr, gal, q in JOBS:
+    for deck, out, noqr, gal, q, main_only in JOBS:
         os.makedirs(os.path.dirname(out), exist_ok=True)
         pg = b.new_page(viewport={'width': 1920, 'height': 1080}, device_scale_factor=1.5)
         pg.goto(f'{SERVER}{BASE}/{deck}.html?stage', wait_until='networkidle')
@@ -60,6 +65,9 @@ with sync_playwright() as p:
         if loose:
             b.close(); sys.exit(f'ABORT {deck}: outside their container (slide, container, item, overflow in px): {loose}')
         n = pg.evaluate("document.querySelectorAll('section.s').length"); pages = []
+        if main_only and MAIN:
+            n = min(n, MAIN)
+            pg.evaluate(f"document.querySelectorAll('.pgno i').forEach(e => e.textContent = '/ {n}')")  # '28 / 28', not '28 / 39'
         for i in range(n):
             pg.evaluate(f"document.getElementById('deck').scrollTop=document.querySelectorAll('section.s')[{i}].offsetTop"); pg.wait_for_timeout(200)
             pages.append(Image.open(io.BytesIO(pg.screenshot())).convert('RGB'))

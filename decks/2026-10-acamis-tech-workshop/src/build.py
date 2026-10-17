@@ -55,6 +55,8 @@ RV=[('en','en','en.html','','','','Previous slide','Next','All slides','Close','
      'From Lab to Classroom: Running an AI Student Program Inside a School · Arena School'),]
 for key,lang,fn,other,olab,oname,lprev,lnext,lall,lclose,lhome,zh,title in RV:
     body=re.sub(r'\s*<aside class="notes">.*?</aside>','',bodies[key],flags=re.S)
+    _bk=re.search(r'<!-- \d+ · Backup ·',body)  # the reader is for sharing: the presented slides only, no appendix
+    if _bk: body=body[:_bk.start()]
     gsel=dict((v[0],v[7]) for v in V)[key]; guard=GUARD.replace('__SEL__',gsel) if gsel else ''
     html=f'''<!doctype html>
 <html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
