@@ -249,3 +249,8 @@ v2 photo header restored on all three ("Demo day, Beijing, 2026"); credentials s
   (c4-6, c7-9, c10-12), sharing left edges with the strands row, tops aligned. Also: header 52mm with the general EN
   headline at 17.5pt so the copy sits inside the band (checked), a gradient under the photo caption, three data
   commitments on the general page. All six: one page, on grid, nothing clipped.
+- **Review 2 (ONEPAGER3-REVIEW2.md).** Data section on the grid: account cards on columns 1-3 and 4-6 with the vs badge
+  centred in the gutter, commitments on 7-12, top and bottom aligned with the cards. Parent Workshops card: no verified
+  past workshop with a logo exists, so its proof slot holds a site fact in the same style ("2 days, at your school, no
+  coding needed", from the program pages); nothing invented. Staircase descriptions start inside each step's inner padding;
+  the Baseline / One level up row was already on the four columns of the section 02 cards (overlay checked).

@@ -80,3 +80,5 @@ brown, tsinghua-lockup, isb, mckinsey, goldman, yc, apple, microsoft-ai, deloitt
 - **v4.1 (review 1):** even staircase steps; wheel without the unreadable ring labels, strands in their own row; Brown and
   Harvard logos matched in weight; one-line tile titles; skills on the 12-column thirds; header copy fits its band;
   legible photo caption. Stamps `?v=20261017d`.
+- **v4.2 (review 2):** data cards and commitments on the 12-column grid; the parent Workshops card shows "2 days" (a site
+  fact) in its proof slot; staircase descriptions aligned to each step's inner padding. Stamps `?v=20261017e`.

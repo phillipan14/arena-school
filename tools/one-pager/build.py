@@ -214,14 +214,22 @@ def mark(k):
     return ('<img src="%s" alt="" style="height:%smm" />' % (f, PROOF_H[k])) if f else '<span class="wordmark">%s</span>' % v
 
 
+FACT = {'workshops': {'en': ('2 days', 'At your school, no coding needed'), 'cn': ('两天', '在贵校进行，无需编程基础')},
+        'tech': {'en': ('Your systems', 'Locked down is fine'), 'cn': ('贵校的系统', '严格管控的环境也可以')}}
+
+
 def tiles(lang, keys):
     c = L[lang]
     spans = ['c1-3', 'c4-6', 'c7-9', 'c10-12']
     out = []
     for s, k in zip(spans, keys):
         icon, label, line, fm, marks, cap = c['T'][k]
-        pr = ('<div class="proof"><div class="marks">%s</div><span class="cap">%s</span></div>' % (''.join(mark(m) for m in marks), cap)) if marks \
-            else '<div class="proof empty"><div class="marks"></div><span class="cap">&nbsp;</span></div>'
+        if marks:
+            pr = '<div class="proof"><div class="marks">%s</div><span class="cap">%s</span></div>' % (''.join(mark(m) for m in marks), cap)
+        elif k in FACT:   # no verified past run with a logo: a site fact in the same slot (never an invented proof)
+            pr = '<div class="proof"><div class="marks"><span class="fact">%s</span></div><span class="cap">%s</span></div>' % FACT[k][lang]
+        else:
+            pr = '<div class="proof empty"><div class="marks"></div><span class="cap">&nbsp;</span></div>'
         out.append('<div class="%s card tile"><div class="th">%s<b class="nm">%s</b></div><span class="out">%s</span><span class="fm">%s</span>%s</div>' % (s, ic(icon, 'ic big'), label, line, fm, pr))
     return '<div class="g12 rrow">%s</div>' % ''.join(out)
 
@@ -262,7 +270,13 @@ def commits(lang, pick):
 
 
 def data(lang, pick=(0, 1, 2, 4)):
-    return '<div class="g12 data"><div class="c1-7">%s</div><div class="c8-12">%s</div></div>' % (account(lang), commits(lang, pick))
+    """Account cards on columns 1-3 and 4-6 (vs badge centred in the gutter), commitments on 7-12, tops and bottoms aligned."""
+    c = L[lang]
+    col = lambda span, title, rs, ok: ('<div class="%s acc %s"><div class="acch">%s<b>%s</b></div><ul>%s</ul>%s</div>'
+                                       % (span, 'ok' if ok else 'no', ic('school' if ok else 'user-round', 'ic big'), title,
+                                          ''.join('<li>%s%s</li>' % (ic('check' if ok else 'x', 'mk'), r) for r in rs), '' if ok else '<span class="vs">vs</span>'))
+    return ('<div class="g12 data">%s%s<div class="c7-12">%s</div></div>'
+            % (col('c1-3', c['personal'], c['prow'], False), col('c4-6', c['school'], c['srow'], True), commits(lang, pick)))
 
 
 PCTA = {'en': ('Two ways to start.', 'Ask your child’s school to bring Arena, or enroll in the Year-Long Project Mentorship directly.'),
@@ -365,6 +379,7 @@ em { font-style: italic; }
 .marks img { width: auto; display: block; filter: grayscale(1) contrast(1.1); opacity: .85; }
 .wordmark { font: 600 7.6pt/1.05 SERIF; color: #3A4466; white-space: normal; max-width: 15mm; }
 .cap { font-size: 7.4pt; color: #4A5578; }
+.fact { font: 500 12pt/1 SERIF; color: var(--pro-ink); }
 /* tile and skill heads: icon inline with the name */
 .th { display: flex; align-items: center; gap: 2.2mm; } .th .nm { margin: 0; }
 .skh { display: flex; align-items: center; gap: 1.6mm; }
@@ -390,19 +405,20 @@ em { font-style: italic; }
 .stairs i { font: 400 13pt/1 SERIF; color: var(--pro-action); font-style: normal; }
 .stairs b { font: 600 9pt/1.2 'Geist', system-ui, sans-serif; color: var(--pro-ink); margin-top: 1mm; }
 .stairs-d { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2.4mm; margin-top: 2.4mm; }
-.stairs-d span { font-size: 8pt; line-height: 1.38; color: #3A4466; }
+.stairs-d span { font-size: 8pt; line-height: 1.38; color: #3A4466; padding: 0 2.6mm; }
 .row4 { margin-top: 3.4mm; }
 .row4 .it { display: flex; gap: 2.4mm; align-items: flex-start; padding-top: 2.6mm; border-top: 1px solid var(--pro-line); }
 .row4 b { display: block; font: 600 8.8pt/1.25 'Geist', system-ui, sans-serif; color: var(--pro-ink); } .row4 span { font-size: 8pt; color: #3A4466; }
 .step .sthead { display: flex; align-items: center; justify-content: space-between; } .step i { font: 400 15pt/1 SERIF; color: var(--pro-action); font-style: normal; }
 /* data: account pair + commitments */
-.data { align-items: center; }
+.data { align-items: stretch; } .data .acc { position: relative; } .data .vs { position: absolute; right: -2mm; top: 50%; transform: translate(50%, -50%); z-index: 2; background: #fff; border: 1px solid var(--pro-line-2); border-radius: 50%; width: 7mm; height: 7mm; display: grid; place-items: center; font-size: 7pt; }
+.data .c7-12 { display: flex; } .data .commit { flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
 .pair { display: grid; grid-template-columns: 1fr auto 1fr; gap: 2.4mm; align-items: stretch; }
 .vs { align-self: center; font: 600 7.4pt/1 'Geist', system-ui, sans-serif; letter-spacing: .1em; text-transform: uppercase; color: #4A5578; }
-.acc { border: 1px solid var(--pro-line); border-radius: 2mm; padding: 3.4mm; } .acc.ok { border-color: #0B1A4A; box-shadow: inset 0 3px 0 var(--pro-action); }
-.acch { display: flex; align-items: center; gap: 2mm; margin-bottom: 2.4mm; } .acch b { font: 600 9.4pt/1.2 'Geist', system-ui, sans-serif; color: var(--pro-ink); }
+.acc { border: 1px solid var(--pro-line); border-radius: 2mm; padding: 3mm; } .acc.ok { border-color: #0B1A4A; box-shadow: inset 0 3px 0 var(--pro-action); }
+.acch { display: flex; align-items: center; gap: 2mm; margin-bottom: 2mm; } .acch b { font: 600 9.4pt/1.2 'Geist', system-ui, sans-serif; color: var(--pro-ink); }
 .acc.no .acch .ic { color: #4A5578; }
-.acc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.6mm; } .acc li { display: flex; gap: 1.6mm; align-items: center; font-size: 8.4pt; color: #3A4466; }
+.acc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.2mm; } .acc li { display: flex; gap: 1.6mm; align-items: center; font-size: 8.4pt; color: #3A4466; }
 .mk { width: 3.6mm; height: 3.6mm; flex: none; } .acc.no .mk { color: #9A3B2E; } .acc.ok .mk { color: var(--pro-action); }
 .commit { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
 .commit li { display: flex; align-items: center; gap: 2.6mm; padding: 2mm 0; border-top: 1px solid var(--pro-line); }
