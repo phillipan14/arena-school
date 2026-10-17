@@ -238,7 +238,7 @@ def block_b(c):
     cases = ''
     for x in c['cases']:
         dl = ''.join('<dt>%s</dt><dd>%s</dd>' % kv for kv in x['dl'])
-        cases += ('<li class="ds-case%s reveal"><span class="ds-eyebrow%s">%s</span><h3>%s</h3><p>%s</p><dl>%s</dl><a class="tlink" href="%s">%s →</a></li>'
+        cases += ('<li class="ds-case%s reveal"><span class="ds-eyebrow%s">%s</span><h3>%s</h3><p>%s</p><dl>%s</dl><a class="tlink" href="%s"><span class="tl">%s</span> <span class="arr">→</span></a></li>'
                   % (' is-next' if x.get('next') else '', ' is-muted' if x.get('next') else '', x['k'], x['h'], x['p'], dl, x['a'][0], x['a'][1]))
     tools = ''.join('<li><img src="/logos/tools/sm/%s.webp" alt="" width="24" height="24" loading="lazy" decoding="async" />%s</li>' % (t, TOOL_NAMES[t]) for t in c.get('tools', []))
     return ('<!-- depth:b -->\n<section class="ds-section" id="cases" data-screen-label="Cases"><div class="container">%s<ul class="ds-cases" style="--n:%d">%s</ul>'

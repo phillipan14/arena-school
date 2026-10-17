@@ -59,7 +59,7 @@
 .hp-cf-x span { display: block; margin-top: 2px; font-size: 13.5px; line-height: 1.45; color: var(--text-ink-soft); }
 .hp-cf-links { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; margin: 30px -38px 0; padding: 16px 38px; border-top: 1px solid var(--border-paper); background: rgba(255, 255, 255,.35); border-radius: 0 0 17px 17px; font-size: 14px; }
 .hp-cf-links a { display: inline-flex; align-items: center; gap: 7px; color: var(--ink-2, #2F55A8); text-decoration: none; }
-.hp-cf-links a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.hp-cf-links a:not(.tlink):hover { text-decoration: underline; text-underline-offset: 3px; }
 .hp-cf-links .tlink { font-weight: 500; margin-right: auto; }
 
 html[lang="zh-CN"] .hp-cf-quote p { font-style: normal; font-family: var(--font-body); font-size: 19px; line-height: 1.75; }

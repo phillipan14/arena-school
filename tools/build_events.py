@@ -188,7 +188,7 @@ def main_html(d, lang):
 <section class="zl-section pc-sec ev-end" data-screen-label="After">
   <div class="container">
     <div class="sec-head reveal"><span class="eyebrow">{E(d['end_k'])}</span><h2 class="h2 h2-md">{E(d['end_h'])}</h2><p class="pc-intro">{E(d['end_p'])}</p></div>
-    <div class="pc-cta reveal ev-end-cta">{btn(d['end_cta'][0], d['end_cta'][1], True)}<a class="tlink" href="{E(d['end_more'][1])}">{E(d['end_more'][0])} →</a></div>
+    <div class="pc-cta reveal ev-end-cta">{btn(d['end_cta'][0], d['end_cta'][1], True)}<a class="tlink" href="{E(d['end_more'][1])}"><span class="tl">{E(d['end_more'][0])}</span> <span class="arr">→</span></a></div>
   </div>
 </section>
 </main>'''

@@ -406,4 +406,7 @@ body.pg-results .pg-stats > div:not(.pg-sj){grid-template-columns:1fr !important
 @media (max-width:760px){
 /* event pages: speaker names are links; give them a full tap height */
 main section[data-screen-label="Speakers"] h3 a{display:inline-flex !important;align-items:center;min-height:var(--tap);padding-block:var(--space-2)}
+/* past talks: the audience filter chips sit in an even 2-column grid (no lone stretched chip) */
+html body main .pt-chips{display:grid !important;grid-template-columns:1fr 1fr}
+html body main .pt-chips > :last-child:nth-child(odd){grid-column:1 / -1}
 }

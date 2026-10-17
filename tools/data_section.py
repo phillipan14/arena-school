@@ -117,7 +117,7 @@ def section(lang, full):
     commits = ''.join('<li>%s<div><h3>%s</h3><p>%s</p></div></li>' % (ic(i), a, b) for i, a, b in c['commit'])
     out = [diagram, '<div class="dt-block reveal"><span class="ds-eyebrow">%s</span><ul class="dt-commit">%s</ul></div>' % (c['hk'], commits)]
     if full:
-        laws = ''.join('<li class="ds-card"><span class="ds-eyebrow is-muted">%s</span><h3>%s</h3><p>%s</p><a class="tlink" href="%s" rel="noopener">%s →</a></li>'
+        laws = ''.join('<li class="ds-card"><span class="ds-eyebrow is-muted">%s</span><h3>%s</h3><p>%s</p><a class="tlink" href="%s" rel="noopener"><span class="tl">%s</span> <span class="arr">→</span></a></li>'
                        % l for l in c['laws'])
         out.append('<div class="dt-block reveal"><span class="ds-eyebrow">%s</span><ul class="ds-grid ds-grid-3 dt-laws">%s</ul><p class="dt-note">%s</p></div>'
                    % (c['lk'], laws, c['note']))
@@ -126,7 +126,7 @@ def section(lang, full):
                    '<button type="button" class="btn btn-ghost dt-print" data-print-checklist>%s%s</button></div><ol>%s</ol></div>'
                    % (c['ck'], c['ch'], ic('printer'), c['cp'], checks))
     else:
-        out.append('<p class="dt-more reveal"><a class="tlink" href="%s">%s →</a></p>' % c['more'])
+        out.append('<p class="dt-more reveal"><a class="tlink" href="%s"><span class="tl">%s</span> <span class="arr">→</span></a></p>' % c['more'])
     return ('<!-- data:start -->\n%s<section class="ds-section is-alt dt-sec" id="student-data" data-screen-label="Student data"><div class="container">'
             '<header class="ds-head reveal"><span class="ds-eyebrow">%s</span><h2 class="ds-h2">%s</h2><p class="ds-lede">%s</p></header>%s</div></section>\n'
             '%s<!-- data:end -->' % (jj, c['k'], c['h'], c['l'], ''.join(out), '<script src="/data-print.js" defer></script>\n' if full else ''))

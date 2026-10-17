@@ -18,7 +18,7 @@
   .hp-cred-row ul { justify-content: flex-start; gap: 18px 26px; }
   .hp-cred-row img { max-height: 28px; }
 }
-#programs .prog-links a, .hp-next .tlink, .pillars .tlink{ transition: color .2s, gap .2s; }
+#programs .prog-links a, .hp-next .tlink, .pillars .tlink{ transition: color .2s; }
 .hp-cred-row img[alt="Y Combinator"] { height: 30px !important; opacity: .85; }
 .hp-cred-row li { transition: opacity .25s, filter .25s, transform .3s var(--e); }
 @media (max-width: 760px) {

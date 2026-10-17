@@ -122,7 +122,7 @@ body.home .hero-more{display:none !important}
 footer.footer{display:none !important}
 .ph-foot{display:block;background:#0E1729;color:#F4F6FA;padding:var(--space-6) var(--ph-gut) calc(var(--space-5) + var(--ph-safe-b) + var(--ph-barh,0px))}
 .ph-foot-lock{display:block;height:24px;width:auto}
-.ph-foot-tag{margin:var(--space-3) 0 var(--space-5);font:400 17px/1.5 'Newsreader',Georgia,serif;color:rgba(244, 246, 250,.82);max-width:24em}
+.ph-foot-tag{text-wrap:balance;margin:var(--space-3) 0 var(--space-5);font:400 17px/1.5 'Newsreader',Georgia,serif;color:rgba(244, 246, 250,.82);max-width:24em}
 html[lang="zh-CN"] .ph-foot-tag{font-family:'Arena Serif SC','Noto Serif SC','Songti SC',serif;font-size:var(--text-base);line-height:1.75}
 .ph-foot-c{margin:var(--space-5) 0 0;font:400 13px/1 'Geist',system-ui,sans-serif;color:rgba(244, 246, 250,.55)}
 
@@ -208,7 +208,7 @@ body.home #programs .prog-links a.tlink{display:flex !important;align-items:cent
 body.home #programs .prog-links a.tlink + a.tlink{border-top:1px solid var(--ph-line)}
 body.home #programs .prog-links a.tlink::after{content:none !important;display:none !important}
 body.home #programs .prog-links a.tlink:active{background:rgba(34,69,138,.07);opacity:1}
-body.home #programs .prog-links a.tlink.on{text-decoration:none !important}
+body.home #programs .prog-links a.tlink.on .tl{text-decoration-color:transparent !important}
 
 /* ---------- 3. Grade map:one grouped list; each program row carries its own bar on a shared scale ---------- */
 body.home #programs .gmap{--cols:9;margin-top:var(--space-6) !important;padding:0 !important;border:0 !important}
@@ -1236,6 +1236,9 @@ body.pg-results .pg-stats > div:not(.pg-sj){grid-template-columns:1fr !important
 @media (max-width:760px){
 /* event pages: speaker names are links; give them a full tap height */
 main section[data-screen-label="Speakers"] h3 a{display:inline-flex !important;align-items:center;min-height:var(--tap);padding-block:var(--space-2)}
+/* past talks: the audience filter chips sit in an even 2-column grid (no lone stretched chip) */
+html body main .pt-chips{display:grid !important;grid-template-columns:1fr 1fr}
+html body main .pt-chips > :last-child:nth-child(odd){grid-column:1 / -1}
 }
 
 /* ==== 90-lead.css ==== */
