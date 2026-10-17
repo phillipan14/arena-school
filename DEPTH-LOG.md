@@ -298,3 +298,11 @@ Positioning first (ONEPAGER-POSITIONING.md), then copy and layout. Round 1: teac
 parent render crashed the checker (proof marks in a new container). Round 2: teacher stairs without descriptions still
 10mm over. Round 3: staircase and "one session, one working tool" merged into one section, three sections per page; all
 six fit and pass edges, grid, 7pt, one page. CN "1 in 2" shown as 一半.
+
+## One-pagers v7 (PARENT2-BRIEF)
+Round 1: literal headlines, memberships in the header brand row, one hero stat, framed intensive timeline, logo-only
+proof, new team label. Critique: parent headline broke with "students" alone and spilled out of the band; day badges
+collided with the frame label; small elements floating in big gaps. Round 2: badges inside the day cells; bigger stat,
+timeline and tools; keep items as described cards. Critique: keep titles wrapped unevenly in quarters; parent header
+still over its band. Round 3: keep cards 2 x 2 with title over description; parent EN headline 17.5pt, shorter intro;
+general intro without "or online" (not on the site). All six pass edges, grid, 7pt, one page.

@@ -137,3 +137,23 @@ brown, tsinghua-lockup, isb, mckinsey, goldman, yc, apple, microsoft-ai, deloitt
   levels with one session, one working tool; student data.
 - **General:** each audience tile states that audience's motivation.
 - Stamps `?v=20261017l`.
+
+## v7 (Oct 17, 9:40pm, PARENT2-BRIEF)
+- **Headlines (literal):** parent "Hands-on AI programs where students build and launch a real product" (CN 动手实践的AI项目，
+  学生亲手做出并上线真实的产品); teacher "Hands-on AI training where each teacher builds a tool for their class" (CN
+  动手实践的AI培训，每位老师为自己的课堂做一个工具); general "Hands-on AI programs for students, teachers, and families" (CN
+  面向学生、老师和家庭的动手实践AI项目).
+- **Memberships** (Anthropic Startup Program, OpenAI Partner Network) sit beside the Arena School wordmark in the header;
+  the separate strip is gone.
+- **One hero stat per page, no citation line** (source in STATS-SOURCES.md): parent `rand-students` (80%+ not explicitly
+  taught), teacher `rand-use` (53% of teachers), general `rand-students-use` (54% of students).
+- **Diagrams:** parent, the five-day Entrepreneurship & AI Intensive as a framed day-by-day timeline from its program
+  page (launch on day 3, pitch on day 5; traction, revenue, impact, recognition as stretch goals in year-long mentorship),
+  with the page's typical tools (ChatGPT, Claude, DeepSeek, Kimi, Figma, Canva). **20+ tools:** not used on the parent
+  page; the site's "More than twenty AI tools" is said of the seven-day AI Advantage Bootcamp (zero-to-launch), not the
+  intensive. Teacher, the session flow (before, show, make, keep) and the five fluency levels. General, the four audience
+  offers.
+- **Proof as logos only:** "Programs run at" ISB and Bodley Academy (parent), Tsinghua, Schwarzman, ISB (teacher), all four
+  (general). The ISB-judges and sign-language example cards are removed.
+- **Team row:** "Coached by a team from" (CN 导师团队来自, JJ review), the balanced 2 x 6 grid.
+- Stamps `?v=20261017m`.
