@@ -453,3 +453,7 @@ html body main .fl-priv { margin: var(--space-2) 0 0; font-size: var(--text-xs);
   html body main .fl-quiz { padding: var(--space-5); }
   html body main .fl-opt { grid-template-columns: 20px 1.5rem minmax(0, 1fr); padding: var(--space-3); }
 }
+/* one-pager links (FLUENCY-BRIEF 2): About closing section, Schools programs heading */
+html body main .op-link { display: inline-block; margin-top: var(--space-4); }
+html body main #programs .op-link { margin-top: var(--space-3); }
+html body main .pp-final .op-link a, html body main :is(.pp-final, .el-cta) .op-link a { color: #C9D6F2 !important; text-decoration-color: rgba(201, 214, 242, .5); }

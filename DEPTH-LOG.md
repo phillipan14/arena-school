@@ -191,3 +191,13 @@ Board: AIFluency. Shots: `/tmp/pro-pass/fluency-{teachers,schools}-{1440,390}.pn
 - **r2.** Staircase full width, the model and chart side by side below; result "Next: level 4, Designer. Builds AI
   ..."; a lighter selected fill. Keyboard: arrow keys move between levels (Chromium and WebKit); no network request or
   storage on picking. Budgets: Teachers 1,800 / 11, Schools 2,000 / 12.
+
+## One-pager redesign (FLUENCY-BRIEF 2 + UPDATE, Oct 17; EN + CN; replaced in place)
+Board: OnePager. Renders: `/tmp/pro-pass/onepager-{en,cn}.png` (150dpi). Changes vs the old version: ONEPAGER-CHANGES.md.
+- **r1.** Rebuilt in the design system from the old structure (tools/one-pager/build.py), copy from the site's own
+  sources. Critique: (1) the crest appeared twice (seal plus the wordmark's own seal); (2) "A member of" and "Our team
+  studied at" wrapped into narrow stacks; (3) the worked-at logos ran off the right edge (Deloitte cut, Kimi missing);
+  (4) the page was a flex column, so the header was squeezed shorter than its content and the photo overlapped the
+  logo row; CN had its spare space pooled above the footer.
+- **r2.** Wordmark only; "A member of" on its own row, the team rows full width with smaller marks; sections never
+  shrink and spare space spreads evenly; the build fails if content is taller than the page. Both PDFs: one A4 page.
