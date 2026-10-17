@@ -1,0 +1,5 @@
+[
+  {"slug": "parent-email", "name": "Weekly parent email", "what": "Pick the class, topics, due dates, and tone; get a friendly email to copy.", "by": "starter"},
+  {"slug": "group-maker", "name": "Lab group maker", "what": "Paste a class list, pick a group size, and show fair groups on the projector.", "by": "starter"},
+  {"slug": "quiz-maker", "name": "Reading check quiz", "what": "Paste a passage; get five questions and a printable answer key.", "by": "starter"}
+]
