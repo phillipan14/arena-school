@@ -119,3 +119,21 @@ brown, tsinghua-lockup, isb, mckinsey, goldman, yc, apple, microsoft-ai, deloitt
   the same column as "A member of", logos on the right in a 2 x 6 grid of equal cells (each mark centred) ending on the
   right content edge. 3 x 4 was tried and dropped (a third row, a floating label, and the parent EN page went over).
   Stamps `?v=20261017k`.
+
+## v6 (Oct 17 pm, MESSAGING-BRIEF): concrete messaging per audience (see ONEPAGER-POSITIONING.md)
+- **Headers say who we are, concretely:** parent "Your child builds and launches a real AI product", with the mentoring
+  team named (Harvard, Caltech, Tsinghua, McKinsey, Goldman Sachs, Y Combinator, Apple, Microsoft AI); teacher "Every
+  teacher confident with AI, inside your school's rules", each teacher leaves with a working tool, from the team that
+  trained staff at Schwarzman College; general "Students, teachers, and families build real things with AI", with where
+  we have run it.
+- **Agency, taste, craft in plain words** (from the approach page): choose a real problem and pitch it; test with real
+  users and judge which version works; launch at a live link and explain every decision.
+- **Parent:** Why it matters now (RAND: over 80% of students not taught to use AI, 54% already use it, 61% of parents
+  worried about critical thinking; sources printed); What your child builds and learns; What it leads to (milestone
+  ladder, what they keep for college, summer, and internship applications, proof: ISB demo day judges from Harvard,
+  Stanford, Y Combinator, and AI labs; a sign-language-to-speech app launched in five days at Bodley Academy); the
+  site's no-promise admissions line. No student data section.
+- **Teacher:** Why now (RAND 53% of teachers use AI; 1 in 2 districts trained; Gallup 5.9 hours a week saved), five
+  levels with one session, one working tool; student data.
+- **General:** each audience tile states that audience's motivation.
+- Stamps `?v=20261017l`.

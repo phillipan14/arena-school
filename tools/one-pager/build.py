@@ -48,10 +48,10 @@ L = {
    member='A member of', anth='Startup Program', oai='Partner Network', studied='Built by a team from', worked='',
    web='arenaschool.org', mail='phillip@arenaschool.org', proof='Run with',
    # audience tiles: key -> (icon, label, one line, formats, [proof marks], proof caption)
-   T={'students': ('graduation-cap', 'Students', 'Build and launch real products with AI.', 'Workshops · mentorship', ['isb', 'bodley'], 'Five-day student programs'),
-      'schools': ('school', 'Educators', 'Make the tools classes need, inside school rules.', 'Sessions · workshops', ['tsinghua', 'schwarzman'], 'Staff training, Schwarzman College'),
-      'families': ('heart-handshake', 'Families', 'One project with a mentor, and parent talks.', '1:1 mentorship · parent talks', ['pta'], 'Parent talk, ISB PTA'),
-      'career': ('briefcase', 'Career', 'Launch a live AI product, ready for work.', 'Bootcamp', ['lux'], 'Jointly hosted with Lux Scholar'),
+   T={'students': ('graduation-cap', 'Students', 'Want real AI skills and work to show. They launch a product.', 'Workshops · mentorship', ['isb', 'bodley'], 'Five-day student programs'),
+      'schools': ('school', 'Educators', 'Want confident staff and safe use. Each makes a classroom tool.', 'Sessions · workshops', ['tsinghua', 'schwarzman'], 'Staff training, Schwarzman College'),
+      'families': ('heart-handshake', 'Families', 'Want their child ready for AI-era work. 1:1 mentors help.', '1:1 mentorship · parent talks', ['pta'], 'Parent talk, ISB PTA'),
+      'career': ('briefcase', 'Career', 'Want an edge for internships and jobs. They ship a live product.', 'Bootcamp', ['lux'], 'Jointly hosted with Lux Scholar'),
       # teacher variant
       'teachers': ('wrench', 'Teachers &amp; tech teams', 'Make the tool your class is missing, on your approved systems.', 'Session · workshop · school-wide', ['tsinghua', 'schwarzman'], 'Staff training, Schwarzman College'),
       'tech': ('monitor-cog', 'Tech teams', 'Training on your approved systems.', 'Planning · sessions', [], ''),
@@ -63,7 +63,7 @@ L = {
       'mentor': ('route', 'Year-long mentorship', 'One project, 1:1, at their own pace.', 'Weekly check-ins, hybrid', ['isb'], 'ISB alumni continue here'),
       'talks': ('messages-square', 'Parent talks', 'How AI is changing work and college.', 'At your child’s school', ['pta'], 'Parent talk, ISB PTA')},
    formats_k='Formats',
-   skills=[('compass', 'Agency', 'Choose what is worth doing.'), ('search-check', 'Taste', 'Judge whether it is actually good.'), ('badge-check', 'Craft', 'Finish it so people can trust it.')],
+   skills=[('compass', 'Choose a real problem', 'And pitch it in three minutes. (Agency)'), ('search-check', 'Test with real users', 'And judge which version works. (Taste)'), ('badge-check', 'Launch and explain it', 'At a live link, every decision defended. (Craft)')],
    loop='Learners decide. AI builds. Real people judge.', strands_k='Four strands, assessed on every project',
    dk='Whose account is it?', personal='Personal account', school='School-approved platform',
    prow=['Consumer terms', 'No data agreement', 'Not for student data'], srow=['Enterprise agreement', 'Agreed by the school', 'Cleared for student data'],
@@ -73,10 +73,10 @@ L = {
  'cn': dict(
    member='成员计划', anth='初创企业计划', oai='合作伙伴网络', studied='<!-- JJ review: 团队成员来自 (TEAMROW-BRIEF) -->团队成员来自', worked='',
    web='arenaschool.org', mail='phillip@arenaschool.org', proof='合作',
-   T={'students': ('graduation-cap', '学生', '借助AI做出并上线真实的产品。', '工作坊 · 集训营 · 导师计划', ['isb', 'bodley'], '五天学生项目'),
-      'schools': ('school', '教师与学校', '在学校规则之内，做出课堂需要的工具。', '分享 · 工作坊 · 全校培训', ['tsinghua', 'schwarzman'], '苏世民书院教职员工培训'),
-      'families': ('heart-handshake', '家庭', '与导师一起完成一个项目，以及家长讲座。', '一对一导师 · 家长讲座', ['pta'], 'ISB PTA 家长讲座'),
-      'career': ('briefcase', '大学与职场', '做出上线的AI产品，为工作做好准备。', '训练营', ['lux'], '与千麓学者联合举办'),
+   T={'students': ('graduation-cap', '学生', '想学真本事、有作品可展示：做出并上线产品。', '工作坊 · 集训营 · 导师计划', ['isb', 'bodley'], '五天学生项目'),
+      'schools': ('school', '教师与学校', '想让老师有信心、用得安全：每人做一个课堂工具。', '分享 · 工作坊 · 全校培训', ['tsinghua', 'schwarzman'], '苏世民书院教职员工培训'),
+      'families': ('heart-handshake', '家庭', '希望孩子为AI时代的工作做好准备：一对一导师陪伴。', '一对一导师 · 家长讲座', ['pta'], 'ISB PTA 家长讲座'),
+      'career': ('briefcase', '大学与职场', '想在实习和求职中脱颖而出：上线一个真实产品。', '训练营', ['lux'], '与千麓学者联合举办'),
       'teachers': ('wrench', '教师与技术团队', '在学校认可的系统上，为课堂做一个正缺的小工具。', '现场分享 · 工作坊 · 全校培训', ['tsinghua', 'schwarzman'], '苏世民书院教职员工培训'),
       'tech': ('monitor-cog', '技术团队', '在学校认可的系统上开展培训。', '规划 · 培训', [], ''),
       'leaders': ('building-2', '校长与管理层', '服务整个学校社群的项目。', '与贵校团队共同规划', ['isb'], '在校园内开展的学生项目'),
@@ -86,7 +86,7 @@ L = {
       'mentor': ('route', '学年导师计划', '一个项目，一对一，按自己的节奏。', '每周例会，线上线下结合', ['isb'], 'ISB 营员在此继续'),
       'talks': ('messages-square', '家长讲座', 'AI如何改变工作与升学。', '在孩子的学校', ['pta'], 'ISB PTA 家长讲座')},
    formats_k='形式',
-   skills=[('compass', '主动性', '选出值得做的事。'), ('search-check', '审美', '判断它是否真的好。'), ('badge-check', '匠心', '把它做好做完，让人信得过。')],
+   skills=[('compass', '选一个真实的问题', '三分钟讲清楚。（主动性）'), ('search-check', '拿给真实用户测试', '判断哪个版本真正好用。（审美）'), ('badge-check', '上线并讲清楚', '发布在公开网址，每个决定都讲得出理由。（匠心）')],
    loop='学习者做决定，AI动手做，真实的人来评判。', strands_k='四条学习主线，每个项目都评估',
    dk='这是谁的账号？', personal='个人账号', school='学校认可的平台',
    prow=['面向消费者的条款', '与学校没有数据协议', '不可用于学生数据'], srow=['企业协议', '由学校签订', '获准用于学生数据'],
@@ -148,33 +148,32 @@ X = {
 
 # ---------------------------------------------------------------- v4 (ONEPAGER3-BRIEF): three strong sections per variant
 INTRO = {
- 'general': {'en': 'When AI can make almost anything, learners need to know what is worth making, whether it is good, and how to finish it.',
-             'cn': '当AI几乎什么都能做出来，学习者需要知道什么值得做、做得好不好，以及怎样把它做完。'},
- 'teacher': {'en': 'A few early adopters are already there. We bring the rest of your staff up, one level at a time, safely.',
-             'cn': '少数老师已经走在前面。我们帮助其余教职员工一级一级、安全地跟上。'},
- 'parent': {'en': 'Hands-on programs where your child builds something real with AI, with mentors beside them.',
-            'cn': '动手实践的项目：孩子在导师陪伴下，借助AI做出真实的作品。'},
+ 'general': {'en': 'Run at the International School of Beijing, Bodley Academy in Hong Kong, and Schwarzman College, Tsinghua, by a team from Harvard, Caltech, Tsinghua, McKinsey, Goldman Sachs, and Y Combinator.',
+             'cn': '曾在北京顺义国际学校、香港 Bodley Academy 和清华大学苏世民书院开展；团队来自哈佛、加州理工、清华、麦肯锡、高盛和 Y Combinator。'},
+ 'teacher': {'en': 'Each teacher leaves a session with a working tool for their own class, built on your approved systems. From the team that trained staff at Schwarzman College, Tsinghua.',
+             'cn': '每位老师都带着一个能在自己课堂上用的工具离开，全部建在贵校认可的系统上。我们曾为清华大学苏世民书院的教职员工开展培训。'},
+ 'parent': {'en': 'Arena School teaches students to build and launch real AI products, mentored by a team from Harvard, Caltech, Tsinghua, McKinsey, Goldman Sachs, Y Combinator, Apple, and Microsoft AI.',
+            'cn': 'Arena School 教学生用AI做出并上线真实的产品，导师团队来自哈佛、加州理工、清华、麦肯锡、高盛、Y Combinator、苹果和微软AI。'},
 }
-H1 = {'general': DOCS['general'],
-      'teacher': {'en': dict(eyebrow='For teachers and school leaders', h1='AI fluency for the whole staff, <em>inside your school’s rules.</em>'),
-                  'cn': dict(eyebrow='面向教师与学校管理层', h1='全体教职员工的AI素养，<em>始终在学校的规则之内。</em>')},
-      'parent': {'en': dict(eyebrow='For families', h1='What your child <em>makes, learns and keeps.</em>'),
-                 'cn': dict(eyebrow='写给家长', h1='孩子在这里<em>做什么、学什么、带走什么。</em>')}}
+H1 = {'general': {'en': dict(eyebrow='What is Arena School', h1='Students, teachers, and families <em>build real things with AI.</em>'),
+                  'cn': dict(eyebrow='认识 Arena School', h1='学生、老师和家庭，<em>用AI做出真实的东西。</em>')},
+      'teacher': {'en': dict(eyebrow='For teachers and school leaders', h1='Every teacher confident with AI, <em>inside your school’s rules.</em>'),
+                  'cn': dict(eyebrow='面向教师与学校管理层', h1='让每位老师都能自信地用AI，<em>始终在学校的规则之内。</em>')},
+      'parent': {'en': dict(eyebrow='For families', h1='Your child builds and launches <em>a real AI product.</em>'),
+                 'cn': dict(eyebrow='写给家长', h1='孩子亲手做出并上线<em>一个真实的AI产品。</em>')}}
 CAP = {'en': 'Demo day at the International School of Beijing, 2026', 'cn': '<!-- JJ review: 照片说明 (CAPTION-BRIEF) -->北京顺义国际学校路演日'}
 # section titles: (title, one-line dek)
 SEC = {
- 'en': dict(who=('Who we serve', 'And where we have run it.'), teach=('How we teach', 'One framework in every program.'),
+ 'en': dict(who=('Who we serve, and why they come', 'Each audience, its reason, and where we have run it.'), teach=('What learners actually do', 'The same three moves in every program.'),
             data=('Student data comes first', 'Before which tool, ask whose account it is.'),
-            fl=('Five levels of AI fluency', 'Every teacher moves up one level a term.'), move=('Moving up a level', 'One session, one task from a real class.'),
-            kids=('What your child does', 'And where we have run it.'), skills=('Skills your child builds', 'Three skills in every program, and the practical ones.'),
-            walk=('What they walk away with', 'Milestones and work that help with school and college applications.'), ladder=('The milestone ladder', 'Year-long mentorship, judged on the work.'),
-            safe=('Safety and student data', 'Student data stays in accounts the school approves.')),
- 'cn': dict(who=('我们服务谁', '以及我们在哪里开展过。'), teach=('我们如何教', '一套框架贯穿每个项目。'),
+            fl=('Five levels of AI fluency', 'A baseline, then every teacher moves up one level a term.'), move=('One session, one working tool', 'Each teacher brings one task from a class they teach now.'),
+            whyt=('Why now', 'Teachers already use AI. Few have been trained.'), whyp=('Why it matters now', 'Students use AI already. Schools rarely teach it.'),
+            kids=('What your child builds and learns', 'Concrete skills, on a real product.'), lead=('What it leads to', 'Work to show in college, summer, and internship applications.')),
+ 'cn': dict(who=('我们服务谁，他们为什么来', '每类对象、他们的理由，以及我们在哪里开展过。'), teach=('学习者实际做什么', '每个项目都是同样的三个动作。'),
             data=('学生数据放在第一位', '先别问用哪个工具，先问是谁的账号。'),
-            fl=('AI素养的五个层级', '每位老师每学期提升一级。'), move=('如何提升一级', '一次培训，一项真实课堂里的任务。'),
-            kids=('孩子可以做什么', '以及我们在哪里开展过。'), skills=('孩子练成的能力', '每个项目都培养的三种能力，以及实用技能。'),
-            walk=('孩子带走什么', '里程碑与作品，帮助升学与大学申请。'), ladder=('里程碑', '学年项目导师计划，看做出来的成果。'),
-            safe=('安全与学生数据', '学生数据只放在学校认可的账号里。')),
+            fl=('AI素养的五个层级', '先做基线评估，每位老师每学期提升一级。'), move=('一次培训，一个能用的工具', '每位老师带来自己正在教的一门课里的一项任务。'),
+            whyt=('为什么是现在', '老师已经在用AI，受过培训的却不多。'), whyp=('为什么是现在', '学生已经在用AI，学校却很少教。'),
+            kids=('孩子做什么、学什么', '在真实产品上练出的具体能力。'), lead=('这会带来什么', '可以写进大学、暑期项目和实习申请的作品。')),
 }
 # proof marks normalized to one optical height (mm) inside a 7mm slot; text labels in the same serif, no box
 PROOF_H = {'isb': 5.0, 'tsinghua': 4.6, 'pta': 4.8, 'lux': 5.2, 'schwarzman': 4.2}
@@ -261,6 +260,18 @@ def teach(lang, wide=True):
             % (W.svg('cn' if lang == 'cn' else 'en'), core, c['loop'], skills, line))
 
 
+def statband(lang, ids):
+    import depth as D
+    cn = lang == 'cn'
+    cells = []
+    for sp, k in zip(['c1-4', 'c5-8', 'c9-12'], ids):
+        st = D.STATS[k]
+        unit = (' ' + st['unit']['cn' if cn else 'en']) if st['unit'] else ''
+        n = '一半' if cn and st['n'] == '1 in 2' else st['n']
+        cells.append('<div class="%s stat"><b>%s%s</b><span>%s</span><small>%s</small></div>' % (sp, n, unit, st['cn' if cn else 'en'], st['src']['cn' if cn else 'en']))
+    return '<div class="g12 rrow stats">%s</div>' % ''.join(cells)
+
+
 def stairs(items, descs=True):
     steps = ''.join('<li style="--s:%d"><i>%d</i><b>%s</b></li>' % (i, i + 1, n) for i, (n, _) in enumerate(items))
     below = ''.join('<span>%s</span>' % d for _, d in items) if descs else ''
@@ -306,10 +317,6 @@ def footer(lang, doc='general'):
 
 
 def general(lang, d):
-    if d == 'C':   # magazine: section 1 full width, 2 and 3 side by side
-        return (sec(1, 'who', lang, tiles(lang, DOCS['general']['tiles'])) +
-                '<section class="sec"><div class="g12 halves"><div class="c1-6">%s%s</div><div class="c7-12">%s%s%s</div></div></section>'
-                % ('<div class="g6h">%s</div>' % shead(2, 'teach', lang, ''), teach(lang, False), '<div class="g6h">%s</div>' % shead(3, 'data', lang, ''), account(lang), commits(lang, (0, 1))))
     return (sec(1, 'who', lang, tiles(lang, DOCS['general']['tiles'])) + sec(2, 'teach', lang, teach(lang)) + sec(3, 'data', lang, data(lang, (0, 1, 2))))
 
 
@@ -318,8 +325,10 @@ def teacher(lang, d):
     x = X[lang]
     move = '<div class="g12 rrow">%s</div>' % ''.join('<div class="c%d-%d card step"><div class="sthead"><i>%d</i>%s</div><b class="nm">%s</b><span class="out">%s</span></div>'
                                                        % (1 + 3 * k, 3 + 3 * k, k + 1, ic(i, 'ic big'), a, b) for k, (i, a, b) in enumerate(x['move']))
-    return (sec(1, 'fl', lang, '<div class="g12"><div class="c1-12">%s</div></div>' % stairs(f['levels']) + row4(x['model'])) +
-            sec(2, 'move', lang, move) + sec(3, 'data', lang, data(lang)))
+    return (sec(1, 'whyt', lang, statband(lang, ['rand-use', 'rand-districts', 'gallup-hours'])) +
+            sec(2, 'fl', lang, '<div class="g12"><div class="c1-12">%s</div></div>' % stairs(f['levels'], False) +
+                '<div class="g12 pk"><span class="c1-12 k">%s</span></div>' % SEC[lang]['move'][0] + move) +
+            sec(3, 'data', lang, data(lang, (0, 1, 2))))
 
 
 PX = {
@@ -327,24 +336,28 @@ PX = {
                        ('mic', 'Pitching', 'Presenting to a panel, and answering questions.'), ('search-check', 'Research and judgment', 'Checking sources, including AI output.')],
             keep=[('rocket', 'A live product', 'At its own link, with their name.'), ('file-text', 'A documented record', 'To describe in an application.'),
                   ('users', 'People who know their work', 'Mentors and reviewers.'), ('mic', 'Experience presenting it', 'To people who ask hard questions.')],
-            prac_k='Practical skills', keep_k='What they keep', note='Admissions decisions rest with each university; we do not promise an outcome.'),
+            proof=[(mark('isb'), 'Students built working apps with AI and presented them to judges from Harvard, Stanford, Y Combinator, and AI labs.'), ('<span class="wordmark">Bodley Academy</span>', 'A student launched a sign-language-to-speech app in five days.')],
+            prac_k='Practical skills', keep_k='What they keep, for college, summer, and internship applications', note='Admissions decisions rest with each university; we do not promise an outcome.'),
  'cn': dict(practical=[('hammer', '用AI做产品', '指挥AI编程工具，再亲自测试结果。'), ('users', '访谈用户', '访谈自己想帮助的人。'),
                        ('mic', '路演', '向评审团展示，并回答提问。'), ('search-check', '研究与判断', '核查资料来源，包括AI的输出。')],
             keep=[('rocket', '一个上线的产品', '在自己的网址上，署着自己的名字。'), ('file-text', '有据可查的成果记录', '可以写进申请材料。'),
                   ('users', '了解他作品的人', '导师和评审。'), ('mic', '公开展示的经验', '面对尖锐的提问。')],
-            prac_k='实用技能', keep_k='带走什么', note='录取的决定权在每所大学自己手里，我们不对结果作任何承诺。'),
+            proof=[(mark('isb'), '学生借助AI做出可用的应用，并向来自哈佛、斯坦福、Y Combinator 和AI实验室的评委展示。'), ('<span class="wordmark">Bodley Academy</span>', '一名学生在五天里上线了一款手语转语音的应用。')],
+            prac_k='实用技能', keep_k='带走什么：可用于大学、暑期项目和实习申请', note='录取的决定权在每所大学自己手里，我们不对结果作任何承诺。'),
 }
 
 
 def parent(lang, d):
     x, px, c = X[lang], PX[lang], L[lang]
-    three = ''.join('<div class="%s sk3"><div class="th">%s<b class="nm">%s</b></div><span class="out">%s</span></div>' % (sp, ic(i, 'ic big'), a, b)
-                    for sp, (i, a, b) in zip(['c1-4', 'c5-8', 'c9-12'], c['skills']))
+    build = '<div class="g12 rrow">%s</div>' % ''.join('<div class="%s sk3"><div class="th">%s<b class="nm">%s</b></div><span class="out">%s</span></div>' % (sp, ic(i, 'ic big'), a, b)
+                                                        for sp, (i, a, b) in zip(['c1-4', 'c5-8', 'c9-12'], c['skills']))
     prac = '<div class="g12 prac">%s</div>' % ''.join('<div class="%s pi">%s<b>%s</b></div>' % (sp, ic(i), a) for sp, (i, a, _) in zip(['c1-3', 'c4-6', 'c7-9', 'c10-12'], px['practical']))
-    return (sec(1, 'kids', lang, tiles(lang, DOCS['parent']['tiles'])) +
-            sec(2, 'skills', lang, '<div class="g12 rrow">%s</div>' % three + '<div class="g12 pk"><span class="c1-12 k">%s</span></div>' % px['prac_k'] + prac) +
-            sec(3, 'walk', lang, '<div class="g12"><div class="c1-12">%s</div></div>' % stairs(list(zip(x['ladder'], x['ladder_d']))) +
-                '<div class="g12 keepk"><span class="c1-12 k">%s</span></div>' % px['keep_k'] + '<div class="g12 prac">%s</div>' % ''.join('<div class="%s pi">%s<b>%s</b></div>' % (sp, ic(i), a) for sp, (i, a, _) in zip(['c1-3', 'c4-6', 'c7-9', 'c10-12'], px['keep'])) +
+    keep = '<div class="g12 prac">%s</div>' % ''.join('<div class="%s pi">%s<b>%s</b></div>' % (sp, ic(i), a) for sp, (i, a, _) in zip(['c1-3', 'c4-6', 'c7-9', 'c10-12'], px['keep']))
+    proof = '<div class="g12 rrow">%s</div>' % ''.join('<div class="%s pf"><div class="marks">%s</div><span>%s</span></div>' % (sp, mk, t) for sp, (mk, t) in zip(['c1-6', 'c7-12'], px['proof']))
+    return (sec(1, 'whyp', lang, statband(lang, ['rand-students', 'rand-students-use', 'rand-parents'])) +
+            sec(2, 'kids', lang, build + '<div class="g12 pk"><span class="c1-12 k">%s</span></div>' % px['prac_k'] + prac) +
+            sec(3, 'lead', lang, '<div class="g12"><div class="c1-12">%s</div></div>' % stairs(list(zip(x['ladder'], x['ladder_d'])), False) +
+                '<div class="g12 keepk"><span class="c1-12 k">%s</span></div>' % px['keep_k'] + keep + proof +
                 '<div class="g12"><p class="c1-12 note">%s</p></div>' % px['note']))
 
 
@@ -497,7 +510,13 @@ em { font-style: italic; }
 .prac .pi { display: flex; align-items: center; gap: 2mm; padding: 2mm 0; border-top: 1px solid var(--pro-line); border-bottom: 1px solid var(--pro-line); } .prac b { font: 600 8.2pt/1.2 'Geist', system-ui, sans-serif; color: var(--pro-ink); white-space: nowrap; }
 .parent .stairs li { height: calc(15mm + var(--s) * 2mm); }
 .dir-B.parent .sec { padding: 2.3mm 0; }
-.keepk { margin-top: 3.6mm; } .keepk .k { margin-bottom: 1.6mm; } .keepk .k { display: block; } .keep { margin-top: 1.4mm; } .note { margin: 2.4mm 0 0; padding: 0; font-size: 7.2pt; color: #4A5578; }
+.keepk { margin-top: 3.4mm; }
+.pf { display: flex; align-items: center; gap: 3mm; margin-top: 2.4mm; padding: 2mm 2.4mm; background: #F3F5FA; border-radius: 1.6mm; } .pf .marks { flex: none; height: 6mm; } .pf span { font-size: 7.8pt; line-height: 1.35; color: #3A4466; } .keepk .k { margin-bottom: 1.6mm; } .keepk .k { display: block; } .keep { margin-top: 1.4mm; } .note { margin: 2.4mm 0 0; padding: 0; font-size: 7.2pt; color: #4A5578; }
+/* why-now stats: big figure, one line, source in small type */
+.stats .stat { display: flex; flex-direction: column; gap: 1mm; padding-top: 2.2mm; border-top: 2px solid var(--pro-action); }
+.stats .stat b { font: 400 18pt/1 SERIF; color: var(--pro-ink); }
+.stats .stat span { font-size: 7.8pt; line-height: 1.35; color: #3A4466; }
+.stats .stat small { margin-top: auto; font-size: 7pt; line-height: 1.3; color: #4A5578; }
 /* closing band */
 .cta { background: #0B1A4A; color: #fff; padding-top: 4.4mm; padding-bottom: 4.4mm; align-items: center; }
 .cta h2 { color: #fff; font-size: 13pt; } .cta p { margin: 1mm 0 0; font-size: 8.2pt; color: rgba(255,255,255,.84); }
@@ -557,7 +576,7 @@ const { chromium } = require('playwright');
     rights.forEach(sel => document.querySelectorAll(sel).forEach(e => { const x = e.getBoundingClientRect().right; if (Math.abs(x - R0) > 1) edges.push('R ' + sel + ' ' + Math.round(x - R0)); }));
     const tops = []; document.querySelectorAll('.sh').forEach(d => tops.push(Math.round(d.getBoundingClientRect().left)));
     let min = 99; document.querySelectorAll('.op *').forEach(e => { if ([...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim()) && !e.closest('svg')) min = Math.min(min, parseFloat(getComputedStyle(e).fontSize)); });
-    const clipped = []; document.querySelectorAll('.marks, .logos, .team .tl, .prac .pi, .memtop .mt').forEach(l => { const p = l.closest('.card, .row, .prac, .memtop'); const pr = p.getBoundingClientRect(); [...l.children].forEach(c => { const r = c.getBoundingClientRect(); if (r.right > pr.right - 1 || r.left < pr.left) clipped.push(c.textContent || c.getAttribute('src')); }); });
+    const clipped = []; document.querySelectorAll('.marks, .logos, .team .tl, .prac .pi, .memtop .mt').forEach(l => { const p = l.closest('.card, .row, .prac, .memtop, .pf'); const pr = p.getBoundingClientRect(); [...l.children].forEach(c => { const r = c.getBoundingClientRect(); if (r.right > pr.right - 1 || r.left < pr.left) clipped.push(c.textContent || c.getAttribute('src')); }); });
     const wrapped = []; document.querySelectorAll('.logos, .marks').forEach(l => { const ys = [...l.children].map(c => Math.round(c.getBoundingClientRect().top + c.getBoundingClientRect().height / 2)); if (Math.max(...ys) - Math.min(...ys) > 4) wrapped.push(l.className); });
     return { over: Math.max(over, inner), edges, stepBad, stepTops, svgPt: +(svgMin * .75).toFixed(2), secOver, clipped, nbad: bad.length, bad: bad.slice(0, 4), uneven, shLeft: [...new Set(tops)], minPt: +(min * .75).toFixed(2), wrapped,
              cols: starts.map((s, i) => [Math.round(s), Math.round(ends[i])]) };

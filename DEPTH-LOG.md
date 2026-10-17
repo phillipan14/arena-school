@@ -292,3 +292,9 @@ Board: OnePagerV5Final. Renders + overlays: `/tmp/pro-pass/{,teacher-,parent-}on
 - **Team row (TEAMROW-BRIEF).** "Built by a team from", label left (columns 1-3, as the member strip), logos right
   (columns 4-12). Tried 2 x 6 and 3 x 4: chose 2 x 6 (two balanced lines, equal cells, no extra height; 3 x 4 left the
   label floating in a tall block and pushed parent EN 4px over). Edge and column checks pass on all six.
+
+## One-pagers v6, messaging (MESSAGING-BRIEF)
+Positioning first (ONEPAGER-POSITIONING.md), then copy and layout. Round 1: teacher with four sections ran 21mm over;
+parent render crashed the checker (proof marks in a new container). Round 2: teacher stairs without descriptions still
+10mm over. Round 3: staircase and "one session, one working tool" merged into one section, three sections per page; all
+six fit and pass edges, grid, 7pt, one page. CN "1 in 2" shown as 一半.
