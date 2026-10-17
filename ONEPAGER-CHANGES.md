@@ -110,3 +110,8 @@ brown, tsinghua-lockup, isb, mckinsey, goldman, yc, apple, microsoft-ai, deloitt
 - Stamps `?v=20261017h`.
 - **v5.3 (CAPTION-BRIEF):** header photo caption "Demo day at the International School of Beijing, 2026" (fits one line),
   CN "北京顺义国际学校路演日" (JJ review comment in the source); one line checked by the build. Stamps `?v=20261017i`.
+- **v5.4 (EDGES-BRIEF):** "Team from" marks sized by measured ink area (equal visual mass; Harvard, Brown, Tsinghua,
+  ISB raised to a legible minimum; Apple matched), all one greyscale darkness, 6 + 6 on shared columns with the outer
+  columns on the content edges. One left and one right content edge for header text, member strip, section headers,
+  cards, data list, Team-from label and logos, footer text and contact (Team-from label now above the grid). The build
+  checks all of these edges on every page. Stamps `?v=20261017j`.

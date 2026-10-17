@@ -284,3 +284,8 @@ Board: OnePagerV5Final. Renders + overlays: `/tmp/pro-pass/{,teacher-,parent-}on
   proof lines (repo file `logos/cred/schwarzman.png`); "A member of" as a slim strip under the header; photo fades from
   the navy. Critique round: the first fade darkened the left student's face (tightened to clear before the faces) and
   left a sub-pixel hairline at the photo edge (overlay extended 1mm). All six pass every build check.
+- **Edges (EDGES-BRIEF).** Logo heights from each file's measured ink (area x density), with a legibility floor for
+  crest + small-caps marks; one darkness (black at 72%). Team-from label above a full-width 6-column grid (outer columns
+  flush to the edges, inner centred; checked). New build check: header text, member strip, section headers, first and
+  last cards, data columns, Team-from row ends, footer text and contact all on the same left and right content edges.
+  Critique round: an old rule left-aligned the inner logo columns (removed).

@@ -107,8 +107,8 @@ DOCS = {
    en=dict(eyebrow='For families', h1='What your child makes, learns, and keeps <em>at Arena School.</em>'),
    cn=dict(eyebrow='写给家长', h1='孩子在 Arena School <em>做什么、学什么、带走什么。</em>')),
 }
-STUDIED = [('caltech', 3.2), ('harvard', 4.2), ('brown', 5.0), ('tsinghua-lockup', 4.4), ('isb', 4.4)]
-WORKED = [('mckinsey', 2.2), ('goldman', 4.0), ('yc', 3.8), ('apple', 4.0), ('microsoft-ai', 3.2), ('deloitte', 2.7), ('kimi-wordmark', 2.8)]
+STUDIED = [('caltech', 2.65), ('harvard', 5.0), ('brown', 5.6), ('tsinghua-lockup', 4.8), ('isb', 4.6)]   # equal ink area per mark (EDGES-BRIEF), from each file's ink; crest + small-caps marks raised to a legible minimum
+WORKED = [('mckinsey', 2.8), ('goldman', 4.07), ('yc', 3.84), ('apple', 4.8), ('microsoft-ai', 3.93), ('deloitte', 2.4), ('kimi-wordmark', 2.95)]
 
 S = {
  'en': dict(who='Who we serve, and where we’ve run it', who_t='Who we work with, and where we’ve run it', who_p='What your child can do, and where we’ve run it',
@@ -197,14 +197,14 @@ def strip(lang):
     marks = [(k, h[k]) for k in order]
     cell = lambda k, h: '<span class="lc%s"><img src="/logos/cred/%s.png" alt="" style="height:%smm" /></span>' % (' w2' if k == 'mckinsey' else '', k, h)
     return ('<section class="strip">'
-            '<div class="g12 row"><span class="c1-3 lab">%s</span><div class="c4-12 six team">%s</div></div></section>'
+            '<div class="g12 row"><span class="c1-12 lab tlabel">%s</span></div><div class="g12 row"><div class="c1-12 six team">%s</div></div></section>'
             % (c['studied'], ''.join(cell(k, h) for k, h in marks)))
 
 
 def memtop(lang):
     """Slim "A member of" strip under the photo header, as on the homepage: a small centred label and two marks."""
     c = L[lang]
-    return ('<section class="memtop"><span class="lab">%s</span><div class="mt">'
+    return ('<section class="memtop g12"><span class="c1-3 lab">%s</span><div class="c4-12 mt">'
             '<span class="m"><img src="/logos/partners/anthropic.svg" alt="Anthropic" style="height:2.6mm" /><em>%s</em></span>'
             '<span class="m"><img src="/logos/partners/openai.svg" alt="OpenAI" style="height:4.8mm" /><em>%s</em></span></div></section>'
             % (c['member'], c['anth'], c['oai']))
@@ -463,23 +463,25 @@ em { font-style: italic; }
 :lang(zh) .commit li { padding: 1.7mm 0; }
 .commit b { font: 600 9pt/1.3 'Geist', system-ui, sans-serif; color: var(--pro-ink); }
 /* "A member of" under the header: centred label, two marks with captions */
-.memtop { display: flex; align-items: center; justify-content: center; gap: 9mm; padding: 2.6mm 10mm; border-bottom: 1px solid var(--pro-line); }
-.memtop .mt { display: flex; align-items: center; gap: 9mm; }
+.memtop { align-items: center; padding-top: 2.6mm; padding-bottom: 2.6mm; border-bottom: 1px solid var(--pro-line); }
+.memtop .mt { display: flex; align-items: center; justify-content: flex-end; gap: 9mm; }
 .memtop .m { display: inline-flex; align-items: center; gap: 2mm; white-space: nowrap; } .memtop .m em { font-style: normal; font-size: 7.4pt; color: #4A5578; }
 /* bottom credentials strip */
-.strip { padding: 3mm 0; border-top: 1px solid var(--pro-line); display: grid; gap: 2.2mm; background: #F6F7FA; }
+.strip { padding: 2.4mm 0; border-top: 1px solid var(--pro-line); display: grid; gap: 2.2mm; background: #F6F7FA; }
 .strip .row { align-items: center; }
 .strip .lab { white-space: nowrap; }
 .logos { display: flex; align-items: center; justify-content: space-between; flex-wrap: nowrap; min-width: 0; }
 /* one 6-column grid for both credential rows: every logo centred in its column */
-.six { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); row-gap: 2.4mm; align-items: center; }
-.six .lc { display: flex; align-items: center; justify-content: center; height: 6mm; min-width: 0; }
+.six { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); row-gap: 1.4mm; align-items: center; }
+.six .lc { display: flex; align-items: center; justify-content: center; height: 6.2mm; min-width: 0; }
+/* columns stay aligned row to row; the outer columns sit on the content edges */
+.team .lc:nth-child(6n+1) { justify-content: flex-start; } .team .lc:nth-child(6n) { justify-content: flex-end; }
 .six.member { gap: 0; column-gap: 0; justify-content: stretch; }
 .six .m { flex-direction: column; height: auto; gap: .8mm; } .six .m em { font-style: normal; font-size: 7pt; color: #4A5578; white-space: nowrap; }
-.team .lc { display: flex; align-items: center; justify-content: flex-start; height: 6mm; }
 .team img { width: auto; display: block; filter: grayscale(1) contrast(1.15); opacity: .8; }
-.team img[src*='/brown.'], .team img[src*='/harvard.'] { filter: grayscale(1) contrast(1.6) brightness(.72); opacity: 1; }
-.strip .row:last-child { align-items: start; } .strip .row:last-child .lab { padding-top: 1.6mm; }
+/* one greyscale darkness for every mark */
+.team img, .team img[src*='/brown.'], .team img[src*='/harvard.'] { filter: grayscale(1) brightness(0); opacity: .72; }
+.tlabel { display: block; margin-bottom: .4mm; }
 .logos img { width: auto; display: block; filter: grayscale(1) contrast(1.15); opacity: .8; }
 .logos img[src*='/brown.'], .logos img[src*='/harvard.'] { filter: grayscale(1) contrast(1.6) brightness(.72); opacity: 1; }
 .member { justify-content: flex-start; gap: 12mm; } .member img { filter: none; opacity: 1; }
@@ -488,7 +490,8 @@ em { font-style: italic; }
 .pk { margin-top: 3.4mm; } .pk .k { display: block; margin-bottom: 1.4mm; }
 .prac .pi { display: flex; align-items: center; gap: 2mm; padding: 2mm 0; border-top: 1px solid var(--pro-line); border-bottom: 1px solid var(--pro-line); } .prac b { font: 600 8.2pt/1.2 'Geist', system-ui, sans-serif; color: var(--pro-ink); white-space: nowrap; }
 .parent .stairs li { height: calc(15mm + var(--s) * 2mm); }
-.keepk { margin-top: 4.4mm; } .keepk .k { margin-bottom: 1.6mm; } .keepk .k { display: block; } .keep { margin-top: 1.4mm; } .note { margin: 2.4mm 0 0; padding: 0; font-size: 7.2pt; color: #4A5578; }
+.dir-B.parent .sec { padding: 2.3mm 0; }
+.keepk { margin-top: 3.6mm; } .keepk .k { margin-bottom: 1.6mm; } .keepk .k { display: block; } .keep { margin-top: 1.4mm; } .note { margin: 2.4mm 0 0; padding: 0; font-size: 7.2pt; color: #4A5578; }
 /* closing band */
 .cta { background: #0B1A4A; color: #fff; padding-top: 4.4mm; padding-bottom: 4.4mm; align-items: center; }
 .cta h2 { color: #fff; font-size: 13pt; } .cta p { margin: 1mm 0 0; font-size: 8.2pt; color: rgba(255,255,255,.84); }
@@ -538,11 +541,19 @@ const { chromium } = require('playwright');
     for (let i = 6; i < tc.length; i++) if (Math.abs(tc[i] - tc[i - 6]) > 1) uneven.push('team col ' + i);
     document.querySelectorAll('.acc li').forEach(li => { if (li.getBoundingClientRect().height > 16) uneven.push('acc wrap: ' + li.textContent); });
     const fc = document.querySelector('.photo figcaption'); if (fc.getBoundingClientRect().height > 14) stepBad.push('caption wraps');
+    const g0 = document.querySelector('.body .g12'), g0r = g0.getBoundingClientRect(), gcs = getComputedStyle(g0);
+    const L0 = g0r.left + parseFloat(gcs.paddingLeft), R0 = g0r.right - parseFloat(gcs.paddingRight);
+    const edges = [];
+    const lefts = ['.top-copy', '.memtop .lab', '.sh', '.rrow > :first-child', '.data > :first-child', '.tlabel', '.team', '.cta > :first-child'];
+    const tl = [...document.querySelectorAll('.team .lc img')]; for (let i = 0; i < tl.length; i += 6) { const a = tl[i].getBoundingClientRect(), z = tl[i + 5].getBoundingClientRect(); if (Math.abs(a.left - L0) > 1) edges.push('team row L'); if (Math.abs(z.right - R0) > 1) edges.push('team row R'); }
+    const rights = ['.memtop .mt > :last-child', '.rrow > :last-child', '.data > :last-child', '.team', '.cta .contact', '.stairs-wrap', '.row4 > :last-child'];
+    lefts.forEach(sel => document.querySelectorAll(sel).forEach(e => { const x = e.getBoundingClientRect().left; if (Math.abs(x - L0) > 1) edges.push('L ' + sel + ' ' + Math.round(x - L0)); }));
+    rights.forEach(sel => document.querySelectorAll(sel).forEach(e => { const x = e.getBoundingClientRect().right; if (Math.abs(x - R0) > 1) edges.push('R ' + sel + ' ' + Math.round(x - R0)); }));
     const tops = []; document.querySelectorAll('.sh').forEach(d => tops.push(Math.round(d.getBoundingClientRect().left)));
     let min = 99; document.querySelectorAll('.op *').forEach(e => { if ([...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim()) && !e.closest('svg')) min = Math.min(min, parseFloat(getComputedStyle(e).fontSize)); });
     const clipped = []; document.querySelectorAll('.marks, .logos, .team .tl, .prac .pi, .memtop .mt').forEach(l => { const p = l.closest('.card, .row, .prac, .memtop'); const pr = p.getBoundingClientRect(); [...l.children].forEach(c => { const r = c.getBoundingClientRect(); if (r.right > pr.right - 1 || r.left < pr.left) clipped.push(c.textContent || c.getAttribute('src')); }); });
     const wrapped = []; document.querySelectorAll('.logos, .marks').forEach(l => { const ys = [...l.children].map(c => Math.round(c.getBoundingClientRect().top + c.getBoundingClientRect().height / 2)); if (Math.max(...ys) - Math.min(...ys) > 4) wrapped.push(l.className); });
-    return { over: Math.max(over, inner), stepBad, stepTops, svgPt: +(svgMin * .75).toFixed(2), secOver, clipped, nbad: bad.length, bad: bad.slice(0, 4), uneven, shLeft: [...new Set(tops)], minPt: +(min * .75).toFixed(2), wrapped,
+    return { over: Math.max(over, inner), edges, stepBad, stepTops, svgPt: +(svgMin * .75).toFixed(2), secOver, clipped, nbad: bad.length, bad: bad.slice(0, 4), uneven, shLeft: [...new Set(tops)], minPt: +(min * .75).toFixed(2), wrapped,
              cols: starts.map((s, i) => [Math.round(s), Math.round(ends[i])]) };
   });
   await p.pdf({ path: pdf, format: 'A4', printBackground: true, preferCSSPageSize: true, margin: { top: 0, right: 0, bottom: 0, left: 0 } });
@@ -585,9 +596,9 @@ def build(doc, lang, opt, pngdir=None):
         base = os.path.join(pngdir, name)
         subprocess.run(['pdftoppm', '-png', '-r', '150', '-singlefile', pdf, base], check=True)
         overlay(base + '.png', base + '-grid.png')
-    ok = not r['stepBad'] and len(r['stepTops']) <= 1 and r['svgPt'] >= 6.95 and not r['secOver'] and not r['clipped'] and pages == '1' and r['over'] <= 1 and r['nbad'] == 0 and not r['uneven'] and r['minPt'] >= 6.95 and not r['wrapped'] and len(r['shLeft']) <= 1
-    print('%-40s steps %s tops %s | svg %spt | clipped %s | pages %s | overflow %spx | off-grid %d %s | uneven %s | header lefts %s | logo rows wrapped %s | min %spt | %s'
-          % (name, r['stepBad'], r['stepTops'], r['svgPt'], r['clipped'], pages, r['over'], r['nbad'], r['bad'][:2], r['uneven'], r['shLeft'], r['wrapped'], r['minPt'], 'OK' if ok else 'FAIL'))
+    ok = not r['edges'] and not r['stepBad'] and len(r['stepTops']) <= 1 and r['svgPt'] >= 6.95 and not r['secOver'] and not r['clipped'] and pages == '1' and r['over'] <= 1 and r['nbad'] == 0 and not r['uneven'] and r['minPt'] >= 6.95 and not r['wrapped'] and len(r['shLeft']) <= 1
+    print('%-40s edges %s | steps %s tops %s | svg %spt | clipped %s | pages %s | overflow %spx | off-grid %d %s | uneven %s | header lefts %s | logo rows wrapped %s | min %spt | %s'
+          % (name, r['edges'], r['stepBad'], r['stepTops'], r['svgPt'], r['clipped'], pages, r['over'], r['nbad'], r['bad'][:2], r['uneven'], r['shLeft'], r['wrapped'], r['minPt'], 'OK' if ok else 'FAIL'))
     return ok
 
 
