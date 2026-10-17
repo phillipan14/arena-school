@@ -19,14 +19,11 @@ header.wrap{padding-top:36px;padding-bottom:8px}
 .top img.wm{height:34px;width:auto;display:block}
 .top a.back{font:600 15px/1 var(--sans);color:var(--ink2);text-decoration:none;white-space:nowrap}
 .nw{white-space:nowrap}
-.hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:center;margin-top:40px}
+.hero{margin-top:40px}
 .kick{margin:0 0 12px;font:600 13px/1.2 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--ink2)}
 h1{margin:0;font:500 64px/1.02 var(--serif);letter-spacing:-.02em;color:var(--ink)}
 h1 em{font-style:italic;color:var(--ink2)}
 .lede{margin:18px 0 0;max-width:620px;font:400 22px/1.45 var(--serif);color:var(--text)}
-.qr{display:grid;justify-items:center;gap:10px;padding:18px;border-radius:16px;background:#fff;border:1px solid var(--edge)}
-.qr img{width:150px;height:150px;display:block}
-.qr span{font:600 13px/1.2 var(--sans);letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
 .live{display:inline-flex;align-items:center;gap:10px;margin-top:26px;padding:9px 16px;border-radius:999px;background:#fff;border:1px solid var(--edge);font:600 15px/1 var(--sans);color:var(--ink)}
 .dot{width:10px;height:10px;border-radius:50%;background:#3BB37A;box-shadow:0 0 0 0 rgba(59,179,122,.6);animation:pulse 2s infinite}
 @keyframes pulse{70%{box-shadow:0 0 0 10px rgba(59,179,122,0)}100%{box-shadow:0 0 0 0 rgba(59,179,122,0)}}
@@ -58,7 +55,6 @@ footer a{color:var(--ink2)}
  .top img.wm{height:28px}
  main.wrap{padding-top:36px}
  .hero{grid-template-columns:1fr;gap:24px;margin-top:28px}
- .qr{display:none}
  h1{font-size:44px}
  .lede{font-size:19px}
  h2{font-size:28px}
@@ -76,10 +72,9 @@ footer a{color:var(--ink2)}
     <div>
       <p class="kick">ACAMIS Technology Conference<span class="sep"> · </span><span class="dt">October 18, 2026</span></p>
       <h1>The Teacher Toolbox, <em>built by this&nbsp;room.</em></h1>
-      <p class="lede">Call out a feature or a tool you wish you had. We build it with Claude Code, and it goes live here for everyone in about a&nbsp;minute.</p>
+      <p class="lede">Call out a feature or a tool you wish you had. We build it with Claude Code, and it goes live here in about a&nbsp;minute.</p>
       <div class="live"><span class="dot"></span><span id="status">Live</span></div>
     </div>
-    <div class="qr"><img src="/decks/img/acamis/qr-acamis-toolbox-tight.png" alt="QR code for this page"><span>Follow along</span></div>
   </div>
 </header>
 <main class="wrap">

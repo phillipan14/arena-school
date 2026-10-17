@@ -72,5 +72,4 @@ section.s.age-cl.p8-gsx .bd .age-end p{font-size:33px}
 /* sweep fixes */
 .ae.p15-hi .bd>.p15-end,.ae.p15-tb .bd>.p15-end{flex:none!important}
 .ae.nx-wk .bd .nx-tsk{padding:4.9px calc(12px - .14em) 6.1px 12px}
-.ae.agd-b .bd .cs-out{display:flex!important;flex-direction:column!important}
-.ae.agd-b .bd .cs-out .p15-qr{align-self:stretch!important;margin-top:auto!important}
+.ae.agd-b .bd .agd-ex li{padding-top:8.45px!important;padding-bottom:7.55px!important}
