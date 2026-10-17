@@ -17,7 +17,8 @@ A room of teachers is watching this screen. They call out a feature or a new too
 ## Rules for every tool
 - **Never ask clarifying questions.** Make sensible assumptions and mention one if it matters.
 - One self-contained `index.html` per tool: inline CSS and JavaScript, no frameworks, no npm, no CDNs, no external fonts or APIs (China). Keep `<script src="../live.js"></script>` and the "← Teacher Toolbox" link from the template.
-- **No AI and no network calls inside a tool.** Use templates, rules, or lists the teacher can edit.
+- **No AI and no other network calls inside a tool.** Use templates, rules, or lists the teacher can edit.
+- **Many phones, one screen** (anonymous feedback, exit tickets, live polls, a Q&A wall): use the shared board, and nothing else. Add `<script src="../board.js"></script>` and use `var b = Board('<slug>')`, `b.post(text, tag)`, and `b.watch(function (items) { ... }, 3000)` (items newest first: `{id, t, text, tag}`; text up to 500 characters, tag up to 40). Build two views in the same file: a phone view to submit (big buttons; say "Anonymous" on screen; after sending, show "Thanks, sent") and a projector view (add `#screen` to the URL) that shows results live as large cards or bars. Never ask for or send names, emails, or student details. Responses delete themselves after three days.
 - **Made-up names only** ("Student A", "Ms. Rivera"); never real student data. Save work in `localStorage` and add a Clear button.
 - Big readable text, one job per tool, and it must work on a phone (most of the room is on one).
 - Don't run git yourself (`ship.sh` does it), don't `cd` (use paths), and don't write tests, plans, or READMEs.
