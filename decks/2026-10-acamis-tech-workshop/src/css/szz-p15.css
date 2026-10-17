@@ -1,0 +1,46 @@
+/* p15 · reframe (Oct 17): families → how we teach → proof → what teachers need */
+
+/* ISB parent talk: four slide thumbnails */
+.ae.p15-pt .bd{display:flex;flex-direction:column;gap:22px}
+.p15-ths{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap,24px);flex:1;min-height:0;align-items:start}
+.ae.p15-pt .bd .p15-th{margin:0;padding:14px;display:flex;flex-direction:column;gap:16px;background:var(--paper-hi);border-radius:var(--r,14px)}
+.p15-th img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:8px;box-shadow:0 0 0 1px var(--edge),0 14px 26px -20px rgba(11,26,74,.45)}
+.p15-th figcaption{display:flex;flex-direction:column;gap:6px;padding:0 6px 6px}
+.ae.p15-pt .bd .p15-th figcaption span:not(.lab){font:400 24px/1.35 var(--serif);color:var(--ink)}
+
+/* Hiring insight: three qualities */
+.ae.p15-hi .bd{display:flex;flex-direction:column;gap:34px}
+.ae.p15-hi .bd .p15-hq{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap,24px)}
+.ae.p15-hi .bd .p15-hq>li{margin:0;padding:34px 34px 32px;display:flex;flex-direction:column;gap:12px;background:var(--paper-hi);border-radius:var(--r,14px)}
+.ae.p15-hi .bd .p15-hq b{font:500 34px/1.15 var(--serif);color:var(--ink)}
+.ae.p15-hi .bd .p15-hq span:not(.p8-ic){font:400 25px/1.4 var(--serif);color:var(--ink)}
+
+/* Shared closing line */
+.ae .bd .p15-end{margin:0;padding:26px 0 0;border-top:1px solid var(--line,rgba(21,38,54,.18));font:400 28px/1.4 var(--serif);color:var(--ink)}
+.ae .bd .p15-end em{font-style:italic;color:var(--ink2)}
+
+/* Teachers need both: two cards */
+.ae.p15-tb .bd{display:flex;flex-direction:column;gap:30px}
+.p15-two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap,24px)}
+.ae.p15-tb .bd .p15-c{margin:0;padding:34px 38px 30px;background:var(--paper-hi);border-radius:var(--r,14px)}
+.p15-ch{display:flex;align-items:center;gap:18px;margin:0 0 18px}
+.p15-ch .p8-ic{margin:0;flex:none}
+.ae.p15-tb .bd .p15-ch b{font:500 34px/1.15 var(--serif);color:var(--ink)}
+.ae.p15-tb .bd .p15-c ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px}
+.ae.p15-tb .bd .p15-c li{position:relative;padding-left:30px;font:400 25px/1.4 var(--serif);color:var(--ink)}
+.ae.p15-tb .bd .p15-c li::before{content:"";position:absolute;left:4px;top:.6em;width:9px;height:9px;border-radius:50%;background:var(--ink2)}
+
+/* Demo: QR inside the dark step card */
+.p15-qr{display:flex;align-items:center;gap:18px;margin-top:auto;padding:14px 18px 14px 14px;border-radius:12px;background:#fff;text-decoration:none}
+.p15-qr img{display:block;width:104px;height:104px;flex:none}
+.p15-qr span{display:flex;flex-direction:column;gap:4px}
+.p15-qr b{font:500 24px/1.15 var(--serif);color:var(--ink)}
+.p15-qr small{font:400 18px/1.3 var(--sans,system-ui);color:var(--muted)}
+.p15-ths{align-items:stretch}
+.ae.p15-hi .bd,.ae.p15-tb .bd{justify-content:flex-start}
+.ae.p15-tb h2{min-height:0!important}
+.p15-ths{flex:none}
+.ae.p15-pt .bd{justify-content:center}
+.p15-qr img{width:88px;height:88px}
+.ae.p15-pt .bd>.p15-ths{flex:none!important}
+.ae.p15-hi .bd,.ae.p15-tb .bd{justify-content:center}

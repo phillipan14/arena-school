@@ -1387,6 +1387,24 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
 .rd .p14-ci .lic{display:block;width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .rd .p14-cv{display:flex;flex-direction:column;gap:1px;min-width:0;font:500 16px/1.25 var(--serif);color:var(--ink);overflow-wrap:anywhere}
 .rd .p14-cv small{font:600 10px/1.2 var(--sans,system-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+/* p15 reframe: parent-talk thumbnails, hiring qualities, teachers-need cards, demo QR */
+.p15-ths{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.p15-th{margin:0;padding:8px;display:flex;flex-direction:column;gap:8px;border-radius:10px;background:#fff;box-shadow:inset 0 0 0 1px var(--edge)}
+.p15-th img{display:block;width:100%;height:auto;border-radius:6px}
+.p15-th figcaption{display:grid;gap:3px;font-size:13.5px;line-height:1.35}
+.p15-hq{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.p15-hq>li{display:grid;gap:4px;padding:12px 14px;border-radius:10px;background:#fff;box-shadow:inset 0 0 0 1px var(--edge)}
+.p15-hq b{font-size:17px}
+.p15-two{display:grid;gap:10px}
+.p15-c{padding:12px 14px;border-radius:10px;background:#fff;box-shadow:inset 0 0 0 1px var(--edge)}
+.p15-ch{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.p15-ch b{font-size:17px}
+.p15-c ul{margin:0;padding-left:18px;display:grid;gap:4px}
+.p15-end{margin:0;padding-top:10px;border-top:1px solid var(--edge)}
+.p15-end em{color:var(--ink2)}
+.p15-qr{display:flex;align-items:center;gap:12px;margin-top:8px;padding:8px;border-radius:8px;background:#fff;text-decoration:none;color:var(--ink)}
+.p15-qr img{width:72px;height:72px}
+.p15-qr span{display:grid;gap:2px}
 </style></head><body>
 <header class="top"><a class="home" href="/talks/2026-10-acamis-tech-workshop" aria-label="Talk resources · Arena School"><img class="wm n" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School" width="1600" height="242"><img class="wm i" src="/logos/arena/wordmark-ivory-1600.png" alt="" width="1600" height="242"></a>
  <div class="tools"><button type="button" class="lst" aria-label="All slides"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></div>
@@ -1407,33 +1425,18 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
 <!-- 2 · Contents -->
 <section class="s alt ae r7-toc p8-toc"><div class="w">
  <p class="kick r">The next 60 minutes</p>
- <h2 class="r" style="--d:.1s">From how we teach <em>to what you can run at your school.</em></h2>
+ <h2 class="r" style="--d:.1s">From what families ask <em>to what teachers&nbsp;need.</em></h2>
  <div class="bd r" style="--d:.25s">
   <ol class="p8-route">
-  <li data-s="1"><a href="#" data-go="2"><span class="p8-node"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M14 22v-4a2 2 0 1 0-4 0v4" /><path d="m18 10 3.447 1.724a1 1 0 0 1 .553.894V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-7.382a1 1 0 0 1 .553-.894L6 10" /><path d="M18 5v17" /><path d="m4 6 7.106-3.553a2 2 0 0 1 1.788 0L20 6" /><path d="M6 5v17" /><circle cx="12" cy="9" r="2" /></svg></span><span class="p8-rn">Part 1</span><b>Who we are</b><span class="p8-rd">Arena School, our philosophy, and our learning&nbsp;framework</span></a></li>
-  <li data-s="2"><a href="#" data-go="9"><span class="p8-node"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2 3h20" /><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3" /><path d="m7 21 5-5 5 5" /></svg></span><span class="p8-rn">Part 2</span><b>The case</b><span class="p8-rd">The ISB AI Founders week, from day one to demo&nbsp;day</span></a></li>
-  <li data-s="3" class="p8-main"><a href="#" data-go="16"><span class="p8-node"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m15 12-9.373 9.373a1 1 0 0 1-3.001-3L12 9" /><path d="m18 15 4-4" /><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172v-.344a2 2 0 0 0-.586-1.414l-1.657-1.657A6 6 0 0 0 12.516 3H9l1.243 1.243A6 6 0 0 1 12 8.485V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5" /></svg></span><span class="p8-rn">Part 3 · the main&nbsp;event</span><b>Build together</b><span class="p8-rd">What teachers build, then you name a chore and we build the&nbsp;fix</span></a></li>
-  <li data-s="4"><a href="#" data-go="21"><span class="p8-node"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M8 2v4" /><path d="M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /></svg></span><span class="p8-rn">Part 4</span><b>Wrap-up</b><span class="p8-rd">The big picture, three questions for Monday, and how to work with&nbsp;us</span></a></li>
+  <li data-s="1"><a href="#" data-go="3"><span class="p8-node"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg></span><span class="p8-rn">Part 1</span><b>What families ask</b><span class="p8-rd">The ISB parent talk, what employers now want, and what parents ask&nbsp;us</span></a></li>
+  <li data-s="2"><a href="#" data-go="7"><span class="p8-node"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M14 22v-4a2 2 0 1 0-4 0v4" /><path d="m18 10 3.447 1.724a1 1 0 0 1 .553.894V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-7.382a1 1 0 0 1 .553-.894L6 10" /><path d="M18 5v17" /><path d="m4 6 7.106-3.553a2 2 0 0 1 1.788 0L20 6" /><path d="M6 5v17" /><circle cx="12" cy="9" r="2" /></svg></span><span class="p8-rn">Part 2</span><b>How we teach</b><span class="p8-rd">Our philosophy, learning framework, outcomes, and&nbsp;assessment</span></a></li>
+  <li data-s="3"><a href="#" data-go="14"><span class="p8-node"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2 3h20" /><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3" /><path d="m7 21 5-5 5 5" /></svg></span><span class="p8-rn">Part 3</span><b>The proof</b><span class="p8-rd">The ISB AI Founders week, from day one to demo&nbsp;day</span></a></li>
+  <li data-s="4"><a href="#" data-go="20"><span class="p8-node"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m15 12-9.373 9.373a1 1 0 0 1-3.001-3L12 9" /><path d="m18 15 4-4" /><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172v-.344a2 2 0 0 0-.586-1.414l-1.657-1.657A6 6 0 0 0 12.516 3H9l1.243 1.243A6 6 0 0 1 12 8.485V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5" /></svg></span><span class="p8-rn">Part 4</span><b>For teachers</b><span class="p8-rd">The ethics, the comfort to build, and a short&nbsp;demo</span></a></li>
   </ol>
  </div>
 </div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
-<!-- 3 · Part 1 -->
-<section class="s ae sec p6-sec p7-ph"><div class="p6-media" aria-hidden="true"><div class="p6-slide"><img src="/photos/steps/collab-stage-poster.webp" alt="" decoding="async" style="--focus:55% 40%"></div></div><div class="p6-shade" aria-hidden="true"></div><div class="p6-dots" aria-hidden="true"></div><p class="p7-cap" aria-hidden="true">Building together, Hong Kong&nbsp;2025</p><img class="brandmk" src="/logos/arena/wordmark-ivory-1600.png" alt="" aria-hidden="true" width="1600" height="242"><div class="w"><div class="sec-g">
- <div>
-  <p class="sec-k"><span>Part</span><b>1</b></p>
-  <h2 class="r" style="--d:.15s">We teach the part of learning <em>that AI can’t do for&nbsp;you.</em></h2>
-  <p class="sl r" style="--d:.35s">Who we are, our philosophy, the research behind it, and our learning&nbsp;framework</p>
- </div>
- <ol class="trk" aria-label="Parts">
- <li class="on"><div class="row"><span class="tn">1</span><span class="tt"><b>Who we are</b><small>How we teach</small></span></div></li>
- <li><div class="row"><span class="tn">2</span><span class="tt"><b>The case</b><small>ISB AI Founders week</small></span></div></li>
- <li><div class="row"><span class="tn">3</span><span class="tt"><b>Build together</b><small>With the room</small></span></div></li>
- <li><div class="row"><span class="tn">4</span><span class="tt"><b>Wrap-up</b><small>Start on Monday</small></span></div></li>
- </ol>
-</div></div></section>
-
-<!-- 4 · About Arena School -->
+<!-- 3 · About Arena School -->
 <section class="s alt ae r15-ab p8-abs"><div class="w">
  <p class="kick r">About Arena School</p>
 <div class="r16-hd"><h2 class="r" style="--d:.1s">AI tools change every week.<br><em>We teach learners to make the&nbsp;calls.</em></h2>
@@ -1451,13 +1454,83 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
  </div>
 </div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
-<!-- 5 · The question -->
+<!-- 4 · Part 1 -->
+<section class="s ae sec p6-sec p7-ph"><div class="p6-media" aria-hidden="true"><div class="p6-slide"><img src="/photos/isb-hq/isb-team-podium-1400.webp" alt="" decoding="async" style="--focus:58% 30%"></div></div><div class="p6-shade" aria-hidden="true"></div><div class="p6-dots" aria-hidden="true"></div><p class="p7-cap" aria-hidden="true">A team takes the podium on demo day, Beijing&nbsp;2026</p><img class="brandmk" src="/logos/arena/wordmark-ivory-1600.png" alt="" aria-hidden="true" width="1600" height="242"><div class="w"><div class="sec-g">
+ <div>
+  <p class="sec-k"><span>Part</span><b>1</b></p>
+  <h2 class="r" style="--d:.15s">Families are asking what AI means <em>for their children’s&nbsp;future.</em></h2>
+  <p class="sl r" style="--d:.35s">The ISB parent talk, what employers now look for, and the questions parents ask&nbsp;us</p>
+ </div>
+ <ol class="trk" aria-label="Parts">
+ <li class="on"><div class="row"><span class="tn">1</span><span class="tt"><b>What families ask</b><small>The ISB parent talk</small></span></div></li>
+ <li><div class="row"><span class="tn">2</span><span class="tt"><b>How we teach</b><small>Framework and outcomes</small></span></div></li>
+ <li><div class="row"><span class="tn">3</span><span class="tt"><b>The proof</b><small>ISB AI Founders week</small></span></div></li>
+ <li><div class="row"><span class="tn">4</span><span class="tt"><b>For teachers</b><small>Ethics and comfort to build</small></span></div></li>
+ </ol>
+</div></div></section>
+
+<!-- 5 · The ISB parent talk -->
+<section class="s alt ae p15-pt"><div class="w">
+ <p class="kick r">Where this started · ISB PTA Parent Coffee, October 14,&nbsp;2026</p>
+ <h2 class="r" style="--d:.1s">This week, we told ISB parents what is changing at work, <em>and what their children should practice&nbsp;now.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="p15-ths">
+   <figure class="pane p15-th" data-s="1"><img src="/talks/2026-10-isb-parent-coffee/slides/en/01.jpg" alt="" loading="lazy"><figcaption><span class="lab">The talk</span><span>Our kids’ jobs don’t exist yet. So which skills will&nbsp;matter?</span></figcaption></figure>
+   <figure class="pane p15-th" data-s="2"><img src="/talks/2026-10-isb-parent-coffee/slides/en/12.jpg" alt="" loading="lazy"><figcaption><span class="lab">Work is changing</span><span>Jobs that require AI skills already pay 62%&nbsp;more.</span></figcaption></figure>
+   <figure class="pane p15-th" data-s="3"><img src="/talks/2026-10-isb-parent-coffee/slides/en/15.jpg" alt="" loading="lazy"><figcaption><span class="lab">Students feel it</span><span>In China, 91% of graduating students changed plans; 57% are learning AI&nbsp;skills.</span></figcaption></figure>
+   <figure class="pane p15-th" data-s="4"><img src="/talks/2026-10-isb-parent-coffee/slides/en/19.jpg" alt="" loading="lazy"><figcaption><span class="lab">What lasts</span><span>Three human skills: agency, taste, and&nbsp;craft.</span></figcaption></figure>
+ </div></div>
+ <p class="fn" data-s="2"><span>PwC 2026 Global AI Jobs Barometer. China Youth Daily survey of 1,333 graduating students, May&nbsp;2026.</span></p>
+</div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
+
+<!-- 6 · What employers look for -->
+<section class="s ae p15-hi"><div class="w">
+ <p class="kick r">What employers now look for · from my hiring at a frontier AI lab in&nbsp;China</p>
+ <h2 class="r" style="--d:.1s">Companies now want people who use AI <em>across the whole job, not only in technical&nbsp;roles.</em></h2>
+ <div class="bd r" style="--d:.25s"><ol class="p15-hq">
+  <li class="pane" data-s="1"><span class="p8-ic"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" /><path d="M20 2v4" /><path d="M22 4h-4" /><circle cx="4" cy="20" r="2" /></svg></span><b>AI fluency</b><span>Uses AI on everyday work, in any role, not only&nbsp;engineering.</span></li>
+  <li class="pane" data-s="2"><span class="p8-ic"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 8V4H8" /><rect width="16" height="12" x="4" y="8" rx="2" /><path d="M2 14h2" /><path d="M20 14h2" /><path d="M15 13v2" /><path d="M9 13v2" /></svg></span><b>Works with agents</b><span>Hands multi-step work to AI agents, then checks what comes&nbsp;back.</span></li>
+  <li class="pane" data-s="3"><span class="p8-ic"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="6" cy="19" r="3" /><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15" /><circle cx="18" cy="5" r="3" /></svg></span><b>Range</b><span>Learns new tools fast and works across the whole&nbsp;job.</span></li>
+ </ol>
+ <p class="p15-end" data-s="4">Parents hear this at their own workplaces. <em>So they ask whether their children are learning&nbsp;it.</em></p></div>
+</div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
+
+<!-- 7 · What parents asked -->
+<section class="s alt ae aga-pa r8-pa"><div class="w">
+ <p class="kick r">What families ask us</p>
+ <h2 class="r" style="--d:.1s">Parents are asking one practical question:<br><em>which skills will outlast the&nbsp;tools?</em></h2>
+ <p class="r11-src r" style="--d:.18s">From surveying parents in the ISB community and other local communities in mainland&nbsp;China</p>
+ <div class="bd r" style="--d:.25s"><div class="shift ac-own">
+  <div class="shx" data-s="1">
+   <div class="sh-col o"><span class="hd">What parents care about</span><ul><li>Which skills last as the tools change?</li><li>Will AI do the thinking for my child?</li><li>What should my child practice now?</li></ul></div>
+   <div class="sh-arr" aria-hidden="true"><i></i></div>
+   <div class="sh-col n"><span class="hd">What you can tell them after today</span><ul><li>Three skills outlast any tool</li><li>Used well, AI deepens thinking</li><li>Real products, in five days</li></ul></div>
+  </div>
+ </div>
+ <p class="r8-note" data-s="2">Parents don’t see AI as an academic subject, like learning to code.<br><em>They see it as a life skill: optional for many jobs today, and likely non-negotiable by the time their children start&nbsp;working.</em></p></div>
+</div></section>
+
+<!-- 8 · Part 2 -->
+<section class="s ae sec p6-sec p7-ph"><div class="p6-media" aria-hidden="true"><div class="p6-slide"><img src="/photos/steps/collab-stage-poster.webp" alt="" decoding="async" style="--focus:55% 40%"></div></div><div class="p6-shade" aria-hidden="true"></div><div class="p6-dots" aria-hidden="true"></div><p class="p7-cap" aria-hidden="true">Building together, Hong Kong&nbsp;2025</p><img class="brandmk" src="/logos/arena/wordmark-ivory-1600.png" alt="" aria-hidden="true" width="1600" height="242"><div class="w"><div class="sec-g">
+ <div>
+  <p class="sec-k"><span>Part</span><b>2</b></p>
+  <h2 class="r" style="--d:.15s">We teach the part of learning <em>that AI can’t do for&nbsp;you.</em></h2>
+  <p class="sl r" style="--d:.35s">Our philosophy, the research behind it, our learning framework, and the outcomes we&nbsp;assess</p>
+ </div>
+ <ol class="trk" aria-label="Parts">
+ <li><div class="row"><span class="tn">1</span><span class="tt"><b>What families ask</b><small>The ISB parent talk</small></span></div></li>
+ <li class="on"><div class="row"><span class="tn">2</span><span class="tt"><b>How we teach</b><small>Framework and outcomes</small></span></div></li>
+ <li><div class="row"><span class="tn">3</span><span class="tt"><b>The proof</b><small>ISB AI Founders week</small></span></div></li>
+ <li><div class="row"><span class="tn">4</span><span class="tt"><b>For teachers</b><small>Ethics and comfort to build</small></span></div></li>
+ </ol>
+</div></div></section>
+
+<!-- 9 · The question -->
 <section class="s alt ae st aga-q"><div class="w">
  <p class="kick r">The question we try to answer at Arena&nbsp;School</p>
  <h2 class="r rot-h" style="--d:.1s" aria-label="When AI can do all of these in seconds, what must our students still learn to do?">When AI can <span class="rot" aria-hidden="true"><span class="rot-t"><span>draft an essay</span><span>write code</span><span>summarize an article</span><span>create a research report</span><span>design a logo</span><span>build a website</span><span>translate a speech</span><span class="fin"><span class="rot-hl">do all of these</span></span></span></span> <br>in seconds, what must our students <em>still learn to&nbsp;do?</em></h2>
 </div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
-<!-- 6 · Teaching philosophy -->
+<!-- 10 · Teaching philosophy -->
 <section class="s alt ae r13-ph p8-ph"><div class="w">
  <p class="kick r">Arena School · teaching philosophy</p>
  <h2 class="r" style="--d:.1s">Three human skills AI can’t supply.<br><em>Without them, AI does the&nbsp;thinking.</em></h2>
@@ -1471,7 +1544,7 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
  <p class="r13-end" data-s="4">This is how we teach every learner, from students to teachers and parents, <em>and the lens for today.</em></p></div>
 </div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
-<!-- 7 · Design is the difference -->
+<!-- 11 · Design is the difference -->
 <section class="s ae p8-ev7"><div class="w">
  <p class="kick r">Why the design matters · two 2025 studies</p>
  <h2 class="r" style="--d:.1s">Same AI, opposite results.<br><em>The design&nbsp;decides.</em></h2>
@@ -1494,7 +1567,7 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
  <p class="fn" data-s="1"><span>Bastani and others, PNAS, June 25, 2025: grades fell 17% once plain ChatGPT was taken away; with safeguards, the harm was “largely mitigated”; Kestin and others, Scientific Reports, June 3, 2025: 194 Harvard physics students, median learning gains more than double</span></p>
 </div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
-<!-- 8 · Learning framework · where AI comes in -->
+<!-- 12 · Learning framework · where AI comes in -->
 <section class="s ae p8-fw"><div class="w">
  <p class="kick r">The Arena School learning framework · where AI comes in</p>
  <h2 class="r" style="--d:.1s">AI helps at every step of the cycle. <em>Every decision stays with the&nbsp;learner.</em></h2>
@@ -1508,7 +1581,15 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
  </div></div>
 </div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
-<!-- 9 · Outcomes and assessment -->
+<!-- 13 · Learning outcomes -->
+<section class="s alt ae lo3-s"><div class="w">
+ <p class="kick r">Learning outcomes</p>
+ <h2 class="r" style="--d:.1s">Across every program, <em>learners will be able&nbsp;to…</em></h2>
+ <p class="lo3-sub r" style="--d:.15s">Learners are whoever a program is for: students, teachers, school leaders, or parents. The outcomes stay the same; the depth&nbsp;grows.</p>
+ <div class="bd r" style="--d:.25s"><div class="lo3-cols"><div class="lo3-c" data-s="1"><div class="lo3-h"><span class="lo3-ic"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /></svg></span><b>Inquiry and planning</b></div><ul><li>Turn a broad interest into a focused, researchable&nbsp;question.</li><li>Plan a project with milestones, and adjust the plan based on&nbsp;progress.</li></ul></div><div class="lo3-c" data-s="2"><div class="lo3-h"><span class="lo3-ic"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg></span><b>Research and evaluation</b></div><ul><li>Find, evaluate, and cite sources, including checking the accuracy of AI&nbsp;output.</li><li>Compare options against criteria, and justify a&nbsp;choice.</li><li>Explain how AI tools work, where they fail, and the bias and privacy issues they&nbsp;raise.</li></ul></div><div class="lo3-c" data-s="3"><div class="lo3-h"><span class="lo3-ic"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="M10 9H8" /><path d="M16 13H8" /><path d="M16 17H8" /></svg></span><b>Creating and communicating</b></div><ul><li>Build and test a product, prototype, or solution, deciding which steps to hand to AI and disclosing how they used&nbsp;it.</li><li>Structure an argument and write it clearly, in their own&nbsp;words.</li><li>Present to an authentic audience, and defend their reasoning under&nbsp;questioning.</li></ul></div><div class="lo3-c" data-s="4"><div class="lo3-h"><span class="lo3-ic"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" /><path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1" /></svg></span><b>Collaboration and reflection</b></div><ul><li>Work in a team, share roles, and contribute to a shared&nbsp;product.</li><li>Give and use critique from teachers and peers to revise their&nbsp;work.</li><li>Reflect on their process and on what they would do&nbsp;differently.</li></ul></div></div>
+</div></section>
+
+<!-- 14 · Outcomes and assessment -->
 <section class="s alt ae lo3-s nx-oa p8-as"><div class="w">
  <p class="kick r">Learning outcomes and assessment</p>
  <h2 class="r" style="--d:.1s">When AI can polish the product, <em>we assess the thinking behind&nbsp;it.</em></h2>
@@ -1523,22 +1604,22 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
  </div>
 </div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
-<!-- 10 · Part 2 -->
+<!-- 15 · Part 3 -->
 <section class="s ae sec p6-sec p7-ph"><div class="p6-media" aria-hidden="true"><div class="p6-slide"><img src="/photos/isb-hq/isb-pitch-gesture-1400.webp" alt="" decoding="async" style="--focus:60% 26%"></div></div><div class="p6-shade" aria-hidden="true"></div><div class="p6-dots" aria-hidden="true"></div><p class="p7-cap" aria-hidden="true">Pitching to the panel, Beijing&nbsp;2026</p><img class="brandmk" src="/logos/arena/wordmark-ivory-1600.png" alt="" aria-hidden="true" width="1600" height="242"><div class="w"><div class="sec-g">
  <div>
-  <p class="sec-k"><span>Part</span><b>2</b></p>
+  <p class="sec-k"><span>Part</span><b>3</b></p>
   <h2 class="r" style="--d:.15s">In five days, ISB students built and launched <em>working products with AI.</em></h2>
-  <p class="sl r" style="--d:.35s">The program, the week, the tools, one student’s build, and demo&nbsp;day</p>
+  <p class="sl r" style="--d:.35s">The program, the week, one student’s build, and demo&nbsp;day</p>
  </div>
  <ol class="trk" aria-label="Parts">
- <li><div class="row"><span class="tn">1</span><span class="tt"><b>Who we are</b><small>How we teach</small></span></div></li>
- <li class="on"><div class="row"><span class="tn">2</span><span class="tt"><b>The case</b><small>ISB AI Founders week</small></span></div></li>
- <li><div class="row"><span class="tn">3</span><span class="tt"><b>Build together</b><small>With the room</small></span></div></li>
- <li><div class="row"><span class="tn">4</span><span class="tt"><b>Wrap-up</b><small>Start on Monday</small></span></div></li>
+ <li><div class="row"><span class="tn">1</span><span class="tt"><b>What families ask</b><small>The ISB parent talk</small></span></div></li>
+ <li><div class="row"><span class="tn">2</span><span class="tt"><b>How we teach</b><small>Framework and outcomes</small></span></div></li>
+ <li class="on"><div class="row"><span class="tn">3</span><span class="tt"><b>The proof</b><small>ISB AI Founders week</small></span></div></li>
+ <li><div class="row"><span class="tn">4</span><span class="tt"><b>For teachers</b><small>Ethics and comfort to build</small></span></div></li>
  </ol>
 </div></div></section>
 
-<!-- 11 · The program -->
+<!-- 16 · The program -->
 <section class="s ae ac-prog"><div class="w">
  <p class="kick r">The case · ISB AI Founders Program, August 5–9, 2026</p>
  <h2 class="r" style="--d:.1s">An AI builder week for grades 7 to 12: <em>learn AI skills, start a company, build something real.</em></h2>
@@ -1553,7 +1634,7 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
  </div></div>
 </div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
-<!-- 12 · Day by day -->
+<!-- 17 · Day by day -->
 <section class="s alt ae nx-wk"><div class="w">
  <p class="kick r">The case · the structure, day by day</p>
  <h2 class="r" style="--d:.1s">Ten stages in five days, <em>and every day ends with something&nbsp;real.</em></h2>
@@ -1568,25 +1649,7 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
  </div></div>
 </div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
-<!-- 13 · The tools -->
-<section class="s alt ae hold r4c-tk" data-mk="arrive"><div class="w">
- <p class="kick r">The case · what they learn: the toolkit, by job</p>
- <h2 class="r" style="--d:.1s">Students learned 20+ AI tools in <span class="nw">five days,</span> <em>out of 200+ they could choose&nbsp;from.</em></h2>
- <div class="bd r" style="--d:.25s"><div class="mk" data-hl="ChatGPT|Claude|Gemini|Perplexity|NotebookLM|DeepSeek|Manus|Grok|Mistral|Midjourney|Ideogram|Krea|Recraft|Cursor|Lovable|Replit|v0|Windsurf|Suno|ElevenLabs|CapCut|Pika|Runway">
-  <div class="mk-low">
-   <div class="mk-map pane"><p class="lab"><b><span class="mk-n">200</span><span class="mk-plus">+</span></b> AI tools students could choose from<span class="r4c-used" data-s="1"> · <b>20+</b> they used</span></p><div class="mk-field" aria-hidden="true"></div></div>
-  </div>
-  <div class="r4c-gs" data-s="2">
-   <div class="pane r4c-grp w2" style="--j:0"><p class="lab">Research</p><span class="r4c-st">Ask and search</span><ul><li><img src="/decks/img/acamis/tools/chatgpt.png" alt=""><span>ChatGPT</span></li><li><img src="/decks/img/acamis/tools/claude.png" alt=""><span>Claude</span></li><li><img src="/decks/img/acamis/tools/gemini.png" alt=""><span>Gemini</span></li><li><img src="/decks/img/acamis/tools/perplexity.png" alt=""><span>Perplexity</span></li><li><img src="/decks/img/acamis/tools/notebooklm.png" alt=""><span>NotebookLM</span></li><li><img src="/decks/img/acamis/tools/deepseek.png" alt=""><span>DeepSeek</span></li><li><img src="/decks/img/acamis/tools/manus.png" alt=""><span>Manus</span></li><li><img src="/decks/img/acamis/tools/grok.png" alt=""><span>Grok</span></li><li><img src="/decks/img/acamis/tools/mistral.png" alt=""><span>Mistral</span></li></ul></div>
-   <div class="pane r4c-grp" style="--j:1"><p class="lab">Design</p><span class="r4c-st">Logos and art</span><ul><li><img src="/decks/img/acamis/tools/midjourney.png" alt=""><span>Midjourney</span></li><li><img src="/decks/img/acamis/tools/ideogram.png" alt=""><span>Ideogram</span></li><li><img src="/decks/img/acamis/tools/krea.png" alt=""><span>Krea</span></li><li><img src="/decks/img/acamis/tools/recraft.png" alt=""><span>Recraft</span></li></ul></div>
-   <div class="pane r4c-grp" style="--j:2"><p class="lab">Build</p><span class="r4c-st">Apps and sites</span><ul><li><img src="/decks/img/acamis/tools/cursor.png" alt=""><span>Cursor</span></li><li><img src="/decks/img/acamis/tools/lovable.png" alt=""><span>Lovable</span></li><li><img src="/decks/img/acamis/tools/replit.png" alt=""><span>Replit</span></li><li><img src="/decks/img/acamis/tools/v0.png" alt=""><span>v0</span></li><li><img src="/decks/img/acamis/tools/windsurf.png" alt=""><span>Windsurf</span></li></ul></div>
-   <div class="pane r4c-grp" style="--j:3"><p class="lab">Brand</p><span class="r4c-st">Sound and video</span><ul><li><img src="/decks/img/acamis/tools/suno.png" alt=""><span>Suno</span></li><li><img src="/decks/img/acamis/tools/elevenlabs.png" alt=""><span>ElevenLabs</span></li><li><img src="/decks/img/acamis/tools/capcut.png" alt=""><span>CapCut</span></li></ul></div>
-   <div class="pane r4c-grp" style="--j:4"><p class="lab">Launch</p><span class="r4c-st">Sell and promote</span><ul><li><img src="/decks/img/acamis/tools/stripe.png" alt=""><span>Stripe</span></li><li><img src="/decks/img/acamis/tools/pika.png" alt=""><span>Pika</span></li><li><img src="/decks/img/acamis/tools/runway.png" alt=""><span>Runway</span></li></ul></div>
-  </div>
- </div></div>
-</div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
-
-<!-- 14 · The case · Bodley Academy -->
+<!-- 18 · The case · Bodley Academy -->
 <section class="s ae nx-case p8-cs"><div class="w">
  <p class="kick r">The case · where it started: Bodley Academy, Hong Kong, summer 2025</p>
  <h2 class="r" style="--d:.1s">In five days, an 11-year-old <em>turned sign language into&nbsp;speech.</em></h2>
@@ -1597,7 +1660,7 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
  </div></div>
 </div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
-<!-- 15 · Demo day -->
+<!-- 19 · Demo day -->
 <section class="s ae"><div class="w">
  <p class="kick r">The case · demo day</p>
  <h2 class="r" style="--d:.1s">On day five, teams pitched working products <em>to judges from Harvard, Stanford, Y&nbsp;Combinator, and AI labs.</em></h2>
@@ -1609,7 +1672,7 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
  </div></div>
 </div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
-<!-- 16 · The case · how the week built each learning goal -->
+<!-- 20 · The case · how the week built each learning goal -->
 <section class="s alt ae p5-lg p8-lg"><div class="w">
  <p class="kick r">The case · how the week built each learning goal</p>
  <h2 class="r" style="--d:.1s">Every learning goal, practiced on real work<br><em>for real people, in five&nbsp;days.</em></h2>
@@ -1626,59 +1689,50 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
  </div></div>
 </div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
-<!-- 17 · Part 3 -->
-<section class="s ae sec p6-sec p7-ph"><div class="p6-media" aria-hidden="true"><div class="p6-slide"><img src="/photos/isb-2026/pitch-podium-1600.webp" alt="" decoding="async" style="--focus:62% 30%"></div></div><div class="p6-shade" aria-hidden="true"></div><div class="p6-dots" aria-hidden="true"></div><p class="p7-cap" aria-hidden="true">Walking the panel through a working build, Beijing&nbsp;2026</p><img class="brandmk" src="/logos/arena/wordmark-ivory-1600.png" alt="" aria-hidden="true" width="1600" height="242"><div class="w"><div class="sec-g">
+<!-- 21 · Part 4 -->
+<section class="s ae sec p6-sec p7-ph"><div class="p6-media" aria-hidden="true"><div class="p6-slide"><img src="/photos/isb-2026/pitch-podium-1600.webp" alt="" decoding="async" style="--focus:50% 40%"></div></div><div class="p6-shade" aria-hidden="true"></div><div class="p6-dots" aria-hidden="true"></div><p class="p7-cap" aria-hidden="true">Walking the panel through a working build, Beijing&nbsp;2026</p><img class="brandmk" src="/logos/arena/wordmark-ivory-1600.png" alt="" aria-hidden="true" width="1600" height="242"><div class="w"><div class="sec-g">
  <div>
-  <p class="sec-k"><span>Part</span><b>3</b></p>
-  <h2 class="r" style="--d:.15s">Now let’s build one together. <em>No coding&nbsp;needed.</em></h2>
-  <p class="sl r" style="--d:.35s">First what teachers already build for their own classes, then a build session with the&nbsp;room</p>
+  <p class="sec-k"><span>Part</span><b>4</b></p>
+  <h2 class="r" style="--d:.15s">Families care about AI, <em>so teachers need to know it&nbsp;too.</em></h2>
+  <p class="sl r" style="--d:.35s">Ethics and responsible use, plus the comfort to build something&nbsp;yourself</p>
  </div>
  <ol class="trk" aria-label="Parts">
- <li><div class="row"><span class="tn">1</span><span class="tt"><b>Who we are</b><small>How we teach</small></span></div></li>
- <li><div class="row"><span class="tn">2</span><span class="tt"><b>The case</b><small>ISB AI Founders week</small></span></div></li>
- <li class="on"><div class="row"><span class="tn">3</span><span class="tt"><b>Build together</b><small>With the room</small></span></div></li>
- <li><div class="row"><span class="tn">4</span><span class="tt"><b>Wrap-up</b><small>Start on Monday</small></span></div></li>
+ <li><div class="row"><span class="tn">1</span><span class="tt"><b>What families ask</b><small>The ISB parent talk</small></span></div></li>
+ <li><div class="row"><span class="tn">2</span><span class="tt"><b>How we teach</b><small>Framework and outcomes</small></span></div></li>
+ <li><div class="row"><span class="tn">3</span><span class="tt"><b>The proof</b><small>ISB AI Founders week</small></span></div></li>
+ <li class="on"><div class="row"><span class="tn">4</span><span class="tt"><b>For teachers</b><small>Ethics and comfort to build</small></span></div></li>
  </ol>
 </div></div></section>
 
-<!-- 18 · Teachers’ pain points -->
-<section class="s alt ae nx-pain p8-pn"><div class="w">
- <p class="kick r">What teachers ask us before a session</p>
- <h2 class="r" style="--d:.1s">Teachers don’t lack ideas. <em>They lack time, approved tools, and a place to&nbsp;start.</em></h2>
- <div class="bd r" style="--d:.25s"><div class="nx-pp p8-pp">
-  <div class="p8-pc" data-s="1"><div class="p8-bub"><span class="p8-bi"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg></span><b>“We have no time for more&nbsp;PD.”</b></div><p class="p8-ans"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg><span>Start from one task you already do, and make the tool in the&nbsp;session.</span></p></div>
-  <div class="p8-pc" data-s="2"><div class="p8-bub"><span class="p8-bi"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m18 16 4-4-4-4" /><path d="m6 8-4 4 4 4" /><path d="m14.5 4-5 16" /></svg></span><b>“I’m not technical. Will I keep&nbsp;up?”</b></div><p class="p8-ans"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg><span>No coding: you describe the tool in plain&nbsp;English.</span></p></div>
-  <div class="p8-pc" data-s="3"><div class="p8-bub"><span class="p8-bi"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 3v18" /><path d="m19 8 3 8a5 5 0 0 1-6 0zV7" /><path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1" /><path d="m5 8 3 8a5 5 0 0 1-6 0zV7" /><path d="M7 21h10" /></svg></span><b>“What about students using AI to&nbsp;cheat?”</b></div><p class="p8-ans"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg><span>Assess the process: drafts, reflections, and the reasons behind each&nbsp;change.</span></p></div>
-  <div class="p8-pc" data-s="4"><div class="p8-bub"><span class="p8-bi"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M10 18v-7" /><path d="M11.119 2.205a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949z" /><path d="M14 18v-7" /><path d="M18 18v-7" /><path d="M3 22h18" /><path d="M6 18v-7" /></svg></span><b>“Our school restricts tools and student&nbsp;data.”</b></div><p class="p8-ans"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg><span>Use only the tools your school approves, with no student data in&nbsp;them.</span></p></div>
- </div></div>
+<!-- 22 · Teachers need both -->
+<section class="s alt ae p15-tb"><div class="w">
+ <p class="kick r">What teachers need</p>
+ <h2 class="r" style="--d:.1s">Teachers need two things: <em>the ethics, and the comfort to&nbsp;build.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="p15-two">
+  <div class="pane p15-c" data-s="1"><div class="p15-ch"><span class="p8-ic"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 3v18" /><path d="m19 8 3 8a5 5 0 0 1-6 0zV7" /><path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1" /><path d="m5 8 3 8a5 5 0 0 1-6 0zV7" /><path d="M7 21h10" /></svg></span><b>Ethics and responsible use</b></div><ul><li>When AI use is fair, and how students disclose and cite&nbsp;it</li><li>What never goes into an AI tool: student names and&nbsp;data</li><li>How to assess the process, not only the polished&nbsp;product</li></ul></div>
+  <div class="pane p15-c" data-s="2"><div class="p15-ch"><span class="p8-ic"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m15 12-9.373 9.373a1 1 0 0 1-3.001-3L12 9" /><path d="m18 15 4-4" /><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172v-.344a2 2 0 0 0-.586-1.414l-1.657-1.657A6 6 0 0 0 12.516 3H9l1.243 1.243A6 6 0 0 1 12 8.485V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5" /></svg></span><b>Comfort to build</b></div><ul><li>Has built one small thing with AI, start to&nbsp;finish</li><li>Knows the steps students take: prompt, test, and&nbsp;fix</li><li>Can ask any student, “How did you check&nbsp;it?”</li></ul></div>
+ </div>
+ <p class="p15-end" data-s="3">Students are already using these tools. <em>The adults guiding them need to know what that looks&nbsp;like.</em></p></div>
 </div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
-<!-- 19 · AI gives teachers time back -->
-<section class="s alt ae r5b-tt p8-tt"><div class="w">
- <p class="kick r">Why teachers need AI too · EEF · Gallup</p>
- <h2 class="r" style="--d:.1s">AI gives teachers back time<br><em>to spend on their&nbsp;students.</em></h2>
- <div class="bd r" style="--d:.25s"><div class="r5b-g">
-  <div class="r5b-st p8-ts">
-   <div class="pane p8-t1" data-s="1"><div class="p8-tn"><b class="p8-num">31%</b><span>less time on lesson planning with AI in a randomized trial, with no drop in&nbsp;quality</span></div>
-    <div class="p8-pb" role="img" aria-label="Lesson planning time: without AI, the full bar; with AI, 31% shorter"><div class="p8-pr"><small>Without&nbsp;AI</small><span class="p8-pbar"></span></div><div class="p8-pr p8-pon"><small>With&nbsp;AI</small><span class="p8-pbar" style="--v:.69"></span><span class="p8-pcut">−31%</span></div></div></div>
-   <div class="pane p8-t2" data-s="2"><div class="p8-tn"><b class="p8-num">5.9<small>hours</small></b><span>saved a week by teachers who use AI weekly, about six weeks a school&nbsp;year</span></div>
-    <div class="p8-wk" role="img" aria-label="About six weeks a school year"><span><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M8 2v4" /><path d="M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /></svg></span><span><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M8 2v4" /><path d="M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /></svg></span><span><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M8 2v4" /><path d="M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /></svg></span><span><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M8 2v4" /><path d="M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /></svg></span><span><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M8 2v4" /><path d="M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /></svg></span><span><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M8 2v4" /><path d="M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /></svg></span></div></div>
+<!-- 23 · What comfortable looks like -->
+<section class="s ae aga-pa r8-pa p15-cf"><div class="w">
+ <p class="kick r">What comfortable looks like</p>
+ <h2 class="r" style="--d:.1s">You don’t need to be a master vibe coder. <em>You need to know what your students are&nbsp;doing.</em></h2>
+ <p class="r11-src r" style="--d:.18s">Vibe coding: building software by describing it to AI in plain&nbsp;English</p>
+ <div class="bd r" style="--d:.25s"><div class="shift ac-own">
+  <div class="shx" data-s="1">
+   <div class="sh-col o"><span class="hd">You don’t need to</span><ul><li>Build launch-ready&nbsp;apps</li><li>Keep up with every new&nbsp;tool</li><li>Write&nbsp;code</li></ul></div>
+   <div class="sh-arr" aria-hidden="true"><i></i></div>
+   <div class="sh-col n"><span class="hd">You do need to</span><ul><li>Build one small tool for your&nbsp;class</li><li>Know the steps students&nbsp;take</li><li>Ask about the process behind their&nbsp;work</li></ul></div>
   </div>
-  <div class="pane r5b-case" data-s="3">
-   <span class="lab">From a teacher we spoke with</span>
-   <h3>A grading timer, <em>not a&nbsp;grader</em></h3>
-   <div class="r5b-tm" aria-hidden="true"><span class="r5b-tm-l">Paper 9 of 24</span><div class="r5b-tm-bar"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="on"></i><i></i><i></i><i></i></div><b class="r5b-tm-t">4:12 / 6:00</b></div>
-   <p>An English teacher built a simple timer. It grades nothing: he still reads every paper and writes the feedback&nbsp;himself.</p>
-   <p>It gives every paper the same share of his time, and keeps his marking within a set&nbsp;limit.</p>
-   <p class="r5b-tk">AI handles the housekeeping. <em>The teacher keeps the&nbsp;judgment.</em></p>
-  </div>
- </div></div>
- <p class="fn" data-s="1"><span>EEF/NFER, randomized trial, 259 teachers in 68 schools (2024). Gallup and Walton Family Foundation (2025): weekly AI users, n=2,232, self-reported&nbsp;estimate.</span></p>
+ </div>
+ <p class="r8-note" data-s="2">Comfortable means you can follow how a student reached the outcome they present.<br><em>That’s what lets you coach it, and assess&nbsp;it.</em></p></div>
 </div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
-<!-- 20 · Tools teachers build -->
+<!-- 24 · Tools teachers build -->
 <section class="s alt ae r5b-tl"><div class="w">
- <p class="kick r">Why teachers need AI too · teachers as builders</p>
+ <p class="kick r">What comfortable looks like · teachers as builders</p>
  <h2 class="r" style="--d:.1s">Teachers don’t need to code <em>to build for their own&nbsp;class.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="r5b-two">
   <div class="pane r5b-c" data-s="1">
@@ -1700,39 +1754,24 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
  </div></div>
 </div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
-<!-- 21 · The build session -->
+<!-- 25 · Short demo -->
 <section class="s alt ae kimi3 agd-b"><div class="w">
- <p class="kick r">Build session · how the next 25 minutes run</p>
- <h2 class="r" style="--d:.1s">You bring a real school problem.<br><em>We walk through building the fix together.</em></h2>
+ <p class="kick r">Short demo · about five minutes</p>
+ <h2 class="r" style="--d:.1s">Here’s what comfortable looks like:<br><em>one sentence, one working&nbsp;tool.</em></h2>
  <div class="bd r" style="--d:.25s"><div class="case3">
-  <div class="cs pane" data-s="1"><span class="lab p10-sl">Step 1 · you name it<span class="nx-tsk nx-agency">Agency</span></span><h3>A chore or a snag</h3><p>A workflow you repeat, or a problem you keep running&nbsp;into.</p>
-   <ul class="agd-ex" aria-label="Examples from teachers"><li>“I rewrite the same parent email every&nbsp;week.”</li><li>“Tracking which students turned in&nbsp;drafts.”</li><li>“Making one reading at three&nbsp;levels.”</li></ul></div>
+  <div class="cs pane" data-s="1"><span class="lab p10-sl">Step 1 · you say it<span class="nx-tsk nx-agency">Agency</span></span><h3>One plain sentence</h3><p>A change to a classroom tool, called out by the&nbsp;room.</p>
+   <ul class="agd-ex" aria-label="Example requests"><li>“Add a Chinese version of the parent&nbsp;email.”</li><li>“Add a timer to the&nbsp;quiz.”</li></ul></div>
   <span class="cs-ar" data-s="2" aria-hidden="true">→</span>
-  <div class="cs pane" data-s="2"><span class="lab p10-sl">Step 2 · we build it<span class="nx-tsk nx-craft">Craft</span></span><h3>Claude Code writes it</h3><p>An AI tool that builds web apps from plain&nbsp;English.</p>
-   <div class="agd-cc"><div class="agd-cc-h"><img src="/logos/tools/claude.png" alt=""><b>Claude Code</b><small>by Anthropic</small></div><p class="agd-cc-p"><span>Make a page where I paste a reading and get it at three&nbsp;levels.</span></p><span class="agd-cc-o">A working web app, in&nbsp;minutes</span></div></div>
+  <div class="cs pane" data-s="2"><span class="lab p10-sl">Step 2 · AI builds it<span class="nx-tsk nx-craft">Craft</span></span><h3>Claude Code writes it</h3><p>An AI tool that builds web apps from plain&nbsp;English.</p>
+   <div class="agd-cc"><div class="agd-cc-h"><img src="/logos/tools/claude.png" alt=""><b>Claude Code</b><small>by Anthropic</small></div><p class="agd-cc-p"><span>Add a Chinese version of the parent email under the English&nbsp;one.</span></p><span class="agd-cc-o">Live in about two&nbsp;minutes</span></div></div>
   <span class="cs-ar" data-s="3" aria-hidden="true">→</span>
-  <div class="cs cs-out" data-s="3"><span class="lab p10-sl">Step 3 · we all iterate<span class="nx-tsk nx-taste">Taste</span></span><h3>Open it, then improve it</h3><p>We try it together and fix what’s off, one plain sentence at a&nbsp;time.</p>
-   <ul class="agd-ex" aria-label="Example fixes"><li>“Make the buttons&nbsp;bigger.”</li><li>“Add a column for due&nbsp;dates.”</li><li>“Use simpler words for grade&nbsp;6.”</li></ul></div>
+  <div class="cs cs-out" data-s="3"><span class="lab p10-sl">Step 3 · you check it<span class="nx-tsk nx-taste">Taste</span></span><h3>Open it on your phone</h3><p>Try it, and ask what we ask students: how did you check&nbsp;it?</p>
+   <a class="p15-qr" href="https://arenaschool.org/talks/2026-10-acamis-tech-workshop/build" target="_blank" rel="noopener"><img src="/decks/img/acamis/qr-acamis-toolbox-tight.png" alt="QR code for the Teacher Toolbox"><span><b>Teacher Toolbox</b><small>Scan to follow&nbsp;along</small></span></a></div>
  </div>
  </div>
 </div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
-<!-- 22 · Part 4 -->
-<section class="s ae sec p6-sec p7-ph"><div class="p6-media" aria-hidden="true"><div class="p6-slide"><img src="/photos/isb-hq/isb-team-podium-1400.webp" alt="" decoding="async" style="--focus:58% 30%"></div></div><div class="p6-shade" aria-hidden="true"></div><div class="p6-dots" aria-hidden="true"></div><p class="p7-cap" aria-hidden="true">A team takes the podium on demo day, Beijing&nbsp;2026</p><img class="brandmk" src="/logos/arena/wordmark-ivory-1600.png" alt="" aria-hidden="true" width="1600" height="242"><div class="w"><div class="sec-g">
- <div>
-  <p class="sec-k"><span>Part</span><b>4</b></p>
-  <h2 class="r" style="--d:.15s">Start small, <em>and start on&nbsp;Monday.</em></h2>
-  <p class="sl r" style="--d:.35s">Your role as coach, the big picture, and how we can work&nbsp;together</p>
- </div>
- <ol class="trk" aria-label="Parts">
- <li><div class="row"><span class="tn">1</span><span class="tt"><b>Who we are</b><small>How we teach</small></span></div></li>
- <li><div class="row"><span class="tn">2</span><span class="tt"><b>The case</b><small>ISB AI Founders week</small></span></div></li>
- <li><div class="row"><span class="tn">3</span><span class="tt"><b>Build together</b><small>With the room</small></span></div></li>
- <li class="on"><div class="row"><span class="tn">4</span><span class="tt"><b>Wrap-up</b><small>Start on Monday</small></span></div></li>
- </ol>
-</div></div></section>
-
-<!-- 23 · Your role, and three questions -->
+<!-- 26 · Your role, and three questions -->
 <section class="s alt ae agC agC-co p8-co"><div class="w">
  <p class="kick r">What students need from teachers · try this on Monday</p>
  <h2 class="r" style="--d:.1s">Your role becomes the coach, <em>and three questions do the coaching.</em></h2>
@@ -1750,22 +1789,22 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
  </div></div>
 </div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
-<!-- 24 · The big picture -->
+<!-- 27 · The big picture -->
 <section class="s ae cl age-cl p5-gs p6-gs p8-gsx"><div class="w">
  <p class="kick r">The big picture</p>
  <h2 class="r" style="--d:.1s">AI can do the making.<br><em>The thinking is still ours to&nbsp;teach.</em></h2>
  <div class="bd r" style="--d:.25s">
   <ol class="c3x p8-c3x">
-   <li data-s="1"><span class="p8-node"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 3v18" /><path d="m19 8 3 8a5 5 0 0 1-6 0zV7" /><path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1" /><path d="m5 8 3 8a5 5 0 0 1-6 0zV7" /><path d="M7 21h10" /></svg></span><i>1</i><b>Design decides</b><span>Same AI, opposite results. Learners choose, judge, and&nbsp;finish.</span></li>
-   <li data-s="2"><span class="p8-node"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2 3h20" /><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3" /><path d="m7 21 5-5 5 5" /></svg></span><i>2</i><b>Students can ship</b><span>Live products in five days, with no coding&nbsp;background.</span></li>
-   <li data-s="3"><span class="p8-node"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m15 12-9.373 9.373a1 1 0 0 1-3.001-3L12 9" /><path d="m18 15 4-4" /><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172v-.344a2 2 0 0 0-.586-1.414l-1.657-1.657A6 6 0 0 0 12.516 3H9l1.243 1.243A6 6 0 0 1 12 8.485V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5" /></svg></span><i>3</i><b>Teachers can build</b><span>Tools for your own class, described in plain&nbsp;English.</span></li>
-   <li data-s="4"><span class="p8-node"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M8 2v4" /><path d="M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /></svg></span><i>4</i><b>Start on Monday</b><span>One tool, one class, and three&nbsp;questions.</span></li>
+   <li data-s="1"><span class="p8-node"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg></span><i>1</i><b>Families care</b><span>Parents see AI as a life skill, and they ask what children&nbsp;practice.</span></li>
+   <li data-s="2"><span class="p8-node"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 3v18" /><path d="m19 8 3 8a5 5 0 0 1-6 0zV7" /><path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1" /><path d="m5 8 3 8a5 5 0 0 1-6 0zV7" /><path d="M7 21h10" /></svg></span><i>2</i><b>Design decides</b><span>Same AI, opposite results. Learners choose, judge, and&nbsp;finish.</span></li>
+   <li data-s="3"><span class="p8-node"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2 3h20" /><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3" /><path d="m7 21 5-5 5 5" /></svg></span><i>3</i><b>Students can ship</b><span>Live products in five days, with no coding&nbsp;background.</span></li>
+   <li data-s="4"><span class="p8-node"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m15 12-9.373 9.373a1 1 0 0 1-3.001-3L12 9" /><path d="m18 15 4-4" /><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172v-.344a2 2 0 0 0-.586-1.414l-1.657-1.657A6 6 0 0 0 12.516 3H9l1.243 1.243A6 6 0 0 1 12 8.485V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5" /></svg></span><i>4</i><b>Teachers need both</b><span>The ethics, and enough comfort to build one small&nbsp;tool.</span></li>
   </ol>
-  <div class="endline age-end" data-s="5"><p>You don’t need to code. <span class="nw">You already know how to coach.</span></p></div>
+  <div class="endline age-end" data-s="5"><p>You don’t need to be a master vibe coder. <span class="nw">You already know how to coach.</span></p></div>
  </div>
 </div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
-<!-- 25 · Let’s work together -->
+<!-- 28 · Let’s work together -->
 <section class="s alt ae p5-ct p10-ct p13-ct"><div class="w">
  <p class="kick r">Thank you · questions welcome</p>
  <h2 class="r" style="--d:.1s">Let’s build this at your school.<br><em>We’d love to work with&nbsp;you.</em></h2>
@@ -1777,7 +1816,60 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
  </div></div>
 </div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
 
-<!-- 26 · Backup · Framework wheel -->
+<!-- 29 · Backup · The tools -->
+<section class="s alt ae hold r4c-tk" data-mk="arrive"><div class="w">
+ <p class="kick r">Backup · The case · what they learn: the toolkit, by job</p>
+ <h2 class="r" style="--d:.1s">Students learned 20+ AI tools in <span class="nw">five days,</span> <em>out of 200+ they could choose&nbsp;from.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="mk" data-hl="ChatGPT|Claude|Gemini|Perplexity|NotebookLM|DeepSeek|Manus|Grok|Mistral|Midjourney|Ideogram|Krea|Recraft|Cursor|Lovable|Replit|v0|Windsurf|Suno|ElevenLabs|CapCut|Pika|Runway">
+  <div class="mk-low">
+   <div class="mk-map pane"><p class="lab"><b><span class="mk-n">200</span><span class="mk-plus">+</span></b> AI tools students could choose from<span class="r4c-used" data-s="1"> · <b>20+</b> they used</span></p><div class="mk-field" aria-hidden="true"></div></div>
+  </div>
+  <div class="r4c-gs" data-s="2">
+   <div class="pane r4c-grp w2" style="--j:0"><p class="lab">Research</p><span class="r4c-st">Ask and search</span><ul><li><img src="/decks/img/acamis/tools/chatgpt.png" alt=""><span>ChatGPT</span></li><li><img src="/decks/img/acamis/tools/claude.png" alt=""><span>Claude</span></li><li><img src="/decks/img/acamis/tools/gemini.png" alt=""><span>Gemini</span></li><li><img src="/decks/img/acamis/tools/perplexity.png" alt=""><span>Perplexity</span></li><li><img src="/decks/img/acamis/tools/notebooklm.png" alt=""><span>NotebookLM</span></li><li><img src="/decks/img/acamis/tools/deepseek.png" alt=""><span>DeepSeek</span></li><li><img src="/decks/img/acamis/tools/manus.png" alt=""><span>Manus</span></li><li><img src="/decks/img/acamis/tools/grok.png" alt=""><span>Grok</span></li><li><img src="/decks/img/acamis/tools/mistral.png" alt=""><span>Mistral</span></li></ul></div>
+   <div class="pane r4c-grp" style="--j:1"><p class="lab">Design</p><span class="r4c-st">Logos and art</span><ul><li><img src="/decks/img/acamis/tools/midjourney.png" alt=""><span>Midjourney</span></li><li><img src="/decks/img/acamis/tools/ideogram.png" alt=""><span>Ideogram</span></li><li><img src="/decks/img/acamis/tools/krea.png" alt=""><span>Krea</span></li><li><img src="/decks/img/acamis/tools/recraft.png" alt=""><span>Recraft</span></li></ul></div>
+   <div class="pane r4c-grp" style="--j:2"><p class="lab">Build</p><span class="r4c-st">Apps and sites</span><ul><li><img src="/decks/img/acamis/tools/cursor.png" alt=""><span>Cursor</span></li><li><img src="/decks/img/acamis/tools/lovable.png" alt=""><span>Lovable</span></li><li><img src="/decks/img/acamis/tools/replit.png" alt=""><span>Replit</span></li><li><img src="/decks/img/acamis/tools/v0.png" alt=""><span>v0</span></li><li><img src="/decks/img/acamis/tools/windsurf.png" alt=""><span>Windsurf</span></li></ul></div>
+   <div class="pane r4c-grp" style="--j:3"><p class="lab">Brand</p><span class="r4c-st">Sound and video</span><ul><li><img src="/decks/img/acamis/tools/suno.png" alt=""><span>Suno</span></li><li><img src="/decks/img/acamis/tools/elevenlabs.png" alt=""><span>ElevenLabs</span></li><li><img src="/decks/img/acamis/tools/capcut.png" alt=""><span>CapCut</span></li></ul></div>
+   <div class="pane r4c-grp" style="--j:4"><p class="lab">Launch</p><span class="r4c-st">Sell and promote</span><ul><li><img src="/decks/img/acamis/tools/stripe.png" alt=""><span>Stripe</span></li><li><img src="/decks/img/acamis/tools/pika.png" alt=""><span>Pika</span></li><li><img src="/decks/img/acamis/tools/runway.png" alt=""><span>Runway</span></li></ul></div>
+  </div>
+ </div></div>
+</div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
+
+<!-- 30 · Backup · Teachers’ pain points -->
+<section class="s alt ae nx-pain p8-pn"><div class="w">
+ <p class="kick r">Backup · What teachers ask us before a session</p>
+ <h2 class="r" style="--d:.1s">Teachers don’t lack ideas. <em>They lack time, approved tools, and a place to&nbsp;start.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="nx-pp p8-pp">
+  <div class="p8-pc" data-s="1"><div class="p8-bub"><span class="p8-bi"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg></span><b>“We have no time for more&nbsp;PD.”</b></div><p class="p8-ans"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg><span>Start from one task you already do, and make the tool in the&nbsp;session.</span></p></div>
+  <div class="p8-pc" data-s="2"><div class="p8-bub"><span class="p8-bi"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m18 16 4-4-4-4" /><path d="m6 8-4 4 4 4" /><path d="m14.5 4-5 16" /></svg></span><b>“I’m not technical. Will I keep&nbsp;up?”</b></div><p class="p8-ans"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg><span>No coding: you describe the tool in plain&nbsp;English.</span></p></div>
+  <div class="p8-pc" data-s="3"><div class="p8-bub"><span class="p8-bi"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 3v18" /><path d="m19 8 3 8a5 5 0 0 1-6 0zV7" /><path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1" /><path d="m5 8 3 8a5 5 0 0 1-6 0zV7" /><path d="M7 21h10" /></svg></span><b>“What about students using AI to&nbsp;cheat?”</b></div><p class="p8-ans"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg><span>Assess the process: drafts, reflections, and the reasons behind each&nbsp;change.</span></p></div>
+  <div class="p8-pc" data-s="4"><div class="p8-bub"><span class="p8-bi"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M10 18v-7" /><path d="M11.119 2.205a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949z" /><path d="M14 18v-7" /><path d="M18 18v-7" /><path d="M3 22h18" /><path d="M6 18v-7" /></svg></span><b>“Our school restricts tools and student&nbsp;data.”</b></div><p class="p8-ans"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg><span>Use only the tools your school approves, with no student data in&nbsp;them.</span></p></div>
+ </div></div>
+</div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
+
+<!-- 31 · Backup · AI gives teachers time back -->
+<section class="s alt ae r5b-tt p8-tt"><div class="w">
+ <p class="kick r">Backup · Why teachers need AI too · EEF · Gallup</p>
+ <h2 class="r" style="--d:.1s">AI gives teachers back time<br><em>to spend on their&nbsp;students.</em></h2>
+ <div class="bd r" style="--d:.25s"><div class="r5b-g">
+  <div class="r5b-st p8-ts">
+   <div class="pane p8-t1" data-s="1"><div class="p8-tn"><b class="p8-num">31%</b><span>less time on lesson planning with AI in a randomized trial, with no drop in&nbsp;quality</span></div>
+    <div class="p8-pb" role="img" aria-label="Lesson planning time: without AI, the full bar; with AI, 31% shorter"><div class="p8-pr"><small>Without&nbsp;AI</small><span class="p8-pbar"></span></div><div class="p8-pr p8-pon"><small>With&nbsp;AI</small><span class="p8-pbar" style="--v:.69"></span><span class="p8-pcut">−31%</span></div></div></div>
+   <div class="pane p8-t2" data-s="2"><div class="p8-tn"><b class="p8-num">5.9<small>hours</small></b><span>saved a week by teachers who use AI weekly, about six weeks a school&nbsp;year</span></div>
+    <div class="p8-wk" role="img" aria-label="About six weeks a school year"><span><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M8 2v4" /><path d="M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /></svg></span><span><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M8 2v4" /><path d="M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /></svg></span><span><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M8 2v4" /><path d="M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /></svg></span><span><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M8 2v4" /><path d="M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /></svg></span><span><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M8 2v4" /><path d="M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /></svg></span><span><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M8 2v4" /><path d="M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /></svg></span></div></div>
+  </div>
+  <div class="pane r5b-case" data-s="3">
+   <span class="lab">From a teacher we spoke with</span>
+   <h3>A grading timer, <em>not a&nbsp;grader</em></h3>
+   <div class="r5b-tm" aria-hidden="true"><span class="r5b-tm-l">Paper 9 of 24</span><div class="r5b-tm-bar"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="on"></i><i></i><i></i><i></i></div><b class="r5b-tm-t">4:12 / 6:00</b></div>
+   <p>An English teacher built a simple timer. It grades nothing: he still reads every paper and writes the feedback&nbsp;himself.</p>
+   <p>It gives every paper the same share of his time, and keeps his marking within a set&nbsp;limit.</p>
+   <p class="r5b-tk">AI handles the housekeeping. <em>The teacher keeps the&nbsp;judgment.</em></p>
+  </div>
+ </div></div>
+ <p class="fn" data-s="1"><span>EEF/NFER, randomized trial, 259 teachers in 68 schools (2024). Gallup and Walton Family Foundation (2025): weekly AI users, n=2,232, self-reported&nbsp;estimate.</span></p>
+</div><img class="brandmk p11-bm" src="/logos/arena/wordmark-navy-1600.png" alt="" aria-hidden="true" width="1600" height="242"></section>
+
+<!-- 32 · Backup · Framework wheel -->
 <section class="s ae fx-s"><div class="w">
  <p class="kick r">Backup · the learning framework as a wheel</p>
  <h2 class="r" style="--d:.1s">Learners do the thinking, AI is a tool, <em>and teachers and peers give the&nbsp;feedback.</em></h2>
@@ -1790,15 +1882,7 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
  </div></div>
 </div></section>
 
-<!-- 27 · Backup · All learning outcomes -->
-<section class="s alt ae lo3-s"><div class="w">
- <p class="kick r">Backup · all learning outcomes</p>
- <h2 class="r" style="--d:.1s">Across every program, <em>learners will be able&nbsp;to…</em></h2>
- <p class="lo3-sub r" style="--d:.15s">Learners are whoever a program is for: students, teachers, school leaders, or parents. The outcomes stay the same; the depth&nbsp;grows.</p>
- <div class="bd r" style="--d:.25s"><div class="lo3-cols"><div class="lo3-c" data-s="1"><div class="lo3-h"><span class="lo3-ic"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /></svg></span><b>Inquiry and planning</b></div><ul><li>Turn a broad interest into a focused, researchable&nbsp;question.</li><li>Plan a project with milestones, and adjust the plan based on&nbsp;progress.</li></ul></div><div class="lo3-c" data-s="2"><div class="lo3-h"><span class="lo3-ic"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg></span><b>Research and evaluation</b></div><ul><li>Find, evaluate, and cite sources, including checking the accuracy of AI&nbsp;output.</li><li>Compare options against criteria, and justify a&nbsp;choice.</li><li>Explain how AI tools work, where they fail, and the bias and privacy issues they&nbsp;raise.</li></ul></div><div class="lo3-c" data-s="3"><div class="lo3-h"><span class="lo3-ic"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="M10 9H8" /><path d="M16 13H8" /><path d="M16 17H8" /></svg></span><b>Creating and communicating</b></div><ul><li>Build and test a product, prototype, or solution, deciding which steps to hand to AI and disclosing how they used&nbsp;it.</li><li>Structure an argument and write it clearly, in their own&nbsp;words.</li><li>Present to an authentic audience, and defend their reasoning under&nbsp;questioning.</li></ul></div><div class="lo3-c" data-s="4"><div class="lo3-h"><span class="lo3-ic"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" /><path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1" /></svg></span><b>Collaboration and reflection</b></div><ul><li>Work in a team, share roles, and contribute to a shared&nbsp;product.</li><li>Give and use critique from teachers and peers to revise their&nbsp;work.</li><li>Reflect on their process and on what they would do&nbsp;differently.</li></ul></div></div>
-</div></section>
-
-<!-- 28 · Backup · Assessment rubric -->
+<!-- 33 · Backup · Assessment rubric -->
 <section class="s ae rb-s"><div class="w">
  <p class="kick r">Backup · the assessment rubric</p>
  <h2 class="r" style="--d:.1s">We assess the process, <em>not only the&nbsp;product.</em></h2>
@@ -1814,7 +1898,7 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
  </div>
 </div></section>
 
-<!-- 29 · Backup · Programs map -->
+<!-- 34 · Backup · Programs map -->
 <section class="s alt ae nx-map"><div class="w">
  <p class="kick r">Backup · one framework, three kinds of program</p>
  <h2 class="r" style="--d:.1s">The same framework runs every program. <em>The learner and the output&nbsp;change.</em></h2>
@@ -1827,7 +1911,7 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
  </div></div>
 </div></section>
 
-<!-- 30 · Backup · What the week trained -->
+<!-- 35 · Backup · What the week trained -->
 <section class="s ae agC agC-sk"><div class="w">
  <p class="kick r">Backup · looking back on the week</p>
  <h2 class="r" style="--d:.1s">The ISB week gave each skill<br><em>a moment students couldn’t&nbsp;skip.</em></h2>
@@ -1853,20 +1937,7 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
  </ol></div>
 </div></section>
 
-<!-- 31 · Backup · Build session loop -->
-<section class="s ae nx-loop"><div class="w">
- <p class="kick r">Backup · the build session as the framework loop</p>
- <h2 class="r" style="--d:.1s">The build session runs the same loop <em>students ran all&nbsp;week.</em></h2>
- <div class="bd r" style="--d:.25s"><div class="nx-lpw"><ol class="nx-lp nx-lp2">
-  <li class="pane" data-s="1"><span class="nx-li"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></svg></span><span class="nx-lk"><i>01</i>Inquiry and planning</span><b>You name it</b><p>A chore, and who the fix is&nbsp;for.</p><small>Agency</small></li>
-  <li class="pane" data-s="2"><span class="nx-li"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m18 16 4-4-4-4" /><path d="m6 8-4 4 4 4" /><path d="m14.5 4-5 16" /></svg></span><span class="nx-lk"><i>02</i>Creating and communicating</span><b>We describe it</b><p>To Claude Code, in plain&nbsp;English.</p><small>Craft</small></li>
-  <li class="pane" data-s="3"><span class="nx-li"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m8 11 2 2 4-4" /><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg></span><span class="nx-lk"><i>03</i>Research and evaluation</span><b>We test it</b><p>Does it solve the problem for&nbsp;you?</p><small>Taste</small></li>
-  <li class="pane" data-s="4"><span class="nx-li"><svg class="lic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" /><path d="M21 3v5h-5" /><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" /><path d="M8 16H3v5" /></svg></span><span class="nx-lk"><i>04</i>Collaboration and reflection</span><b>We revise it</b><p>Together, one plain sentence at a&nbsp;time.</p><small>Craft</small></li>
- </ol>
-  <div class="nx-lpb" data-s="4" aria-hidden="true"><span>Repeat until it’s good enough to use on&nbsp;Monday</span></div></div></div>
-</div></section>
-
-<!-- 32 · Backup · Where AI helps -->
+<!-- 36 · Backup · Where AI helps -->
 <section class="s alt ae nx-help"><div class="w">
  <p class="kick r">Backup · where AI helps</p>
  <h2 class="r" style="--d:.1s">Used well, AI gives every learner <em>more time for the&nbsp;thinking.</em></h2>
@@ -1877,7 +1948,7 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
  </div></div>
 </div></section>
 
-<!-- 33 · Backup · Founders -->
+<!-- 37 · Backup · Founders -->
 <section class="s ae nx-bio"><div class="w">
  <p class="kick r">Backup · the founders of Arena School</p>
  <h2 class="r" style="--d:.1s">We build programs from inside schools, <em>and from inside the AI&nbsp;industry.</em></h2>
@@ -1887,22 +1958,7 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
  </div></div>
 </div></section>
 
-<!-- 34 · Backup · What parents asked -->
-<section class="s alt ae aga-pa r8-pa"><div class="w">
- <p class="kick r">Backup · why parents care</p>
- <h2 class="r" style="--d:.1s">Parents are asking one practical question:<br><em>which skills will outlast the&nbsp;tools?</em></h2>
- <p class="r11-src r" style="--d:.18s">From surveying parents in the ISB community and other local communities in mainland&nbsp;China</p>
- <div class="bd r" style="--d:.25s"><div class="shift ac-own">
-  <div class="shx" data-s="1">
-   <div class="sh-col o"><span class="hd">What parents care about</span><ul><li>Which skills last as the tools change?</li><li>Will AI do the thinking for my child?</li><li>What should my child practice now?</li></ul></div>
-   <div class="sh-arr" aria-hidden="true"><i></i></div>
-   <div class="sh-col n"><span class="hd">What you can tell them after today</span><ul><li>Three skills outlast any tool</li><li>Used well, AI deepens thinking</li><li>Real products, in five days</li></ul></div>
-  </div>
- </div>
- <p class="r8-note" data-s="2">Parents don’t see AI as an academic subject, like learning to code.<br><em>They see it as a life skill: optional for many jobs today, and likely non-negotiable by the time their children start&nbsp;working.</em></p></div>
-</div></section>
-
-<!-- 35 · Backup · Is it cheating? -->
+<!-- 38 · Backup · Is it cheating? -->
 <section class="s ae agC agC-ch"><div class="w">
  <p class="kick r">Backup · is using AI just cheating?</p>
  <h2 class="r" style="--d:.1s">No. AI tools write the code,<br><em>and students make every decision.</em></h2>
@@ -1915,7 +1971,7 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
  </div></div>
 </div></section>
 
-<!-- 36 · Backup · What it takes -->
+<!-- 39 · Backup · What it takes -->
 <section class="s ae age-own"><div class="w">
  <p class="kick r">Backup · planning checklist</p>
  <h2 class="r" style="--d:.1s">Your school already owns most of this. <em>Arena School can help with the&nbsp;rest.</em></h2>
