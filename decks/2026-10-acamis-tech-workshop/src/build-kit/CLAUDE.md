@@ -10,8 +10,8 @@ A room of teachers is watching this screen. They call out a feature or a new too
 1. **Decide:** is it a change to an existing tool, or a new tool? If it's unclear, pick the closest existing tool.
 2. **Change a tool:** edit `BUILD/<slug>/index.html`. Keep what works; change only what was asked.
 3. **New tool:** pick a short slug, copy `template.html` (in this folder) to `BUILD/<slug>/index.html`, and build the tool in it. Then add an entry to the end of `BUILD/tools.json`: `{"slug": "...", "name": "...", "what": "one line", "by": "room"}`.
-4. **Log it:** append one line to `BUILD/changes.txt`, in the form `HH:MM|the room's request in their words (max 12 words)|what changed (max 12 words)|slug`. Use the current local time.
-5. **Ship it:** run `./ship.sh "short summary"`. It pushes and waits until the change is live, then prints LIVE. If it says "still deploying", that's fine; say so.
+4. **Log it:** use the Edit tool (not the shell) to append one line to `BUILD/changes.txt`, in the form `HH:MM|the room's request in their words (max 12 words)|what changed (max 12 words)|slug`. Use the current local time.
+5. **Ship it:** run exactly `./ship.sh "short summary"` as its own command, from this folder. Never `cd` anywhere and never chain it with `&&`. It pushes and waits until the change is live, then prints LIVE. If it says "still deploying", that's fine; say so.
 6. **Reply** in at most three short lines: what changed in plain English, the tool's live link (`https://arenaschool.org/talks/2026-10-acamis-tech-workshop/build/<slug>`), and "Next idea:" with one improvement the room could ask for.
 
 ## Rules for every tool
@@ -20,4 +20,4 @@ A room of teachers is watching this screen. They call out a feature or a new too
 - **No AI and no network calls inside a tool.** Use templates, rules, or lists the teacher can edit.
 - **Made-up names only** ("Student A", "Ms. Rivera"); never real student data. Save work in `localStorage` and add a Clear button.
 - Big readable text, one job per tool, and it must work on a phone (most of the room is on one).
-- Don't run git yourself (`ship.sh` does it), and don't write tests, plans, or READMEs.
+- Don't run git yourself (`ship.sh` does it), don't `cd` (use paths), and don't write tests, plans, or READMEs.
