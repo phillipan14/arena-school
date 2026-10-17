@@ -9,7 +9,7 @@ git add "$B"
 git -c user.name="ACAMIS live build" -c user.email="jingjing@arenaschool.org" commit -q -m "ACAMIS live build: ${1:-update}" || { echo "Nothing new to ship."; exit 0; }
 ok=0
 for i in 1 2 3; do
-  git pull -q --rebase origin main && git push -q origin HEAD:main && { ok=1; break; }
+  git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && { ok=1; break; }
   sleep 2
 done
 [ $ok = 1 ] || { echo "PUSH FAILED: check the network, then run ./ship.sh again."; exit 1; }
