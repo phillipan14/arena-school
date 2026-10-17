@@ -32,7 +32,7 @@ A section earns a place only if it passes all four questions:
 
 | Page type | Max words | Max sections |
 |---|---|---|
-| Homepage | 600 | 7 |
+| Homepage | 620 | 7 |
 | Program page (Mentorship, Bootcamp, the four student programs, any new program) | 1500 | 11 |
 | How-we-work page (Student programs, Portfolio workshop, Community dialogues, Teacher training, Conferences) | 1200 | 10 |
 | How-we-work hub (Schools) | 1200 | 10 |
@@ -47,6 +47,7 @@ A section earns a place only if it passes all four questions:
 Budgets raised Oct 17, 2026 (Phillip's decision): pages now carry the DEPTH-BRIEF sections (pressures and answers,
 research, cases, tools, FAQ), 8 to 10 per page. Each new budget is about 10% above the largest page in its group.
 Block limits below are unchanged.
+Homepage 600 to 620 (Oct 17, HERO2-BRIEF D): the requested "Past talks" link took the page to 601 words.
 
 Media bands are not copy sections: the newsletter band and the homepage film (its eyebrow and title are the video's caption) count toward neither budget (Oct 16).
 

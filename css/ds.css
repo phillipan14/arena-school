@@ -312,3 +312,34 @@ html body main .ap-fw-lists .is-goals li > span b { font-weight: 600; color: var
 html body main .ap-fw-lists .is-goals li { align-items: flex-start; padding-block: var(--space-2); }
 html body main .ap-fw-lists .is-goals li > svg { margin-top: 2px; }
 html body main .ap-fw-more { display: inline-block; margin-top: var(--space-4); }
+
+/* Past talks page (HERO2-BRIEF D): filter chips, session cards (cover slide, date, title, where, facts, links), up next */
+html body main .pt-chips { display: flex; flex-wrap: wrap; gap: var(--space-2); margin: 0 0 var(--space-6); }
+html body main .pt-chip { min-height: var(--tap); padding: 0 var(--space-4); border: 1px solid var(--pro-line-2); border-radius: var(--radius-ctl); background: var(--pro-bg);
+  font: 500 var(--text-sm)/1 'Geist', system-ui, sans-serif; color: var(--pro-soft); cursor: pointer; }
+html body main .pt-chip[aria-pressed="true"] { border-color: var(--pro-ink); background: var(--pro-ink); color: #fff; }
+html body main .pt-chip:focus-visible { outline: 2px solid var(--pro-action); outline-offset: 2px; }
+html body main .pt-list { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--space-5); }
+html body main .pt-card { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--space-6); padding: var(--space-5); align-items: start; }
+html body main .pt-card:not(:has(.pt-fig)) { grid-template-columns: 1fr; }
+html body main .pt-card[hidden] { display: none; }
+html body main .pt-fig { margin: 0; border-radius: var(--radius-card); overflow: hidden; border: var(--hairline); }
+html body main .pt-fig img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+html body main .pt-body { display: flex; flex-direction: column; gap: var(--space-2); }
+html body main .pt-date { font: 600 var(--text-sm)/1.3 'Geist', system-ui, sans-serif; color: var(--pro-ink); }
+html body main .pt-card h3 { margin: 0; font: 500 var(--text-lg)/1.3 'Newsreader', Georgia, serif; color: var(--pro-ink); }
+html body main .pt-where { margin: 0; font-size: var(--text-sm); color: var(--pro-soft); }
+html body main .pt-card dl { margin: var(--space-2) 0 0; padding-top: var(--space-3); border-top: var(--hairline); display: grid; grid-template-columns: auto 1fr; gap: var(--space-2) var(--space-4); font-size: var(--text-sm); }
+html body main .pt-card dt { font-size: var(--text-xs); letter-spacing: .1em; text-transform: uppercase; color: var(--pro-soft); padding-top: 2px; }
+html body main .pt-card dd { margin: 0; color: var(--pro-ink); }
+html body main .pt-links { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); margin: var(--space-2) 0 0; }
+html body main .pt-next { margin-top: var(--space-7); padding: var(--space-5) var(--space-6); border-left: 2px solid var(--pro-action); background: var(--pro-tint); border-radius: 0 var(--radius-card) var(--radius-card) 0; }
+html body main .pt-next p { margin: var(--space-2) 0; font-size: var(--text-sm); color: var(--pro-soft); }
+html body main .pt-next h3 { margin: 0 0 var(--space-2); font: 500 var(--text-lg)/1.3 'Newsreader', Georgia, serif; color: var(--pro-ink); }
+html body main .pt-cta { margin-top: var(--space-6); }
+@media (max-width: 760px) {
+  html body main .pt-card { grid-template-columns: 1fr; gap: var(--space-4); padding: var(--space-4); }
+  html body main .pt-chip { flex: 1 1 auto; }
+}
+/* homepage "Upcoming programs and sessions" header: a right-aligned Past talks link */
+html body main .hp-next .ds-head .pt-past { justify-self: end; align-self: end; white-space: nowrap; }

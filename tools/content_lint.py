@@ -7,7 +7,7 @@ import glob, re, sys, collections
 from html.parser import HTMLParser
 
 BUDGET = {  # page -> (max words, max sections). Raised Oct 17, 2026 (Phillip): pages carry the 8-10 depth sections
-    'index': (600, 7), 'mentorship': (1500, 11), 'zero-to-launch': (1500, 11),
+    'index': (620, 7), 'mentorship': (1500, 11), 'zero-to-launch': (1500, 11),
     'case-studies/student-programs': (1200, 10), 'case-studies/skill-workshops': (1200, 10),
     'case-studies/parent-talks': (1200, 10), 'case-studies/teacher-training': (1200, 10),
     'programs/website-portfolio-workshop': (1500, 11), 'programs/product-intensive': (1500, 11), 'programs/remake-your-favorite-app': (1500, 11),

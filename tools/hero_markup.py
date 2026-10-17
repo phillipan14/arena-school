@@ -88,6 +88,7 @@ PAGES = {
     'approach': (['hands', 'gesture'], H1, None),
     'learning-approach': (['mentors', 'duo'], H1_LONG, None),
     'results': (['duo', 'gesture', 'hands'], H1, None),
+    'past-talks': (['gesture', 'mentors'], H1, None),
     'partnerships': (['hands', 'duo'], H1, None),
     'contact': (['mentors', 'duo'], H1, 'The Arena team, smiling, ready to talk (a team photo)'),
 }
