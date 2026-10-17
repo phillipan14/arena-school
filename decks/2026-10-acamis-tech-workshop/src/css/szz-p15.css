@@ -38,9 +38,34 @@
 .p15-qr small{font:400 18px/1.3 var(--sans,system-ui);color:var(--muted)}
 .p15-ths{align-items:stretch}
 .ae.p15-hi .bd,.ae.p15-tb .bd{justify-content:flex-start}
-.ae.p15-tb h2{min-height:0!important}
+
 .p15-ths{flex:none}
 .ae.p15-pt .bd{justify-content:center}
 .p15-qr img{width:88px;height:88px}
 .ae.p15-pt .bd>.p15-ths{flex:none!important}
 .ae.p15-hi .bd,.ae.p15-tb .bd{justify-content:center}
+
+/* r16 (JJ notes, Oct 17 evening) */
+/* Part dividers: no subtitle; title sits low, just above the part tracker */
+.p6-sec .sec-g{justify-content:flex-end;gap:84px}
+/* slide 10: cards hug their content now that the closing line is gone */
+.ae.p8-ph .bd{justify-content:center}
+.ae.p8-ph .bd>*{flex:none!important}
+/* slide 20: closing line spans the full width */
+.ae.p8-lg .bd p.p8-end{padding-left:0;margin-top:22px}
+/* slide 23: the light column gets the pane border it was missing */
+.ae.p15-cf .bd .ac-own .sh-col.o{background:var(--paper-hi);box-shadow:inset 0 0 0 1px var(--edge)}
+/* slide 28: three pillars fill the row */
+.ae.p13-ct .bd .p13-pg{grid-template-columns:repeat(3,minmax(0,1fr))}
+.p6-sec .sec-g .trk{margin-top:0!important}
+.ae.p8-gsx .bd{gap:36px}
+.ae.cl.age-cl.p8-gsx .bd .age-end{padding-top:30px}
+.ae.p8-gsx .bd{gap:24px}
+.ae.cl.age-cl.p8-gsx .bd .age-end{padding-top:24px}
+section.s.age-cl.p8-gsx .bd .age-end p{font-size:33px}
+/* slide 25 pills: one padding for all three (trailing letter-spacing compensated) */
+.ae.agd-b .bd .p10-sl .nx-tsk,.ae.agd-b .bd .p10-sl .nx-tsk.nx-craft,.ae.agd-b .bd .p10-sl .nx-tsk.nx-taste{padding:5px calc(10px - .14em) 4px 10px}
+/* slide 12: cards hug their content (no empty band at the bottom) */
+.ae.p8-fw .bd .p8-cy{align-items:center}
+.ae.p8-fw .bd .p8-cc{padding:17.1px 22px 14.9px}
+.ae.p13-ct .bd .p14-ct{padding-top:.75px;padding-bottom:0}
