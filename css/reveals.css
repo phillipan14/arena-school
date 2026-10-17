@@ -73,8 +73,13 @@
 /* index v4: one line, items sized to their text; cards (bootcamp) keep a two-column grid */
 .wr-idx { display: flex !important; flex-wrap: wrap; gap: 8px 26px !important; white-space: nowrap; }
 .wr-idx li { flex: none; }
-.pg-outs .wr-idx { display: grid !important; grid-template-columns: 1fr 1fr; gap: 8px 16px !important; white-space: normal; }
-@media (max-width: 600px) { .wr-idx { flex-wrap: wrap; row-gap: 8px !important; white-space: normal; } }
+/* index v5: every card uses the same flowing row (dot, then a one-line label), so no orphan tile and no
+   uneven heights; the items inside .pg-outs cards must not inherit the card's own li styles (pages.css) */
+.pg-outs .wr-idx { gap: 8px 20px !important; }
+.pg-outs .wr-idx li { display: inline-flex; flex-direction: row; align-items: center; gap: 0; padding: 0; border: 0; border-radius: 0; background: none; box-shadow: none; text-align: left; }
+.wr-idx li { max-width: 100%; }
+.pg-outs .wr-marq { padding-top: 12px; border-top: 1px dashed rgba(11,26,74,.14); }
+@media (max-width: 600px) { .wr-idx { row-gap: 8px !important; } }
 /* logos reveal */
 .wr-logos { display: flex; align-items: center; gap: 22px; }
 .wr-logos img { height: 28px; width: auto; filter: grayscale(1); opacity: .8; }

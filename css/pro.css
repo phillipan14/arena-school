@@ -184,10 +184,19 @@ html body :is(a, button, summary, [role="tab"], input, select, textarea, [tabind
 html body :is(.cine-hero, .footer, .el-cta, .pp-cta-band, .promo-bar) :is(a, button, summary):focus-visible { outline-color: #FFFFFF; box-shadow: 0 0 0 5px rgba(11, 26, 74, .6); }
 
 /* tap targets: small links and pills get a 44px hit area without changing their look */
-/* (padding with matching negative margin: a bigger hit area, the same layout and look; these links
-   already use ::after for their underline, so no pseudo-element here) */
+/* (padding with matching negative margin: a bigger hit area, the same layout and look; the .tlink
+   underline is a text-decoration on its label, so the padding never moves it) */
 html body :is(.tlink, .footer-col a, .footer-contact a, .pg-hero-mail) { padding-block: 12px; margin-block: -12px; }
 html body .promo-x { min-width: 44px; }
+/* phrases marked to stay together in headings and ledes (they were unstyled) */
+.m-nw { white-space: nowrap; }
+/* secondary text links (contact rows, founder links, proof links): the .tlink underline, 1px and 3px
+   under the text, faded in rather than popped */
+html body :is(.footer-contact a, .hp-cf-links a:not(.tlink), .hc-direct a, .pg-proof-go, .pg-founder-links a) {
+  text-decoration: underline 1px transparent; text-underline-offset: 3px; transition: text-decoration-color .25s ease, color .2s ease, opacity .2s ease; }
+html body :is(.footer-contact a, .hp-cf-links a:not(.tlink), .hc-direct a, .pg-proof-go, .pg-founder-links a):is(:hover, :focus-visible) {
+  text-decoration: underline 1px currentColor; text-underline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { html body :is(.footer-contact a, .hp-cf-links a, .hc-direct a, .pg-proof-go, .pg-founder-links a) { transition: none; } }
 html body .promo-link { min-height: 40px; }
 
 /* forms: clear focus, invalid, loading, and success states */

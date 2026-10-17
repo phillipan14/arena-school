@@ -4,7 +4,9 @@ appears (DEPTH-BRIEF, Oct 16, 2026). Writes css/cred.css:
     with a small weight correction for solid marks (Y Combinator, Apple). Aspect ratios are read from the files.
   - the grid layout for every markup that carries the strip (.pro-logos, .hp-cred-row, .el-partners, .aib-row,
     .pc-b-logos, .pg-proof-logos): small-caps label column, equal cells, aligned hairlines, one ink.
-The wording in the pages is untouched. logo-marquee.js is now opt-in (data-marquee), so the rows stay still.
+The wording in the pages is untouched. logo-marquee.js turns every logo row of 4+ marks (team rows .hp-cred-row and
+.pro-logos, tool rows ul.ds-tools) into slow marquees (.cred-marq rules below); with reduced motion they stay as this
+still grid. Rows of 2-3 marks (.aib-row, .el-partners, .pg-sj-logos) stay static.
   python3 tools/cred_css.py
 """
 import os
@@ -53,13 +55,13 @@ html body main :is(.pro-logos, .hp-cred-row, .el-partners):last-of-type { border
 html body main :is(.pro-logos > span, .hp-cred-lab, .el-partners > .el-k) { margin: 0 !important; font: 600 var(--text-xs)/1.3 'Geist', system-ui, sans-serif !important;
   letter-spacing: .12em !important; text-transform: uppercase !important; color: var(--pro-soft) !important; }
 :lang(zh) :is(.pro-logos > span, .hp-cred-lab, .el-partners > .el-k) { letter-spacing: .04em !important; font-size: var(--text-sm) !important; }
-html body main :is(.pro-logos, .hp-cred-row, .el-partners) ul, html body main .hp-cred-row .hp-marq { display: grid !important; grid-template-columns: repeat(auto-fill, minmax(var(--cred-cell), 1fr)) !important;
+html body main :is(.pro-logos, .hp-cred-row, .el-partners) ul { display: grid !important; grid-template-columns: repeat(auto-fill, minmax(var(--cred-cell), 1fr)) !important;
   gap: var(--space-4) var(--space-5) !important; margin: 0 !important; padding: 0 !important; list-style: none; width: auto !important; transform: none !important; animation: none !important; overflow: visible !important; }
 html body main .el-partners ul { display: flex !important; flex-wrap: wrap; gap: var(--space-4) var(--space-8) !important; }
 /* logo rows: one equal gap between marks, so short marks (Apple, Y Combinator) leave no holes; one line from 1280 */
-html body main :is(.pro-logos, .hp-cred-row) ul, html body main .hp-cred-row .hp-marq { display: flex !important; flex-wrap: wrap !important; align-items: center !important;
+html body main :is(.pro-logos, .hp-cred-row) ul { display: flex !important; flex-wrap: wrap !important; align-items: center !important;
   justify-content: flex-start !important; gap: var(--space-4) clamp(2rem, 3.6vw, 3.25rem) !important; }
-@media (min-width: 1280px) { html body main :is(.pro-logos, .hp-cred-row) ul, html body main .hp-cred-row .hp-marq { flex-wrap: nowrap !important; } }
+@media (min-width: 1280px) { html body main :is(.pro-logos, .hp-cred-row) ul { flex-wrap: nowrap !important; } }
 html body main :is(.pro-logos, .hp-cred-row) li { flex: none !important; }
 html body main .el-partners li span { white-space: nowrap; }
 html body main :is(.pro-logos, .hp-cred-row, .el-partners) li { display: flex !important; align-items: center !important; gap: var(--space-3) !important; min-height: var(--space-8) !important;
@@ -71,7 +73,7 @@ html body main :is(.el-partners, .aib-row) img { filter: none !important; opacit
 @media (max-width: 760px) {
   html body main :is(.pro-logos, .hp-cred-row, .el-partners) { grid-template-columns: 1fr !important; row-gap: var(--space-3) !important; text-align: left !important; }
   html body main :is(.pro-logos > span, .hp-cred-lab, .el-partners > .el-k) { text-align: left !important; justify-self: start !important; }
-  html body main :is(.pro-logos, .hp-cred-row) ul, html body main .hp-cred-row .hp-marq { gap: var(--space-3) var(--space-5) !important; }
+  html body main :is(.pro-logos, .hp-cred-row) ul { gap: var(--space-3) var(--space-5) !important; }
   html body main :is(.pro-logos, .hp-cred-row) li { min-height: var(--space-6) !important; }
   html body main :is(.pro-logos, .hp-cred-row) img { max-height: 22px !important; }
   html body main .el-partners ul { gap: var(--space-2) !important; flex-direction: column; }
@@ -79,6 +81,31 @@ html body main :is(.el-partners, .aib-row) img { filter: none !important; opacit
   html body main :is(.pro-logos, .hp-cred-row, .el-partners) li { min-height: var(--space-7) !important; }
   html body main :is(%(rows)s) img { max-height: 28px; }
 }
+/* team rows as a slow, seamless marquee (logo-marquee.js wraps each <ul> in .cred-marq > .cred-marq-track and adds
+   aria-hidden copies). The label column stays fixed; the track moves by exactly one set (--marq-shift), 35-50s a loop. */
+html body main :is(.pro-logos, .hp-cred-row):has(> .cred-marq) { min-width: 0 !important; }
+html body main .cred-marq { --cred-gap: clamp(2rem, 3.6vw, 3.25rem); min-width: 0; overflow: hidden; contain: inline-size;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%%, #000 92%%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%%, #000 92%%, transparent); }
+html body main .cred-marq .cred-marq-track { display: flex; width: max-content; gap: 0 var(--cred-gap); }
+html body main .cred-marq.is-on .cred-marq-track { animation: credMarq var(--marq-dur, 42s) linear infinite; will-change: transform; }
+html body main .cred-marq .cred-marq-track.is-rev { animation-direction: reverse; }
+html body main .cred-marq .cred-marq-track > ul { flex: none !important; flex-wrap: nowrap !important; width: max-content !important; gap: 0 var(--cred-gap) !important; }
+@media (hover: hover) {
+  html body main .cred-marq:hover .cred-marq-track { animation-play-state: paused; }
+  html body main .cred-marq img { transition: opacity .3s ease; }
+  html body main .cred-marq li:hover img { opacity: 1 !important; }
+}
+@media (max-width: 760px) { html body main .cred-marq { --cred-gap: var(--space-6); } }
+@media (prefers-reduced-motion: reduce) { html body main .cred-marq .cred-marq-track { animation: none !important; } }
+/* tool rows (ul.ds-tools, logo plus name): a still frame keeps the hairlines and padding, the list inside moves */
+html body main .cred-marq-frame { min-width: 0; padding: var(--space-5) 0; border-block: var(--hairline); }
+html body main .cred-marq-frame > .cred-marq { --cred-gap: var(--space-7); }
+html body main .cred-marq .cred-marq-track > .ds-tools { padding: 0 !important; border: 0 !important; }
+@media (max-width: 760px) {
+  html body main .cred-marq-frame { padding: var(--space-4) 0; }
+  html body main .cred-marq-frame > .cred-marq { --cred-gap: var(--space-5); }
+}
+@keyframes credMarq { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(calc(-1 * var(--marq-shift, 50%%)), 0, 0); } }
 /* per-logo heights: the same optical size for every mark (from each file's aspect ratio) */
 %(sizes)s
 """ % dict(rows=', '.join(CTX), sizes='\n'.join(rules))

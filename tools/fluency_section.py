@@ -113,7 +113,7 @@ def section(lang):
     return ('<!-- fluency:start -->\n%s<section class="ds-section fl-sec" id="ai-fluency" data-screen-label="AI fluency"><div class="container">'
             '<header class="ds-head reveal"><span class="ds-eyebrow">%s</span><h2 class="ds-h2">%s</h2><p class="ds-lede">%s</p></header>'
             '<div class="fl-scale reveal"><span class="ds-eyebrow">%s</span><ol class="fl-stairs">%s</ol></div>'
-            '<div class="fl-grid reveal"><div><span class="ds-eyebrow">%s</span><ol class="fl-model">%s</ol><p class="fl-guard"><a class="tlink" href="%s">%s →</a></p></div><div>%s</div></div>'
+            '<div class="fl-grid reveal"><div><span class="ds-eyebrow">%s</span><ol class="fl-model">%s</ol><p class="fl-guard"><a class="tlink" href="%s"><span class="tl">%s</span> <span class="arr">→</span></a></p></div><div>%s</div></div>'
             '%s</div></section>\n<script src="/fluency.js" defer></script>\n<!-- fluency:end -->'
             % (jj, c['k'], c['h'], c['l'], c['sk'], steps, c['mk'], model, c['guard'][0], c['guard'][1], chart(c), quiz))
 

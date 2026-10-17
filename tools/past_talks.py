@@ -71,7 +71,7 @@ def card(aud, c, t):
     meta = ' · '.join(x for x in (c['date'], c['city']) if x)
     fig = ('<figure class="pt-fig"><img src="%s" alt="%s" width="800" height="450" loading="lazy" decoding="async" /></figure>' % c['img']) if c['img'] else ''
     dl = ''.join('<dt>%s</dt><dd>%s</dd>' % kv for kv in c['dl'])
-    links = ''.join('<a class="tlink" href="%s">%s →</a>' % l for l in c['links'])
+    links = ''.join('<a class="tlink" href="%s"><span class="tl">%s</span> <span class="arr">→</span></a>' % l for l in c['links'])
     return ('<li class="ds-case pt-card reveal" data-aud="%s">%s<div class="pt-body"><span class="ds-eyebrow is-muted">%s</span>%s<h3>%s</h3>'
             '<p class="pt-where">%s</p><dl>%s</dl><p class="pt-links">%s</p></div></li>'
             % (aud, fig, t['aud'][aud], '<span class="pt-date">%s</span>' % meta if meta else '', c['title'], c['where'], dl, links))
@@ -84,7 +84,7 @@ def body(lang):
                     for k, v in [('all', t['all'])] + list(t['aud'].items()))
     cards = ''.join(card(aud, d[lang], t) for aud, d in TALKS)
     n = NEXT[lang]
-    nxt = ('<aside class="pt-next reveal"><span class="ds-eyebrow">%s</span><p><b>%s</b> · %s</p><h3>%s</h3><a class="tlink" href="%s">%s →</a></aside>'
+    nxt = ('<aside class="pt-next reveal"><span class="ds-eyebrow">%s</span><p><b>%s</b> · %s</p><h3>%s</h3><a class="tlink" href="%s"><span class="tl">%s</span> <span class="arr">→</span></a></aside>'
            % (n['k'], n['date'], n['where'], n['title'], n['link'][0], n['link'][1]))
     return ('<!-- pt:start -->\n%s<section class="ds-section" id="talks" data-screen-label="Past talks"><div class="container">'
             '<header class="ds-head reveal"><span class="ds-eyebrow">%s</span><h2 class="ds-h2">%s</h2></header>'

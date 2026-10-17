@@ -59,7 +59,7 @@
 .hp-cf-x span { display: block; margin-top: 2px; font-size: 13.5px; line-height: 1.45; color: var(--text-ink-soft); }
 .hp-cf-links { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; margin: 30px -38px 0; padding: 16px 38px; border-top: 1px solid var(--border-paper); background: rgba(255, 255, 255,.35); border-radius: 0 0 17px 17px; font-size: 14px; }
 .hp-cf-links a { display: inline-flex; align-items: center; gap: 7px; color: var(--ink-2, #2F55A8); text-decoration: none; }
-.hp-cf-links a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.hp-cf-links a:not(.tlink):hover { text-decoration: underline; text-underline-offset: 3px; }
 .hp-cf-links .tlink { font-weight: 500; margin-right: auto; }
 
 html[lang="zh-CN"] .hp-cf-quote p { font-style: normal; font-family: var(--font-body); font-size: 19px; line-height: 1.75; }
@@ -95,15 +95,6 @@ html[lang="zh-CN"] .hp-cf-quote p { font-style: normal; font-family: var(--font-
   .hp-cf-prof { animation: none; }
   .hp-cf-card:hover { transform: none; }
 }
-
-/* Team logo rows as opposing slow marquees (logo-marquee.js adds .hp-marq / .is-marq) */
-.hp-marq { overflow: hidden; min-width: 0; -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); }
-.hp-marq ul.is-marq { display: flex !important; flex-wrap: nowrap !important; justify-content: flex-start !important; gap: 0 !important; width: max-content; animation: hpMarq var(--marq-dur, 60s) linear infinite; }
-.hp-marq ul.is-marq.is-rev { animation-direction: reverse; }
-.hp-marq ul.is-marq li { flex: none; padding: 0 30px; min-height: 48px; }
-.hp-marq:hover ul.is-marq { animation-play-state: paused; }
-@keyframes hpMarq { to { transform: translateX(-50%); } }
-@media (max-width: 700px) { .hp-marq ul.is-marq li { padding: 0 20px; min-height: 36px; } }
 
 /* fade the panel in with the unfurl, and back out as it folds */
 .hp-cf-box { opacity: 0; transition: opacity .35s ease; }

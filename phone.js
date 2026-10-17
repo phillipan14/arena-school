@@ -506,11 +506,12 @@ try{
 /* Lead fixes: word-level line breaking on phones.
    1. Chinese: Intl.Segmenter splits text into words; each multi-character word becomes a no-break span,
       so lines break only between words (no 审/美 or 整/个 splits) in headings, intros, rows, and labels.
-   2. Both languages: names and brands stay on one line, and a "·" never starts a line. */
+   2. Both languages: names and brands stay on one line, and a "·" never starts a line (it stays with the
+      word before it; the line may break after it, so "Lead instructor · Co-founder" never strands "Lead"). */
 (function(){
   if(!matchMedia('(max-width:760px)').matches)return;
   var zh=(document.documentElement.lang||'').indexOf('zh')===0;
-  var KEEP=['Forbes 30 Under 30','mini-PRD','project-based','Y Combinator','Kimi Code','Schwarzman College','Schwarzman Scholars','羊筱涵','安广宁','苏世民学者','苏世民书院','Jing Jing Yang','Phillip An'];
+  var KEEP=['Forbes 30 Under 30','mini-PRD','project-based','Co-founder','co-founder','Y Combinator','Kimi Code','Schwarzman College','Schwarzman Scholars','羊筱涵','安广宁','苏世民学者','苏世民书院','Jing Jing Yang','Phillip An'];
   var SKIP='script,style,textarea,select,option,svg,.sr-only,.hr-rot,[data-rot],.wr-track,ph-w,.nb,.php-logos-set,code,.btn,.eyebrow';
   var seg=zh&&window.Intl&&Intl.Segmenter?new Intl.Segmenter('zh',{granularity:'word'}):null;
   var CJK=/[㐀-鿿]/;
@@ -518,7 +519,7 @@ try{
     if(!n.nodeValue.trim())return 3;var p=n.parentElement;if(!p||p.closest(SKIP))return 3;if(/flex|grid/.test(getComputedStyle(p).display))return 3;return 1}}),n;while(n=w.nextNode())out.push(n);return out}
   function wrapKeep(n){ // names/brands + " · " joiner, both languages
     var v=n.nodeValue,hit=false;
-    v=v.replace(/ · /g,function(){hit=true;return '\u00a0\u00b7\u00a0'});
+    v=v.replace(/ · /g,function(){hit=true;return '\u00a0\u00b7 '});
     if(hit)n.nodeValue=v;
     for(var i=0;i<KEEP.length;i++){var k=KEEP[i],ix=n.nodeValue.indexOf(k);if(ix<0)continue;
       var after=n.splitText(ix),rest=after.splitText(k.length),sp=document.createElement('ph-w');sp.textContent=k;after.parentNode.replaceChild(sp,after);
@@ -560,7 +561,7 @@ try{
       if(seg){var bounds=[0],acc=0,it2=seg.segment(v)[Symbol.iterator](),q;while(!(q=it2.next()).done){acc+=q.value.segment.length;bounds.push(acc)}
         var best=0;bounds.forEach(function(x){if(core.length-x>=3&&x>best)best=x});k=best}
       var sp=document.createElement('ph-nb');sp.className='nb';sp.textContent=v.slice(k);last.nodeValue=v.slice(0,k)+last.nodeValue.slice(v.length);el.insertBefore(sp,last.nextSibling)}
-    else{var m=v.match(/(\S+\s+\S+)$/);if(!m||m[1].length>24)return;var cut=v.length-m[1].length;
+    else{var m=v.match(/(\S+\s+\S+)$/);if(!m||m[1].length>24||m[1].charAt(0)==='\u00b7')return; /* "· Co-founder" glued would strand the words before it */var cut=v.length-m[1].length;
       var sp2=document.createElement('ph-nb');sp2.className='nb';sp2.textContent=m[1];last.nodeValue=v.slice(0,cut)+last.nodeValue.slice(v.length);el.insertBefore(sp2,last.nextSibling)}
     el.dataset.phNb='1'});
 

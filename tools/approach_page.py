@@ -391,7 +391,7 @@ def audiences_sec(t, alt):
         sel = n == 0
         tabs.append('<button type="button" class="el-tab" role="tab" id="ap-t%d" aria-controls="ap-p%d" aria-selected="%s"%s><small>0%d</small>%s</button>'
                     % (n, n, 'true' if sel else 'false', '' if sel else ' tabindex="-1"', n + 1, name))
-        cards = ''.join('<li class="ds-card ap-prog"><span class="ds-eyebrow is-muted">%s</span><h3>%s</h3><ul>%s</ul><a class="tlink" href="%s">%s →</a></li>'
+        cards = ''.join('<li class="ds-card ap-prog"><span class="ds-eyebrow is-muted">%s</span><h3>%s</h3><ul>%s</ul><a class="tlink" href="%s"><span class="tl">%s</span> <span class="arr">→</span></a></li>'
                         % (fmt, title, ''.join('<li>%s</li>' % x for x in outs), link(t, href), t['see']) for href, title, fmt, outs in progs)
         panels.append('<div class="el-tabpanel" role="tabpanel" id="ap-p%d" aria-labelledby="ap-t%d"%s><p class="ap-aud-intro">%s</p><ul class="ds-grid ds-grid-3 ap-progs">%s</ul></div>'
                       % (n, n, '' if sel else ' hidden', intro, cards))
@@ -418,12 +418,12 @@ def learning_body(t):
     o.append(section('framework', 'Framework', head(t['fw_k'], t['fw_h'], t['fw_l']) +
              '<div class="ap-fw"><div class="ap-wheel reveal">%s</div><div class="ap-fw-text reveal">'
              '<div class="ap-fw-lists"><div class="is-goals"><span class="ds-eyebrow">%s</span><ol>%s</ol></div><div class="is-out"><span class="ds-eyebrow">%s</span><ol>%s</ol>'
-             '<a class="tlink ap-fw-more" href="%s">%s →</a></div></div>'
+             '<a class="tlink ap-fw-more" href="%s"><span class="tl">%s</span> <span class="arr">→</span></a></div></div>'
              '<blockquote class="ap-fw-q"><span class="ds-eyebrow">%s</span><p>%s</p></blockquote><p class="ap-fw-note">%s %s</p></div></div>'
              % (wheel_svg(t['lang']), t['fw_mid_k'], mid, t['fw_out_k'], out, link(t, '/approach').split('#')[0] + '#principles', t['fw_more'][1],
                 t['fw_q_k'], t['fw_q'], t['fw_center'], t['fw_note']), alt=True))
     o.append(section('week', 'One week', head(t['ex_k'], t['ex_h'], t['ex_l']) + matrix(t) +
-             '<p class="ap-ex-foot reveal"><span>%s</span><a class="tlink" href="%s">%s →</a></p>' % (t['ex_foot'], link(t, t['ex_link'][0]), t['ex_link'][1])))
+             '<p class="ap-ex-foot reveal"><span>%s</span><a class="tlink" href="%s"><span class="tl">%s</span> <span class="arr">→</span></a></p>' % (t['ex_foot'], link(t, t['ex_link'][0]), t['ex_link'][1])))
     cols = ''.join('<div>%s<h3>%s</h3><ul>%s</ul></div>' % (ic(DOM_ICONS[i]), t['domains'][i], ''.join('<li>%s</li>' % x for x in items))
                    for i, items in enumerate(t['outcomes']))
     o.append(section('outcomes', 'Outcomes', head(t['oc_k'], t['oc_h'], t['oc_l']) + '<div class="ap-outcomes reveal">%s</div>' % cols, alt=True))

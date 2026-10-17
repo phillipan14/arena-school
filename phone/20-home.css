@@ -55,7 +55,7 @@ body.home #programs .prog-links a.tlink{display:flex !important;align-items:cent
 body.home #programs .prog-links a.tlink + a.tlink{border-top:1px solid var(--ph-line)}
 body.home #programs .prog-links a.tlink::after{content:none !important;display:none !important}
 body.home #programs .prog-links a.tlink:active{background:rgba(34,69,138,.07);opacity:1}
-body.home #programs .prog-links a.tlink.on{text-decoration:none !important}
+body.home #programs .prog-links a.tlink.on .tl{text-decoration-color:transparent !important}
 
 /* ---------- 3. Grade map:one grouped list; each program row carries its own bar on a shared scale ---------- */
 body.home #programs .gmap{--cols:9;margin-top:var(--space-6) !important;padding:0 !important;border:0 !important}

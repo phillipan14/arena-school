@@ -134,7 +134,7 @@ html body main section.cine-hero .el-hero-grid { align-items: end; }
   html body main section.cine-hero .el-hero-grid:not(#cine) { grid-template-columns: minmax(0, 1fr); }
   html body main section.cine-hero .el-hero-side { max-width: min(520px, 38vw); }
   html body main section.cine-hero .el-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); background: rgba(8, 15, 38, .42); border: 1px solid rgba(255, 255, 255, .18); border-radius: 12px; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
-  html body main section.cine-hero .el-facts li { grid-template-columns: 1fr; gap: 2px; padding: 10px 16px; border-color: rgba(255, 255, 255, .16) !important; border-bottom: 1px solid rgba(255, 255, 255, .16); color: #FFFFFF; font-size: 14px; }
+  html body main section.cine-hero .el-facts li { grid-template-columns: 1fr; align-content: start; gap: 2px; padding: 10px 16px; border-color: rgba(255, 255, 255, .16) !important; border-bottom: 1px solid rgba(255, 255, 255, .16); color: #FFFFFF; font-size: 14px; }
   html body main section.cine-hero .el-facts li:nth-child(odd) { border-right: 1px solid rgba(255, 255, 255, .16); }
   html body main section.cine-hero .el-facts li:nth-last-child(-n + 2):nth-child(odd), html body main section.cine-hero .el-facts li:last-child { border-bottom: 0; }
   html body main section.cine-hero .el-facts li:last-child:nth-child(odd) { grid-column: span 2; border-right: 0; }

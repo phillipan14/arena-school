@@ -1,6 +1,6 @@
 # ACAMIS live build: rules for Claude Code
 
-A room of teachers is watching this screen. They call out a feature or a new tool for the **Teacher Toolbox**, a live site at https://arenaschool.org/talks/2026-10-acamis-tech-workshop/build. You build it, ship it, and everyone's phone shows it within about a minute. Speed matters more than polish: aim for one to two minutes per request.
+A room of teachers is watching this screen. They call out a feature or a new tool for the **Teacher Toolbox**, a live site at https://arenaschool.org/talks/2026-10-acamis-tech-workshop/build. You build it and ship it, and we show it on the projector within about a minute. Speed matters more than polish: aim for one to two minutes per request.
 
 ## Where you work
 - The site lives in `../../../../talks/2026-10-acamis-tech-workshop/build/` (call it BUILD). Edit **only** files in BUILD. Never touch anything else in the repo.
@@ -20,5 +20,5 @@ A room of teachers is watching this screen. They call out a feature or a new too
 - **No AI and no other network calls inside a tool.** Use templates, rules, or lists the teacher can edit.
 - **Many phones, one screen** (anonymous feedback, exit tickets, live polls, a Q&A wall): use the shared board, and nothing else. Add `<script src="../board.js"></script>` and use `var b = Board('<slug>')`, `b.post(text, tag)`, and `b.watch(function (items) { ... }, 3000)` (items newest first: `{id, t, text, tag}`; text up to 500 characters, tag up to 40). Build two views in the same file and show **only one at a time** (check `location.hash` on load and on `hashchange`): the **phone view** (default) is only the form (big buttons; say "Anonymous" on screen; after sending, show "Thanks, sent"), with no results on it; the **projector view** (`#screen`) is only the live results, full width with large text, as cards or bars with counts, plus a one-line "Answer at <short link>" so the room knows where to go. Give the phone view a small "Teacher? Open the projector view" link. Never ask for or send names, emails, or student details. Responses delete themselves after three days.
 - **Made-up names only** ("Student A", "Ms. Rivera"); never real student data. Save work in `localStorage` and add a Clear button.
-- Big readable text, one job per tool, and it must work on a phone (most of the room is on one).
+- Big readable text (it's shown on a projector), one job per tool, and it should also work on a phone.
 - Don't run git yourself (`ship.sh` does it), don't `cd` (use paths), and don't write tests, plans, or READMEs.
