@@ -73,3 +73,5 @@ section.s.age-cl.p8-gsx .bd .age-end p{font-size:33px}
 .ae.p15-hi .bd>.p15-end,.ae.p15-tb .bd>.p15-end{flex:none!important}
 .ae.nx-wk .bd .nx-tsk{padding:4.9px calc(12px - .14em) 6.1px 12px}
 .ae.agd-b .bd .agd-ex li{padding-top:8.45px!important;padding-bottom:7.55px!important}
+/* Part tracker (slides 4, 8, 15, 21): numerals share the baseline of the part name */
+.sec .trk .row{align-items:baseline!important}
