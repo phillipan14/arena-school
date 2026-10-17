@@ -178,3 +178,47 @@ Board: StudentData in the Claude Design project. Shots: `/tmp/pro-pass/data-*-{1
   screen and on paper; (3) printing kept the rest of the page as blank space (11 pages).
 - **r2.** Short row labels on one line; numbers only in the checklist; print removes everything but the checklist
   (one A4 page). Budgets raised for the section (CONTENT-RULES.md).
+
+## AI fluency for the whole staff (FLUENCY-BRIEF 1, Oct 17; Teachers and Schools, EN + CN)
+Board: AIFluency. Shots: `/tmp/pro-pass/fluency-{teachers,schools}-{1440,390}.png`, `fluency-widget-390.png`.
+- **r1.** New section after the student data section (tools/fluency_section.py): "A few early adopters are there. We
+  bring everyone else up." Five-level scale as a rising staircase, the model (baseline, one level up, each term,
+  in-house coaches; link to the student-data guardrails), an illustrative two-curve chart labeled "not data" (no
+  percentages anywhere), and a self-assessment (native radio buttons; result in place; nothing sent or stored).
+  Critique: (1) the staircase shared a half-width column with the chart, so level descriptions wrapped into narrow
+  columns; (2) the result line read "Designer: Builds AI" mid-sentence; (3) the selected answer's fill was heavier
+  than the rest of the system.
+- **r2.** Staircase full width, the model and chart side by side below; result "Next: level 4, Designer. Builds AI
+  ..."; a lighter selected fill. Keyboard: arrow keys move between levels (Chromium and WebKit); no network request or
+  storage on picking. Budgets: Teachers 1,800 / 11, Schools 2,000 / 12.
+
+## One-pager redesign (FLUENCY-BRIEF 2 + UPDATE, Oct 17; EN + CN; replaced in place)
+Board: OnePager. Renders: `/tmp/pro-pass/onepager-{en,cn}.png` (150dpi). Changes vs the old version: ONEPAGER-CHANGES.md.
+- **r1.** Rebuilt in the design system from the old structure (tools/one-pager/build.py), copy from the site's own
+  sources. Critique: (1) the crest appeared twice (seal plus the wordmark's own seal); (2) "A member of" and "Our team
+  studied at" wrapped into narrow stacks; (3) the worked-at logos ran off the right edge (Deloitte cut, Kimi missing);
+  (4) the page was a flex column, so the header was squeezed shorter than its content and the photo overlapped the
+  logo row; CN had its spare space pooled above the footer.
+- **r2.** Wordmark only; "A member of" on its own row, the team rows full width with smaller marks; sections never
+  shrink and spare space spreads evenly; the build fails if content is taller than the page. Both PDFs: one A4 page.
+
+## One-pagers v3: general, teacher, parent (ONEPAGER2-BRIEF + UPDATES 1 to 4, Oct 17 pm; EN + CN)
+Boards: OnePagerV3Options, OnePagerV3Final. Renders and 12-column overlays: `/tmp/pro-pass/{,teacher-,parent-}onepager-{en,cn}{,-grid}.png`.
+Every build checks in the browser: one page, nothing taller than the page, every grid item's edges on the 12-column grid,
+equal card heights per row, one section-header left edge, no logo row wrapping, no text under 7pt.
+- **r1 (options, UPDATE 3 + 4).** Offer and proof merged into one section; three ways to show it: A, four audience tiles
+  each with real partner logos and a 3 to 5 word caption; B, a hub (Arena at the center, audiences, formats, a proof
+  row); C, a slim audience row over a captioned logo strip. Chosen: **A**. It reads at a glance, keeps proof next to the
+  audience it proves, and is the only one where every tile has the same structure. B spent a band on the hub; C split
+  offer from proof again. All three failed EN overflow (22 to 69px).
+- **r2.** Critique: "Studied at" wrapped and collided with the Caltech mark; the How we teach outcomes column ran long.
+  Fix: three single-line strip rows (member of, studied at, worked at) with labels in columns 1 to 3; outcomes use the
+  short strand goals. Still 53px over.
+- **r3.** Wheel, skills and outcomes rebalanced to 3 / 3 / 6 columns, outcomes as a 2-by-2; proof marks smaller; 3 data
+  commitments. General EN and CN fit. Grid overlay: every edge on a column line.
+- **r4.** All three documents built. Critique: teacher 214px over (six sections plus tiles); CN headline em breaking.
+- **r5.** Teacher: one-line steps, outcomes as icon cards with the strand goal, tighter rows. Critique: the staircase did
+  not rise evenly (bars sized to their text, level 5 shorter than 3 and 4); section headers sat tight on the cards above.
+- **r6.** Fixed-height stairs (rising 3mm per level); spare space goes above section headers only; teacher drops "Tools
+  teachers made" (not in the brief); general drops the before/after curve. Parent: data commitments a family cares about,
+  and a closing line with the two real routes (ask the school, or enroll in mentorship). All six pass.

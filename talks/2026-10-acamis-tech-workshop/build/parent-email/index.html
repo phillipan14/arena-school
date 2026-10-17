@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Weekly Parent Email</title>
+<style>
+  :root{--ink:#0B1A4A;--ink2:#2F55A8;--paper:#F6EFE7;--card:#FFFDFA;--edge:#E4D9CC;--muted:#6B6F80;--ok:#2E7D5B;--warn:#B5562F;--r:14px}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font:400 19px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,"PingFang SC",sans-serif}
+  header{padding:28px 32px 8px;max-width:1100px;margin:0 auto}
+  header h1{margin:0;font-size:36px;line-height:1.15;letter-spacing:-.01em}
+  header p{margin:6px 0 0;color:var(--muted);font-size:19px}
+  main{max-width:1100px;margin:0 auto;padding:16px 32px 40px;display:grid;gap:18px}
+  .card{background:var(--card);border:1px solid var(--edge);border-radius:var(--r);padding:22px 24px;box-shadow:0 10px 24px -20px rgba(11,26,74,.35)}
+  .card h2{margin:0 0 12px;font-size:22px}
+  .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+  .row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .field{display:grid;gap:6px;margin:0 0 14px}
+  .field label{font-weight:600;font-size:16px;color:var(--ink2);letter-spacing:.02em}
+  input,select,textarea{font:inherit;color:inherit;width:100%;padding:12px 14px;border:1px solid var(--edge);border-radius:10px;background:#fff}
+  textarea{min-height:140px;resize:vertical}
+  input:focus,select:focus,textarea:focus{outline:3px solid rgba(47,85,168,.25);border-color:var(--ink2)}
+  .btn{font:600 18px/1 inherit;font-family:inherit;padding:14px 22px;border-radius:999px;border:0;background:var(--ink);color:#fff;cursor:pointer}
+  .btn:hover{background:var(--ink2)}
+  .btn-ghost{font:600 18px/1 inherit;font-family:inherit;padding:13px 21px;border-radius:999px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+  .out{white-space:pre-wrap;background:#fff;border:1px dashed var(--edge);border-radius:10px;padding:16px 18px;min-height:60px}
+  .pill{display:inline-block;padding:4px 12px;border-radius:999px;background:rgba(47,85,168,.12);color:var(--ink2);font-size:15px;font-weight:600}
+  footer{max-width:1100px;margin:0 auto;padding:0 32px 32px;color:var(--muted);font-size:14px}
+  @media (max-width:600px){header,main,footer{padding-left:16px;padding-right:16px}header h1{font-size:28px}}
+  /* tool-specific */
+  .topics{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:12px}
+  .topic{font:600 17px/1.2 inherit;font-family:inherit;padding:10px 16px;border-radius:999px;border:1.5px solid var(--edge);background:#fff;color:var(--ink);cursor:pointer}
+  .topic.on{background:var(--ink);border-color:var(--ink);color:#fff}
+  .due{display:grid;grid-template-columns:1fr 170px 44px;gap:8px;margin-bottom:8px}
+  .x{font:700 22px/1 inherit;font-family:inherit;border:0;background:transparent;color:var(--warn);cursor:pointer}
+  .tones{display:flex;flex-wrap:wrap;gap:10px}
+  #email{font-size:18px;min-height:320px}
+  #copied{color:var(--ok);font-weight:600}
+  @media (max-width:600px){.due{grid-template-columns:1fr 44px}.due input[type=date]{grid-column:1}}
+</style>
+</head>
+<body>
+<header>
+  <a class="tb-back" href="../" style="display:inline-block;margin:0 0 10px;font:600 15px/1 -apple-system,BlinkMacSystemFont,sans-serif;color:#2F55A8;text-decoration:none">&larr; Teacher Toolbox</a>
+  <h1>Weekly Parent Email</h1>
+  <p>For English teachers: pick the class, topics, due dates, and tone, and get a friendly email ready to copy.</p>
+</header>
+<main>
+  <div class="grid2">
+    <section class="card">
+      <h2>1. Class &amp; you</h2>
+      <div class="field"><label for="cls">Class</label>
+        <select id="cls"></select></div>
+      <div class="field"><label for="teacher">Your name</label>
+        <input id="teacher"></div>
+      <div class="field"><label for="note">Extra note (optional)</label>
+        <input id="note" placeholder="e.g. Thank you for signing the reading logs!"></div>
+
+      <h2>4. Tone</h2>
+      <div class="tones" id="tones"></div>
+    </section>
+
+    <section class="card">
+      <h2>2. Topics we covered <span class="pill" id="tcount"></span></h2>
+      <div class="topics" id="topics"></div>
+      <div class="row">
+        <input id="newTopic" placeholder="Add a topic…" style="flex:1;min-width:180px">
+        <button class="btn-ghost" id="addTopic">Add</button>
+      </div>
+
+      <h2 style="margin-top:22px">3. Coming up</h2>
+      <div id="dues"></div>
+      <button class="btn-ghost" id="addDue">+ Add due date</button>
+    </section>
+  </div>
+
+  <section class="card">
+    <div class="row" style="justify-content:space-between;margin-bottom:12px">
+      <h2 style="margin:0">Your email</h2>
+      <div class="row">
+        <span id="copied"></span>
+        <button class="btn-ghost" id="reword">New wording</button>
+        <button class="btn" id="copy">Copy email</button>
+      </div>
+    </div>
+    <textarea id="email" aria-label="Email text"></textarea>
+    <div class="row" style="margin-top:14px;justify-content:space-between">
+      <span style="color:var(--muted);font-size:16px">You can edit the email above before copying.</span>
+      <button class="btn-ghost" id="clear">Clear</button>
+    </div>
+  </section>
+</main>
+<footer>Built by teachers with Claude Code · ACAMIS Technology Conference 2026 · Arena School</footer>
+<script>
+const KEY = 'parentEmail.v1';
+const CLASSES = ['Grade 6 English – Section A','Grade 6 English – Section B','Grade 7 English – Section A','Grade 7 English – Section B','Grade 8 English – Section A','Grade 8 English – Section B'];
+const TONES = {
+  warm: 'Warm', upbeat: 'Upbeat', brief: 'Short & clear', formal: 'Formal'
+};
+
+function inDays(n){ const d = new Date(); d.setDate(d.getDate()+n); return d.toISOString().slice(0,10); }
+function sample(){
+  return {
+    cls: CLASSES[2], teacher: 'Ms. Rivera', note: '', tone: 'warm', seed: 0,
+    topics: [
+      {t:'Chapters 5–7 of "The Giver"', on:true},
+      {t:'Writing strong thesis statements', on:true},
+      {t:'Figurative language: metaphor and simile', on:true},
+      {t:'Vocabulary unit 4', on:false},
+      {t:'Peer feedback on narrative drafts', on:false},
+      {t:'Comma rules', on:false}
+    ],
+    dues: [
+      {t:'Reading log (signed)', d: inDays(3)},
+      {t:'Persuasive essay final draft', d: inDays(8)},
+      {t:'Vocabulary quiz', d: inDays(10)}
+    ]
+  };
+}
+let S = JSON.parse(localStorage.getItem(KEY) || 'null') || sample();
+const $ = id => document.getElementById(id);
+const save = () => localStorage.setItem(KEY, JSON.stringify(S));
+const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+// Wording banks per tone. "New wording" rotates through the options.
+const W = {
+  warm: {
+    hi: ['Dear Families,','Hello Families,','Dear Parents and Guardians,'],
+    open: ['I hope you had a lovely week! Here is a quick update from {cls}.','It has been a wonderful week in {cls}, and I wanted to share what we have been up to.','Thank you for all your support at home. Here is what is happening in {cls}.'],
+    topics: ['This week, we spent time on:','In class, students explored:','Here is what we worked on together:'],
+    due: ['A few things coming up:','Please help your child keep an eye on these dates:','Looking ahead, here is what is due:'],
+    nodue: ['There is nothing due this coming week, so it is a great time to read for fun together.'],
+    close: ['Please reach out anytime if you have questions. I love hearing from you!','Thank you for being such a big part of your child\'s learning.','As always, my door (and inbox) is open.'],
+    bye: ['Warmly,','With thanks,','All the best,']
+  },
+  upbeat: {
+    hi: ['Hi Families!','Hello, wonderful families!','Happy Friday, families!'],
+    open: ['What a week in {cls}! Here is the scoop.','{cls} has been busy, and the students have been amazing!','Big things are happening in {cls}. Here is a quick recap!'],
+    topics: ['This week we dove into:','Here is what we tackled:','Highlights from class:'],
+    due: ['Mark your calendars:','Coming up soon:','Heads up! These are due:'],
+    nodue: ['Nothing due next week. Enjoy the break and keep those books open!'],
+    close: ['Questions? Just hit reply, I am happy to help!','Thanks for cheering your readers and writers on!','Let\'s keep the momentum going!'],
+    bye: ['Cheers,','Go team!','See you soon,']
+  },
+  brief: {
+    hi: ['Dear Families,','Hello,'],
+    open: ['Quick update from {cls}.','Here is this week\'s summary for {cls}.'],
+    topics: ['Covered this week:','This week:'],
+    due: ['Due soon:','Upcoming:'],
+    nodue: ['Nothing due next week.'],
+    close: ['Questions? Reply to this email.','Thanks!'],
+    bye: ['Best,','Thanks,']
+  },
+  formal: {
+    hi: ['Dear Parents and Guardians,','Dear Families,'],
+    open: ['I am writing to share a summary of this week\'s learning in {cls}.','Please find below an update on recent work in {cls}.'],
+    topics: ['This week, our instruction focused on the following:','Students engaged with the following topics:'],
+    due: ['Please note the following upcoming deadlines:','The following assignments are due shortly:'],
+    nodue: ['There are no assignments due in the coming week.'],
+    close: ['Should you have any questions, please do not hesitate to contact me.','Thank you for your continued support.'],
+    bye: ['Sincerely,','Kind regards,','Respectfully,']
+  }
+};
+const pick = (arr, k) => arr[(S.seed + k) % arr.length];
+function fmt(d){
+  if(!d) return 'date to be confirmed';
+  return new Date(d+'T00:00').toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
+}
+
+function write(){
+  const w = W[S.tone], cls = S.cls.replace(/ – /,', ');
+  const topics = S.topics.filter(x=>x.on).map(x=>'  • '+x.t);
+  const dues = S.dues.filter(x=>x.t.trim()).slice().sort((a,b)=>(a.d||'z').localeCompare(b.d||'z'))
+    .map(x=>'  • '+x.t+' – '+fmt(x.d));
+  const parts = [pick(w.hi,0), '', pick(w.open,1).replace('{cls}', cls)];
+  if(topics.length) parts.push('', pick(w.topics,2), ...topics);
+  parts.push('', ...(dues.length ? [pick(w.due,3), ...dues] : [pick(w.nodue,0)]));
+  if(S.note.trim()) parts.push('', S.note.trim());
+  parts.push('', pick(w.close,4), '', pick(w.bye,5), S.teacher || 'Your teacher', cls);
+  $('email').value = parts.join('\n');
+  $('copied').textContent = '';
+}
+
+function render(){
+  $('cls').innerHTML = CLASSES.map(c=>`<option${c===S.cls?' selected':''}>${c}</option>`).join('');
+  $('teacher').value = S.teacher; $('note').value = S.note;
+  $('tones').innerHTML = Object.entries(TONES).map(([k,v])=>
+    `<button class="topic${S.tone===k?' on':''}" data-tone="${k}">${v}</button>`).join('');
+  $('topics').innerHTML = S.topics.map((x,i)=>
+    `<button class="topic${x.on?' on':''}" data-i="${i}" title="Click to pick, double-click to remove">${esc(x.t)}</button>`).join('');
+  $('tcount').textContent = S.topics.filter(x=>x.on).length + ' picked';
+  $('dues').innerHTML = S.dues.map((x,i)=>
+    `<div class="due"><input data-dt="${i}" value="${esc(x.t)}" placeholder="Assignment"><input type="date" data-dd="${i}" value="${x.d}"><button class="x" data-dx="${i}" aria-label="Remove">×</button></div>`).join('');
+  write(); save();
+}
+
+$('cls').onchange = e => { S.cls = e.target.value; render(); };
+$('teacher').oninput = e => { S.teacher = e.target.value; write(); save(); };
+$('note').oninput = e => { S.note = e.target.value; write(); save(); };
+$('tones').onclick = e => { const k = e.target.dataset.tone; if(k){ S.tone = k; render(); } };
+$('topics').onclick = e => { const i = e.target.dataset.i; if(i!=null){ S.topics[i].on = !S.topics[i].on; render(); } };
+$('topics').ondblclick = e => { const i = e.target.dataset.i; if(i!=null){ S.topics.splice(i,1); render(); } };
+function addTopic(){ const t = $('newTopic').value.trim(); if(t){ S.topics.push({t,on:true}); $('newTopic').value=''; render(); } }
+$('addTopic').onclick = addTopic;
+$('newTopic').onkeydown = e => { if(e.key==='Enter') addTopic(); };
+$('dues').oninput = e => {
+  const d = e.target.dataset;
+  if(d.dt!=null) S.dues[d.dt].t = e.target.value;
+  if(d.dd!=null) S.dues[d.dd].d = e.target.value;
+  write(); save();
+};
+$('dues').onclick = e => { const i = e.target.dataset.dx; if(i!=null){ S.dues.splice(i,1); render(); } };
+$('addDue').onclick = () => { S.dues.push({t:'', d:inDays(7)}); render(); $('dues').querySelector('.due:last-child input').focus(); };
+$('reword').onclick = () => { S.seed++; write(); save(); };
+$('copy').onclick = async () => {
+  const txt = $('email').value;
+  try { await navigator.clipboard.writeText(txt); }
+  catch(_) { $('email').select(); document.execCommand('copy'); }
+  $('copied').textContent = 'Copied! ✓';
+};
+$('clear').onclick = () => {
+  if(!confirm('Clear everything and start fresh?')) return;
+  localStorage.removeItem(KEY);
+  S = {cls:CLASSES[0], teacher:'', note:'', tone:'warm', seed:0, topics:sample().topics.map(x=>({...x,on:false})), dues:[]};
+  render();
+};
+render();
+</script>
+<script src="../live.js"></script>
+</body>
+</html>

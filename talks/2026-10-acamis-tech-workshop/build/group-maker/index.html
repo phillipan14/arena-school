@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab Group Maker</title>
+<style>
+  :root{--ink:#0B1A4A;--ink2:#2F55A8;--paper:#F6EFE7;--card:#FFFDFA;--edge:#E4D9CC;--muted:#6B6F80;--ok:#2E7D5B;--warn:#B5562F;--r:14px}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font:400 19px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,"PingFang SC",sans-serif}
+  header{padding:28px 32px 8px;max-width:1100px;margin:0 auto}
+  header h1{margin:0;font-size:36px;line-height:1.15;letter-spacing:-.01em}
+  header p{margin:6px 0 0;color:var(--muted);font-size:19px}
+  main{max-width:1100px;margin:0 auto;padding:16px 32px 40px;display:grid;gap:18px}
+  .card{background:var(--card);border:1px solid var(--edge);border-radius:var(--r);padding:22px 24px;box-shadow:0 10px 24px -20px rgba(11,26,74,.35)}
+  .card h2{margin:0 0 12px;font-size:22px}
+  .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+  .row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .field{display:grid;gap:6px;margin:0 0 14px}
+  .field label{font-weight:600;font-size:16px;color:var(--ink2);letter-spacing:.02em}
+  input,select,textarea{font:inherit;color:inherit;width:100%;padding:12px 14px;border:1px solid var(--edge);border-radius:10px;background:#fff}
+  textarea{min-height:140px;resize:vertical}
+  input:focus,select:focus,textarea:focus{outline:3px solid rgba(47,85,168,.25);border-color:var(--ink2)}
+  .btn{font:600 18px/1 inherit;font-family:inherit;padding:14px 22px;border-radius:999px;border:0;background:var(--ink);color:#fff;cursor:pointer}
+  .btn:hover{background:var(--ink2)}
+  .btn-ghost{font:600 18px/1 inherit;font-family:inherit;padding:13px 21px;border-radius:999px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+  .out{white-space:pre-wrap;background:#fff;border:1px dashed var(--edge);border-radius:10px;padding:16px 18px;min-height:60px}
+  .pill{display:inline-block;padding:4px 12px;border-radius:999px;background:rgba(47,85,168,.12);color:var(--ink2);font-size:15px;font-weight:600}
+  table{width:100%;border-collapse:collapse}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--edge)}
+  th{font-size:15px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+  footer{max-width:1100px;margin:0 auto;padding:0 32px 32px;color:var(--muted);font-size:14px}
+  @media (max-width:600px){header,main,footer{padding-left:16px;padding-right:16px}header h1{font-size:28px}}
+
+  .groups{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+  .group{border-radius:var(--r);padding:16px 18px;border:3px solid var(--edge);background:#fff}
+  .group h3{margin:0 0 8px;font-size:22px}
+  .group ul{margin:0;padding:0;list-style:none}
+  .group li{padding:5px 0;border-bottom:1px solid var(--edge);font-size:20px}
+  .group li:last-child{border-bottom:0}
+  .star{color:var(--warn);font-weight:700}
+  body.proj header,body.proj #setup,body.proj footer{display:none}
+  body.proj main{max-width:none;padding-top:24px}
+  body.proj .groups{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  body.proj .group h3{font-size:30px}
+  body.proj .group li{font-size:28px}
+  body.proj #results h2{font-size:34px}
+</style>
+</head>
+<body>
+<header>
+  <a class="tb-back" href="../" style="display:inline-block;margin:0 0 10px;font:600 15px/1 -apple-system,BlinkMacSystemFont,sans-serif;color:#2F55A8;text-decoration:none">&larr; Teacher Toolbox</a>
+  <h1>Lab Group Maker</h1>
+  <p>Paste your class, pick a group size, and get fair, even groups for lab work. Add a * after a name to spread those students out, one per group.</p>
+</header>
+<main>
+  <div class="grid2" id="setup">
+    <div class="card">
+      <h2>Class list</h2>
+      <div class="field">
+        <label for="names">One name per line · add * to spread out (e.g. lab leaders)</label>
+        <textarea id="names" style="min-height:260px"></textarea>
+      </div>
+      <span class="pill" id="count">0 students</span>
+    </div>
+    <div class="card">
+      <h2>Groups</h2>
+      <div class="field">
+        <label for="size">Students per group</label>
+        <select id="size"></select>
+      </div>
+      <p id="plan" style="margin:0 0 16px;color:var(--muted)"></p>
+      <div class="row">
+        <button class="btn" id="make">Make groups</button>
+        <button class="btn-ghost" id="projector">Projector view</button>
+        <button class="btn-ghost" id="clear">Clear</button>
+      </div>
+    </div>
+  </div>
+  <div class="card" id="results">
+    <div class="row" style="justify-content:space-between;margin-bottom:14px">
+      <h2 style="margin:0">Today's groups</h2>
+      <div class="row">
+        <button class="btn" id="shuffle">🔀 Reshuffle</button>
+        <button class="btn-ghost" id="exitProj" style="display:none">Exit projector view</button>
+      </div>
+    </div>
+    <div id="groups" class="groups"></div>
+  </div>
+</main>
+<footer>Built by teachers with Claude Code · ACAMIS Technology Conference 2026 · Arena School</footer>
+<script>
+const KEY = 'lab-group-maker-v1';
+const SAMPLE = ['Student A *','Student B','Student C','Student D *','Student E','Student F','Student G','Student H *',
+  'Student I','Student J','Student K','Student L *','Student M','Student N','Student O','Student P *','Student Q',
+  'Student R','Student S','Student T','Student U','Student V *','Student W','Student X','Student Y'].join('\n');
+const COLORS = ['#2F55A8','#2E7D5B','#B5562F','#7A3E9D','#0E7C86','#A8326E','#8A6D1F','#45556B'];
+const $ = id => document.getElementById(id);
+let state = JSON.parse(localStorage.getItem(KEY) || 'null') || { names: SAMPLE, size: 4, groups: null };
+
+function save() { localStorage.setItem(KEY, JSON.stringify(state)); }
+function shuffle(a) {
+  a = a.slice();
+  for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+  return a;
+}
+function people() {
+  return state.names.split('\n').map(l => l.trim()).filter(Boolean)
+    .map(l => ({ name: l.replace(/\*+\s*$/, '').trim(), star: /\*\s*$/.test(l) }));
+}
+function esc(t) { const d = document.createElement('div'); d.textContent = t; return d.innerHTML; }
+
+// Number of groups closest to the chosen size; sizes never differ by more than one.
+function plan() {
+  const n = people().length, size = +state.size;
+  if (!n) return { n, count: 0, text: 'Add some names to get started.' };
+  const count = Math.max(1, Math.round(n / size));
+  const small = Math.floor(n / count), big = n % count, parts = [];
+  if (count - big) parts.push((count - big) + ' of ' + small);
+  if (big) parts.push(big + ' of ' + (small + 1));
+  return { n, count, text: count + (count === 1 ? ' group: ' : ' groups: ') + parts.join(', ') + '.' };
+}
+
+function make() {
+  const p = plan();
+  if (!p.count) { state.groups = null; save(); render(); return; }
+  const all = people();
+  const groups = Array.from({ length: p.count }, () => []);
+  const stars = g => g.filter(x => x.star).length;
+  // Deal starred students first, then everyone else, always into a smallest group.
+  [...shuffle(all.filter(x => x.star)), ...shuffle(all.filter(x => !x.star))].forEach(x => {
+    const min = Math.min(...groups.map(g => g.length));
+    let open = shuffle(groups.filter(g => g.length === min));
+    if (x.star) open.sort((a, b) => stars(a) - stars(b));
+    open[0].push(x);
+  });
+  state.groups = shuffle(groups).map(shuffle);
+  save(); render();
+}
+
+function updateCount() {
+  const p = plan();
+  $('count').textContent = p.n + (p.n === 1 ? ' student' : ' students');
+  $('plan').textContent = p.text;
+}
+
+function render() {
+  $('names').value = state.names;
+  $('size').value = state.size;
+  updateCount();
+  const box = $('groups');
+  if (!state.groups) { box.innerHTML = '<p style="color:var(--muted)">Press “Make groups” to start.</p>'; return; }
+  box.innerHTML = state.groups.map((g, i) => {
+    const c = COLORS[i % COLORS.length];
+    return '<div class="group" style="border-color:' + c + '"><h3 style="color:' + c + '">Group ' + (i + 1) + '</h3><ul>' +
+      g.map(x => '<li>' + esc(x.name) + (x.star ? ' <span class="star">★</span>' : '') + '</li>').join('') +
+      '</ul></div>';
+  }).join('');
+}
+
+function proj(on) {
+  document.body.classList.toggle('proj', on);
+  $('exitProj').style.display = on ? '' : 'none';
+  window.scrollTo(0, 0);
+}
+
+for (let i = 2; i <= 8; i++) $('size').insertAdjacentHTML('beforeend', '<option value="' + i + '">' + i + ' students</option>');
+$('names').addEventListener('input', e => { state.names = e.target.value; save(); updateCount(); });
+$('size').addEventListener('change', e => { state.size = +e.target.value; save(); make(); });
+$('make').onclick = make;
+$('shuffle').onclick = make;
+$('clear').onclick = () => {
+  if (confirm('Clear the class list and groups?')) { state = { names: '', size: state.size, groups: null }; save(); render(); }
+};
+$('projector').onclick = () => { if (!state.groups) make(); proj(true); };
+$('exitProj').onclick = () => proj(false);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') proj(false); });
+
+render();
+if (!state.groups) make();
+</script>
+<script src="../live.js"></script>
+</body>
+</html>

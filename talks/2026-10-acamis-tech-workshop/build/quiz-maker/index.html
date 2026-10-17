@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reading Check Quiz Maker</title>
+<style>
+  :root{--ink:#0B1A4A;--ink2:#2F55A8;--paper:#F6EFE7;--card:#FFFDFA;--edge:#E4D9CC;--muted:#6B6F80;--ok:#2E7D5B;--warn:#B5562F;--r:14px}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font:400 19px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,"PingFang SC",sans-serif}
+  header{padding:28px 32px 8px;max-width:1100px;margin:0 auto}
+  header h1{margin:0;font-size:36px;line-height:1.15;letter-spacing:-.01em}
+  header p{margin:6px 0 0;color:var(--muted);font-size:19px}
+  main{max-width:1100px;margin:0 auto;padding:16px 32px 40px;display:grid;gap:18px}
+  .card{background:var(--card);border:1px solid var(--edge);border-radius:var(--r);padding:22px 24px;box-shadow:0 10px 24px -20px rgba(11,26,74,.35)}
+  .card h2{margin:0 0 12px;font-size:22px}
+  .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+  .row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .field{display:grid;gap:6px;margin:0 0 14px}
+  .field label{font-weight:600;font-size:16px;color:var(--ink2);letter-spacing:.02em}
+  input,select,textarea{font:inherit;color:inherit;width:100%;padding:12px 14px;border:1px solid var(--edge);border-radius:10px;background:#fff}
+  textarea{min-height:140px;resize:vertical}
+  input:focus,select:focus,textarea:focus{outline:3px solid rgba(47,85,168,.25);border-color:var(--ink2)}
+  .btn{font:600 18px/1 inherit;font-family:inherit;padding:14px 22px;border-radius:999px;border:0;background:var(--ink);color:#fff;cursor:pointer}
+  .btn:hover{background:var(--ink2)}
+  .btn-ghost{font:600 18px/1 inherit;font-family:inherit;padding:13px 21px;border-radius:999px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+  .out{white-space:pre-wrap;background:#fff;border:1px dashed var(--edge);border-radius:10px;padding:16px 18px;min-height:60px}
+  .pill{display:inline-block;padding:4px 12px;border-radius:999px;background:rgba(47,85,168,.12);color:var(--ink2);font-size:15px;font-weight:600}
+  footer{max-width:1100px;margin:0 auto;padding:0 32px 32px;color:var(--muted);font-size:14px}
+  @media (max-width:600px){header,main,footer{padding-left:16px;padding-right:16px}header h1{font-size:28px}}
+
+  #passage{min-height:220px}
+  .check{display:flex;gap:8px;align-items:center;font-size:17px;cursor:pointer}
+  .check input{width:22px;height:22px}
+  .sheet h2{font-size:26px}
+  .namebar{display:flex;gap:28px;flex-wrap:wrap;margin:0 0 16px;font-size:17px}
+  .readtext{background:#fff;border-left:4px solid var(--ink2);padding:12px 16px;margin:0 0 18px;border-radius:6px}
+  .q{margin:0 0 18px}
+  .q b{margin-right:6px}
+  .opts{list-style:none;margin:6px 0 0;padding:0 0 0 28px;display:grid;gap:4px}
+  .lines{border-bottom:1.5px solid var(--muted);height:34px}
+  .key{margin-top:26px;padding-top:18px;border-top:2px dashed var(--edge)}
+  .key h3{margin:0 0 10px;font-size:22px;color:var(--ok)}
+  .key li{margin:0 0 8px}
+  .hide-key .key{display:none}
+  [contenteditable]:focus{outline:3px solid rgba(47,85,168,.25);border-radius:8px}
+  .msg{color:var(--warn);font-weight:600}
+  @media print{
+    header,footer,.no-print{display:none!important}
+    body{background:#fff;font-size:13pt}
+    main{padding:0}
+    .card{border:0;box-shadow:none;padding:0}
+    .key{break-before:page;border-top:0}
+  }
+</style>
+</head>
+<body>
+<header>
+  <a class="tb-back" href="../" style="display:inline-block;margin:0 0 10px;font:600 15px/1 -apple-system,BlinkMacSystemFont,sans-serif;color:#2F55A8;text-decoration:none">&larr; Teacher Toolbox</a>
+  <h1>Reading Check Quiz Maker</h1>
+  <p>Paste a short passage and get five comprehension questions plus a printable answer key.</p>
+</header>
+<main>
+  <section class="card no-print">
+    <div class="field">
+      <label for="title">Passage title</label>
+      <input id="title">
+    </div>
+    <div class="field">
+      <label for="passage">Passage (paste at least 5 sentences)</label>
+      <textarea id="passage"></textarea>
+    </div>
+    <div class="row">
+      <button class="btn" id="make">Make quiz</button>
+      <button class="btn-ghost" id="again">New questions</button>
+      <button class="btn-ghost" id="print">Print</button>
+      <button class="btn-ghost" id="clear">Clear</button>
+    </div>
+    <div class="row" style="margin-top:14px">
+      <label class="check"><input type="checkbox" id="showText" checked> Print passage on the quiz</label>
+      <label class="check"><input type="checkbox" id="showKey" checked> Include answer key</label>
+    </div>
+    <p style="margin:12px 0 0;color:var(--muted);font-size:16px"><span class="pill">Tip</span> Click any question below to edit its wording before printing.</p>
+  </section>
+
+  <section class="card sheet" id="sheet"></section>
+</main>
+<footer>Built by teachers with Claude Code · ACAMIS Technology Conference 2026 · Arena School</footer>
+<script>
+const SAMPLE_TITLE = "The Rooftop Garden";
+const SAMPLE = "In 2019, the students at Hillside Middle School decided to turn their empty rooftop into a garden. Their science teacher, Ms. Rivera, helped them write a plan and present it to the principal, Mr. Okafor. At first, Mr. Okafor worried that the roof could not hold the weight of the soil. An engineer checked the building and said it could safely carry 40 planters. The students raised money by selling lemonade and old books at the spring fair. By May, they had collected 1,200 dollars, enough to buy soil, seeds, and a water tank. Student A planted tomatoes, while Student B looked after the beans and peppers. During the summer, a family of sparrows built a nest in the corner of the garden. The garden now grows over 30 kilograms of vegetables each year, which the students give to the school kitchen. Ms. Rivera says the project taught her class that patience matters as much as hard work.";
+
+const KEY = "quizMaker.v1";
+const $ = id => document.getElementById(id);
+const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+const STOP = new Set("because before after during should would could their there these those which about while enough always little another without through between across around really almost toward towards himself herself itself myself themselves everyone something nothing anything someone people things having being cannot doesn't another however although whether either neither inside outside things".split(" "));
+const SPARE_NAMES = ["Chen","Lopez","Patel","Novak","Harris","Tanaka","Brooks"];
+const SPARE_WORDS = ["careful","journey","market","window","bright","silence","village","promise","quickly","strange"];
+
+let state = JSON.parse(localStorage.getItem(KEY) || "null") || {title: SAMPLE_TITLE, passage: SAMPLE, seed: 1, showText: true, showKey: true, sheet: ""};
+
+function save(){ localStorage.setItem(KEY, JSON.stringify(state)); }
+function esc(s){ return s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+function rngFrom(seed){ let a = seed * 2654435761 >>> 0; return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+function shuffle(arr, r){ const a = arr.slice(); for (let i = a.length - 1; i > 0; i--){ const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+
+function splitSentences(text){
+  let t = text.replace(/\s+/g, " ").trim()
+    .replace(/\b(Mr|Mrs|Ms|Dr|Prof|St|Mt|Jr|Sr|vs)\./g, "$1§")
+    .replace(/(\d)\.(\d)/g, "$1§$2");
+  return (t.match(/[^.!?]+[.!?]+["')\]]*|[^.!?]+$/g) || [])
+    .map(s => s.replace(/§/g, ".").trim())
+    .filter(s => s.split(" ").length >= 5);
+}
+const clean = w => w.replace(/^[^\w]+|[^\w]+$/g, "");
+
+function kindOf(word, idx){
+  if (/^\d[\d,]*$/.test(word)) return "number";
+  if (MONTHS.includes(word)) return "month";
+  if (idx > 0 && /^[A-Z][a-z]{2,}$/.test(word)) return "name";
+  if (word.length >= 6 && /^[a-z]+$/.test(word) && !STOP.has(word)) return "word";
+  return null;
+}
+function candidates(s){
+  return s.split(" ").map((w, i) => ({word: clean(w), kind: kindOf(clean(w), i)})).filter(c => c.kind);
+}
+
+function numberVariants(raw){
+  const n = parseInt(raw.replace(/,/g, ""), 10);
+  let v;
+  if (n >= 1900 && n <= 2100) v = [n - 3, n + 2, n + 5, n - 1];
+  else if (n <= 12) v = [n + 1, n + 2, n * 2, Math.max(0, n - 1)];
+  else {
+    const nice = x => { const p = Math.pow(10, Math.max(0, String(Math.round(x)).length - 2)); return Math.round(x / p) * p; };
+    v = [nice(n * 0.5), nice(n * 1.5), n * 2, nice(n * 0.75)];
+  }
+  const fmt = x => (raw.includes(",") || x >= 10000) ? x.toLocaleString("en-US") : String(x);
+  return [...new Set(v.filter(x => x !== n && x >= 0).map(fmt))];
+}
+
+function distractors(kind, answer, pools, r){
+  const low = answer.toLowerCase();
+  let picks = shuffle([...pools[kind]].filter(w => w.toLowerCase() !== low), r);
+  const spare = kind === "number" ? numberVariants(answer) : kind === "month" ? shuffle(MONTHS, r) : kind === "name" ? shuffle(SPARE_NAMES, r) : shuffle(SPARE_WORDS, r);
+  if (kind === "number") picks = numberVariants(answer).concat(picks);
+  for (const s of spare) if (!picks.some(p => p.toLowerCase() === s.toLowerCase()) && s.toLowerCase() !== low) picks.push(s);
+  return picks.slice(0, 3);
+}
+
+function blankOut(s, word){ return s.replace(new RegExp("\\b" + word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "\\b"), "________"); }
+function snippet(s){ const w = s.split(" "); return w.length > 12 ? w.slice(0, 12).join(" ") + "…" : s; }
+
+function build(){
+  const sents = splitSentences(state.passage);
+  if (sents.length < 4) return '<p class="msg">Paste a longer passage (at least 4–5 full sentences) and press "Make quiz".</p>';
+  const r = rngFrom(state.seed);
+  const pools = {number: new Set(), month: new Set(), name: new Set(), word: new Set()};
+  sents.forEach(s => candidates(s).forEach(c => pools[c.kind].add(c.word)));
+
+  const used = new Set();
+  const order = shuffle(sents.map((_, i) => i), r);
+  const L = "ABCD";
+  const qs = [], key = [];
+
+  function blankQ(preferKinds){
+    for (const kinds of [preferKinds, ["number","name","month","word"]]){
+      for (const i of order){
+        if (used.has(i)) continue;
+        const c = shuffle(candidates(sents[i]).filter(c => kinds.includes(c.kind)), r)[0];
+        if (!c) continue;
+        used.add(i);
+        const opts = shuffle([c.word, ...distractors(c.kind, c.word, pools, r)], r);
+        const letter = L[opts.indexOf(c.word)];
+        qs.push(`Fill in the blank: “${esc(blankOut(sents[i], c.word))}”<ul class="opts">${opts.map((o, k) => `<li>${L[k]}. ${esc(o)}</li>`).join("")}</ul>`);
+        key.push(`<b>${letter}</b> ${esc(c.word)}`);
+        return;
+      }
+    }
+  }
+
+  function trueFalseQ(){
+    for (const i of order){
+      if (used.has(i)) continue;
+      used.add(i);
+      const s = sents[i];
+      const cs = candidates(s);
+      const num = cs.find(c => c.kind === "number");
+      const name = cs.find(c => c.kind === "name" && pools.name.size > 1);
+      let changed = null;
+      if (r() < 0.6){
+        if (num) changed = blankOut(s, num.word).replace("________", numberVariants(num.word)[0]);
+        else if (name) changed = blankOut(s, name.word).replace("________", [...pools.name].find(n => n !== name.word));
+        else if (/\b(is|was|are|were|can|will)\b/.test(s)) changed = s.replace(/\b(is|was|are|were|can|will)\b/, "$1 not");
+      }
+      qs.push(`True or false? “${esc(changed || s)}”<ul class="opts"><li>True &nbsp;&nbsp;&nbsp; False</li></ul>`);
+      key.push(changed ? `<b>False</b> — the passage says: “${esc(s)}”` : `<b>True</b>`);
+      return;
+    }
+  }
+
+  function sequenceQ(){
+    const free = sents.map((_, i) => i).filter(i => !used.has(i));
+    if (free.length < 2) return;
+    let a = free[0], b = free[free.length - 1];
+    const pairs = [];
+    for (const x of free) for (const y of free) if (y - x >= 2) pairs.push([x, y]);
+    if (pairs.length) [a, b] = pairs[Math.floor(r() * pairs.length)];
+    used.add(a); used.add(b);
+    const flip = r() < 0.5;
+    const shown = flip ? [b, a] : [a, b];
+    qs.push(`Which of these comes <i>first</i> in the passage?<ul class="opts"><li>A. ${esc(snippet(sents[shown[0]]))}</li><li>B. ${esc(snippet(sents[shown[1]]))}</li></ul>`);
+    key.push(`<b>${flip ? "B" : "A"}</b> ${esc(snippet(sents[a]))}`);
+  }
+
+  blankQ(["number","name","month"]);
+  trueFalseQ();
+  blankQ(["word"]);
+  sequenceQ();
+  qs.push(`In one or two sentences, what is this passage mainly about?<div class="lines"></div><div class="lines"></div>`);
+  key.push(`<i>Answers will vary.</i> Look for something like: “${esc(sents[0])}”`);
+
+  return `<h2>Reading Check: ${esc(state.title || "Passage")}</h2>
+    <div class="namebar"><span>Name: ____________________</span><span>Class: ________</span><span>Date: ____________</span></div>
+    ${state.showText ? `<div class="readtext">${esc(state.passage)}</div>` : ""}
+    <div contenteditable="true">${qs.map((q, i) => `<div class="q"><b>${i + 1}.</b>${q}</div>`).join("")}</div>
+    <div class="key" contenteditable="true"><h3>Answer Key: ${esc(state.title || "Passage")}</h3><ol>${key.map(k => `<li>${k}</li>`).join("")}</ol></div>`;
+}
+
+function render(fresh){
+  if (fresh || !state.sheet) state.sheet = build();
+  $("sheet").innerHTML = state.sheet;
+  $("sheet").classList.toggle("hide-key", !state.showKey);
+  save();
+}
+
+function load(){
+  $("title").value = state.title;
+  $("passage").value = state.passage;
+  $("showText").checked = state.showText;
+  $("showKey").checked = state.showKey;
+  render(false);
+}
+
+$("title").oninput = () => { state.title = $("title").value; save(); };
+$("passage").oninput = () => { state.passage = $("passage").value; save(); };
+$("make").onclick = () => render(true);
+$("again").onclick = () => { state.seed++; render(true); };
+$("print").onclick = () => window.print();
+$("showText").onchange = () => { state.showText = $("showText").checked; render(true); };
+$("showKey").onchange = () => { state.showKey = $("showKey").checked; render(false); };
+$("sheet").oninput = () => { state.sheet = $("sheet").innerHTML; save(); };
+$("clear").onclick = () => {
+  if (!confirm("Clear the passage and quiz?")) return;
+  state = {title: "", passage: "", seed: 1, showText: true, showKey: true, sheet: ""};
+  load();
+  $("passage").focus();
+};
+load();
+</script>
+<script src="../live.js"></script>
+</body>
+</html>
