@@ -274,3 +274,9 @@ Board: OnePagerV5Final. Renders + overlays: `/tmp/pro-pass/{,teacher-,parent-}on
   learner" still crossed the circle; keep row wrapped.
 - **r3/r4.** Team marks as two balanced lines of six, spaced edge to edge (checked for overflow); keep row titles only;
   core text on three short lines, wheel centred in its column. All six: one page, on grid, nothing clipped, text 7pt+.
+- **Review (ONEPAGER4-REVIEW.md).** (1) Credentials: "A member of" and "Team from" share one 6-column grid; twelve
+  marks on two lines of six, each centred in its column (McKinsey sized to fit its cell); Anthropic and OpenAI centred on
+  columns 1 and 2 with captions below. The build checks the column centres. (2) School card: "Cleared for student data"
+  (CN unchanged, already short), one line; cards and list share height. (3) Parent 03: more space above "What they keep";
+  the note on the grid edge; parent ladder rise 2mm (level 1 still 15mm). (4) Tile proof slot at a fixed 17mm pinned to
+  the card bottom; the build checks dividers align per row.

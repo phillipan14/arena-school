@@ -94,3 +94,5 @@ brown, tsinghua-lockup, isb, mckinsey, goldman, yc, apple, microsoft-ai, deloitt
   the dead gap (wheel sized to the content block, strands as one line); no vs badge; equal-height commitment rows aligned
   to the account cards; teacher and parent tiles on the thirds, every tile with a real proof line; fewer type sizes.
 - Stamps `?v=20261017f`.
+- **v5.1 (review):** credentials on one shared 6-column grid (two lines of six, centred); "Cleared for student data" on
+  one line; tile proof slots aligned across rows; parent keep row with more presence. Stamps `?v=20261017g`.

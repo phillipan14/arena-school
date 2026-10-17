@@ -66,7 +66,7 @@ L = {
    skills=[('compass', 'Agency', 'Choose what is worth doing.'), ('search-check', 'Taste', 'Judge whether it is actually good.'), ('badge-check', 'Craft', 'Finish it so people can trust it.')],
    loop='Learners decide. AI builds. Real people judge.', strands_k='Four strands, assessed on every project',
    dk='Whose account is it?', personal='Personal account', school='School-approved platform',
-   prow=['Consumer terms', 'No data agreement', 'Not for student data'], srow=['Enterprise agreement', 'Agreed by the school', 'Approved for student data'],
+   prow=['Consumer terms', 'No data agreement', 'Not for student data'], srow=['Enterprise agreement', 'Agreed by the school', 'Cleared for student data'],
    cta='Bring Arena to your school.', ctap='Planned with your team, run on your campus. Your teachers keep the materials.',
    hub='Arena School',
  ),
@@ -107,8 +107,8 @@ DOCS = {
    en=dict(eyebrow='For families', h1='What your child makes, learns, and keeps <em>at Arena School.</em>'),
    cn=dict(eyebrow='写给家长', h1='孩子在 Arena School <em>做什么、学什么、带走什么。</em>')),
 }
-STUDIED = [('caltech', 3.2), ('harvard', 4.4), ('brown', 5.2), ('tsinghua-lockup', 4.6), ('isb', 4.6)]
-WORKED = [('mckinsey', 2.6), ('goldman', 4.0), ('yc', 3.8), ('apple', 4.0), ('microsoft-ai', 3.2), ('deloitte', 2.7), ('kimi-wordmark', 2.8)]
+STUDIED = [('caltech', 3.2), ('harvard', 4.2), ('brown', 5.0), ('tsinghua-lockup', 4.4), ('isb', 4.4)]
+WORKED = [('mckinsey', 2.2), ('goldman', 4.0), ('yc', 3.8), ('apple', 4.0), ('microsoft-ai', 3.2), ('deloitte', 2.7), ('kimi-wordmark', 2.8)]
 
 S = {
  'en': dict(who='Who we serve, and where we’ve run it', who_t='Who we work with, and where we’ve run it', who_p='What your child can do, and where we’ve run it',
@@ -197,11 +197,11 @@ def strip(lang):
     marks = [(k, h[k]) for k in order]
     cell = lambda k, h: '<span class="lc%s"><img src="/logos/cred/%s.png" alt="" style="height:%smm" /></span>' % (' w2' if k == 'mckinsey' else '', k, h)
     return ('<section class="strip">'
-            '<div class="g12 row"><span class="c1-3 lab">%s</span><div class="c4-12 logos member">'
-            '<span class="m"><img src="/logos/partners/anthropic.svg" alt="Anthropic" style="height:2.6mm" /><em>%s</em></span>'
-            '<span class="m"><img src="/logos/partners/openai.svg" alt="OpenAI" style="height:4.8mm" /><em>%s</em></span></div></div>'
-            '<div class="g12 row"><span class="c1-3 lab">%s</span><div class="c4-12 team"><div class="tl">%s</div><div class="tl">%s</div></div></div></section>'
-            % (c['member'], c['anth'], c['oai'], c['studied'], ''.join(cell(k, h) for k, h in marks[:6]), ''.join(cell(k, h) for k, h in marks[6:])))
+            '<div class="g12 row"><span class="c1-3 lab">%s</span><div class="c4-12 six member">'
+            '<span class="lc m"><img src="/logos/partners/anthropic.svg" alt="Anthropic" style="height:2.3mm" /><em>%s</em></span>'
+            '<span class="lc m"><img src="/logos/partners/openai.svg" alt="OpenAI" style="height:4.4mm" /><em>%s</em></span></div></div>'
+            '<div class="g12 row"><span class="c1-3 lab">%s</span><div class="c4-12 six team">%s</div></div></section>'
+            % (c['member'], c['anth'], c['oai'], c['studied'], ''.join(cell(k, h) for k, h in marks)))
 
 
 def shead(n, key, lang, span='c1-12'):
@@ -398,7 +398,7 @@ em { font-style: italic; }
 .out { display: block; font-size: 8.4pt; line-height: 1.4; color: #3A4466; }
 .fm { display: block; font: 600 7.6pt/1.3 'Geist', system-ui, sans-serif; color: var(--pro-action); }
 .rrow { align-items: stretch; }
-.tile .proof { margin-top: auto; padding-top: 2.4mm; border-top: 1px solid var(--pro-line); display: grid; gap: 1.4mm; }
+.tile .proof { margin-top: auto; height: 17mm; align-content: start; padding-top: 2.4mm; border-top: 1px solid var(--pro-line); display: grid; gap: 1.4mm; }
 .tile .proof.empty { border-top-color: transparent; }
 .marks { height: 6mm; display: flex; align-items: center; gap: 2.6mm; overflow: visible; }
 .marks img { width: auto; display: block; filter: grayscale(1) contrast(1.1); opacity: .85; }
@@ -447,7 +447,7 @@ em { font-style: italic; }
 .acc { border: 1px solid var(--pro-line); border-radius: 2mm; padding: 3mm; } .acc.ok { border-color: #0B1A4A; box-shadow: inset 0 3px 0 var(--pro-action); }
 .acch { display: flex; align-items: center; gap: 2mm; margin-bottom: 2mm; } .acch b { font: 600 9.4pt/1.2 'Geist', system-ui, sans-serif; color: var(--pro-ink); }
 .acc.no .acch .ic { color: #4A5578; }
-.acc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.2mm; } .acc li { display: flex; gap: 1.6mm; align-items: center; font-size: 8.4pt; color: #3A4466; }
+.acc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.2mm; } .acc li { display: flex; gap: 1.4mm; align-items: center; font-size: 8pt; color: #3A4466; white-space: nowrap; }
 .mk { width: 3.6mm; height: 3.6mm; flex: none; } .acc.no .mk { color: #9A3B2E; } .acc.ok .mk { color: var(--pro-action); }
 .commit { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
 .commit li { display: flex; align-items: center; gap: 2.6mm; padding: 2mm 0; border-top: 1px solid var(--pro-line); }
@@ -459,7 +459,11 @@ em { font-style: italic; }
 .strip .row { align-items: center; }
 .strip .lab { white-space: nowrap; }
 .logos { display: flex; align-items: center; justify-content: space-between; flex-wrap: nowrap; min-width: 0; }
-.team { display: grid; row-gap: 2.4mm; } .team .tl { display: flex; justify-content: space-between; align-items: center; }
+/* one 6-column grid for both credential rows: every logo centred in its column */
+.six { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); row-gap: 2.4mm; align-items: center; }
+.six .lc { display: flex; align-items: center; justify-content: center; height: 6mm; min-width: 0; }
+.six.member { gap: 0; column-gap: 0; justify-content: stretch; }
+.six .m { flex-direction: column; height: auto; gap: .8mm; } .six .m em { font-style: normal; font-size: 7pt; color: #4A5578; white-space: nowrap; }
 .team .lc { display: flex; align-items: center; justify-content: flex-start; height: 6mm; }
 .team img { width: auto; display: block; filter: grayscale(1) contrast(1.15); opacity: .8; }
 .team img[src*='/brown.'], .team img[src*='/harvard.'] { filter: grayscale(1) contrast(1.6) brightness(.72); opacity: 1; }
@@ -471,7 +475,8 @@ em { font-style: italic; }
 .sk3 { display: flex; flex-direction: column; gap: 1.2mm; padding-top: 2.4mm; border-top: 2px solid var(--pro-action); }
 .pk { margin-top: 3.4mm; } .pk .k { display: block; margin-bottom: 1.4mm; }
 .prac .pi { display: flex; align-items: center; gap: 2mm; padding: 2mm 0; border-top: 1px solid var(--pro-line); border-bottom: 1px solid var(--pro-line); } .prac b { font: 600 8.2pt/1.2 'Geist', system-ui, sans-serif; color: var(--pro-ink); white-space: nowrap; }
-.keepk { margin-top: 3.4mm; } .keepk .k { margin-bottom: 1.4mm; } .keepk .k { display: block; } .keep { margin-top: 1.4mm; } .note { margin-top: 2mm; font-size: 7.2pt; color: #4A5578; }
+.parent .stairs li { height: calc(15mm + var(--s) * 2mm); }
+.keepk { margin-top: 4.4mm; } .keepk .k { margin-bottom: 1.6mm; } .keepk .k { display: block; } .keep { margin-top: 1.4mm; } .note { margin: 2.4mm 0 0; padding: 0; font-size: 7.2pt; color: #4A5578; }
 /* closing band */
 .cta { background: #0B1A4A; color: #fff; padding-top: 4.4mm; padding-bottom: 4.4mm; align-items: center; }
 .cta h2 { color: #fff; font-size: 13pt; } .cta p { margin: 1mm 0 0; font-size: 8.2pt; color: rgba(255,255,255,.84); }
@@ -515,6 +520,12 @@ const { chromium } = require('playwright');
     let svgMin = 99; document.querySelectorAll('svg.apw text').forEach(t => { if (getComputedStyle(t).display === 'none') return; const sv = t.ownerSVGElement; const k = sv.getBoundingClientRect().width / sv.viewBox.baseVal.width; svgMin = Math.min(svgMin, parseFloat(t.getAttribute('font-size') || getComputedStyle(t).fontSize) * k); });
     const hb = document.querySelector('.top').getBoundingClientRect(), hc = document.querySelector('.top-copy').getBoundingClientRect();
     if (hc.top < hb.top + 8 || hc.bottom > hb.bottom - 8) stepBad.push('header copy outside band');
+    document.querySelectorAll('.rrow').forEach(row => { const pt = [...row.querySelectorAll('.tile .proof')].map(t => Math.round(t.getBoundingClientRect().top)); if (pt.length && Math.max(...pt) - Math.min(...pt) > 1) uneven.push('proof ' + pt.join('/')); });
+    const cents = sel => [...document.querySelectorAll(sel)].map(e => { const r = e.getBoundingClientRect(); return Math.round(r.left + r.width / 2); });
+    const tc = cents('.team .lc'), mc = cents('.member .lc');
+    for (let i = 6; i < tc.length; i++) if (Math.abs(tc[i] - tc[i - 6]) > 1) uneven.push('team col ' + i);
+    mc.forEach((c, i) => { if (Math.abs(c - tc[i]) > 1) uneven.push('member col ' + i); });
+    document.querySelectorAll('.acc li').forEach(li => { if (li.getBoundingClientRect().height > 16) uneven.push('acc wrap: ' + li.textContent); });
     const tops = []; document.querySelectorAll('.sh').forEach(d => tops.push(Math.round(d.getBoundingClientRect().left)));
     let min = 99; document.querySelectorAll('.op *').forEach(e => { if ([...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim()) && !e.closest('svg')) min = Math.min(min, parseFloat(getComputedStyle(e).fontSize)); });
     const clipped = []; document.querySelectorAll('.marks, .logos, .team .tl, .prac .pi').forEach(l => { const p = l.closest('.card, .row, .prac'); const pr = p.getBoundingClientRect(); [...l.children].forEach(c => { const r = c.getBoundingClientRect(); if (r.right > pr.right - 1 || r.left < pr.left) clipped.push(c.textContent || c.getAttribute('src')); }); });
