@@ -1,0 +1,34 @@
+/* audit D: slides 22-24 and 26-28, each rule scoped by its .au<N> slide class (slide 25 left to the lead) */
+
+/* 22: the two cards' bullets share rows (item n starts at the same height in both cards), so the
+   shorter "Comfort to build" list no longer leaves its whole slack as one band at the bottom */
+.ae.p15-tb.au22 .bd .p15-c{display:flex;flex-direction:column;padding-bottom:27px}
+.ae.p15-tb.au22 .bd .p15-c ul{flex:1 1 auto;display:grid;grid-template-rows:repeat(3,1fr);align-content:stretch}
+
+/* 23: content block sat high (last line at 915, 165px empty below); open the gaps between its parts */
+.ae.r8-pa.au23 .bd{gap:44px}
+.ae.r8-pa.au23 .bd .r8-note{padding-top:32px}
+
+/* 24: card ink top 49.3 vs bottom 46.7; italic f of "fair from fair" touched its highlight's left edge */
+.ae.r5b-tl.au24 .bd .r5b-c{padding-top:32.5px}
+.ae.r5b-tl.au24 .bd .r5b-poem{padding-top:16.25px;padding-bottom:13.75px}
+.r5b-tl.au24 .r5b-poem mark.c>span{padding-left:6px}
+
+/* 26: down arrow sat 8px closer to the top circle than the bottom one */
+section.s.ae.p8-co.au26 .bd .p8-sdn{position:relative;top:6.1px}
+
+/* 27: connector line ran 7px above the node centers; lower the row away from the title */
+.ae.p8-gsx.au27 .bd .p8-c3x::before{top:43.5px}
+.ae.p8-gsx.au27 .bd .p8-c3x{margin-top:19px}
+.ae.cl.p8-gsx.au27 .bd{gap:53px}
+
+/* 28: program cards had 21/26/18 px padding (under 24) and the slide had a 200px empty band at the bottom */
+.ae.p13-ct.au28 .bd .p13-pl{padding:22px 22px 14.5px}
+.ae.p13-ct.au28 .bd .p10-cg{margin-top:24px}
+.ae.p13-ct.au28 .bd .p10-prog>.p9-lb{margin-bottom:10px}
+.ae.p13-ct.au28 .bd .p12-lb{margin:38px 0 -2px}
+/* 28: QR caption block sat 2px high in the navy panel */
+.ae.p13-ct.au28 .bd .p11-qt{position:relative;top:.75px}
+/* 27: house icon ink sat 1.7px high in its circle, hammer 2.0px low */
+.ae.p8-gsx.au27 .bd .p8-c3x li:first-child .p8-node .lic{transform:translateY(.65px)}
+.ae.p8-gsx.au27 .bd .p8-c3x li:last-child .p8-node .lic{transform:translateY(-.75px)}

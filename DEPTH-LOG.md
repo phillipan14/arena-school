@@ -284,3 +284,17 @@ Board: OnePagerV5Final. Renders + overlays: `/tmp/pro-pass/{,teacher-,parent-}on
   proof lines (repo file `logos/cred/schwarzman.png`); "A member of" as a slim strip under the header; photo fades from
   the navy. Critique round: the first fade darkened the left student's face (tightened to clear before the faces) and
   left a sub-pixel hairline at the photo edge (overlay extended 1mm). All six pass every build check.
+- **Edges (EDGES-BRIEF).** Logo heights from each file's measured ink (area x density), with a legibility floor for
+  crest + small-caps marks; one darkness (black at 72%). Team-from label above a full-width 6-column grid (outer columns
+  flush to the edges, inner centred; checked). New build check: header text, member strip, section headers, first and
+  last cards, data columns, Team-from row ends, footer text and contact all on the same left and right content edges.
+  Critique round: an old rule left-aligned the inner logo columns (removed).
+- **Team row (TEAMROW-BRIEF).** "Built by a team from", label left (columns 1-3, as the member strip), logos right
+  (columns 4-12). Tried 2 x 6 and 3 x 4: chose 2 x 6 (two balanced lines, equal cells, no extra height; 3 x 4 left the
+  label floating in a tall block and pushed parent EN 4px over). Edge and column checks pass on all six.
+
+## One-pagers v6, messaging (MESSAGING-BRIEF)
+Positioning first (ONEPAGER-POSITIONING.md), then copy and layout. Round 1: teacher with four sections ran 21mm over;
+parent render crashed the checker (proof marks in a new container). Round 2: teacher stairs without descriptions still
+10mm over. Round 3: staircase and "one session, one working tool" merged into one section, three sections per page; all
+six fit and pass edges, grid, 7pt, one page. CN "1 in 2" shown as 一半.

@@ -110,3 +110,30 @@ brown, tsinghua-lockup, isb, mckinsey, goldman, yc, apple, microsoft-ai, deloitt
 - Stamps `?v=20261017h`.
 - **v5.3 (CAPTION-BRIEF):** header photo caption "Demo day at the International School of Beijing, 2026" (fits one line),
   CN "北京顺义国际学校路演日" (JJ review comment in the source); one line checked by the build. Stamps `?v=20261017i`.
+- **v5.4 (EDGES-BRIEF):** "Team from" marks sized by measured ink area (equal visual mass; Harvard, Brown, Tsinghua,
+  ISB raised to a legible minimum; Apple matched), all one greyscale darkness, 6 + 6 on shared columns with the outer
+  columns on the content edges. One left and one right content edge for header text, member strip, section headers,
+  cards, data list, Team-from label and logos, footer text and contact (Team-from label now above the grid). The build
+  checks all of these edges on every page. Stamps `?v=20261017j`.
+- **v5.5 (TEAMROW-BRIEF):** bottom row relabelled "Built by a team from" (CN 团队成员来自, JJ review), label on the left in
+  the same column as "A member of", logos on the right in a 2 x 6 grid of equal cells (each mark centred) ending on the
+  right content edge. 3 x 4 was tried and dropped (a third row, a floating label, and the parent EN page went over).
+  Stamps `?v=20261017k`.
+
+## v6 (Oct 17 pm, MESSAGING-BRIEF): concrete messaging per audience (see ONEPAGER-POSITIONING.md)
+- **Headers say who we are, concretely:** parent "Your child builds and launches a real AI product", with the mentoring
+  team named (Harvard, Caltech, Tsinghua, McKinsey, Goldman Sachs, Y Combinator, Apple, Microsoft AI); teacher "Every
+  teacher confident with AI, inside your school's rules", each teacher leaves with a working tool, from the team that
+  trained staff at Schwarzman College; general "Students, teachers, and families build real things with AI", with where
+  we have run it.
+- **Agency, taste, craft in plain words** (from the approach page): choose a real problem and pitch it; test with real
+  users and judge which version works; launch at a live link and explain every decision.
+- **Parent:** Why it matters now (RAND: over 80% of students not taught to use AI, 54% already use it, 61% of parents
+  worried about critical thinking; sources printed); What your child builds and learns; What it leads to (milestone
+  ladder, what they keep for college, summer, and internship applications, proof: ISB demo day judges from Harvard,
+  Stanford, Y Combinator, and AI labs; a sign-language-to-speech app launched in five days at Bodley Academy); the
+  site's no-promise admissions line. No student data section.
+- **Teacher:** Why now (RAND 53% of teachers use AI; 1 in 2 districts trained; Gallup 5.9 hours a week saved), five
+  levels with one session, one working tool; student data.
+- **General:** each audience tile states that audience's motivation.
+- Stamps `?v=20261017l`.
