@@ -1,0 +1,42 @@
+/* audit C: slides 15-21 */
+/* 15: the italic line sits on its own line; the roman first line needs a touch more measure */
+.ae.au15 .sec-g h2{max-width:1100px}
+/* 16, 19: photo-card captions sit centered by ink in the band under the photo */
+.ae.au16 .bd .ac-dd .ac-ph figcaption,.ae.au19 .bd .ac-dd .ac-ph figcaption{flex:1 1 auto;display:flex;align-items:center}
+/* 16: fact cards; the numerals' side bearing pushes the ink right, so nudge each group back to center */
+.ae.au16 .bd .ac-dd .r11-facts .pane:nth-child(1) .r11-in{translate:-2px 0}
+.ae.au16 .bd .ac-dd .r11-facts .pane:nth-child(2) .r11-in{translate:-1.9px .6px}
+.ae.au16 .bd .ac-dd .r11-facts .pane:nth-child(3) .r11-in{translate:-.9px .4px}
+/* 17: skill pills: text centered by ink; the pill row sits midway between the tool icons and the output band */
+.ae.au17 .bd .nx-tsk{margin:5.45px 0 26.55px;padding:5.4px calc(12px - .14em) 5.6px 12px}
+.ae.au17 .bd .nx-tll span:nth-child(4){padding-top:8.2px}
+.ae.au17 .bd .nx-tll span:nth-child(3){padding-top:21.9px}
+.ae.au17 .bd .nx-tll span:nth-child(2){padding-top:21px}
+/* 17: the output band grows so the timeline ends on the deck's common bottom edge (985px), like slides 16, 18, and 19 */
+.ae.au17 .bd p.nx-tdo{padding:20.7px 0}
+/* 18: media card padding to 24px, caption centered by ink between the video and the card edge */
+.ae.au18 .bd .nx-med{padding:18.2px!important;gap:18.2px}
+/* 18: the divider sits midway between the cards and the outcome pills */
+.ae.au18 .bd .nx-cs{row-gap:20px}
+/* 18: each step's two lines center on their node; the whole path centers in the media card's height */
+.ae.au18 .bd .p8-pw{translate:0 5px}
+.ae.au18 .bd .p8-pt{translate:0 -5px}
+/* 18: outcome pills centered by ink (icon + italic text) */
+.ae.au18 .bd .p8-och{padding:8.9px 16.2px 9.1px 15.8px}
+.ae.au18 .bd .p8-och:nth-of-type(3){padding-right:17.4px;padding-left:14.6px}
+.ae.au18 .bd .p8-och:nth-of-type(4){padding-right:16.5px;padding-left:15.5px}
+.ae.au18 .bd .p8-ocs .lab{translate:0 1.1px}
+/* 19: judges band: logos spread to the pane's right padding (no empty strip on the right); "and AI labs" centered by ink on the logos */
+.ae.au19 .bd .ac-jg .ac-lg{justify-content:space-between}
+.ae.au19 .bd .ac-jg .ac-ai{translate:0 3.2px}
+/* 20: rows 2-4 sat 2.5px high in their bands; even out the row padding by ink */
+.ae.au20 .bd .p8-gr:not(:first-child){padding:8.9px 0 5.1px}
+/* 20: output cards: icon + text centered by ink in each card */
+.ae.au20 .bd .p8-ga{padding:10.5px 14px 9.5px}
+.ae.au20 .bd .p8-gr:nth-child(2) .p8-ga{padding:12.8px 14px 7.2px}
+.ae.au20 .bd .p8-gr:nth-child(4) .p8-ga{padding:10.9px 14px 9.1px}
+/* 17: the one-line title left a 150px band above the timeline; open the rows up so the timeline fills the body (title-to-timeline gap matches the bottom margin) */
+.ae.au17 .bd .nx-tdh{padding-bottom:20px}
+.ae.au17 .bd .nx-tds{padding:18px 0;gap:12px}
+.ae.au17 .bd p.nx-tdt{padding:18px 0}
+.ae.au17 .bd .nx-tl{margin-top:-35.4px}
