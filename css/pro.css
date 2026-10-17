@@ -173,8 +173,10 @@ html[lang^="zh"] .pro-logos > span { letter-spacing: .04em; font-size: 12.5px; }
 /* anchors land below the sticky nav and banner; smooth only when motion is welcome */
 html { scroll-behavior: auto; }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
-html body :is([id], section) { scroll-margin-top: 92px; }
-@media (max-width: 760px) { html body :is([id], section) { scroll-margin-top: 68px; } }
+/* anchor landings clear the sticky nav: --scroll-offset (HERO2-BRIEF C) */
+:root { --scroll-offset: 92px; }
+@media (max-width: 760px) { :root { --scroll-offset: 68px; } }
+html body :is([id], section) { scroll-margin-top: var(--scroll-offset); }
 
 /* one visible focus ring everywhere */
 html body :is(a, button, summary, [role="tab"], input, select, textarea, [tabindex]):focus-visible {
