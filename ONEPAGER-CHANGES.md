@@ -82,3 +82,15 @@ brown, tsinghua-lockup, isb, mckinsey, goldman, yc, apple, microsoft-ai, deloitt
   legible photo caption. Stamps `?v=20261017d`.
 - **v4.2 (review 2):** data cards and commitments on the 12-column grid; the parent Workshops card shows "2 days" (a site
   fact) in its proof slot; staircase descriptions aligned to each step's inner padding. Stamps `?v=20261017e`.
+
+## v5 (Oct 17 pm, ONEPAGER4-BRIEF)
+- **Parent:** student data section removed. Now: what your child does (three tiles with real proof), skills your child
+  builds (agency, taste, craft, and practical skills: building with AI, talking to users, pitching, research and
+  judgment), what they walk away with (the milestone ladder plus a live product, a documented record, people who know
+  their work, experience presenting it; with the site's no-promise admissions line).
+- **All six:** "Team from" (团队来自) replaces "studied at" and "worked at": twelve marks on two balanced lines of six
+  (Caltech, Harvard, Brown, Tsinghua, ISB, Apple / McKinsey, Goldman Sachs, Y Combinator, Microsoft AI, Deloitte, Kimi).
+- **Polish:** the photo starts at column 8 with a clean edge, so text never sits near it; general How we teach without
+  the dead gap (wheel sized to the content block, strands as one line); no vs badge; equal-height commitment rows aligned
+  to the account cards; teacher and parent tiles on the thirds, every tile with a real proof line; fewer type sizes.
+- Stamps `?v=20261017f`.

@@ -254,3 +254,23 @@ v2 photo header restored on all three ("Demo day, Beijing, 2026"); credentials s
   past workshop with a logo exists, so its proof slot holds a site fact in the same style ("2 days, at your school, no
   coding needed", from the program pages); nothing invented. Staircase descriptions start inside each step's inner padding;
   the Baseline / One level up row was already on the four columns of the section 02 cards (overlay checked).
+
+## One-pagers v5 (ONEPAGER4-BRIEF + UPDATE, Oct 17 pm)
+Board: OnePagerV5Final. Renders + overlays: `/tmp/pro-pass/{,teacher-,parent-}onepager-{en,cn}{,-grid}.png`.
+- **Parent, per Phillip's UPDATE** (which replaced the brief's "mock two options" step): no student data section. (1)
+  What your child does: three tiles on the thirds, each with real proof (workshops and intensives: ISB + Bodley;
+  mentorship: ISB alumni; parent talks: ISB PTA), so no tile has an awkward empty or filler slot. (2) Skills your child
+  builds: agency, taste, craft, plus practical skills in parent words from the program pages (building with AI, talking
+  to users, pitching, research and judgment). (3) What they walk away with: the milestone ladder plus the mentorship
+  page's four take-aways (a live product, a documented record, people who know their work, experience presenting it)
+  and the site's own line, "Admissions decisions rest with each university; we do not promise an outcome."
+- **r1.** All six: "Team from" (团队来自) replaces the two team rows; the photo starts at column 8 with a clean vertical
+  edge (no fade, text never near it); vs badge removed; commitment rows equal height, top and bottom aligned with the
+  account cards; teacher tiles on thirds ("Teachers & tech teams" absorbs the filler tile); wheel sized down with its core
+  text as HTML at 7pt. Critique: core text overflowed the centre; strands in a 2+2 grid left dead space in general 02;
+  McKinsey crowded the logo line; parent 21mm over.
+- **r2.** Strands as one line under the skills (no dead gap; wheel spans the whole content block); parent skills as
+  ruled columns, practical skills as titles; shorter tile and keep copy. Critique: McKinsey and Goldman collided; "The
+  learner" still crossed the circle; keep row wrapped.
+- **r3/r4.** Team marks as two balanced lines of six, spaced edge to edge (checked for overflow); keep row titles only;
+  core text on three short lines, wheel centred in its column. All six: one page, on grid, nothing clipped, text 7pt+.

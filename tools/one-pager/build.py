@@ -45,7 +45,7 @@ LOGO = {'isb': ('/logos/cred/isb.png', 6.4), 'tsinghua': ('/logos/cred/tsinghua-
 
 L = {
  'en': dict(
-   member='A member of', anth='Startup Program', oai='Partner Network', studied='Our team studied at', worked='Our team worked at',
+   member='A member of', anth='Startup Program', oai='Partner Network', studied='Team from', worked='',
    web='arenaschool.org', mail='phillip@arenaschool.org', proof='Run with',
    # audience tiles: key -> (icon, label, one line, formats, [proof marks], proof caption)
    T={'students': ('graduation-cap', 'Students', 'Build and launch real products with AI.', 'Workshops · mentorship', ['isb', 'bodley'], 'Five-day student programs'),
@@ -53,14 +53,14 @@ L = {
       'families': ('heart-handshake', 'Families', 'One project with a mentor, and parent talks.', '1:1 mentorship · parent talks', ['pta'], 'Parent talk, ISB PTA'),
       'career': ('briefcase', 'Career', 'Launch a live AI product, ready for work.', 'Bootcamp', ['lux'], 'Jointly hosted with Lux Scholar'),
       # teacher variant
-      'teachers': ('wrench', 'Teachers', 'Make the tool your class is missing.', 'Session · workshop · school-wide', ['tsinghua'], 'Staff training, Schwarzman College'),
+      'teachers': ('wrench', 'Teachers &amp; tech teams', 'Make the tool your class is missing, on your approved systems.', 'Session · workshop · school-wide', ['tsinghua'], 'Staff training, Schwarzman College'),
       'tech': ('monitor-cog', 'Tech teams', 'Training on your approved systems.', 'Planning · sessions', [], ''),
       'leaders': ('building-2', 'School leaders', 'Programs for the whole school community.', 'Planned with your team', ['isb'], 'Student program on campus'),
       'conf': ('mic', 'Conferences', 'Talks and hands-on workshops.', 'Keynote · workshop · panel', ['acamis'], 'Next: ACAMIS workshop'),
       # parent variant
       'workshops': ('smartphone', 'Workshops', 'Rebuild an app, or build a portfolio site.', 'At your child’s school', [], ''),
-      'intensive': ('rocket', 'Intensives', 'Teams launch a real product and pitch it.', 'With mentors in the room', ['isb', 'bodley'], 'Five-day student programs'),
-      'mentor': ('route', 'Mentorship', 'One project, 1:1, at their own pace.', 'Weekly check-ins, hybrid', ['isb'], 'ISB alumni continue here'),
+      'intensive': ('rocket', 'Workshops &amp; intensives', 'Two to five days: launch a real product, then pitch it.', 'At your child’s school', ['isb', 'bodley'], 'Five-day student programs'),
+      'mentor': ('route', 'Year-long mentorship', 'One project, 1:1, at their own pace.', 'Weekly check-ins, hybrid', ['isb'], 'ISB alumni continue here'),
       'talks': ('messages-square', 'Parent talks', 'How AI is changing work and college.', 'At your child’s school', ['pta'], 'Parent talk, ISB PTA')},
    formats_k='Formats',
    skills=[('compass', 'Agency', 'Choose what is worth doing.'), ('search-check', 'Taste', 'Judge whether it is actually good.'), ('badge-check', 'Craft', 'Finish it so people can trust it.')],
@@ -71,18 +71,18 @@ L = {
    hub='Arena School',
  ),
  'cn': dict(
-   member='成员计划', anth='初创企业计划', oai='合作伙伴网络', studied='团队就读于', worked='团队曾任职于',
+   member='成员计划', anth='初创企业计划', oai='合作伙伴网络', studied='团队来自', worked='',
    web='arenaschool.org', mail='phillip@arenaschool.org', proof='合作',
    T={'students': ('graduation-cap', '学生', '借助AI做出并上线真实的产品。', '工作坊 · 集训营 · 导师计划', ['isb', 'bodley'], '五天学生项目'),
       'schools': ('school', '教师与学校', '在学校规则之内，做出课堂需要的工具。', '分享 · 工作坊 · 全校培训', ['tsinghua'], '苏世民书院教职员工培训'),
       'families': ('heart-handshake', '家庭', '与导师一起完成一个项目，以及家长讲座。', '一对一导师 · 家长讲座', ['pta'], 'ISB PTA 家长讲座'),
       'career': ('briefcase', '大学与职场', '做出上线的AI产品，为工作做好准备。', '训练营', ['lux'], '与千麓学者联合举办'),
-      'teachers': ('wrench', '教师', '为课堂做一个正缺的小工具。', '现场分享 · 工作坊 · 全校培训', ['tsinghua'], '苏世民书院教职员工培训'),
+      'teachers': ('wrench', '教师与技术团队', '在学校认可的系统上，为课堂做一个正缺的小工具。', '现场分享 · 工作坊 · 全校培训', ['tsinghua'], '苏世民书院教职员工培训'),
       'tech': ('monitor-cog', '技术团队', '在学校认可的系统上开展培训。', '规划 · 培训', [], ''),
       'leaders': ('building-2', '校长与管理层', '服务整个学校社群的项目。', '与贵校团队共同规划', ['isb'], '在校园内开展的学生项目'),
       'conf': ('mic', '会议与活动', '主题演讲与动手工作坊。', '演讲 · 工作坊 · 圆桌', ['acamis'], '即将举行：ACAMIS 工作坊'),
       'workshops': ('smartphone', '动手工作坊', '重做一款应用，或做一个作品集网站。', '在孩子的学校', [], ''),
-      'intensive': ('rocket', '集训营', '团队做出真实的产品并路演。', '导师全程在场', ['isb', 'bodley'], '五天学生项目'),
+      'intensive': ('rocket', '工作坊与集训营', '两到五天：做出真实的产品，再路演。', '在孩子的学校', ['isb', 'bodley'], '五天学生项目'),
       'mentor': ('route', '学年导师计划', '一个项目，一对一，按自己的节奏。', '每周例会，线上线下结合', ['isb'], 'ISB 营员在此继续'),
       'talks': ('messages-square', '家长讲座', 'AI如何改变工作与升学。', '在孩子的学校', ['pta'], 'ISB PTA 家长讲座')},
    formats_k='形式',
@@ -100,10 +100,10 @@ DOCS = {
  'general': dict(file='arena-school-one-pager', tiles=['students', 'schools', 'families', 'career'],
    en=dict(eyebrow='What is Arena School', h1='Hands-on programs that help students, families, educators, and schools <em>thrive in the age of AI.</em>'),
    cn=dict(eyebrow='认识 Arena School', h1='动手实践的项目，陪伴学生、家庭、教育者与学校，<em>从容走进AI时代。</em>')),
- 'teacher': dict(file='arena-school-teacher-one-pager', tiles=['teachers', 'tech', 'leaders', 'conf'],
+ 'teacher': dict(file='arena-school-teacher-one-pager', tiles=['teachers', 'leaders', 'conf'],
    en=dict(eyebrow='For teachers and school leaders', h1='AI fluency for the whole staff, <em>inside your school’s rules.</em>'),
    cn=dict(eyebrow='面向教师与学校管理层', h1='全体教职员工的AI素养，<em>始终在学校的规则之内。</em>')),
- 'parent': dict(file='arena-school-parent-one-pager', tiles=['workshops', 'intensive', 'mentor', 'talks'],
+ 'parent': dict(file='arena-school-parent-one-pager', tiles=['intensive', 'mentor', 'talks'],
    en=dict(eyebrow='For families', h1='What your child makes, learns, and keeps <em>at Arena School.</em>'),
    cn=dict(eyebrow='写给家长', h1='孩子在 Arena School <em>做什么、学什么、带走什么。</em>')),
 }
@@ -166,12 +166,14 @@ SEC = {
  'en': dict(who=('Who we serve', 'And where we have run it.'), teach=('How we teach', 'One framework in every program.'),
             data=('Student data comes first', 'Before which tool, ask whose account it is.'),
             fl=('Five levels of AI fluency', 'Every teacher moves up one level a term.'), move=('Moving up a level', 'One session, one task from a real class.'),
-            kids=('What your child does', 'And where we have run it.'), ladder=('The milestone ladder', 'Year-long mentorship, judged on the work.'),
+            kids=('What your child does', 'And where we have run it.'), skills=('Skills your child builds', 'Three skills in every program, and the practical ones.'),
+            walk=('What they walk away with', 'Milestones and work that help with school and college applications.'), ladder=('The milestone ladder', 'Year-long mentorship, judged on the work.'),
             safe=('Safety and student data', 'Student data stays in accounts the school approves.')),
  'cn': dict(who=('我们服务谁', '以及我们在哪里开展过。'), teach=('我们如何教', '一套框架贯穿每个项目。'),
             data=('学生数据放在第一位', '先别问用哪个工具，先问是谁的账号。'),
             fl=('AI素养的五个层级', '每位老师每学期提升一级。'), move=('如何提升一级', '一次培训，一项真实课堂里的任务。'),
-            kids=('孩子可以做什么', '以及我们在哪里开展过。'), ladder=('里程碑', '学年项目导师计划，看做出来的成果。'),
+            kids=('孩子可以做什么', '以及我们在哪里开展过。'), skills=('孩子练成的能力', '每个项目都培养的三种能力，以及实用技能。'),
+            walk=('孩子带走什么', '里程碑与作品，帮助升学与大学申请。'), ladder=('里程碑', '学年项目导师计划，看做出来的成果。'),
             safe=('安全与学生数据', '学生数据只放在学校认可的账号里。')),
 }
 # proof marks normalized to one optical height (mm) inside a 7mm slot; text labels in the same serif, no box
@@ -188,16 +190,18 @@ def header(lang, d):
 
 
 def strip(lang):
-    """Bottom credentials: three rows, each on one line, labels in columns 1 to 3."""
+    """Bottom credentials: "A member of" on one line; "Team from" with twelve marks on two balanced lines of six equal cells."""
     c = L[lang]
-    lg = lambda items: ''.join('<img src="/logos/cred/%s.png" alt="" style="height:%smm" />' % (k, h) for k, h in items)
+    order = ['caltech', 'harvard', 'brown', 'tsinghua-lockup', 'isb', 'apple', 'mckinsey', 'goldman', 'yc', 'microsoft-ai', 'deloitte', 'kimi-wordmark']
+    h = dict(STUDIED + WORKED)
+    marks = [(k, h[k]) for k in order]
+    cell = lambda k, h: '<span class="lc%s"><img src="/logos/cred/%s.png" alt="" style="height:%smm" /></span>' % (' w2' if k == 'mckinsey' else '', k, h)
     return ('<section class="strip">'
             '<div class="g12 row"><span class="c1-3 lab">%s</span><div class="c4-12 logos member">'
             '<span class="m"><img src="/logos/partners/anthropic.svg" alt="Anthropic" style="height:2.6mm" /><em>%s</em></span>'
             '<span class="m"><img src="/logos/partners/openai.svg" alt="OpenAI" style="height:4.8mm" /><em>%s</em></span></div></div>'
-            '<div class="g12 row"><span class="c1-3 lab">%s</span><div class="c4-12 logos">%s</div></div>'
-            '<div class="g12 row"><span class="c1-3 lab">%s</span><div class="c4-12 logos">%s</div></div></section>'
-            % (c['member'], c['anth'], c['oai'], c['studied'], lg(STUDIED), c['worked'], lg(WORKED)))
+            '<div class="g12 row"><span class="c1-3 lab">%s</span><div class="c4-12 team"><div class="tl">%s</div><div class="tl">%s</div></div></div></section>'
+            % (c['member'], c['anth'], c['oai'], c['studied'], ''.join(cell(k, h) for k, h in marks[:6]), ''.join(cell(k, h) for k, h in marks[6:])))
 
 
 def shead(n, key, lang, span='c1-12'):
@@ -220,7 +224,7 @@ FACT = {'workshops': {'en': ('2 days', 'At your school, no coding needed'), 'cn'
 
 def tiles(lang, keys):
     c = L[lang]
-    spans = ['c1-3', 'c4-6', 'c7-9', 'c10-12']
+    spans = ['c1-4', 'c5-8', 'c9-12'] if len(keys) == 3 else ['c1-3', 'c4-6', 'c7-9', 'c10-12']
     out = []
     for s, k in zip(spans, keys):
         icon, label, line, fm, marks, cap = c['T'][k]
@@ -240,10 +244,12 @@ def teach(lang, wide=True):
     skills = ''.join('<div class="%s sk"><div class="skh">%s<b>%s</b></div><span>%s</span></div>' % (sp, ic(i), a, b)
                      for sp, (i, a, b) in zip(['c4-6', 'c7-9', 'c10-12'], c['skills']))
     strands = ''.join('<div class="%s st">%s<span>%s</span></div>' % (sp, ic(dom[k]), d)
-                      for k, (sp, d) in enumerate(zip(['c1-3', 'c4-6', 'c7-9', 'c10-12'], t['domains'])))
-    return ('<div class="g12 teach"><div class="c1-3 wheel">%s</div><div class="c4-12 loopc"><p class="loop">%s</p></div>%s</div>'
-            '<div class="g12 strandk"><span class="c1-12 k">%s</span></div><div class="g12 strow">%s</div>'
-            % (W.svg('cn' if lang == 'cn' else 'en'), c['loop'], skills, c['strands_k'], strands))
+                      for k, (sp, d) in enumerate(zip(['c4-6', 'c7-9', 'c10-12', 'c4-6'], t['domains'])))
+    core = '由学习者<br><em>做决定</em>' if lang == 'cn' else 'The<br>learner<br><em>decides</em>'
+    sep = '、' if lang == 'cn' else ' · '
+    line = '<p class="c4-12 strline"><b>%s</b>%s</p>' % (c['strands_k'] + ('：' if lang == 'cn' else ': '), sep.join(t['domains']))
+    return ('<div class="g12 teach"><div class="c1-3 wheel">%s<span class="core">%s</span></div><div class="c4-12 loopc"><p class="loop">%s</p></div>%s%s</div>'
+            % (W.svg('cn' if lang == 'cn' else 'en'), core, c['loop'], skills, line))
 
 
 def stairs(items, descs=True):
@@ -274,7 +280,7 @@ def data(lang, pick=(0, 1, 2, 4)):
     c = L[lang]
     col = lambda span, title, rs, ok: ('<div class="%s acc %s"><div class="acch">%s<b>%s</b></div><ul>%s</ul>%s</div>'
                                        % (span, 'ok' if ok else 'no', ic('school' if ok else 'user-round', 'ic big'), title,
-                                          ''.join('<li>%s%s</li>' % (ic('check' if ok else 'x', 'mk'), r) for r in rs), '' if ok else '<span class="vs">vs</span>'))
+                                          ''.join('<li>%s%s</li>' % (ic('check' if ok else 'x', 'mk'), r) for r in rs), ''))
     return ('<div class="g12 data">%s%s<div class="c7-12">%s</div></div>'
             % (col('c1-3', c['personal'], c['prow'], False), col('c4-6', c['school'], c['srow'], True), commits(lang, pick)))
 
@@ -307,11 +313,30 @@ def teacher(lang, d):
             sec(2, 'move', lang, move) + sec(3, 'data', lang, data(lang)))
 
 
+PX = {
+ 'en': dict(practical=[('hammer', 'Building with AI', 'Directing AI coding tools, then testing the results.'), ('users', 'Talking to users', 'Interviewing the people they want to help.'),
+                       ('mic', 'Pitching', 'Presenting to a panel, and answering questions.'), ('search-check', 'Research and judgment', 'Checking sources, including AI output.')],
+            keep=[('rocket', 'A live product', 'At its own link, with their name.'), ('file-text', 'A documented record', 'To describe in an application.'),
+                  ('users', 'People who know their work', 'Mentors and reviewers.'), ('mic', 'Experience presenting it', 'To people who ask hard questions.')],
+            prac_k='Practical skills', keep_k='What they keep', note='Admissions decisions rest with each university; we do not promise an outcome.'),
+ 'cn': dict(practical=[('hammer', '用AI做产品', '指挥AI编程工具，再亲自测试结果。'), ('users', '访谈用户', '访谈自己想帮助的人。'),
+                       ('mic', '路演', '向评审团展示，并回答提问。'), ('search-check', '研究与判断', '核查资料来源，包括AI的输出。')],
+            keep=[('rocket', '一个上线的产品', '在自己的网址上，署着自己的名字。'), ('file-text', '有据可查的成果记录', '可以写进申请材料。'),
+                  ('users', '了解他作品的人', '导师和评审。'), ('mic', '公开展示的经验', '面对尖锐的提问。')],
+            prac_k='实用技能', keep_k='带走什么', note='录取的决定权在每所大学自己手里，我们不对结果作任何承诺。'),
+}
+
+
 def parent(lang, d):
-    x = X[lang]
+    x, px, c = X[lang], PX[lang], L[lang]
+    three = ''.join('<div class="%s sk3"><div class="th">%s<b class="nm">%s</b></div><span class="out">%s</span></div>' % (sp, ic(i, 'ic big'), a, b)
+                    for sp, (i, a, b) in zip(['c1-4', 'c5-8', 'c9-12'], c['skills']))
+    prac = '<div class="g12 prac">%s</div>' % ''.join('<div class="%s pi">%s<b>%s</b></div>' % (sp, ic(i), a) for sp, (i, a, _) in zip(['c1-3', 'c4-6', 'c7-9', 'c10-12'], px['practical']))
     return (sec(1, 'kids', lang, tiles(lang, DOCS['parent']['tiles'])) +
-            sec(2, 'ladder', lang, '<div class="g12"><div class="c1-12">%s</div></div>' % stairs(list(zip(x['ladder'], x['ladder_d']))) + row4(x['mfacts'])) +
-            sec(3, 'safe', lang, data(lang, (1, 3, 0, 5))))
+            sec(2, 'skills', lang, '<div class="g12 rrow">%s</div>' % three + '<div class="g12 pk"><span class="c1-12 k">%s</span></div>' % px['prac_k'] + prac) +
+            sec(3, 'walk', lang, '<div class="g12"><div class="c1-12">%s</div></div>' % stairs(list(zip(x['ladder'], x['ladder_d']))) +
+                '<div class="g12 keepk"><span class="c1-12 k">%s</span></div>' % px['keep_k'] + '<div class="g12 prac">%s</div>' % ''.join('<div class="%s pi">%s<b>%s</b></div>' % (sp, ic(i), a) for sp, (i, a, _) in zip(['c1-3', 'c4-6', 'c7-9', 'c10-12'], px['keep'])) +
+                '<div class="g12"><p class="c1-12 note">%s</p></div>' % px['note']))
 
 
 BODY = {'general': general, 'teacher': teacher, 'parent': parent}
@@ -347,7 +372,7 @@ em { font-style: italic; }
 /* header: the v2 band (navy, wordmark, large headline with italic accent, intro, demo-day photo right) */
 .top { position: relative; background: #0B1A4A; color: #fff; height: 52mm; overflow: hidden; }
 .topgrid { position: relative; z-index: 2; height: 100%; align-items: center; }
-.top-copy { padding: 0; }
+.top-copy { padding: 0 4mm 0 0; }
 .wm { height: 5mm; width: auto; display: block; margin-bottom: 3.4mm; }
 .top .eyebrow { color: #C9D6F2; }
 .top h1 { color: #fff; font-size: 19pt; line-height: 1.1; margin: 1.6mm 0 2.6mm; letter-spacing: -.006em; }
@@ -355,9 +380,9 @@ em { font-style: italic; }
 .general:lang(en) .top h1, .general .top h1:lang(en) { font-size: 17.5pt; }
 .top h1 em { color: #C9D6F2; white-space: nowrap; }
 .lede { margin: 0; font-size: 8.6pt; line-height: 1.5; color: rgba(255,255,255,.86); max-width: 112mm; }
-.photo { position: absolute; top: 0; right: 0; bottom: 0; width: 48%; margin: 0; }
+.photo { position: absolute; top: 0; right: 0; bottom: 0; left: 123.2mm; margin: 0; }   /* the start of column 8: a clean vertical edge */
 .photo img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 30%; display: block;
-  -webkit-mask-image: linear-gradient(90deg, transparent 0, rgba(0,0,0,.6) 22%, #000 46%); mask-image: linear-gradient(90deg, transparent 0, rgba(0,0,0,.6) 22%, #000 46%); }
+  }
 .photo::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 14mm; background: linear-gradient(180deg, rgba(11,26,74,0), rgba(11,26,74,.78)); }
 .photo figcaption { position: absolute; z-index: 2; right: 10mm; bottom: 3.4mm; font-size: 7pt; color: #fff; text-shadow: 0 1px 4px rgba(8,15,38,.7); }
 /* body: three sections, equal gaps */
@@ -386,12 +411,16 @@ em { font-style: italic; }
 /* wheel at print size: ring labels would be under 7pt, so only the core text shows (strands are listed beside) */
 .wheel .apw-out-t, .wheel .apw-mid-t { display: none; }
 /* how we teach */
-.teach { grid-template-rows: 1fr 1fr; row-gap: 3.4mm; } .teach .wheel { grid-row: 1 / span 2; align-self: center; } .loopc { align-self: end; } .teach .sk { align-self: start; }
-.strandk { margin-top: 2.4mm; } .strandk .k { display: block; margin-bottom: 1.2mm; }
-:lang(zh) .wheel .apw { max-width: 44.5mm; }
+.teach { row-gap: 3mm; align-items: start; } .teach .wheel { grid-row: 1 / span 3; position: relative; align-self: center; }
+.strline { margin: 0; font-size: 7.6pt; color: #3A4466; padding-top: 2mm; border-top: 1px solid var(--pro-line); } .strline b { font-weight: 600; color: var(--pro-ink); } .teach .sk { align-self: start; }
+.wheel .apw-core-t { display: none; }
+.wheel .core { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); text-align: center; font: 500 7pt/1.12 SERIF; color: #fff; width: 38%; }
+.wheel .core em { color: #C9D6F2; }
+.strow { margin-top: 3mm; row-gap: 1.4mm; align-items: center; } .strow .k { grid-row: 1 / span 2; align-self: center; }
+:lang(zh) .wheel .apw { max-width: 38mm; }
 .strow .st { display: flex; align-items: center; gap: 2mm; padding-top: 1.8mm; border-top: 1px solid var(--pro-line); font-size: 8.6pt; font-weight: 500; color: var(--pro-ink); }
-.wheel .apw { width: 100%; max-width: 42mm; height: auto; display: block; }
-.loop { font-size: 14pt; line-height: 1.22; margin: 0; }
+.wheel .apw { width: 100%; max-width: 38mm; height: auto; display: block; margin: 0 auto; }
+.loop { font-size: 13pt; line-height: 1.22; margin: 0; }
 .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; margin-bottom: 3.4mm; }
 .sk { display: grid; gap: 1mm; padding-top: 2.4mm; border-top: 2px solid var(--pro-action); }
 .sk b { font: 600 10pt/1.2 'Geist', system-ui, sans-serif; color: var(--pro-ink); } .sk span { font-size: 8.4pt; color: #3A4466; }
@@ -412,7 +441,7 @@ em { font-style: italic; }
 .step .sthead { display: flex; align-items: center; justify-content: space-between; } .step i { font: 400 15pt/1 SERIF; color: var(--pro-action); font-style: normal; }
 /* data: account pair + commitments */
 .data { align-items: stretch; } .data .acc { position: relative; } .data .vs { position: absolute; right: -2mm; top: 50%; transform: translate(50%, -50%); z-index: 2; background: #fff; border: 1px solid var(--pro-line-2); border-radius: 50%; width: 7mm; height: 7mm; display: grid; place-items: center; font-size: 7pt; }
-.data .c7-12 { display: flex; } .data .commit { flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+.data .c7-12 { display: flex; } .data .commit { flex: 1; display: grid; grid-auto-rows: 1fr; } .data .commit li { padding: 0; }
 .pair { display: grid; grid-template-columns: 1fr auto 1fr; gap: 2.4mm; align-items: stretch; }
 .vs { align-self: center; font: 600 7.4pt/1 'Geist', system-ui, sans-serif; letter-spacing: .1em; text-transform: uppercase; color: #4A5578; }
 .acc { border: 1px solid var(--pro-line); border-radius: 2mm; padding: 3mm; } .acc.ok { border-color: #0B1A4A; box-shadow: inset 0 3px 0 var(--pro-action); }
@@ -430,10 +459,19 @@ em { font-style: italic; }
 .strip .row { align-items: center; }
 .strip .lab { white-space: nowrap; }
 .logos { display: flex; align-items: center; justify-content: space-between; flex-wrap: nowrap; min-width: 0; }
+.team { display: grid; row-gap: 2.4mm; } .team .tl { display: flex; justify-content: space-between; align-items: center; }
+.team .lc { display: flex; align-items: center; justify-content: flex-start; height: 6mm; }
+.team img { width: auto; display: block; filter: grayscale(1) contrast(1.15); opacity: .8; }
+.team img[src*='/brown.'], .team img[src*='/harvard.'] { filter: grayscale(1) contrast(1.6) brightness(.72); opacity: 1; }
+.strip .row:last-child { align-items: start; } .strip .row:last-child .lab { padding-top: 1.6mm; }
 .logos img { width: auto; display: block; filter: grayscale(1) contrast(1.15); opacity: .8; }
 .logos img[src*='/brown.'], .logos img[src*='/harvard.'] { filter: grayscale(1) contrast(1.6) brightness(.72); opacity: 1; }
 .member { justify-content: flex-start; gap: 12mm; } .member img { filter: none; opacity: 1; }
 .m { display: inline-flex; align-items: center; gap: 2mm; white-space: nowrap; } .m em { font-style: normal; font-size: 7.6pt; color: #4A5578; }
+.sk3 { display: flex; flex-direction: column; gap: 1.2mm; padding-top: 2.4mm; border-top: 2px solid var(--pro-action); }
+.pk { margin-top: 3.4mm; } .pk .k { display: block; margin-bottom: 1.4mm; }
+.prac .pi { display: flex; align-items: center; gap: 2mm; padding: 2mm 0; border-top: 1px solid var(--pro-line); border-bottom: 1px solid var(--pro-line); } .prac b { font: 600 8.2pt/1.2 'Geist', system-ui, sans-serif; color: var(--pro-ink); white-space: nowrap; }
+.keepk { margin-top: 3.4mm; } .keepk .k { margin-bottom: 1.4mm; } .keepk .k { display: block; } .keep { margin-top: 1.4mm; } .note { margin-top: 2mm; font-size: 7.2pt; color: #4A5578; }
 /* closing band */
 .cta { background: #0B1A4A; color: #fff; padding-top: 4.4mm; padding-bottom: 4.4mm; align-items: center; }
 .cta h2 { color: #fff; font-size: 13pt; } .cta p { margin: 1mm 0 0; font-size: 8.2pt; color: rgba(255,255,255,.84); }
@@ -479,7 +517,7 @@ const { chromium } = require('playwright');
     if (hc.top < hb.top + 8 || hc.bottom > hb.bottom - 8) stepBad.push('header copy outside band');
     const tops = []; document.querySelectorAll('.sh').forEach(d => tops.push(Math.round(d.getBoundingClientRect().left)));
     let min = 99; document.querySelectorAll('.op *').forEach(e => { if ([...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim()) && !e.closest('svg')) min = Math.min(min, parseFloat(getComputedStyle(e).fontSize)); });
-    const clipped = []; document.querySelectorAll('.marks, .logos').forEach(l => { const p = l.closest('.card, .row'); const pr = p.getBoundingClientRect(); [...l.children].forEach(c => { const r = c.getBoundingClientRect(); if (r.right > pr.right - 1 || r.left < pr.left) clipped.push(c.textContent || c.getAttribute('src')); }); });
+    const clipped = []; document.querySelectorAll('.marks, .logos, .team .tl, .prac .pi').forEach(l => { const p = l.closest('.card, .row, .prac'); const pr = p.getBoundingClientRect(); [...l.children].forEach(c => { const r = c.getBoundingClientRect(); if (r.right > pr.right - 1 || r.left < pr.left) clipped.push(c.textContent || c.getAttribute('src')); }); });
     const wrapped = []; document.querySelectorAll('.logos, .marks').forEach(l => { const ys = [...l.children].map(c => Math.round(c.getBoundingClientRect().top + c.getBoundingClientRect().height / 2)); if (Math.max(...ys) - Math.min(...ys) > 4) wrapped.push(l.className); });
     return { over: Math.max(over, inner), stepBad, stepTops, svgPt: +(svgMin * .75).toFixed(2), secOver, clipped, nbad: bad.length, bad: bad.slice(0, 4), uneven, shLeft: [...new Set(tops)], minPt: +(min * .75).toFixed(2), wrapped,
              cols: starts.map((s, i) => [Math.round(s), Math.round(ends[i])]) };
