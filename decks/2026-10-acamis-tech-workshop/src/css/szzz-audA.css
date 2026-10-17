@@ -1,0 +1,24 @@
+/* audit A: slides 1-7 (scoped by au<N>) */
+/* 2: one-line title drops the two-line title zone; the route sits centered in the space below */
+section.s.ae.au2:not(.st):not(.bq)>.w>h2{min-height:0}
+.ae.au2 .bd{justify-content:center}
+.ae.au2 .bd>.p8-route{flex:none!important}
+/* 2: icons optically centered in their circles (house sits high, hammer low-left) */
+.ae.au2 .bd .p8-route .p8-node svg{transform:translateY(.5px)}
+.ae.au2 .bd .p8-route li:nth-child(1) .p8-node svg{transform:translateY(1.1px)}
+.ae.au2 .bd .p8-route li:nth-child(4) .p8-node svg{transform:translate(.3px,.2px)}
+/* 3: logo row 1 centered between the top rule and the divider; block centered under the title */
+.ae.au3 .bd{justify-content:center}
+.ae.au3 .bd>*{flex:none!important}
+.ae.au3 .bd .r15-team{padding-top:0}
+.ae.au3 .bd .p8-who li:nth-child(2) svg{transform:translateY(.6px)}
+/* 6: equal ink padding top and bottom in the tallest card */
+.ae.au6 .bd .p15-hq>li{padding-bottom:22.5px}
+/* 7: block centered between the source line and the bottom; columns equal ink padding */
+.ae.au7 .bd{justify-content:center}
+.ae.au7 .bd>*{flex:none!important}
+section.s.ae.au7 .bd .ac-own .sh-col{padding-top:38.95px!important;padding-bottom:29.05px!important}
+/* 3: partner box, logos and captions centered by ink */
+.ae.au3 .r16-hd .r16-sel{padding-top:14.87px;padding-bottom:13.13px}
+/* 5: source line centered in its band by ink */
+.ae.au5 .w>.fn{padding-top:10.4px;padding-bottom:10.6px}
