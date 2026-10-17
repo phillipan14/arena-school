@@ -1,58 +1,56 @@
-# ACAMIS build session kit (Claude Code, two laptops)
+# ACAMIS live build kit: the Teacher Toolbox
 
-Teachers build a small tool for their own school week by prompting Claude Code in two groups, one laptop per group. This folder makes every prompt end with a working page in the browser in about one to two minutes. In tests, a first build took 66 to 132 seconds, and follow-up edits are faster.
+The platform is live before the session: **https://arenaschool.org/talks/2026-10-acamis-tech-workshop/build**. It starts with three tested tools. During the session the room calls out features or new tools; one laptop prompts Claude Code; each change ships to the live site, and every phone that has the page open shows "Just shipped … tap to refresh". The hub's "What the room asked for" log fills up as you go.
 
-- `CLAUDE.md` contains the build rules Claude follows: one self-contained HTML file, no setup, no questions, no CDNs (China), no real student data, and a reply of three lines for the projector.
-- `.claude/settings.json` pre-approves file edits and `open`, so nothing stops for permission mid-build.
-- `.claude/skills/school-tool/` is the same rules as a `/school-tool` skill.
-- `template.html` is a styled page shell, so tools look finished and Claude only writes the logic.
-- `backups/` holds three tested tools (a parent email writer, a group maker, and a quiz maker). If a live build fails, open one and keep going.
-- `builds/` is where each group's tools land (git-ignored).
+## What's here
 
-## Set up each laptop (tonight, about 10 minutes)
+| File | Job |
+|---|---|
+| `CLAUDE.md` | Rules Claude follows: edit only the Toolbox folder, one-file tools, no questions, no CDNs or AI calls, made-up names only, log each request, ship, and reply in three lines with the live link. |
+| `ship.sh` | Commits only the Toolbox folder, pushes to `main`, and waits until the change is live on arenaschool.org (prints `LIVE after Ns`). |
+| `start.sh` | Starts Claude Code here with the Toolbox folder attached. **Always launch with this.** |
+| `.claude/settings.json` | Pre-approves edits and `./ship.sh`, so nothing stops for permission. |
+| `template.html` | Styled shell for new tools (back link and live updates built in). |
+| `backups/` | Copies of the three starter tools, in case one gets broken. |
 
-1. Copy this folder to `~/Desktop/acamis-build`. **Not** under `~/.claude`, which Claude Code protects, so writes there get blocked.
-2. In Terminal: `cd ~/Desktop/acamis-build && claude`. Accept the **"trust this folder"** prompt; without it, the pre-approved permissions are ignored and Claude stops to ask before every file.
-3. Warm-up: type `Build a countdown timer for class transitions with big numbers.` It should open in the browser on its own in about a minute.
-4. Check the network on what you'll have at Keystone (the VPN if you need one, plus a phone hotspot as backup). Claude Code needs it; the finished tools don't.
-5. Presentation setup: Terminal font large (Cmd and +), Terminal on the left half and the browser on the right. The laptop on the projector is group 1's.
+The site itself is `talks/2026-10-acamis-tech-workshop/build/`: `index.html` (hub), `tools.json` (tool list), `changes.txt` (request log; git merges it line by line, so two laptops can ship), `live.js` (the refresh toast), and one folder per tool.
+
+## Set up the driving laptop (tonight)
+
+1. The repo must be a normal clone on `main` with push access: `git clone https://github.com/phillipan14/arena-school` (or `git pull` in yours), then `cd decks/2026-10-acamis-tech-workshop/src/build-kit`.
+2. Run `./start.sh` once and accept **"trust this folder"** (otherwise the pre-approved permissions are ignored).
+3. Rehearse one request, for example `Add a print button to the lab group maker.` Watch it reach `LIVE`, open the page on your phone, and see the refresh toast. Then ask for it to be taken out again, or keep it.
+4. Clear the rehearsal from the log: delete your test lines from `changes.txt` (keep the `Before|…` line) and run `./ship.sh "reset log"`.
+5. Test the network you'll have at Keystone (the VPN if Claude Code needs one, plus a phone hotspot).
+6. Projector: Terminal (large font) on the left, the hub on the right. Put the hub's URL or QR on a slide.
 
 ## Run of show (60 minutes)
 
 | Min | Slides or room |
 |---|---|
-| 0–5 | Opening and Arena |
+| 0–5 | Opening and Arena; QR to the Toolbox so phones are on it |
 | 5–12 | The ISB case (short) |
-| 12–15 | Split into two groups around the laptops. Each group picks a chore (cards below) and a **typist**. |
-| 15–17 | **Prompt 1:** build it |
-| 17–25 | Talk: why it worked (research; agency, taste, and craft) |
-| 25–30 | Groups try the tool. One person tries to break it, and the group agrees on one fix. |
-| 30–31 | **Prompt 2:** the fix |
-| 31–38 | Talk: is it cheating, the teacher's role, and "How did you check it?" |
-| 38–42 | **Prompt 3:** make it yours |
-| 42–48 | Each group shows its tool on the projector (3 minutes each) |
-| 48–55 | Take it back, and the offer |
+| 12–15 | Tour the Toolbox: three starter tools, all live |
+| 15–17 | **Request 1** from the room (a feature on a starter tool) |
+| 17–25 | Talk while it builds: why it worked (research; agency, taste, and craft) |
+| 25–28 | It's live: everyone tries it on their phone |
+| 28–30 | **Request 2** (a fix the room found, or a brand-new tool) |
+| 30–38 | Talk: is it cheating, the teacher's role, and "How did you check it?" |
+| 38–45 | **Requests 3 and 4**, faster: call out, ship, try |
+| 45–50 | Look back at the log: what the room built in 30 minutes |
+| 50–55 | Take it back, and the offer |
 | 55–60 | Q&A |
 
-## Prompt cards
+**Good first requests:** "Add a Chinese version of the parent email." "Let us save our class list in the group maker." "Add a timer to the quiz." **New tools:** a transition timer, a rubric-to-comment helper, or vocabulary flashcards.
 
-**The formula for prompt 1:** "We're **[grade or subject]** teachers. Build a tool that **[does one job]** for **[who uses it]**. It should **[two or three specifics]**. It never **[touches student names or grades / sends anything anywhere]**."
+## Rules to say out loud
 
-Chores that work well (all tested or close to it):
-- Rewrite the weekly parent email from the topics covered, due dates, and a tone. *(tested, 66s)*
-- Random, balanced groups from a pasted class list, with a projector view. *(tested, 84s)*
-- A reading-check quiz from a pasted passage, with a printable answer key. *(tested, 132s)*
-- A countdown or transition timer with big numbers and sounds.
-- A rubric-to-feedback helper: tick the rubric levels, get a short comment to edit.
-- A vocabulary flashcard game from a pasted word list.
+- Made-up names only; no real student data goes into any prompt.
+- Each request is one sentence: who it's for and what it should do.
+- Claude's "Next idea" line is a ready-made next request if the room goes quiet.
 
-**Prompt 2 (fix) examples:** "Make the buttons bigger." "It gets confused when the list has blank lines; fix that." "Add a column for due dates."
+## If something goes wrong
 
-**Prompt 3 (make it yours) examples:** "Use our school colors, navy and gold." "Add a Chinese version underneath for families." "Add a print button."
-
-## Facilitator rules
-
-- The typist types the group's words. The facilitator helps only with phrasing, using the formula above.
-- Placeholder names only ("Student A", "Ms. Rivera"). Say it out loud before prompt 1.
-- Read Claude's three-line reply aloud. Its "Next prompt idea" is a ready-made prompt 2 if the group is stuck.
-- If a build fails or the network drops: open the closest tool in `backups/` and keep the conversation going.
+- **A tool breaks:** say "Undo that change to the <tool>," or copy its file back from `backups/` and run `./ship.sh "restore"`.
+- **The push fails:** check the network and run `./ship.sh` again. Nothing is lost; the change is committed locally.
+- **No network at all:** open the tool file locally (`open ../../../../talks/2026-10-acamis-tech-workshop/build/<tool>/index.html`) and show it on the projector; ship it when the network is back.

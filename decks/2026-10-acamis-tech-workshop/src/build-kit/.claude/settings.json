@@ -7,10 +7,12 @@
       "Write",
       "Glob",
       "Grep",
-      "Bash(open:*)",
+      "Bash(./ship.sh:*)",
       "Bash(mkdir:*)",
       "Bash(cp:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(date:*)",
+      "Bash(open:*)"
     ]
   }
 }
