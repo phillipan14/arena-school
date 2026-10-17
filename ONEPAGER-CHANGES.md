@@ -32,3 +32,34 @@ in this repo; the old PDFs were the base.
   not match the site's).
 - **Links to it:** a "Download one-pager" link in the footer (partials, EN + CN), the phone footer, the About page's
   closing section, and beside the Schools page's Programs heading; all go to the existing gated form (`/schools#onepager`).
+
+## v3 (Oct 17 pm): rebuilt after Phillip's review, plus teacher and parent one-pagers
+Phillip: "too much white space, no structure, diagrams, just a bunch of text"; then "abstract it away" (programs) and
+"merge offer and proof". Source: `tools/one-pager/build.py` (HTML in `tools/one-pager/`).
+
+**What changed (general):** short header band instead of a hero photo; one thin credentials strip (member of, studied at,
+worked at, each one line); numbered sections on a strict 12-column grid; the program list is replaced by four audience
+tiles (icon, label, one line, formats in a few words; no grades, dates, or program names) that each carry real partner
+logos as proof; How we teach as a diagram row (framework wheel, the three skills, the four strand goals); the fluency
+staircase; a personal vs school account mini-diagram with three commitments. Paragraph case cards removed.
+
+**New:** `onepager/arena-school-teacher-one-pager-{en,cn}.pdf` (who we work with: teachers, technology teams, school
+leaders, conferences; the staircase and how each group moves up; how a teacher moves up one level in four steps; the four
+learning outcomes; student data guardrails) and `onepager/arena-school-parent-one-pager-{en,cn}.pdf` (hands-on workshops,
+intensives, year-long mentorship, parent talks; the mentorship milestone ladder; how your child learns; safety and student
+data; two ways to start). No staff fluency or procurement content on the parent page; no family or student-only programs
+on the teacher page. Each with a 520px .jpg.
+
+**Programs shown (abstracted, as audiences):** general: students (workshops, intensives, mentorship), teachers and schools
+(sessions, workshops, school-wide), families (1:1 mentorship, parent talks), university and career (bootcamp). Teacher:
+teachers, technology teams, school leaders, conferences. Parent: hands-on workshops, intensives, year-long mentorship,
+parent talks.
+
+**Logos used (all existing repo files):** proof: `logos/cred/isb.png` (International School of Beijing),
+`logos/cred/tsinghua-lockup.png` (Tsinghua, for Schwarzman College staff training), `decks/img/conversation/pta-logo.png`
+(ISB PTA), `logos/lux/lux-navy-horizontal.png` (Lux Scholar); Bodley Academy and ACAMIS appear as plain text labels (no
+logo file in the repo). Strip: `logos/partners/anthropic.svg`, `logos/partners/openai.svg`; `logos/cred/` caltech, harvard,
+brown, tsinghua-lockup, isb, mckinsey, goldman, yc, apple, microsoft-ai, deloitte, kimi-wordmark.
+
+**Wiring:** the gated form on Teachers (EN + CN) now offers the teacher one-pager; Mentorship and Community Dialogues
+(EN + CN) offer the parent one-pager; everywhere else the general one. Link stamps `?v=20261017b`.

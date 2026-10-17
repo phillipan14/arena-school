@@ -201,3 +201,24 @@ Board: OnePager. Renders: `/tmp/pro-pass/onepager-{en,cn}.png` (150dpi). Changes
   logo row; CN had its spare space pooled above the footer.
 - **r2.** Wordmark only; "A member of" on its own row, the team rows full width with smaller marks; sections never
   shrink and spare space spreads evenly; the build fails if content is taller than the page. Both PDFs: one A4 page.
+
+## One-pagers v3: general, teacher, parent (ONEPAGER2-BRIEF + UPDATES 1 to 4, Oct 17 pm; EN + CN)
+Boards: OnePagerV3Options, OnePagerV3Final. Renders and 12-column overlays: `/tmp/pro-pass/{,teacher-,parent-}onepager-{en,cn}{,-grid}.png`.
+Every build checks in the browser: one page, nothing taller than the page, every grid item's edges on the 12-column grid,
+equal card heights per row, one section-header left edge, no logo row wrapping, no text under 7pt.
+- **r1 (options, UPDATE 3 + 4).** Offer and proof merged into one section; three ways to show it: A, four audience tiles
+  each with real partner logos and a 3 to 5 word caption; B, a hub (Arena at the center, audiences, formats, a proof
+  row); C, a slim audience row over a captioned logo strip. Chosen: **A**. It reads at a glance, keeps proof next to the
+  audience it proves, and is the only one where every tile has the same structure. B spent a band on the hub; C split
+  offer from proof again. All three failed EN overflow (22 to 69px).
+- **r2.** Critique: "Studied at" wrapped and collided with the Caltech mark; the How we teach outcomes column ran long.
+  Fix: three single-line strip rows (member of, studied at, worked at) with labels in columns 1 to 3; outcomes use the
+  short strand goals. Still 53px over.
+- **r3.** Wheel, skills and outcomes rebalanced to 3 / 3 / 6 columns, outcomes as a 2-by-2; proof marks smaller; 3 data
+  commitments. General EN and CN fit. Grid overlay: every edge on a column line.
+- **r4.** All three documents built. Critique: teacher 214px over (six sections plus tiles); CN headline em breaking.
+- **r5.** Teacher: one-line steps, outcomes as icon cards with the strand goal, tighter rows. Critique: the staircase did
+  not rise evenly (bars sized to their text, level 5 shorter than 3 and 4); section headers sat tight on the cards above.
+- **r6.** Fixed-height stairs (rising 3mm per level); spare space goes above section headers only; teacher drops "Tools
+  teachers made" (not in the brief); general drops the before/after curve. Parent: data commitments a family cares about,
+  and a closing line with the two real routes (ask the school, or enroll in mentorship). All six pass.
