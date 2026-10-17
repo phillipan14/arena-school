@@ -222,3 +222,65 @@ equal card heights per row, one section-header left edge, no logo row wrapping, 
 - **r6.** Fixed-height stairs (rising 3mm per level); spare space goes above section headers only; teacher drops "Tools
   teachers made" (not in the brief); general drops the before/after curve. Parent: data commitments a family cares about,
   and a closing line with the two real routes (ask the school, or enroll in mentorship). All six pass.
+
+## One-pagers v4 (ONEPAGER3-BRIEF + UPDATE, Oct 17 pm; general, teacher, parent; EN + CN)
+Boards: OnePagerV4Directions, OnePagerV4Final. Renders + overlays: `/tmp/pro-pass/{,teacher-,parent-}onepager-{en,cn}{,-grid}.png`.
+Content cut to three sections each: general (who we serve with proof; how we teach; student data), teacher (five levels
+of fluency; moving up a level; student data), parent (what your child does; the milestone ladder; safety and data).
+v2 photo header restored on all three ("Demo day, Beijing, 2026"); credentials strip moved to the bottom, above the footer.
+- **r1, three directions (general EN).** A, stacked white sections with navy number blocks: clearest hierarchy, but the
+  wheel was oversized and it ran 64px over. B, alternating full-bleed bands with an outlined numeral: strongest structure
+  and the most even rhythm, since spare space becomes band padding rather than an empty strip. C, magazine (sections 2
+  and 3 side by side): fit, but the halves crowded the data diagram and section headers sat on two left edges.
+  **Chosen: B.** Also: the Bodley Academy label ran past its tile edge (now checked automatically).
+- **r2.** B on all three. Staircase steps now carry only number and name, with descriptions in a row below (room for
+  every level); proof logos normalized to one optical height, text labels unboxed in the same serif. Critique: section
+  numbers touched band edges; content ran into the next band.
+- **r3.** Band padding added; the overflow check now measures each section (it had missed sections shrinking below
+  their content). Showed general 83px over.
+- **r4.** Tile and skill icons inline with their names (also aligns Agency with Taste and Craft); tighter data rows.
+- **r5.** Header 55mm, band padding 3mm; CN headline and data rows trimmed. All six one page, nothing clipped, grid
+  verified, text 7pt or larger. Final: headline accent phrases kept on one line (no lone "keeps." or "么。").
+- **Review 1 (Phillip, ONEPAGER3-REVIEW1.md).** (1) Steps: minimum 15mm, rising 3mm, number and name top-aligned at the
+  same offset in every step (build checks both). (2) Wheel: ring labels (under 7pt at print size) dropped; the core text
+  stays (7.1pt+, checked); the four strands now sit in their own quarters row. (3) Brown and Harvard darkened and sized to
+  match Caltech in the strip. (4) Tile titles shortened to one line in every tile (Educators, Career, Workshops,
+  Mentorship, Tech teams); the build checks equal title heights per row. (5) Agency, Taste, Craft on the 12-column thirds
+  (c4-6, c7-9, c10-12), sharing left edges with the strands row, tops aligned. Also: header 52mm with the general EN
+  headline at 17.5pt so the copy sits inside the band (checked), a gradient under the photo caption, three data
+  commitments on the general page. All six: one page, on grid, nothing clipped.
+- **Review 2 (ONEPAGER3-REVIEW2.md).** Data section on the grid: account cards on columns 1-3 and 4-6 with the vs badge
+  centred in the gutter, commitments on 7-12, top and bottom aligned with the cards. Parent Workshops card: no verified
+  past workshop with a logo exists, so its proof slot holds a site fact in the same style ("2 days, at your school, no
+  coding needed", from the program pages); nothing invented. Staircase descriptions start inside each step's inner padding;
+  the Baseline / One level up row was already on the four columns of the section 02 cards (overlay checked).
+
+## One-pagers v5 (ONEPAGER4-BRIEF + UPDATE, Oct 17 pm)
+Board: OnePagerV5Final. Renders + overlays: `/tmp/pro-pass/{,teacher-,parent-}onepager-{en,cn}{,-grid}.png`.
+- **Parent, per Phillip's UPDATE** (which replaced the brief's "mock two options" step): no student data section. (1)
+  What your child does: three tiles on the thirds, each with real proof (workshops and intensives: ISB + Bodley;
+  mentorship: ISB alumni; parent talks: ISB PTA), so no tile has an awkward empty or filler slot. (2) Skills your child
+  builds: agency, taste, craft, plus practical skills in parent words from the program pages (building with AI, talking
+  to users, pitching, research and judgment). (3) What they walk away with: the milestone ladder plus the mentorship
+  page's four take-aways (a live product, a documented record, people who know their work, experience presenting it)
+  and the site's own line, "Admissions decisions rest with each university; we do not promise an outcome."
+- **r1.** All six: "Team from" (团队来自) replaces the two team rows; the photo starts at column 8 with a clean vertical
+  edge (no fade, text never near it); vs badge removed; commitment rows equal height, top and bottom aligned with the
+  account cards; teacher tiles on thirds ("Teachers & tech teams" absorbs the filler tile); wheel sized down with its core
+  text as HTML at 7pt. Critique: core text overflowed the centre; strands in a 2+2 grid left dead space in general 02;
+  McKinsey crowded the logo line; parent 21mm over.
+- **r2.** Strands as one line under the skills (no dead gap; wheel spans the whole content block); parent skills as
+  ruled columns, practical skills as titles; shorter tile and keep copy. Critique: McKinsey and Goldman collided; "The
+  learner" still crossed the circle; keep row wrapped.
+- **r3/r4.** Team marks as two balanced lines of six, spaced edge to edge (checked for overflow); keep row titles only;
+  core text on three short lines, wheel centred in its column. All six: one page, on grid, nothing clipped, text 7pt+.
+- **Review (ONEPAGER4-REVIEW.md).** (1) Credentials: "A member of" and "Team from" share one 6-column grid; twelve
+  marks on two lines of six, each centred in its column (McKinsey sized to fit its cell); Anthropic and OpenAI centred on
+  columns 1 and 2 with captions below. The build checks the column centres. (2) School card: "Cleared for student data"
+  (CN unchanged, already short), one line; cards and list share height. (3) Parent 03: more space above "What they keep";
+  the note on the grid edge; parent ladder rise 2mm (level 1 still 15mm). (4) Tile proof slot at a fixed 17mm pinned to
+  the card bottom; the build checks dividers align per row.
+- **Schwarzman (SCHWARZMAN-BRIEF + UPDATE).** Tsinghua + Schwarzman Scholars marks side by side in the staff-training
+  proof lines (repo file `logos/cred/schwarzman.png`); "A member of" as a slim strip under the header; photo fades from
+  the navy. Critique round: the first fade darkened the left student's face (tightened to clear before the faces) and
+  left a sub-pixel hairline at the photo edge (overlay extended 1mm). All six pass every build check.
