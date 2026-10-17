@@ -1,3 +1,0 @@
-:HL["/case-study-examples/_next/static/chunks/a42e3afc7535f38d.css","style"]
-:HL["/fonts/fonts.css","style"]
-0:{"buildId":"h3OhzlSjX7lUEhHC3KXMt","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
