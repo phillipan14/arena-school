@@ -289,3 +289,6 @@ Board: OnePagerV5Final. Renders + overlays: `/tmp/pro-pass/{,teacher-,parent-}on
   flush to the edges, inner centred; checked). New build check: header text, member strip, section headers, first and
   last cards, data columns, Team-from row ends, footer text and contact all on the same left and right content edges.
   Critique round: an old rule left-aligned the inner logo columns (removed).
+- **Team row (TEAMROW-BRIEF).** "Built by a team from", label left (columns 1-3, as the member strip), logos right
+  (columns 4-12). Tried 2 x 6 and 3 x 4: chose 2 x 6 (two balanced lines, equal cells, no extra height; 3 x 4 left the
+  label floating in a tall block and pushed parent EN 4px over). Edge and column checks pass on all six.

@@ -115,3 +115,7 @@ brown, tsinghua-lockup, isb, mckinsey, goldman, yc, apple, microsoft-ai, deloitt
   columns on the content edges. One left and one right content edge for header text, member strip, section headers,
   cards, data list, Team-from label and logos, footer text and contact (Team-from label now above the grid). The build
   checks all of these edges on every page. Stamps `?v=20261017j`.
+- **v5.5 (TEAMROW-BRIEF):** bottom row relabelled "Built by a team from" (CN 团队成员来自, JJ review), label on the left in
+  the same column as "A member of", logos on the right in a 2 x 6 grid of equal cells (each mark centred) ending on the
+  right content edge. 3 x 4 was tried and dropped (a third row, a floating label, and the parent EN page went over).
+  Stamps `?v=20261017k`.

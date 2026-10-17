@@ -45,7 +45,7 @@ LOGO = {'isb': ('/logos/cred/isb.png', 6.4), 'tsinghua': ('/logos/cred/tsinghua-
 
 L = {
  'en': dict(
-   member='A member of', anth='Startup Program', oai='Partner Network', studied='Team from', worked='',
+   member='A member of', anth='Startup Program', oai='Partner Network', studied='Built by a team from', worked='',
    web='arenaschool.org', mail='phillip@arenaschool.org', proof='Run with',
    # audience tiles: key -> (icon, label, one line, formats, [proof marks], proof caption)
    T={'students': ('graduation-cap', 'Students', 'Build and launch real products with AI.', 'Workshops · mentorship', ['isb', 'bodley'], 'Five-day student programs'),
@@ -71,7 +71,7 @@ L = {
    hub='Arena School',
  ),
  'cn': dict(
-   member='成员计划', anth='初创企业计划', oai='合作伙伴网络', studied='团队来自', worked='',
+   member='成员计划', anth='初创企业计划', oai='合作伙伴网络', studied='<!-- JJ review: 团队成员来自 (TEAMROW-BRIEF) -->团队成员来自', worked='',
    web='arenaschool.org', mail='phillip@arenaschool.org', proof='合作',
    T={'students': ('graduation-cap', '学生', '借助AI做出并上线真实的产品。', '工作坊 · 集训营 · 导师计划', ['isb', 'bodley'], '五天学生项目'),
       'schools': ('school', '教师与学校', '在学校规则之内，做出课堂需要的工具。', '分享 · 工作坊 · 全校培训', ['tsinghua', 'schwarzman'], '苏世民书院教职员工培训'),
@@ -197,8 +197,11 @@ def strip(lang):
     marks = [(k, h[k]) for k in order]
     cell = lambda k, h: '<span class="lc%s"><img src="/logos/cred/%s.png" alt="" style="height:%smm" /></span>' % (' w2' if k == 'mckinsey' else '', k, h)
     return ('<section class="strip">'
-            '<div class="g12 row"><span class="c1-12 lab tlabel">%s</span></div><div class="g12 row"><div class="c1-12 six team">%s</div></div></section>'
-            % (c['studied'], ''.join(cell(k, h) for k, h in marks)))
+            '<div class="g12 row trow"><span class="c1-3 lab tlabel">%s</span><div class="c4-12 team cols-%d">%s</div></div></section>'
+            % (c['studied'], TEAMCOLS, ''.join(cell(k, h) for k, h in marks)))
+
+
+TEAMCOLS = int(os.environ.get('TEAMCOLS', '6'))   # 6 (2 rows) or 4 (3 rows): the logo grid's column count
 
 
 def memtop(lang):
@@ -475,13 +478,16 @@ em { font-style: italic; }
 .six { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); row-gap: 1.4mm; align-items: center; }
 .six .lc { display: flex; align-items: center; justify-content: center; height: 6.2mm; min-width: 0; }
 /* columns stay aligned row to row; the outer columns sit on the content edges */
-.team .lc:nth-child(6n+1) { justify-content: flex-start; } .team .lc:nth-child(6n) { justify-content: flex-end; }
 .six.member { gap: 0; column-gap: 0; justify-content: stretch; }
 .six .m { flex-direction: column; height: auto; gap: .8mm; } .six .m em { font-style: normal; font-size: 7pt; color: #4A5578; white-space: nowrap; }
 .team img { width: auto; display: block; filter: grayscale(1) contrast(1.15); opacity: .8; }
 /* one greyscale darkness for every mark */
 .team img, .team img[src*='/brown.'], .team img[src*='/harvard.'] { filter: grayscale(1) brightness(0); opacity: .72; }
-.tlabel { display: block; margin-bottom: .4mm; }
+.trow { align-items: center; } .tlabel { align-self: center; }
+/* the logo block: equal cells, every mark centred in its cell, the block ends on the right content edge */
+.team { display: grid; row-gap: 1.8mm; column-gap: 0; align-items: center; }
+.team.cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); } .team.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.team .lc { display: flex; align-items: center; justify-content: center; height: 6.2mm; min-width: 0; }
 .logos img { width: auto; display: block; filter: grayscale(1) contrast(1.15); opacity: .8; }
 .logos img[src*='/brown.'], .logos img[src*='/harvard.'] { filter: grayscale(1) contrast(1.6) brightness(.72); opacity: 1; }
 .member { justify-content: flex-start; gap: 12mm; } .member img { filter: none; opacity: 1; }
@@ -538,14 +544,14 @@ const { chromium } = require('playwright');
     document.querySelectorAll('.rrow').forEach(row => { const pt = [...row.querySelectorAll('.tile .proof')].map(t => Math.round(t.getBoundingClientRect().top)); if (pt.length && Math.max(...pt) - Math.min(...pt) > 1) uneven.push('proof ' + pt.join('/')); });
     const cents = sel => [...document.querySelectorAll(sel)].map(e => { const r = e.getBoundingClientRect(); return Math.round(r.left + r.width / 2); });
     const tc = cents('.team .lc'), mc = cents('.member .lc');
-    for (let i = 6; i < tc.length; i++) if (Math.abs(tc[i] - tc[i - 6]) > 1) uneven.push('team col ' + i);
+    const nc = getComputedStyle(document.querySelector('.team')).gridTemplateColumns.split(' ').length;
+    for (let i = nc; i < tc.length; i++) if (Math.abs(tc[i] - tc[i - nc]) > 1) uneven.push('team col ' + i);
     document.querySelectorAll('.acc li').forEach(li => { if (li.getBoundingClientRect().height > 16) uneven.push('acc wrap: ' + li.textContent); });
     const fc = document.querySelector('.photo figcaption'); if (fc.getBoundingClientRect().height > 14) stepBad.push('caption wraps');
     const g0 = document.querySelector('.body .g12'), g0r = g0.getBoundingClientRect(), gcs = getComputedStyle(g0);
     const L0 = g0r.left + parseFloat(gcs.paddingLeft), R0 = g0r.right - parseFloat(gcs.paddingRight);
     const edges = [];
-    const lefts = ['.top-copy', '.memtop .lab', '.sh', '.rrow > :first-child', '.data > :first-child', '.tlabel', '.team', '.cta > :first-child'];
-    const tl = [...document.querySelectorAll('.team .lc img')]; for (let i = 0; i < tl.length; i += 6) { const a = tl[i].getBoundingClientRect(), z = tl[i + 5].getBoundingClientRect(); if (Math.abs(a.left - L0) > 1) edges.push('team row L'); if (Math.abs(z.right - R0) > 1) edges.push('team row R'); }
+    const lefts = ['.top-copy', '.memtop .lab', '.sh', '.rrow > :first-child', '.data > :first-child', '.tlabel', '.cta > :first-child'];
     const rights = ['.memtop .mt > :last-child', '.rrow > :last-child', '.data > :last-child', '.team', '.cta .contact', '.stairs-wrap', '.row4 > :last-child'];
     lefts.forEach(sel => document.querySelectorAll(sel).forEach(e => { const x = e.getBoundingClientRect().left; if (Math.abs(x - L0) > 1) edges.push('L ' + sel + ' ' + Math.round(x - L0)); }));
     rights.forEach(sel => document.querySelectorAll(sel).forEach(e => { const x = e.getBoundingClientRect().right; if (Math.abs(x - R0) > 1) edges.push('R ' + sel + ' ' + Math.round(x - R0)); }));
