@@ -45,21 +45,6 @@
   body.proj .group h3{font-size:30px}
   body.proj .group li{font-size:28px}
   body.proj #results h2{font-size:34px}
-  #printDate{display:none}
-  @media print{
-    @page{margin:14mm}
-    body{background:#fff;font-size:14pt}
-    header,#setup,footer,button,.tb-back{display:none!important}
-    body > :not(main){display:none!important}
-    main{max-width:none;padding:0}
-    .card{border:0;box-shadow:none;padding:0;background:#fff}
-    #printDate{display:block;margin:4px 0 0;color:#444;font-size:12pt}
-    #results h2{font-size:22pt}
-    .groups{grid-template-columns:repeat(3,1fr);gap:12px}
-    .group{break-inside:avoid;page-break-inside:avoid;border-width:2px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-    .group h3{font-size:16pt}
-    .group li{font-size:13pt;padding:3px 0}
-  }
 </style>
 </head>
 <body>
@@ -94,10 +79,9 @@
   </div>
   <div class="card" id="results">
     <div class="row" style="justify-content:space-between;margin-bottom:14px">
-      <div><h2 style="margin:0">Today's groups</h2><p id="printDate"></p></div>
+      <h2 style="margin:0">Today's groups</h2>
       <div class="row">
         <button class="btn" id="shuffle">🔀 Reshuffle</button>
-        <button class="btn-ghost" id="print">🖨️ Print</button>
         <button class="btn-ghost" id="exitProj" style="display:none">Exit projector view</button>
       </div>
     </div>
@@ -190,11 +174,6 @@ $('clear').onclick = () => {
 };
 $('projector').onclick = () => { if (!state.groups) make(); proj(true); };
 $('exitProj').onclick = () => proj(false);
-$('print').onclick = () => {
-  if (!state.groups) make();
-  $('printDate').textContent = new Date().toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
-  window.print();
-};
 document.addEventListener('keydown', e => { if (e.key === 'Escape') proj(false); });
 
 render();
