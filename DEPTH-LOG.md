@@ -166,3 +166,15 @@ Boards: ApproachRebalance and LearningRebalance in the Claude Design project. Sh
   page).
 - **r2.** Strand names stack over their goals; the link has space above it. Words: Our approach 1,428 (6 sections),
   Learning approach 796 (7 sections); budgets updated in CONTENT-RULES.md. No section appears on both pages.
+
+## Student data comes first (DATA-BRIEF, Oct 17; Teachers, Technology, Schools, Partnerships, EN + CN)
+Board: StudentData in the Claude Design project. Shots: `/tmp/pro-pass/data-*-{1440,390}.png`, `data-checklist-1440.png`.
+- **r1.** New section right after each page's pressures (tools/data_section.py): "Before which tool, ask: whose account
+  is it?" as a two-column diagram (personal account vs school-approved platform: terms, data agreement, safeguards,
+  student data; x and check marks), six commitments, and on Technology and Schools the law (PIPL Art. 28 and 31, GDPR
+  Art. 8, PDPA Section 6; LEGAL-SOURCES.md) and an eight-question checklist with a print button. Teachers and Partnerships
+  link to the full version. One FAQ item per page; one line on Our approach. Critique: (1) the diagram's row labels
+  wrapped ("Data agreement with the school"); (2) the checklist carried a number and an icon on every row, busy on
+  screen and on paper; (3) printing kept the rest of the page as blank space (11 pages).
+- **r2.** Short row labels on one line; numbers only in the checklist; print removes everything but the checklist
+  (one A4 page). Budgets raised for the section (CONTENT-RULES.md).
