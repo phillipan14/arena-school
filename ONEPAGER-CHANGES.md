@@ -157,3 +157,9 @@ brown, tsinghua-lockup, isb, mckinsey, goldman, yc, apple, microsoft-ai, deloitt
   (general). The ISB-judges and sign-language example cards are removed.
 - **Team row:** "Coached by a team from" (CN 导师团队来自, JJ review), the balanced 2 x 6 grid.
 - Stamps `?v=20261017m`.
+- **v7.1 (PARENT2-REVIEW):** compact "Why now" bands (number and sentence side by side, band only as tall as its
+  content); the space goes to bigger diagrams: general "Who we serve" as a framed who / why they come / format / what they
+  make diagram, teacher session flow and fluency levels in one shared frame. "Programs run at" logos in the same equal
+  cells and grey as the team row, label in columns 1-3. Team rows spread evenly across columns 4-12 (outer columns on
+  the edges). Parent day 5 (Demo day) in navy as the climax; tools row labelled "AI tools they use" (CN 孩子用的AI工具).
+  Stamps `?v=20261017n`.

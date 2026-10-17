@@ -166,12 +166,12 @@ CAP = {'en': 'Demo day at the International School of Beijing, 2026', 'cn': '<!-
 SEC = {
  'en': dict(who=('Who we serve', 'Each audience and what they come for.'), teach=('What learners actually do', 'The same three moves in every program.'),
             data=('Student data comes first', 'Before which tool, ask whose account it is.'),
-            fl=('Five levels of AI fluency', 'A baseline, then every teacher moves up one level a term.'), move=('One session, one working tool', 'Then every teacher moves up one level a term.'),
+            fl=('Five levels of AI fluency', 'A baseline, then every teacher moves up one level a term.'), move=('One session, one working tool', 'Then every teacher moves up one level a term.'), run_k='How a session runs',
             whyt=('Why now', ''), whyp=('Why it matters now', ''), whyg=('Why now', ''),
             kids=('What your child builds and learns', 'Five days, from a problem to demo day.'), lead=('What they keep', 'For college, summer program, scholarship, and internship applications.')),
  'cn': dict(who=('我们服务谁', '每类对象，以及他们为什么来。'), teach=('学习者实际做什么', '每个项目都是同样的三个动作。'),
             data=('学生数据放在第一位', '先别问用哪个工具，先问是谁的账号。'),
-            fl=('AI素养的五个层级', '先做基线评估，每位老师每学期提升一级。'), move=('一次培训，一个能用的工具', '之后每位老师每学期提升一级。'),
+            fl=('AI素养的五个层级', '先做基线评估，每位老师每学期提升一级。'), move=('一次培训，一个能用的工具', '之后每位老师每学期提升一级。'), run_k='一次培训怎么进行',
             whyt=('为什么是现在', ''), whyp=('为什么是现在', ''), whyg=('为什么是现在', ''),
             kids=('孩子做什么、学什么', '五天，从选题到路演日。'), lead=('孩子带走什么', '可用于大学、暑期项目、奖学金和实习申请。')),
 }
@@ -220,6 +220,7 @@ def shead(n, key, lang, span='c1-12'):
 
 
 def sec(n, key, lang, inner, cls=''):
+    cls = cls or ('hs' if key.startswith('why') else '')
     return '<section class="sec %s"><div class="g12">%s</div>%s</section>' % (cls, shead(n, key, lang), inner)
 
 
@@ -276,19 +277,19 @@ PROG = {
  'en': dict(k='The five-day Entrepreneurship &amp; AI Intensive, at your child’s school', days=[('Day 1', 'Choose a problem', 'Pitch it in three minutes. Teams form.'), ('Day 2', 'Talk to users', 'Interview the people they want to help.'),
             ('Day 3', 'Live at a link', 'A working version anyone can open.'), ('Day 4', 'Brand and price', 'Name it, price it, stop at a fixed hour.'), ('Day 5', 'Demo day', 'Pitch to a panel. Families invited.')],
             mile={2: 'Launch', 4: 'Pitch'}, stretch='Stretch goals in year-long mentorship', stretch_items=['Traction', 'Revenue', 'Impact', 'Recognition'],
-            tools_k='Typical tools', run='Programs run at'),
+            tools_k='AI tools they use', run='Programs run at'),
  'cn': dict(k='五天的创业与AI集训营，在孩子的学校', days=[('第1天', '选定问题', '三分钟讲清楚，再组队。'), ('第2天', '访谈用户', '访谈想帮助的人。'),
             ('第3天', '发布上线', '做出人人都能打开的版本。'), ('第4天', '品牌与定价', '命名、定价，准时封版。'), ('第5天', '路演日', '向评审团路演，家长到场。')],
             mile={2: '上线', 4: '路演'}, stretch='学年导师计划中的进阶目标', stretch_items=['用户增长', '收入', '影响力', '认可'],
-            tools_k='常用工具', run='项目开展于'),
+            tools_k='孩子用的AI工具', run='项目开展于'),
 }
 TOOLS = ['openai', 'claude', 'deepseek', 'kimi', 'figma', 'canva']
 
 
 def timeline(lang):
     g = PROG[lang]
-    days = ''.join('<div class="c%d dy%s"><span class="dn">%s%s</span><b>%s</b><span class="dd">%s</span></div>'
-                   % (k + 1, ' is-m' if k in g['mile'] else '', dn, '<span class="ms">%s</span>' % g['mile'][k] if k in g['mile'] else '', t, d)
+    days = ''.join('<div class="c%d dy%s%s"><span class="dn">%s%s</span><b>%s</b><span class="dd">%s</span></div>'
+                   % (k + 1, ' is-m' if k in g['mile'] else '', ' is-top' if k == len(g['days']) - 1 else '', dn, '<span class="ms">%s</span>' % g['mile'][k] if k in g['mile'] else '', t, d)
                    for k, (dn, t, d) in enumerate(g['days']))
     tools = ''.join('<img src="/logos/tools/sm/%s.webp" alt="" />' % t for t in TOOLS)
     stretch = ''.join('<span>%s</span>' % x for x in g['stretch_items'])
@@ -297,8 +298,12 @@ def timeline(lang):
             % (g['k'], days, g['tools_k'], tools, g['stretch'], stretch))
 
 
+RUN_H = {'isb': 4.6, 'tsinghua': 4.6, 'schwarzman': 4.2, 'pta': 4.6, 'lux': 4.8}
+
+
 def runat(lang, marks):
-    return '<div class="g12 runat"><span class="c1-3 k">%s</span><div class="c4-12 rmarks">%s</div></div>' % (PROG[lang]['run'], ''.join(mark(m) for m in marks))
+    cells = ''.join('<span class="lc">%s</span>' % (('<img src="%s" alt="" style="height:%smm" />' % (LOGO[m][0], RUN_H[m])) if LOGO[m][0] else '<span class="wordmark">%s</span>' % LOGO[m][1]) for m in marks)
+    return '<div class="g12 runat trow"><span class="c1-3 lab tlabel">%s</span><div class="c4-12 team rteam cols-6">%s</div></div>' % (PROG[lang]['run'], cells)
 
 
 def statband(lang, ids):
@@ -357,23 +362,39 @@ def footer(lang, doc='general'):
             % (h, p, c['mail'], c['web']))
 
 
+GEN = {
+ 'en': dict(cols=['Who', 'Why they come', 'Format', 'What they make'],
+            rows=[('Real AI skills, and work to show', 'A launched product'), ('Confident staff, safe use', 'A tool for their class'),
+                  ('A child ready for AI-era work', 'A year-long project'), ('An edge for internships and jobs', 'A live AI product')]),
+ 'cn': dict(cols=['对象', '为什么来', '形式', '做出什么'],
+            rows=[('学真本事，有作品可展示', '一个上线的产品'), ('老师有信心，用得安全', '一个课堂工具'),
+                  ('孩子为AI时代的工作做好准备', '一个学年项目'), ('在实习和求职中脱颖而出', '一个上线的AI产品')]),
+}
+
+
 def general(lang, d):
     c = L[lang]
     spans = ['c1-3', 'c4-6', 'c7-9', 'c10-12']
     aud = ''.join('<div class="%s card tile"><div class="th">%s<b class="nm">%s</b></div><span class="out">%s</span><span class="fm">%s</span></div>' % (sp, ic(t[0], 'ic big'), t[1], t[2], t[3])
                   for sp, t in zip(spans, [c['T'][k] for k in DOCS['general']['tiles']]))
+    g = GEN[lang]
+    head = '<div class="ar ah"><span>%s</span><span>%s</span><span>%s</span><span>%s</span></div>' % tuple(g['cols'])
+    rows = ''.join('<div class="ar">%s<b class="nm">%s</b></span><span class="aw">%s</span><span class="af">%s</span><span class="am">%s%s</span></div>'
+                   % ('<span class="awho">' + ic(t[0], 'ic big'), t[1], why, t[3], ic('check', 'mk'), make)
+                   for t, (why, make) in zip([c['T'][k] for k in DOCS['general']['tiles']], g['rows']))
+    diagram = '<div class="g12"><div class="c1-12 frame aud">%s%s</div></div>' % (head, rows)
     return (sec(1, 'whyg', lang, hero(lang, 'rand-students-use')) +
-            sec(2, 'who', lang, '<div class="g12 rrow">%s</div>' % aud + runat(lang, ['isb', 'bodley', 'tsinghua', 'schwarzman'])) +
+            sec(2, 'who', lang, diagram + runat(lang, ['isb', 'bodley', 'tsinghua', 'schwarzman'])) +
             sec(3, 'teach', lang, teach(lang)))
 
 
 def teacher(lang, d):
     f = FL.C['cn' if lang == 'cn' else 'en']
     x = X[lang]
-    flow = ''.join('<div class="c%d-%d fl-step"><span class="fn">%d</span>%s<b>%s</b><span class="dd">%s</span></div>' % (1 + 3 * k, 3 + 3 * k, k + 1, ic(i, 'ic big'), a, b) for k, (i, a, b) in enumerate(x['move']))
+    flow = ''.join('<div class="fl-step"><span class="fn">%d</span>%s<b>%s</b><span class="dd">%s</span></div>' % (k + 1, ic(i, 'ic big'), a, b) for k, (i, a, b) in enumerate(x['move']))
     return (sec(1, 'whyt', lang, hero(lang, 'rand-use')) +
-            sec(2, 'move', lang, '<div class="g12 flow">%s</div>' % flow + '<div class="g12 pk"><span class="c1-12 k">%s</span></div>' % SEC[lang]['fl'][0] +
-                '<div class="g12"><div class="c1-12">%s</div></div>' % stairs(f['levels'], False) + runat(lang, ['tsinghua', 'schwarzman', 'isb'])) +
+            sec(2, 'move', lang, '<div class="g12"><div class="c1-12 frame tfr"><span class="k fk">%s</span><div class="flow4">%s</div><span class="k fk fk2">%s</span>%s</div></div>'
+                % (SEC[lang]['run_k'], flow, SEC[lang]['fl'][0], stairs(f['levels'], False)) + runat(lang, ['tsinghua', 'schwarzman', 'isb'])) +
             sec(3, 'data', lang, data(lang, (0, 1, 2))))
 
 
@@ -542,6 +563,7 @@ em { font-style: italic; }
 .team { display: grid; row-gap: 1.8mm; column-gap: 0; align-items: center; }
 .team.cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); } .team.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .team .lc { display: flex; align-items: center; justify-content: center; height: 6.2mm; min-width: 0; }
+.team.cols-6 .lc:nth-child(6n+1) { justify-content: flex-start; } .team.cols-6 .lc:nth-child(6n) { justify-content: flex-end; }
 .logos img { width: auto; display: block; filter: grayscale(1) contrast(1.15); opacity: .8; }
 .logos img[src*='/brown.'], .logos img[src*='/harvard.'] { filter: grayscale(1) contrast(1.6) brightness(.72); opacity: 1; }
 .member { justify-content: flex-start; gap: 12mm; } .member img { filter: none; opacity: 1; }
@@ -565,7 +587,7 @@ em { font-style: italic; }
 .blab { font: 600 7pt/1 'Geist', system-ui, sans-serif; letter-spacing: .12em; text-transform: uppercase; color: #C9D6F2; }
 :lang(zh) .blab { letter-spacing: .04em; font-size: 7.2pt; }
 /* hero stat */
-.hero { align-items: center; } .hn { font: 400 48pt/1 SERIF; color: var(--pro-action); letter-spacing: -.01em; }
+.hero { align-items: center; } .hn { font: 400 44pt/1 SERIF; color: var(--pro-action); letter-spacing: -.01em; }
 .ht { margin: 0; font: 400 14pt/1.35 SERIF; color: var(--pro-ink); }
 /* framed program timeline */
 .frame { border: 1px solid var(--pro-ink); border-radius: 2mm; padding: 4mm 4.4mm 3.6mm; background: #fff; }
@@ -583,7 +605,8 @@ em { font-style: italic; }
 .frow .tl { display: flex; align-items: center; gap: 2.8mm; } .frow .tl img { height: 5.6mm; width: auto; border-radius: 1mm; }
 .frow .st { margin-left: auto; } .sti { display: flex; gap: 1.4mm; } .sti span { font-size: 8pt; color: var(--pro-ink); border: 1px dashed var(--pro-line-2); border-radius: 1mm; padding: .6mm 1.6mm; }
 /* programs run at: logos only */
-.runat { align-items: center; margin-top: 3.4mm; }
+.runat { align-items: center; margin-top: 3.6mm; } .runat .wordmark { font-size: 9pt; white-space: nowrap; max-width: none; color: #3A4466; }
+.rteam img { filter: grayscale(1) brightness(0); opacity: .72; }
 .kp { flex-direction: column; gap: 1mm; } .kp .out { margin: 0; }
 .parent .top h1:lang(en) { font-size: 17.5pt; } .rmarks { display: flex; align-items: center; gap: 8mm; } .runat .k { align-self: center; }
 .rmarks img { width: auto; filter: grayscale(1) contrast(1.1); opacity: .85; } .rmarks .wordmark { font-size: 9pt; max-width: none; white-space: nowrap; }
@@ -591,6 +614,22 @@ em { font-style: italic; }
 .flow { align-items: stretch; } .fl-step { position: relative; display: flex; flex-direction: column; gap: 1mm; padding: 3mm; border: 1px solid var(--pro-line); border-radius: 2mm; }
 .fl-step:not(:last-child)::after { content: '→'; position: absolute; right: -3.4mm; top: 50%; transform: translateY(-50%); color: var(--pro-action); font-size: 9pt; z-index: 2; }
 .fl-step .fn { font: 400 12pt/1 SERIF; color: var(--pro-action); } .fl-step b { font: 500 10pt/1.2 SERIF; color: var(--pro-ink); } .fl-step .dd { font-size: 7.6pt; line-height: 1.35; color: #3A4466; }
+/* day 5: the climax, navy */
+.dy.is-top { background: #0B1A4A; border-top-color: #0B1A4A; } .dy.is-top .dn { color: #C9D6F2; } .dy.is-top b, .dy.is-top .dd { color: #fff; }
+.dy.is-top .ms { background: #fff; color: #0B1A4A; }
+/* general: framed audience diagram, who -> why -> format -> what they make */
+.aud { padding: 1.6mm 4.4mm 2mm; } .ar { display: grid; grid-template-columns: 1.1fr 1.45fr 1.15fr 1.5fr; gap: 4mm; align-items: center; padding: 2.6mm 0; border-top: 1px solid var(--pro-line); }
+.ar.ah { border-top: 0; padding: 1.4mm 0; font: 600 7pt/1.2 'Geist', system-ui, sans-serif; letter-spacing: .1em; text-transform: uppercase; color: #4A5578; }
+.awho { display: flex; align-items: center; gap: 2.4mm; } .awho .nm { margin: 0; font-size: 11pt; }
+.aw { font-size: 8.6pt; color: #3A4466; } .af { font: 600 8pt/1.3 'Geist', system-ui, sans-serif; color: var(--pro-action); }
+.am { display: flex; align-items: center; gap: 1.6mm; font: 500 10pt/1.2 SERIF; color: var(--pro-ink); }
+/* fill the reclaimed space with bigger diagrams, not padding */
+.general .ar { padding: 3.6mm 0; } .general .awho .nm { font-size: 12pt; } .general .am { font-size: 11pt; } .general .aw { font-size: 9pt; }
+.general .wheel .apw { max-width: 44mm; } .general .loop { font-size: 14pt; }
+.parent .kp { padding: 3.6mm 3.6mm; } .parent .kp .nm { font-size: 12pt; } .parent .kp .out { font-size: 8.6pt; }
+.parent .dy { padding-top: 4mm; padding-bottom: 4mm; }
+/* teacher: one frame for the session flow and the fluency levels */
+.flow4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; } .fk2 { margin-top: 3.6mm; }
 /* closing band */
 .cta { background: #0B1A4A; color: #fff; padding-top: 4.4mm; padding-bottom: 4.4mm; align-items: center; }
 .cta h2 { color: #fff; font-size: 13pt; } .cta p { margin: 1mm 0 0; font-size: 8.2pt; color: rgba(255,255,255,.84); }
@@ -598,6 +637,7 @@ em { font-style: italic; }
 /* direction B: alternating full-bleed bands, header without the block */
 .dir-B .body { padding: 0; justify-content: stretch; }
 .dir-B .sec { flex: 1 1 auto; display: flex; flex-direction: column; justify-content: center; padding: 3mm 0; }
+.dir-B .sec.hs { flex: 0 0 auto; padding: 4mm 0; } .sec.hs .sh { margin-bottom: 1.6mm; }
 .dir-B .sec:nth-child(2) { background: #F3F5FA; }
 .dir-B .num { background: none; color: var(--pro-action); width: auto; height: auto; font-size: 22pt; border-right: 1px solid var(--pro-line-2); padding-right: 3.4mm; border-radius: 0; }
 /* direction C: magazine halves */
@@ -636,8 +676,8 @@ const { chromium } = require('playwright');
     if (hc.top < hb.top + 8 || hc.bottom > hb.bottom - 8) stepBad.push('header copy outside band');
     document.querySelectorAll('.rrow').forEach(row => { const pt = [...row.querySelectorAll('.tile .proof')].map(t => Math.round(t.getBoundingClientRect().top)); if (pt.length && Math.max(...pt) - Math.min(...pt) > 1) uneven.push('proof ' + pt.join('/')); });
     const cents = sel => [...document.querySelectorAll(sel)].map(e => { const r = e.getBoundingClientRect(); return Math.round(r.left + r.width / 2); });
-    const tc = cents('.team .lc'), mc = cents('.member .lc');
-    const nc = getComputedStyle(document.querySelector('.team')).gridTemplateColumns.split(' ').length;
+    const tc = cents('.strip .team .lc'), mc = cents('.member .lc');
+    const nc = getComputedStyle(document.querySelector('.strip .team')).gridTemplateColumns.split(' ').length;
     for (let i = nc; i < tc.length; i++) if (Math.abs(tc[i] - tc[i - nc]) > 1) uneven.push('team col ' + i);
     document.querySelectorAll('.acc li').forEach(li => { if (li.getBoundingClientRect().height > 16) uneven.push('acc wrap: ' + li.textContent); });
     const fc = document.querySelector('.photo figcaption'); if (fc.getBoundingClientRect().height > 14) stepBad.push('caption wraps');
@@ -647,7 +687,7 @@ const { chromium } = require('playwright');
     const lefts = ['.top-copy', '.memtop .lab', '.sh', '.rrow > :first-child', '.data > :first-child', '.tlabel', '.cta > :first-child'];
     const rights = ['.memtop .mt > :last-child', '.rrow > :last-child', '.data > :last-child', '.team', '.cta .contact', '.stairs-wrap', '.row4 > :last-child'];
     lefts.forEach(sel => document.querySelectorAll(sel).forEach(e => { const x = e.getBoundingClientRect().left; if (Math.abs(x - L0) > 1) edges.push('L ' + sel + ' ' + Math.round(x - L0)); }));
-    rights.forEach(sel => document.querySelectorAll(sel).forEach(e => { const x = e.getBoundingClientRect().right; if (Math.abs(x - R0) > 1) edges.push('R ' + sel + ' ' + Math.round(x - R0)); }));
+    rights.forEach(sel => document.querySelectorAll(sel).forEach(e => { if (e.closest('.frame')) return; const x = e.getBoundingClientRect().right; if (Math.abs(x - R0) > 1) edges.push('R ' + sel + ' ' + Math.round(x - R0)); }));
     const tops = []; document.querySelectorAll('.sh').forEach(d => tops.push(Math.round(d.getBoundingClientRect().left)));
     let min = 99; document.querySelectorAll('.op *').forEach(e => { if ([...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim()) && !e.closest('svg')) min = Math.min(min, parseFloat(getComputedStyle(e).fontSize)); });
     const clipped = []; document.querySelectorAll('.marks, .logos, .team .tl, .prac .pi, .memtop .mt').forEach(l => { const p = l.closest('.card, .row, .prac, .memtop, .pf'); const pr = p.getBoundingClientRect(); [...l.children].forEach(c => { const r = c.getBoundingClientRect(); if (r.right > pr.right - 1 || r.left < pr.left) clipped.push(c.textContent || c.getAttribute('src')); }); });

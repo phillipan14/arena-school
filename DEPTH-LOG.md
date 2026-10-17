@@ -306,3 +306,8 @@ collided with the frame label; small elements floating in big gaps. Round 2: bad
 timeline and tools; keep items as described cards. Critique: keep titles wrapped unevenly in quarters; parent header
 still over its band. Round 3: keep cards 2 x 2 with title over description; parent EN headline 17.5pt, shorter intro;
 general intro without "or online" (not on the site). All six pass edges, grid, 7pt, one page.
+- **Review (PARENT2-REVIEW).** Round 1: compact stat bands, framed general and teacher diagrams, proof logos in team-row
+  cells, navy day 5. The checker pooled the proof cells with the team grid and flagged the stairs inside the teacher frame
+  (scoped both). Round 2: general and parent still had air above their last band; diagram rows, wheel, and keep cards
+  enlarged to fill it; teacher frame label "How a session runs" instead of repeating the section title. Round 3: general
+  "What they make" column widened so entries stay on one line. All six pass.
