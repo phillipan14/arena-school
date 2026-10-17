@@ -17,7 +17,7 @@ def ver(path):
 
 def pages():
     out = subprocess.run(['git', 'ls-files', '*.html'], cwd=ROOT, capture_output=True, text=True).stdout.split()
-    return [f for f in out if not re.match(r'(decks|talks|review|case-study-examples|onepager)/', f)]
+    return [f for f in out if not re.match(r'(decks|talks|review|case-study-examples|onepager|tools)/', f)]
 
 
 def stamp(m):

@@ -63,3 +63,17 @@ brown, tsinghua-lockup, isb, mckinsey, goldman, yc, apple, microsoft-ai, deloitt
 
 **Wiring:** the gated form on Teachers (EN + CN) now offers the teacher one-pager; Mentorship and Community Dialogues
 (EN + CN) offer the parent one-pager; everywhere else the general one. Link stamps `?v=20261017b`.
+
+## v4 (Oct 17 pm): Phillip's review of v3
+- **Header:** the v2 photo header is back on all three: navy band, wordmark, large headline with an italic accent, a
+  short intro, and the demo-day photo on the right, captioned "Demo day, Beijing, 2026" (CN 路演日，北京，2026年).
+- **Three sections per variant** (content cut, not crammed): general: who we serve, how we teach, student data;
+  teacher: five levels of AI fluency, moving up a level, student data; parent: what your child does, the milestone ladder,
+  safety and student data.
+- **Design:** chosen direction B: alternating full-bleed bands with a large accent numeral and a serif title, even
+  rhythm, bigger type (body 8.2pt, titles 14.5pt), fewer grey lines. Staircases give every level room (names on the steps,
+  descriptions below). Proof logos at one optical height; Bodley Academy and ACAMIS as plain serif labels. Icons inline
+  with names, one size. Equal-height cards per row, 12-column grid verified by overlay and by the build.
+- **Credentials strip** (A member of, Our team studied at, Worked at) moved to the bottom, directly above the contact
+  footer, each row on one line.
+- Same file paths; link stamps `?v=20261017c`.

@@ -222,3 +222,22 @@ equal card heights per row, one section-header left edge, no logo row wrapping, 
 - **r6.** Fixed-height stairs (rising 3mm per level); spare space goes above section headers only; teacher drops "Tools
   teachers made" (not in the brief); general drops the before/after curve. Parent: data commitments a family cares about,
   and a closing line with the two real routes (ask the school, or enroll in mentorship). All six pass.
+
+## One-pagers v4 (ONEPAGER3-BRIEF + UPDATE, Oct 17 pm; general, teacher, parent; EN + CN)
+Boards: OnePagerV4Directions, OnePagerV4Final. Renders + overlays: `/tmp/pro-pass/{,teacher-,parent-}onepager-{en,cn}{,-grid}.png`.
+Content cut to three sections each: general (who we serve with proof; how we teach; student data), teacher (five levels
+of fluency; moving up a level; student data), parent (what your child does; the milestone ladder; safety and data).
+v2 photo header restored on all three ("Demo day, Beijing, 2026"); credentials strip moved to the bottom, above the footer.
+- **r1, three directions (general EN).** A, stacked white sections with navy number blocks: clearest hierarchy, but the
+  wheel was oversized and it ran 64px over. B, alternating full-bleed bands with an outlined numeral: strongest structure
+  and the most even rhythm, since spare space becomes band padding rather than an empty strip. C, magazine (sections 2
+  and 3 side by side): fit, but the halves crowded the data diagram and section headers sat on two left edges.
+  **Chosen: B.** Also: the Bodley Academy label ran past its tile edge (now checked automatically).
+- **r2.** B on all three. Staircase steps now carry only number and name, with descriptions in a row below (room for
+  every level); proof logos normalized to one optical height, text labels unboxed in the same serif. Critique: section
+  numbers touched band edges; content ran into the next band.
+- **r3.** Band padding added; the overflow check now measures each section (it had missed sections shrinking below
+  their content). Showed general 83px over.
+- **r4.** Tile and skill icons inline with their names (also aligns Agency with Taste and Craft); tighter data rows.
+- **r5.** Header 55mm, band padding 3mm; CN headline and data rows trimmed. All six one page, nothing clipped, grid
+  verified, text 7pt or larger. Final: headline accent phrases kept on one line (no lone "keeps." or "么。").
