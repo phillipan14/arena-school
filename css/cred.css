@@ -51,6 +51,14 @@ html body main .cred-marq .cred-marq-track > ul { flex: none !important; flex-wr
 }
 @media (max-width: 760px) { html body main .cred-marq { --cred-gap: var(--space-6); } }
 @media (prefers-reduced-motion: reduce) { html body main .cred-marq .cred-marq-track { animation: none !important; } }
+/* tool rows (ul.ds-tools, logo plus name): a still frame keeps the hairlines and padding, the list inside moves */
+html body main .cred-marq-frame { min-width: 0; padding: var(--space-5) 0; border-block: var(--hairline); }
+html body main .cred-marq-frame > .cred-marq { --cred-gap: var(--space-7); }
+html body main .cred-marq .cred-marq-track > .ds-tools { padding: 0 !important; border: 0 !important; }
+@media (max-width: 760px) {
+  html body main .cred-marq-frame { padding: var(--space-4) 0; }
+  html body main .cred-marq-frame > .cred-marq { --cred-gap: var(--space-5); }
+}
 @keyframes credMarq { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(calc(-1 * var(--marq-shift, 50%)), 0, 0); } }
 /* per-logo heights: the same optical size for every mark (from each file's aspect ratio) */
 .pro-logos img[src*="/anthropic."], .hp-cred-row img[src*="/anthropic."], .el-partners img[src*="/anthropic."], .aib-row img[src*="/anthropic."], .pc-b-logos img[src*="/anthropic."], .pg-proof-logos img[src*="/anthropic."] { height: 21.6px !important; }

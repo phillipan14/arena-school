@@ -1,14 +1,19 @@
-/* Team credential rows ("Studied at" / "Worked at"): every row becomes a slow, seamless marquee; neighbouring rows
-   drift in opposite directions. The label column stays put; only the logos move.
-   Markup it upgrades: .hp-cred-row (home, about, programs, mentorship, zero-to-launch) and .pro-logos (schools,
-   technology, events), both <label><ul><li><img></li></ul>. Opt a row out with data-marquee="off".
+/* Logo rows: every logo strip on the site becomes a slow, seamless marquee; stacked rows drift in opposite directions.
+   Markup it upgrades:
+     - team credential rows ("Studied at" / "Worked at"): .hp-cred-row (home, about, programs, mentorship,
+       zero-to-launch) and .pro-logos (schools, technology, events), both <label><ul><li><img></li></ul>. The label
+       column stays put; only the logos move.
+     - tool rows ("What students use"): ul.ds-tools (programs, mentorship, partnerships, schools, technology,
+       zero-to-launch). The hairline frame stays put; only the logos move.
+   Rows of 3 logos or fewer (the Anthropic + OpenAI "A member of" row, the results jury row) stay static and centered:
+   a 2-logo loop reads as broken. Opt any row out with data-marquee="off".
    The original <ul> keeps its alt text; copies are aria-hidden with empty alt. The track is translated by exactly one
    set (list width + gap), so the loop is seamless at any width; it is re-measured when logos load or the row resizes.
    Styles: tools/cred_css.py (.cred-marq). Reduced motion: nothing runs, the rows stay as a still, wrapping row. */
 (() => {
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const rows = [...document.querySelectorAll('main :is(.hp-cred-row, .pro-logos):not([data-marquee="off"])')];
-  const MIN_S = 35, MAX_S = 50, PX_PER_S = 24;
+  const rows = [...document.querySelectorAll('main :is(.hp-cred-row, .pro-logos, ul.ds-tools):not([data-marquee="off"])')];
+  const MIN_S = 35, MAX_S = 50, PX_PER_S = 24, MIN_LOGOS = 4;
 
   const copyOf = (ul) => {
     const c = ul.cloneNode(true);
@@ -33,14 +38,23 @@
   };
 
   rows.forEach((row) => {
-    const ul = row.querySelector(':scope > ul');
-    if (!ul || ul.children.length < 3 || row.querySelector('.cred-marq')) return;
+    const isList = row.matches('ul');
+    const ul = isList ? row : row.querySelector(':scope > ul');
+    if (!ul || ul.children.length < MIN_LOGOS || ul.closest('.cred-marq')) return;
     const siblings = [...row.parentElement.children].filter((el) => rows.includes(el));
     const wrap = document.createElement('div');
     wrap.className = 'cred-marq';
     const track = document.createElement('div');
     track.className = 'cred-marq-track' + (siblings.indexOf(row) % 2 ? ' is-rev' : '');
-    ul.before(wrap);
+    if (isList) {
+      // a bare list (tools): a still frame carries its hairlines, so the edge fade never touches them
+      const frame = document.createElement('div');
+      frame.className = 'cred-marq-frame';
+      ul.before(frame);
+      frame.appendChild(wrap);
+    } else {
+      ul.before(wrap);
+    }
     wrap.appendChild(track);
     track.appendChild(ul);
     let raf = 0;

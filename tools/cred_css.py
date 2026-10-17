@@ -4,8 +4,9 @@ appears (DEPTH-BRIEF, Oct 16, 2026). Writes css/cred.css:
     with a small weight correction for solid marks (Y Combinator, Apple). Aspect ratios are read from the files.
   - the grid layout for every markup that carries the strip (.pro-logos, .hp-cred-row, .el-partners, .aib-row,
     .pc-b-logos, .pg-proof-logos): small-caps label column, equal cells, aligned hairlines, one ink.
-The wording in the pages is untouched. logo-marquee.js turns the team rows (.hp-cred-row, .pro-logos) into slow marquees
-(.cred-marq rules below); with reduced motion they stay as this still grid.
+The wording in the pages is untouched. logo-marquee.js turns every logo row of 4+ marks (team rows .hp-cred-row and
+.pro-logos, tool rows ul.ds-tools) into slow marquees (.cred-marq rules below); with reduced motion they stay as this
+still grid. Rows of 2-3 marks (.aib-row, .el-partners, .pg-sj-logos) stay static.
   python3 tools/cred_css.py
 """
 import os
@@ -96,6 +97,14 @@ html body main .cred-marq .cred-marq-track > ul { flex: none !important; flex-wr
 }
 @media (max-width: 760px) { html body main .cred-marq { --cred-gap: var(--space-6); } }
 @media (prefers-reduced-motion: reduce) { html body main .cred-marq .cred-marq-track { animation: none !important; } }
+/* tool rows (ul.ds-tools, logo plus name): a still frame keeps the hairlines and padding, the list inside moves */
+html body main .cred-marq-frame { min-width: 0; padding: var(--space-5) 0; border-block: var(--hairline); }
+html body main .cred-marq-frame > .cred-marq { --cred-gap: var(--space-7); }
+html body main .cred-marq .cred-marq-track > .ds-tools { padding: 0 !important; border: 0 !important; }
+@media (max-width: 760px) {
+  html body main .cred-marq-frame { padding: var(--space-4) 0; }
+  html body main .cred-marq-frame > .cred-marq { --cred-gap: var(--space-5); }
+}
 @keyframes credMarq { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(calc(-1 * var(--marq-shift, 50%%)), 0, 0); } }
 /* per-logo heights: the same optical size for every mark (from each file's aspect ratio) */
 %(sizes)s
