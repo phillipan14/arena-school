@@ -80,3 +80,67 @@ serif headline, and sidebar, but swap its photo for the demo-day student photo f
 as a compact version of (b)'s filmstrip (five small real photos with one verb each). That gives a literal headline and
 outcomes in the first five seconds, one strong human image, and the week as a picture. Then apply the same frame to the
 teacher page (outcome: every teacher up one level a term; structure: the session flow) and the general page.
+
+## Critic: Fable 5.1
+Concepts (a), (b), (c), the principles, briefs, self-critique, and recommendation above were made by Opus 5.5. This is an
+independent read of the three renders against the ten principles and Phillip's rules (literal headline, outcomes lead,
+memberships next to the brand, diagrams not text, day-by-day structure, max one stat, no dead space, nothing crammed).
+
+### Cross-cutting
+- **Memberships regressed.** In all three, "A member of" sits top right, opposite the wordmark, not next to it. The shipped
+  v7 header already had them beside the brand; the concepts lost that.
+- **None shows "Programs run at" logos.** ISB appears only in a caption, Bodley only in (a)'s text. Phillip asked for
+  logo-only proof.
+- **Facts check clean:** no em dashes, no numbers beyond the one RAND stat in (c), no ISB figures, mentor names match the
+  team row, the admissions line is present on all three.
+- **Team row and CTA** are identical and sound on all three; no issue.
+
+### (a) Poster, "Demo day"
+- **Works:** the one truly strong visual on any of the three pages; a real student mid-pitch sells "a real product" better
+  than any sentence. The scan path (headline, face, keeps, CTA) is the fastest of the three. Type is restrained. The
+  lower block is tight with no dead space.
+- **Fails:** the headline is a slogan ("Five days. One real product. Your child on stage."); Phillip's rule is a literal
+  description, and the literal line is demoted to the lede. "Your child on stage" also reads as a soft promise. There is
+  no day-by-day structure anywhere. The Bodley sign-language app reintroduces the example card Phillip removed in
+  PARENT2, and it sits under a Beijing photo; the labels are correct but a parent scanning will pair them. Craft: the
+  italic phrase breaks to leave "stage." alone on a line, and "Y / Combinator" orphans in the lede.
+- **Verdict:** best page as a page; its faults are copy and one block, all fixable without changing the idea.
+
+### (b) "A week at Arena"
+- **Works:** the clearest "how" of the three; a filmstrip with one verb a day is exactly "structure as a picture", and the
+  Day 5 outline makes the climax obvious.
+- **Fails:** process leads and outcomes trail, the opposite of Phillip's latest order. Two of the five photos do not show
+  what their caption says (Day 3 "Live at a link" is a podium pitch; Day 4 "Brand and price" is a projected slide of a
+  student's text), so the strip is only honest with captions that admit it. There is a blank band of roughly a tenth of
+  the page between the tools row and the team row: the exact dead-space fault Phillip keeps flagging. The four outcome
+  boxes are the same generic cards he called plain in PARENT3. The header is a flat navy block with no image.
+- **Verdict:** the right diagram inside the wrong page.
+
+### (c) Editorial, "What your child walks away with"
+- **Works:** honours "outcomes lead" most directly; the headline is the only one readable from across a room; the
+  sidebar with one stat and the five days is calm; the whole thing looks like a consultancy sheet, which is the target.
+- **Fails:** the headline is a topic, not a literal description of what Arena does (that line is again in the lede). The
+  left column spends half the page on four two-line items with large gaps between them: generous on screen, but it is
+  the dead-space problem in editorial clothing. The five days are a text list, not a diagram. The photo is a mentor
+  reacting, not a student; on a parent page the child should be the subject. No "proof" logos.
+- **Verdict:** the right structure with an under-filled left column and the wrong photo.
+
+### Ranking
+1. **(a)** for impact, clarity of the single idea, and the fewest layout faults.
+2. **(c)** for structure; it needs real content density in the outcome column and a student photo before it earns its
+   whitespace.
+3. **(b)** for its filmstrip alone; as a page it inverts the order, has the worst gap, and two mismatched photos.
+
+### Recommendation
+Build on **(a)**, not (c). The Opus recommendation keeps (c)'s outcome column and swaps its photo, but the column is the
+weakness, not the photo: four short lines cannot carry half a page. (a) already has the image, the hierarchy, and a tight
+lower half. Three changes make it compliant:
+1. Make the headline literal ("Hands-on AI programs where students build and launch a real product.") and keep "five
+   days, demo day" as the eyebrow or first lede sentence; drop "Your child on stage".
+2. Replace the Bodley project block with a compact five-day strip (one line per day, Day 5 marked), so the "how" is a
+   picture and the page is not pairing a Hong Kong story with a Beijing photo. Keep the four outcomes beside it; they are
+   the "outcomes lead" content and already sit directly under the photo.
+3. Move the memberships next to the wordmark and add a "Programs run at" logo pair (ISB, Bodley) at the foot of the lower
+   block.
+Then carry the same poster frame to the teacher page (photo: mentors at a laptop; outcome: every teacher up one level a
+term; strip: the four session steps) and the general page.
