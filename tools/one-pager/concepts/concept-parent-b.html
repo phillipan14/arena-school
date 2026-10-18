@@ -1,0 +1,72 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8" /><title>Concept</title><link rel="stylesheet" href="/fonts/gf.css" /><style>:root {
+  --pro-bg: #FFFFFF; --pro-alt: #F5F7FA; --pro-sunk: #EEF1F6; --pro-line: #E2E6EE; --pro-line-2: #CDD3DF;
+  --pro-ink: #0B1A4A; --pro-ink-2: #2F55A8; --pro-action: #22458A; --pro-ink-tint: rgba(47, 85, 168, .14); --pro-ink-tint-2: rgba(47, 85, 168, .30); --pro-text: #111827; --pro-soft: #465066; --pro-muted: #5D6677;
+  --ease: cubic-bezier(.22, .61, .36, 1); --ease-io: cubic-bezier(.45, 0, .25, 1);
+  --dur-fast: 180ms; --dur-ui: 280ms; --dur-reveal: 600ms;
+  /* Motion tokens (MOTION2-BRIEF; recorded in the design system, DESIGN-SYSTEM.md).
+     Photo crossfade: hold per photo + fade. Ken Burns (hero photos): duration, max zoom, drift.
+     Drift (framed photos): duration, max zoom, drift. Reduce Motion swaps in gentler values below, never none. */
+  /* HERO2-BRIEF (Oct 17): a photo change every 3.5s with a 1s crossfade; each photo pushes in 1.00 to 1.12 with a
+     4 to 6% pan over 7s from its fade-in (2 x hold), so the push is clearly visible while it is on screen.
+     --kb-pan scales the per-photo pan directions (css/cine.css). */
+  --xf-hold: 3.5s; --xf-fade: 1s;
+  --kb-dur: 7s; --kb-scale: 1.12; --kb-pan: 1; --kb-tx: -3%; --kb-ty: -1.5%;
+  --drift-dur: 22s; --drift-scale: 1.07; --drift-tx: -2.5%; --drift-ty: -1.5%;
+  /* Spacing scale (EDITORIAL-BRIEF; DESIGN-SYSTEM.md): every gap, padding and margin in css/ds.css and the migrated
+     sections comes from here. --section-y is the vertical rhythm between sections; --measure caps body lines. */
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px; --space-5: 24px;
+  --space-6: 32px; --space-7: 48px; --space-8: 64px; --space-9: 96px; --space-10: 128px;
+  --section-y: clamp(var(--space-8), 8vw, var(--space-10));
+  --measure: 68ch; --measure-narrow: 60ch;
+  --radius-ctl: 8px; --radius-card: 12px; --hairline: 1px solid var(--pro-line);
+  --text-xs: 12px; --text-sm: 14px; --text-base: 16px; --text-md: 17px; --text-lg: 19px;
+  --lh-tight: 1.15; --lh-body: 1.6;
+  --ic: 22px; --ic-lg: 28px; --mk: 11px; --mk-sm: 9px; --tap: 44px; --band-h: 30px; --band-r: 5px;   /* icon, matrix marker, tap target */
+  --shadow-text: 0 1px 8px rgba(8, 15, 38, .6);
+  /* Texture: the deck's dot grid over hero photos (css/cine.css .cine-dots; DOTS-BRIEF) */
+  --tex-dots-c: rgba(201, 214, 242, .9); --tex-dots-s: 22px; --tex-dots-o: .22;
+  --pro-h1: clamp(34px, 1.1rem + 2.1vw, 52px);
+  --pro-h2: clamp(26px, .95rem + 1.25vw, 36px);
+  --pro-h3: clamp(22px, 1rem + .45vw, 28px);
+  --pro-tint: #C9D6F2;   /* light accent on navy */
+  --paper-art: #F5F7FA; --riso-tint: none;
+}
+
+@page { size: A4; margin: 0; } * { box-sizing: border-box; }
+html, body { margin: 0; background: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-family: 'Geist', system-ui, sans-serif; color: #1E2740; font-size: 8.4pt; line-height: 1.4; }
+.op { width: 210mm; height: 297mm; overflow: hidden; display: flex; flex-direction: column; position: relative; }
+h1, h2, h3, .serif { font-family: 'Newsreader', Georgia, serif; font-weight: 500; margin: 0; }
+em { font-style: italic; } .k { font: 600 7pt/1.2 'Geist', sans-serif; letter-spacing: .12em; text-transform: uppercase; color: #4A5578; }
+.ic { width: 5.4mm; height: 5.4mm; color: var(--pro-action); }
+.mem { display: inline-flex; align-items: center; gap: 2.6mm; } .ml { font: 600 7pt/1 'Geist', sans-serif; letter-spacing: .12em; text-transform: uppercase; }
+.team { display: grid; grid-template-columns: 46mm 1fr; align-items: center; gap: 4mm; padding: 4mm 12mm; border-top: 1px solid var(--pro-line); }
+.team .tl { font: 600 7pt/1.3 'Geist', sans-serif; letter-spacing: .12em; text-transform: uppercase; color: #4A5578; }
+.tg { display: grid; grid-template-columns: repeat(6, 1fr); row-gap: 1.6mm; align-items: center; }
+.tg span { display: flex; justify-content: center; } .tg span:nth-child(6n+1) { justify-content: flex-start; } .tg span:nth-child(6n) { justify-content: flex-end; }
+.tg img { width: auto; filter: grayscale(1) brightness(0); opacity: .7; }
+.cta { display: flex; justify-content: space-between; align-items: center; background: #0B1A4A; color: #fff; padding: 5mm 12mm; }
+.cta b { display: block; font: 500 13pt/1.2 'Newsreader', serif; } .cta span { font-size: 8pt; color: rgba(255,255,255,.82); }
+.cta .ct { text-align: right; } .cta .ct b { font: 600 9pt/1.3 'Geist', sans-serif; } .cta .ct span { color: #C9D6F2; }
+
+
+.hd { background: #0B1A4A; color: #fff; padding: 9mm 12mm 8mm; }
+.hd .row { display: flex; justify-content: space-between; align-items: center; } .hd .wm { height: 5mm; }
+.hd .mem img { filter: brightness(0) invert(1); } .hd .ml { color: #C9D6F2; }
+.hd h1 { font-size: 24pt; line-height: 1.1; margin: 7mm 0 2.4mm; } .hd h1 em { color: #C9D6F2; }
+.hd p { margin: 0; font-size: 9.4pt; color: rgba(255,255,255,.86); max-width: 160mm; } .hd .k { color: #C9D6F2; display: block; margin-top: 7mm; }
+.week { padding: 7mm 12mm 0; }
+.film { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2.4mm; margin-top: 3.4mm; }
+.d { display: flex; flex-direction: column; } .d .im { height: 58mm; border-radius: 1.6mm; overflow: hidden; background: #E6E9F0; }
+.d .im img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.d .n { margin-top: 2.6mm; font: 600 7pt/1 'Geist', sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--pro-action); }
+.d b { font: 500 12.5pt/1.2 'Newsreader', serif; color: var(--pro-ink); margin-top: 1.2mm; } .d span { font-size: 8pt; color: #3A4466; margin-top: 1mm; }
+.d.top .im { outline: 2.4px solid #0B1A4A; outline-offset: 1.2mm; }
+.arrow { height: 1px; background: linear-gradient(90deg, var(--pro-line-2), var(--pro-action)); margin: 4mm 0 0; position: relative; }
+.arrow::after { content: ''; position: absolute; right: 0; top: -1.4mm; border: 1.4mm solid transparent; border-left: 2.4mm solid var(--pro-action); }
+.dest { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 4mm; padding: 6mm 12mm 3mm; }
+.dest div { padding: 3.4mm; border: 1px solid var(--pro-line); border-top: 3px solid #0B1A4A; border-radius: 0 0 1.6mm 1.6mm; }
+.dest b { display: block; font: 500 11pt/1.2 'Newsreader', serif; color: var(--pro-ink); margin: 1.6mm 0 1mm; } .dest span { font-size: 8pt; color: #3A4466; }
+.tools { display: flex; align-items: center; gap: 4mm; padding: 2mm 12mm 4mm; } .tools img { height: 5.6mm; border-radius: 1mm; }
+.note { padding: 0 12mm 3mm; font-size: 7pt; color: #4A5578; margin: 0; } .op > .grow { flex: 1; }
+</style></head><body><main class="op"><header class="hd"><div class="row"><img class="wm" src="/logos/arena/wordmark-ivory-1600.png" alt="Arena School" /><span class="mem"><span class="ml">A member of</span><img src="/logos/partners/anthropic.svg" alt="Anthropic Startup Program" style="height:2.3mm" /><img src="/logos/partners/openai.svg" alt="OpenAI Partner Network" style="height:4.2mm" /></span></div><span class="k">For families</span><h1>A week at Arena: <em>from a problem to a launched product.</em></h1><p>The five-day Entrepreneurship &amp; AI Intensive, at your child’s school, with mentors from Harvard, Caltech, Tsinghua, McKinsey, Goldman Sachs, and Y Combinator.</p></header><section class="week"><span class="k">The five days</span><div class="film"><div class="d"><div class="im"><img src="/photos/mix/pilot-sticky-800.webp" alt="" /></div><span class="n">Day 1</span><b>Choose a problem</b><span>Pitch it in three minutes. Teams form.</span></div><div class="d"><div class="im"><img src="/photos/mix/pilot-classroom-noscreen-800.webp" alt="" /></div><span class="n">Day 2</span><b>Talk to users</b><span>Interview the people they want to help.</span></div><div class="d"><div class="im"><img src="/photos/isb-2026/demo-laptop-800.webp" alt="" /></div><span class="n">Day 3</span><b>Live at a link</b><span>A working version anyone can open.</span></div><div class="d"><div class="im"><img src="/photos/isb-hq/isb-team-slide-800.webp" alt="" /></div><span class="n">Day 4</span><b>Brand and price</b><span>Name it, price it, stop at a fixed hour.</span></div><div class="d top"><div class="im"><img src="/photos/isb-2026/pitch-podium-800.webp" alt="" /></div><span class="n">Day 5</span><b>Demo day</b><span>Pitch to a panel. Families invited.</span></div></div><div class="arrow"></div></section><section><div class="dest"><div><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" /><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" /><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" /><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" /></svg><b>A live product</b><span>At its own link, with their name.</span></div><div><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /> <path d="M14 2v4a2 2 0 0 0 2 2h4" /> <path d="M10 9H8" /> <path d="M16 13H8" /> <path d="M16 17H8" /></svg><b>A documented record</b><span>To describe in an application.</span></div><div><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <path d="M16 3.128a4 4 0 0 1 0 7.744" /> <path d="M22 21v-2a4 4 0 0 0-3-3.87" /> <circle cx="9" cy="7" r="4" /></svg><b>People who know their work</b><span>Mentors and reviewers.</span></div><div><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" /> <path d="M19 10v2a7 7 0 0 1-14 0v-2" /> <line x1="12" x2="12" y1="19" y2="22" /></svg><b>Experience presenting it</b><span>To people who ask hard questions.</span></div></div></section><div class="tools"><span class="k">AI tools they use</span><img src="/logos/tools/sm/openai.webp" alt="" /><img src="/logos/tools/sm/claude.webp" alt="" /><img src="/logos/tools/sm/deepseek.webp" alt="" /><img src="/logos/tools/sm/kimi.webp" alt="" /><img src="/logos/tools/sm/figma.webp" alt="" /><img src="/logos/tools/sm/canva.webp" alt="" /></div><p class="note">Admissions decisions rest with each university; we do not promise an outcome.</p><div class="grow"></div><div class="team"><span class="tl">Coached by a team from</span><div class="tg"><span><img src="/logos/cred/caltech.png" alt="" style="height:2.65mm" /></span><span><img src="/logos/cred/harvard.png" alt="" style="height:5.0mm" /></span><span><img src="/logos/cred/brown.png" alt="" style="height:5.6mm" /></span><span><img src="/logos/cred/tsinghua-lockup.png" alt="" style="height:4.8mm" /></span><span><img src="/logos/cred/isb.png" alt="" style="height:4.6mm" /></span><span><img src="/logos/cred/apple.png" alt="" style="height:4.8mm" /></span><span><img src="/logos/cred/mckinsey.png" alt="" style="height:2.8mm" /></span><span><img src="/logos/cred/goldman.png" alt="" style="height:4.07mm" /></span><span><img src="/logos/cred/yc.png" alt="" style="height:3.84mm" /></span><span><img src="/logos/cred/microsoft-ai.png" alt="" style="height:3.93mm" /></span><span><img src="/logos/cred/deloitte.png" alt="" style="height:2.4mm" /></span><span><img src="/logos/cred/kimi-wordmark.png" alt="" style="height:2.95mm" /></span></div></div><footer class="cta"><div><b>Two ways to start.</b><span>Ask your child’s school to bring Arena, or enroll in the Year-Long Project Mentorship directly.</span></div><div class="ct"><b>phillip@arenaschool.org</b><span>arenaschool.org</span></div></footer></main></body></html>
