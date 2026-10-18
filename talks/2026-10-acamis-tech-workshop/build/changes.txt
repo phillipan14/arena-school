@@ -1,1 +1,3 @@
 Before|Three starter tools to build on|Parent email writer, group maker, and quiz maker|
+11:52|Calendar of themed weeks like Digital Citizenship Week and Pi Day|New calendar: 42 themes by department, filters, add your own, .ics export|theme-calendar
+11:58|Gallery for students to upload photos, videos or any files|Per-theme gallery: drop files, full-screen view, saved on device|theme-calendar
