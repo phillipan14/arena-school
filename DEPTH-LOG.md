@@ -324,3 +324,22 @@ as an intro line over a full-width 2 x 2: clean but the stat loses its weight. *
   holds only the five days; "AI tools they use" (named icons, six even cells) and "Stretch goals in year-long mentorship"
   sit in their own rows below on the 12-column grid; "Programs run at" integrated under the outcomes with larger logos.
   General and teacher re-rendered: pixel-identical. All six pass every check.
+
+## v9 (BUILD-A-BRIEF): concept A's system on all six one-pagers
+Built on Opus 5.5; one critic pass by Fable 5.1 (a subagent, between rounds 5 and 6). Renders per round in /tmp/pro-pass/b1..b7.
+- r1: poster header, icon-led timelines, tool grid, keep strip. Header copy hidden under the photo (no stacking context);
+  teacher 36mm over, parent 5mm over.
+- r2: copy above the photo; posters 88/76mm; teacher stairs flattened. Teacher still 9mm over; Day 3/5 titles dropped
+  below the others (the milestone tag made the label row taller); outcome titles three lines deep.
+- r3: teacher tools became a labelled row in the student-data section (one section header fewer); day labels fixed
+  height; general poster taller to remove a dead band between its sections.
+- r4: outcome card icons inline; CN titles orphaned their last character ("产/品", "的/人").
+- r5: outcome icon in the card corner, titles full width and balanced. All six pass.
+- Critic (Fable 5.1): ranked teacher CN worst, parent EN best; highest leverage: one shared logo system for "Programs run
+  at" and "Coached by" with no stray text. Taken: run-at logos on the team row's columns at one optical size; the
+  admissions line moved from the logo row into the parent's closing band; parent fade starts lower, photo contrast up;
+  no synthetic italic in CN headlines; fluency levels as equal steps (rising heights implied data that does not exist).
+  Not taken: shrinking the parent tool grid (skill labels are a brief requirement); labelling the wheel (labels would be
+  under 7pt at print size, settled in an earlier round).
+- r6-r7: run-at logos collided in six narrow cells; now three (or four) cells, each two team columns wide. General CN
+  card orphan fixed. All six one page, every check passes.

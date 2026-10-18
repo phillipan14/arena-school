@@ -367,8 +367,9 @@ PCTA = {'en': ('Two ways to start.', 'Ask your child’s school to bring Arena, 
 def footer(lang, doc='general'):
     c = L[lang]
     h, p = PCTA[lang] if doc == 'parent' else (c['cta'], c['ctap'])
-    return ('<footer class="cta g12"><div class="c1-8"><h2>%s</h2><p>%s</p></div><div class="c9-12 contact"><b>%s</b><span>%s</span></div></footer>'
-            % (h, p, c['mail'], c['web']))
+    nt = '<small class="ctanote">%s</small>' % PX[lang]['note'] if doc == 'parent' else ''
+    return ('<footer class="cta g12"><div class="c1-8"><h2>%s</h2><p>%s</p>%s</div><div class="c9-12 contact"><b>%s</b><span>%s</span></div></footer>'
+            % (h, p, nt, c['mail'], c['web']))
 
 
 GEN = {
@@ -431,7 +432,7 @@ def outcomes(lang, spans):
 
 def runrow(lang, marks):
     cells = ''.join('<span class="lc">%s</span>' % (('<img src="%s" alt="" style="height:%smm" />' % (LOGO[m][0], RUN_H2[m])) if LOGO[m][0] else '<span class="wordmark big">%s</span>' % LOGO[m][1]) for m in marks)
-    return '<div class="g12 runrow"><span class="c1-3 lab">%s</span><div class="c4-12 rcells">%s</div></div>' % (PROG[lang]['run'], cells)
+    return '<div class="g12 runrow"><span class="c1-3 lab">%s</span><div class="c4-12 rcells cols6" style="grid-template-columns:repeat(%d,minmax(0,1fr))">%s</div></div>' % (PROG[lang]['run'], max(3, len(marks)), cells)
 
 
 RUN_H2 = {'isb': 7.4}
@@ -471,6 +472,139 @@ def parent(lang, d):
     return s1 + sec(2, 'kids', lang, timeline2(lang), 'tlsec')
 
 
+# ---------------------------------------------------------------- v9 (BUILD-A-BRIEF, Oct 18, 2026): concept A's poster header on every page,
+# icon-led structure diagrams, a skills/tools grid, logo rows. Tool lists come only from the site (sources in ONEPAGER-CHANGES.md).
+EXTRA_ICONS = {   # two Lucide icons missing from tools/lucide_icons.json (same stroke style)
+ 'link': '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>',
+ 'tag': '<path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/>',
+}
+ICONS.update(EXTRA_ICONS)
+
+PHOTO9 = {
+ 'parent': ('/photos/isb-2026/pitch-duo-1600.webp', '60% 32%', CAP),
+ 'teacher': ('/photos/isb-2026/mentor-feedback-1600.webp', '50% 30%',
+             {'en': 'Mentors respond to a student’s work, Beijing 2026', 'cn': '<!-- JJ review: 照片说明 (BUILD-A-BRIEF) -->导师对学生的作品给出反馈，北京，2026年'}),
+ 'general': ('/photos/hero/gesture-1600.jpg', '50% 34%',
+             {'en': 'Demo day at the International School of Beijing, 2026', 'cn': '<!-- JJ review: 照片说明 (BUILD-A-BRIEF) -->北京顺义国际学校路演日'}),
+}
+EYEBROW9 = {'parent': {'en': 'For families · Five days to demo day', 'cn': '<!-- JJ review: 眉题 (BUILD-A-BRIEF) -->写给家长 · 五天，直到路演日'}}
+
+
+def poster(lang, d):
+    """Concept A's poster: full-bleed real photo, navy fade, wordmark with the memberships right beside it, literal headline."""
+    t = H1[d][lang]
+    src, pos, cap = PHOTO9[d]
+    eb = EYEBROW9.get(d, {}).get(lang, t['eyebrow'])
+    return ('<header class="top poster"><figure class="photo"><img src="%s" alt="" style="object-position:%s" /><figcaption>%s</figcaption></figure>'
+            '<div class="g12 pgrid"><div class="c1-12 top-copy">'
+            '<div class="brandrow"><img class="wm" src="/logos/arena/wordmark-ivory-1600.png" alt="Arena School" /><span class="bsep"></span>'
+            '<span class="bmem"><span class="blab">%s</span><img src="/logos/partners/anthropic.svg" alt="Anthropic Startup Program" style="height:2.3mm" />'
+            '<img src="/logos/partners/openai.svg" alt="OpenAI Partner Network" style="height:4.2mm" /></span></div>'
+            '<div class="pcopy"><span class="eyebrow">%s</span><h1>%s</h1><p class="lede">%s</p></div></div></div></header>'
+            % (src, pos, cap[lang], L[lang]['member'], eb, t['h1'], INTRO[d][lang]))
+
+
+def itl(nodes, cls=''):
+    """Icon-led timeline: one outlined circle per step, joined by an arrowed line; the last step is filled navy.
+    nodes: (icon, label, tag or '', title, line)."""
+    out = []
+    for k, (i, lab, tag, t, dd) in enumerate(nodes):
+        last = k == len(nodes) - 1
+        out.append('<div class="node%s"><div class="ndrow"><span class="nd">%s</span>%s</div><span class="dn">%s%s</span><b>%s</b><span class="dd">%s</span></div>'
+                   % (' is-top' if last else '', ic(i, 'ic'), '' if last else '<span class="ln"></span>', lab,
+                      '<span class="ms">%s</span>' % tag if tag else '', t, dd))
+    return '<div class="itl %s" style="--n:%d">%s</div>' % (cls, len(nodes), ''.join(out))
+
+
+DAYICON = ['target', 'messages-square', 'link', 'tag', 'mic']
+
+# tools students use in the five-day intensive: each is listed on programs/product-intensive.html (the intensive's own page)
+PTOOLS = [('openai', 'ChatGPT', 'Research a problem', '调研一个问题'), ('deepseek', 'DeepSeek', 'Research and reason', '调研与推理'),
+          ('perplexity', 'Perplexity', 'Check sources', '核查来源'), ('claude', 'Claude', 'Build apps', '做应用'),
+          ('kimi', 'Kimi Code', 'Write and fix code', '写代码、改代码'), ('vercel', 'Vercel', 'Launch at a live link', '上线到公开网址'),
+          ('figma', 'Figma', 'Design the screens', '设计界面'), ('canva', 'Canva', 'Make the brand', '做品牌视觉')]
+# tools teachers use: listed on programs/teacher-training.html ("Tools we often work with")
+TTOOLS = [('openai', 'ChatGPT', 'Plan lessons', '备课'), ('claude', 'Claude', 'Build a class tool', '做课堂工具'),
+          ('deepseek', 'DeepSeek', 'Draft materials', '准备材料'), ('kimi', 'Kimi', 'Read long documents', '阅读长文档'),
+          ('perplexity', 'Perplexity', 'Check sources', '核查来源'), ('canva', 'Canva', 'Make class visuals', '做课堂视觉')]
+# tools students and staff have learned: listed on schools.html
+GTOOLS = ['openai', 'claude', 'deepseek', 'kimi', 'figma', 'canva']
+SEC9 = {
+ 'en': dict(lead=('What your child walks away with', 'For college, summer program, scholarship, and internship applications.'),
+            kids=('How they get there', 'The five-day Entrepreneurship &amp; AI Intensive, at your child’s school.'),
+            learn=('The AI tools they learn', 'Real tools, used hands-on, on a project of their own.'),
+            move=('One session, one working tool', 'Each teacher brings one task from a class they teach now.'),
+            ttools=('Tools we work with', ''),
+            who=('Who we serve', 'Each audience, why they come, and what they make.'),
+            fl='Five levels of AI fluency: every teacher moves up one level a term', step='Step', makes='Makes', tools_k='Tools they learn'),
+ 'cn': dict(lead=('孩子带走什么', '可用于大学、暑期项目、奖学金和实习申请。'),
+            kids=('怎样做到', '五天的创业与AI集训营，在孩子的学校。'),
+            learn=('孩子学会的AI工具', '真实的工具，亲手用在自己的项目上。'),
+            move=('一次培训，一个能用的工具', '每位老师带来自己正在教的一门课里的一项任务。'),
+            ttools=('我们常用的工具', ''),
+            who=('我们服务谁', '每类对象，为什么来，做出什么。'),
+            fl='AI素养的五个层级：每位老师每学期提升一级', step='第%d步', makes='做出', tools_k='学会的工具'),
+}
+
+
+def sec9(n, key, lang, inner, cls=''):
+    t, dk = SEC9[lang][key]
+    return ('<section class="sec %s"><div class="g12"><div class="sh c1-12"><span class="num">%02d</span><div class="sht"><h2>%s</h2><p>%s</p></div></div></div>%s</section>'
+            % (cls, n, t, dk, inner))
+
+
+def toolgrid(lang, tools, per):
+    span = 12 // per
+    cells = ''.join('<div class="c%d-%d tool"><img src="/logos/tools/sm/%s.webp" alt="" /><div class="tx"><b>%s</b><span>%s</span></div></div>'
+                    % (1 + (k % per) * span, (k % per + 1) * span, f, n, cn if lang == 'cn' else en) for k, (f, n, en, cn) in enumerate(tools))
+    return '<div class="g12 rrow tgrid">%s</div>' % cells
+
+
+def keep4(lang):
+    spans = ['c1-3', 'c4-6', 'c7-9', 'c10-12']
+    return '<div class="g12 rrow keep4">%s</div>' % ''.join(
+        '<div class="%s kc"><div class="kh"><span class="ki">%s</span><b>%s</b></div><span>%s</span></div>' % (sp, ic(i), a, b) for sp, (i, a, b) in zip(spans, PX[lang]['keep']))
+
+
+RUN_H2.update({'isb': 6.6, 'tsinghua': 6.4, 'schwarzman': 5.6})
+
+
+def parent9(lang, d):
+    g, px = PROG[lang], PX[lang]
+    days = itl([(DAYICON[k], dn, g['mile'].get(k, ''), t, dd) for k, (dn, t, dd) in enumerate(g['days'])], 'days5')
+    note = ''
+    return (sec9(1, 'lead', lang, keep4(lang)) +
+            sec9(2, 'kids', lang, '<div class="g12"><div class="c1-12">%s</div></div>' % days) +
+            sec9(3, 'learn', lang, toolgrid(lang, PTOOLS[:4], 4) + toolgrid(lang, PTOOLS[4:], 4) + runrow(lang, ['isb', 'bodley']) + note))
+
+
+def teacher9(lang, d):
+    f, x, s9 = FL.C['cn' if lang == 'cn' else 'en'], X[lang], SEC9[lang]
+    lab = lambda k: (s9['step'] % (k + 1)) if lang == 'cn' else '%s %d' % (s9['step'], k + 1)
+    flow = itl([(i, lab(k), '', a, b) for k, (i, a, b) in enumerate(x['move'])], 'flow')
+    tools = ''.join('<span class="tc"><img src="/logos/tools/sm/%s.webp" alt="" /><em>%s</em></span>' % (t[0], t[1]) for t in TTOOLS)
+    trow = '<div class="g12 trow2"><span class="c1-3 lab">%s</span><div class="c4-12 tools2">%s</div></div>' % (s9['ttools'][0], tools)
+    return (sec9(1, 'move', lang, '<div class="g12"><div class="c1-12">%s</div></div>' % flow +
+                 '<div class="g12 flk"><span class="c1-12 k">%s</span></div><div class="g12"><div class="c1-12">%s</div></div>' % (s9['fl'], stairs(f['levels'], False)) +
+                 runrow(lang, ['tsinghua', 'schwarzman', 'isb'])) +
+            sec(2, 'data', lang, data(lang, (0, 1, 2)) + trow))
+
+
+def general9(lang, d):
+    c, g, s9 = L[lang], GEN[lang], SEC9[lang]
+    spans = ['c1-3', 'c4-6', 'c7-9', 'c10-12']
+    aud = ''.join('<div class="%s ac"><span class="nd">%s</span><b class="nm">%s</b><span class="out">%s</span><span class="fm">%s</span><span class="mkl">%s<em>%s</em></span></div>'
+                  % (sp, ic(t[0]), t[1], why, t[3], ic('check', 'mk'), make)
+                  for sp, t, (why, make) in zip(spans, [c['T'][k] for k in DOCS['general']['tiles']], g['rows']))
+    tools = ''.join('<span class="tc"><img src="/logos/tools/sm/%s.webp" alt="" /><em>%s</em></span>' % (t, TOOLN[t]) for t in GTOOLS)
+    trow = '<div class="g12 trow2"><span class="c1-3 lab">%s</span><div class="c4-12 tools2">%s</div></div>' % (s9['tools_k'], tools)
+    return (sec9(1, 'who', lang, '<div class="g12 rrow aud4">%s</div>' % aud + runrow(lang, ['isb', 'bodley', 'tsinghua', 'schwarzman'])) +
+            sec(2, 'teach', lang, teach(lang) + trow))
+
+
+BODY9 = {'general': general9, 'teacher': teacher9, 'parent': parent9}
+
+
 BODY = {'general': general, 'teacher': teacher, 'parent': parent}
 SPANS = '\n'.join('.c%d-%d { grid-column: %d / %d; }' % (a, b, a, b + 1) for a in range(1, 13) for b in range(a, 13))
 
@@ -483,8 +617,8 @@ def page(doc, lang, d):
     root = re.search(r'(?s):root\s*\{.*?\n\}', open(os.path.join(ROOT, 'css', 'pro.css'), encoding='utf-8').read()).group(0)
     wcss = '\n'.join(l for l in open(os.path.join(ROOT, 'css', 'approach.css'), encoding='utf-8').read().splitlines() if l.startswith('.apw'))
     return ('<!doctype html>\n<html lang="%s">\n<head>\n<meta charset="utf-8" />\n<title>Arena School one-pager</title>\n%s%s\n<style>\n%s\n%s\n%s\n</style>\n</head>\n<body>\n'
-            '<main class="op %s dir-%s">\n%s\n<div class="body">%s</div>\n%s\n%s\n</main>\n</body>\n</html>\n'
-            % ('zh-CN' if cn else 'en', jj, fonts, root, wcss, CSS.replace('SERIF', serif), doc, d, header(lang, doc), BODY[doc](lang, d), strip(lang), footer(lang, doc)))
+            '<main class="op %s dir-%s v9">\n%s\n<div class="body">%s</div>\n%s\n%s\n</main>\n</body>\n</html>\n'
+            % ('zh-CN' if cn else 'en', jj, fonts, root, wcss, CSS.replace('SERIF', serif), doc, d, poster(lang, doc), BODY9[doc](lang, d), strip(lang), footer(lang, doc)))
 
 
 CSS = r"""
@@ -702,6 +836,70 @@ em { font-style: italic; }
 .sg { display: flex; align-items: center; gap: 2mm; padding: 2mm 2.4mm; border: 1px dashed var(--pro-line-2); border-radius: 1.4mm; font: 500 9pt/1.2 SERIF; color: var(--pro-ink); }
 .sg .mk { color: var(--pro-action); width: 3.6mm; height: 3.6mm; }
 .sg i { font-style: normal; font: 600 7pt/1 'Geist', system-ui, sans-serif; color: #fff; background: var(--pro-action); border-radius: 50%; width: 4.2mm; height: 4.2mm; display: grid; place-items: center; flex: none; }
+/* ===== v9 (BUILD-A-BRIEF): poster header, icon-led timelines, tool grid ===== */
+.poster { height: 86mm; } .teacher .poster { height: 80mm; } .general .poster { height: 90mm; }
+.poster .photo { left: 0; }
+.poster .photo::before { left: 0; background: linear-gradient(180deg, rgba(11,26,74,.82) 0, rgba(11,26,74,.2) 20%, rgba(11,26,74,.08) 38%, rgba(11,26,74,.72) 62%, #0B1A4A 92%); }
+.poster .photo::after { display: none; }
+.poster .photo figcaption { top: 9.4mm; bottom: auto; }
+.poster .pgrid { position: relative; z-index: 2; height: 100%; padding-top: 8mm; padding-bottom: 7mm; align-items: stretch; }
+.poster .top-copy { display: flex; flex-direction: column; justify-content: space-between; padding: 0; }
+.poster .brandrow { margin: 0; }
+.poster h1 { font-size: 26pt; line-height: 1.08; margin: 2mm 0 2.6mm; max-width: 175mm; }
+:lang(zh) .poster h1 { font-size: 22pt; line-height: 1.28; }
+.poster .lede { font-size: 9.2pt; max-width: 150mm; }
+.v9 .sht h2 { font-size: 14pt; }
+/* icon-led timeline */
+.itl { display: grid; grid-template-columns: repeat(var(--n), minmax(0, 1fr)); column-gap: 4mm; }
+.node { display: flex; flex-direction: column; min-width: 0; }
+.ndrow { display: flex; align-items: center; margin-bottom: 2.6mm; }
+.nd { flex: none; width: 11mm; height: 11mm; border-radius: 50%; display: grid; place-items: center; border: 1.4px solid var(--pro-action); background: #fff; }
+.nd .ic { width: 5.2mm; height: 5.2mm; }
+.ln { flex: 1; position: relative; height: 1.4px; background: var(--pro-line-2); margin: 0 -2.4mm 0 2.4mm; }
+.ln::after { content: ''; position: absolute; right: -.4mm; top: 50%; transform: translateY(-50%); border: 1.3mm solid transparent; border-left: 2mm solid var(--pro-action); border-right: 0; }
+.node .dn { height: 4mm; display: flex; align-items: center; gap: 2mm; font: 600 7pt/1 'Geist', system-ui, sans-serif; letter-spacing: .1em; text-transform: uppercase; color: var(--pro-action); }
+:lang(zh) .node .dn { letter-spacing: .04em; font-size: 7.4pt; }
+.node .ms { font: 600 7pt/1 'Geist', system-ui, sans-serif; letter-spacing: 0; text-transform: none; color: #fff; background: var(--pro-action); padding: .8mm 1.6mm; border-radius: 1mm; }
+.node b { text-wrap: balance; display: block; margin: 1.8mm 0 1mm; font: 500 12pt/1.2 SERIF; color: var(--pro-ink); }
+.node .dd { font-size: 8.4pt; line-height: 1.38; color: #3A4466; }
+.node.is-top .nd { background: #0B1A4A; border-color: #0B1A4A; box-shadow: 0 0 0 1.4mm color-mix(in srgb, var(--pro-action) 16%, #fff); }
+.node.is-top .nd .ic { color: #fff; }
+.node.is-top .ms { background: #0B1A4A; }
+.node.is-top b { font-weight: 600; }
+/* outcomes strip */
+.keep4 .kc { display: flex; flex-direction: column; gap: 2mm; align-items: flex-start; padding: 3mm 3.2mm 3.2mm; border: 1px solid var(--pro-line); border-top: 3px solid #0B1A4A; border-radius: 0 0 1.6mm 1.6mm; background: #fff; }
+.ki { flex: none; width: 8.6mm; height: 8.6mm; border-radius: 50%; display: grid; place-items: center; background: color-mix(in srgb, var(--pro-action) 10%, #fff); }
+.ki .ic { width: 4.6mm; height: 4.6mm; }
+.keep4 .kc { position: relative; padding-right: 3.2mm; } .kh { display: block; padding-right: 9mm; } .kh .ki { position: absolute; top: 2.6mm; right: 2.6mm; width: 7.4mm; height: 7.4mm; } .kh .ki .ic { width: 4mm; height: 4mm; }
+.kc b { display: block; text-wrap: balance; font: 500 11pt/1.2 SERIF; color: var(--pro-ink); } .kc > span { display: block; font-size: 8.2pt; line-height: 1.35; color: #3A4466; }
+/* tool grid: logo, name, the skill */
+.tgrid + .tgrid { margin-top: 3mm; }
+.tool { display: flex; align-items: center; gap: 2.6mm; padding: 2.6mm 2.8mm; border: 1px solid var(--pro-line); border-radius: 1.6mm; background: #fff; min-width: 0; }
+.tool img { flex: none; width: 8.4mm; height: 8.4mm; border-radius: 1.8mm; object-fit: contain; }
+.tool .tx { min-width: 0; } .tool b { display: block; font: 600 9pt/1.2 'Geist', system-ui, sans-serif; color: var(--pro-ink); white-space: nowrap; }
+.tool span { display: block; margin-top: .6mm; font-size: 8pt; line-height: 1.3; color: #3A4466; white-space: nowrap; }
+.teacher .tool { padding: 2.2mm 2.2mm; gap: 2mm; } .teacher .tool img { width: 7mm; height: 7mm; } .teacher .tool span { white-space: normal; }
+.v9 .runrow { margin-top: 3.6mm; }
+.v9 .note { margin-top: 2.2mm; }
+/* teacher */
+.flk { margin-top: 4.4mm; margin-bottom: 2.4mm; }
+.teacher .stairs li { height: calc(9mm + var(--s) * 2mm); padding: 1.6mm 2.4mm; flex-direction: row; align-items: baseline; gap: 1.8mm; } .teacher .stairs b { margin: 0; }
+.teacher .stairs i { font-size: 11pt; }
+/* general: audience cards with an icon node */
+.aud4 .ac { display: flex; flex-direction: column; gap: 1.4mm; padding: 3.4mm 3.2mm; border: 1px solid var(--pro-line); border-radius: 2mm; background: #fff; }
+.ac .out, .ac .fm { text-wrap: pretty; } .ac .nd { margin-bottom: 1mm; } .ac .nm { margin: 0; font-size: 12pt; } .ac .out { font-size: 8.4pt; }
+.ac .mkl { margin-top: auto; padding-top: 2mm; border-top: 1px solid var(--pro-line); display: flex; align-items: center; gap: 1.6mm; }
+.ac .mkl em { font: 500 9.6pt/1.2 SERIF; font-style: normal; color: var(--pro-ink); }
+.teacher .trow2 { margin-top: 3.6mm; }
+.general .trow2 { margin-top: 4mm; padding-top: 3mm; border-top: 1px solid var(--pro-line); }
+.rcells.cols6 { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0; }
+.rcells.cols6 .lc { display: flex; align-items: center; justify-content: center; height: 7mm; } .rcells.cols6 .lc:first-child { justify-content: flex-start; }
+.rcells .wordmark.big { font-size: 11pt; }
+.ctanote { display: block; margin-top: 1.2mm; font-size: 7pt; color: #C9D6F2; }
+:lang(zh) .poster h1 em { font-style: normal; }
+.parent .poster .photo::before { background: linear-gradient(180deg, rgba(11,26,74,.8) 0, rgba(11,26,74,.1) 18%, rgba(11,26,74,0) 46%, rgba(11,26,74,.7) 68%, #0B1A4A 94%); }
+.parent .poster .photo img { filter: contrast(1.08) saturate(1.05); }
+.teacher .stairs { align-items: stretch; } .teacher .stairs li { height: 10mm; }
 /* closing band */
 .cta { background: #0B1A4A; color: #fff; padding-top: 4.4mm; padding-bottom: 4.4mm; align-items: center; }
 .cta h2 { color: #fff; font-size: 13pt; } .cta p { margin: 1mm 0 0; font-size: 8.2pt; color: rgba(255,255,255,.84); }
@@ -762,7 +960,7 @@ const { chromium } = require('playwright');
     rights.forEach(sel => document.querySelectorAll(sel).forEach(e => { if (e.closest('.frame')) return; const x = e.getBoundingClientRect().right; if (Math.abs(x - R0) > 1) edges.push('R ' + sel + ' ' + Math.round(x - R0)); }));
     const tops = []; document.querySelectorAll('.sh').forEach(d => tops.push(Math.round(d.getBoundingClientRect().left)));
     let min = 99; document.querySelectorAll('.op *').forEach(e => { if ([...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim()) && !e.closest('svg')) min = Math.min(min, parseFloat(getComputedStyle(e).fontSize)); });
-    const clipped = []; document.querySelectorAll('.marks, .logos, .team .tl, .prac .pi, .memtop .mt, .oc2 .oh').forEach(l => { const p = l.closest('.card, .row, .prac, .memtop, .pf, .oc2'); const pr = p.getBoundingClientRect(); [...l.children].forEach(c => { const r = c.getBoundingClientRect(); if (r.right > pr.right - 1 || r.left < pr.left) clipped.push(c.textContent || c.getAttribute('src')); }); });
+    const clipped = []; document.querySelectorAll('.marks, .logos, .team .tl, .prac .pi, .memtop .mt, .oc2 .oh, .tool .tx, .poster .brandrow').forEach(l => { const p = l.closest('.card, .row, .prac, .memtop, .pf, .oc2, .tool, .top-copy'); const pr = p.getBoundingClientRect(); [...l.children].forEach(c => { const r = c.getBoundingClientRect(); if (r.right > pr.right - 1 || r.left < pr.left) clipped.push(c.textContent || c.getAttribute('src')); }); });
     const wrapped = []; document.querySelectorAll('.logos, .marks').forEach(l => { const ys = [...l.children].map(c => Math.round(c.getBoundingClientRect().top + c.getBoundingClientRect().height / 2)); if (Math.max(...ys) - Math.min(...ys) > 4) wrapped.push(l.className); });
     return { over: Math.max(over, inner), edges, stepBad, stepTops, svgPt: +(svgMin * .75).toFixed(2), secOver, clipped, nbad: bad.length, bad: bad.slice(0, 4), uneven, shLeft: [...new Set(tops)], minPt: +(min * .75).toFixed(2), wrapped,
              cols: starts.map((s, i) => [Math.round(s), Math.round(ends[i])]) };

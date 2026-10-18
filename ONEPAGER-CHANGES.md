@@ -167,3 +167,23 @@ brown, tsinghua-lockup, isb, mckinsey, goldman, yc, apple, microsoft-ai, deloitt
   numbered outcome frames, then "Programs run at" ISB and Bodley (larger, on the grid) and the admissions line. 02 "How
   they get there": the five-day timeline in its frame, then two rows: AI tools they use (named) and stretch goals in
   year-long mentorship. Direction B of three (see DEPTH-LOG.md). Stamps `?v=20261017o`.
+- **v9 (BUILD-A-BRIEF, Oct 18, 2026): concept A's system on all six.** Header: a full-bleed real photo poster with a navy
+  fade; "A member of" Anthropic + OpenAI right beside the wordmark; literal headline; mentors line. Parent (outcomes
+  first, per the standing rule): 01 what they keep, four compact cards; 02 the five days as an icon-led timeline (no
+  photos; circles joined by arrowed lines; Day 3 Launch, Day 5 Pitch filled navy); 03 the AI tools they learn, eight
+  tools each with a skill label; Programs run at ISB + Bodley; the admissions line. Teacher: the session flow as the
+  same icon-led timeline, the five fluency levels, Programs run at, student data, a tools row. General: four audience
+  cards with icon nodes, Programs run at, the three moves (wheel), a tools row. No stat on any page (the poster needs
+  the space; the brief allows dropping it). Photos: parent pitch-duo (ISB demo day), teacher mentor-feedback (caption
+  as on the site), general isb-pitch-gesture (ISB demo day).
+  **Tool sources (only tools the site lists):**
+  - Parent grid (the five-day intensive): ChatGPT, DeepSeek, Perplexity, Claude, Kimi Code, Vercel, Figma, Canva, all
+    on `programs/product-intensive.html` (tool strip; Kimi Code in "Typical tools include..."). Skill labels follow
+    that page's "AI assistants for research, AI coding tools to build, and design tools for the brand".
+  - Teacher row: ChatGPT, Claude, DeepSeek, Kimi, Perplexity, Canva: `programs/teacher-training.html` ("Tools we often
+    work with").
+  - General row: ChatGPT, Claude, DeepSeek, Kimi, Figma, Canva: `schools.html` ("Tools students and staff have learned").
+  - **Claude Code is not named on any site page**, so it is not on the one-pager; Claude is shown with "Build apps"
+    (Claude is on the intensive's list of tools, which includes "AI coding tools to build"). Cursor appears only on
+    `events/isb-winter-2027.html`, not on the intensive page. No tool count: the site states none for the intensive.
+    Adding "Claude Code" to the intensive page would let it go on the one-pager.
