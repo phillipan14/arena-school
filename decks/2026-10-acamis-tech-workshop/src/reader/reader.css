@@ -1422,3 +1422,8 @@ img[src*="/logos/cred/"],img[src*="/acamis/tools/"],img[src*="/logos/tools/"],.r
 /* ---- end no-photo layer ---- */
 /* JJ, Oct 18: no ring motif in the reader either */
 .s.np .p6-media.np-field::after,.s .ac-ph.np-ph::after{display:none!important}
+/* slides 16 and 19: heading plus two points in the navy panels */
+.s .ac-ph.np-ph .np-h{display:block;font:400 22px/1.2 var(--serif);color:#FFFFFF}
+.s .ac-ph.np-ph .np-li{list-style:none;margin:10px 0 0;padding:10px 0 0;border-top:1px solid rgba(201,214,242,.22);display:grid;gap:6px}
+.s .ac-ph.np-ph .np-li li{position:relative;padding-left:14px;font:400 14px/1.4 'Geist',system-ui,sans-serif;color:#C9D6F2}
+.s .ac-ph.np-ph .np-li li::before{content:"";position:absolute;left:1px;top:.6em;width:5px;height:5px;border-radius:50%;background:#C9D6F2;opacity:.7}

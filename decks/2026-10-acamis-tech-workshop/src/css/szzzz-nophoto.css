@@ -52,3 +52,11 @@ section.s.np .ae h2,section.s.np h1,section.s.np h2{text-shadow:none}
 }
 /* JJ, Oct 18: no ring motif. Title slides and the slide 16/19 panels keep the navy ground, glow, and dot grid only. */
 section.s.np .p6-media.np-field::after,.ae .bd .ac-dd .ac-ph.np-ph::after{display:none!important}
+/* JJ, Oct 18: the navy panels on 16 and 19 carry a heading and two short points instead of a lone caption */
+.ae.au16 .bd .ac-dd .ac-ph.np-ph figcaption,.ae.au19 .bd .ac-dd .ac-ph.np-ph figcaption{max-width:none}
+.ac-ph.np-ph .np-h{display:block;font:400 34px/1.14 var(--serif);letter-spacing:-.015em;color:#FFFFFF;max-width:15em}
+.ae.au19 .ac-ph.np-ph .np-h{font-size:29px;max-width:12em}
+.ac-ph.np-ph .np-li{list-style:none;margin:14px 0 0;padding:14px 0 0;border-top:1px solid rgba(201,214,242,.22);display:grid;gap:8px}
+.ac-ph.np-ph .np-li li{position:relative;padding-left:18px;font:400 19px/1.35 var(--sans,'Geist',system-ui,sans-serif);letter-spacing:0;color:#C9D6F2}
+.ac-ph.np-ph .np-li li::before{content:"";position:absolute;left:2px;top:.62em;width:6px;height:6px;border-radius:50%;background:#C9D6F2;opacity:.7}
+.ae.au19 .ac-ph.np-ph .np-li li{font-size:18px}
