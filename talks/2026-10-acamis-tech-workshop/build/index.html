@@ -72,7 +72,7 @@ footer a{color:var(--ink2)}
     <div>
       <p class="kick">ACAMIS Technology Conference<span class="sep"> · </span><span class="dt">October 18, 2026</span></p>
       <h1>The Teacher Toolbox, <em>built by this&nbsp;room.</em></h1>
-      <p class="lede">Call out a feature or a tool you wish you had. We build it with Claude Code, and it goes live here in about a&nbsp;minute.</p>
+      <p class="lede">Call out a feature or a tool you wish you had. We build it with Claude Code, and it goes live&nbsp;here.</p>
       <div class="live"><span class="dot"></span><span id="status">Live</span></div>
     </div>
   </div>
@@ -93,9 +93,9 @@ footer a{color:var(--ink2)}
   var esc=function(s){return String(s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
   var known=0;
   function tools(){
-    fetch('tools.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(list){
+    fetch('/talks/2026-10-acamis-tech-workshop/build/tools.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(list){
       document.getElementById('tools').innerHTML=list.map(function(t){
-        return '<a class="tool" href="'+esc(t.slug)+'/"><span class="tag'+(t.by==='room'?' room':'')+'">'+(t.by==='room'?'Built by the room':'Starter')+'</span><b>'+esc(t.name)+'</b><p>'+esc(t.what)+'</p><span class="go">Open &rarr;</span></a>';
+        return '<a class="tool" href="/talks/2026-10-acamis-tech-workshop/build/'+esc(t.slug)+'"><span class="tag'+(t.by==='room'?' room':'')+'">'+(t.by==='room'?'Built by the room':'Starter')+'</span><b>'+esc(t.name)+'</b><p>'+esc(t.what)+'</p><span class="go">Open &rarr;</span></a>';
       }).join('');
     }).catch(function(){});
   }
@@ -109,13 +109,13 @@ footer a{color:var(--ink2)}
     document.getElementById('status').textContent=ships?('Live · '+ships+' change'+(ships>1?'s':'')+' shipped by the room'):'Live · waiting for the first request';
     known=n;
   }
-  function load(){fetch('changes.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.text()}).then(log).catch(function(){})}
+  function load(){fetch('/talks/2026-10-acamis-tech-workshop/build/changes.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.text()}).then(log).catch(function(){})}
   tools(); load();
   // The hub updates itself in place; live.js still shows the toast.
   window.onToolboxChange=function(t){log(t);tools();};
   setInterval(function(){load();tools();},8000);
 })();
 </script>
-<script src="live.js"></script>
+<script src="/talks/2026-10-acamis-tech-workshop/build/live.js"></script>
 </body>
 </html>
