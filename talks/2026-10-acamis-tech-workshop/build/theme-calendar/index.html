@@ -43,6 +43,19 @@
   .empty{color:var(--muted)}
   .addgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1.3fr;gap:12px}
   .note{color:var(--muted);font-size:15px;margin:10px 0 0}
+  .gbtn{font:600 15px/1 inherit;font-family:inherit;margin:8px 0 0 8px;padding:6px 12px;border-radius:999px;border:1.5px solid var(--edge);background:#fff;color:var(--ink2);cursor:pointer}
+  .drop{border:2.5px dashed var(--edge);border-radius:var(--r);padding:30px;text-align:center;color:var(--muted);cursor:pointer;font-size:20px;background:#fff}
+  .drop.over{border-color:var(--ink2);background:rgba(47,85,168,.06);color:var(--ink2)}
+  .gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:16px}
+  .tile{position:relative;background:#fff;border:1px solid var(--edge);border-radius:12px;overflow:hidden}
+  .tile img,.tile video{display:block;width:100%;height:180px;object-fit:cover;background:#000;cursor:zoom-in}
+  .tile .file{height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:12px;text-align:center;font-size:44px}
+  .tile .file a{font-size:15px;font-weight:600;color:var(--ink2);word-break:break-all}
+  .tile .cap{padding:8px 12px;font-size:14px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .tile .x{position:absolute;top:4px;right:4px;background:rgba(255,255,255,.9);border-radius:50%;width:36px;height:36px;padding:0;line-height:36px}
+  .lb{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;z-index:9;cursor:zoom-out}
+  .lb.on{display:flex}
+  .lb img,.lb video{max-width:94vw;max-height:90vh}
   @media (max-width:760px){.addgrid{grid-template-columns:1fr 1fr}.addgrid .wide{grid-column:1/-1}}
   @media (max-width:600px){header,main,footer{padding-left:16px;padding-right:16px}header h1{font-size:28px}.ev{grid-template-columns:1fr auto}.ev .when{grid-column:1/-1}}
   @media print{.tb-back,.noprint,.x{display:none!important}body{background:#fff}.card{box-shadow:none;border:0}}
@@ -84,7 +97,21 @@
     </div>
     <p class="note">Your additions and removals save in this browser. The .ics file imports into Google Calendar, Outlook or Apple Calendar as all-day events. Dates are for the 2026–27 school year; double-check any that move each year.</p>
   </section>
+
+  <section class="card noprint" id="gallery">
+    <div class="row" style="justify-content:space-between;margin-bottom:12px">
+      <h2 style="margin:0">Theme gallery</h2>
+      <button class="btn-ghost" id="gClear">Clear this gallery</button>
+    </div>
+    <div class="field"><label for="gTheme">Showing work for</label><select id="gTheme"></select></div>
+    <label class="drop" id="drop">📎 Drop photos, videos or any files here, or tap to choose
+      <input id="gFile" type="file" multiple hidden>
+    </label>
+    <div class="gal" id="gal"></div>
+    <p class="note">Files stay on this device only (nothing is uploaded), so students add work at this computer or classroom tablet. Tap a photo or video to show it full screen. Please avoid photos of student faces or names.</p>
+  </section>
 </main>
+<div class="lb" id="lb"></div>
 <footer>Built by the room with Claude Code · ACAMIS Technology Conference 2026 · Arena School</footer>
 <script>
 var DEPTS = [
@@ -195,10 +222,12 @@ function render(){
     var isSoon=b>=today&&a<=soon;
     out+='<div class="ev'+(isSoon?' soon':'')+'"><div class="when">'+fmt(e)+'</div><div><div class="what">'+esc(e.name)+(isSoon?' <span style="font-size:15px;color:var(--warn)">● coming up</span>':'')+'</div>'+
       (e.idea?'<div class="idea">'+esc(e.idea)+'</div>':'')+
-      '<span class="tag" style="background:'+color(e.dept)+'">'+esc(e.dept)+'</span></div>'+
+      '<span class="tag" style="background:'+color(e.dept)+'">'+esc(e.dept)+'</span>'+
+      '<button class="gbtn noprint" data-g="'+e.id+'">📷 Gallery'+(count(e.id)?' ('+count(e.id)+')':'')+'</button></div>'+
       '<button class="x" title="Remove" data-id="'+e.id+'">×</button></div>';
   });
   document.getElementById('list').innerHTML=out+'</div>';
+  themeOptions();
 }
 document.getElementById('filters').onclick=function(ev){
   var b=ev.target.closest('.chip');if(!b)return;
@@ -208,6 +237,8 @@ document.getElementById('filters').onclick=function(ev){
 };
 document.getElementById('q').oninput=render;
 document.getElementById('list').onclick=function(ev){
+  var g=ev.target.closest('.gbtn');
+  if(g){document.getElementById('gTheme').value=g.getAttribute('data-g');renderGallery();document.getElementById('gallery').scrollIntoView({behavior:'smooth'});return;}
   var b=ev.target.closest('.x');if(!b)return;
   var id=b.getAttribute('data-id');
   if(id.charAt(0)==='b')state.hidden.push(id);
@@ -246,7 +277,71 @@ document.getElementById('ics').onclick=function(){
   a.href=URL.createObjectURL(new Blob([L.join('\r\n')],{type:'text/calendar'}));
   a.download='themed-days-2026-27.ics';document.body.appendChild(a);a.click();a.remove();
 };
-render();
+
+// Gallery: files live in IndexedDB on this device.
+var files=[], urls={}, db=null;
+function count(id){var n=0;files.forEach(function(f){if(f.theme===id)n++;});return n;}
+function themeOptions(){
+  var s=document.getElementById('gTheme'), v=s.value||(location.hash.indexOf('#g=')===0?location.hash.slice(3):'');
+  var h='<option value="general">General (any theme)</option>';
+  all().forEach(function(e){var a=d(e.start);h+='<option value="'+e.id+'">'+MON[a.getMonth()]+' '+a.getDate()+' · '+esc(e.name)+(count(e.id)?' ('+count(e.id)+')':'')+'</option>';});
+  s.innerHTML=h;
+  s.value=v;if(!s.value)s.value='general';
+}
+function url(f){return urls[f.id]||(urls[f.id]=URL.createObjectURL(f.blob));}
+function renderGallery(){
+  var t=document.getElementById('gTheme').value, h='';
+  files.filter(function(f){return f.theme===t;}).forEach(function(f){
+    var u=url(f), media;
+    if(f.type.indexOf('image/')===0)media='<img src="'+u+'" alt="" data-v="'+f.id+'">';
+    else if(f.type.indexOf('video/')===0)media='<video src="'+u+'" muted playsinline preload="metadata" data-v="'+f.id+'"></video>';
+    else media='<div class="file">📄<a href="'+u+'" download="'+esc(f.name)+'">'+esc(f.name)+'</a></div>';
+    h+='<div class="tile">'+media+'<div class="cap">'+esc(f.name)+'</div><button class="x" title="Remove" data-f="'+f.id+'">×</button></div>';
+  });
+  document.getElementById('gal').innerHTML=h||'<p class="empty">No work yet for this theme. Add the first file.</p>';
+}
+function tx(mode){return db.transaction('files',mode).objectStore('files');}
+function addFiles(list){
+  var t=document.getElementById('gTheme').value;
+  Array.prototype.forEach.call(list,function(file,i){
+    var f={id:'f'+Date.now()+'-'+i,theme:t,name:file.name,type:file.type||'',blob:file};
+    files.push(f);
+    if(db)try{tx('readwrite').put(f);}catch(e){}
+  });
+  renderGallery();render();
+}
+document.getElementById('gFile').onchange=function(){addFiles(this.files);this.value='';};
+var drop=document.getElementById('drop');
+drop.ondragover=function(e){e.preventDefault();drop.classList.add('over');};
+drop.ondragleave=function(){drop.classList.remove('over');};
+drop.ondrop=function(e){e.preventDefault();drop.classList.remove('over');addFiles(e.dataTransfer.files);};
+document.getElementById('gTheme').onchange=renderGallery;
+document.getElementById('gal').onclick=function(ev){
+  var x=ev.target.closest('.x');
+  if(x){var id=x.getAttribute('data-f');files=files.filter(function(f){return f.id!==id;});if(db)try{tx('readwrite').delete(id);}catch(e){}renderGallery();render();return;}
+  var m=ev.target.closest('[data-v]');if(!m)return;
+  var lb=document.getElementById('lb');
+  lb.innerHTML=m.tagName==='IMG'?'<img src="'+m.src+'">':'<video src="'+m.src+'" controls autoplay playsinline></video>';
+  lb.classList.add('on');
+};
+document.getElementById('lb').onclick=function(ev){if(ev.target.tagName==='VIDEO')return;this.classList.remove('on');this.innerHTML='';};
+document.getElementById('gClear').onclick=function(){
+  var t=document.getElementById('gTheme').value;
+  if(!confirm('Remove every file in this gallery from this device?'))return;
+  files.filter(function(f){return f.theme===t;}).forEach(function(f){if(db)try{tx('readwrite').delete(f.id);}catch(e){}});
+  files=files.filter(function(f){return f.theme!==t;});
+  renderGallery();render();
+};
+render();renderGallery();
+try{
+  var req=indexedDB.open('tb-theme-gallery',1);
+  req.onupgradeneeded=function(){req.result.createObjectStore('files',{keyPath:'id'});};
+  req.onsuccess=function(){
+    db=req.result;
+    var g=tx('readonly').getAll();
+    g.onsuccess=function(){files=g.result.concat(files.filter(function(f){return !g.result.some(function(x){return x.id===f.id;});}));render();renderGallery();};
+  };
+}catch(e){}
 </script>
 <script src="/talks/2026-10-acamis-tech-workshop/build/live.js"></script>
 </body>
