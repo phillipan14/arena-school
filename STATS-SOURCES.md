@@ -18,3 +18,10 @@ Each stat on a page shows a short source line linking to the URL here. Built int
 | rand-false | 1 in 2 students worried about false accusations | Same RAND report (RR-A4180-1) | "Half of students said that they are worried they will be falsely accused of using AI to cheat." | Community Dialogues |
 
 Searched but not used (could not open the primary source, or only secondary coverage): EdWeek Research Center training share (43%, secondary only); RAND Teacher Panel 2026 "18% formal guidance" (secondary only).
+
+## Founder-confirmed program facts (TOOLS-BRIEF, Oct 18, 2026)
+- Students in the Entrepreneurship & AI Intensive use **Claude Code** and **Cursor**, and learn **30+ more tools**.
+  Source: Phillip An, Oct 18, 2026. Used on: `programs/product-intensive.html` (+ CN) tool strip and "Typical tools"
+  line; the parent one-pager tool grid ("+30 more tools" tile); the teacher and general one-pager tools rows.
+  Logos: Cursor from `logos/tools/cursor.png`; Claude Code shown with the official Claude mark (`logos/tools/claude.png`),
+  as no separate Claude Code asset is in the repo.

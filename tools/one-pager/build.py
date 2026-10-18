@@ -498,10 +498,10 @@ def poster(lang, d):
     return ('<header class="top poster"><figure class="photo"><img src="%s" alt="" style="object-position:%s" /><figcaption>%s</figcaption></figure>'
             '<div class="g12 pgrid"><div class="c1-12 top-copy">'
             '<div class="brandrow"><img class="wm" src="/logos/arena/wordmark-ivory-1600.png" alt="Arena School" /><span class="bsep"></span>'
-            '<span class="bmem"><span class="blab">%s</span><img src="/logos/partners/anthropic.svg" alt="Anthropic Startup Program" style="height:2.3mm" />'
-            '<img src="/logos/partners/openai.svg" alt="OpenAI Partner Network" style="height:4.2mm" /></span></div>'
+            '<span class="bmem"><span class="blab">%s</span><span class="bm"><img src="/logos/partners/anthropic.svg" alt="Anthropic" style="height:2.3mm" /><em>%s</em></span>'
+            '<span class="bm"><img src="/logos/partners/openai.svg" alt="OpenAI" style="height:4.2mm" /><em>%s</em></span></span></div>'
             '<div class="pcopy"><span class="eyebrow">%s</span><h1>%s</h1><p class="lede">%s</p></div></div></div></header>'
-            % (src, pos, cap[lang], L[lang]['member'], eb, t['h1'], INTRO[d][lang]))
+            % (src, pos, cap[lang], L[lang]['member'], L[lang]['anth'], L[lang]['oai'], eb, t['h1'], INTRO[d][lang]))
 
 
 def itl(nodes, cls=''):
@@ -519,10 +519,13 @@ def itl(nodes, cls=''):
 DAYICON = ['target', 'messages-square', 'link', 'tag', 'mic']
 
 # tools students use in the five-day intensive: each is listed on programs/product-intensive.html (the intensive's own page)
+# Claude Code and Cursor: confirmed by Phillip An, Oct 18, 2026 (STATS-SOURCES.md), now on the intensive page too
 PTOOLS = [('openai', 'ChatGPT', 'Research a problem', '调研一个问题'), ('deepseek', 'DeepSeek', 'Research and reason', '调研与推理'),
-          ('perplexity', 'Perplexity', 'Check sources', '核查来源'), ('claude', 'Claude', 'Build apps', '做应用'),
-          ('kimi', 'Kimi Code', 'Write and fix code', '写代码、改代码'), ('vercel', 'Vercel', 'Launch at a live link', '上线到公开网址'),
-          ('figma', 'Figma', 'Design the screens', '设计界面'), ('canva', 'Canva', 'Make the brand', '做品牌视觉')]
+          ('perplexity', 'Perplexity', 'Check sources', '核查来源'), ('claude', 'Claude Code', 'Build apps', '做应用'),
+          ('cursor', 'Cursor', 'Write and fix code', '写代码、改代码'), ('github', 'GitHub', 'Save and share code', '保存和分享代码'),
+          ('vercel', 'Vercel', 'Launch at a live link', '上线到公开网址'), ('figma', 'Figma', 'Design the screens', '设计界面'),
+          ('canva', 'Canva', 'Make the brand', '做品牌视觉')]
+MORE = {'en': '+30 more tools', 'cn': '<!-- JJ review: 工具数量 (TOOLS-BRIEF) -->另有 30 多种工具'}   # Phillip An, Oct 18, 2026
 # tools teachers use: listed on programs/teacher-training.html ("Tools we often work with")
 TTOOLS = [('openai', 'ChatGPT', 'Plan lessons', '备课'), ('claude', 'Claude', 'Build a class tool', '做课堂工具'),
           ('deepseek', 'DeepSeek', 'Draft materials', '准备材料'), ('kimi', 'Kimi', 'Read long documents', '阅读长文档'),
@@ -536,7 +539,7 @@ SEC9 = {
             move=('One session, one working tool', 'Each teacher brings one task from a class they teach now.'),
             ttools=('Tools we work with', ''),
             who=('Who we serve', 'Each audience, why they come, and what they make.'),
-            fl='Five levels of AI fluency: every teacher moves up one level a term', step='Step', makes='Makes', tools_k='Tools they learn'),
+            fl='Five levels of AI fluency: every teacher moves up one level a term', step='Step', makes='Makes', tools_k='AI tools'),
  'cn': dict(lead=('孩子带走什么', '可用于大学、暑期项目、奖学金和实习申请。'),
             kids=('怎样做到', '五天的创业与AI集训营，在孩子的学校。'),
             learn=('孩子学会的AI工具', '真实的工具，亲手用在自己的项目上。'),
@@ -560,6 +563,12 @@ def toolgrid(lang, tools, per):
     return '<div class="g12 rrow tgrid">%s</div>' % cells
 
 
+def toolgrid5(lang, tools):
+    cells = ''.join('<div class="tool"><img src="/logos/tools/sm/%s.webp" alt="" /><div class="tx"><b>%s</b><span>%s</span></div></div>'
+                    % (f, n, cn if lang == 'cn' else en) for f, n, en, cn in tools)
+    return '<div class="g12"><div class="c1-12 tg5">%s<div class="tool more"><b>%s</b></div></div></div>' % (cells, MORE[lang])
+
+
 def keep4(lang):
     spans = ['c1-3', 'c4-6', 'c7-9', 'c10-12']
     return '<div class="g12 rrow keep4">%s</div>' % ''.join(
@@ -575,7 +584,7 @@ def parent9(lang, d):
     note = ''
     return (sec9(1, 'lead', lang, keep4(lang)) +
             sec9(2, 'kids', lang, '<div class="g12"><div class="c1-12">%s</div></div>' % days) +
-            sec9(3, 'learn', lang, toolgrid(lang, PTOOLS[:4], 4) + toolgrid(lang, PTOOLS[4:], 4) + runrow(lang, ['isb', 'bodley']) + note))
+            sec9(3, 'learn', lang, toolgrid5(lang, PTOOLS) + runrow(lang, ['isb', 'bodley']) + note))
 
 
 def teacher9(lang, d):
@@ -597,7 +606,8 @@ def general9(lang, d):
                   % (sp, ic(t[0]), t[1], why, t[3], ic('check', 'mk'), make)
                   for sp, t, (why, make) in zip(spans, [c['T'][k] for k in DOCS['general']['tiles']], g['rows']))
     tools = ''.join('<span class="tc"><img src="/logos/tools/sm/%s.webp" alt="" /><em>%s</em></span>' % (t, TOOLN[t]) for t in GTOOLS)
-    trow = '<div class="g12 trow2"><span class="c1-3 lab">%s</span><div class="c4-12 tools2">%s</div></div>' % (s9['tools_k'], tools)
+    tools += '<span class="tc tmore">%s</span>' % MORE[lang]
+    trow = '<div class="g12 trow2"><span class="c1-2 lab">%s</span><div class="c3-12 tools2">%s</div></div>' % (s9['tools_k'], tools)
     return (sec9(1, 'who', lang, '<div class="g12 rrow aud4">%s</div>' % aud + runrow(lang, ['isb', 'bodley', 'tsinghua', 'schwarzman'])) +
             sec(2, 'teach', lang, teach(lang) + trow))
 
@@ -900,6 +910,18 @@ em { font-style: italic; }
 .parent .poster .photo::before { background: linear-gradient(180deg, rgba(11,26,74,.8) 0, rgba(11,26,74,.1) 18%, rgba(11,26,74,0) 46%, rgba(11,26,74,.7) 68%, #0B1A4A 94%); }
 .parent .poster .photo img { filter: contrast(1.08) saturate(1.05); }
 .teacher .stairs { align-items: stretch; } .teacher .stairs li { height: 10mm; }
+/* TOOLS-BRIEF: memberships with their qualifying words; parent 2 x 5 tool grid; the +30 tile */
+.poster .bmem { gap: 3.4mm; } .bm { display: inline-flex; align-items: center; gap: 1.6mm; white-space: nowrap; }
+.bm img { filter: brightness(0) invert(1); opacity: .92; } .bm em { font-style: normal; font-size: 7.4pt; color: #DCE4F7; }
+.poster .photo figcaption { top: auto; bottom: 7.4mm; }
+.poster .lede { max-width: 122mm; text-wrap: balance; }
+.tg5 { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 3mm 3mm; }
+.tg5 .tool { padding: 2.4mm 2.2mm; gap: 2mm; } .tg5 .tool img { width: 7mm; height: 7mm; border-radius: 1.6mm; }
+.tg5 .tool b { font-size: 8.8pt; } .tg5 .tool span { white-space: normal; font-size: 7.8pt; }
+.tool.more { justify-content: center; background: #0B1A4A; border-color: #0B1A4A; }
+.tool.more b { font: 500 11pt/1.2 SERIF; color: #fff; white-space: normal; text-align: center; }
+.general .tools2 { grid-template-columns: repeat(7, minmax(0, 1fr)); } .general .tc img { height: 5.4mm; } .general .tc em { font-size: 8pt; }
+.tc.tmore { justify-content: center; font: 500 8.4pt/1.15 SERIF; color: #fff; background: #0B1A4A; border-radius: 1.2mm; padding: 1.4mm 1.6mm; text-align: center; }
 /* closing band */
 .cta { background: #0B1A4A; color: #fff; padding-top: 4.4mm; padding-bottom: 4.4mm; align-items: center; }
 .cta h2 { color: #fff; font-size: 13pt; } .cta p { margin: 1mm 0 0; font-size: 8.2pt; color: rgba(255,255,255,.84); }
@@ -960,7 +982,7 @@ const { chromium } = require('playwright');
     rights.forEach(sel => document.querySelectorAll(sel).forEach(e => { if (e.closest('.frame')) return; const x = e.getBoundingClientRect().right; if (Math.abs(x - R0) > 1) edges.push('R ' + sel + ' ' + Math.round(x - R0)); }));
     const tops = []; document.querySelectorAll('.sh').forEach(d => tops.push(Math.round(d.getBoundingClientRect().left)));
     let min = 99; document.querySelectorAll('.op *').forEach(e => { if ([...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim()) && !e.closest('svg')) min = Math.min(min, parseFloat(getComputedStyle(e).fontSize)); });
-    const clipped = []; document.querySelectorAll('.marks, .logos, .team .tl, .prac .pi, .memtop .mt, .oc2 .oh, .tool .tx, .poster .brandrow').forEach(l => { const p = l.closest('.card, .row, .prac, .memtop, .pf, .oc2, .tool, .top-copy'); const pr = p.getBoundingClientRect(); [...l.children].forEach(c => { const r = c.getBoundingClientRect(); if (r.right > pr.right - 1 || r.left < pr.left) clipped.push(c.textContent || c.getAttribute('src')); }); });
+    const clipped = []; document.querySelectorAll('.marks, .logos, .team .tl, .prac .pi, .memtop .mt, .oc2 .oh, .tool .tx, .poster .brandrow, .poster .bmem, .tools2').forEach(l => { const p = l.closest('.card, .row, .prac, .memtop, .pf, .oc2, .tool, .top-copy, .trow2'); const pr = p.getBoundingClientRect(); [...l.children].forEach(c => { const r = c.getBoundingClientRect(); if (r.right > pr.right - 1 || r.left < pr.left) clipped.push(c.textContent || c.getAttribute('src')); }); });
     const wrapped = []; document.querySelectorAll('.logos, .marks').forEach(l => { const ys = [...l.children].map(c => Math.round(c.getBoundingClientRect().top + c.getBoundingClientRect().height / 2)); if (Math.max(...ys) - Math.min(...ys) > 4) wrapped.push(l.className); });
     return { over: Math.max(over, inner), edges, stepBad, stepTops, svgPt: +(svgMin * .75).toFixed(2), secOver, clipped, nbad: bad.length, bad: bad.slice(0, 4), uneven, shLeft: [...new Set(tops)], minPt: +(min * .75).toFixed(2), wrapped,
              cols: starts.map((s, i) => [Math.round(s), Math.round(ends[i])]) };

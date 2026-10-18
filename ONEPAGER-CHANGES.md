@@ -187,3 +187,12 @@ brown, tsinghua-lockup, isb, mckinsey, goldman, yc, apple, microsoft-ai, deloitt
     (Claude is on the intensive's list of tools, which includes "AI coding tools to build"). Cursor appears only on
     `events/isb-winter-2027.html`, not on the intensive page. No tool count: the site states none for the intensive.
     Adding "Claude Code" to the intensive page would let it go on the one-pager.
+- **v9.1 (TOOLS-BRIEF, Oct 18, 2026).** Claude Code and Cursor confirmed by Phillip An (STATS-SOURCES.md, "Founder-confirmed
+  program facts"), and added to `programs/product-intensive.html` (+ CN, JJ comment): tool strip and "Typical tools"
+  line. Parent tool grid now 2 x 5: ChatGPT, DeepSeek, Perplexity, Claude Code (Build apps), Cursor (Write and fix code),
+  GitHub, Vercel, Figma, Canva (all on the intensive page), and a navy "+30 more tools" tile last (CN 另有 30 多种工具).
+  General tools row gets the same tile. Teacher row does not: the 30+ figure is what students learn in the intensive, not
+  a teacher tool count. Header memberships on all six now read "A member of" Anthropic "Startup Program", OpenAI
+  "Partner Network" (CN 成员计划 / 初创企业计划 / 合作伙伴网络, as on the site), 7.4pt; the photo caption moved to the
+  poster's bottom right to make room. Claude Code uses the official Claude mark (no separate asset in the repo). Stamps
+  `?v=20261018b`.
