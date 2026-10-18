@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Themed Days Calendar</title>
+<style>
+  :root{--ink:#0B1A4A;--ink2:#2F55A8;--paper:#F6EFE7;--card:#FFFDFA;--edge:#E4D9CC;--muted:#6B6F80;--ok:#2E7D5B;--warn:#B5562F;--r:14px}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font:400 19px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,"PingFang SC",sans-serif}
+  header{padding:28px 32px 8px;max-width:1100px;margin:0 auto}
+  .tb-back{display:inline-block;margin:0 0 10px;font-weight:600;font-size:15px;color:var(--ink2);text-decoration:none}
+  header h1{margin:0;font-size:36px;line-height:1.15;letter-spacing:-.01em}
+  header p{margin:6px 0 0;color:var(--muted);font-size:19px}
+  main{max-width:1100px;margin:0 auto;padding:16px 32px 40px;display:grid;gap:18px}
+  .card{background:var(--card);border:1px solid var(--edge);border-radius:var(--r);padding:22px 24px;box-shadow:0 10px 24px -20px rgba(11,26,74,.35)}
+  .card h2{margin:0 0 12px;font-size:22px}
+  .row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .field{display:grid;gap:6px;margin:0 0 14px}
+  .field label{font-weight:600;font-size:16px;color:var(--ink2);letter-spacing:.02em}
+  input,select,textarea{font:inherit;color:inherit;width:100%;padding:12px 14px;border:1px solid var(--edge);border-radius:10px;background:#fff}
+  input:focus,select:focus{outline:3px solid rgba(47,85,168,.25);border-color:var(--ink2)}
+  .btn{font:600 18px/1 inherit;font-family:inherit;padding:14px 22px;border-radius:999px;border:0;background:var(--ink);color:#fff;cursor:pointer}
+  .btn:hover{background:var(--ink2)}
+  .btn-ghost{font:600 18px/1 inherit;font-family:inherit;padding:13px 21px;border-radius:999px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+  footer{max-width:1100px;margin:0 auto;padding:0 32px 32px;color:var(--muted);font-size:14px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{font:600 16px/1 inherit;font-family:inherit;padding:10px 16px;border-radius:999px;border:1.5px solid var(--edge);background:#fff;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+  .chip.on{border-color:var(--ink);background:var(--ink);color:#fff}
+  .dot{width:12px;height:12px;border-radius:50%;display:inline-block;flex:none}
+  .month{margin:0}
+  .month h2{font-size:26px;margin:0 0 10px;padding-bottom:8px;border-bottom:2px solid var(--edge)}
+  .ev{display:grid;grid-template-columns:150px 1fr auto;gap:16px;align-items:start;padding:14px 0;border-bottom:1px solid var(--edge)}
+  .ev:last-child{border-bottom:0}
+  .when{font-weight:700;font-size:18px}
+  .when small{display:block;font-weight:500;color:var(--muted);font-size:15px}
+  .what{font-size:21px;font-weight:700;line-height:1.3}
+  .idea{color:var(--muted);font-size:16px;margin-top:2px}
+  .tag{display:inline-flex;align-items:center;gap:6px;margin-top:6px;padding:4px 12px;border-radius:999px;font-size:15px;font-weight:600;color:#fff}
+  .x{border:0;background:none;color:var(--muted);font-size:22px;cursor:pointer;padding:4px 8px}
+  .x:hover{color:var(--warn)}
+  .soon{background:#FFF6D9;border-radius:10px;padding:14px 10px;margin:0 -10px}
+  .empty{color:var(--muted)}
+  .addgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1.3fr;gap:12px}
+  .note{color:var(--muted);font-size:15px;margin:10px 0 0}
+  @media (max-width:760px){.addgrid{grid-template-columns:1fr 1fr}.addgrid .wide{grid-column:1/-1}}
+  @media (max-width:600px){header,main,footer{padding-left:16px;padding-right:16px}header h1{font-size:28px}.ev{grid-template-columns:1fr auto}.ev .when{grid-column:1/-1}}
+  @media print{.tb-back,.noprint,.x{display:none!important}body{background:#fff}.card{box-shadow:none;border:0}}
+</style>
+</head>
+<body>
+<header>
+  <a class="tb-back" href="/talks/2026-10-acamis-tech-workshop/build">&larr; Teacher Toolbox</a>
+  <h1>Themed Days &amp; Weeks Calendar</h1>
+  <p>Every Pi Day, Digital Citizenship Week and Book Day for 2026–27, by department. Add your own, then export to the school calendar.</p>
+</header>
+<main>
+  <section class="card noprint">
+    <div class="row" style="justify-content:space-between;margin-bottom:12px">
+      <h2 style="margin:0">Show department</h2>
+      <div class="row">
+        <button class="btn" id="ics">Export to calendar (.ics)</button>
+        <button class="btn-ghost" onclick="window.print()">Print</button>
+      </div>
+    </div>
+    <div class="chips" id="filters"></div>
+    <div class="field" style="margin:14px 0 0"><input id="q" placeholder="Search themes… (e.g. reading, ocean, coding)"></div>
+  </section>
+
+  <section class="card" id="list"></section>
+
+  <section class="card noprint">
+    <h2>Add a theme</h2>
+    <div class="addgrid">
+      <div class="field wide"><label for="aName">Theme</label><input id="aName" placeholder="e.g. Grade 8 Science Fair"></div>
+      <div class="field"><label for="aStart">Start</label><input id="aStart" type="date"></div>
+      <div class="field"><label for="aEnd">End (optional)</label><input id="aEnd" type="date"></div>
+      <div class="field"><label for="aDept">Department</label><select id="aDept"></select></div>
+      <div class="field wide" style="grid-column:1/-1"><label for="aIdea">Classroom idea (optional)</label><input id="aIdea" placeholder="e.g. Students present projects in the library"></div>
+    </div>
+    <div class="row">
+      <button class="btn" id="add">Add to calendar</button>
+      <button class="btn-ghost" id="clear">Clear my changes</button>
+    </div>
+    <p class="note">Your additions and removals save in this browser. The .ics file imports into Google Calendar, Outlook or Apple Calendar as all-day events. Dates are for the 2026–27 school year; double-check any that move each year.</p>
+  </section>
+</main>
+<footer>Built by the room with Claude Code · ACAMIS Technology Conference 2026 · Arena School</footer>
+<script>
+var DEPTS = [
+  {k:'Whole school', c:'#0B1A4A'},
+  {k:'Math', c:'#2F55A8'},
+  {k:'Science', c:'#2E7D5B'},
+  {k:'English & Library', c:'#8A3FA0'},
+  {k:'World Languages', c:'#C0392B'},
+  {k:'Humanities', c:'#B5562F'},
+  {k:'Arts & Music', c:'#D4537E'},
+  {k:'PE & Health', c:'#1F8A8A'},
+  {k:'Technology', c:'#5B5BD6'},
+  {k:'Wellbeing', c:'#7A8A2E'}
+];
+var BUILT_IN = [
+  ['International Literacy Day','2026-09-08','','English & Library','Read-aloud swap: classes visit each other'],
+  ['International Dot Day','2026-09-15','','Arts & Music','Read "The Dot" and make your mark'],
+  ['International Day of Peace','2026-09-21','','Humanities','Peace pledges on a shared wall'],
+  ['Mid-Autumn Festival','2026-09-25','','World Languages','Mooncake maths and lantern poems'],
+  ['World Space Week','2026-10-04','2026-10-10','Science','Model the solar system to scale on the field'],
+  ["World Teachers' Day",'2026-10-05','','Whole school','Students write thank-you notes'],
+  ['World Mental Health Day','2026-10-10','','Wellbeing','Advisory check-in and calm corner'],
+  ['Global Handwashing Day','2026-10-15','','PE & Health','Glitter-germ experiment'],
+  ['Digital Citizenship Week','2026-10-19','2026-10-23','Technology','Daily 10-minute lessons on privacy and kindness online'],
+  ['Mole Day','2026-10-23','','Science','6.02 × 10²³ — chemistry puzzles at 6:02'],
+  ['World Kindness Day','2026-11-13','','Wellbeing','Kindness bingo across grades'],
+  ['International Day of Persons with Disabilities','2026-12-03','','Humanities','Explore accessible design'],
+  ['Computer Science Education Week (Hour of Code)','2026-12-07','2026-12-13','Technology','Every class does one hour of coding'],
+  ['Human Rights Day','2026-12-10','','Humanities','Students pick one right and make a poster'],
+  ['International Day of Education','2027-01-24','','Whole school','What school looks like around the world'],
+  ['Data Privacy Day','2027-01-28','','Technology','Audit your app permissions'],
+  ['Lunar New Year','2027-02-06','','World Languages','Spring couplets and zodiac stories'],
+  ['Safer Internet Day','2027-02-09','','Technology','Assembly on safe sharing'],
+  ['International Day of Women and Girls in Science','2027-02-11','','Science','Profile a woman scientist each period'],
+  ['International Mother Language Day','2027-02-21','','World Languages','Greetings wall in every home language'],
+  ['World Wildlife Day','2027-03-03','','Science','Local species survey'],
+  ['World Book Day','2027-03-04','','English & Library','Dress as a character; book swap'],
+  ['International Women\'s Day','2027-03-08','','Humanities','Women who changed our subject'],
+  ['Pi Day (International Day of Mathematics)','2027-03-14','','Math','Falls on a Sunday: celebrate Fri 12 Mar with pie and π recitals'],
+  ['Brain Awareness Week','2027-03-15','2027-03-21','Science','Build a neuron from pipe cleaners'],
+  ['French Language Day','2027-03-20','','World Languages','Café-style speaking practice'],
+  ['World Water Day','2027-03-22','','Science','Measure the school\'s water use'],
+  ['Music in Our Schools Month','2027-03-01','2027-03-31','Arts & Music','Lunchtime pop-up performances'],
+  ['Mathematics & Statistics Awareness Month','2027-04-01','2027-04-30','Math','A puzzle of the day on the screens'],
+  ['National Poetry Month','2027-04-01','2027-04-30','English & Library','Poem in your pocket'],
+  ['School Library Month','2027-04-01','2027-04-30','English & Library','Library scavenger hunt'],
+  ['International Day of Sport for Development and Peace','2027-04-06','','PE & Health','Mixed-grade cooperative games'],
+  ['World Health Day','2027-04-07','','PE & Health','Healthy-habit tracker for a week'],
+  ['Chinese Language Day','2027-04-20','','World Languages','Calligraphy station'],
+  ['Earth Day','2027-04-22','','Science','Campus clean-up and waste audit'],
+  ['World Book and Copyright Day','2027-04-23','','English & Library','Who owns an idea? Copyright basics'],
+  ['Spanish Language Day','2027-04-23','','World Languages','Lectura en voz alta'],
+  ['International Jazz Day','2027-04-30','','Arts & Music','Listening lesson: improvisation'],
+  ['Global Running Day','2027-06-02','','PE & Health','Whole-school fun run'],
+  ['World Environment Day','2027-06-05','','Science','Pledge one change per class'],
+  ['World Oceans Day','2027-06-08','','Science','Plastic in the ocean: sort and count'],
+  ['Dragon Boat Festival','2027-06-09','','World Languages','Zongzi and the story of Qu Yuan']
+].map(function(a,i){return {id:'b'+i,name:a[0],start:a[1],end:a[2],dept:a[3],idea:a[4]};});
+
+var KEY = 'tb-theme-calendar';
+var state = load();
+var on = {};  // empty = all departments
+function load(){try{var s=JSON.parse(localStorage.getItem(KEY));if(s&&s.added)return s;}catch(e){}return {added:[],hidden:[]};}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
+function color(d){for(var i=0;i<DEPTS.length;i++)if(DEPTS[i].k===d)return DEPTS[i].c;return '#6B6F80';}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function d(s){var p=s.split('-');return new Date(+p[0],p[1]-1,+p[2]);}
+var MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+var MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+var DAYS=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+function fmt(e){
+  var a=d(e.start);
+  if(!e.end||e.end===e.start)return MON[a.getMonth()]+' '+a.getDate()+'<small>'+DAYS[a.getDay()]+'</small>';
+  var b=d(e.end);
+  var span=a.getMonth()===b.getMonth()?MON[a.getMonth()]+' '+a.getDate()+'–'+b.getDate():MON[a.getMonth()]+' '+a.getDate()+' – '+MON[b.getMonth()]+' '+b.getDate();
+  var days=Math.round((b-a)/864e5)+1;
+  return span+'<small>'+(days>20?'all month':days+' days')+'</small>';
+}
+function all(){
+  return BUILT_IN.filter(function(e){return state.hidden.indexOf(e.id)<0;}).concat(state.added)
+    .sort(function(x,y){return x.start<y.start?-1:x.start>y.start?1:x.name<y.name?-1:1;});
+}
+function visible(){
+  var q=document.getElementById('q').value.trim().toLowerCase();
+  var any=Object.keys(on).length>0;
+  return all().filter(function(e){
+    if(any&&!on[e.dept])return false;
+    if(q&&(e.name+' '+e.idea+' '+e.dept).toLowerCase().indexOf(q)<0)return false;
+    return true;
+  });
+}
+function renderFilters(){
+  var any=Object.keys(on).length>0;
+  var h='<button class="chip'+(any?'':' on')+'" data-k="">All</button>';
+  DEPTS.forEach(function(x){h+='<button class="chip'+(on[x.k]?' on':'')+'" data-k="'+esc(x.k)+'"><span class="dot" style="background:'+x.c+'"></span>'+esc(x.k)+'</button>';});
+  document.getElementById('filters').innerHTML=h;
+}
+function render(){
+  renderFilters();
+  var list=visible(), out='', cur='';
+  var today=new Date();today.setHours(0,0,0,0);
+  var soon=new Date(today.getTime()+14*864e5);
+  if(!list.length){document.getElementById('list').innerHTML='<p class="empty">Nothing matches. Try another department or search.</p>';return;}
+  list.forEach(function(e){
+    var a=d(e.start), b=d(e.end||e.start);
+    var m=MONTHS[a.getMonth()]+' '+a.getFullYear();
+    if(m!==cur){if(cur)out+='</div>';out+='<div class="month"><h2>'+m+'</h2>';cur=m;}
+    var isSoon=b>=today&&a<=soon;
+    out+='<div class="ev'+(isSoon?' soon':'')+'"><div class="when">'+fmt(e)+'</div><div><div class="what">'+esc(e.name)+(isSoon?' <span style="font-size:15px;color:var(--warn)">● coming up</span>':'')+'</div>'+
+      (e.idea?'<div class="idea">'+esc(e.idea)+'</div>':'')+
+      '<span class="tag" style="background:'+color(e.dept)+'">'+esc(e.dept)+'</span></div>'+
+      '<button class="x" title="Remove" data-id="'+e.id+'">×</button></div>';
+  });
+  document.getElementById('list').innerHTML=out+'</div>';
+}
+document.getElementById('filters').onclick=function(ev){
+  var b=ev.target.closest('.chip');if(!b)return;
+  var k=b.getAttribute('data-k');
+  if(!k)on={};else if(on[k])delete on[k];else on[k]=1;
+  render();
+};
+document.getElementById('q').oninput=render;
+document.getElementById('list').onclick=function(ev){
+  var b=ev.target.closest('.x');if(!b)return;
+  var id=b.getAttribute('data-id');
+  if(id.charAt(0)==='b')state.hidden.push(id);
+  else state.added=state.added.filter(function(e){return e.id!==id;});
+  save();render();
+};
+var sel=document.getElementById('aDept');
+DEPTS.forEach(function(x){var o=document.createElement('option');o.textContent=x.k;sel.appendChild(o);});
+document.getElementById('add').onclick=function(){
+  var name=document.getElementById('aName').value.trim(), s=document.getElementById('aStart').value, en=document.getElementById('aEnd').value;
+  if(!name||!s){alert('Add a theme name and a start date.');return;}
+  if(en&&en<s)en='';
+  state.added.push({id:'u'+Date.now(),name:name,start:s,end:en,dept:sel.value,idea:document.getElementById('aIdea').value.trim()});
+  save();
+  ['aName','aStart','aEnd','aIdea'].forEach(function(i){document.getElementById(i).value='';});
+  render();
+};
+document.getElementById('clear').onclick=function(){
+  if(!confirm('Remove your added themes and bring back any you deleted?'))return;
+  state={added:[],hidden:[]};save();render();
+};
+function icsDate(s){return s.replace(/-/g,'');}
+function nextDay(s){var x=d(s);x.setDate(x.getDate()+1);return x.getFullYear()+('0'+(x.getMonth()+1)).slice(-2)+('0'+x.getDate()).slice(-2);}
+function icsText(s){return String(s).replace(/\\/g,'\\\\').replace(/;/g,'\\;').replace(/,/g,'\\,').replace(/\n/g,'\\n');}
+document.getElementById('ics').onclick=function(){
+  var stamp=new Date().toISOString().replace(/[-:]/g,'').slice(0,15)+'Z';
+  var L=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Teacher Toolbox//Themed Days//EN','CALSCALE:GREGORIAN','X-WR-CALNAME:Themed Days & Weeks'];
+  visible().forEach(function(e){
+    L.push('BEGIN:VEVENT','UID:'+e.id+'-'+e.start+'@teacher-toolbox','DTSTAMP:'+stamp,
+      'DTSTART;VALUE=DATE:'+icsDate(e.start),'DTEND;VALUE=DATE:'+nextDay(e.end||e.start),
+      'SUMMARY:'+icsText(e.name+' ('+e.dept+')'),'CATEGORIES:'+icsText(e.dept),
+      'DESCRIPTION:'+icsText(e.dept+(e.idea?' · Idea: '+e.idea:'')),'TRANSP:TRANSPARENT','END:VEVENT');
+  });
+  L.push('END:VCALENDAR');
+  var a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([L.join('\r\n')],{type:'text/calendar'}));
+  a.download='themed-days-2026-27.ics';document.body.appendChild(a);a.click();a.remove();
+};
+render();
+</script>
+<script src="/talks/2026-10-acamis-tech-workshop/build/live.js"></script>
+</body>
+</html>
