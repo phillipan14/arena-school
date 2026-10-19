@@ -1,0 +1,190 @@
+"""Gated recording page for the ISB parent talk (RECORDING-BRIEF, Oct 19, 2026), EN + CN.
+  talks/2026-10-isb-parent-coffee/recording.html     -> /talk/recording
+  talks/2026-10-isb-parent-coffee/recording-cn.html  -> /talk/recording-cn
+Same paper look, type, and title as the talk's resources page (talks/2026-10-isb-parent-coffee/index.html). A 16:9
+slot shows the cover slide with "Recording coming soon" until a video URL is set; the gate form and its backends are in
+/recording.js, which also holds the single CONFIG line for the video and download URLs. CN copy is marked for JJ review.
+  python3 tools/recording_page.py           write both pages
+  python3 tools/recording_page.py --check   report pages that would change
+"""
+import os
+import sys
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DIR = 'talks/2026-10-isb-parent-coffee'
+
+C = {
+ 'en': dict(
+   file='recording.html', lang='en', other=('/talk/recording-cn', '中文', 'zh-CN'), title='Talk recording · Arena School',
+   desc='The recording of “Our Kids’ Jobs Don’t Exist Yet. So Which Skills Will Matter?”, ISB PTA Parent Coffee, Oct 14, 2026.',
+   ev='ISB PTA Parent Coffee · Oct 14, 2026', k='The recording',
+   h1='Our Kids’ Jobs <em>Don’t Exist Yet.</em> So Which Skills Will Matter?', by='<b>Jing Jing Yang</b> and <b>Phillip An</b>',
+   lede='Watch the full talk. Tell us who you are, and it opens right here.',
+   soon='Recording coming soon', locked='Fill in the form to watch',
+   fh='Watch the recording', fp='Free for families and educators. One short form.',
+   name='Name', email='Email', school='School', school_h='Your child’s school, or yours', role='I am a', role_ph='Choose one',
+   roles=[('Parent', 'Parent'), ('Teacher', 'Teacher'), ('School leader', 'School leader'), ('Other', 'Other')],
+   wechat='WeChat ID', opt='optional', submit='Unlock the recording', subject='Arena School · recording request · ISB parent talk',
+   note='We’ll also send you Arena Notes, our occasional newsletter. No spam, and you can unsubscribe anytime.',
+   dh='Thank you.', ready='The recording is unlocked. Press play, or download it to watch later.', dl='Download the recording',
+   later='The recording isn’t up yet. We’ll email you when it’s ready.',
+   back='Slides and resources from the talk', poster='/%s/slides/en/01.jpg' % DIR, foot='© 2026 Arena School', jj=''),
+ 'cn': dict(
+   file='recording-cn.html', lang='zh-CN', other=('/talk/recording', 'EN', 'en'), title='讲座录像 · Arena School',
+   desc='“孩子们未来的工作还不存在，那么，哪些能力最重要？”讲座录像，ISB PTA 家长咖啡会，2026年10月14日。',
+   ev='ISB PTA 家长咖啡会 · 2026年10月14日', k='讲座录像',
+   h1='孩子们未来的工作还不存在，那么，哪些能力最重要？', by='主讲：<b>羊筱涵</b>、<b>安广宁</b>',
+   lede='观看讲座全程录像。填写以下信息，即可在本页观看。',
+   soon='录像即将上线', locked='填写表格即可观看',
+   fh='观看录像', fp='家长和教育者均可免费观看，只需填写一张简短的表格。',
+   name='姓名', email='邮箱', school='学校', school_h='孩子就读的学校，或您任职的学校', role='身份', role_ph='请选择',
+   roles=[('Parent', '家长'), ('Teacher', '老师'), ('School leader', '学校管理者'), ('Other', '其他')],
+   wechat='微信号', opt='选填', submit='解锁录像', subject='Arena School · 录像申请 · ISB 家长讲座',
+   note='我们也会为您订阅 Arena 通讯。绝无垃圾邮件，可随时退订。',
+   dh='谢谢！', ready='录像已解锁。可直接播放，也可下载稍后观看。', dl='下载录像',
+   later='录像尚未上线。上线后我们会发邮件通知您。',
+   back='讲座幻灯片与资料', poster='/%s/slides/cn/01.jpg' % DIR, foot='© 2026 Arena School',
+   jj='<!-- JJ review: 讲座录像页中文文案 (RECORDING-BRIEF, Oct 19, 2026) -->\n'),
+}
+
+LOCK = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+        '<rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>')
+PLAY = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+        '<circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4z"/></svg>')
+DOWN = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+        '<path d="M12 4v11"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/></svg>')
+
+CSS = r"""
+:root{--ink:#152636;--ink2:#4A5768;--btn:#152636;--btn-h:#22385a;--paper:#F3E9DD;--paper-h:#FBF4EA;--card:#FBF4EA;--line:rgba(21,38,54,.12);
+  --text:#152636;--soft:#4A5768;--muted:#6B7584;--serif:'Newsreader',Georgia,'Times New Roman',serif;
+  --sans:'Geist',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;--gx:max(20px,env(safe-area-inset-left))}
+html[lang="zh-CN"]{--serif:'Arena Serif SC','Newsreader','Songti SC','Noto Serif SC','Source Han Serif SC','STSong',serif;
+  --sans:'Arena Sans SC Punct','Geist','PingFang SC','Hiragino Sans GB','Noto Sans SC','Microsoft YaHei',system-ui,sans-serif}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+[hidden]{display:none !important}
+html{background:var(--paper);-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;font:400 17px/1.6 var(--sans);color:var(--text);background:var(--paper);-webkit-font-smoothing:antialiased;overflow-wrap:break-word;text-wrap:pretty}
+html[lang="zh-CN"] body{line-break:strict;font-size:16.5px;line-height:1.75}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--ink2);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 var(--gx)}
+.hd{background:var(--paper-h);border-bottom:1px solid var(--line);padding:calc(env(safe-area-inset-top) + 10px) 0 30px}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:56px}
+.bar a.home{display:inline-flex;align-items:center;min-height:48px}
+.wm{display:block;height:auto;width:158px}
+.sw{display:inline-flex;align-items:center;justify-content:center;min-width:64px;min-height:48px;padding:0 16px;border:1px solid rgba(21,38,54,.25);border-radius:999px;
+  font:500 15px/1 var(--sans);color:var(--soft);text-decoration:none;background:rgba(252,243,237,.7)}
+.sw:hover{border-color:var(--ink2);color:var(--ink)}
+.intro{margin-top:22px;max-width:760px}
+.ev{margin:0 0 10px;font:500 12px/1.45 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+html[lang="zh-CN"] .ev{letter-spacing:.04em;font-size:13px}
+.k{margin:0 0 6px;font:600 12px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
+html[lang="zh-CN"] .k{letter-spacing:.04em;font-size:13px}
+h1{margin:0;font:500 31px/1.1 var(--serif);letter-spacing:-.022em;color:var(--ink);text-wrap:balance}
+h1 em{font-style:italic;color:var(--ink2)}
+html[lang="zh-CN"] h1{font-size:27px;line-height:1.38;letter-spacing:0}
+.by{margin:14px 0 0;font-size:15.5px;line-height:1.5;color:var(--soft)} .by b{font-weight:500;color:var(--text)}
+.lede{margin:10px 0 0;font-size:16.5px;line-height:1.55;color:var(--soft)}
+main.wrap{padding-top:28px;padding-bottom:8px}
+.rec{display:grid;gap:22px;align-items:start}
+/* the 16:9 slot: cover slide + a quiet label; the real <video> replaces it once a URL is set and the gate is open */
+.rv{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#152636;border:1px solid var(--line)}
+.rv img,.rv video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.rv video{object-fit:contain;background:#000;z-index:3}
+.rv::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(21,38,54,0) 45%,rgba(21,38,54,.6))}
+.rv-msg{position:absolute;z-index:2;left:50%;bottom:7%;transform:translateX(-50%);margin:0;display:flex;align-items:center;gap:10px;white-space:nowrap;
+  padding:16px 22px;border-radius:14px;background:rgba(21,38,54,.62);color:#F7F1E7;text-align:center;max-width:80%;
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.rv-msg svg{width:24px;height:24px;flex:none}
+.rv-msg b{font:500 20px/1.25 var(--serif);letter-spacing:-.01em}
+.rv-msg span{font-size:14.5px;color:rgba(247,241,231,.82)}
+.rv .m-lock{display:none}
+.rec.has-src.is-locked .rv .m-lock{display:flex} .rec.has-src .rv .m-soon{display:none}
+/* form card */
+.rg{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 20px}
+.rg h2{margin:0;font:400 24px/1.2 var(--serif);letter-spacing:-.015em;color:var(--ink)}
+html[lang="zh-CN"] .rg h2{font-weight:500;font-size:22px;letter-spacing:0}
+.rg-p{margin:6px 0 16px;font-size:15px;color:var(--soft)}
+.f{display:block;margin:0 0 12px}
+.f > span{display:block;margin:0 0 5px;font-size:14.5px;font-weight:500;color:var(--ink)}
+.f > span small{font-weight:400;color:var(--muted);margin-left:6px;font-size:13.5px}
+.f input,.f select{width:100%;min-height:48px;padding:10px 14px;border:1px solid rgba(21,38,54,.28);border-radius:10px;background:#fff;color:var(--text);
+  font:400 16px/1.3 var(--sans);-webkit-appearance:none;appearance:none}
+.f select{background-image:linear-gradient(45deg,transparent 50%,var(--soft) 50%),linear-gradient(135deg,var(--soft) 50%,transparent 50%);
+  background-position:calc(100% - 20px) 50%,calc(100% - 15px) 50%;background-size:5px 5px;background-repeat:no-repeat;padding-right:38px}
+.f input:focus,.f select:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 3px rgba(21,38,54,.14)}
+.f .hint{display:block;margin-top:4px;font-size:13.5px;color:var(--muted)}
+.hp{position:absolute !important;left:-9999px;width:1px;height:1px;overflow:hidden}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:12px 22px;border:0;border-radius:12px;cursor:pointer;
+  text-decoration:none;font:500 16.5px/1.25 var(--sans);background:var(--btn);color:#F7F1E7;transition:background-color .2s}
+.btn:hover{background:var(--btn-h)} .btn svg{width:20px;height:20px}
+.rg-submit{width:100%;margin-top:4px}
+.is-loading .rg-submit{opacity:.7;cursor:progress}
+.rg-note{margin:12px 0 0;font-size:13px;line-height:1.5;color:var(--muted)}
+.rg-status{margin:10px 0 0;font-size:14.5px;min-height:0} .rg-status.is-error{color:#9A3B2E}
+.rg-done:focus{outline:none}
+.rg-done p{margin:8px 0 0;font-size:16px;color:var(--soft)}
+.rg-done .btn{margin-top:16px}
+.back{display:inline-flex;align-items:center;gap:8px;min-height:48px;margin-top:18px;font-weight:500;font-size:16px;color:var(--btn);
+  text-decoration:underline;text-decoration-color:rgba(21,38,54,.3);text-underline-offset:4px}
+footer{max-width:1120px;margin:0 auto;padding:26px var(--gx) calc(env(safe-area-inset-bottom) + 28px);font-size:13.5px;color:var(--muted)}
+@media (min-width:600px){:root{--gx:32px} h1{font-size:38px} html[lang="zh-CN"] h1{font-size:32px}}
+@media (min-width:960px){
+  .rec{grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:28px}
+  .rec.is-open{grid-template-columns:minmax(0,1.7fr) minmax(0,1fr)}
+  h1{font-size:44px} html[lang="zh-CN"] h1{font-size:36px}
+  .rg{padding:26px 24px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important;scroll-behavior:auto !important}}
+"""
+
+
+def page(lang):
+    c = C[lang]
+    roles = ''.join('<option value="%s">%s</option>' % (v, t) for v, t in c['roles'])
+    o_href, o_lab, o_lang = c['other']
+    return ('<!doctype html>\n<html lang="%(lang)s">\n<head>\n%(jj)s<meta charset="utf-8">\n'
+            '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n<meta name="robots" content="noindex, nofollow">\n'
+            '<meta name="theme-color" content="#F3E9DD">\n<title>%(title)s</title>\n<meta name="description" content="%(desc)s">\n'
+            '<link rel="canonical" href="https://arenaschool.org/talk/recording%(sfx)s">\n'
+            '<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">\n<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png?v=3">\n'
+            '<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=2">\n'
+            '<link rel="stylesheet" href="/fonts/fonts.css">\n%(zh)s<style>%(css)s</style>\n</head>\n<body>\n'
+            '<header class="hd"><div class="wrap"><div class="bar"><a class="home" href="/talk" aria-label="Arena School"><img class="wm" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School" width="1600" height="242"></a>'
+            '<a class="sw" href="%(o_href)s" hreflang="%(o_lang)s" lang="%(o_lang)s">%(o_lab)s</a></div>'
+            '<div class="intro"><p class="ev">%(ev)s</p><p class="k">%(k)s</p><h1>%(h1)s</h1><p class="by">%(by)s</p><p class="lede">%(lede)s</p></div></div></header>\n'
+            '<main class="wrap">\n<div class="rec is-locked" data-video-src="" data-download-src="">\n'
+            '  <div class="rv" data-poster="%(poster)s"><img src="%(poster)s" alt="" width="1600" height="900" decoding="async">'
+            '<p class="rv-msg m-soon">%(play)s<b>%(soon)s</b></p><p class="rv-msg m-lock">%(lock)s<b>%(locked)s</b></p></div>\n'
+            '  <div class="rg">\n'
+            '    <form class="rg-form" action="https://formsubmit.co/ajax/contact@arenaschool.org" method="post" novalidate>\n'
+            '      <h2 id="rg-h">%(fh)s</h2><p class="rg-p">%(fp)s</p>\n'
+            '      <input type="hidden" name="_subject" value="%(subject)s">\n'
+            '      <label class="hp" aria-hidden="true">Leave empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>\n'
+            '      <label class="f"><span>%(name)s</span><input type="text" name="name" required autocomplete="name" maxlength="120"></label>\n'
+            '      <label class="f"><span>%(email)s</span><input type="email" name="email" required autocomplete="email" maxlength="200"></label>\n'
+            '      <label class="f"><span>%(school)s</span><input type="text" name="school" required autocomplete="organization" maxlength="160" aria-describedby="rg-sh"><small class="hint" id="rg-sh">%(school_h)s</small></label>\n'
+            '      <label class="f"><span>%(role)s</span><select name="role" required><option value="" disabled selected>%(role_ph)s</option>%(roles)s</select></label>\n'
+            '      <label class="f"><span>%(wechat)s<small>%(opt)s</small></span><input type="text" name="wechat" autocomplete="off" maxlength="120"></label>\n'
+            '      <button class="btn rg-submit" type="submit">%(submit)s</button>\n'
+            '      <p class="rg-note">%(note)s</p><p class="rg-status" role="status" aria-live="polite"></p>\n'
+            '    </form>\n'
+            '    <div class="rg-done" hidden tabindex="-1"><h2>%(dh)s</h2><p class="rg-ready" hidden>%(ready)s</p><p class="rg-later">%(later)s</p>'
+            '<a class="btn rg-dl" href="#" download hidden>%(down)s<span>%(dl)s</span></a></div>\n'
+            '  </div>\n</div>\n<a class="back" href="/talk"><span aria-hidden="true">←</span>%(back)s</a>\n</main>\n'
+            '<footer>%(foot)s</footer>\n<script src="/recording.js" defer></script>\n</body>\n</html>\n'
+            % dict(c, sfx='' if lang == 'en' else '-cn', zh='<link rel="stylesheet" href="/fonts/zh/zh.css?v=2">\n' if lang == 'cn' else '',
+                   css=CSS, roles=roles, o_href=o_href, o_lab=o_lab, o_lang=o_lang, lock=LOCK, play=PLAY, down=DOWN))
+
+
+if __name__ == '__main__':
+    check = '--check' in sys.argv
+    n = 0
+    for lang in ('en', 'cn'):
+        p = os.path.join(ROOT, DIR, C[lang]['file'])
+        t = page(lang)
+        if not os.path.exists(p) or open(p, encoding='utf-8').read() != t:
+            n += 1
+            if not check:
+                open(p, 'w', encoding='utf-8').write(t)
+    print(('Would change' if check else 'Changed') + ' %d pages' % n)

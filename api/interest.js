@@ -1,11 +1,18 @@
 // POST /api/interest: one-page overview requests and program interest registrations -> Arena Slack.
 // Email notification also goes via FormSubmit on the client. Either channel succeeding
 // is enough for the visitor. Env: ARENA_SLACK_BOT_TOKEN (preferred),
-// ARENA_SLACK_CHANNEL (optional, defaults to #schools).
+// ARENA_SLACK_CHANNEL (optional, defaults to #schools). Recording requests (kind 'recording') go to
+// #enrollment, or ARENA_RECORDING_CHANNEL when set.
 // If Slack is unset or fails, falls back to emailing contact@ via Resend when
 // RESEND_API_KEY and RESEND_FROM are set (typical on Preview).
 const DEFAULT_CHANNEL = 'C0C4KRP3WDR'; // #schools in the Arena School workspace
-const LIMITS = { name: 120, email: 200, role: 60, school: 160, program: 80, page: 200, kind: 20, contact: 120, grade: 80, lang: 8 };
+const LIMITS = { name: 120, email: 200, role: 60, school: 160, program: 80, page: 200, kind: 20, contact: 120, grade: 80, lang: 8, src: 40 };
+const RECORDING_CHANNEL = 'C0C4U10RQUR'; // #enrollment: talk-recording requests (kind 'recording'), unless ARENA_RECORDING_CHANNEL is set
+const TITLES = { interest: 'New interest registration', recording: 'New recording request' };
+const title = (kind) => TITLES[kind] || 'New one-pager request';
+const channelFor = (kind) => (kind === 'recording'
+  ? process.env.ARENA_RECORDING_CHANNEL || RECORDING_CHANNEL
+  : process.env.ARENA_SLACK_CHANNEL || DEFAULT_CHANNEL);
 const WINDOW_MS = 10 * 60 * 1000;
 const MAX_PER_WINDOW = 5;
 const hits = new Map(); // best-effort, per warm instance
@@ -28,13 +35,14 @@ function rateLimited(ip, now = Date.now()) {
 
 function slackText(d) {
   const lines = [
-    `*${d.kind === 'interest' ? 'New interest registration' : 'New one-pager request'}* · ${esc(d.program || 'Program page')}`,
+    `*${title(d.kind)}* · ${esc(d.program || 'Program page')}`,
     `*${esc(d.name)}* · ${esc(d.email)}`,
     d.role && `Role: ${esc(d.role)}`,
     d.school && `School: ${esc(d.school)}`,
     d.grade && `Grade: ${esc(d.grade)}`,
     d.contact && `WeChat/phone: ${esc(d.contact)}`,
     d.lang && `Language: ${esc(d.lang)}`,
+    d.src && `Source: ${esc(d.src)}`,
     d.page && `From: ${esc(d.page)}`,
   ];
   return lines.filter(Boolean).join('\n');
@@ -46,9 +54,9 @@ async function emailTeam(d) {
   // Prefer RESEND_FROM; fall back to the documented notes@ address used by /api/subscribe.
   const from = process.env.RESEND_FROM || 'Arena School <notes@arenaschool.org>';
   if (!key) return false;
-  const subject = `${d.kind === 'interest' ? 'Interest' : 'One-pager'} · ${d.program || 'Program'} · ${d.name}`;
+  const subject = `${{ interest: 'Interest', recording: 'Recording' }[d.kind] || 'One-pager'} · ${d.program || 'Program'} · ${d.name}`;
   const lines = [
-    d.kind === 'interest' ? 'New interest registration' : 'New one-pager request',
+    title(d.kind),
     `Name: ${d.name}`,
     `Email: ${d.email}`,
     d.role && `Role: ${d.role}`,
@@ -56,6 +64,7 @@ async function emailTeam(d) {
     d.grade && `Grade: ${d.grade}`,
     d.contact && `WeChat/phone: ${d.contact}`,
     d.lang && `Language: ${d.lang}`,
+    d.src && `Source: ${d.src}`,
     d.page && `From: ${d.page}`,
   ].filter(Boolean);
   const text = lines.join('\n');
@@ -108,7 +117,7 @@ module.exports = async function handler(req, res) {
     const r = await fetch('https://slack.com/api/chat.postMessage', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json; charset=utf-8', Authorization: `Bearer ${token}` },
-      body: JSON.stringify({ channel: process.env.ARENA_SLACK_CHANNEL || DEFAULT_CHANNEL, text: slackText(d), unfurl_links: false }),
+      body: JSON.stringify({ channel: channelFor(d.kind), text: slackText(d), unfurl_links: false }),
     });
     const out = await r.json();
     if (!out.ok) {
@@ -126,4 +135,4 @@ module.exports = async function handler(req, res) {
   }
 };
 
-module.exports._test = { clean, esc, isEmail, rateLimited, slackText };
+module.exports._test = { clean, esc, isEmail, rateLimited, slackText, channelFor };

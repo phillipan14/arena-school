@@ -154,6 +154,16 @@
       "permanent": true
     },
     {
+      "source": "/talk/recording",
+      "destination": "/talks/2026-10-isb-parent-coffee/recording",
+      "permanent": true
+    },
+    {
+      "source": "/talk/recording-cn",
+      "destination": "/talks/2026-10-isb-parent-coffee/recording-cn",
+      "permanent": true
+    },
+    {
       "source": "/talk/en",
       "destination": "/talks/2026-10-isb-parent-coffee/read/en",
       "permanent": true

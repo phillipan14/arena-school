@@ -1,0 +1,95 @@
+/* Talk recording gate (RECORDING-BRIEF, Oct 19, 2026): /talk/recording and /talk/recording-cn.
+   To publish the recording, fill in CONFIG below (one line); both pages read it. A page can override it with
+   data-video-src / data-download-src on .rec.
+   This is a SOFT gate: once uploaded, the video and download URLs are ordinary public files. The form collects who is
+   watching and remembers the unlock in this browser; it does not protect the files. That is acceptable for this talk.
+   On submit (same backends as onepager.js): FormSubmit email to contact@, POST /api/interest (kind 'recording', Slack),
+   and a quiet /api/subscribe. Either of the first two succeeding unlocks the page. */
+(function () {
+  var CONFIG = { video: '', download: '' };   // e.g. { video: '/talks/2026-10-isb-parent-coffee/recording.mp4', download: '...same or a smaller file' }
+
+  var root = document.querySelector('.rec');
+  if (!root) return;
+  var ZH = (document.documentElement.lang || '').indexOf('zh') === 0;
+  var KEY = 'arena-rec-2026-10-isb-parent-coffee';
+  var video = root.getAttribute('data-video-src') || CONFIG.video;
+  var download = root.getAttribute('data-download-src') || CONFIG.download || video;
+  var form = root.querySelector('.rg-form');
+  var done = root.querySelector('.rg-done');
+  var slot = root.querySelector('.rv');
+  var status = form.querySelector('.rg-status');
+
+  root.classList.toggle('has-src', !!video);
+
+  function src() {
+    var m = location.search.match(/[?&]src=([^&#]*)/);
+    var v = '';
+    try { v = m ? decodeURIComponent(m[1].replace(/\+/g, ' ')) : ''; } catch (e) { v = ''; }
+    v = v.replace(/[^\w .:\-]/g, '').trim().slice(0, 40);
+    return v || 'direct';
+  }
+  function remembered() { try { return localStorage.getItem(KEY) === '1'; } catch (e) { return false; } }
+  function remember() { try { localStorage.setItem(KEY, '1'); } catch (e) { /* private mode: unlock for this visit only */ } }
+
+  function showVideo() {
+    if (!video || slot.querySelector('video')) return;
+    var v = document.createElement('video');
+    v.controls = true; v.setAttribute('playsinline', ''); v.preload = 'none';
+    v.poster = slot.getAttribute('data-poster') || '';
+    v.src = video;
+    slot.appendChild(v);
+  }
+  function unlock(focus) {
+    root.classList.remove('is-locked'); root.classList.add('is-open');
+    showVideo();
+    var dl = done.querySelector('.rg-dl'), later = done.querySelector('.rg-later'), ready = done.querySelector('.rg-ready');
+    if (dl) { dl.hidden = !video; if (video) dl.href = download; }
+    if (ready) ready.hidden = !video;
+    if (later) later.hidden = !!video;
+    form.hidden = true; done.hidden = false;
+    if (focus) done.focus();
+  }
+
+  function post(url, data) {
+    return fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(data)
+    }).then(function (r) {
+      return r.json().catch(function () { return {}; }).then(function (j) {
+        if (!r.ok || j.ok === false || j.success === 'false' || j.success === false) throw new Error(j.error || j.message || ('HTTP ' + r.status));
+        return j;
+      });
+    });
+  }
+  function setStatus(msg, kind) { status.textContent = msg; status.className = 'rg-status' + (kind ? ' is-' + kind : ''); }
+
+  if (remembered()) unlock(false);
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    var data = {};
+    form.querySelectorAll('input[name], select[name]').forEach(function (el) { data[el.name] = (el.value || '').trim(); });
+    if (data._honey) return;
+    var from = src();
+    var lead = { name: data.name, email: data.email, school: data.school, role: data.role, contact: data.wechat,
+                 kind: 'recording', program: 'ISB parent talk recording', lang: ZH ? 'zh' : 'en', src: from, page: location.pathname };
+    var btn = form.querySelector('.rg-submit');
+    form.classList.add('is-loading'); btn.disabled = true; setStatus('');
+    post('/api/subscribe', { email: data.email, role: data.role, lang: ZH ? 'zh' : 'en', source: ('recording: ' + from).slice(0, 60), page: location.pathname, quiet: true })
+      .catch(function (err) { console.warn('[recording] newsletter', err && err.message); });
+    var mail = { name: data.name, email: data.email, school: data.school, role: data.role, wechat: data.wechat, source: from,
+                 _subject: data._subject, _template: 'box', _captcha: 'false' };
+    Promise.allSettled([post(form.getAttribute('action'), mail), post('/api/interest', lead)]).then(function (res) {
+      form.classList.remove('is-loading'); btn.disabled = false;
+      res.forEach(function (r) { if (r.status === 'rejected') console.warn('[recording]', r.reason && r.reason.message); });
+      if (!res.some(function (r) { return r.status === 'fulfilled'; })) {
+        setStatus(ZH ? '提交失败。请发送邮件至 contact@arenaschool.org，我们会尽快回复。' : 'Something went wrong. Please email contact@arenaschool.org and we will reply right away.', 'error');
+        return;
+      }
+      remember();
+      unlock(true);
+    });
+  });
+})();
