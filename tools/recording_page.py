@@ -34,7 +34,9 @@ C = {
    h1='Our Kids’ Jobs <em>Don’t Exist Yet.</em> So Which Skills Will Matter?',
    line='Which skills will matter when our children’s jobs don’t exist yet, with the case studies we walked through. For ISB parents, hosted by the ISB PTA.',
    by=[('Speakers', 'Jing Jing Yang and Phillip An'), ('Where', 'International School of Beijing'), ('Slides', 'English and Chinese')],
-   soon=('Recording coming soon', 'The full talk, on this page'), locked=('Fill in the form to watch', 'The full talk, on this page'),
+   gate_src=('Fill in the form to watch', 'The full talk, on this page'), gate_soon=('Recording coming soon', 'Fill in the form, and we’ll email you when it’s ready'),
+   open_src=('Unlocked', 'Loading the player'), open_soon=('Recording coming soon', 'Unlocked. We’ll email you when it’s ready'),
+   alt=('/talks/2026-10-isb-parent-coffee/recording-cn', 'zh-CN', 'The recording is available in Chinese.', 'Watch the Chinese version'),
    fk='Watch the recording', fh='Watch the full talk', fp='Free for families and educators. One short form.',
    name='Name', email='Email', school='School', school_h='your child’s, or yours', role='I am a', role_ph='Pick one',
    roles=[('Parent', 'Parent'), ('Teacher', 'Teacher'), ('School leader', 'School leader'), ('Other', 'Other')],
@@ -53,7 +55,9 @@ C = {
    h1='孩子们未来的工作还不存在，<em>那么，哪些能力最重要？</em>',
    line='当孩子们未来的工作还不存在，哪些能力最重要，以及讲座中演示过的案例。面向 ISB 家长，由 ISB PTA 主办。',
    by=[('主讲', '羊筱涵、安广宁'), ('地点', '北京顺义国际学校'), ('幻灯片', '中英文')],
-   soon=('录像即将上线', '讲座全程，在本页观看'), locked=('填写表格即可观看', '讲座全程，在本页观看'),
+   gate_src=('填写表格即可观看', '讲座全程，在本页观看'), gate_soon=('录像即将上线', '填写表格，上线后我们会发邮件通知您'),
+   open_src=('已解锁', '正在加载播放器'), open_soon=('录像即将上线', '已解锁。上线后我们会发邮件通知您'),
+   alt=('/talks/2026-10-isb-parent-coffee/recording', 'en', '<!-- JJ review: 只有英文版录像时的提示 (RECORDING-ROUND3-BRIEF) -->目前提供英文版录像。', '观看英文版录像'),
    fk='观看录像', fh='观看讲座全程', fp='家长和教育者均可免费观看，只需填写一张简短的表格。',
    name='姓名', email='邮箱', school='学校', school_h='孩子就读的或您任职的学校', role='身份', role_ph='请选择',
    roles=[('Parent', '家长'), ('Teacher', '老师'), ('School leader', '学校管理者'), ('Other', '其他')],
@@ -75,10 +79,14 @@ def ic(name):
             'stroke-linejoin="round" aria-hidden="true" focusable="false">%s</svg>' % ICONS[name])
 
 
-LOCK = ('<svg class="ds-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" '
-        'aria-hidden="true" focusable="false"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>')
-PLAY = ('<svg class="ds-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" '
-        'aria-hidden="true" focusable="false"><path d="m8 5 11 7-11 7z"/></svg>')
+LOCK_OPEN = '<rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/>'   # Lucide lock-open
+
+
+def icon(paths, cls='ds-ic'):
+    return ('<svg class="%s" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" '
+            'aria-hidden="true" focusable="false">%s</svg>' % (cls, paths))
+
+
 
 
 def phone_foot(cn):
@@ -110,6 +118,9 @@ def page(lang):
     by = ''.join('<li>%s <b>%s</b></li>' % (k, v) for k, v in c['by'])
     more = ''.join('<li><a href="%s"><span><b>%s</b><small>%s</small></span><span class="arr" aria-hidden="true">→</span></a></li>' % m
                    for m in c['more'] + [c['all']])
+    lock, opened = icon(ICONS['lock']), icon(LOCK_OPEN)
+    msgs = ''.join('<p class="rv-msg %s">%s<span><b>%s</b><small>%s</small></span></p>' % (k, i, c[k.replace('m-', '').replace('-', '_')][0], c[k.replace('m-', '').replace('-', '_')][1])
+                   for k, i in (('m-gate-src', lock), ('m-gate-soon', lock), ('m-open-src', opened), ('m-open-soon', opened)))
     body = (
         '<main id="top" class="rec is-locked" data-video-src="" data-download-src="">\n'
         '<section class="rc-head" id="recording" data-screen-label="Recording"><div class="container rc-grid">\n'
@@ -119,8 +130,8 @@ def page(lang):
         '<section class="rc-band"><div class="container rc-grid">\n'
         '  <div class="rc-main">\n'
         '    <figure class="rv" data-poster="%(poster)s"><img src="%(poster)s" alt="" width="1600" height="900" decoding="async" fetchpriority="high">'
-        '<p class="rv-msg m-soon">%(play)s<span><b>%(soon0)s</b><small>%(soon1)s</small></span></p>'
-        '<p class="rv-msg m-lock">%(lock)s<span><b>%(lock0)s</b><small>%(lock1)s</small></span></p></figure>\n'
+        '%(msgs)s</figure>\n'
+        '    <p class="rc-alt" hidden>%(alt_t)s <a href="%(alt_h)s" hreflang="%(alt_l)s">%(alt_a)s <span class="arr" aria-hidden="true">→</span></a></p>\n'
         '  </div>\n'
         '  <div class="rc-side"><div class="pp-lead el-lead el-form" id="watch">\n'
         '    <div class="pp-lead-top"><span class="ds-eyebrow">%(fk)s</span><h3>%(fh)s</h3><p>%(fp)s</p></div>\n'
@@ -132,7 +143,7 @@ def page(lang):
         '      <div class="form-row form-row-1"><div><label for="rc-school">%(school)s<small>%(school_h)s</small></label><input id="rc-school" name="school" type="text" required autocomplete="organization" maxlength="160"></div></div>\n'
         '      <div class="form-row form-row-split"><div><label for="rc-role">%(role)s</label><select id="rc-role" name="role" required><option value="" disabled selected>%(role_ph)s</option>%(roles)s</select></div>'
         '<div><label for="rc-wechat">%(wechat)s<small>%(opt)s</small></label><input id="rc-wechat" name="wechat" type="text" autocomplete="off" maxlength="120"></div></div>\n'
-        '      <button type="submit" class="btn btn-primary cf-submit"><span class="cf-submit-label">%(submit)s <span class="arr">→</span></span>'
+        '      <button type="submit" class="btn btn-primary cf-submit"><span class="cf-submit-label">%(lk)s%(submit)s</span>'
         '<span class="cf-submit-loading" aria-hidden="true">%(sending)s</span></button>\n'
         '      <p class="cf-status" role="status" aria-live="polite"></p>\n      <p class="rc-note">%(note)s</p>\n'
         '    </form>\n'
@@ -142,7 +153,7 @@ def page(lang):
         '  <ul class="rc-more">%(more)s</ul>\n'
         '</div></section>\n'
         '</main>\n'
-        % dict(c, poster=POSTER[lang], play=PLAY, lock=LOCK, soon0=c['soon'][0], soon1=c['soon'][1], lock0=c['locked'][0], lock1=c['locked'][1],
+        % dict(c, poster=POSTER[lang], msgs=msgs, lk=icon(ICONS['lock'], 'ds-ic rc-lk'), alt_h=c['alt'][0], alt_l=c['alt'][1], alt_t=c['alt'][2], alt_a=c['alt'][3],
                roles=roles, by=by, more=more))
     head = ('<!DOCTYPE html>\n<html lang="%s">\n<head>\n%s<meta charset="UTF-8">\n'
             '<script data-pro>(function(d){d.classList.add("js")})(document.documentElement)</script>\n'
