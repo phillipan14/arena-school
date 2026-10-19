@@ -19,7 +19,8 @@ SKIP = ('decks', 'talks', 'card', 'partials', 'node_modules')
 NAV_RX = re.compile(r'(?s)<nav class="nav" id="nav">.*?</nav>')
 FOOT_RX = re.compile(r'(?s)<footer class="footer">.*?</footer>')
 # talks/ pages keep their own layouts, except these, which use the site header and footer
-INCLUDE = ('talks/2026-10-acamis-tech-workshop/download.html',)
+INCLUDE = ('talks/2026-10-acamis-tech-workshop/download.html', 'talks/2026-10-isb-parent-coffee/recording.html',
+           'talks/2026-10-isb-parent-coffee/recording-cn.html')
 COBRAND_RX = re.compile(r'(?s)\s*<span class="zl-cobrand".*?</span>\s*</span>')
 
 

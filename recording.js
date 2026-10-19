@@ -1,4 +1,5 @@
-/* Talk recording gate (RECORDING-BRIEF, Oct 19, 2026): /talk/recording and /talk/recording-cn.
+/* Talk recording gate (RECORDING-BRIEF; markup from the /schools gate since RECORDING-REDESIGN-BRIEF, Oct 19, 2026):
+   /talk/recording and /talk/recording-cn.
    To publish the recording, fill in CONFIG below (one line); both pages read it. A page can override it with
    data-video-src / data-download-src on .rec.
    This is a SOFT gate: once uploaded, the video and download URLs are ordinary public files. The form collects who is
@@ -14,10 +15,10 @@
   var KEY = 'arena-rec-2026-10-isb-parent-coffee';
   var video = root.getAttribute('data-video-src') || CONFIG.video;
   var download = root.getAttribute('data-download-src') || CONFIG.download || video;
-  var form = root.querySelector('.rg-form');
-  var done = root.querySelector('.rg-done');
+  var form = root.querySelector('.rec-form');
+  var done = root.querySelector('.pp-lead-done');
   var slot = root.querySelector('.rv');
-  var status = form.querySelector('.rg-status');
+  var status = form.querySelector('.cf-status');
 
   root.classList.toggle('has-src', !!video);
 
@@ -42,7 +43,7 @@
   function unlock(focus) {
     root.classList.remove('is-locked'); root.classList.add('is-open');
     showVideo();
-    var dl = done.querySelector('.rg-dl'), later = done.querySelector('.rg-later'), ready = done.querySelector('.rg-ready');
+    var dl = done.querySelector('.rec-dl'), later = done.querySelector('.pp-lead-later'), ready = done.querySelector('.rec-ready');
     if (dl) { dl.hidden = !video; if (video) dl.href = download; }
     if (ready) ready.hidden = !video;
     if (later) later.hidden = !!video;
@@ -62,7 +63,7 @@
       });
     });
   }
-  function setStatus(msg, kind) { status.textContent = msg; status.className = 'rg-status' + (kind ? ' is-' + kind : ''); }
+  function setStatus(msg, kind) { status.textContent = msg; status.className = 'cf-status' + (kind ? ' cf-status-' + kind : ''); }
 
   if (remembered()) unlock(false);
 
@@ -75,7 +76,7 @@
     var from = src();
     var lead = { name: data.name, email: data.email, school: data.school, role: data.role, contact: data.wechat,
                  kind: 'recording', program: 'ISB parent talk recording', lang: ZH ? 'zh' : 'en', src: from, page: location.pathname };
-    var btn = form.querySelector('.rg-submit');
+    var btn = form.querySelector('.cf-submit');
     form.classList.add('is-loading'); btn.disabled = true; setStatus('');
     post('/api/subscribe', { email: data.email, role: data.role, lang: ZH ? 'zh' : 'en', source: ('recording: ' + from).slice(0, 60), page: location.pathname, quiet: true })
       .catch(function (err) { console.warn('[recording] newsletter', err && err.message); });

@@ -1,0 +1,94 @@
+/* Talk recording page (RECORDING-REDESIGN-BRIEF, Oct 19, 2026): /talk/recording, /talk/recording-cn.
+   Tokens from css/pro.css; the form card reuses the /schools one-pager gate (pp-lead el-lead el-form, cohort-form).
+   Layout: a white head (eyebrow, title, one line), then a cool band with the video slot (columns 1-8) and the form
+   card (9-12), then a ruled row of the talk's other resources under the video. Phones stack: head, video, form, links. */
+.pg-recording { background: var(--pro-bg); }
+.rc-wrap { max-width: 1240px; margin: 0 auto; padding: 0 var(--space-6); }
+.rc-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--space-5); }
+
+/* head */
+/* The head is a compact intro to the video, not a full section: 48px, not --section-y. The sitewide rhythm rule in
+   css/pro.css stacks :not() selectors, so .is-tight cannot beat it; an id does. */
+.pg-recording section.rc-head { background: var(--pro-bg); }
+@media (min-width: 761px) { html body main > section#recording { padding-block: var(--space-7) !important; } }
+.rc-head .ds-eyebrow { display: block; margin-bottom: var(--space-4); }
+.rc-h1 { grid-column: 1 / 10; margin: 0; font: 400 var(--pro-h1)/1.08 'Newsreader', Georgia, serif; letter-spacing: -.02em; color: var(--pro-ink); text-wrap: balance; }
+.rc-h1 em { font-style: italic; color: var(--pro-ink-2); }
+html[lang^="zh"] .rc-h1 { font-weight: 500; letter-spacing: 0; line-height: 1.3; font-size: clamp(30px, 1rem + 1.9vw, 44px); }
+html[lang^="zh"] .rc-h1 em { font-style: normal; }
+.rc-line { grid-column: 1 / 9; margin: var(--space-5) 0 0; max-width: var(--measure-narrow); font-size: var(--text-lg); line-height: var(--lh-body); color: var(--pro-soft); }
+.rc-by { grid-column: 1 / 13; display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-6); margin: var(--space-5) 0 0; padding: 0; list-style: none; font-size: var(--text-sm); color: var(--pro-muted); }
+.rc-by b { color: var(--pro-text); font-weight: 500; }
+
+/* the band: video + form */
+.pg-recording section.rc-band { background: var(--pro-alt); border-top: var(--hairline); border-bottom: var(--hairline); padding: var(--space-6) 0 var(--space-8); }
+.rc-main { grid-column: 1 / 9; grid-row: 1; min-width: 0; }
+.rc-side { grid-column: 9 / 13; grid-row: 1 / span 2; min-width: 0; }
+/* links: under the video on desktop; after the form on phones (the form is the page's main action) */
+
+/* video slot: the cover slide with a label until a file is set; the <video> replaces it once the gate is open */
+.rv { position: relative; aspect-ratio: 16 / 9; margin: 0; border-radius: var(--radius-card); overflow: hidden; background: var(--pro-ink);
+  box-shadow: 0 1px 2px rgba(11, 26, 74, .06), 0 12px 32px -12px rgba(11, 26, 74, .28); }
+.rv img, .rv video { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.rv img { object-fit: cover; }
+.rv video { object-fit: contain; background: #000; z-index: 3; }
+.rv::after { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(11, 26, 74, 0) 42%, rgba(11, 26, 74, .78)); }
+.rv-msg { position: absolute; z-index: 2; left: var(--space-6); right: var(--space-6); bottom: var(--space-6); margin: 0; display: flex; align-items: center; gap: var(--space-3); color: #fff; }
+.rv-msg .ds-ic { flex: none; width: 40px; height: 40px; padding: 9px; border-radius: 50%; background: rgba(255, 255, 255, .14); border: 1px solid rgba(255, 255, 255, .35); }
+.rv-msg b { display: block; font: 400 var(--pro-h3)/1.2 'Newsreader', Georgia, serif; letter-spacing: -.01em; }
+.rv-msg small { display: block; margin-top: 2px; font-size: var(--text-sm); color: var(--pro-tint); }
+html[lang^="zh"] .rv-msg b { font-weight: 500; letter-spacing: 0; }
+.rv .m-lock { display: none; }
+.rec.has-src.is-locked .rv .m-lock { display: flex; }
+.rec.has-src .rv .m-soon { display: none; }
+
+/* the talk's other resources, ruled, under the video */
+.rc-more { grid-column: 1 / 9; grid-row: 2; align-self: start; margin: var(--space-6) 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: var(--space-5); }
+.rc-more li { border-top: 1px solid var(--pro-line-2); }
+.rc-more a { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-3); min-height: var(--tap); padding: var(--space-4) 0 0; text-decoration: none; color: var(--pro-ink); }
+.rc-more b { display: block; font-weight: 500; font-size: var(--text-base); line-height: 1.35; }
+.rc-more small { display: block; margin-top: 2px; font-size: var(--text-sm); color: var(--pro-muted); }
+.rc-more .arr { flex: none; color: var(--pro-action); transition: transform var(--dur-fast) var(--ease); }
+.rc-more a:hover b { color: var(--pro-action); } .rc-more a:hover .arr { transform: translateX(3px); }
+
+/* form card: the /schools gate, on the cool band it gets a hairline */
+.pg-recording .el-lead.pp-lead { border: var(--hairline); box-shadow: 0 1px 2px rgba(11, 26, 74, .04); }
+.pg-recording .el-lead .pp-lead-top { display: block; margin-bottom: var(--space-5); }
+.pg-recording .el-lead .pp-lead-top .ds-eyebrow { display: block; margin-bottom: var(--space-2); }
+.pg-recording .el-lead h3 { font-size: 24px; line-height: 1.2; }
+.pg-recording .el-form .form-row { margin-bottom: var(--space-4); }
+.pg-recording .el-form .form-row-1 { grid-template-columns: 1fr; }
+.pg-recording .el-form label small { margin-left: 6px; text-transform: none; letter-spacing: 0; font-weight: 400; color: var(--pro-muted); }
+.pg-recording .cf-submit { width: 100%; justify-content: center; }
+.pg-recording .nl-formnote, .pg-recording .rc-note { margin: var(--space-3) 0 0; font-size: 13px; line-height: 1.5; color: var(--pro-muted); }
+.pg-recording .cf-status:empty { display: none; }
+.pg-recording .cf-status.cf-status-error { margin: var(--space-3) 0 0; font-size: var(--text-sm); color: #9A3B2E; }
+.pg-recording .pp-lead-done:focus { outline: none; }
+.pg-recording .pp-lead-done b { display: block; font: 500 24px/1.2 'Newsreader', Georgia, serif; color: var(--pro-ink); }
+.pg-recording .pp-lead-done p { margin: var(--space-2) 0 0; font-size: var(--text-base); line-height: var(--lh-body); color: var(--pro-soft); }
+.pg-recording .pp-lead-done .btn { margin-top: var(--space-5); }
+.pg-recording [hidden] { display: none !important; }
+
+/* tablet: the form drops under the video at full width */
+@media (max-width: 1000px) {
+  .rc-main, .rc-side, .rc-more { grid-column: 1 / 13; grid-row: auto; }
+  .rc-side { margin-top: var(--space-6); }
+  .rc-more { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: var(--space-4); }
+  .rc-h1, .rc-line { grid-column: 1 / 13; }
+}
+@media (max-width: 760px) {
+  .rc-wrap { padding: 0 20px; }
+  .pg-recording section.rc-head { padding: var(--space-6) 0 var(--space-6); }
+  .rc-line { font-size: var(--text-base); margin-top: var(--space-4); }
+  .rc-by { margin-top: var(--space-4); }
+  .pg-recording section.rc-band { padding: var(--space-5) 0 var(--space-7); }
+  .rv-msg { left: var(--space-4); right: var(--space-4); bottom: var(--space-4); }
+  .rv-msg .ds-ic { width: 34px; height: 34px; padding: 7px; }
+  .rv-msg b { font-size: 19px; }
+  .rv-msg small { display: none; }
+  .rv::after { background: linear-gradient(180deg, rgba(11, 26, 74, 0) 30%, rgba(11, 26, 74, .85)); }
+  .rc-more { grid-template-columns: 1fr; row-gap: 0; }
+  .rc-more li:last-child { border-bottom: 1px solid var(--pro-line-2); }
+  .rc-more a { padding: var(--space-3) 0; }
+}
+@media (prefers-reduced-motion: reduce) { .rc-more .arr { transition: none; } }
