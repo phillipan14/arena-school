@@ -112,11 +112,11 @@ def page(lang):
                    for m in c['more'] + [c['all']])
     body = (
         '<main id="top" class="rec is-locked" data-video-src="" data-download-src="">\n'
-        '<section class="rc-head" id="recording" data-screen-label="Recording"><div class="rc-wrap rc-grid">\n'
+        '<section class="rc-head" id="recording" data-screen-label="Recording"><div class="container rc-grid">\n'
         '  <div style="grid-column:1/13"><span class="ds-eyebrow">%(ev)s</span></div>\n'
         '  <h1 class="rc-h1">%(h1)s</h1>\n  <p class="rc-line">%(line)s</p>\n  <ul class="rc-by">%(by)s</ul>\n'
         '</div></section>\n'
-        '<section class="rc-band"><div class="rc-wrap rc-grid">\n'
+        '<section class="rc-band"><div class="container rc-grid">\n'
         '  <div class="rc-main">\n'
         '    <figure class="rv" data-poster="%(poster)s"><img src="%(poster)s" alt="" width="1600" height="900" decoding="async" fetchpriority="high">'
         '<p class="rv-msg m-soon">%(play)s<span><b>%(soon0)s</b><small>%(soon1)s</small></span></p>'
