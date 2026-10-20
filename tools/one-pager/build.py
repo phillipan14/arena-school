@@ -675,7 +675,7 @@ def header11(lang):
     """Type-only navy band: wordmark and memberships on one line, then eyebrow, headline, and lede."""
     t, h = T11[lang], H1['teacher'][lang]
     lab = '<span class="blab">%s</span>' % t['member'] if t['member'] else ''
-    return ('<header class="top hd11"><div class="g12"><div class="c1-12 top-copy">'
+    return ('<header class="top hd11"><img class="crest11" src="/logos/arena/seal-ivory-1024.png" alt="" /><div class="g12"><div class="c1-12 top-copy">'
             '<div class="brand11"><img class="wm" src="/logos/arena/wordmark-ivory-1600.png" alt="Arena School" /><span class="bsep"></span>%s'
             '<span class="bm"><img class="lg-anth" src="/logos/partners/anthropic.svg" alt="Anthropic" /><em>%s</em></span>'
             '<span class="bm"><img class="lg-oai" src="/logos/partners/openai.svg" alt="OpenAI" /><em>%s</em></span></div>'
@@ -1039,7 +1039,9 @@ em { font-style: italic; }
 /* ===== v11 teacher (TEACHER-V11): one spacing system. Side margin 15mm; header and footer bands pad 9mm; sections share the
    leftover height equally and are split by hairlines; every section uses one component (label, serif title, one or two lines). ===== */
 .v11 .g12 { padding: 0 15mm; column-gap: 5mm; }
-.v11 .hd11 { height: auto; padding: 7mm 0 6.1mm; background: #0B1A4A; } :lang(zh) .v11 .hd11 { padding-bottom: 6.1mm; }
+.v11 .hd11 { height: auto; padding: 7mm 0 6.1mm; background: #0B1A4A; }
+.crest11 { position: absolute; z-index: 0; width: 58mm; height: 58mm; right: -12mm; top: 50%; transform: translateY(-50%); opacity: .07; pointer-events: none; }
+.hd11 > .g12 { position: relative; z-index: 1; } :lang(zh) .v11 .hd11 { padding-bottom: 6.1mm; }
 .brand11 { display: flex; align-items: center; gap: 3.4mm; height: 6mm; margin-bottom: 5.6mm; }
 .brand11 .wm { height: 5mm; width: auto; margin: 0; display: block; }
 .brand11 .bm { display: inline-flex; align-items: center; gap: 1.8mm; white-space: nowrap; }
