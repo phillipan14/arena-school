@@ -150,8 +150,8 @@ X = {
 INTRO = {
  'general': {'en': 'Workshops, intensives, year-long mentorship, and staff training, by a team from Harvard, Caltech, Tsinghua, and Y Combinator.',
              'cn': '工作坊、集训营、学年导师计划和教职员工培训；团队来自哈佛、加州理工、清华和 Y Combinator。'},
- 'teacher': {'en': 'Staff training, student intensives, and parent talks, planned around your calendar.',
-             'cn': '<!-- JJ review: 导语 (TEACHER-V10, Oct 20) -->教职员工培训、学生一周集训营、家长讲座，围绕贵校校历来安排。'},
+ 'teacher': {'en': 'Staff training, student intensives, and parent talks.',
+             'cn': '<!-- JJ review: 导语 (TEACHER-V10, Oct 20) -->教职员工培训、学生一周集训营、家长讲座。'},
  'parent': {'en': 'With mentors from Harvard, Caltech, Tsinghua, McKinsey, Goldman Sachs, and Y Combinator.',
             'cn': '导师来自哈佛、加州理工、清华、麦肯锡、高盛和 Y Combinator。'},
 }
@@ -620,48 +620,52 @@ def general9(lang, d):
 T11 = {
  'en': dict(
    member='A member of', anth='Startup Program', oai='Partner Network',
-   s=[('Staff training on their own work', 'Teachers keep doing what works, and let AI take the small chores around it.',
+   s=[('Staff training on their own work', '',
        [('Live session', 'A staff meeting', 'One live session at a meeting you already hold.'),
         ('Hands-on workshop', 'A department', 'Each teacher leaves with a tool for their class.'),
         ('School-wide', 'The whole faculty', 'Each department gets its own session, then a follow-up.')]),
-      ('A week-long intensive for your students', 'Two to five days on your campus in the holidays, or recommend a program to families.',
+      ('A week-long intensive for your students', '',
        [('ISB · Summer 2026', 'ISB AI Founders Program', 'Grades 7 to 12 pitched to judges from Harvard and Y Combinator.'),
         ('ISB · Jan 5 to 8, 2027', 'AI Fundamentals', 'Grades 6 to 12 build an AI project over winter break.'),
         ('Guangzhou · Dec 27 to Jan 2', 'AI Advantage Bootcamp', 'College and early-career learners launch an AI product.')]),
-      ('Talks for your parents', 'Not ready for an AI course? Start the conversation with families.',
+      ('Talks for your parents', '',
        [('ISB PTA · Oct 14, 2026', 'Parent coffee', 'How AI is changing jobs and college admissions.'),
-        ('Evening', 'Parent talk', 'Advice for families of grades 6 to 12. No sales pitch.'),
-        ('Leadership', 'Staff briefing', 'Heads, boards, and counselors: one answer for parents.')]),
-      ('How we plan it with you', 'Usually 8 to 12 weeks ahead, using only tools your school approves.',
-       [('Step 1', 'Scope', 'One call on your goals and calendar.'), ('Step 2', 'Adapt', 'Age, language, length, and format.'),
-        ('Step 3', 'Run', 'We lead, with your teachers.'), ('Step 4', 'Hand off', 'Curriculum and rubrics stay with you.')])],
+        ('Evening', 'Parent talk', 'Practical advice for families of grades 6 to 12.'),
+        ('Leadership', 'Staff briefing', 'Prepares leaders and counselors for parents’ top AI questions.')]),
+      ('How we plan it with you', '',
+       [('Step 1', 'Scope', 'Plan a call to determine your school’s goals and work around your schedule.'),
+        ('Step 2', 'Adapt', 'We adapt the program to your students’ ages, language, and timetable.'),
+        ('Step 3', 'Run', 'We lead every session, and one of your teachers co-runs it with us.'),
+        ('Step 4', 'Hand off', 'Your team keeps the curriculum, rubrics, and demo-day format to reuse.')])],
    fl='Five levels of AI fluency, re-measured each term',
    team='Coached by a team from', foot='Planned with your team, run on your campus.',
    link='arenaschool.org/programs/teacher-training', mail='contact@arenaschool.org'),
  'cn': dict(
    member='', anth='<!-- JJ review: 成员说法 (TEACHER-V11) -->初创企业计划成员', oai='合作伙伴网络成员',
-   s=[('<!-- JJ review: 全部中文文案 (TEACHER-V11) -->教职员工培训：从老师手头的工作出发', '好的做法照旧，让AI接手周边的琐碎小事。',
+   s=[('<!-- JJ review: 全部中文文案 (TEACHER-V11) -->教职员工培训：从老师手头的工作出发', '',
        [('现场分享', '教职工例会', '在已有的教职工例会上，做一场现场分享。'),
         ('动手工作坊', '教研组', '每位老师带走一个能在课堂上用的小工具。'),
         ('全校培训', '全体教师', '每个教研组各安排一场培训，之后再跟进。')]),
-      ('为学生开设的一周集训营', '两到五天，假期在贵校校园开展，也可以推荐给学生和家庭。',
+      ('为学生开设的一周集训营', '',
        [('ISB · 2026年夏', 'ISB AI Founders Program', '初高中学生做出应用，向哈佛和 Y Combinator 的评委路演。'),
         ('ISB · 2027年1月5日至8日', '学生AI基础营', '初高中学生在寒假最后四天，用AI做出一个项目。'),
         ('广州 · 12月27日至1月2日', 'AI职场先发营', '大学生与职场新人七天上线一款真实的AI产品。')]),
-      ('面向家长的讲座', '还没准备好开AI课？先从和家长的对话开始。',
+      ('面向家长的讲座', '',
        [('ISB PTA · 2026年10月14日', '家长咖啡会', '上午的小范围交流：AI如何改变就业和大学录取。'),
-        ('晚间', '主题分享', '为初高中学生的家庭提供具体建议，不做推销。'),
-        ('管理层', '教职工简报', '面向校长、校董会和升学顾问，统一对家长的回答。')]),
-      ('我们如何与贵校一起规划', '通常提前八到十二周开始，只使用贵校认可的工具。',
-       [('第1步', '明确目标', '一次通话，了解目标和校历。'), ('第2步', '调整方案', '按年龄、语言、时长和形式调整。'),
-        ('第3步', '共同开展', '由我们带领，老师一同参与。'), ('第4步', '交接留存', '课程与评分标准留给贵校。')])],
+        ('晚间', '主题分享', '为初高中学生的家庭提供具体建议。'),
+        ('管理层', '教职工简报', '帮助校长、校董会和升学顾问回答家长最常问的AI问题。')]),
+      ('我们如何与贵校一起规划', '',
+       [('第1步', '明确目标', '安排一次通话，明确贵校的目标，并配合贵校的时间安排。'),
+        ('第2步', '调整方案', '按学生的年龄、语言和校历，调整整个项目方案。'),
+        ('第3步', '共同开展', '每一场课程都由我们带领，贵校老师全程参与。'),
+        ('第4步', '交接留存', '课程、评分标准和路演日流程都留给贵校团队。')])],
    fl='AI素养五个层级，每学期重新评估',
    team='团队成员来自', foot='与贵校团队共同规划，在贵校校园开展。',
    link='arenaschool.org/programs/teacher-training-cn', mail='contact@arenaschool.org'),
 }
 TEAM11 = [('harvard', 5.6), ('caltech', 3.1), ('tsinghua-lockup', 5.2), ('goldman', 4.8), ('mckinsey', 2.5), ('microsoft-ai', 4.4)]   # six marks, one row; McKinsey at 2.5mm fits its cell
 NW_CN = ['斯坦福', '哈佛', '大学录取', '大学生', '职场新人', '千麓学者', '初高中学生', 'Y Combinator', 'AI工具', 'AI产品', '小工具', '项目', '路演日', '评委',
-         '学习', '校历', '老师', '跟进', '分享', '规则', '升学顾问', '教职工', '提问', '推销', '评分标准', '参与', '贵校团队', '学生', '形式', '调整', '目标', '就业', '现场分享', '真实', '建议', '统一', '留给贵校']
+         '学习', '校历', '老师', '跟进', '分享', '规则', '升学顾问', '教职工', '提问', '推销', '评分标准', '参与', '贵校团队', '学生', '形式', '调整', '目标', '就业', '现场分享', '真实', '建议', '统一', '留给贵校', '时间安排', '项目方案', '贵校老师', '路演日流程', '升学顾问', 'AI问题']
 NW_EN = ['Y Combinator', 'Lux Scholar', 'grades 6 to 12', 'grades 7 to 12', 'Grades 6 to 12', 'Grades 7 to 12', '8 to 12 weeks', 'early-career']
 
 
@@ -693,8 +697,8 @@ def teacher11(lang, d):
         if k == 0:
             levels = ''.join('<span class="lv"><span class="lvi"><i>%d</i>%s</span></span>' % (j + 1, name) for j, (name, _) in enumerate(f['levels']))
             extra = '<div class="g12 flk11"><span class="c1-12 cl">%s</span></div><div class="g12"><div class="c1-12 lvs">%s</div></div>' % (t['fl'], levels)
-        out.append('<section class="sec s11"><div class="g12"><div class="sh c1-12"><span class="num">%02d</span><div class="sht"><h2>%s</h2><p>%s</p></div></div></div>'
-                   '<div class="g12"><div class="c1-12 cols cols-%d">%s</div></div>%s</section>' % (k + 1, title, nw(dek, lang), n, row, extra))
+        out.append('<section class="sec s11"><div class="g12"><div class="sh c1-12"><span class="num">%02d</span><div class="sht"><h2>%s</h2>%s</div></div></div>'
+                   '<div class="g12"><div class="c1-12 cols cols-%d">%s</div></div>%s</section>' % (k + 1, title, '<p>%s</p>' % nw(dek, lang) if dek else '', n, row, extra))
     return ''.join(out)
 
 
@@ -1056,15 +1060,16 @@ em { font-style: italic; }
 :lang(zh) .v11 .hd11 h1 em { font-style: normal; }
 .v11 .hd11 .lede { margin: 0; max-width: none; font-size: 9.6pt; line-height: 1.45; color: rgba(255,255,255,.88); }
 .v11 .body { padding: 0; justify-content: flex-start; }
-.v11 .s11, .v11.dir-B .s11:nth-child(2) { flex: 1 1 auto; display: flex; flex-direction: column; justify-content: center; padding: 3.06mm 0 3.34mm; background: #fff; }
-:lang(zh) .v11 .s11, :lang(zh) .v11.dir-B .s11:nth-child(2) { padding: 3.36mm 0 3.04mm; }
+.v11 .s11, .v11.dir-B .s11:nth-child(2) { flex: 1 1 auto; display: flex; flex-direction: column; justify-content: center; padding: 3.28mm 0 3.12mm; background: #fff; }
+:lang(zh) .v11 .s11, :lang(zh) .v11.dir-B .s11:nth-child(2) { padding: 3.25mm 0 3.15mm; }
 .v11 .s11 + .s11 { box-shadow: inset 0 1px 0 #E2E6EE; }
 .v11 .s11 .sh { display: flex; align-items: center; gap: 4mm; margin: 0 0 2.8mm; }
 .v11 .s11 .num { flex: none; width: auto; height: auto; padding: 0 4mm 0 0; border-right: 1px solid var(--pro-line-2); border-radius: 0; background: none;
-  font: 400 21pt/1 SERIF; color: var(--pro-action); transform: translateY(.5mm); }
+  font: 400 21pt/1 SERIF; color: var(--pro-action); }
 .v11 .s11 .sht h2 { font-size: 14.5pt; line-height: 1.15; }
 .v11 .s11 .sht p { margin: 1mm 0 0; font-size: 8.8pt; line-height: 1.35; color: #4A5578; }
-.cols { display: grid; column-gap: 5mm; } .cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } .cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.cols { display: grid; column-gap: 5mm; } .cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } .cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 4mm; }
+.cols-4 .card11 { padding-left: 3.8mm; padding-right: 3.6mm; }
 .col { display: flex; flex-direction: column; min-width: 0; }
 .card11 { padding: 4.1mm 4.4mm 3.5mm; border: 1px solid #DCE1EA; border-radius: 2mm; background: #fff; }
 :lang(zh) .card11 { padding-top: 4.15mm; padding-bottom: 3.55mm; }   /* CJK lines carry more slack below the ink */
@@ -1081,8 +1086,8 @@ em { font-style: italic; }
 .lvi { display: inline-flex; align-items: baseline; gap: 1.6mm; font: 600 9pt/1 'Geist', system-ui, sans-serif; color: var(--pro-ink); }
 .lvi i { font: inherit; font-style: normal; color: var(--pro-action); }
 .lvi { transform: translateY(.12mm); } :lang(zh) .lvi { transform: translateY(.16mm); }
-.v11 .strip { padding: 3.4mm 0; background: #fff; border-top: 1px solid #E2E6EE; } :lang(zh) .v11 .strip { padding: 3.7mm 0; }
-:lang(zh) .v11 .strip .tlabel { transform: translateY(.33mm); }   /* CJK label sat 1.25px above the logos' center line */
+.v11 .strip { padding: 3.75mm 0; background: #fff; border-top: 1px solid #E2E6EE; } :lang(zh) .v11 .strip { padding: 4.95mm 0; }
+.v11 .strip .tlabel { transform: translateY(.26mm); } :lang(zh) .v11 .strip .tlabel { transform: translateY(.1mm); }   /* CJK label sat 1.25px above the logos' center line */
 .v11 .strip .team { grid-template-columns: repeat(6, auto); justify-content: space-between; }   /* equal gaps between marks of different widths */
 .v11 .strip .team .lc { justify-content: center; }
 .v11 .cta { padding-top: 5.4mm; padding-bottom: 4.6mm; align-items: center; }
