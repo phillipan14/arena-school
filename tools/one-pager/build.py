@@ -482,8 +482,8 @@ ICONS.update(EXTRA_ICONS)
 
 PHOTO9 = {
  'parent': ('/photos/isb-2026/pitch-duo-1600.webp', '60% 32%', CAP),
- 'teacher': ('/photos/isb-2026/pitch-team-1600.webp', '50% 12%',   # approved photo and caption (tools/photo_rules.py 'pitchteam')
-             {'en': 'Presenting to the panel, Beijing 2026', 'cn': '向评委展示，北京，2026年'}),
+ 'teacher': ('/photos/isb-2026/mentor-feedback-1600.webp', '50% 30%',
+             {'en': 'Mentors respond to a student’s work, Beijing 2026', 'cn': '<!-- JJ review: 照片说明 (BUILD-A-BRIEF) -->导师对学生的作品给出反馈，北京，2026年'}),
  'general': ('/photos/hero/gesture-1600.jpg', '50% 34%',
              {'en': 'Demo day at the International School of Beijing, 2026', 'cn': '<!-- JJ review: 照片说明 (BUILD-A-BRIEF) -->北京顺义国际学校路演日'}),
 }
@@ -495,14 +495,13 @@ def poster(lang, d):
     t = H1[d][lang]
     src, pos, cap = PHOTO9[d]
     eb = EYEBROW9.get(d, {}).get(lang, t['eyebrow'])
-    m = dict(L[lang], **MEM10.get(d, {}).get(lang, {}))
     return ('<header class="top poster"><figure class="photo"><img src="%s" alt="" style="object-position:%s" /><figcaption>%s</figcaption></figure>'
             '<div class="g12 pgrid"><div class="c1-12 top-copy">'
             '<div class="brandrow"><img class="wm" src="/logos/arena/wordmark-ivory-1600.png" alt="Arena School" /><span class="bsep"></span>'
             '<span class="bmem"><span class="blab">%s</span><span class="bm"><img src="/logos/partners/anthropic.svg" alt="Anthropic" style="height:2.3mm" /><em>%s</em></span>'
             '<span class="bm"><img src="/logos/partners/openai.svg" alt="OpenAI" style="height:4.2mm" /><em>%s</em></span></span></div>'
             '<div class="pcopy"><span class="eyebrow">%s</span><h1>%s</h1><p class="lede">%s</p></div></div></div></header>'
-            % (src, pos, cap[lang], m['member'], m['anth'], m['oai'], eb, t['h1'], INTRO[d][lang])).replace('<span class="blab"></span>', '')
+            % (src, pos, cap[lang], L[lang]['member'], L[lang]['anth'], L[lang]['oai'], eb, t['h1'], INTRO[d][lang]))
 
 
 def itl(nodes, cls=''):
@@ -613,125 +612,105 @@ def general9(lang, d):
             sec(2, 'teach', lang, teach(lang) + trow))
 
 
-# ---------------------------------------------------------------- v10 teacher (TEACHER-V10, Oct 20, 2026; JJ's audit): programs that complement the
-# curriculum, in three angles (staff training, a week-long student intensive, parent talks) plus how we plan with a school.
-# Every fact is from the live site: programs/teacher-training, schools, events/isb-winter-2027, zero-to-launch, programs/community-dialogues,
-# learning-approach ("ISB AI Founders Program"), results. Ben/SAS stays off this page (internal only, Oct 15 call notes).
-MEM10 = {'teacher': {'cn': dict(member='', anth='<!-- JJ review: 成员说法 (TEACHER-V10) -->初创企业计划成员', oai='合作伙伴网络成员')}}
-T10 = {
+# ---------------------------------------------------------------- v11 teacher (TEACHER-V11, Oct 20, 2026; JJ's review of v10): no photo (no students'
+# faces on print), one component per section (label, serif title, one or two lines, in columns), hairlines between sections, the Arena
+# wordmark and the teacher page link in the footer. Every fact is from the live site: programs/teacher-training, schools,
+# events/isb-winter-2027, zero-to-launch, programs/community-dialogues, learning-approach ("ISB AI Founders Program"), results.
+# Ben/SAS stays off this page (internal only, Oct 15 call notes).
+T11 = {
  'en': dict(
-   staff=('Staff training, on their own work', 'Teachers keep doing what works, and let AI take the small chores around it.'),
-   staff_c=[('presentation', 'A staff meeting', 'Live session', 'One session at a meeting you already hold.'),
-            ('hammer', 'A department', 'Hands-on workshop', 'Each teacher leaves with a working tool for a class they teach.'),
-            ('building-2', 'The whole faculty', 'School-wide', 'A session for each department, then a follow-up.')],
+   member='A member of', anth='Startup Program', oai='Partner Network',
+   s=[('Staff training on their own work', 'Teachers keep doing what works, and let AI take the small chores around it.',
+       [('Live session', 'A staff meeting', 'One live session at a staff meeting you already hold.'),
+        ('Hands-on workshop', 'A department', 'Each teacher leaves with a working tool for a class they teach.'),
+        ('School-wide', 'The whole faculty', 'Each department gets its own session, then a follow-up.')]),
+      ('A week-long intensive for your students', 'Two to five days on your campus in the holidays, or recommend a program to families.',
+       [('ISB · Summer 2026', 'ISB AI Founders Program', 'Five days, grades 7 to 12. Students built apps with AI and pitched them to judges from Harvard and Y Combinator.'),
+        ('ISB · Jan 5 to 8, 2027', 'AI Fundamentals', 'The last four days of winter break, grades 6 to 12: learn the AI tools, then build an idea into a working project.'),
+        ('Guangzhou · Dec 27 to Jan 2', 'AI Advantage Bootcamp', 'For college students and early-career professionals: seven days with Lux Scholar to launch a real AI product.')]),
+      ('Talks for your parents', 'Not ready for an AI course? Start the conversation with families.',
+       [('ISB PTA · Oct 14, 2026', 'Parent coffee', 'A morning chat on how AI is changing jobs and college admissions.'),
+        ('Evening', 'Parent talk', 'Practical advice for families of grades 6 to 12. No sales pitch.'),
+        ('Leadership', 'Staff briefing', 'For heads, boards, and counselors, so staff give parents one answer.')]),
+      ('How we plan it with you', 'Usually 8 to 12 weeks ahead, using only tools your school approves.',
+       [('Step 1', 'Scope', 'A call on your goals and school calendar.'), ('Step 2', 'Adapt', 'Fit to age, language, length, and format.'),
+        ('Step 3', 'Run', 'We lead, with your teachers in the room.'), ('Step 4', 'Hand off', 'The curriculum and rubrics stay with your team.')])],
    fl='Five levels of AI fluency, re-measured each term',
-   data='Only tools your school approves. We agree the data rules with your tech team before we plan.',
-   stu=('A week-long intensive for your students', 'Run on your campus in the holidays, or recommend a program to students and families.'),
-   stu_c=[('rocket', 'ISB AI Founders Program', 'ISB · Summer 2026', 'Five days, grades 7 to 12. Students built apps with AI and pitched to judges from Harvard and Y Combinator.', ''),
-          ('graduation-cap', 'AI Fundamentals', 'ISB · Jan 5 to 8, 2027', 'The last four days of winter break, grades 6 to 12: learn the AI tools, then build an idea into a working project.', ''),
-          ('briefcase', 'AI Advantage Bootcamp', 'Guangzhou · Dec 27 to Jan 2', 'For college students and early-career professionals: seven days with Lux Scholar to launch a real AI product.', '')],
-   fmt='Formats', fmts=['Starter · 2 to 3 days', 'Five-day intensive', 'Summer cohort', 'Holiday elective'],
-   par=('Talks for your parents', 'Not ready for an AI course? Start the conversation with families.'),
-   par_t='A parent coffee or an evening talk on how AI is changing work, jobs, and college admissions. No sales pitch.',
-   par_p=('ISB PTA Parent Coffee, Oct 14, 2026', '“Our Kids’ Jobs Don’t Exist Yet. So Which Skills Will Matter?”'),
-   par_f=['Parent coffee', 'Evening talk', 'Leadership briefing'],
-   how=('How we plan it with you', 'Usually 8 to 12 weeks ahead. You provide a room, laptops, and a teacher to co-run it.'),
-   how_n=[('calendar', 'Scope', 'One call on goals and calendar.'), ('layers', 'Adapt', 'Age, language, and length.'),
-          ('users', 'Run', 'We lead, with your teachers.'), ('book-open', 'Hand off', 'Curriculum and rubrics stay.')],
-   how_t='Usually 8 to 12 weeks ahead. You provide a room, a laptop for each student, and a teacher to co-run it.',
-   team='Coached by a team from', qr='Details for schools'),
+   team='Coached by a team from', foot='Planned with your team, run on your campus.',
+   link='arenaschool.org/programs/teacher-training'),
  'cn': dict(
-   staff=('<!-- JJ review: 全部中文文案 (TEACHER-V10) -->教职员工培训：从老师手头的工作出发', '好的做法照旧，让AI接手周边的琐碎小事。'),
-   staff_c=[('presentation', '教职工例会', '现场分享', '在已有的例会上做一场分享。'),
-            ('hammer', '教研组', '动手工作坊', '每位老师带走一个能用在自己课堂上的小工具。'),
-            ('building-2', '全体教师', '全校培训', '每个教研组各安排一场，之后再跟进。')],
+   member='', anth='<!-- JJ review: 成员说法 (TEACHER-V11) -->初创企业计划成员', oai='合作伙伴网络成员',
+   s=[('<!-- JJ review: 全部中文文案 (TEACHER-V11) -->教职员工培训：从老师手头的工作出发', '好的做法照旧，让AI接手周边的琐碎小事。',
+       [('现场分享', '教职工例会', '在已有的例会上做一场分享。'),
+        ('动手工作坊', '教研组', '每位老师都带走一个课堂小工具。'),
+        ('全校培训', '全体教师', '每个教研组各安排一场，之后再跟进。')]),
+      ('为学生开设的一周集训营', '两到五天，假期在贵校校园开展，也可以推荐给学生和家庭。',
+       [('ISB · 2026年夏', 'ISB AI Founders Program', '在校园内进行五天，面向初高中学生。学生借助AI做出应用，向来自哈佛和 Y Combinator 的评委路演。'),
+        ('ISB · 2027年1月5日至8日', '学生AI基础营', '寒假的最后四天，面向初高中学生：学习使用AI工具，把一个想法做成能用的项目。'),
+        ('广州 · 12月27日至1月2日', 'AI职场先发营', '面向大学生与职场新人：与千麓学者联合举办，七天上线一款真实的AI产品，并在路演日展示。')]),
+      ('面向家长的讲座', '还没准备好开AI课？先从和家长的对话开始。',
+       [('ISB PTA · 2026年10月14日', '家长咖啡会', '上午的小范围交流：AI如何改变工作、就业和大学录取，现场解答提问。'),
+        ('晚间', '主题分享', '为初高中学生的家庭提供具体建议，全程不做任何推销。'),
+        ('管理层', '教职工简报', '面向校长、校董会和升学顾问，让全校教职工的回答保持一致。')]),
+      ('我们如何与贵校一起规划', '通常提前八到十二周开始，只使用贵校认可的工具。',
+       [('第1步', '明确目标', '一次通话，了解贵校的目标和校历。'), ('第2步', '调整方案', '按学生年龄、语言、时长和形式来调整。'),
+        ('第3步', '共同开展', '由我们带领，贵校老师一同参与。'), ('第4步', '交接留存', '课程与评分标准都留给贵校团队。')])],
    fl='AI素养五个层级，每学期重新评估',
-   data='只用贵校认可的工具；开始规划前，先与贵校技术团队商定数据规则。',
-   stu=('为学生开设的一周集训营', '假期在贵校校园开展，也可以推荐给学生和家庭。'),
-   stu_c=[('rocket', 'ISB AI Founders Program', 'ISB · 2026年夏', '在校园内进行五天，面向初高中学生。学生借助AI做出应用，向来自哈佛和 Y Combinator 的评委路演。', ''),
-          ('graduation-cap', '学生AI基础营', 'ISB · 2027年1月5日至8日', '寒假的最后四天，面向初高中学生：学习使用AI工具，把一个想法做成能用的项目。', ''),
-          ('briefcase', 'AI职场先发营', '广州 · 12月27日至1月2日', '面向大学生与职场新人：与千麓学者联合举办，七天上线一款真实的AI产品，并在路演日展示。', '')],
-   fmt='形式', fmts=['入门 · 两到三天', '五天集训营', '暑期营', '假期选修'],
-   par=('面向家长的讲座', '还没准备好开AI课？先从和家长的对话开始。'),
-   par_t='上午的家长咖啡会或晚间的主题分享：AI如何改变工作、就业和大学录取。全程不做任何推销。',
-   par_p=('ISB PTA 家长咖啡会，2026年10月14日', '《孩子们未来的工作还不存在，那么，哪些能力最重要？》'),
-   par_f=['家长咖啡会', '晚间分享', '管理层简报'],
-   how=('我们如何与贵校一起规划', '通常提前八到十二周开始。贵校提供教室、电脑和一位共同带课的老师。'),
-   how_n=[('calendar', '明确目标', '一次通话，了解目标和校历。'), ('layers', '调整方案', '年龄、语言和时长。'),
-          ('users', '共同开展', '我们带领，老师一同参与。'), ('book-open', '交接留存', '课程与评分标准留给贵校。')],
-   how_t='通常提前八到十二周开始。贵校提供教室、每位学生一台电脑，以及一位共同带课的老师。',
-   team='团队成员来自', qr='学校合作详情'),
+   team='团队成员来自', foot='与贵校团队共同规划，在贵校校园开展。',
+   link='arenaschool.org/programs/teacher-training-cn'),
 }
-TEAM10 = [('harvard', 5.6), ('caltech', 3.1), ('tsinghua-lockup', 5.2), ('goldman', 4.8), ('mckinsey', 2.5), ('microsoft-ai', 4.4)]   # six marks, one row; McKinsey at 2.5mm fits its 24mm cell
-QR10 = {'en': 'https://arenaschool.org/schools', 'cn': 'https://arenaschool.org/schools-cn'}
-
-
-def qr_svg(url):
-    """Inline SVG QR code (needs the qrcode package; none if it is missing, so the build still runs)."""
-    try:
-        import qrcode
-    except ImportError:
-        return ''
-    q = qrcode.QRCode(border=0, error_correction=qrcode.constants.ERROR_CORRECT_M)
-    q.add_data(url)
-    m = q.get_matrix()
-    path = ''.join('M%d %dh1v1h-1z' % (x, y) for y, row in enumerate(m) for x, v in enumerate(row) if v)
-    return '<svg class="qr" viewBox="0 0 %d %d" shape-rendering="crispEdges" aria-hidden="true"><path d="%s" fill="currentColor"/></svg>' % (len(m), len(m), path)
-
-
-NW_CN = ['斯坦福', '哈佛', '大学录取', '大学生', '职场新人', '千麓学者', '初高中学生', 'Y Combinator', 'AI工具', 'AI产品', '小工具', '项目', '路演日', '评委', '学习', '校历', '老师', '跟进', '分享', '规则']
+TEAM11 = [('harvard', 5.6), ('caltech', 3.1), ('tsinghua-lockup', 5.2), ('goldman', 4.8), ('mckinsey', 2.5), ('microsoft-ai', 4.4)]   # six marks, one row; McKinsey at 2.5mm fits its cell
+NW_CN = ['斯坦福', '哈佛', '大学录取', '大学生', '职场新人', '千麓学者', '初高中学生', 'Y Combinator', 'AI工具', 'AI产品', '小工具', '项目', '路演日', '评委',
+         '学习', '校历', '老师', '跟进', '分享', '规则', '升学顾问', '教职工', '提问', '推销', '评分标准', '参与', '贵校团队', '学生', '形式', '调整', '目标', '就业']
+NW_EN = ['Y Combinator', 'Lux Scholar', 'grades 6 to 12', 'grades 7 to 12', '8 to 12 weeks']
 
 
 def nw(text, lang):
-    """CN: wrap names and words in no-break spans so a line never splits inside them."""
-    if lang != 'cn':
-        return text
-    for w in NW_CN:   # no word in the list contains another, so plain replacement is safe
-        text = text.replace(w, '<span class="nw">%s</span>' % w)
-    return text
+    """Wrap names, number ranges, and (CN) words in no-break spans so a line never splits inside them; longest match wins."""
+    words = sorted(NW_CN if lang == 'cn' else NW_EN, key=len, reverse=True)
+    return re.sub('|'.join(re.escape(w) for w in words), lambda m: '<span class="nw">%s</span>' % m.group(0), text)
 
 
-def chips(items):
-    return '<span class="chips">%s</span>' % ''.join('<span class="chip">%s</span>' % x for x in items)
+def header11(lang):
+    """Type-only navy band: wordmark and memberships on one line, then eyebrow, headline, and lede."""
+    t, h = T11[lang], H1['teacher'][lang]
+    lab = '<span class="blab">%s</span>' % t['member'] if t['member'] else ''
+    return ('<header class="top hd11"><div class="g12"><div class="c1-12 top-copy">'
+            '<div class="brand11"><img class="wm" src="/logos/arena/wordmark-ivory-1600.png" alt="Arena School" /><span class="bsep"></span>%s'
+            '<span class="bm"><img class="lg-anth" src="/logos/partners/anthropic.svg" alt="Anthropic" /><em>%s</em></span>'
+            '<span class="bm"><img class="lg-oai" src="/logos/partners/openai.svg" alt="OpenAI" /><em>%s</em></span></div>'
+            '<span class="eyebrow">%s</span><h1>%s</h1><p class="lede">%s</p></div></div></header>'
+            % (lab, t['anth'], t['oai'], h['eyebrow'], h['h1'], INTRO['teacher'][lang]))
 
 
-def teacher10(lang, d):
-    t, f = T10[lang], FL.C['cn' if lang == 'cn' else 'en']
-    t = {k: ([tuple(nw(x, lang) for x in row) for row in v] if isinstance(v, list) and v and isinstance(v[0], tuple)
-             else tuple(nw(x, lang) for x in v) if isinstance(v, tuple) else v) for k, v in t.items()}
-    t['par_t'], t['data'] = nw(T10[lang]['par_t'], lang), nw(T10[lang]['data'], lang)
-    card = lambda i, a, tag, b: '<div class="c10"><div class="c10h"><span class="ki">%s</span><div><b>%s</b><em>%s</em></div></div><span class="c10d">%s</span></div>' % (ic(i), a, tag, b)
-    staff = '<div class="g12"><div class="c1-12 row3">%s</div></div>' % ''.join(card(i, a, tag, b) for i, a, tag, b in t['staff_c'])
-    levels = ''.join('<span class="lv"><i>%d</i>%s</span>' % (k + 1, n) for k, (n, _) in enumerate(f['levels']))
-    fl = '<div class="g12 flrow"><span class="c1-3 lab">%s</span><div class="c4-12 lvs">%s</div></div>' % (t['fl'], levels)
-    data = '<div class="g12"><p class="c1-12 dline">%s<span>%s</span></p></div>' % (ic('shield-check'), t['data'])
-    prog = lambda i, a, tag, b, _: ('<div class="c10 pg"><div class="c10h"><span class="ki">%s</span><div><b>%s</b><em>%s</em></div></div><span class="c10d">%s</span></div>'
-                                      % (ic(i), a, tag, b))
-    stu = ('<div class="g12"><div class="c1-12 row3">%s</div></div>' % ''.join(prog(*c) for c in t['stu_c']) +
-           '<div class="g12 fmrow"><span class="c1-3 lab">%s</span><div class="c4-12">%s</div></div>' % (t['fmt'], chips(t['fmts'])))
-    pta = '<img src="%s" alt="" style="height:7mm" />' % LOGO['pta'][0]
-    par = ('<div class="g12 parrow"><div class="c1-6 part"><p>%s</p>%s</div><div class="c7-12 parp">%s<div><b>%s</b><span>%s</span></div></div></div>'
-           % (t['par_t'], chips(t['par_f']), pta, t['par_p'][0], t['par_p'][1]))
-    how = ('<div class="g12"><div class="c1-12">%s</div></div>' % itl([(i, '', '', a, b) for i, a, b in t['how_n']], 'flow how') +
-           '')
-    s = lambda n, key, inner: ('<section class="sec"><div class="g12"><div class="sh c1-12"><span class="num">%02d</span><div class="sht"><h2>%s</h2><p>%s</p></div></div></div>%s</section>'
-                               % (n, t[key][0], t[key][1], inner))
-    return s(1, 'staff', staff + fl + data) + s(2, 'stu', stu) + s(3, 'par', par) + s(4, 'how', how)
+def teacher11(lang, d):
+    t, f = T11[lang], FL.C['cn' if lang == 'cn' else 'en']
+    out = []
+    for k, (title, dek, cols) in enumerate(t['s']):
+        n = len(cols)
+        row = ''.join('<div class="col"><span class="cl">%s</span><b class="ct">%s</b><span class="cd">%s</span></div>' % (a, b, nw(c, lang)) for a, b, c in cols)
+        extra = ''
+        if k == 0:
+            levels = ''.join('<span class="lv"><span class="lvi"><i>%d</i>%s</span></span>' % (j + 1, name) for j, (name, _) in enumerate(f['levels']))
+            extra = '<div class="g12 flk11"><span class="c1-12 cl">%s</span></div><div class="g12"><div class="c1-12 lvs">%s</div></div>' % (t['fl'], levels)
+        out.append('<section class="sec s11"><div class="g12"><div class="sh c1-12"><span class="num">%02d</span><div class="sht"><h2>%s</h2><p>%s</p></div></div></div>'
+                   '<div class="g12"><div class="c1-12 cols cols-%d">%s</div></div>%s</section>' % (k + 1, title, nw(dek, lang), n, row, extra))
+    return ''.join(out)
 
 
-def strip10(lang):
-    cells = ''.join('<span class="lc"><img src="/logos/cred/%s.png" alt="" style="height:%smm" /></span>' % (k, h) for k, h in TEAM10)
+def strip11(lang):
+    cells = ''.join('<span class="lc"><img src="/logos/cred/%s.png" alt="" style="height:%smm" /></span>' % (k, h) for k, h in TEAM11)
     return ('<section class="strip"><div class="g12 row trow"><span class="c1-3 lab tlabel">%s</span><div class="c4-12 team cols-6">%s</div></div></section>'
-            % (T10[lang]['team'], cells))
+            % (T11[lang]['team'], cells))
 
 
-def footer10(lang):
-    c = L[lang]
-    return ('<footer class="cta g12"><div class="c1-8"><h2>%s</h2><p>%s</p></div><div class="c9-12 contact10"><div class="ct"><b>%s</b><span>%s</span></div>'
-            '<div class="qrw">%s<small>%s</small></div></div></footer>' % (c['cta'], c['ctap'], c['mail'], c['web'], qr_svg(QR10[lang]), T10[lang]['qr']))
+def footer11(lang):
+    c, t = L[lang], T11[lang]
+    return ('<footer class="cta g12 ft11"><span class="c1-6 fwm"><img class="wm" src="/logos/arena/wordmark-ivory-1600.png" alt="Arena School" /></span>'
+            '<b class="c7-12 lk">%s</b><p class="c1-6 tg">%s</p><span class="c7-12 em">%s</span></footer>' % (t['link'], nw(t['foot'], lang), c['mail']))
 
 
-BODY9 = {'general': general9, 'teacher': teacher10, 'parent': parent9}
+BODY9 = {'general': general9, 'teacher': teacher11, 'parent': parent9}
 
 
 BODY = {'general': general, 'teacher': teacher, 'parent': parent}
@@ -747,8 +726,8 @@ def page(doc, lang, d):
     wcss = '\n'.join(l for l in open(os.path.join(ROOT, 'css', 'approach.css'), encoding='utf-8').read().splitlines() if l.startswith('.apw'))
     return ('<!doctype html>\n<html lang="%s">\n<head>\n<meta charset="utf-8" />\n<title>Arena School one-pager</title>\n%s%s\n<style>\n%s\n%s\n%s\n</style>\n</head>\n<body>\n'
             '<main class="op %s dir-%s v9%s">\n%s\n<div class="body">%s</div>\n%s\n%s\n</main>\n</body>\n</html>\n'
-            % ('zh-CN' if cn else 'en', jj, fonts, root, wcss, CSS.replace('SERIF', serif), doc, d, ' v10' if doc == 'teacher' else '', poster(lang, doc), BODY9[doc](lang, d),
-               strip10(lang) if doc == 'teacher' else strip(lang), footer10(lang) if doc == 'teacher' else footer(lang, doc)))
+            % ('zh-CN' if cn else 'en', jj, fonts, root, wcss, CSS.replace('SERIF', serif), doc, d, ' v11' if doc == 'teacher' else '', header11(lang) if doc == 'teacher' else poster(lang, doc), BODY9[doc](lang, d),
+               strip11(lang) if doc == 'teacher' else strip(lang), footer11(lang) if doc == 'teacher' else footer(lang, doc)))
 
 
 CSS = r"""
@@ -1057,37 +1036,56 @@ em { font-style: italic; }
 .teach.narrow .wheel .apw { max-width: 34mm; } .teach.narrow { display: grid; grid-template-columns: 34mm 1fr; column-gap: 4mm; align-items: center; }
 .teach.narrow .skills { grid-column: 1 / -1; margin-top: 3mm; } .teach.narrow .loop { font-size: 12pt; margin: 0; }
 .halves .pair { margin-bottom: 3mm; }
-/* ===== v10 teacher (TEACHER-V10): three angles + how we plan; body type at least 8.4pt so it reads on a phone ===== */
-.v10 .poster { height: 64mm; } .v10 .poster .pgrid { padding-top: 7mm; padding-bottom: 5.4mm; } .v10 .poster h1 { font-size: 24pt; margin: 1.4mm 0 2mm; } .v10 .poster .lede { max-width: 182mm; text-wrap: pretty; }
-.v10 .sht h2 { font-size: 15pt; } .v10 .sht p { font-size: 8.8pt; }
-.v10 .sh { margin-bottom: 2.2mm; } .v10.dir-B .sec { padding: 2.6mm 0; }
-.row3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4mm; }
-.c10 { display: flex; flex-direction: column; gap: 1.6mm; padding: 2.6mm 3mm 2.8mm; border: 1px solid var(--pro-line); border-radius: 2mm; background: #fff; min-width: 0; }
-.c10h { display: flex; align-items: center; gap: 2.4mm; } .c10h .ki { width: 8mm; height: 8mm; }
-.c10h b { display: block; font: 600 9.6pt/1.2 'Geist', system-ui, sans-serif; color: var(--pro-ink); }
-.c10h em { display: block; margin-top: .6mm; font: 600 7.6pt/1.2 'Geist', system-ui, sans-serif; font-style: normal; color: var(--pro-action); }
-.c10d { font-size: 8.6pt; line-height: 1.4; color: #3A4466; text-wrap: pretty; }
-.pg .who { margin-top: auto; padding-top: 1.8mm; border-top: 1px solid var(--pro-line); font-size: 7.6pt; line-height: 1.3; color: #4A5578; }
-.v10 .flk { margin-top: 3mm; margin-bottom: 1.6mm; }
-.lvs { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 2.4mm; }
-.lv { height: 7.4mm; display: flex; align-items: center; justify-content: center; gap: 1.6mm; border-radius: 1.2mm; font: 600 8.6pt/1 'Geist', system-ui, sans-serif; color: var(--pro-ink);
-  background: color-mix(in srgb, var(--pro-action) 9%, #fff); }
-.lv i { font: 400 11pt/1 SERIF; font-style: normal; color: var(--pro-action); }
-.dline { display: flex; align-items: center; gap: 2.2mm; margin: 2.8mm 0 0; font-size: 8.6pt; color: var(--pro-ink); }
-.fmrow { margin-top: 3mm; align-items: center; } .flrow { margin-top: 3.2mm; align-items: center; } .nw { white-space: nowrap; } .parrow { align-items: center; }
-.chips { display: flex; flex-wrap: wrap; gap: 1.6mm; }
-.chip { display: inline-flex; align-items: center; height: 6mm; padding: 0 2.6mm; border: 1px solid var(--pro-line-2); border-radius: 3mm; font-size: 8pt; line-height: 1; color: var(--pro-ink); background: #fff; white-space: nowrap; }
-.part p { margin: 0 0 2.6mm; font-size: 9pt; line-height: 1.45; color: #3A4466; }
-.parp { display: flex; align-items: center; gap: 3.4mm; padding: 3mm 3.4mm; background: #F3F5FA; border-radius: 2mm; }
-.parp img { flex: none; width: auto; } .parp b { display: block; font: 600 7.6pt/1.3 'Geist', system-ui, sans-serif; color: #4A5578; }
-.parp span { display: block; margin-top: .8mm; font: 500 10.5pt/1.3 SERIF; color: var(--pro-ink); }
-.how .node .dn { display: none; } .how .node b { margin-top: 1mm; font-size: 11pt; } .how .ndrow { margin-bottom: .6mm; } .how .nd { width: 8.6mm; height: 8.6mm; } .how .nd .ic { width: 4.4mm; height: 4.4mm; }
-.hnote { margin: 2.6mm 0 0; font-size: 8.4pt; color: #4A5578; }
-.contact10 { display: flex; align-items: center; justify-content: flex-end; gap: 4mm; }
-.contact10 .ct { display: grid; gap: .8mm; text-align: right; font-size: 9pt; } .contact10 .ct span { color: #C9D6F2; }
-.qrw { display: grid; justify-items: center; gap: .8mm; } .qrw small { font-size: 7pt; color: #C9D6F2; white-space: nowrap; }
-.qr { display: block; width: 15mm; height: 15mm; padding: 1.2mm; background: #fff; color: #0B1A4A; border-radius: 1mm; }
-.v10 .cta { padding-top: 3.6mm; padding-bottom: 3.6mm; }
+/* ===== v11 teacher (TEACHER-V11): one spacing system. Side margin 15mm; header and footer bands pad 9mm; sections share the
+   leftover height equally and are split by hairlines; every section uses one component (label, serif title, one or two lines). ===== */
+.v11 .g12 { padding: 0 15mm; column-gap: 5mm; }
+.v11 .hd11 { height: auto; padding: 8mm 0 7.1mm; background: #0B1A4A; } :lang(zh) .v11 .hd11 { padding-bottom: 7.4mm; }
+.brand11 { display: flex; align-items: center; gap: 3.4mm; height: 6mm; margin-bottom: 7mm; }
+.brand11 .wm { height: 5mm; width: auto; margin: 0; display: block; }
+.brand11 .bm { display: inline-flex; align-items: center; gap: 1.8mm; white-space: nowrap; }
+.brand11 .bm img { display: block; width: auto; filter: brightness(0) invert(1); opacity: .92; }
+.brand11 .lg-anth { height: 2.3mm; } .brand11 .lg-oai { height: 4.2mm; }
+.brand11 .bm em { font-style: normal; font-size: 7.6pt; line-height: 1; color: #DCE4F7; }
+.brand11 .blab { line-height: 1; transform: translateY(.26mm); }
+.v11 .hd11 .eyebrow { display: block; color: #C9D6F2; }
+.v11 .hd11 h1 { color: #fff; font-size: 24pt; line-height: 1.1; margin: 2mm 0 2.6mm; letter-spacing: -.006em; }
+:lang(zh) .v11 .hd11 h1 { font-size: 22pt; line-height: 1.25; }
+.v11 .hd11 h1 em { color: #C9D6F2; white-space: nowrap; }
+:lang(zh) .v11 .hd11 h1 em { font-style: normal; }
+.v11 .hd11 .lede { margin: 0; max-width: none; font-size: 9.6pt; line-height: 1.45; color: rgba(255,255,255,.88); }
+.v11 .body { padding: 0; justify-content: flex-start; }
+.v11 .s11, .v11.dir-B .s11:nth-child(2) { flex: 1 1 auto; display: flex; flex-direction: column; justify-content: center; padding: 4.26mm 0 3.74mm; background: #fff; }
+:lang(zh) .v11 .s11, :lang(zh) .v11.dir-B .s11:nth-child(2) { padding: 4.66mm 0 3.34mm; }
+.v11 .s11 + .s11 { box-shadow: inset 0 1px 0 #E2E6EE; }
+.v11 .s11 .sh { display: flex; align-items: center; gap: 4mm; margin: 0 0 3mm; }
+.v11 .s11 .num { flex: none; width: auto; height: auto; padding: 0 4mm 0 0; border-right: 1px solid var(--pro-line-2); border-radius: 0; background: none;
+  font: 400 21pt/1 SERIF; color: var(--pro-action); transform: translateY(.5mm); }
+.v11 .s11 .sht h2 { font-size: 14.5pt; line-height: 1.15; }
+.v11 .s11 .sht p { margin: 1mm 0 0; font-size: 8.8pt; line-height: 1.35; color: #4A5578; }
+.cols { display: grid; column-gap: 5mm; } .cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } .cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.col { display: flex; flex-direction: column; min-width: 0; padding-top: 2.4mm; border-top: 1.4px solid var(--pro-action); }
+.cl { display: block; font: 600 7.2pt/1.2 'Geist', system-ui, sans-serif; letter-spacing: .1em; text-transform: uppercase; color: var(--pro-action); }
+:lang(zh) .cl { letter-spacing: .04em; font-size: 7.6pt; }
+.ct { display: block; margin: 1.4mm 0 1mm; font: 500 11.5pt/1.2 SERIF; color: var(--pro-ink); }
+.cd { display: block; font-size: 8.8pt; line-height: 1.42; color: #3A4466; }
+.nw { white-space: nowrap; }
+.flk11 { margin-top: 3.6mm; margin-bottom: 1.8mm; }
+.lvs { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 2mm; margin-bottom: .7mm; }   /* pills have no line slack below them */
+.lv { display: flex; align-items: center; justify-content: center; height: 7.6mm; border-radius: 1.2mm; background: color-mix(in srgb, var(--pro-action) 8%, #fff); }
+.lv:nth-child(2) { background: color-mix(in srgb, var(--pro-action) 12%, #fff); } .lv:nth-child(3) { background: color-mix(in srgb, var(--pro-action) 16%, #fff); }
+.lv:nth-child(4) { background: color-mix(in srgb, var(--pro-action) 20%, #fff); } .lv:nth-child(5) { background: color-mix(in srgb, var(--pro-action) 24%, #fff); }
+.lvi { display: inline-flex; align-items: baseline; gap: 1.6mm; font: 600 9pt/1 'Geist', system-ui, sans-serif; color: var(--pro-ink); }
+.lvi i { font: inherit; font-style: normal; color: var(--pro-action); }
+.lvi { transform: translateY(.12mm); } :lang(zh) .lvi { transform: translateY(.16mm); }
+.v11 .strip { padding: 4.65mm 0; background: #fff; border-top: 1px solid #E2E6EE; } :lang(zh) .v11 .strip { padding: 5.7mm 0; }
+.v11 .strip .team { grid-template-columns: repeat(6, auto); justify-content: space-between; }   /* equal gaps between marks of different widths */
+.v11 .strip .team .lc { justify-content: center; }
+.v11 .cta { padding-top: 5.4mm; padding-bottom: 4.6mm; align-items: center; }
+.ft11 { row-gap: 2.2mm; align-items: center; }
+.ft11 .fwm { display: flex; align-items: center; } .ft11 .wm { height: 5.4mm; width: auto; display: block; margin: 0; }
+.ft11 .lk { text-align: right; font-size: 9pt; color: #fff; white-space: nowrap; transform: translateY(.4mm); }
+.ft11 .tg { margin: 0; font-size: 8.6pt; line-height: 1.3; color: rgba(255,255,255,.86); white-space: nowrap; }
+.ft11 .em { text-align: right; font-size: 8.6pt; line-height: 1.3; color: #C9D6F2; }
 """.replace('SPANS', SPANS)
 
 
@@ -1123,7 +1121,7 @@ const { chromium } = require('playwright');
     const nc = getComputedStyle(document.querySelector('.strip .team')).gridTemplateColumns.split(' ').length;
     for (let i = nc; i < tc.length; i++) if (Math.abs(tc[i] - tc[i - nc]) > 1) uneven.push('team col ' + i);
     document.querySelectorAll('.acc li').forEach(li => { if (li.getBoundingClientRect().height > 16) uneven.push('acc wrap: ' + li.textContent); });
-    const fc = document.querySelector('.photo figcaption'); if (fc.getBoundingClientRect().height > 14) stepBad.push('caption wraps');
+    const fc = document.querySelector('.photo figcaption'); if (fc && fc.getBoundingClientRect().height > 14) stepBad.push('caption wraps');
     const g0 = document.querySelector('.body .g12'), g0r = g0.getBoundingClientRect(), gcs = getComputedStyle(g0);
     const L0 = g0r.left + parseFloat(gcs.paddingLeft), R0 = g0r.right - parseFloat(gcs.paddingRight);
     const edges = [];
