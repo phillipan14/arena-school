@@ -621,48 +621,48 @@ T11 = {
  'en': dict(
    member='A member of', anth='Startup Program', oai='Partner Network',
    s=[('Staff training on their own work', 'Teachers keep doing what works, and let AI take the small chores around it.',
-       [('Live session', 'A staff meeting', 'One live session at a staff meeting you already hold.'),
-        ('Hands-on workshop', 'A department', 'Each teacher leaves with a working tool for a class they teach.'),
+       [('Live session', 'A staff meeting', 'One live session at a meeting you already hold.'),
+        ('Hands-on workshop', 'A department', 'Each teacher leaves with a tool for their class.'),
         ('School-wide', 'The whole faculty', 'Each department gets its own session, then a follow-up.')]),
       ('A week-long intensive for your students', 'Two to five days on your campus in the holidays, or recommend a program to families.',
-       [('ISB · Summer 2026', 'ISB AI Founders Program', 'Five days, grades 7 to 12. Students built apps with AI and pitched them to judges from Harvard and Y Combinator.'),
-        ('ISB · Jan 5 to 8, 2027', 'AI Fundamentals', 'The last four days of winter break, grades 6 to 12: learn the AI tools, then build an idea into a working project.'),
-        ('Guangzhou · Dec 27 to Jan 2', 'AI Advantage Bootcamp', 'For college students and early-career professionals: seven days with Lux Scholar to launch a real AI product.')]),
+       [('ISB · Summer 2026', 'ISB AI Founders Program', 'Grades 7 to 12 pitched to judges from Harvard and Y Combinator.'),
+        ('ISB · Jan 5 to 8, 2027', 'AI Fundamentals', 'Grades 6 to 12 build an AI project over winter break.'),
+        ('Guangzhou · Dec 27 to Jan 2', 'AI Advantage Bootcamp', 'College and early-career learners launch an AI product.')]),
       ('Talks for your parents', 'Not ready for an AI course? Start the conversation with families.',
-       [('ISB PTA · Oct 14, 2026', 'Parent coffee', 'A morning chat on how AI is changing jobs and college admissions.'),
-        ('Evening', 'Parent talk', 'Practical advice for families of grades 6 to 12. No sales pitch.'),
-        ('Leadership', 'Staff briefing', 'For heads, boards, and counselors, so staff give parents one answer.')]),
+       [('ISB PTA · Oct 14, 2026', 'Parent coffee', 'How AI is changing jobs and college admissions.'),
+        ('Evening', 'Parent talk', 'Advice for families of grades 6 to 12. No sales pitch.'),
+        ('Leadership', 'Staff briefing', 'Heads, boards, and counselors: one answer for parents.')]),
       ('How we plan it with you', 'Usually 8 to 12 weeks ahead, using only tools your school approves.',
-       [('Step 1', 'Scope', 'A call on your goals and school calendar.'), ('Step 2', 'Adapt', 'Fit to age, language, length, and format.'),
-        ('Step 3', 'Run', 'We lead, with your teachers in the room.'), ('Step 4', 'Hand off', 'The curriculum and rubrics stay with your team.')])],
+       [('Step 1', 'Scope', 'One call on your goals and calendar.'), ('Step 2', 'Adapt', 'Age, language, length, and format.'),
+        ('Step 3', 'Run', 'We lead, with your teachers.'), ('Step 4', 'Hand off', 'Curriculum and rubrics stay with you.')])],
    fl='Five levels of AI fluency, re-measured each term',
    team='Coached by a team from', foot='Planned with your team, run on your campus.',
-   link='arenaschool.org/programs/teacher-training'),
+   link='arenaschool.org/programs/teacher-training', mail='contact@arenaschool.org'),
  'cn': dict(
    member='', anth='<!-- JJ review: 成员说法 (TEACHER-V11) -->初创企业计划成员', oai='合作伙伴网络成员',
    s=[('<!-- JJ review: 全部中文文案 (TEACHER-V11) -->教职员工培训：从老师手头的工作出发', '好的做法照旧，让AI接手周边的琐碎小事。',
-       [('现场分享', '教职工例会', '在已有的例会上做一场分享。'),
-        ('动手工作坊', '教研组', '每位老师都带走一个课堂小工具。'),
-        ('全校培训', '全体教师', '每个教研组各安排一场，之后再跟进。')]),
+       [('现场分享', '教职工例会', '在已有的教职工例会上，做一场现场分享。'),
+        ('动手工作坊', '教研组', '每位老师带走一个能在课堂上用的小工具。'),
+        ('全校培训', '全体教师', '每个教研组各安排一场培训，之后再跟进。')]),
       ('为学生开设的一周集训营', '两到五天，假期在贵校校园开展，也可以推荐给学生和家庭。',
-       [('ISB · 2026年夏', 'ISB AI Founders Program', '在校园内进行五天，面向初高中学生。学生借助AI做出应用，向来自哈佛和 Y Combinator 的评委路演。'),
-        ('ISB · 2027年1月5日至8日', '学生AI基础营', '寒假的最后四天，面向初高中学生：学习使用AI工具，把一个想法做成能用的项目。'),
-        ('广州 · 12月27日至1月2日', 'AI职场先发营', '面向大学生与职场新人：与千麓学者联合举办，七天上线一款真实的AI产品，并在路演日展示。')]),
+       [('ISB · 2026年夏', 'ISB AI Founders Program', '初高中学生做出应用，向哈佛和 Y Combinator 的评委路演。'),
+        ('ISB · 2027年1月5日至8日', '学生AI基础营', '初高中学生在寒假最后四天，用AI做出一个项目。'),
+        ('广州 · 12月27日至1月2日', 'AI职场先发营', '大学生与职场新人七天上线一款真实的AI产品。')]),
       ('面向家长的讲座', '还没准备好开AI课？先从和家长的对话开始。',
-       [('ISB PTA · 2026年10月14日', '家长咖啡会', '上午的小范围交流：AI如何改变工作、就业和大学录取，现场解答提问。'),
-        ('晚间', '主题分享', '为初高中学生的家庭提供具体建议，全程不做任何推销。'),
-        ('管理层', '教职工简报', '面向校长、校董会和升学顾问，让全校教职工的回答保持一致。')]),
+       [('ISB PTA · 2026年10月14日', '家长咖啡会', '上午的小范围交流：AI如何改变就业和大学录取。'),
+        ('晚间', '主题分享', '为初高中学生的家庭提供具体建议，不做推销。'),
+        ('管理层', '教职工简报', '面向校长、校董会和升学顾问，统一对家长的回答。')]),
       ('我们如何与贵校一起规划', '通常提前八到十二周开始，只使用贵校认可的工具。',
-       [('第1步', '明确目标', '一次通话，了解贵校的目标和校历。'), ('第2步', '调整方案', '按学生年龄、语言、时长和形式来调整。'),
-        ('第3步', '共同开展', '由我们带领，贵校老师一同参与。'), ('第4步', '交接留存', '课程与评分标准都留给贵校团队。')])],
+       [('第1步', '明确目标', '一次通话，了解目标和校历。'), ('第2步', '调整方案', '按年龄、语言、时长和形式调整。'),
+        ('第3步', '共同开展', '由我们带领，老师一同参与。'), ('第4步', '交接留存', '课程与评分标准留给贵校。')])],
    fl='AI素养五个层级，每学期重新评估',
    team='团队成员来自', foot='与贵校团队共同规划，在贵校校园开展。',
-   link='arenaschool.org/programs/teacher-training-cn'),
+   link='arenaschool.org/programs/teacher-training-cn', mail='contact@arenaschool.org'),
 }
 TEAM11 = [('harvard', 5.6), ('caltech', 3.1), ('tsinghua-lockup', 5.2), ('goldman', 4.8), ('mckinsey', 2.5), ('microsoft-ai', 4.4)]   # six marks, one row; McKinsey at 2.5mm fits its cell
 NW_CN = ['斯坦福', '哈佛', '大学录取', '大学生', '职场新人', '千麓学者', '初高中学生', 'Y Combinator', 'AI工具', 'AI产品', '小工具', '项目', '路演日', '评委',
-         '学习', '校历', '老师', '跟进', '分享', '规则', '升学顾问', '教职工', '提问', '推销', '评分标准', '参与', '贵校团队', '学生', '形式', '调整', '目标', '就业']
-NW_EN = ['Y Combinator', 'Lux Scholar', 'grades 6 to 12', 'grades 7 to 12', '8 to 12 weeks']
+         '学习', '校历', '老师', '跟进', '分享', '规则', '升学顾问', '教职工', '提问', '推销', '评分标准', '参与', '贵校团队', '学生', '形式', '调整', '目标', '就业', '现场分享', '真实', '建议', '统一', '留给贵校']
+NW_EN = ['Y Combinator', 'Lux Scholar', 'grades 6 to 12', 'grades 7 to 12', 'Grades 6 to 12', 'Grades 7 to 12', '8 to 12 weeks', 'early-career']
 
 
 def nw(text, lang):
@@ -688,7 +688,7 @@ def teacher11(lang, d):
     out = []
     for k, (title, dek, cols) in enumerate(t['s']):
         n = len(cols)
-        row = ''.join('<div class="col"><span class="cl">%s</span><b class="ct">%s</b><span class="cd">%s</span></div>' % (a, b, nw(c, lang)) for a, b, c in cols)
+        row = ''.join('<div class="col card11"><span class="cl">%s</span><b class="ct">%s</b><span class="cd">%s</span></div>' % (a, b, nw(c, lang)) for a, b, c in cols)
         extra = ''
         if k == 0:
             levels = ''.join('<span class="lv"><span class="lvi"><i>%d</i>%s</span></span>' % (j + 1, name) for j, (name, _) in enumerate(f['levels']))
@@ -707,7 +707,7 @@ def strip11(lang):
 def footer11(lang):
     c, t = L[lang], T11[lang]
     return ('<footer class="cta g12 ft11"><span class="c1-6 fwm"><img class="wm" src="/logos/arena/wordmark-ivory-1600.png" alt="Arena School" /></span>'
-            '<b class="c7-12 lk">%s</b><p class="c1-6 tg">%s</p><span class="c7-12 em">%s</span></footer>' % (t['link'], nw(t['foot'], lang), c['mail']))
+            '<b class="c7-12 lk">%s</b><p class="c1-6 tg">%s</p><span class="c7-12 em">%s</span></footer>' % (t['link'], nw(t['foot'], lang), t['mail']))
 
 
 BODY9 = {'general': general9, 'teacher': teacher11, 'parent': parent9}
@@ -1039,8 +1039,8 @@ em { font-style: italic; }
 /* ===== v11 teacher (TEACHER-V11): one spacing system. Side margin 15mm; header and footer bands pad 9mm; sections share the
    leftover height equally and are split by hairlines; every section uses one component (label, serif title, one or two lines). ===== */
 .v11 .g12 { padding: 0 15mm; column-gap: 5mm; }
-.v11 .hd11 { height: auto; padding: 8mm 0 7.1mm; background: #0B1A4A; } :lang(zh) .v11 .hd11 { padding-bottom: 7.4mm; }
-.brand11 { display: flex; align-items: center; gap: 3.4mm; height: 6mm; margin-bottom: 7mm; }
+.v11 .hd11 { height: auto; padding: 7mm 0 6.1mm; background: #0B1A4A; } :lang(zh) .v11 .hd11 { padding-bottom: 6.1mm; }
+.brand11 { display: flex; align-items: center; gap: 3.4mm; height: 6mm; margin-bottom: 5.6mm; }
 .brand11 .wm { height: 5mm; width: auto; margin: 0; display: block; }
 .brand11 .bm { display: inline-flex; align-items: center; gap: 1.8mm; white-space: nowrap; }
 .brand11 .bm img { display: block; width: auto; filter: brightness(0) invert(1); opacity: .92; }
@@ -1048,36 +1048,39 @@ em { font-style: italic; }
 .brand11 .bm em { font-style: normal; font-size: 7.6pt; line-height: 1; color: #DCE4F7; }
 .brand11 .blab { line-height: 1; transform: translateY(.26mm); }
 .v11 .hd11 .eyebrow { display: block; color: #C9D6F2; }
-.v11 .hd11 h1 { color: #fff; font-size: 24pt; line-height: 1.1; margin: 2mm 0 2.6mm; letter-spacing: -.006em; }
+.v11 .hd11 h1 { color: #fff; font-size: 22pt; line-height: 1.1; margin: 1.6mm 0 2.2mm; letter-spacing: -.006em; }
 :lang(zh) .v11 .hd11 h1 { font-size: 22pt; line-height: 1.25; }
 .v11 .hd11 h1 em { color: #C9D6F2; white-space: nowrap; }
 :lang(zh) .v11 .hd11 h1 em { font-style: normal; }
 .v11 .hd11 .lede { margin: 0; max-width: none; font-size: 9.6pt; line-height: 1.45; color: rgba(255,255,255,.88); }
 .v11 .body { padding: 0; justify-content: flex-start; }
-.v11 .s11, .v11.dir-B .s11:nth-child(2) { flex: 1 1 auto; display: flex; flex-direction: column; justify-content: center; padding: 4.26mm 0 3.74mm; background: #fff; }
-:lang(zh) .v11 .s11, :lang(zh) .v11.dir-B .s11:nth-child(2) { padding: 4.66mm 0 3.34mm; }
+.v11 .s11, .v11.dir-B .s11:nth-child(2) { flex: 1 1 auto; display: flex; flex-direction: column; justify-content: center; padding: 3.06mm 0 3.34mm; background: #fff; }
+:lang(zh) .v11 .s11, :lang(zh) .v11.dir-B .s11:nth-child(2) { padding: 3.36mm 0 3.04mm; }
 .v11 .s11 + .s11 { box-shadow: inset 0 1px 0 #E2E6EE; }
-.v11 .s11 .sh { display: flex; align-items: center; gap: 4mm; margin: 0 0 3mm; }
+.v11 .s11 .sh { display: flex; align-items: center; gap: 4mm; margin: 0 0 2.8mm; }
 .v11 .s11 .num { flex: none; width: auto; height: auto; padding: 0 4mm 0 0; border-right: 1px solid var(--pro-line-2); border-radius: 0; background: none;
   font: 400 21pt/1 SERIF; color: var(--pro-action); transform: translateY(.5mm); }
 .v11 .s11 .sht h2 { font-size: 14.5pt; line-height: 1.15; }
 .v11 .s11 .sht p { margin: 1mm 0 0; font-size: 8.8pt; line-height: 1.35; color: #4A5578; }
 .cols { display: grid; column-gap: 5mm; } .cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } .cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-.col { display: flex; flex-direction: column; min-width: 0; padding-top: 2.4mm; border-top: 1.4px solid var(--pro-action); }
+.col { display: flex; flex-direction: column; min-width: 0; }
+.card11 { padding: 4.1mm 4.4mm 3.5mm; border: 1px solid #DCE1EA; border-radius: 2mm; background: #fff; }
+:lang(zh) .card11 { padding-top: 4.15mm; padding-bottom: 3.55mm; }   /* CJK lines carry more slack below the ink */
 .cl { display: block; font: 600 7.2pt/1.2 'Geist', system-ui, sans-serif; letter-spacing: .1em; text-transform: uppercase; color: var(--pro-action); }
 :lang(zh) .cl { letter-spacing: .04em; font-size: 7.6pt; }
-.ct { display: block; margin: 1.4mm 0 1mm; font: 500 11.5pt/1.2 SERIF; color: var(--pro-ink); }
+.ct { display: block; margin: 1.2mm 0 .9mm; font: 500 11.5pt/1.2 SERIF; color: var(--pro-ink); }
 .cd { display: block; font-size: 8.8pt; line-height: 1.42; color: #3A4466; }
 .nw { white-space: nowrap; }
-.flk11 { margin-top: 3.6mm; margin-bottom: 1.8mm; }
-.lvs { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 2mm; margin-bottom: .7mm; }   /* pills have no line slack below them */
+.flk11 { margin-top: 3.2mm; margin-bottom: 1.8mm; }
+.lvs { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 2mm; }
 .lv { display: flex; align-items: center; justify-content: center; height: 7.6mm; border-radius: 1.2mm; background: color-mix(in srgb, var(--pro-action) 8%, #fff); }
 .lv:nth-child(2) { background: color-mix(in srgb, var(--pro-action) 12%, #fff); } .lv:nth-child(3) { background: color-mix(in srgb, var(--pro-action) 16%, #fff); }
 .lv:nth-child(4) { background: color-mix(in srgb, var(--pro-action) 20%, #fff); } .lv:nth-child(5) { background: color-mix(in srgb, var(--pro-action) 24%, #fff); }
 .lvi { display: inline-flex; align-items: baseline; gap: 1.6mm; font: 600 9pt/1 'Geist', system-ui, sans-serif; color: var(--pro-ink); }
 .lvi i { font: inherit; font-style: normal; color: var(--pro-action); }
 .lvi { transform: translateY(.12mm); } :lang(zh) .lvi { transform: translateY(.16mm); }
-.v11 .strip { padding: 4.65mm 0; background: #fff; border-top: 1px solid #E2E6EE; } :lang(zh) .v11 .strip { padding: 5.7mm 0; }
+.v11 .strip { padding: 3.4mm 0; background: #fff; border-top: 1px solid #E2E6EE; } :lang(zh) .v11 .strip { padding: 3.7mm 0; }
+:lang(zh) .v11 .strip .tlabel { transform: translateY(.33mm); }   /* CJK label sat 1.25px above the logos' center line */
 .v11 .strip .team { grid-template-columns: repeat(6, auto); justify-content: space-between; }   /* equal gaps between marks of different widths */
 .v11 .strip .team .lc { justify-content: center; }
 .v11 .cta { padding-top: 5.4mm; padding-bottom: 4.6mm; align-items: center; }
