@@ -19,8 +19,9 @@
    On submit (same backends as onepager.js): FormSubmit email to contact@, POST /api/interest (kind 'recording', Slack),
    and a quiet /api/subscribe. Either of the first two succeeding unlocks the page. */
 (function () {
-  var CONFIG = { videoEn: '/talks/2026-10-isb-parent-coffee/recording-en.mp4', downloadEn: '',
-                 videoCn: '/talks/2026-10-isb-parent-coffee/recording-cn.mp4', downloadCn: '' };
+  // One bilingual file (English + Chinese subtitles) serves both pages.
+  var CONFIG = { videoEn: '/talks/2026-10-isb-parent-coffee/recording.mp4', downloadEn: '',
+                 videoCn: '/talks/2026-10-isb-parent-coffee/recording.mp4', downloadCn: '' };
 
   var root = document.querySelector('.rec');
   if (!root) return;
