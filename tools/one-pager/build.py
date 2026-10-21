@@ -696,7 +696,7 @@ def strip11(lang):
 def footer11(lang):
     c, t = L[lang], T11[lang]
     return ('<footer class="cta g12 ft11"><span class="c1-6 fwm"><img class="wm" src="/logos/arena/wordmark-ivory-1600.png" alt="Arena School" /></span>'
-            '<b class="c7-12 lk">%s</b><p class="c1-6 tg">%s</p><span class="c7-12 em">%s</span></footer>' % (t['link'], nw(t['foot'], lang), t['mail']))
+            '<div class="c7-12 ct11"><b class="lk">%s</b><span class="em">%s</span></div></footer>' % (t['link'], t['mail']))
 
 
 # ---------------------------------------------------------------- v13 teacher (TEACHER-V13, Oct 20, 2026; JJ): three offerings with clear hierarchy.
@@ -722,7 +722,7 @@ T13 = {
                         ('Adapt', 'We adapt the program to your students’ ages, language, and timetable.'),
                         ('Run', 'We lead every session, and one of your teachers co-runs it with us.'),
                         ('Hand off', 'Your team keeps the curriculum, rubrics, and demo-day format to reuse.')],
-        'Usually 8 to 12 weeks ahead. Only school-approved tools; data rules agreed with your tech team.')),
+        'Only school-approved tools; data rules agreed with your tech team.')),
  'cn': dict(
    staff=('<!-- JJ review: 全部中文文案 (TEACHER-V13) -->教职员工培训', [
        ('教师发展培训 · 2到3小时', '全体教职员工现场分享', '我们在屏幕上现场演示一项任务，随后每位老师用自己的材料上手尝试。'),
@@ -739,7 +739,7 @@ T13 = {
                      ('调整方案', '按学生的年龄、语言和校历，调整整个项目方案。'),
                      ('共同开展', '每一场课程都由我们带领，贵校老师全程参与。'),
                      ('交接留存', '课程、评分标准和路演日流程都留给贵校团队。')],
-        '通常提前八到十二周开始。只用贵校认可的工具，数据规则事先与技术团队商定。')),
+        '只用贵校认可的工具，数据规则事先与技术团队商定。')),
 }
 
 
@@ -1146,11 +1146,11 @@ em { font-style: italic; }
 .v11 .strip .tlabel { transform: translateY(.02mm); } :lang(zh) .v11 .strip .tlabel { transform: translateY(.1mm); }   /* CJK label sat 1.25px above the logos' center line */
 .v11 .strip .team { grid-template-columns: repeat(6, auto); justify-content: space-between; }   /* equal gaps between marks of different widths */
 .v11 .strip .team .lc { justify-content: center; }
-.v11 .cta { padding-top: 5.4mm; padding-bottom: 4.6mm; align-items: center; }
-.ft11 { row-gap: 2.2mm; align-items: center; }
-.ft11 .fwm { display: flex; align-items: center; } .ft11 .wm { height: 5.4mm; width: auto; display: block; margin: 0; }
-.ft11 .lk { text-align: right; font-size: 9pt; color: #fff; white-space: nowrap; transform: translateY(.4mm); }
-.ft11 .tg { margin: 0; font-size: 8.6pt; line-height: 1.3; color: rgba(255,255,255,.86); white-space: nowrap; }
+.v11 .cta { padding-top: 4.8mm; padding-bottom: 4.6mm; align-items: center; }
+.ft11 { align-items: center; }
+.ft11 .fwm { display: flex; align-items: center; } .ft11 .wm { height: 8.4mm; width: auto; display: block; margin: 0; }
+.ft11 .ct11 { display: grid; gap: 1.6mm; justify-items: end; }
+.ft11 .lk { text-align: right; font-size: 9pt; color: #fff; white-space: nowrap; }
 .ft11 .em { text-align: right; font-size: 8.6pt; line-height: 1.3; color: #C9D6F2; }
 /* ===== v13 teacher (TEACHER-V13): a left rail (number + category) and one offering block per section ===== */
 .v11 .s13, .v11.dir-B .s13:nth-child(2) { flex: 1 1 auto; display: flex; flex-direction: column; justify-content: center; padding: 4.33mm 0 3.67mm; background: #fff; }
