@@ -745,7 +745,7 @@ T13 = {
 
 def teacher13(lang, d):
     t, f = T13[lang], FL.C['cn' if lang == 'cn' else 'en']
-    rail = lambda n, cat: '<div class="c1-3 rail"><span class="num">%02d</span><b class="cat">%s</b></div>' % (n, cat)
+    rail = lambda n, cat: '<div class="c1-3 rail">%s<b class="cat">%s</b></div>' % ('<span class="num">%02d</span>' % n if n else '', cat)   # no number: not an offering
     sec = lambda n, cat, main, cls='': ('<section class="sec s13 %s"><div class="g12">%s<div class="c4-12 main13">%s</div></div></section>'
                                         % (cls, rail(n, cat), main))
     proof = lambda x: '<p class="proof13">%s</p>' % nw(x, lang)
@@ -763,10 +763,10 @@ def teacher13(lang, d):
     cat, meta, name, topics, pr = t['par']
     tops = ''.join('<div class="tp13"><span class="cd">%s</span></div>' % nw(x, lang) for x in topics)
     s3 = sec(3, cat, '<div class="card11 off13 wide topc"><span class="cl">%s</span><b class="ot">%s</b><div class="tops13">%s</div></div>%s' % (meta, name, tops, proof(pr)))
-    # 04 how we work: a quieter band, no cards
+    # how we work: how we partner, not an offering, so it is unnumbered; a quieter band, no cards
     cat, steps, note = t['how']
     st = ''.join('<div class="st13"><b>%s</b><span>%s</span></div>' % (a, nw(b, lang)) for a, b in steps)
-    s4 = sec(4, cat, '<div class="steps13">%s</div>%s' % (st, proof(note)), 'how13')
+    s4 = sec(None, cat, '<div class="steps13">%s</div>%s' % (st, proof(note)), 'how13')
     return s1 + s2 + s3 + s4
 
 
@@ -1157,6 +1157,7 @@ em { font-style: italic; }
 :lang(zh) .v11 .s13, :lang(zh) .v11.dir-B .s13:nth-child(2) { padding: 4.42mm 0 3.58mm; }
 .v11 .s13 + .s13 { box-shadow: inset 0 1px 0 #E2E6EE; }
 .rail { display: flex; flex-direction: column; gap: 1.6mm; align-self: start; transform: translateY(-.36mm); }
+:lang(zh) .how13 .rail { transform: translateY(-.03mm); }   /* the CN label sat 1.25px above the step titles */
 .rail .num { display: block; width: auto; height: auto; padding: 0; border: 0; border-radius: 0; background: none; text-align: left; font: 400 21pt/1 SERIF; color: var(--pro-action); }
 .rail .cat { font: 500 14pt/1.15 SERIF; color: var(--pro-ink); }
 .main13 { display: flex; flex-direction: column; min-width: 0; }
