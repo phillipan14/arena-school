@@ -707,69 +707,82 @@ def footer11(lang):
 # day plan, community-dialogues topics, schools steps, results).
 T13 = {
  'en': dict(
-   staff=('Staff training', [
+   staff=('Staff<br>training', [
        ('PD session · 2 to 3 hours', 'A live session for all staff', 'A live demo, then each teacher tries the task on their own material.'),
        ('Hands-on workshop', 'Department or whole faculty', 'Each teacher leaves with a working tool for their class, plus a follow-up.')],
-       'Five levels of AI fluency, reassessable each term', 'Most recently at Schwarzman College, Tsinghua University.'),
-   stu=('Student program', '5 days · Grades 6 to 12 · On your campus', 'AI Fundamentals: a product-building bootcamp',
+       'Tools teachers have built', [('Feedback helper', 'Rubric-based comments'),
+                                     ('Who is missing what', 'Each student’s gaps'),
+                                     ('Poem annotator', 'Marks literary devices')],
+       'Five levels of AI fluency, reassessable each term', 'Level 5 teachers become in-house coaches for their colleagues.',
+       'Most recently at Schwarzman College, Tsinghua University.'),
+   stu=('Student<br>program', '5 days · Grades 6 to 12 · On your campus', 'AI Fundamentals: a product-building bootcamp',
         'Project-based: students learn 20+ of the newest AI tools, use AI ethically and responsibly, and leave with a working web or mobile app.',
         [('Day 1', 'Pick a problem'), ('Day 2', 'Talk to users'), ('Day 3', 'Launch it'), ('Day 4', 'Name and price'), ('Day 5', 'Demo day')],
-        'Most recently at ISB, with judges from Harvard, Stanford, and Y Combinator;<br>upcoming sessions in Hong Kong and Guangzhou.'),
-   par=('Parent talk', 'Morning · Small group · English or Chinese', 'Parent coffee: the future of work and education',
+        [('9.5/10', 'Net Promoter Score from 20 students,<br>Bodley Academy, Hong Kong'), ('5 days', 'for a ten-year-old to launch a<br>sign-language-to-speech app')],
+        'Most recently at ISB, with judges from Harvard, Stanford, and Y Combinator.'),
+   par=('Parent<br>talk', 'Morning · Small group · English or Chinese', 'Parent coffee: the future of work and education',
         'Firsthand, from people who do the hiring themselves.',
         ['AI-native work and<br>how hiring has changed', 'Which skills will<br>matter as jobs change', 'Practical advice for<br>families of grades 6 to 12'],
         'Most recently at the ISB PTA Parent Coffee.'),
-   how=('How we work', [('Scope', 'Plan a call to determine your school’s goals and work around your schedule.'),
-                        ('Adapt', 'We adapt the program to your students’ ages, language, and timetable.'),
-                        ('Run', 'We lead every session, and one of your teachers co-runs it with us.'),
-                        ('Hand off', 'Your team keeps the curriculum, rubrics, and demo-day format to reuse.')],
-        'Only school-approved tools; data rules agreed with your tech team.')),
+   how=('How we<br>work', [('Scope', 'Plan a call to determine your school’s goals and work around your schedule.'),
+                           ('Adapt', 'We adapt the program to your students’ ages, language, and timetable.'),
+                           ('Run', 'We lead every session, and one of your teachers co-runs it with us.'),
+                           ('Hand off', 'Your team keeps the curriculum, rubrics, and demo-day format to reuse.')])),
  'cn': dict(
-   staff=('<!-- JJ review: 全部中文文案 (TEACHER-V13) -->教职员工培训', [
+   staff=('<!-- JJ review: 全部中文文案 (TEACHER-V14) -->教职员工<br>培训', [
        ('教师发展培训 · 2到3小时', '全体教职员工现场分享', '我们在屏幕上现场演示一项任务，随后每位老师用自己的材料上手尝试。'),
        ('动手工作坊', '按教研组或全校开展', '每位老师都带走一个课堂小工具，之后再跟进。')],
-       'AI素养五个层级，每学期可重新评估', '最近一次：清华大学苏世民书院。'),
-   stu=('学生项目', '5天 · 初高中学生 · 在贵校校园', 'AI基础营：动手做产品的训练营',
+       '老师们做出的工具', [('评语助手', '按评分标准起草评语'),
+                            ('谁还没掌握哪个知识点', '每名学生的知识缺口'),
+                            ('诗歌批注', '标出诗歌修辞手法')],
+       'AI素养五个层级，每学期可重新评估', '第五层级的老师成为带动同事的校内教练。',
+       '最近一次：清华大学苏世民书院。'),
+   stu=('学生<br>项目', '5天 · 初高中学生 · 在贵校校园', 'AI基础营：动手做产品的训练营',
         '项目制学习：学生学会20多种最新的AI工具，合乎伦理、负责任地使用AI，最后做出一个能用的网页或手机应用。',
         [('第1天', '选定问题'), ('第2天', '访谈用户'), ('第3天', '发布上线'), ('第4天', '品牌与定价'), ('第5天', '路演日')],
-        '最近一次：ISB，评委来自哈佛、斯坦福和 Y Combinator；<br>即将在香港和广州开展。'),
-   par=('家长讲座', '上午 · 小范围 · 中文或英文', '家长咖啡会：工作与教育的未来',
+        [('9.5/10', '20名学生给出的净推荐值，<br>香港 Bodley Academy'), ('5天', '一名十岁学生上线了一款<br>手语转语音的应用')],
+        '最近一次：ISB，评委来自哈佛、斯坦福和 Y Combinator。'),
+   par=('家长<br>讲座', '上午 · 小范围 · 中文或英文', '家长咖啡会：工作与教育的未来',
         '来自亲自做招聘的人的一手观察。',
         ['AI原生工作，<br>以及招聘方式的变化', '工作在变，<br>哪些能力最重要', '为初高中各年龄段家庭<br>给出具体建议'],
         '最近一场：ISB PTA 家长咖啡会。'),
-   how=('合作方式', [('明确目标', '安排一次通话，明确贵校的目标，并配合贵校的时间安排。'),
-                     ('调整方案', '按学生的年龄、语言和校历，调整整个项目方案。'),
-                     ('共同开展', '每一场课程都由我们带领，贵校老师全程参与。'),
-                     ('交接留存', '课程、评分标准和路演日流程都留给贵校团队。')],
-        '只用贵校认可的工具，数据规则事先与技术团队商定。')),
+   how=('合作<br>方式', [('明确目标', '安排一次通话，明确贵校的目标，并配合贵校的时间安排。'),
+                        ('调整方案', '按学生的年龄、语言和校历，调整整个项目方案。'),
+                        ('共同开展', '每一场课程都由我们带领，贵校老师全程参与。'),
+                        ('交接留存', '课程、评分标准和路演日流程都留给贵校团队。')])),
 }
 
 
 def teacher13(lang, d):
     t, f = T13[lang], FL.C['cn' if lang == 'cn' else 'en']
-    rail = lambda n, cat: '<div class="c1-3 rail">%s<b class="cat">%s</b></div>' % ('<span class="num">%02d</span>' % n if n else '', cat)   # no number: not an offering
-    sec = lambda n, cat, main, cls='': ('<section class="sec s13 %s"><div class="g12">%s<div class="c4-12 main13">%s</div></div></section>'
+    rail = lambda n, cat: '<div class="c1-2 rail">%s<b class="cat">%s</b></div>' % ('<span class="num">%02d</span>' % n if n else '', cat)   # no number: not an offering
+    sec = lambda n, cat, main, cls='': ('<section class="sec s13 %s"><div class="g12">%s<div class="c3-12 main13">%s</div></div></section>'
                                         % (cls, rail(n, cat), main))
-    proof = lambda x: '<p class="proof13">%s</p>' % nw(x, lang)
-    # 01 staff training: two offerings, then the fluency levels
-    cat, offers, fl, pr = t['staff']
+    proof = lambda x: '<p class="proof13 in13">%s</p>' % nw(x, lang)
+    row = lambda items, cls: '<div class="%s">%s</div>' % (cls, ''.join(items))
+    # 01 staff training: two offerings, tools teachers built, the fluency levels and the coach model
+    cat, offers, tk, tools, fl, coach, pr = t['staff']
     cards = ''.join('<div class="card11 off13"><span class="cl">%s</span><b class="ot">%s</b><span class="cd">%s</span></div>' % (a, b, nw(c, lang)) for a, b, c in offers)
+    tl = row(['<div class="tl13"><b>%s</b><span class="cd">%s</span></div>' % (a, nw(b, lang)) for a, b in tools], 'tools13')
     levels = ''.join('<span class="lv"><span class="lvi"><i>%d</i>%s</span></span>' % (j + 1, name) for j, (name, _) in enumerate(f['levels']))
-    s1 = sec(1, cat, '<div class="cols cols-2">%s</div><span class="cl flk13">%s</span><div class="lvs">%s</div>%s' % (cards, fl, levels, proof(pr)))
-    # 02 the student program: one offering, its five days
-    cat, meta, name, desc, days, pr = t['stu']
+    s1 = sec(1, cat, '<div class="cols cols-2">%s</div><div class="toolr in13"><span class="cl">%s</span>%s</div>'
+             '<span class="cl flk13 in13">%s</span><div class="lvs">%s</div><p class="coach13 in13">%s</p>%s'
+             % (cards, tk, tl, fl, levels, nw(coach, lang), proof(pr)))
+    # 02 the student program: one offering, its five days, two results
+    cat, meta, name, desc, days, stats, pr = t['stu']
     dayrow = ''.join('<div class="dy13"><span class="cl">%s</span><b>%s</b></div>' % (a, b) for a, b in days)
-    s2 = sec(2, cat, '<div class="card11 off13 wide dayc"><span class="cl">%s</span><b class="ot">%s</b><span class="cd">%s</span><div class="days13">%s</div></div>%s'
-             % (meta, name, nw(desc, lang), dayrow, proof(pr)))
+    st = row(['<div class="stt"><b>%s</b><span>%s</span></div>' % (a, nw(b, lang)) for a, b in stats], 'stats13 in13')
+    s2 = sec(2, cat, '<div class="card11 off13 wide dayc"><span class="cl">%s</span><b class="ot">%s</b><span class="cd">%s</span><div class="days13">%s</div></div>%s%s'
+             % (meta, name, nw(desc, lang), dayrow, st, proof(pr)))
     # 03 the parent coffee: one talk, its three topics
     cat, meta, name, first, topics, pr = t['par']
     tops = ''.join('<div class="tp13"><span class="cd">%s</span></div>' % nw(x, lang) for x in topics)
     s3 = sec(3, cat, '<div class="card11 off13 wide topc"><span class="cl">%s</span><b class="ot">%s</b><span class="cd">%s</span><div class="tops13">%s</div></div>%s'
              % (meta, name, nw(first, lang), tops, proof(pr)))
     # how we work: how we partner, not an offering, so it is unnumbered; a quieter band, no cards
-    cat, steps, note = t['how']
-    st = ''.join('<div class="st13"><b>%s</b><span>%s</span></div>' % (a, nw(b, lang)) for a, b in steps)
-    s4 = sec(None, cat, '<div class="steps13">%s</div>' % st, 'how13')
+    cat, steps = t['how']
+    stp = ''.join('<div class="st13"><b>%s</b><span>%s</span></div>' % (a, nw(b, lang)) for a, b in steps)
+    s4 = sec(None, cat, '<div class="steps13">%s</div>' % stp, 'how13')
     return s1 + s2 + s3 + s4
 
 
@@ -1102,10 +1115,10 @@ em { font-style: italic; }
 /* ===== v11 teacher (TEACHER-V11): one spacing system. Side margin 15mm; header and footer bands pad 9mm; sections share the
    leftover height equally and are split by hairlines; every section uses one component (label, serif title, one or two lines). ===== */
 .v11 .g12 { padding: 0 15mm; column-gap: 5mm; }
-.v11 .hd11 { height: auto; padding: 7mm 0 6.1mm; background: #0B1A4A; }
+.v11 .hd11 { height: auto; padding: 6mm 0 5.1mm; background: #0B1A4A; }
 .crest11 { position: absolute; z-index: 0; width: 58mm; height: 58mm; right: -12mm; top: 50%; transform: translateY(-50%); opacity: .07; pointer-events: none; }
-.hd11 > .g12 { position: relative; z-index: 1; } :lang(zh) .v11 .hd11 { padding-bottom: 6.1mm; }
-.brand11 { display: flex; align-items: center; gap: 3.4mm; height: 6mm; margin-bottom: 5.6mm; }
+.hd11 > .g12 { position: relative; z-index: 1; } :lang(zh) .v11 .hd11 { padding-bottom: 5.1mm; }
+.brand11 { display: flex; align-items: center; gap: 3.4mm; height: 6mm; margin-bottom: 4.6mm; }
 .brand11 .wm { height: 5mm; width: auto; margin: 0; display: block; }
 .brand11 .bm { display: inline-flex; align-items: center; gap: 1.8mm; white-space: nowrap; }
 .brand11 .bm img { display: block; width: auto; filter: brightness(0) invert(1); opacity: .92; }
@@ -1135,7 +1148,7 @@ em { font-style: italic; }
 .cl { display: block; font: 600 7.2pt/1.2 'Geist', system-ui, sans-serif; letter-spacing: .1em; text-transform: uppercase; color: var(--pro-action); }
 :lang(zh) .cl { letter-spacing: .04em; font-size: 7.6pt; }
 .ct { display: block; margin: 1.2mm 0 .9mm; font: 500 11.5pt/1.2 SERIF; color: var(--pro-ink); }
-.cd { display: block; font-size: 8.8pt; line-height: 1.42; color: #3A4466; }
+.cd { display: block; font-size: 8.6pt; line-height: 1.4; color: #3A4466; }
 .nw { white-space: nowrap; }
 .flk11 { margin-top: 3.2mm; margin-bottom: 1.8mm; }
 .lvs { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 2mm; }
@@ -1145,19 +1158,20 @@ em { font-style: italic; }
 .lvi { display: inline-flex; align-items: baseline; gap: 1.6mm; font: 600 9pt/1 'Geist', system-ui, sans-serif; color: var(--pro-ink); }
 .lvi i { font: inherit; font-style: normal; color: var(--pro-action); }
 .lvi { transform: translateY(.12mm); } :lang(zh) .lvi { transform: translateY(.16mm); }
-.v11 .strip { padding: 5.13mm 0; background: #fff; border-top: 1px solid #E2E6EE; } :lang(zh) .v11 .strip { padding: 6.15mm 0; }
+.v11 .strip { padding: 4.2mm 0; background: #fff; border-top: 1px solid #E2E6EE; } :lang(zh) .v11 .strip { padding: 6.15mm 0; }
+.v11 .strip { padding-top: 2.65mm; } :lang(zh) .v11 .strip { padding-top: 3.35mm; }   /* match the space above divider 4 */
 .v11 .strip .tlabel { transform: translateY(.22mm); } :lang(zh) .v11 .strip .tlabel { transform: translateY(.27mm); }   /* CJK label sat 1.25px above the logos' center line */
 .v11 .strip .team { grid-template-columns: repeat(7, auto); justify-content: space-between; }   /* equal gaps between marks of different widths */
 .v11 .strip .team .lc { justify-content: center; }
-.v11 .cta { padding-top: 4.8mm; padding-bottom: 4.6mm; align-items: center; }
+.v11 .cta { padding-top: 4.2mm; padding-bottom: 4mm; align-items: center; }
 .ft11 { align-items: center; }
 .ft11 .fwm { display: flex; align-items: center; } .ft11 .wm { height: 8.4mm; width: auto; display: block; margin: 0; }
 .ft11 .ct11 { display: grid; gap: 1.6mm; justify-items: end; }
 .ft11 .lk { text-align: right; font-size: 9pt; color: #fff; white-space: nowrap; }
 .ft11 .em { text-align: right; font-size: 8.6pt; line-height: 1.3; color: #C9D6F2; }
 /* ===== v13 teacher (TEACHER-V13): a left rail (number + category) and one offering block per section ===== */
-.v11 .s13, .v11.dir-B .s13:nth-child(2) { flex: 1 1 auto; display: flex; flex-direction: column; justify-content: center; padding: 4.33mm 0 3.67mm; background: #fff; }
-:lang(zh) .v11 .s13, :lang(zh) .v11.dir-B .s13:nth-child(2) { padding: 4.42mm 0 3.58mm; }
+.v11 .s13, .v11.dir-B .s13:nth-child(2) { flex: 1 1 auto; display: flex; flex-direction: column; justify-content: center; padding: 2.83mm 0 2.17mm; background: #fff; }
+:lang(zh) .v11 .s13, :lang(zh) .v11.dir-B .s13:nth-child(2) { padding: 2.92mm 0 2.08mm; }
 .v11 .s13 + .s13 { box-shadow: inset 0 1px 0 #E2E6EE; }
 .rail { display: flex; flex-direction: column; gap: 1.6mm; align-self: start; transform: translateY(-.36mm); }
 :lang(zh) .how13 .rail { transform: translateY(-.03mm); }   /* the CN label sat 1.25px above the step titles */
@@ -1166,17 +1180,27 @@ em { font-style: italic; }
 .main13 { display: flex; flex-direction: column; min-width: 0; }
 .cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .off13 { display: flex; flex-direction: column; }
-.off13 .ot { display: block; margin: 1.2mm 0 1mm; font: 500 12.5pt/1.2 SERIF; color: var(--pro-ink); }
-.off13.wide .ot { font-size: 14pt; }
+.off13 .ot { display: block; margin: 1.1mm 0 .9mm; font: 500 12pt/1.2 SERIF; color: var(--pro-ink); }
+.off13.wide .ot { font-size: 13.5pt; }
 .dy13, .tp13 { flex: none; } .tp13 .cd { white-space: nowrap; }
 :lang(en) .dayc { padding-bottom: 3.87mm; } :lang(en) .topc { padding-bottom: 3.75mm; }
 .flk13 { display: block; margin: 3.4mm 0 1.6mm; }
-.proof13 { margin: 2.4mm 0 0; font-size: 7.8pt; line-height: 1.35; color: #4A5578; }
+.proof13 { margin: 2mm 0 0; font-size: 7.8pt; line-height: 1.35; color: #4A5578; }
 .days13 { display: flex; justify-content: space-between; margin-top: 3mm; padding-top: 2.6mm; border-top: 1px solid #E2E6EE; }
 .dy13 b { display: block; margin-top: .8mm; font: 600 8.6pt/1.25 'Geist', system-ui, sans-serif; color: var(--pro-ink); white-space: nowrap; }
 .tops13 { display: flex; justify-content: space-between; margin-top: 2.2mm; padding-top: 2.4mm; border-top: 1px solid #E2E6EE; }
 .how13 .steps13 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4mm; }
 .st13 > b { display: block; font: 500 10.5pt/1.2 SERIF; color: var(--pro-ink); } .st13 > span { display: block; margin-top: .8mm; font-size: 8pt; line-height: 1.38; color: #3A4466; }
+/* v14: narrower rail (categories on two lines), text outside cards inset to the cards' text edge, tools row, results */
+.in13 { padding-left: calc(4.4mm + 1px); }
+.tools13 { display: flex; justify-content: space-between; margin-top: 2.2mm; padding-top: 2.4mm; border-top: 1px solid #E2E6EE; }
+.tl13 { flex: none; } .tl13 b { display: block; margin-bottom: .7mm; font: 600 8.8pt/1.25 'Geist', system-ui, sans-serif; color: var(--pro-ink); } .tl13 .cd { white-space: nowrap; }
+.toolr { margin-top: 3.2mm; padding-right: calc(4.4mm + 1px); } .toolr .tools13 { margin-top: 1.6mm; }
+.flk13 { display: block; margin: 3mm 0 1.6mm; }
+.coach13 { margin: 1.8mm 0 0; font-size: 8.4pt; line-height: 1.3; color: var(--pro-ink); }
+.stats13 { display: flex; gap: 12mm; margin-top: 2.6mm; }
+.stt { display: flex; align-items: center; gap: 2.6mm; } .stt b { font: 400 19pt/1 SERIF; color: var(--pro-action); white-space: nowrap; }
+.stt span { font-size: 8pt; line-height: 1.35; color: #3A4466; white-space: nowrap; }
 """.replace('SPANS', SPANS)
 
 
