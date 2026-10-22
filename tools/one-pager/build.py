@@ -639,7 +639,7 @@ T11 = {
         ('Step 4', 'Hand off', 'Your team keeps the curriculum, rubrics, and demo-day format to reuse.')])],
    fl='Five levels of AI fluency, re-measured each term',
    team='Coached by a team from', foot='Planned with your team, run on your campus.',
-   link='arenaschool.org/programs/teacher-training', mail='contact@arenaschool.org'),
+   link='arenaschool.org', mail='contact@arenaschool.org'),
  'cn': dict(
    member='', anth='<!-- JJ review: 成员说法 (TEACHER-V11) -->初创企业计划成员', oai='合作伙伴网络成员',
    s=[('<!-- JJ review: 全部中文文案 (TEACHER-V11) -->教职员工培训：从老师手头的工作出发', '',
@@ -661,12 +661,12 @@ T11 = {
         ('第4步', '交接留存', '课程、评分标准和路演日流程都留给贵校团队。')])],
    fl='AI素养五个层级，每学期重新评估',
    team='团队成员来自', foot='与贵校团队共同规划，在贵校校园开展。',
-   link='arenaschool.org/programs/teacher-training-cn', mail='contact@arenaschool.org'),
+   link='arenaschool.org', mail='contact@arenaschool.org'),
 }
-TEAM11 = [('harvard', 5.6), ('caltech', 3.1), ('tsinghua-lockup', 5.2), ('goldman', 4.8), ('mckinsey', 2.5), ('microsoft-ai', 4.4)]   # six marks, one row; McKinsey at 2.5mm fits its cell
+TEAM11 = [('harvard', 5.6), ('caltech', 3.1), ('tsinghua-lockup', 5.2), ('goldman', 4.8), ('mckinsey', 2.5), ('microsoft-ai', 4.4), ('kimi-wordmark', 3.2)]   # seven marks, one row; McKinsey at 2.5mm fits its cell
 NW_CN = ['斯坦福', '哈佛', '大学录取', '大学生', '职场新人', '千麓学者', '初高中学生', 'Y Combinator', 'AI工具', 'AI产品', '小工具', '项目', '路演日', '评委',
-         '学习', '校历', '老师', '跟进', '分享', '规则', '升学顾问', '教职工', '提问', '推销', '评分标准', '参与', '贵校团队', '学生', '形式', '调整', '目标', '就业', '现场分享', '真实', '建议', '统一', '贵校', '带领', 'AI原生工作', '具体建议', '负责任地', '课堂小工具', '时间安排', '项目方案', '贵校老师', '路演日流程', '升学顾问', 'AI问题']
-NW_EN = ['Y Combinator', 'Lux Scholar', 'grades 6 to 12', 'grades 7 to 12', 'Grades 6 to 12', 'Grades 7 to 12', '8 to 12 weeks', 'early-career', 'a follow-up']
+         '学习', '校历', '老师', '跟进', '分享', '规则', '升学顾问', '教职工', '提问', '推销', '评分标准', '参与', '贵校团队', '学生', '形式', '调整', '目标', '就业', '现场分享', '真实', '建议', '统一', '贵校', '带领', 'AI原生工作', '具体建议', '负责任地', '课堂小工具', '项目制学习', '手机应用', '一手观察', '招聘方式', '时间安排', '项目方案', '贵校老师', '路演日流程', '升学顾问', 'AI问题']
+NW_EN = ['Y Combinator', 'Lux Scholar', 'grades 6 to 12', 'grades 7 to 12', 'Grades 6 to 12', 'Grades 7 to 12', '8 to 12 weeks', 'early-career', 'a follow-up', 'Hong Kong']
 
 
 def nw(text, lang):
@@ -710,14 +710,15 @@ T13 = {
    staff=('Staff training', [
        ('PD session · 2 to 3 hours', 'A live session for all staff', 'A live demo, then each teacher tries the task on their own material.'),
        ('Hands-on workshop', 'Department or whole faculty', 'Each teacher leaves with a working tool for their class, plus a follow-up.')],
-       'Five levels of AI fluency, reassessed each term', 'Run at Schwarzman College, Tsinghua University, and the ACAMIS Technology Conference 2026.'),
+       'Five levels of AI fluency, reassessable each term', 'Most recently at Schwarzman College, Tsinghua University.'),
    stu=('Student program', '5 days · Grades 6 to 12 · On your campus', 'AI Fundamentals: a product-building bootcamp',
-        'Students learn 20+ of the newest AI tools by building a real product, project-based, practicing ethical and responsible AI use at every step.',
+        'Project-based: students learn 20+ of the newest AI tools, use AI ethically and responsibly, and leave with a working web or mobile app.',
         [('Day 1', 'Pick a problem'), ('Day 2', 'Talk to users'), ('Day 3', 'Launch it'), ('Day 4', 'Name and price'), ('Day 5', 'Demo day')],
-        'Run at ISB (judges from Harvard, Stanford, and Y Combinator) and Bodley Academy, Hong Kong.'),
+        'Most recently at ISB, with judges from Harvard, Stanford, and Y Combinator;<br>upcoming sessions in Hong Kong and Guangzhou.'),
    par=('Parent talk', 'Morning · Small group · English or Chinese', 'Parent coffee: the future of work and education',
-        ['AI-native work in law, medicine, and finance', 'Which skills will matter as jobs change', 'Practical advice for families of grades 6 to 12'],
-        'Most recently: ISB PTA Parent Coffee, Oct 14, 2026.'),
+        'Firsthand, from people who do the hiring themselves.',
+        ['AI-native work and<br>how hiring has changed', 'Which skills will<br>matter as jobs change', 'Practical advice for<br>families of grades 6 to 12'],
+        'Most recently at the ISB PTA Parent Coffee.'),
    how=('How we work', [('Scope', 'Plan a call to determine your school’s goals and work around your schedule.'),
                         ('Adapt', 'We adapt the program to your students’ ages, language, and timetable.'),
                         ('Run', 'We lead every session, and one of your teachers co-runs it with us.'),
@@ -727,14 +728,15 @@ T13 = {
    staff=('<!-- JJ review: 全部中文文案 (TEACHER-V13) -->教职员工培训', [
        ('教师发展培训 · 2到3小时', '全体教职员工现场分享', '我们在屏幕上现场演示一项任务，随后每位老师用自己的材料上手尝试。'),
        ('动手工作坊', '按教研组或全校开展', '每位老师都带走一个课堂小工具，之后再跟进。')],
-       'AI素养五个层级，每学期重新评估', '曾在清华大学苏世民书院和 ACAMIS 2026 技术大会开展。'),
+       'AI素养五个层级，每学期可重新评估', '最近一次：清华大学苏世民书院。'),
    stu=('学生项目', '5天 · 初高中学生 · 在贵校校园', 'AI基础营：动手做产品的训练营',
-        '学生在真实的产品项目中学会20多种最新的AI工具，并在每一步中练习合乎伦理、负责任地使用AI。',
+        '项目制学习：学生学会20多种最新的AI工具，合乎伦理、负责任地使用AI，最后做出一个能用的网页或手机应用。',
         [('第1天', '选定问题'), ('第2天', '访谈用户'), ('第3天', '发布上线'), ('第4天', '品牌与定价'), ('第5天', '路演日')],
-        '曾在 ISB（评委来自哈佛、斯坦福和 Y Combinator）和香港 Bodley Academy 开展。'),
+        '最近一次：ISB，评委来自哈佛、斯坦福和 Y Combinator；<br>即将在香港和广州开展。'),
    par=('家长讲座', '上午 · 小范围 · 中文或英文', '家长咖啡会：工作与教育的未来',
-        ['法律、医学和金融领域的AI原生工作', '工作在变，哪些能力最重要', '为初高中各年龄段家庭给出具体建议'],
-        '最近一场：ISB PTA 家长咖啡会，2026年10月14日。'),
+        '来自亲自做招聘的人的一手观察。',
+        ['AI原生工作，<br>以及招聘方式的变化', '工作在变，<br>哪些能力最重要', '为初高中各年龄段家庭<br>给出具体建议'],
+        '最近一场：ISB PTA 家长咖啡会。'),
    how=('合作方式', [('明确目标', '安排一次通话，明确贵校的目标，并配合贵校的时间安排。'),
                      ('调整方案', '按学生的年龄、语言和校历，调整整个项目方案。'),
                      ('共同开展', '每一场课程都由我们带领，贵校老师全程参与。'),
@@ -760,13 +762,14 @@ def teacher13(lang, d):
     s2 = sec(2, cat, '<div class="card11 off13 wide dayc"><span class="cl">%s</span><b class="ot">%s</b><span class="cd">%s</span><div class="days13">%s</div></div>%s'
              % (meta, name, nw(desc, lang), dayrow, proof(pr)))
     # 03 the parent coffee: one talk, its three topics
-    cat, meta, name, topics, pr = t['par']
+    cat, meta, name, first, topics, pr = t['par']
     tops = ''.join('<div class="tp13"><span class="cd">%s</span></div>' % nw(x, lang) for x in topics)
-    s3 = sec(3, cat, '<div class="card11 off13 wide topc"><span class="cl">%s</span><b class="ot">%s</b><div class="tops13">%s</div></div>%s' % (meta, name, tops, proof(pr)))
+    s3 = sec(3, cat, '<div class="card11 off13 wide topc"><span class="cl">%s</span><b class="ot">%s</b><span class="cd">%s</span><div class="tops13">%s</div></div>%s'
+             % (meta, name, nw(first, lang), tops, proof(pr)))
     # how we work: how we partner, not an offering, so it is unnumbered; a quieter band, no cards
     cat, steps, note = t['how']
     st = ''.join('<div class="st13"><b>%s</b><span>%s</span></div>' % (a, nw(b, lang)) for a, b in steps)
-    s4 = sec(None, cat, '<div class="steps13">%s</div>%s' % (st, proof(note)), 'how13')
+    s4 = sec(None, cat, '<div class="steps13">%s</div>' % st, 'how13')
     return s1 + s2 + s3 + s4
 
 
@@ -1143,8 +1146,8 @@ em { font-style: italic; }
 .lvi i { font: inherit; font-style: normal; color: var(--pro-action); }
 .lvi { transform: translateY(.12mm); } :lang(zh) .lvi { transform: translateY(.16mm); }
 .v11 .strip { padding: 5.13mm 0; background: #fff; border-top: 1px solid #E2E6EE; } :lang(zh) .v11 .strip { padding: 6.15mm 0; }
-.v11 .strip .tlabel { transform: translateY(.02mm); } :lang(zh) .v11 .strip .tlabel { transform: translateY(.1mm); }   /* CJK label sat 1.25px above the logos' center line */
-.v11 .strip .team { grid-template-columns: repeat(6, auto); justify-content: space-between; }   /* equal gaps between marks of different widths */
+.v11 .strip .tlabel { transform: translateY(.22mm); } :lang(zh) .v11 .strip .tlabel { transform: translateY(.27mm); }   /* CJK label sat 1.25px above the logos' center line */
+.v11 .strip .team { grid-template-columns: repeat(7, auto); justify-content: space-between; }   /* equal gaps between marks of different widths */
 .v11 .strip .team .lc { justify-content: center; }
 .v11 .cta { padding-top: 4.8mm; padding-bottom: 4.6mm; align-items: center; }
 .ft11 { align-items: center; }
@@ -1165,12 +1168,13 @@ em { font-style: italic; }
 .off13 { display: flex; flex-direction: column; }
 .off13 .ot { display: block; margin: 1.2mm 0 1mm; font: 500 12.5pt/1.2 SERIF; color: var(--pro-ink); }
 .off13.wide .ot { font-size: 14pt; }
+.dy13, .tp13 { flex: none; } .tp13 .cd { white-space: nowrap; }
 :lang(en) .dayc { padding-bottom: 3.87mm; } :lang(en) .topc { padding-bottom: 3.75mm; }
 .flk13 { display: block; margin: 3.4mm 0 1.6mm; }
 .proof13 { margin: 2.4mm 0 0; font-size: 7.8pt; line-height: 1.35; color: #4A5578; }
-.days13 { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1.6mm; margin-top: 3mm; padding-top: 2.6mm; border-top: 1px solid #E2E6EE; }
+.days13 { display: flex; justify-content: space-between; margin-top: 3mm; padding-top: 2.6mm; border-top: 1px solid #E2E6EE; }
 .dy13 b { display: block; margin-top: .8mm; font: 600 8.6pt/1.25 'Geist', system-ui, sans-serif; color: var(--pro-ink); white-space: nowrap; }
-.tops13 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4mm; margin-top: 2.2mm; padding-top: 2.4mm; border-top: 1px solid #E2E6EE; }
+.tops13 { display: flex; justify-content: space-between; margin-top: 2.2mm; padding-top: 2.4mm; border-top: 1px solid #E2E6EE; }
 .how13 .steps13 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4mm; }
 .st13 > b { display: block; font: 500 10.5pt/1.2 SERIF; color: var(--pro-ink); } .st13 > span { display: block; margin-top: .8mm; font-size: 8pt; line-height: 1.38; color: #3A4466; }
 """.replace('SPANS', SPANS)
