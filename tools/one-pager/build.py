@@ -794,7 +794,7 @@ T15 = {
        'Tools teachers have built', [('Feedback helper', 'Drafts rubric-based comments for the teacher to edit.'),
                                      ('Who is missing what', 'Shows which students are missing which piece of knowledge.'),
                                      ('Poem annotator', 'Marks the literary devices in a poem’s margin for close reading.')],
-       'Five levels of AI fluency, reassessable each term'),
+       ('Five levels of AI fluency', 'A framework administrators keep, to reassess staff each term.')),
    stu=('AI Fundamentals: a product-building bootcamp', '5 days · Project-based · Grades 6 to 12 · On your campus', '',
         'Students learn 20+ of the newest AI tools, use AI ethically and responsibly, and leave with a working web or mobile app.',
         [('Day 1', 'Pick a problem'), ('Day 2', 'Talk to users'), ('Day 3', 'Launch it'), ('Day 4', 'Name and price'), ('Day 5', 'Demo day')],
@@ -812,7 +812,7 @@ T15 = {
        '老师们做出的工具', [('评语助手', '按老师自己的评分标准起草评语，每条都由老师修改。'),
                             ('谁还没掌握哪个知识点', '看出哪些学生还没掌握哪个知识点。'),
                             ('诗歌批注', '在诗歌旁标出修辞手法，帮助细读。')],
-       'AI素养五个层级，每学期可重新评估'),
+       ('AI素养五个层级', '留给管理层的评估框架，每学期可重新评估教师。')),
    stu=('AI基础营：动手做产品的训练营', '5天 · 项目制学习 · 初高中学生 · 在贵校校园', '',
         '学生学会20多种最新的AI工具，合乎伦理、负责任地使用AI，最后做出一个能用的网页或手机应用。',
         [('第1天', '选定问题'), ('第2天', '访谈用户'), ('第3天', '发布上线'), ('第4天', '品牌与定价'), ('第5天', '路演日')],
@@ -839,7 +839,7 @@ def teacher15(lang, d):
     tl = ''.join('<div class="tl15"><b>%s</b><span class="cd">%s</span></div>' % (a, nw(b, lang)) for a, b in tools)
     levels = ''.join('<span class="lv"><span class="lvi"><i>%d</i>%s</span></span>' % (j + 1, name) for j, (name, _) in enumerate(f['levels']))
     s1 = sec(1, title, '<div class="cols cols-2">%s</div><div class="card11 tcard15"><span class="cl">%s</span><div class="tools15">%s</div></div>'
-             '<span class="cl flk13 in13">%s</span><div class="lvs">%s</div>' % (cards, tk, tl, fl, levels))
+             '<div class="flk13 in13 flk16"><span class="cl">%s</span><span class="fln">%s</span></div><div class="lvs">%s</div>' % (cards, tk, tl, fl[0], nw(fl[1], lang), levels))
     # 02 the student program: one card with its five days and its results
     title, meta, name, desc, days, rk, res = t['stu']
     dayrow = ''.join('<div class="dy13"><span class="cl">%s</span><b>%s</b></div>' % (a, b) for a, b in days)
@@ -1286,6 +1286,7 @@ em { font-style: italic; }
 .pr15b { margin-top: 1.4mm; font-size: 7.8pt; color: #4A5578; }
 .st15 { gap: 4mm; padding-right: 0; } .how13 .st15.steps13 { padding-right: 0; }
 .off13 > .cl + .cd { margin-top: 1.4mm; }
+.flk16 { display: flex; align-items: baseline; gap: 2.6mm; } .flk16 .fln { font-size: 8.2pt; line-height: 1.2; color: #4A5578; }
 """.replace('SPANS', SPANS)
 
 
