@@ -157,8 +157,8 @@ INTRO = {
 }
 H1 = {'general': {'en': dict(eyebrow='What is Arena School', h1='Hands-on AI programs for students, teachers, <em>and families.</em>'),
                   'cn': dict(eyebrow='认识 Arena School', h1='面向学生、老师和家庭的<em>动手实践AI项目。</em>')},
-      'teacher': {'en': dict(eyebrow='For teachers and school leaders', h1='AI programs built to complement <em>your school’s curriculum.</em>'),
-                  'cn': dict(eyebrow='面向教师与学校管理层', h1='<!-- JJ review: 标题 (TEACHER-V10) -->与贵校课程互为补充的<em>AI项目。</em>')},
+      'teacher': {'en': dict(eyebrow='For teachers and school leaders', h1='AI programs built to complement <em>school curricula.</em>'),
+                  'cn': dict(eyebrow='面向教师与学校管理层', h1='<!-- JJ review: 标题 (TEACHER-V10) -->与学校课程互为补充的<em>AI项目。</em>')},
       'parent': {'en': dict(eyebrow='For families', h1='Hands-on AI programs where students build <em>and launch a real product.</em>'),
                  'cn': dict(eyebrow='写给家长', h1='动手实践的AI项目，学生亲手做出<em>并上线真实的产品。</em>')}}
 CAP = {'en': 'Demo day at the International School of Beijing, 2026', 'cn': '<!-- JJ review: 照片说明 (CAPTION-BRIEF) -->北京顺义国际学校路演日'}
@@ -666,7 +666,7 @@ T11 = {
 TEAM11 = [('harvard', 5.6), ('caltech', 3.1), ('tsinghua-lockup', 5.2), ('goldman', 4.8), ('mckinsey', 2.5), ('microsoft-ai', 4.4), ('kimi-wordmark', 3.2)]   # seven marks, one row; McKinsey at 2.5mm fits its cell
 NW_CN = ['斯坦福', '哈佛', '大学录取', '大学生', '职场新人', '千麓学者', '初高中学生', 'Y Combinator', 'AI工具', 'AI产品', '小工具', '项目', '路演日', '评委',
          '学习', '校历', '老师', '跟进', '分享', '规则', '升学顾问', '教职工', '提问', '推销', '评分标准', '参与', '贵校团队', '学生', '形式', '调整', '目标', '就业', '现场分享', '真实', '建议', '统一', '贵校', '带领', 'AI原生工作', '具体建议', '负责任地', '课堂小工具', '项目制学习', '手机应用', '一手观察', '招聘方式', '手语转语音', '时间安排', '项目方案', '贵校老师', '路演日流程', '升学顾问', 'AI问题']
-NW_EN = ['Y Combinator', 'Lux Scholar', 'grades 6 to 12', 'grades 7 to 12', 'Grades 6 to 12', 'Grades 7 to 12', '8 to 12 weeks', 'early-career', 'a follow-up', 'Hong Kong', 'demo-day format']
+NW_EN = ['Y Combinator', 'Lux Scholar', 'grades 6 to 12', 'grades 7 to 12', 'Grades 6 to 12', 'Grades 7 to 12', '8 to 12 weeks', 'early-career', 'a follow-up', 'Hong Kong', 'demo-day format', 'Net Promoter Score', 'Bodley Academy']
 
 
 def nw(text, lang):
@@ -789,38 +789,36 @@ def teacher13(lang, d):
 T15 = {
  'en': dict(
    staff=('Staff training', [
-       ('PD session · 2 to 3 hours', 'A live session for all staff', 'A live demo of one task, then each teacher tries it on their own material.'),
-       ('Hands-on workshop', 'Department or whole faculty', 'Each teacher leaves with a working tool for a class they teach, plus a follow-up.')],
+       ('PD session · 2 to 3 hours', 'A live session for all staff', 'A live demo of one task, then each teacher tries it on their own material. Most recently at Schwarzman College, Tsinghua University.'),
+       ('Hands-on workshop', 'Department or whole faculty', 'Each teacher builds a working tool for a class they teach, with help in the room and a follow-up after.')],
        'Tools teachers have built', [('Feedback helper', 'Drafts rubric-based comments for the teacher to edit.'),
                                      ('Who is missing what', 'Shows which students are missing which piece of knowledge.'),
                                      ('Poem annotator', 'Marks the literary devices in a poem’s margin for close reading.')],
-       'Five levels of AI fluency, reassessable each term', 'Most recently at Schwarzman College, Tsinghua University.'),
+       'Five levels of AI fluency, reassessable each term'),
    stu=('Student program', '5 days · Project-based · Grades 6 to 12 · On your campus', 'AI Fundamentals: a product-building bootcamp',
         'Students learn 20+ of the newest AI tools, use AI ethically and responsibly, and leave with a working web or mobile app.',
         [('Day 1', 'Pick a problem'), ('Day 2', 'Talk to users'), ('Day 3', 'Launch it'), ('Day 4', 'Name and price'), ('Day 5', 'Demo day')],
-        'Results', 'Most recently at ISB, with judges from Harvard, Stanford, and Y Combinator. At Bodley Academy, Hong Kong, a ten-year-old launched a sign-language-to-speech app in five days, and the 20 students gave the program a 9.5/10 Net Promoter Score.'),
+        'Results', 'Most recently at the International School of Beijing, with judges from Harvard, Stanford, and Y Combinator.<br>At Bodley Academy, a ten-year-old built a sign-language-to-speech app in five days (9.5/10 Net Promoter Score).'),
    par=('Parent talk', 'Morning · Small group · English or Chinese', 'Parent coffee: the future of work and education',
-        'Firsthand, from people who do the hiring themselves: how AI-native work and hiring have changed, which skills will matter as jobs change, and practical advice for families of grades 6 to 12.',
-        'Most recently at the ISB PTA Parent Coffee.'),
-   how=('How we work', [('Scope', 'Plan a call to determine your school’s goals and work around your schedule.'),
+        'From people who do the hiring themselves: how AI-native work and hiring have changed, which skills will matter next, and practical advice for families of grades 6 to 12. Most recently at the International School of Beijing PTA Parent Coffee.'),
+   how=('How we work', [('Scope', 'Plan a call to set your school’s goals and work around your schedule.'),
                         ('Adapt', 'We adapt the program to your students’ ages, language, and timetable.'),
                         ('Run', 'We lead every session, and one of your teachers co-runs it with us.'),
-                        ('Hand off', 'Your team keeps the curriculum, rubrics, and demo-day format to reuse.')])),
+                        ('Hand off', 'Your team keeps the curriculum, rubrics, and demo-day format.')])),
  'cn': dict(
    staff=('<!-- JJ review: 全部中文文案 (TEACHER-V15) -->教职员工培训', [
-       ('教师发展培训 · 2到3小时', '全体教职员工现场分享', '我们现场演示一项任务，随后每位老师用自己的材料上手尝试。'),
-       ('动手工作坊', '按教研组或全校开展', '每位老师带走一个能用在自己课堂上的小工具，之后再跟进。')],
+       ('教师发展培训 · 2到3小时', '全体教职员工现场分享', '我们现场演示一项任务，随后每位老师用自己的材料上手尝试。最近一次：清华大学苏世民书院。'),
+       ('动手工作坊', '按教研组或全校开展', '每位老师在现场协助下，为自己的课堂做出一个能用的小工具，之后再安排一次跟进。')],
        '老师们做出的工具', [('评语助手', '按老师自己的评分标准起草评语，每条都由老师修改。'),
                             ('谁还没掌握哪个知识点', '看出哪些学生还没掌握哪个知识点。'),
                             ('诗歌批注', '在诗歌旁标出修辞手法，帮助细读。')],
-       'AI素养五个层级，每学期可重新评估', '最近一次：清华大学苏世民书院。'),
+       'AI素养五个层级，每学期可重新评估'),
    stu=('学生项目', '5天 · 项目制学习 · 初高中学生 · 在贵校校园', 'AI基础营：动手做产品的训练营',
         '学生学会20多种最新的AI工具，合乎伦理、负责任地使用AI，最后做出一个能用的网页或手机应用。',
         [('第1天', '选定问题'), ('第2天', '访谈用户'), ('第3天', '发布上线'), ('第4天', '品牌与定价'), ('第5天', '路演日')],
-        '成果', '最近一次在 ISB 开展，评委来自哈佛、斯坦福和 Y Combinator。在香港 Bodley Academy，一名十岁学生用五天上线了一款手语转语音的应用；20名学生给出的净推荐值为9.5/10。'),
+        '成果', '最近一次在北京顺义国际学校开展，评委来自哈佛、斯坦福和 Y Combinator。在香港 Bodley Academy，一名十岁学生用五天上线了一款手语转语音的应用；20名学生给出的净推荐值为9.5/10。'),
    par=('家长讲座', '上午 · 小范围 · 中文或英文', '家长咖啡会：工作与教育的未来',
-        '来自亲自做招聘的人的一手观察：AI原生工作和招聘方式有哪些变化，工作在变、哪些能力最重要，并为初高中各年龄段的家庭给出具体建议。',
-        '最近一场：ISB PTA 家长咖啡会。'),
+        '来自亲自做招聘的人的一手观察：AI原生工作和招聘方式有哪些变化，工作在变、哪些能力最重要，并为初高中各年龄段的家庭给出具体建议。最近一场：北京顺义国际学校 PTA 家长咖啡会。'),
    how=('合作方式', [('明确目标', '安排一次通话，明确贵校的目标，并配合贵校的时间安排。'),
                      ('调整方案', '按学生的年龄、语言和校历，调整整个项目方案。'),
                      ('共同开展', '每一场课程都由我们带领，贵校老师全程参与。'),
@@ -836,12 +834,12 @@ def teacher15(lang, d):
                                           % (cls, head(n, title), main))
     proof = lambda x: '<p class="proof13 in13">%s</p>' % nw(x, lang)
     # 01 staff training: two offerings, a card of tools teachers built, the fluency levels
-    title, offers, tk, tools, fl, pr = t['staff']
+    title, offers, tk, tools, fl = t['staff']
     cards = ''.join('<div class="card11 off13"><span class="cl">%s</span><b class="ot">%s</b><span class="cd">%s</span></div>' % (a, b, nw(c, lang)) for a, b, c in offers)
     tl = ''.join('<div class="tl15"><b>%s</b><span class="cd">%s</span></div>' % (a, nw(b, lang)) for a, b in tools)
     levels = ''.join('<span class="lv"><span class="lvi"><i>%d</i>%s</span></span>' % (j + 1, name) for j, (name, _) in enumerate(f['levels']))
     s1 = sec(1, title, '<div class="cols cols-2">%s</div><div class="card11 tcard15"><span class="cl">%s</span><div class="tools15">%s</div></div>'
-             '<div class="flk15 in13"><span class="cl">%s</span><span class="pr15">%s</span></div><div class="lvs">%s</div>' % (cards, tk, tl, fl, nw(pr, lang), levels))
+             '<span class="cl flk13 in13">%s</span><div class="lvs">%s</div>' % (cards, tk, tl, fl, levels))
     # 02 the student program: one card with its five days and its results
     title, meta, name, desc, days, rk, res = t['stu']
     dayrow = ''.join('<div class="dy13"><span class="cl">%s</span><b>%s</b></div>' % (a, b) for a, b in days)
@@ -849,13 +847,13 @@ def teacher15(lang, d):
              '<div class="res15"><span class="cl">%s</span><span class="cd">%s</span></div></div>'
              % (meta, name, nw(desc, lang), dayrow, rk, nw(res, lang)))
     # 03 the parent coffee: one talk, its three topics
-    title, meta, name, body, pr = t['par']
-    s3 = sec(3, title, '<div class="card11 off13 wide"><span class="cl">%s</span><b class="ot">%s</b><span class="cd">%s</span><span class="cd pr15b">%s</span></div>'
-             % (meta, name, nw(body, lang), nw(pr, lang)))
+    title, meta, name, body = t['par']
+    s3 = sec(3, title, '<div class="card11 off13 wide"><span class="cl">%s</span><b class="ot">%s</b><span class="cd">%s</span></div>'
+             % (meta, name, nw(body, lang)))
     # how we work: how we partner, not an offering, so it is unnumbered; no cards
     title, steps = t['how']
-    stp = ''.join('<div class="st13"><b>%s</b><span>%s</span></div>' % (a, nw(b, lang)) for a, b in steps)
-    s4 = sec(None, title, '<div class="steps13 in13">%s</div>' % stp, 'how13')
+    stp = ''.join('<div class="card11 st13"><b>%s</b><span>%s</span></div>' % (a, nw(b, lang)) for a, b in steps)
+    s4 = sec(None, title, '<div class="steps13 st15">%s</div>' % stp, 'how13')
     return s1 + s2 + s3 + s4
 
 
@@ -1232,19 +1230,19 @@ em { font-style: italic; }
 .lvi i { font: inherit; font-style: normal; color: var(--pro-action); }
 .lvi { transform: translateY(.12mm); } :lang(zh) .lvi { transform: translateY(.16mm); }
 .v11 .strip { padding: 4.2mm 0; background: #fff; border-top: 1px solid #E2E6EE; } :lang(zh) .v11 .strip { padding: 6.15mm 0; }
-.v11 .strip { padding-top: 2.65mm; } :lang(zh) .v11 .strip { padding-top: 3.35mm; }   /* match the space above divider 4 */
+.v11 .strip { padding-top: 2.65mm; } :lang(zh) .v11 .strip { padding-top: 2.93mm; }   /* match the space above divider 4 */
 .v11 .strip .tlabel { transform: translateY(.22mm); } :lang(zh) .v11 .strip .tlabel { transform: translateY(.27mm); }   /* CJK label sat 1.25px above the logos' center line */
 .v11 .strip .team { grid-template-columns: repeat(7, auto); justify-content: space-between; }   /* equal gaps between marks of different widths */
 .v11 .strip .team .lc { justify-content: center; }
-.v11 .cta { padding-top: 3.7mm; padding-bottom: 3.5mm; align-items: center; }
+.v11 .cta { padding-top: 3.3mm; padding-bottom: 3.1mm; align-items: center; }
 .ft11 { align-items: center; }
 .ft11 .fwm { display: flex; align-items: center; } .ft11 .wm { height: 8.4mm; width: auto; display: block; margin: 0; }
 .ft11 .ct11 { display: grid; gap: 1.6mm; justify-items: end; }
 .ft11 .lk { text-align: right; font-size: 9pt; color: #fff; white-space: nowrap; }
 .ft11 .em { text-align: right; font-size: 8.6pt; line-height: 1.3; color: #C9D6F2; }
 /* ===== v13 teacher (TEACHER-V13): a left rail (number + category) and one offering block per section ===== */
-.v11 .s13, .v11.dir-B .s13:nth-child(2) { flex: 1 1 auto; display: flex; flex-direction: column; justify-content: center; padding: 2.02mm 0 2.18mm; background: #fff; }
-:lang(zh) .v11 .s13, :lang(zh) .v11.dir-B .s13:nth-child(2) { padding: 2.28mm 0 1.92mm; }
+.v11 .s13, .v11.dir-B .s13:nth-child(2) { flex: 1 1 auto; display: flex; flex-direction: column; justify-content: center; padding: 2.4mm 0 2.6mm; background: #fff; }
+:lang(zh) .v11 .s13, :lang(zh) .v11.dir-B .s13:nth-child(2) { padding: 2.68mm 0 2.32mm; }
 .v11 .s13 + .s13 { box-shadow: inset 0 1px 0 #E2E6EE; }
 .rail { display: flex; flex-direction: column; gap: 1.6mm; align-self: start; transform: translateY(-.36mm); }
 :lang(zh) .how13 .rail { transform: translateY(-.03mm); }   /* the CN label sat 1.25px above the step titles */
@@ -1286,6 +1284,7 @@ em { font-style: italic; }
 .flk15 { display: flex; justify-content: space-between; align-items: baseline; margin: 3mm 0 1.6mm; padding-right: calc(4.4mm + 1px); }
 .pr15 { font-size: 7.8pt; line-height: 1.2; color: #4A5578; white-space: nowrap; }
 .pr15b { margin-top: 1.4mm; font-size: 7.8pt; color: #4A5578; }
+.st15 { gap: 4mm; padding-right: 0; } .how13 .st15.steps13 { padding-right: 0; }
 """.replace('SPANS', SPANS)
 
 
