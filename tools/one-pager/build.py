@@ -795,11 +795,11 @@ T15 = {
                                      ('Who is missing what', 'Shows which students are missing which piece of knowledge.'),
                                      ('Poem annotator', 'Marks the literary devices in a poem’s margin for close reading.')],
        'Five levels of AI fluency, reassessable each term'),
-   stu=('Student program', '5 days · Project-based · Grades 6 to 12 · On your campus', 'AI Fundamentals: a product-building bootcamp',
+   stu=('AI Fundamentals: a product-building bootcamp', '5 days · Project-based · Grades 6 to 12 · On your campus', '',
         'Students learn 20+ of the newest AI tools, use AI ethically and responsibly, and leave with a working web or mobile app.',
         [('Day 1', 'Pick a problem'), ('Day 2', 'Talk to users'), ('Day 3', 'Launch it'), ('Day 4', 'Name and price'), ('Day 5', 'Demo day')],
         'Results', 'Most recently at the International School of Beijing, with judges from Harvard, Stanford, and Y Combinator.<br>At Bodley Academy, a ten-year-old built a sign-language-to-speech app in five days (9.5/10 Net Promoter Score).'),
-   par=('Parent talk', 'Morning · Small group · English or Chinese', 'Parent coffee: the future of work and education',
+   par=('Community Dialogues: the future of work and education', 'Parent coffee · Morning · Small group · English or Chinese', '',
         'From people who do the hiring themselves: how AI-native work and hiring have changed, which skills will matter next, and practical advice for families of grades 6 to 12. Most recently at the International School of Beijing PTA Parent Coffee.'),
    how=('How we work', [('Scope', 'Plan a call to set your school’s goals and work around your schedule.'),
                         ('Adapt', 'We adapt the program to your students’ ages, language, and timetable.'),
@@ -813,11 +813,11 @@ T15 = {
                             ('谁还没掌握哪个知识点', '看出哪些学生还没掌握哪个知识点。'),
                             ('诗歌批注', '在诗歌旁标出修辞手法，帮助细读。')],
        'AI素养五个层级，每学期可重新评估'),
-   stu=('学生项目', '5天 · 项目制学习 · 初高中学生 · 在贵校校园', 'AI基础营：动手做产品的训练营',
+   stu=('AI基础营：动手做产品的训练营', '5天 · 项目制学习 · 初高中学生 · 在贵校校园', '',
         '学生学会20多种最新的AI工具，合乎伦理、负责任地使用AI，最后做出一个能用的网页或手机应用。',
         [('第1天', '选定问题'), ('第2天', '访谈用户'), ('第3天', '发布上线'), ('第4天', '品牌与定价'), ('第5天', '路演日')],
         '成果', '最近一次在北京顺义国际学校开展，评委来自哈佛、斯坦福和 Y Combinator。在香港 Bodley Academy，一名十岁学生用五天上线了一款手语转语音的应用；20名学生给出的净推荐值为9.5/10。'),
-   par=('家长讲座', '上午 · 小范围 · 中文或英文', '家长咖啡会：工作与教育的未来',
+   par=('社区对话：工作与教育的未来', '家长咖啡会 · 上午 · 小范围 · 中文或英文', '',
         '来自亲自做招聘的人的一手观察：AI原生工作和招聘方式有哪些变化，工作在变、哪些能力最重要，并为初高中各年龄段的家庭给出具体建议。最近一场：北京顺义国际学校 PTA 家长咖啡会。'),
    how=('合作方式', [('明确目标', '安排一次通话，明确贵校的目标，并配合贵校的时间安排。'),
                      ('调整方案', '按学生的年龄、语言和校历，调整整个项目方案。'),
@@ -843,13 +843,13 @@ def teacher15(lang, d):
     # 02 the student program: one card with its five days and its results
     title, meta, name, desc, days, rk, res = t['stu']
     dayrow = ''.join('<div class="dy13"><span class="cl">%s</span><b>%s</b></div>' % (a, b) for a, b in days)
-    s2 = sec(2, title, '<div class="card11 off13 wide dayc"><span class="cl">%s</span><b class="ot">%s</b><span class="cd">%s</span><div class="days13">%s</div>'
+    s2 = sec(2, title, '<div class="card11 off13 wide dayc"><span class="cl">%s</span>%s<span class="cd">%s</span><div class="days13">%s</div>'
              '<div class="res15"><span class="cl">%s</span><span class="cd">%s</span></div></div>'
-             % (meta, name, nw(desc, lang), dayrow, rk, nw(res, lang)))
+             % (meta, '<b class="ot">%s</b>' % name if name else '', nw(desc, lang), dayrow, rk, nw(res, lang)))
     # 03 the parent coffee: one talk, its three topics
     title, meta, name, body = t['par']
-    s3 = sec(3, title, '<div class="card11 off13 wide"><span class="cl">%s</span><b class="ot">%s</b><span class="cd">%s</span></div>'
-             % (meta, name, nw(body, lang)))
+    s3 = sec(3, title, '<div class="card11 off13 wide"><span class="cl">%s</span>%s<span class="cd">%s</span></div>'
+             % (meta, '<b class="ot">%s</b>' % name if name else '', nw(body, lang)))
     # how we work: how we partner, not an offering, so it is unnumbered; no cards
     title, steps = t['how']
     stp = ''.join('<div class="card11 st13"><b>%s</b><span>%s</span></div>' % (a, nw(b, lang)) for a, b in steps)
@@ -1230,7 +1230,7 @@ em { font-style: italic; }
 .lvi i { font: inherit; font-style: normal; color: var(--pro-action); }
 .lvi { transform: translateY(.12mm); } :lang(zh) .lvi { transform: translateY(.16mm); }
 .v11 .strip { padding: 4.2mm 0; background: #fff; border-top: 1px solid #E2E6EE; } :lang(zh) .v11 .strip { padding: 6.15mm 0; }
-.v11 .strip { padding-top: 2.65mm; } :lang(zh) .v11 .strip { padding-top: 2.93mm; }   /* match the space above divider 4 */
+.v11 .strip { padding-top: 4.2mm; } :lang(zh) .v11 .strip { padding-top: 3.99mm; }   /* match the space above divider 4 */
 .v11 .strip .tlabel { transform: translateY(.22mm); } :lang(zh) .v11 .strip .tlabel { transform: translateY(.27mm); }   /* CJK label sat 1.25px above the logos' center line */
 .v11 .strip .team { grid-template-columns: repeat(7, auto); justify-content: space-between; }   /* equal gaps between marks of different widths */
 .v11 .strip .team .lc { justify-content: center; }
@@ -1285,6 +1285,7 @@ em { font-style: italic; }
 .pr15 { font-size: 7.8pt; line-height: 1.2; color: #4A5578; white-space: nowrap; }
 .pr15b { margin-top: 1.4mm; font-size: 7.8pt; color: #4A5578; }
 .st15 { gap: 4mm; padding-right: 0; } .how13 .st15.steps13 { padding-right: 0; }
+.off13 > .cl + .cd { margin-top: 1.4mm; }
 """.replace('SPANS', SPANS)
 
 
