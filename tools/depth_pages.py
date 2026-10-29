@@ -20,10 +20,10 @@ LUX_EN = dict(k='Next · With Lux Scholar, Guangzhou', h='The AI Advantage Bootc
               dl=[('When', 'Dec 27, 2026 to Jan 2, 2027'), ('Where', 'Guangzhou, in person')], a=('/zero-to-launch', 'See the bootcamp'), next=True)
 LUX_CN = dict(k='即将举办 · 与千麓学者（Lux Scholar）合作，广州', h='AI职场先发营', p='本科生、硕士生和职场新人用七天时间上线一款真实产品，由 Arena School 与千麓学者（Lux Scholar）联合主办。',
               dl=[('日期', '2026年12月27日至2027年1月2日'), ('地点', '广州，线下')], a=('/zero-to-launch-cn', '了解先发营'), next=True)
-ACAMIS_EN = dict(k='Next · ACAMIS Technology Conference', h='Keystone Academy, Beijing', p='A 60-minute hands-on workshop for teachers and tech coaches, built on a case study from the International School of Beijing.',
-                 dl=[('When', 'Sunday, October 18, 2026'), ('For', 'Teachers and tech coaches')], a=('/events/acamis-tech-2026', 'Session details'), next=True)
-ACAMIS_CN = dict(k='即将举办 · ACAMIS 技术大会', h='北京市鼎石学校', p='面向教师和技术教练的60分钟实操工作坊，以北京顺义国际学校的案例为基础。',
-                 dl=[('时间', '2026年10月18日（周日）'), ('对象', '教师和技术教练')], a=('/events/acamis-tech-2026-cn', '查看活动'), next=True)
+ACAMIS_EN = dict(k='ACAMIS Technology Conference · October 18, 2026', h='From Lab to Classroom', p='A 60-minute hands-on workshop for teachers and tech coaches at Keystone Academy, Beijing, built on a case study from the International School of Beijing.',
+                 dl=[('Who', 'Teachers and tech coaches'), ('Format', '60-minute workshop')], a=('/talks/2026-10-acamis-tech-workshop', 'Slides and resources'))
+ACAMIS_CN = dict(k='ACAMIS 技术大会 · 2026年10月18日', h='从实验室到课堂', p='在北京市鼎石学校为教师和技术教练开展的60分钟实操工作坊，以北京顺义国际学校的案例为基础。',
+                 dl=[('对象', '教师和技术教练'), ('形式', '60分钟工作坊')], a=('/talks/2026-10-acamis-tech-workshop', '幻灯片与资料（英文）'))
 EARCOS_EN = dict(k='Upcoming · Bangkok, March 17 to 20, 2027', h='EARCOS Teachers’ Conference', p='A full-day pre-conference workshop and three 75-minute sessions for teachers.',
                  dl=[('Formats', 'Pre-conference workshop; three sessions')], a=('/programs/conferences', 'Formats'), next=True)
 EARCOS_CN = dict(k='即将举办 · 曼谷，2027年3月17日至20日', h='EARCOS 教师大会', p='一场全天的会前工作坊，以及三场各75分钟的教师分享。',
@@ -392,9 +392,9 @@ MORE = {
    cs_k='我们做过的事', cs_h='已经做过的，<em>和接下来的。</em>', cs_l='本站提到的每一个项目，按时间排列，每一项都链接到详细页面。',
    cases=[BODLEY_CN, ISB_CN, SCHWARZMAN_CN, ACAMIS_CN, WINTER_CN, EARCOS_CN], faq=[])),
  'results': dict(stem='results', en=dict(stats=['rand-students-use', 'rand-use', 'rand-students'], research_before='Hong Kong 2025', **dict(EN_ST, st_h='Why this work matters <em>now.</em>', st_l='Three findings from RAND’s 2025 national surveys. Each links to its source.'),
-   cases_before='Next step', cs_k='What is next', cs_h='Programs <em>coming up.</em>', cases=[ACAMIS_EN, WINTER_EN, EARCOS_EN, LUX_EN], faq=[]),
+   cases_before='Next step', cs_k='What is next', cs_h='Programs <em>coming up.</em>', cases=[WINTER_EN, EARCOS_EN, LUX_EN], faq=[]),
   cn=dict(stats=['rand-students-use', 'rand-use', 'rand-students'], research_before='Hong Kong 2025', **dict(CN_ST, st_h='为什么<em>现在</em>做这件事。', st_l='来自 RAND 2025年全国调查的三项发现，每一项都附有来源链接。'),
-   cases_before='Next step', cs_k='接下来', cs_h='即将开展的<em>项目。</em>', cases=[ACAMIS_CN, WINTER_CN, EARCOS_CN, LUX_CN], faq=[])),
+   cases_before='Next step', cs_k='接下来', cs_h='即将开展的<em>项目。</em>', cases=[WINTER_CN, EARCOS_CN, LUX_CN], faq=[])),
  'contact': dict(stem='contact', en=dict(stats=[], cases=[], cs_k='', cs_h='', faq_k='Questions', faq_title='Before you <em>write.</em>',
    faq=[('How fast will you reply?', 'Within three working days, by email.'),
         ('Do programs run at our school?', 'Yes. School programs run on your campus, planned around your calendar.'),
