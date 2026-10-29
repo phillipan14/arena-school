@@ -17,6 +17,17 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # (audience key, date shown, card data per language). Newest first; month-only dates after exact dates of the
 # same month (the day is not recorded), undated last.
 TALKS = [
+    ('educators', dict(
+        en=dict(date='Oct 18, 2026', where='ACAMIS Technology Conference · Keystone Academy', city='Beijing',
+                title='From Lab to Classroom: Running an AI Student Program Inside a School',
+                dl=[('For', 'Teachers and tech coaches'), ('Speakers', 'Jing Jing Yang and Phillip An'), ('Format', '60-minute workshop'), ('Language', 'English')],
+                img=('/photos/talks/acamis-tech-workshop-cover-800.webp', 'Cover slide of the workshop'),
+                links=[('/talks/2026-10-acamis-tech-workshop', 'Slides and resources'), ('/talks/2026-10-acamis-tech-workshop/slides-en.pdf', 'PDF'), ('/events/acamis-tech-2026', 'About the session')]),
+        cn=dict(date='2026年10月18日', where='ACAMIS 2026 技术大会 · 北京鼎石学校', city='北京',
+                title='从实验室到课堂：如何在学校里开展AI学生项目',
+                dl=[('对象', '教师与教育技术教练'), ('主讲', '羊筱涵、安广宁'), ('形式', '60分钟工作坊'), ('语言', '英文')],
+                img=('/photos/talks/acamis-tech-workshop-cover-800.webp', '工作坊封面幻灯片（英文）'),
+                links=[('/talks/2026-10-acamis-tech-workshop', '幻灯片与资料（英文）'), ('/talks/2026-10-acamis-tech-workshop/slides-en.pdf', 'PDF'), ('/events/acamis-tech-2026-cn', '活动介绍')]))),
     ('parents', dict(
         en=dict(date='Oct 14, 2026', where='ISB PTA Parent Coffee · International School of Beijing', city='Beijing',
                 title='Our Kids’ Jobs Don’t Exist Yet. So Which Skills Will Matter?',
@@ -49,11 +60,9 @@ TALKS = [
                 dl=[('对象', '苏世民书院教职员工'), ('形式', '动手工作坊'), ('主讲', '安广宁')],
                 img=None, links=[('/results-cn#tsinghua', '查看成果')]))),
 ]
-NEXT = dict(
-    en=dict(k='Up next', date='Oct 18, 2026', where='ACAMIS Technology Conference · Keystone Academy, Beijing',
-            title='From Lab to Classroom: Running an AI Student Program Inside a School', link=('/events/acamis-tech-2026', 'Session details')),
-    cn=dict(k='下一场', date='2026年10月18日', where='ACAMIS 2026 技术大会 · 北京鼎石学校',
-            title='从实验室到课堂：如何在学校里开展AI学生项目', link=('/events/acamis-tech-2026-cn', '活动详情')))
+# The next scheduled talk, shown under the cards; None when nothing is announced. Once it has happened, move it
+# into TALKS. Shape: dict(en=dict(k='Up next', date=..., where=..., title=..., link=(href, label)), cn=dict(...)).
+NEXT = None
 T = dict(
     en=dict(title='Past talks · Arena School', desc='Talks and workshops the Arena School team has led for parents, students, and school staff, newest first, with slides where we have them.',
             eyebrow='Past talks', h1='Talks and <em>workshops.</em>',
@@ -83,9 +92,9 @@ def body(lang):
     chips = ''.join('<button type="button" class="pt-chip" aria-pressed="%s" data-f="%s">%s</button>' % ('true' if k == 'all' else 'false', k, v)
                     for k, v in [('all', t['all'])] + list(t['aud'].items()))
     cards = ''.join(card(aud, d[lang], t) for aud, d in TALKS)
-    n = NEXT[lang]
+    n = NEXT[lang] if NEXT else None
     nxt = ('<aside class="pt-next reveal"><span class="ds-eyebrow">%s</span><p><b>%s</b> · %s</p><h3>%s</h3><a class="tlink" href="%s"><span class="tl">%s</span> <span class="arr">→</span></a></aside>'
-           % (n['k'], n['date'], n['where'], n['title'], n['link'][0], n['link'][1]))
+           % (n['k'], n['date'], n['where'], n['title'], n['link'][0], n['link'][1])) if n else ''
     return ('<!-- pt:start -->\n%s<section class="ds-section" id="talks" data-screen-label="Past talks"><div class="container">'
             '<header class="ds-head reveal"><span class="ds-eyebrow">%s</span><h2 class="ds-h2">%s</h2></header>'
             '<div class="pt-chips reveal" role="group" aria-label="%s">%s</div>'
