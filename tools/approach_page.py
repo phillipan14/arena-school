@@ -146,7 +146,7 @@ T = {'en': dict(
      ('/programs/website-portfolio-workshop', 'College Portfolio Workshop', 'Two days at school · Grades 10 to 12', ['Judge which of their own work best represents them.', 'Plan, write, and design a real site. Every word stays theirs.', 'Use it for college, summer program, scholarship, and internship applications.']),
      ('/programs/product-intensive', 'Entrepreneurship &amp; AI Intensive', 'Five days at school · Grades 7 to 12', ['Choose a real problem, talk to users, set a price, and pitch to a panel.', 'Use AI for research, building, and the brand, and decide what stays.', 'Carry the same steps into a passion project, a competition, or a class.']),
      ('/mentorship', 'Year-Long Project Mentorship', '1:1, six months to a year · Grades 7 to 12', ['Choose the problem and answer for the results.', 'Put the product in front of real users.', 'Take it past a first draft: test it, revise it, make it good.']),
-     ('/events/isb-winter-2027', 'AI Fundamentals for Students @ International School of Beijing', 'Four days at ISB · Grades 6 to 12 from any school', ['Learn AI tools for research, design, code, and video on their own project.', 'Choose a project worth making. Every decision stays theirs.', 'Finish a working version anyone can open, tested with real people.']),
+     ('/events/isb-winter-2027', 'AI Fundamentals for Students @ International School of Beijing', 'Four days, winter break', ['Learn AI tools for research, design, code, and video on their own project.', 'Choose a project worth making. Every decision stays theirs.', 'Finish a working version anyone can open, tested with real people.']),
      ('/zero-to-launch', 'AI Advantage Bootcamp', 'Seven days · College and early career', ['Launch a live AI product with real users.', 'Build a project for the role they want, and a portfolio.', 'Present the work on stage at demo day.'])]),
    ('Teachers', 'Teachers learn the way their students will: on their own work, with feedback in the room.', [
      ('/programs/teacher-training', 'AI for Educators', 'At your school', ['Bring one task from grading, planning, or differentiation. Leave with a tool made with AI.', 'Check every result, on the school’s approved tools.', 'Assess the process as well as the product when students also use AI.']),
@@ -159,7 +159,7 @@ T = {'en': dict(
    ('Families', 'For parents: what AI means for your child, and how to support the work at home.', [
      ('/programs/community-dialogues', 'Community Dialogues', 'Parent coffees and talks', ['How work is changing, from our team’s own work rather than predictions.', 'What students can now make, from real student projects.', 'Concrete ideas for supporting students in grades 6 to 12 at home.']),
      ('/mentorship', 'Year-Long Project Mentorship', 'Families enroll directly', ['One student, one project they choose, and personalized 1:1 mentorship.']),
-     ('/events/isb-winter-2027', 'AI Fundamentals for Students @ International School of Beijing', 'Four days at ISB · Grades 6 to 12 from any school', ['No STEM background or coding needed.'])]),
+     ('/events/isb-winter-2027', 'AI Fundamentals for Students @ International School of Beijing', 'Four days, winter break', ['No STEM background or coding needed.'])]),
   ],
   cl_k='Next step', cl_h='See it <em>in a program.</em>',
   cl_p='From two-day workshops to year-long mentorship, every Arena School program runs on this framework.',
@@ -271,7 +271,7 @@ T['cn'].update(
      ('/programs/website-portfolio-workshop', '升学作品集工作坊', '在校两天 · 10至12年级', ['判断哪些作品最能代表自己。', '规划、撰写并设计一个真正的网站，每个字都出自自己。', '用于大学、暑期项目、奖学金和实习申请。']),
      ('/programs/product-intensive', '创业与AI集训营', '在校五天 · 7至12年级', ['选一个真实的问题，访谈用户，定价，并向评审团路演。', '用AI做调研、开发和品牌，由自己决定留下什么。', '把同样的步骤用到兴趣项目、比赛或课程作业中。']),
      ('/mentorship', '学年项目导师计划', '一对一，六个月到一年 · 7至12年级', ['自己选定问题，并为结果负责。', '把产品放到真实用户面前。', '走过初稿阶段：测试、修改，把它做好。']),
-     ('/events/isb-winter-2027', '学生AI基础营 · 北京顺义国际学校', '寒假四天，在北京顺义国际学校，面向任何学校的6至12年级', ['在自己的项目中学习用于调研、设计、编程和视频的AI工具。', '选一个值得做的项目，每个决定都由自己做。', '做出任何人都能打开的可用版本，并经过真实用户测试。']),
+     ('/events/isb-winter-2027', '学生AI基础营 · 北京顺义国际学校', '寒假四天', ['在自己的项目中学习用于调研、设计、编程和视频的AI工具。', '选一个值得做的项目，每个决定都由自己做。', '做出任何人都能打开的可用版本，并经过真实用户测试。']),
      ('/zero-to-launch', 'AI职场先发营', '七天 · 大学生与职场新人', ['上线一款有真实用户的AI产品。', '为想申请的岗位做一个项目，并整理作品集。', '在路演日登台展示自己的作品。'])]),
    ('老师', '老师的学习方式与学生一样：用自己的工作练，现场有人给反馈。', [
      ('/programs/teacher-training', '教育者AI培训', '在贵校开展', ['带来一项批改、备课或分层教学的任务，带走一个用AI做出的工具。', '在学校批准的工具上，核查每一个结果。', '当学生也在用AI时，评估过程，而不只是结果。']),
@@ -284,7 +284,7 @@ T['cn'].update(
    ('家庭', '面向家长：AI对孩子意味着什么，以及在家如何支持孩子。', [
      ('/programs/community-dialogues', '社区对话', '家长咖啡会和主题分享', ['工作正在怎样变化，来自我们团队自己的工作，而不是预测。', '学生现在能做出什么，来自真实的学生项目。', '在家支持6至12年级学生的具体做法。']),
      ('/mentorship', '学年项目导师计划', '家庭直接报名', ['一名学生，一个自己选定的项目，加上一对一的个性化导师指导。']),
-     ('/events/isb-winter-2027', '学生AI基础营 · 北京顺义国际学校', '寒假四天，在北京顺义国际学校，面向任何学校的6至12年级', ['不需要理工科背景，也不需要编程基础。'])]),
+     ('/events/isb-winter-2027', '学生AI基础营 · 北京顺义国际学校', '寒假四天', ['不需要理工科背景，也不需要编程基础。'])]),
   ],
   cl_k='下一步', cl_h='在具体项目中，<em>看见这套框架。</em>',
   cl_p='从两天的工作坊到学年项目导师计划，Arena School 的每个项目都运行在这套框架之上。',
