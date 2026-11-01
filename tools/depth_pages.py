@@ -38,9 +38,9 @@ DEMODAY_CN = dict(k='北京顺义国际学校 · 2026路演日', h='家长在现
                   dl=[('评委', '来自哈佛、斯坦福、Y Combinator 和AI实验室的创始人与业界人士')], a=('/results-cn', '查看成果'))
 
 WINTER_EN = dict(k='Next · Winter break, Jan 5 to 8, 2027', h='AI Fundamentals for Students @ International School of Beijing', p='Four days at the end of winter break. Students learn AI tools and use them to turn an idea into a real product. No STEM background or coding needed.',
-                 dl=[('Where', 'International School of Beijing')], a=('/events/isb-winter-2027', 'Register interest'), next=True)
+                 dl=[('Where', 'International School of Beijing'), ('For', 'Students in grades 6 to 12 from any school')], a=('/events/isb-winter-2027', 'Register interest'), next=True)
 WINTER_CN = dict(k='即将举办 · 寒假，2027年1月5日至8日', h='学生AI基础营 · 北京顺义国际学校', p='寒假的最后四天，学生学会使用AI工具，并用它们把一个想法做成真正能用的产品。不是理科生、没有编程基础，也完全可以。',
-                 dl=[('地点', '北京顺义国际学校')], a=('/events/isb-winter-2027-cn', '登记意向'), next=True)
+                 dl=[('地点', '北京顺义国际学校'), ('对象', '任何学校的6至12年级学生')], a=('/events/isb-winter-2027-cn', '登记意向'), next=True)
 ALUMNI_EN = dict(k='International School of Beijing · After the summer program', h='Projects that kept going', p='After the five-day program in summer 2026, alumni continue their projects in the Year-Long Project Mentorship.',
                  dl=[('Started', 'Summer 2026, five days at ISB'), ('Now', 'Year-Long Project Mentorship')], a=('/results', 'See results'))
 ALUMNI_CN = dict(k='北京顺义国际学校 · 夏季项目之后', h='没有停下的项目', p='2026年夏天的五天项目结营后，营员们在学年项目导师计划中继续打磨自己的项目。',

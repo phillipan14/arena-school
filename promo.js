@@ -22,13 +22,13 @@
   var T = zh ? {
     region: '近期公告', close: '关闭', bt: '学生AI基础营 · 北京顺义国际学校 · 2027年1月5–8日', bm: '学生AI基础营 · 北京顺义国际学校 · 1月5–8日', bgo: '登记意向',
     k: '学生AI基础营 · 北京顺义国际学校', h: '这个冬天，\n让孩子做出真正能用的产品', d: '2027年1月5日至8日',
-    p: '在北京顺义国际学校（ISB），\n学生选定一个真实问题，\n借助AI做出可用的产品，并现场展示。',
+    p: '在北京顺义国际学校举办，面向任何学校的6至12年级学生。学生选定一个真实问题，借助AI做出可用的产品，并现场展示。',
     note: '2026年，已有 ISB 学生在 Arena 北京五天集训中\n做出了自己的网站和应用。',
     reg: '登记意向', or: '还在考虑？先订阅 Arena 通讯。'
   } : {
     region: 'Announcement', close: 'Close', bt: 'AI Fundamentals for Students @ International School of Beijing · Jan 5–8, 2027', bm: 'AI Fundamentals for Students @ International School of Beijing · Jan 5–8', bgo: 'Register',
     k: 'AI Fundamentals for Students @ International School of Beijing', h: 'This winter, your child builds something real.', d: 'January 5–8, 2027',
-    p: 'At the International School of Beijing, students choose a real problem, build a working product with AI, and demo it.',
+    p: 'Held at the International School of Beijing and open to students in grades 6 to 12 from any school. Students choose a real problem, build a working product with AI, and demo it.',
     note: 'In 2026, ISB students built websites and apps in Arena’s five-day intensive in Beijing.',
     reg: 'Register interest', or: 'Not ready yet? Get Arena Notes by email.'
   };
