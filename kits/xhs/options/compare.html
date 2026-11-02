@@ -1,0 +1,12 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>Arena carousel · style options</title>
+<style>body{margin:0;background:#EFE3D4;color:#0E1729;font-family:-apple-system,"PingFang SC",sans-serif}
+header{padding:26px 32px 6px}h1{margin:0;font-size:22px}header p{margin:6px 0 0;color:#46506A;font-size:14px}
+section{padding:18px 32px 26px;border-bottom:1px solid rgba(14,23,41,.15)}h2{margin:0 0 4px;font-size:18px}section p{margin:0 0 12px;color:#46506A;font-size:14px;max-width:1100px}
+.row{display:flex;gap:14px;overflow-x:auto}.row img{height:520px;border-radius:6px;cursor:zoom-in}
+#z{position:fixed;inset:0;background:rgba(14,23,41,.88);display:none;place-items:center}#z img{max-height:95vh}</style>
+<header><h1>Arena School · 小红书 carousel · 3 style options</h1><p>Same four slides in each: cover · a points slide · founder card · a screen step. Screens now show just the window, no border. Click to enlarge.</p></header>
+<section><h2>A · 网站同款</h2><p>Closest to arenaschool.org: light serif headlines with one word in riso blue, "——" eyebrow labels, soft rounded cards with a hairline edge, the real wordmark, italic page numbers. Cover = riso art on top, beige band below with the title.</p><div class="row"><img src="A-cover.png"><img src="A-points.png"><img src="A-founder.png"><img src="A-screen.png"></div></section>
+<section><h2>B · Riso 印刷</h2><p>The riso prints run through every slide: a strip of print at the top of each page, a full-bleed cover with the title in cream over the dark part, screens floating on a riso field. No cards at all; lists are numbered rows separated by thin rules.</p><div class="row"><img src="B-cover.png"><img src="B-points.png"><img src="B-founder.png"><img src="B-screen.png"></div></section>
+<section><h2>C · 杂志内页</h2><p>A magazine page: very large headlines, a huge italic coral step number, photos and screens bleeding off the edge, three-column text under a heavy rule. Cover = riso art with the title set on paper-colored highlight strips.</p><div class="row"><img src="C-cover.png"><img src="C-points.png"><img src="C-founder.png"><img src="C-screen.png"></div></section>
+<div id="z" onclick="this.style.display='none'"><img></div>
+<script>document.querySelectorAll('.row img').forEach(i=>i.onclick=()=>{const z=document.getElementById('z');z.querySelector('img').src=i.src;z.style.display='grid'})</script></html>

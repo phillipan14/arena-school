@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 32" fill="#000000" font-family="Georgia, 'Times New Roman', serif">
+  <text x="0" y="22" font-size="20" font-weight="500" letter-spacing="5" textLength="160" lengthAdjust="spacing">HARVARD</text>
+  <line x1="172" y1="6" x2="172" y2="26" stroke="#000000" stroke-width="1"/>
+  <text x="186" y="22" font-size="20" font-weight="500" letter-spacing="5" textLength="170" lengthAdjust="spacing">BUSINESS</text>
+  <line x1="368" y1="6" x2="368" y2="26" stroke="#000000" stroke-width="1"/>
+  <text x="382" y="22" font-size="20" font-weight="500" letter-spacing="5" textLength="140" lengthAdjust="spacing">SCHOOL</text>
+</svg>
