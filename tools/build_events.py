@@ -66,11 +66,11 @@ PAGES = {
  },
  'isb-winter-2027': {
   'en': dict(title='AI Fundamentals for Students @ International School of Beijing (Jan 5–8, 2027)',
-    desc='AI Fundamentals for Students @ International School of Beijing: a short Arena School program at the International School of Beijing, January 5–8, 2027, the last days of ISB’s winter break. Students choose a real problem, build a working product with AI tools, and demo it. Register interest.',
+    desc='AI Fundamentals for Students @ International School of Beijing, January 5–8, 2027: held at the International School of Beijing and open to students in grades 6 to 12. Four days at the end of winter break to learn AI tools and turn an idea into a real product. No coding or STEM background needed. Register interest.',
     eyebrow='AI Fundamentals for Students @ International School of Beijing',
     h1='AI Fundamentals for Students @ International School of Beijing',
-    lede='In the last days of ISB’s winter break, students choose a problem worth solving, build a working product with AI tools, and show it to a panel. A shorter version of the Entrepreneurship & AI Intensive we ran with ISB students in Beijing in 2026.',
-    facts=[('When','Jan 5–8, 2027'),('Where','International School of Beijing'),('For','ISB students')],
+    lede='Held at the International School of Beijing and open to students in grades 6 to 12. Students choose a problem worth solving, build a working product with AI tools, and show it to a panel. A shorter version of the Entrepreneurship & AI Intensive we ran in Beijing in 2026.',
+    facts=[('When','Jan 5–8, 2027'),('Where','International School of Beijing'),('For','Students in grades 6 to 12')],
     cta=[('Register interest','#register',True),('See all programs','/#programs',False)],
     sec_k='What students do', sec_h='From a problem to a working product',
     rows=[('Choose a problem','Students pitch problems they care about, and teams form around them.'),
@@ -78,17 +78,17 @@ PAGES = {
           ('Live at a link','With AI coding tools, teams make a working version anyone can open. No coding experience is needed.'),
           ('Demo','Teams present what they built and what they learned.')],
     form=dict(k='Register interest', h='Hear first when registration opens', p='Leave your details and we will follow up with the full program details, including fees. Registering interest is not a commitment.',
-      name='Parent or guardian name', email='Email', contact='WeChat ID or phone (optional)', grade='Student’s grade', grades=['Grade 6','Grade 7','Grade 8','Grade 9','Grade 10','Grade 11','Grade 12','Not sure yet'],
-      role='I’m a…', roles=['Parent','Student','Something else'], school='School', school_v='International School of Beijing (ISB)', btn='Register interest', sending='Sending…',
+      name='Parent or guardian name', email='Email', contact='WeChat ID or phone', grade='Student’s grade', grades=['Grade 6','Grade 7','Grade 8','Grade 9','Grade 10','Grade 11','Grade 12','Not sure yet'],
+      role='I’m a…', roles=['Parent','Student','Something else'], school='School', school_ph='Your child’s school', btn='Register interest', sending='Sending…',
       done='Thank you. You are on the list.', note='Our team will reply personally within three working days.'),
     end_k='Proof', end_h='What ISB students built in 2026', end_p='Over five days in Beijing, ISB students built working websites and apps with AI and presented them to judges from Harvard, Stanford, Y Combinator, and AI labs.',
     end_cta=('See results','/results'), end_more=('About the five-day intensive','/programs/product-intensive')),
   'cn': dict(title='学生AI基础营 · 北京顺义国际学校（2027年1月5–8日）',
-    desc='学生AI基础营 · 北京顺义国际学校：Arena School 于2027年1月5–8日（ISB 寒假最后几天），在北京顺义国际学校开展的短期项目：学生选择真实问题，借助AI工具做出可用的产品并展示。欢迎登记意向。',
+    desc='学生AI基础营 · 北京顺义国际学校，2027年1月5日至8日：在北京顺义国际学校举办，面向6至12年级学生。寒假最后四天，学生学会使用AI工具，把一个想法做成真正能用的产品。无需编程或理科背景。欢迎登记意向。',
     eyebrow='学生AI基础营 · 北京顺义国际学校',
     h1='学生AI基础营 · 北京顺义国际学校',
-    lede='在 ISB 寒假的最后几天，学生选择一个值得解决的问题，借助AI工具做出可用的产品，并向评委展示。这是我们2026年在北京与 ISB 学生一起开展的“创业与AI集训营”的精简版。',
-    facts=[('日期','2027年1月5–8日'),('地点','北京顺义国际学校'),('对象','ISB 学生')],
+    lede='在北京顺义国际学校举办，面向6至12年级学生。学生选择一个值得解决的问题，借助AI工具做出可用的产品，并向评委展示。这是我们2026年在北京开展的“创业与AI集训营”的精简版。',
+    facts=[('日期','2027年1月5–8日'),('地点','北京顺义国际学校'),('对象','6至12年级学生')],
     cta=[('登记意向','#register',True),('查看全部项目','/index-cn#programs',False)],
     sec_k='学生会做什么', sec_h='从一个问题到一个可用的产品',
     rows=[('选择问题','学生提出自己关心的问题，并围绕问题组队。'),
@@ -96,8 +96,8 @@ PAGES = {
           ('上线可访问','借助AI编程工具，团队做出任何人都能打开的可用版本，无需编程基础。'),
           ('展示','团队展示他们做出的成果和收获。')],
     form=dict(k='登记意向', h='报名开放时第一时间通知您', p='留下您的信息，我们会把包括费用在内的完整项目详情发给您。登记意向不代表报名。',
-      name='家长姓名', email='邮箱', contact='微信号或电话（选填）', grade='学生年级', grades=['6年级','7年级','8年级','9年级','10年级','11年级','12年级','暂不确定'],
-      role='我是', roles=['家长','学生','其他'], school='学校', school_v='北京顺义国际学校（ISB）', btn='登记意向', sending='提交中…',
+      name='家长姓名', email='邮箱', contact='微信号或电话', grade='学生年级', grades=['6年级','7年级','8年级','9年级','10年级','11年级','12年级','暂不确定'],
+      role='我是', roles=['家长','学生','其他'], school='学校', school_ph='孩子就读的学校', btn='登记意向', sending='提交中…',
       done='谢谢！您已登记。', note='我们的团队会在三个工作日内亲自回复。'),
     end_k='往期成果', end_h='2026年 ISB 学生做出了什么', end_p='在北京的五天里，ISB 学生借助AI做出了可用的网站和应用，并向来自哈佛、斯坦福、Y Combinator 与AI实验室的评委展示。',
     end_cta=('查看成果','/results-cn'), end_more=('了解五天集训营','/programs/product-intensive-cn')),
@@ -134,12 +134,12 @@ def form_html(d, lang):
           <div><label for="rg-email">{E(f['email'])}</label><input id="rg-email" name="email" type="email" required autocomplete="email" maxlength="200" /></div>
         </div>
         <div class="form-row form-row-split">
-          <div><label for="rg-contact">{E(f['contact'])}</label><input id="rg-contact" name="contact" type="text" maxlength="120" /></div>
+          <div><label for="rg-contact">{E(f['contact'])}</label><input id="rg-contact" name="contact" type="text" required maxlength="120" /></div>
           <div><label for="rg-grade">{E(f['grade'])}</label><select id="rg-grade" name="grade" required><option value="" disabled selected>{pick}</option>{opts(f['grades'])}</select></div>
         </div>
         <div class="form-row form-row-split">
           <div><label for="rg-role">{E(f['role'])}</label><select id="rg-role" name="role" required><option value="" disabled selected>{pick}</option>{opts(f['roles'])}</select></div>
-          <div><label for="rg-school">{E(f['school'])}</label><input id="rg-school" name="school" type="text" autocomplete="organization" maxlength="160" value="{E(f['school_v'])}" /></div>
+          <div><label for="rg-school">{E(f['school'])}</label><input id="rg-school" name="school" type="text" required autocomplete="organization" maxlength="160" placeholder="{E(f['school_ph'])}" /></div>
         </div>
         <button type="submit" class="btn btn-primary cf-submit"><span class="cf-submit-label">{E(f['btn'])} <span class="arr">→</span></span><span class="cf-submit-loading" aria-hidden="true">{E(f['sending'])}</span></button>
         <p class="cf-status" role="status" aria-live="polite"></p>
