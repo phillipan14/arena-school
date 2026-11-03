@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><!-- SUPERSEDED (Sep 30): superseded by riso-v2/site-preview/_kit/onepager.html. Retired wording inside (every team launched, Steam, AI Website Workshop). Do not use. --><title>SUPERSEDED · Arena School · Programs</title>
+<meta name="robots" content="noindex">
+<style>
+@import url('/fonts/fonts.css');
+@page{size:A4;margin:0}
+:root{--ink:#0B1A4A;--ink2:#2F55A8;--paper:#F3E9DD;--hi:#FCF3ED;--beige:#EFE3D4;--line:#D4C0AA;--mute:#5B5B6B;
+ --disp:'Newsreader',Georgia,serif;--body:'Geist',system-ui,sans-serif;--mono:'Geist Mono',ui-monospace,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#888}
+.page{width:210mm;height:297mm;margin:0 auto;background:var(--paper) radial-gradient(rgba(11,26,74,.16) .9px,transparent 1.2px) 6px 6px/14px 14px;
+ color:var(--ink);font-family:var(--body);font-size:8.6pt;line-height:1.42;padding:11mm 12mm 9mm;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.seal{position:absolute;right:-42mm;top:-30mm;width:120mm;height:120mm;background:url(/art/seal-watermark.png) center/contain no-repeat;opacity:.07}
+header{display:flex;justify-content:space-between;align-items:flex-start;position:relative}
+header img{height:9.5mm}
+.url{font:600 7.6pt var(--mono);letter-spacing:.06em;text-align:right;color:var(--ink2);line-height:1.6}
+h1{font-family:var(--disp);font-weight:500;font-size:19pt;line-height:1.08;letter-spacing:-.02em;margin:5mm 0 1.6mm;max-width:150mm;position:relative}
+h1 em{color:var(--ink2)}
+.m{position:relative;z-index:0}.m::after{content:"";position:absolute;left:0;right:0;bottom:.08em;height:.3em;z-index:-1;background:url(/art/riso-hl.png) 0 0/5px 5px repeat}
+.lede{font-size:9.4pt;color:#26304F;max-width:165mm}
+.pill{display:inline-flex;align-items:center;gap:5px;font:600 6.8pt/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--hi);background:var(--ink);padding:3.2px 6px;border-radius:2px;box-shadow:1.5px 1.5px 0 var(--ink2)}
+.pill::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--ink2);box-shadow:0 0 0 1px var(--hi)}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;margin:3mm 0 0}
+.pillars div{border-top:1.4px solid var(--ink);padding-top:1.6mm}
+.pillars b{font-family:var(--disp);font-weight:500;font-size:11pt;display:block}
+.pillars span{color:#26304F;font-size:8pt}
+.sec{margin-top:4mm}
+.sec-h{display:flex;align-items:center;gap:3mm;margin-bottom:2.4mm}
+.sec-h h2{font-family:var(--disp);font-weight:500;font-size:12.5pt;letter-spacing:-.01em}
+table.p{width:100%;border-collapse:separate;border-spacing:0;background:var(--hi);border:1.2px solid var(--ink);border-radius:6px;box-shadow:2.5px 2.5px 0 var(--ink2);overflow:hidden}
+table.p td{padding:1.5mm 3mm;border-top:1px solid var(--line);vertical-align:top}
+table.p tr:first-child td{border-top:0}
+td.n{width:46mm}td.n b{font-family:var(--disp);font-weight:500;font-size:10pt;display:block;line-height:1.15}
+td.n i{font-style:normal;font:600 6.6pt var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--ink2)}
+td.w{width:38mm;color:var(--mute);font-size:7.8pt}
+td.j{width:27mm;font:600 6.6pt/1.35 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink2);text-align:right}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:4mm}
+.card{background:var(--hi);border:1.2px solid var(--ink);border-radius:6px;padding:2.6mm 3.2mm;box-shadow:2.5px 2.5px 0 var(--ink2)}
+.card .k{font:600 6.6pt var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);margin-bottom:.8mm}
+.card b.t{font-family:var(--disp);font-weight:500;font-size:10.4pt;display:block;margin-bottom:.8mm}
+.card p{color:#26304F}
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm}
+.case{background:var(--hi);border:1.2px solid var(--ink);border-radius:6px;overflow:hidden;box-shadow:2.5px 2.5px 0 var(--ink2);display:flex;flex-direction:column}
+.case img{width:100%;height:24mm;object-fit:cover;object-position:center 35%;display:block}
+.case .in{padding:2.2mm 3mm 2.6mm}
+.case .k{font:600 6.4pt var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);margin-bottom:.6mm}
+.case b.t{font-family:var(--disp);font-weight:500;font-size:9.8pt;display:block;margin-bottom:.8mm;line-height:1.2}
+.case ul{padding-left:3.4mm;color:#26304F;font-size:7.8pt;line-height:1.38}
+.case .sub{margin-top:1.4mm;padding:1.4mm 2mm;background:var(--beige);border-radius:4px;font-size:7.6pt;color:#26304F}
+.case .sub b{color:var(--ink)}
+footer{margin-top:auto;padding-top:3.4mm;border-top:1.2px solid var(--ink);display:grid;grid-template-columns:1.6fr 1fr;gap:6mm;align-items:end}
+footer .team b{font-family:var(--disp);font-weight:500;font-size:9.6pt}
+footer .team p{color:#26304F;font-size:7.6pt;line-height:1.4}
+footer .ct{text-align:right;font:600 8pt/1.6 var(--mono);color:var(--ink2)}
+@media print{html,body{background:none}.page{margin:0}}
+</style></head><body><div style="background:#b00020;color:#fff;font:600 14px/1.4 Arial,sans-serif;padding:10px 16px">SUPERSEDED by _kit/onepager.html (Sep 30). Do not use or export this file.</div>
+<div class="page">
+ <div class="seal"></div>
+ <header><img src="/logos/arena/wordmark-navy-1600.png" alt="Arena School"><div class="url">ARENASCHOOL.ORG<br>CONTACT@ARENASCHOOL.ORG</div></header>
+ <h1>Hands-on AI programs for <em class="m">students, families and educators</em>, run alongside schools.</h1>
+ <p class="lede">When AI can make almost anything, students need to know what's worth making, whether it's good, and how to finish it. Every program builds three skills:</p>
+ <div class="pillars"><div><b>Agency</b><span>Choosing what's worth solving.</span></div><div><b>Taste</b><span>Telling which version actually works.</span></div><div><b>Craft</b><span>Finishing it well.</span></div></div>
+
+ <div class="sec"><div class="sec-h"><span class="pill">For students</span><h2>From middle school to early career</h2></div>
+  <table class="p">
+   <tr><td class="n"><i>2 days</i><b>AI Website Workshop</b></td><td>Middle schoolers learn the AI tools to turn their own idea into a live website, and the skills to keep making.</td><td class="w">Middle school · new this year</td><td class="j">Run with schools</td></tr>
+   <tr><td class="n"><i>1–2 days</i><b>Portfolio Workshop</b></td><td>Students build their own portfolio website for college admissions, showing the work they have already made.</td><td class="w">High school</td><td class="j">Run with schools</td></tr>
+   <tr><td class="n"><i>5 days</i><b>5-Day Product Intensive</b></td><td>Students choose a real problem, build and launch a real product with AI tools, and pitch it to entrepreneurs and investors.</td><td class="w">Grades 7–12 · on campus</td><td class="j">Run with schools</td></tr>
+   <tr><td class="n"><i>6 months</i><b>School-Year Mentorship</b></td><td>One project, taken from idea to a real company, with weekly mentor check-ins and a milestone ladder.</td><td class="w">Grades 7–12 · Oct to Mar · weekly hybrid</td><td class="j">Families enroll directly</td></tr>
+   <tr><td class="n"><i>7 days</i><b>AI Advantage Bootcamp</b></td><td>Build and launch an AI product, then use it in internship and job interviews.</td><td class="w">College &amp; early career</td><td class="j">Apply directly</td></tr>
+  </table></div>
+
+ <div class="sec two">
+  <div><div class="sec-h"><span class="pill">For educators</span></div>
+   <div class="card"><b class="t">Teacher training</b><p>Hands-on AI for teachers and curriculum leads, built around their own classes: planning, materials and classroom tools, with their judgment in charge. Formats range from a single session to school-wide training.</p></div></div>
+  <div><div class="sec-h"><span class="pill">For families &amp; communities</span></div>
+   <div class="card"><b class="t">Community dialogues</b><p>Information-sharing sessions for parents, boards and school communities on AI in education, innovation and the workplace, and what it means for students.</p></div></div>
+ </div>
+
+ <div class="sec"><div class="sec-h"><span class="pill">What we've run</span><h2>Case studies</h2></div>
+  <div class="cases">
+   <div class="case"><div class="in"><div class="k">Hong Kong · summer 2025</div><b class="t">Idea to launched product in five days</b>
+    <ul><li>Real problem and user, research, build, launch, demo day</li></ul>
+    <div class="sub"><b>Case:</b> a ten-year-old new to coding built a sign-language-to-speech app for his deaf cousin.</div></div></div>
+   <div class="case"><div class="in"><div class="k">International School of Beijing · 2026</div><b class="t">Students, parents and leadership</b>
+    <ul><li>Student program: every team launched a live product</li><li>Parent information series</li><li>Consulting with the board and college counseling</li></ul>
+    <div class="sub"><b>Launched:</b> an all-in-one productivity tool; five games headed for Steam.</div></div></div>
+   <div class="case"><div class="in"><div class="k">Schwarzman College, Tsinghua</div><b class="t">Hands-on AI for staff</b>
+    <ul><li>AI training for a large group of staff</li><li>Built around their own work</li></ul>
+    <div class="sub"><b>Case:</b> a pronunciation coach for Chinese-language teachers' students.</div></div></div>
+  </div></div>
+
+ <div class="sec" style="margin-top:4mm"><p class="lede" style="font-size:8.6pt"><b>For schools:</b> every program above can be brought to your campus and shaped around your calendar, curriculum and students. We plan it with your team, and your teachers keep the materials.</p></div>
+
+ <footer>
+  <div class="team"><b>Founding team · Phillip An and Jing Jing Yang</b><p>Caltech, Harvard, Brown, Tsinghua (Schwarzman Scholars) · McKinsey, Goldman Sachs, Apple, Deloitte, Microsoft AI, Y Combinator, Kimi (Moonshot AI)</p></div>
+  <div class="ct">arenaschool.org<br>contact@arenaschool.org</div>
+ </footer>
+</div>
+</body></html>

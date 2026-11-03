@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>LinkedIn personal banner</title>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<style>
+/* 1584 x 396 LinkedIn personal banner. ?theme=beige|navy  &guides=1 shows where the profile photo sits (desktop + mobile).
+   Safe zone: the profile photo covers the bottom-left (desktop ~x 45-350, mobile ~x 65-490, both from y ~185 down),
+   so all type sits right of x 560. */
+html,body{margin:0;background:#888}
+.b{position:relative;width:1584px;height:396px;overflow:hidden;font-family:'Newsreader',Georgia,serif}
+.beige{background:#FCEDDD;--ink:#16263A;--soft:#5A6474;--seal-op:.12}
+.navy{background:#162837;--ink:#EFE3D4;--soft:#B9C2CC;--seal-op:.14}
+.seal{position:absolute;right:-70px;top:50%;width:560px;height:560px;transform:translateY(-50%);opacity:var(--seal-op)}
+.copy{position:absolute;left:600px;right:120px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;padding-bottom:18px}
+.k{font:600 15px/1 'Geist',system-ui,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:var(--soft);margin:0 0 20px}
+.h{margin:0;white-space:nowrap;font-weight:400;font-size:80px;line-height:1.02;letter-spacing:-.012em;color:var(--ink)}
+.h em{font-style:italic}
+.sub{margin:18px 0 0;font-size:24px;line-height:1.3;color:var(--soft);font-style:italic}
+.lockup{position:absolute;right:56px;bottom:40px;height:38px;width:auto}
+/* guides */
+.g{display:none;position:absolute;border:3px dashed #e33;border-radius:50%;pointer-events:none}
+.guides .g{display:block}
+.g.d{left:47px;top:246px;width:300px;height:300px}
+.g.m{left:65px;top:186px;width:420px;height:420px;border-color:#f90}
+.gl{position:absolute;font:600 14px/1 sans-serif;color:#e33;background:#fff;padding:2px 5px}
+</style></head><body>
+<div class="b" id="b">
+  <img class="seal" id="seal" src="/logos/arena/seal-navy-1024.png" alt="">
+  <div class="copy">
+    <p class="k">What we teach</p>
+    <h1 class="h">Agency, <em>taste,</em> and craft.</h1>
+    <p class="sub">for students growing up with AI</p>
+  </div>
+  <img class="lockup" id="lockup" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School">
+  <div class="g d"></div><div class="g m"></div>
+</div>
+<script>
+var q=new URLSearchParams(location.search),t=q.get('theme')||'beige',b=document.getElementById('b');
+b.classList.add(t); if(q.get('guides'))b.classList.add('guides');
+if(t==='navy'){document.getElementById('seal').src='/logos/arena/seal-ivory-1024.png';document.getElementById('lockup').src='/logos/arena/wordmark-ivory-1600.png'}
+if(q.get('nosub'))document.querySelector('.sub').remove(); if(q.get('nok'))document.querySelector('.k').remove();
+</script>
+</body></html>

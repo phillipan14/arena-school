@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Arena School · Programs</title>
+<meta name="robots" content="noindex">
+<style>
+@import url('/fonts/fonts.css');
+@page{size:A4;margin:0}
+:root{--ink:#0B1A4A;--ink2:#2F55A8;--paper:#F3E9DD;--hi:#FCF3ED;--beige:#EFE3D4;--line:#D4C0AA;--mute:#5B5B6B;
+ --serif:'Newsreader','Songti SC','Noto Serif SC','Source Han Serif SC',Georgia,serif;--disp:var(--serif);--body:var(--serif)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#888}
+.page{width:210mm;height:297mm;margin:0 auto;background:var(--paper) radial-gradient(rgba(11,26,74,.16) .9px,transparent 1.2px) 6px 6px/14px 14px;
+ color:var(--ink);font-family:var(--body);font-size:8.6pt;line-height:1.42;padding:8.75mm 12mm 8.75mm;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.seal{position:absolute;right:-60mm;top:-42mm;width:165mm;height:165mm;background:url(/art/seal-watermark.png) center/contain no-repeat;opacity:.07}
+header{display:flex;justify-content:space-between;align-items:flex-start;position:relative}
+header img{height:9.5mm}
+.url{font:600 7.6pt var(--serif);letter-spacing:.06em;text-align:right;color:var(--ink2);line-height:1.6}
+h1{font-family:var(--disp);font-weight:500;font-size:19pt;line-height:1.08;letter-spacing:-.02em;margin:5mm 0 1.6mm;max-width:none;position:relative}
+h1 em{color:var(--ink2)}
+.m{position:relative;z-index:0}.m::after{content:"";position:absolute;left:0;right:0;bottom:.08em;height:.3em;z-index:-1;background:url(/art/riso-hl.png) 0 0/5px 5px repeat}
+.lede{font-size:9.4pt;color:#26304F;max-width:none}
+.pill{position:relative;z-index:0;display:inline-block;font:800 9pt/1.2 var(--serif);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);padding:0 1px}
+.pill::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:4px;z-index:-1;background:url(/art/riso-hl.png) 0 0/5px 5px repeat}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;margin:3mm 0 0}
+.pillars div{background:var(--hi);border-radius:6px;padding:2.2mm 3mm}
+.pillars b{font-family:var(--disp);font-weight:500;font-size:11pt;display:block}
+.pillars span{color:#26304F;font-size:8pt}
+.sec{margin-top:7mm}
+.sec-h{display:flex;align-items:center;gap:3mm;margin-bottom:2.6mm}
+.sec-h h2{font-family:var(--disp);font-weight:500;font-size:12.5pt;letter-spacing:-.01em}
+table.p{width:100%;border-collapse:separate;border-spacing:0;background:var(--hi);border-radius:6px;overflow:hidden}
+table.p td{padding:3.2mm 3.6mm;border-top:1px solid var(--line);vertical-align:top}
+table.p tr:first-child td{border-top:0}
+td.n{width:42mm}td.n b{font-family:var(--disp);font-weight:500;font-size:10pt;display:block;line-height:1.15}
+td.n i{font-style:normal;font:600 6.6pt var(--serif);letter-spacing:.07em;text-transform:uppercase;color:var(--ink2)}
+td.w{width:47mm;line-height:1}
+.tag{display:inline-block;margin:0 1mm 1mm 0;padding:1px 4px;font:600 6.4pt/1.5 var(--serif);letter-spacing:.04em;color:var(--ink);background:var(--beige);border-radius:3px}
+td.j{width:27mm;font:600 6.6pt/1.35 var(--serif);letter-spacing:.04em;text-transform:uppercase;color:var(--ink2);text-align:right}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:4mm}
+.card{background:var(--hi);border-radius:6px;padding:2.6mm 3.2mm}
+.card .k{font:600 6.6pt var(--serif);letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);margin-bottom:.8mm}
+.card b.t{font-family:var(--disp);font-weight:500;font-size:10.4pt;display:block;margin-bottom:.8mm}
+.card p{color:#26304F}
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm}
+.case{background:var(--hi);border-radius:6px;overflow:hidden;display:flex;flex-direction:column}
+.case img{width:100%;height:24mm;object-fit:cover;object-position:center 35%;display:block}
+.case .in{padding:3.2mm 3.6mm 3mm}
+.case .k{font:600 6.4pt var(--serif);letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);margin-bottom:1.4mm}
+.case b.t{font-family:var(--disp);font-weight:500;font-size:9.8pt;display:block;margin-bottom:1.8mm;line-height:1.2}
+.case ul{padding-left:3.4mm;color:#26304F;font-size:7.8pt;line-height:1.38}
+.case .sub{margin-top:1.6mm;padding:2mm 2.4mm;background:var(--beige);border-radius:4px;font-size:7.6pt;color:#26304F}
+.case .sub b{color:var(--ink)}
+a.pl{color:inherit;text-decoration:underline;text-decoration-color:rgba(47,85,168,.5);text-decoration-thickness:1px;text-underline-offset:2.5px}
+footer{margin-top:auto;position:relative;background:#3B4C7E;color:#fff;border-radius:8px;padding:4.2mm 6mm 3.4mm}
+footer .cta-row{display:flex;align-items:center;justify-content:space-between;gap:6mm}
+footer .cta-h{font-family:var(--disp);font-weight:500;font-size:15pt;line-height:1.1;letter-spacing:-.01em;color:#fff}
+footer .cta-s{font-size:8.4pt;line-height:1.45;color:rgba(255,255,255,.85);margin-top:1.6mm;max-width:128mm}
+footer .cta-b{flex:none;background:#fff;color:var(--ink);text-decoration:none;font:700 9pt/1 var(--body);padding:3mm 5mm;border-radius:999px}
+footer .links{display:flex;justify-content:space-between;margin-top:3mm;padding-top:2.4mm;border-top:1px solid rgba(255,255,255,.3);font:600 8.2pt var(--serif)}
+footer .links a{color:#fff;text-decoration:none}
+div.team{display:block;padding:3.4mm 4.4mm 4mm}div.team .team-k{display:block;max-width:none;margin-bottom:2.6mm}div.team .logos{gap:0}
+footer .team b{font-family:var(--disp);font-weight:500;font-size:9.6pt}
+footer .team p{color:#26304F;font-size:7.6pt;line-height:1.4}
+footer .ct{text-align:right;font:600 8pt/1.6 var(--serif);color:var(--ink2)}
+.team{margin-top:3.4mm;background:var(--hi);border-radius:6px;padding:2.6mm 3.4mm;display:flex;align-items:center;gap:4mm}.team-k{font:800 7pt/1.3 var(--serif);letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);flex:none;max-width:26mm}.logos{display:flex;flex-wrap:nowrap;align-items:center;justify-content:space-between;gap:2mm 2.6mm;flex:1;min-width:0}.logos img{display:block;opacity:.9}
+@media print{html,body{background:none}.page{margin:0}}
+.card p .kw{background:rgba(47,85,168,.13);border-radius:2px;padding:0 1px;margin:0 -1px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.sec-h .note{font:500 7.4pt/1.3 var(--body);color:var(--mute)}
+.case .st{white-space:nowrap}.case .ar{color:var(--ink2);font-weight:600}
+/* optical top alignment: first-line ink tops match the description column */
+table.p td.n{padding-top:calc(3.2mm + 3.25px)}table.p td.w{padding-top:calc(3.2mm + -0.17px)}table.p td.j{padding-top:calc(3.2mm + 2.0px)}
+/* tags carry a 1mm bottom margin; cancel it so row bottoms match */
+table.p td.w{padding-bottom:calc(3.2mm - 1mm - 0.8px)}
+
+/* r2: three-card row (bootcamp, educators, families) */
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm}
+.three>div{display:flex;flex-direction:column}.three .card{flex:1;display:flex;flex-direction:column}
+.card .tags{margin-top:auto;padding-top:2mm;line-height:1}.card .tags .tag{margin-bottom:0}
+.case ul li+li{margin-top:.6mm}
+.pill{white-space:nowrap;flex:none}
+table.p{table-layout:fixed}table.p td{padding-bottom:calc(3.2mm - .15px)}table.p td.n{padding-top:calc(3.2mm + 2.9px)}table.p td.d{padding-top:calc(3.2mm + 1.8px)}table.p td.w{padding-top:calc(3.2mm + .65px)!important;padding-bottom:calc(3.2mm - .15px)!important;text-align:right}td.n{width:64mm}td.n i{display:block;margin-top:1.3mm}td.w{width:47mm;white-space:nowrap}
+
+/* r2b: serif-only system (matches the parent deck; no monospace) */
+:root{--serif:'Newsreader','Songti SC','Noto Serif SC','Source Han Serif SC',Georgia,serif;--disp:var(--serif);--body:var(--serif)}
+.page{font-variant-numeric:lining-nums}
+.pill{font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+.tag{font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+td.n i,.card .k,.case .k,.team-k,.url{font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+footer .links{font-weight:500;letter-spacing:.02em}
+.tag{letter-spacing:.05em}td.n i{letter-spacing:.07em;white-space:nowrap;line-height:1.3}td.w{width:50mm}
+.lede b,.case .sub b{font-weight:600}
+/* r3: widen tag column so the longest tag pair (6–12 months) fits; all rows share one right edge */
+td.w{width:52mm}
+
+/* Oct 1 feedback: pill text optically centered (caps trimmed to the cap height, equal padding) */
+.tag{line-height:1;padding:2.2pt 4px;text-box:trim-both cap alphabetic}
+/* Oct 1 feedback: the three pillars carry the headline's riso highlight */
+.lede b.pv{font-style:italic;font-weight:600;font-size:1.12em;color:var(--ink2);letter-spacing:.005em}
+.lede b.pv.m::after{bottom:.02em;height:.32em}
+</style></head><body>
+<div class="page">
+ <div class="seal"></div>
+ <header><img src="/logos/arena/wordmark-navy-1600.png" alt="Arena School"></header>
+ <h1>Hands-on programs that help <em class="m">students, families, educators, and schools</em> thrive in the age of AI.</h1>
+ <p class="lede">When AI can make almost anything, students need to know what's worth making, whether it's good, and how to finish it. Every program builds three skills: <b class="pv m">agency</b>, choosing what's worth solving; <b class="pv m">taste</b>, telling which version actually works; and <b class="pv m">craft</b>, finishing it well.</p>
+ <div class="team"><span class="team-k">Our team comes from</span><div class="logos"><img src="/logos/cred/caltech.png" alt="Caltech" style="height:11.2px"><img src="/logos/cred/harvard.png" alt="Harvard University" style="height:15.4px"><img src="/logos/cred/brown.png" alt="Brown University" style="height:20.0px"><img src="/logos/cred/tsinghua-lockup.png" alt="Tsinghua University" style="height:16.3px"><img src="/logos/cred/isb.png" alt="International School of Beijing" style="height:16.8px"><img src="/logos/cred/mckinsey.png" alt="McKinsey &amp; Company" style="height:9.6px"><img src="/logos/cred/goldman.png" alt="Goldman Sachs" style="height:16.1px"><img src="/logos/cred/yc.png" alt="Y Combinator" style="height:15.5px"><img src="/logos/cred/apple.png" alt="Apple" style="height:17.8px"><img src="/logos/cred/microsoft-ai.png" alt="Microsoft AI" style="height:14.1px"><img src="/logos/cred/deloitte.png" alt="Deloitte" style="height:9.2px"><img src="/logos/cred/kimi.png" alt="Kimi (Moonshot AI)" style="height:10.0px"></div></div>
+
+ <div class="sec"><div class="sec-h"><span class="pill">For students · Grades 6 to 12</span></div>
+  <table class="p">
+   <tr><td class="n"><b><a class="pl" href="https://arenaschool.org/programs/remake-your-favorite-app">App Design Workshop</a></b><i>In person · Run with schools</i></td><td class="d">Students rebuild an app they love, learn how it works, and publish their own.</td><td class="w"><span class="tag">2 days</span><span class="tag">Grades 6–9</span></td></tr>
+   <tr><td class="n"><b><a class="pl" href="https://arenaschool.org/programs/website-portfolio-workshop">College Portfolio Workshop</a></b><i>In person · Run with schools</i></td><td class="d">Students choose their best work and publish a portfolio website for applications.</td><td class="w"><span class="tag">2 days</span><span class="tag">Grades 10–12</span></td></tr>
+   <tr><td class="n"><b><a class="pl" href="https://arenaschool.org/programs/product-intensive">Entrepreneurship &amp; AI Intensive</a></b><i>In person · Run with schools</i></td><td class="d">Teams choose a real problem, build a working product with AI tools, and pitch it.</td><td class="w"><span class="tag">5 days</span><span class="tag">Grades 7–12</span></td></tr>
+   <tr><td class="n"><b><a class="pl" href="https://arenaschool.org/mentorship">Year-Long Project Mentorship</a></b><i>Hybrid · Families enroll directly</i></td><td class="d">One project they choose, with 1:1 mentorship to build it, grow it, and show it.</td><td class="w"><span class="tag">6–12 months</span><span class="tag">Grades 7–12</span></td></tr>
+  </table></div>
+
+ <div class="sec three">
+  <div><div class="sec-h"><span class="pill">For educators</span></div>
+   <div class="card"><b class="t"><a class="pl" href="https://arenaschool.org/programs/teacher-training">AI for Educators</a></b><p>Hands-on sessions where teachers build AI tools for <span class="kw">their own classes</span>, with their judgment in charge.</p><div class="tags"><span class="tag">Teachers</span><span class="tag">At your school</span></div></div></div>
+  <div><div class="sec-h"><span class="pill">For families</span></div>
+   <div class="card"><b class="t"><a class="pl" href="https://arenaschool.org/programs/community-dialogues">Community Dialogues</a></b><p>A parent education series: coffees and talks on <span class="kw">how AI is changing work, jobs, and college admissions</span>.</p><div class="tags"><span class="tag">Parents</span><span class="tag">At your school</span></div></div></div>
+  <div><div class="sec-h"><span class="pill">College &amp; early career</span></div>
+   <div class="card"><b class="t"><a class="pl" href="https://arenaschool.org/zero-to-launch">AI Advantage Bootcamp</a></b><p>One week to <span class="kw">launch a live product</span> and leave ready to use AI at work.</p><div class="tags"><span class="tag">7 days</span><span class="tag">Guangzhou, in person</span></div></div></div>
+ </div>
+
+ <div class="sec"><div class="sec-h"><span class="pill">What we've run</span><span class="note">Selected examples. Every program uses the AI tools each school approves.</span></div>
+  <div class="cases">
+   <div class="case"><div class="in"><div class="k">Hong Kong · Summer 2025</div><b class="t">Bodley Academy</b>
+    <ul><li>20 students, five days</li><li>9.5/10 NPS · 20 students</li></ul>
+    <div class="sub"><b>Case:</b> a ten-year-old launched a sign-language-to-speech app in five days.</div></div></div>
+   <div class="case"><div class="in"><div class="k">Beijing · Summer 2026</div><b class="t">International School of Beijing</b>
+    <ul><li>A five-day cohort, grades 7 to 12</li><li>Alumni continue in the Year-Long Project Mentorship</li></ul>
+    <div class="sub"><b>Demo day:</b> judges from Harvard, Stanford, Y Combinator, and AI labs.</div></div></div>
+   <div class="case"><div class="in"><div class="k">Tsinghua University</div><b class="t">Schwarzman College staff</b>
+    <ul><li>Hands-on training for staff, built around their own work</li><li>Their judgment stays in charge</li></ul>
+    <div class="sub"><b>Format:</b> the same hands-on workshop as AI for Educators.</div></div></div>
+  </div></div>
+
+ <footer><div class="cta-row"><div><div class="cta-h">Bring Arena to your school.</div><p class="cta-s">Programs for schools run on your campus, planned with your team around your calendar, curriculum, and students. Your teachers keep the materials. Pricing is set with each school.</p></div><a class="cta-b" href="mailto:contact@arenaschool.org">Contact us today →</a></div><div class="links"><a href="https://arenaschool.org">arenaschool.org</a><a href="mailto:contact@arenaschool.org">contact@arenaschool.org</a><a href="https://www.linkedin.com/in/arena-school">linkedin.com/in/arena-school</a></div></footer>
+</div>
+</body></html>

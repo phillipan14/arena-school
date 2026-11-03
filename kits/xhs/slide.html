@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Arena · slide v2</title>
+<link rel="stylesheet" href="assets/fonts-cjk.css">
+<link rel="stylesheet" href="assets/fonts-cjk-700.css">
+<link rel="stylesheet" href="assets/fonts-cjk-light.css">
+<link rel="stylesheet" href="assets/fonts-site.css">
+<style>
+/* v2 = cover from option C (riso art, title on paper strips) + body from option A (arenaschool.org:
+   paper, hairline soft cards, "——" eyebrows, riso-blue italic highlights like the homepage hero). */
+:root{--paper:#EFE3D4;--paper2:#E6D4C1;--card:#F5ECE0;--strip:#F3EADF;--ink:#101A2E;--ink2:#46506A;--ink3:#8A8FA0;
+  --blue:#22458A;--hair:rgba(16,26,46,.13);--title:"Noto Serif SC",serif;--sans:"Geist","Noto Sans SC",sans-serif}
+*{box-sizing:border-box}html,body{margin:0;background:#222}
+.s{position:relative;width:1080px;height:1440px;overflow:hidden;background:var(--paper);color:var(--ink);font-family:var(--sans);display:flex;flex-direction:column;padding:70px 84px 76px}
+h1,h2{margin:0;font-family:var(--title);font-weight:700;letter-spacing:.005em;white-space:pre-line;text-wrap:balance}
+.q em{font-style:italic;color:var(--blue)}
+h1 em,h2 em{font-style:italic;color:#2F55A8;position:relative;z-index:0;padding:0 .06em}
+h1 em::after,h2 em::after{content:"";position:absolute;left:-.04em;right:-.04em;bottom:.06em;height:.34em;z-index:-1;background:url(assets/riso-hl.png) 0 0/10px 10px repeat}
+em.sp{margin-right:.22em}
+.pe{display:inline-block;width:0;margin-left:-.5em}
+p{margin:0;text-wrap:pretty}
+.gap{flex:1 1 0;min-height:30px}
+.head{display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
+.head img{height:42px;display:block}
+.head .pg{font-family:"Newsreader",serif;font-style:italic;font-size:32px;color:var(--ink3)}
+.eb{align-self:flex-start;display:inline-flex;align-items:center;background:var(--card);border:1.5px solid var(--hair);border-radius:999px;padding:9px 24px;font-size:27px;color:var(--ink2);letter-spacing:.04em;margin-bottom:30px}
+h2{font-size:84px;line-height:1.26;margin-bottom:34px}
+.lead{font-size:36px;line-height:1.72;color:var(--ink2)}
+.card{background:var(--card);border:1.5px solid var(--hair);border-radius:30px;padding:40px 44px}
+
+/* cover */
+.cover{padding:0;background:#222}
+.cover .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cover .logo{position:absolute;left:90px;top:92px}
+.cover .logo img{height:40px;display:block}
+.cover .tag{position:absolute;right:90px;top:94px;font-size:30px;letter-spacing:.06em;color:var(--ink);font-weight:500}
+.cover .tag.light{color:#F5ECE0;text-shadow:0 1px 12px rgba(16,26,46,.35)}
+.cover .logo.light img{filter:drop-shadow(0 1px 10px rgba(16,26,46,.35))}
+.cover .logo.swap{left:auto;right:90px}
+.cover .tag.swap{right:auto;left:90px}
+.cover .box{position:absolute;left:90px;right:90px;bottom:106px}
+.cover h1{font-size:100px;line-height:1.3;text-wrap:initial}
+.cover h1 span{white-space:nowrap;background:var(--strip);padding:4px 22px 6px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.cover .sub{display:inline-block;margin-top:30px;background:var(--ink);color:var(--strip);font-size:33px;padding:16px 26px;line-height:1.45}
+
+/* text */
+.paras p{font-size:40px;line-height:1.76;margin-bottom:30px;color:var(--ink)}
+.note{font-family:var(--title);font-weight:600;font-size:40px;line-height:1.55;color:var(--ink)}
+.note::before{content:"";display:block;width:56px;height:4px;background:var(--blue);margin-bottom:22px}
+
+/* points */
+.pts{display:flex;flex-direction:column;gap:18px}
+.pts .card b{display:block;font-family:var(--title);font-weight:700;font-size:46px;margin-bottom:10px}
+.pts .card span{font-size:31px;line-height:1.58;color:var(--ink2)}
+.pts .card b .en{font-family:"Newsreader",serif;font-style:italic;font-weight:400;font-size:38px;color:var(--ink3);margin-left:18px}
+.pts .card{padding:28px 38px}
+.pts .card b{margin-bottom:6px!important}
+
+/* flow */
+.flow > div{display:grid;grid-template-columns:110px 1fr;align-items:baseline;padding:36px 0;border-top:1.5px solid var(--hair)}
+.flow > div:last-child{border-bottom:1.5px solid var(--hair)}
+.flow i{font-family:"Newsreader",serif;font-style:italic;font-size:64px;color:var(--blue);line-height:1}
+.flow b{font-family:var(--title);font-weight:700;font-size:52px;line-height:1.3}
+
+/* founder */
+.fd{display:grid;grid-template-columns:420px 1fr;gap:46px;align-items:end}
+.fd img{width:420px;height:525px;object-fit:cover;object-position:center 12%;border-radius:30px}
+.fd .nm{font-family:"Newsreader",serif;font-weight:500;font-size:80px;line-height:1.02}
+.fd .rl{font-size:29px;color:var(--ink3);margin:16px 0 26px}
+.creds{display:flex;flex-wrap:wrap;gap:12px}
+.creds span{background:var(--card);border:1.5px solid var(--hair);border-radius:999px;padding:9px 22px;font-size:28px;color:var(--ink)}
+.fd-line{font-size:38px;line-height:1.74;margin:46px 0 40px}
+.q{font-family:var(--title);font-weight:600;font-size:44px;line-height:1.55}
+.q small{display:block;font-family:var(--sans);font-weight:400;font-size:26px;letter-spacing:.06em;color:var(--ink3);margin-bottom:14px}
+
+/* screen */
+.num{font-family:"Newsreader",serif;font-style:italic;font-size:54px;color:var(--blue);line-height:1;margin-bottom:16px}
+.body{font-size:37px;line-height:1.72;color:var(--ink2)}
+.shot{border-radius:22px;overflow:hidden;box-shadow:0 44px 90px -46px rgba(16,26,46,.6),0 2px 8px rgba(16,26,46,.08);flex-shrink:0}
+.shot img{display:block;width:100%}
+
+/* prompt */
+.say{position:relative;padding-top:58px}
+.say::before{content:"“";position:absolute;left:34px;top:-8px;font-family:"Newsreader",serif;font-size:150px;line-height:1;color:var(--blue)}
+.say small{display:block;font-size:26px;letter-spacing:.06em;color:var(--ink3);margin-bottom:12px}
+.say p{font-family:var(--title);font-weight:600;font-size:42px;line-height:1.58;color:var(--ink)}
+
+/* grid */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.grid .card{padding:34px 34px;display:flex;flex-direction:column;gap:10px}
+.grid i{font-family:"Newsreader",serif;font-style:italic;font-size:40px;color:var(--blue);line-height:1}
+.grid b{font-family:var(--title);font-weight:700;font-size:38px;line-height:1.3}
+
+/* end */
+.end{align-items:stretch}
+.end .seal{width:200px;height:200px;display:block;margin-bottom:44px}
+.end h2{font-size:96px}
+.asks{display:flex;flex-direction:column;border-top:1.5px solid var(--hair);margin-bottom:44px}
+.asks div{display:grid;grid-template-columns:130px 1fr;padding:26px 0;border-bottom:1.5px solid var(--hair);font-size:38px;align-items:baseline}
+.asks b{font-family:var(--title);font-weight:700;color:var(--blue);font-size:40px}
+.site{display:flex;justify-content:space-between;align-items:baseline;border-top:1.5px solid var(--hair);padding-top:26px;font-family:"Newsreader",serif;font-size:36px;color:var(--ink)}
+.site span:first-child{font-style:italic;color:var(--blue)}
+.next small{display:block;font-size:26px;letter-spacing:.06em;color:var(--ink3);margin-bottom:12px}
+.next p{font-family:var(--title);font-weight:600;font-size:40px;line-height:1.55}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="data.js"></script>
+<script>
+const q = new URLSearchParams(location.search), P = POSTS.find(p => p.n === +(q.get("p") || 1)), si = +(q.get("s") || 0);
+const slides = [{ kind: "cover" }, ...P.slides], S = slides[si], N = slides.length;
+const esc = t => String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;");
+const hi = t => esc(t).replace(/\*([^*]+)\*([\s\S]?)/g, (m, w, nx) => `<em${nx && !/[\s，。、：；！？”’）」』,.!?:;)”"\n]/.test(nx) ? ' class="sp"' : ""}>${w}</em>${nx}`);   // *word* → highlighted italic
+const trimEnd = h => h.replace(/([，。、：；！？])(?=(<br>|\n|$))/g, '$1<span class="pe"></span>');
+const plain = t => String(t).replace(/\*/g, "");
+const WM = "assets/wordmark-navy.png";
+const hdr = `<div class="head"><img src="${WM}" alt="Arena School"><span class="pg">${si+1} / ${N}</span></div>`;
+const eb = t => `<div class="eb">${esc(t)}</div>`;
+let h = "";
+if (S.kind === "cover") {
+  const units = l => [...plain(l)].reduce((n, c) => n + (/[\x00-\x7f]/.test(c) ? 0.55 : 1), 0);
+  const fs = Math.min(100, Math.floor(846 / (Math.max(...P.title.split("\n").map(units)) + 0.6)));
+  const lines = P.title.split("\n").map(l => `<span>${trimEnd(hi(l))}</span>`).join("<br>");
+  // measured brightness of each cover's top-left / top-right corners (0 dark … 255 light)
+  const TONE = { "cover-1": [215, 226], "cover-2": [161, 19], "cover-3": [183, 212], "cover-4": [74, 73], "cover-5": [207, 213], "cover-6": [212, 221] };
+  const [tl, tr] = TONE[P.cover.split("/").pop().replace(".jpg", "")] || [200, 200];
+  const swap = tl >= 120 && tr < 120 && P.cover.includes("cover-2");   // logo would straddle paper/art: move it to the dark side
+  const lightL = swap ? tr < 120 : tl < 120, lightR = swap ? tl < 120 : tr < 120;
+  h = `<div class="s cover"><img class="bg" src="${P.cover}"><div class="logo ${lightL ? "light" : ""} ${swap ? "swap" : ""}"><img src="${lightL ? "assets/wordmark-ivory.png" : WM}"></div><div class="tag ${lightR ? "light" : ""} ${swap ? "swap" : ""}">${esc(P.tag)}</div>
+    <div class="box"><h1 style="font-size:${fs}px">${lines}</h1><p class="sub">${esc(P.sub)}</p></div></div>`;
+} else if (S.kind === "text") {
+  h = `<div class="s">${hdr}<div class="gap"></div>${eb(P.tag)}<h2>${trimEnd(hi(S.title))}</h2><div class="paras">${S.paras.map(p=>`<p>${esc(p)}</p>`).join("")}</div><div class="gap"></div><div class="card note">${esc(S.note)}</div><div class="gap"></div></div>`;
+} else if (S.kind === "points") {
+  h = `<div class="s">${hdr}<div class="gap"></div>${eb(P.tag)}<h2>${trimEnd(hi(S.title))}</h2>${S.lead?`<p class="lead" style="margin-bottom:40px">${esc(S.lead)}</p>`:""}<div class="pts">${S.items.map(i=>`<div class="card"><b>${esc(i.k)}${i.en?`<i class="en">${esc(i.en)}</i>`:""}</b><span>${esc(i.v)}</span></div>`).join("")}</div><div class="gap"></div></div>`;
+} else if (S.kind === "flow") {
+  h = `<div class="s">${hdr}<div class="gap"></div>${eb(P.tag)}<h2>${trimEnd(hi(S.title))}</h2><p class="lead" style="margin-bottom:40px">${esc(S.lead)}</p><div class="flow">${S.items.map((t,i)=>`<div><i>0${i+1}</i><b>${esc(t)}</b></div>`).join("")}</div><div class="gap"></div></div>`;
+} else if (S.kind === "founder") {
+  const f = FOUNDERS[S.who];
+  h = `<div class="s">${hdr}<div class="gap"></div>${eb("创始团队")}<div class="fd"><img src="${f.photo}"><div><div class="nm">${esc(f.name)}</div><div class="rl">${esc(f.role)}</div><div class="creds">${f.creds.map(c=>`<span>${esc(c)}</span>`).join("")}</div></div></div>
+    <p class="fd-line">${esc(f.line)}</p><div class="card q"><small>为什么做 Arena</small>${hi(f.quote)}</div><div class="gap"></div></div>`;
+} else if (S.kind === "screen") {
+  h = `<div class="s">${hdr}<div class="gap"></div><div class="num">${String(S.step).padStart(2,"0")}</div><h2>${trimEnd(hi(S.title))}</h2><p class="body">${esc(S.body)}</p><div class="gap"></div><div class="shot"><img src="assets/screens-trim/${S.img}.png"></div><div class="gap"></div></div>`;
+} else if (S.kind === "prompt") {
+  h = `<div class="s">${hdr}<div class="gap"></div><div class="num">${String(S.step).padStart(2,"0")} <span style="font-size:30px;color:var(--ink3);font-style:normal;font-family:var(--sans)">/ 共 4 步</span></div><h2>${trimEnd(hi(S.title))}</h2><p class="body">${esc(S.body)}</p><div class="gap"></div><div class="card say"><small>可以这样说</small><p>${esc(S.say)}</p></div><div class="gap"></div></div>`;
+} else if (S.kind === "grid") {
+  h = `<div class="s">${hdr}<div class="gap"></div>${eb(P.tag)}<h2>${trimEnd(hi(S.title))}</h2><p class="lead" style="margin-bottom:40px">${esc(S.lead)}</p><div class="grid">${S.items.map((t,i)=>`<div class="card"><i>${String(i+1).padStart(2,"0")}</i><b>${esc(t)}</b></div>`).join("")}</div><div class="gap"></div></div>`;
+} else if (S.kind === "end") {
+  h = `<div class="s end">${hdr}<div class="gap"></div><img class="seal" src="assets/seal-navy.png"><h2>${trimEnd(hi("觉得有用，\n就先*收藏*起来"))}</h2>
+    <div class="asks"><div><b>收藏</b><span>做的时候回来对照</span></div><div><b>关注</b><span>我们会一篇一篇拆开讲</span></div><div><b>评论</b><span>告诉我们你想看哪个主题</span></div></div>
+    <div class="card next"><small>接下来</small><p>${esc(plain(S.next))}</p></div><div class="gap"></div><div class="site"><span>arenaschool.org</span><span>contact@arenaschool.org</span></div></div>`;
+}
+document.getElementById("root").innerHTML = h;
+window.__N = N; window.__counts = POSTS.map(p => p.slides.length + 1);
+Promise.all([document.fonts.ready, ...[...document.images].map(i => i.complete ? 1 : new Promise(r => { i.onload = i.onerror = r; }))]).then(() => { window.__ready = true; });
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<!-- Contact details are kept out of this public repo. Fill them from Drive › Arena AI › Meeting kit (private) › Kit private assets before printing. -->
+<html lang="en"><head><meta charset="utf-8">
+<title>Arena School contact image</title>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/fonts/zh/zh.css?v=2">
+<style>
+/* Shareable contact image, 3:4 vertical (900 x 1200 CSS px, exported at 2x = 1800 x 2400).
+   Contacts lead: short navy banner with the lockup; a circular photo beside name, title, and mission;
+   large contact rows with the digital-card QR; a footer on how to work with Arena. ?who=jingjing|phillip &lang=en|zh */
+html,body{margin:0;background:#888}
+.c{position:relative;width:900px;height:1200px;overflow:hidden;background:#FBF4EA;color:#152636;font-family:'Geist',system-ui,sans-serif;display:flex;flex-direction:column}
+.band{flex:none;height:170px;background:#152636;display:flex;align-items:center;justify-content:center}
+.band img{width:500px;height:auto}
+.body{flex:1;display:flex;flex-direction:column;padding:0 72px}
+.top{flex:none;height:330px;display:flex;align-items:center;justify-content:center;gap:40px}
+.ph{flex:none;width:190px;height:190px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 6px #FBF4EA,0 0 0 7.5px rgba(21,38,54,.14)}
+.name{margin:0;font:500 58px/1.05 'Newsreader',Georgia,serif;letter-spacing:-.012em;white-space:nowrap}
+.zh .name{font-family:'Arena Serif SC','Noto Serif SC','Songti SC',serif;letter-spacing:.08em;font-size:62px}
+.alt{margin:4px 0 0;font:400 24px/1.2 'Newsreader',Georgia,serif;color:#4A5768}
+.role{margin:12px 0 0;font:600 17px/1.4 'Geist',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#2F55A8}
+.zh .role{letter-spacing:.12em;font-size:21px;text-transform:none}
+.line{margin:10px 0 0;max-width:none;white-space:nowrap;font:italic 400 23px/1.35 'Newsreader',Georgia,serif;color:#4A5768}
+.zh .line{max-width:none;font:400 22px/1.55 'Geist','PingFang SC',sans-serif}
+.mid{flex:1;display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:36px;align-items:center;align-content:center;border-top:1.5px solid rgba(21,38,54,.16);padding:26px 0}
+.ct{display:grid;gap:48px}
+.ct span{display:block;font:600 16px/1.2 'Geist',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#7A8492;margin-bottom:10px}
+.zh .ct span{letter-spacing:.12em;font-size:18px}
+.ct div div{font:400 42px/1.12 'Newsreader',Georgia,serif;color:#152636;white-space:nowrap}
+.qr{display:flex;flex-direction:column;align-items:center}
+.qr img{display:block;width:250px;height:250px}
+.qr small{display:block;margin-top:12px;font:600 13px/1.2 'Geist',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7A8492}
+.zh .qr small{letter-spacing:.1em;font-size:15px}
+.foot{margin-top:0;background:#F0E6D9;padding:40px 72px 46px}
+.foot b{display:block;font:600 14px/1 'Geist',sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#2F55A8;margin-bottom:14px}
+.zh .foot b{letter-spacing:.14em;font-size:17px}
+.foot p{margin:0;font:400 24px/1.5 'Newsreader',Georgia,serif;color:#26323F;text-wrap:pretty}
+.zh .foot p{font:400 21px/1.75 'Geist','PingFang SC',sans-serif}
+</style></head><body>
+<div class="c" id="c"></div>
+<script>
+var P={jingjing:{en:'Jing Jing Yang',zh:'羊筱涵',email:'jingjing@arenaschool.org',phone:'[phone]',wechat:'[WeChat]'},
+       phillip:{en:'Phillip An',zh:'安广宁',email:'phillip@arenaschool.org',phone:null,wechat:'[WeChat ID]'}};
+var q=new URLSearchParams(location.search),k=q.get('who')||'jingjing',L=q.get('lang')||'en',p=P[k],zh=L==='zh';
+var c=document.getElementById('c'); c.className='c '+L; document.documentElement.lang=zh?'zh-CN':'en';
+var rows=[];
+if(p.phone&&p.phone===p.wechat) rows.push([zh?'电话 / 微信':'Phone / WeChat',p.phone]);
+else { if(p.phone) rows.push([zh?'电话':'Phone',p.phone]); rows.push([zh?'微信':'WeChat',p.wechat]); }
+rows.push([zh?'邮箱':'Email',p.email]); rows.push([zh?'网站':'Web','arenaschool.org']);
+c.innerHTML='<div class="band"><img src="/logos/arena/wordmark-ivory-1600.png" alt="Arena School"></div>'+
+ '<div class="body"><div class="top"><img class="ph" src="/card/img/'+k+'.jpg" alt="">'+
+ '<div class="who"><p class="name">'+(zh?p.zh:p.en)+'</p>'+(zh?'<p class="alt">'+p.en+'</p>':'')+
+ '<p class="role">'+(zh?'联合创始人 · Arena School':'Co-founder · Arena School')+'</p>'+
+ '<p class="line">'+(zh?'陪伴学生在 AI 时代培养主动性、审美与匠心。':'Agency, taste, and craft for students growing up with AI.')+'</p></div></div>'+
+ '<div class="mid"><div class="ct">'+rows.map(function(r){return '<div><span>'+r[0]+'</span><div>'+r[1]+'</div></div>'}).join('')+'</div>'+
+ '<div class="qr"><img src="/_kit/qr/card-'+k+(zh?'-cn':'')+'.png" alt=""><small>'+(zh?'扫码查看电子名片':'Digital card')+'</small></div></div></div>'+
+ '<div class="foot"><b>'+(zh?'与我们合作':'Work with us')+'</b><p>'+(zh?
+   '我们与学校和家庭合作，也在教育会议和公开活动中分享。<br>欢迎随时联系我们，期待与您交流。':
+   'We partner with schools and families, and speak at education conferences and public events. We would love to connect, so reach out anytime.')+'</p></div>';
+</script>
+</body></html>
