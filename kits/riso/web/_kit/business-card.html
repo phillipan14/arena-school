@@ -1,0 +1,83 @@
+<!doctype html>
+<!-- Contact details are kept out of this public repo. Fill them from Drive › Arena AI › Meeting kit (private) › Kit private assets before printing. -->
+<html lang="en"><head><meta charset="utf-8">
+<title>Arena School business cards</title>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<style>
+/* Business card, 3.5 x 2 in (US standard). One language per side: English on the front, Chinese on the back,
+   same layout mirrored. The seal is the large brand mark on the right; name, title, and contact sit left.
+   Preview: 1050 x 600 px per side. ?print=1 renders trim + 0.125 in bleed (1125 x 675) without shadows. ?who=jing|phillip */
+html,body{margin:0;background:#E7E2DA}
+.sheet{display:grid;grid-template-columns:repeat(2,1050px);gap:56px;padding:64px;width:max-content}
+.card{position:relative;width:1050px;height:600px;border-radius:14px;overflow:hidden;background:#FBF4EA;color:#152636;
+  box-shadow:0 30px 60px -30px rgba(11,26,74,.45),0 2px 6px rgba(11,26,74,.08);font-family:'Newsreader',Georgia,serif}
+.rule{position:absolute;inset:26px;border:1.5px solid rgba(21,38,54,.22);border-radius:6px}
+.seal{position:absolute;right:84px;top:50%;width:300px;height:300px;transform:translateY(-50%)}
+.inner{position:absolute;left:84px;right:370px;top:150px;bottom:72px;display:grid;grid-template-rows:1fr auto}
+.who{align-self:center}
+.name{margin:0;font-weight:500;font-size:76px;line-height:1.05;letter-spacing:-.01em;white-space:nowrap}
+.alt{display:block;margin-top:10px;font-size:26px;font-weight:400;color:#4A5768}
+.role{margin:20px 0 0;font:600 29px/1 'Geist',system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#2F55A8}
+.contact{display:grid;width:fit-content;min-width:440px;grid-template-columns:auto 1fr;gap:6px 24px;font-size:34px;line-height:1.22;color:#26323F;border-top:1.5px solid rgba(21,38,54,.18);padding-top:22px}
+.contact span{white-space:nowrap;font:600 21px/2 'Geist',system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#7A8492}
+/* navy logo front, shared by both language versions */
+.card.front{background:#152636;display:flex;align-items:center;justify-content:center}
+.card.front .rule{border-color:rgba(239,227,212,.35)}
+.card.front .db{filter:drop-shadow(1.2px 1.6px 0 rgba(255,255,255,.07)) drop-shadow(-1.4px -1.8px 1px rgba(0,0,0,.45))}
+.card.front .db i{display:block;width:380px;height:380px;background:#0F1D2A;
+  -webkit-mask:url(/logos/arena/seal-navy-1024.png) center/contain no-repeat;mask:url(/logos/arena/seal-navy-1024.png) center/contain no-repeat}
+.print .card.front .db i{width:400px;height:400px}
+.card.front.flat .db{filter:none}.card.front.flat .db i{background:#EFE3D4}
+/* back: the QR to the digital card takes the crest's place (the crest is debossed on the front).
+   Printed flat in solid ink, never pressed, so it scans reliably. */
+.qr{position:absolute;right:108px;width:250px;box-sizing:border-box;padding:0;background:none;border:1.5px solid transparent;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:7.5px}
+.zh .qr{padding-top:5px}
+.qr img{display:block;width:220px;height:220px}
+.qr small{display:block;margin-top:18px;line-height:1;font:600 26px/1.2 'Geist',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#7A8492}
+.zh .qr small{letter-spacing:.12em;font-size:29px;font-family:'PingFang SC','Noto Sans SC',sans-serif}
+.print .qr{right:146px;padding-top:7px}
+.print .zh .qr{padding-top:3px}
+/* back: the official lockup at the top-left in place of the plain "Arena School" line */
+.lock{position:absolute;left:84px;top:72px;height:54px;width:auto}
+.print .lock{left:122px;top:110px}
+/* Chinese side */
+.zh .name{font-family:'Newsreader','Songti SC','Noto Serif SC',serif;font-size:84px;letter-spacing:.06em}
+.zh .role{font:600 33px/1 'PingFang SC','Noto Sans SC',sans-serif;letter-spacing:.32em;text-transform:none}
+.zh .contact span{font-family:'PingFang SC','Noto Sans SC',sans-serif;letter-spacing:.1em;font-size:24px;line-height:1.75}
+.cap{font:500 18px/1.4 'Geist',system-ui,sans-serif;color:#4A5563;margin:-36px 0 0 4px}
+.print body{background:none}
+.print .sheet{display:block;padding:0}
+.print .cap{display:none}
+.print .card{width:1125px;height:675px;border-radius:0;box-shadow:none}
+.print .rule{inset:64px}
+.print .seal{right:122px}
+.print .inner{left:122px;right:408px;top:188px;bottom:110px}
+</style></head><body>
+<div class="sheet" id="sheet"></div>
+<script>
+var P=[
+ {key:'jingjing',en:'Jing Jing Yang',zh:'羊筱涵',email:'jingjing@arenaschool.org',extra:[['WeChat','微信','[WeChat]']]},
+ {key:'phillip',en:'Phillip An',zh:'安广宁',email:'phillip@arenaschool.org',extra:[['WeChat','微信','[WeChat ID]']]}];
+var q=new URLSearchParams(location.search),who=q.get('who'),list=who?P.filter(function(p){return p.key.indexOf(who)===0}):P;
+var seal='<img class="seal" src="/logos/arena/seal-navy-1024.png" alt="Arena School">';
+function side(p,lang){
+ var zh=lang==='zh';
+ return '<div class="card '+lang+'" lang="'+(zh?'zh-CN':'en')+'"><div class="rule"></div>'+'<img class="lock" src="/logos/arena/wordmark-navy-1600.png" alt="Arena School">'+'<div class="qr"><img src="/_kit/qr/card-'+p.key+(zh?'-cn':'')+'.png" alt=""><small>'+(zh?'电子名片':'Digital card')+'</small></div>'+'<div class="inner">'+
+  '<div class="who"><p class="name">'+(zh?p.zh:p.en)+'</p>'+
+  '<p class="role">'+(zh?'联合创始人':'Co-founder')+'</p></div>'+
+  '<div class="contact">'+(p.extra||[]).map(function(x){return '<span>'+(zh?x[1]:x[0])+'</span><div>'+x[2]+'</div>'}).join('')+'<span>'+(zh?'邮箱':'Email')+'</span><div>'+p.email+'</div><span>'+(zh?'网站':'Website')+'</span><div>arenaschool.org</div></div>'+
+  '</div></div>';
+}
+var front='<div class="card front'+(q.get('flat')?' flat':'')+'"><div class="rule"></div><div class="db"><i role="img" aria-label="Arena School crest"></i></div></div>';
+var langs=q.get('lang')?[q.get('lang')]:['en','zh'];
+var h='';
+list.forEach(function(p){ langs.forEach(function(l){ h+=front+side(p,l)+'<p class="cap">Front</p><p class="cap">Back · '+(l==='zh'?'中文 · '+p.zh:'English · '+p.en)+'</p>'; }); });
+if(q.get('print')){document.documentElement.classList.add('print');h=h.replace(/<p class="cap">[^<]*<\/p>/g,'');}
+document.getElementById('sheet').innerHTML=h;
+function fitQR(){document.querySelectorAll('.card:not(.front)').forEach(function(c){
+  var q=c.querySelector('.qr'),n=c.querySelector('.lock'),ct=c.querySelector('.contact'),cr=c.getBoundingClientRect();
+  var top=n.getBoundingClientRect().top-cr.top, bot=ct.getBoundingClientRect().bottom-cr.top;
+  q.style.top=top+'px'; q.style.height=(bot-top)+'px';});}
+fitQR(); if(document.fonts)document.fonts.ready.then(fitQR); window.addEventListener('load',fitQR);
+</script>
+</body></html>

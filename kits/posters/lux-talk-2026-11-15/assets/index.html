@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="robots" content="noindex">
+<title>千麓学者 × LIA · AI驾驭力如何助力留学生求职 · 11月15日</title>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<style>
+:root{
+  --ink:#0B1A4A; --ink2:#2F55A8; --paper:#F3E9DD; --hi:#FCF3ED; --beige:#EFE3D4;
+  --line:#D4C0AA; --text:#26304F; --muted:#5B5B6B; --lia:#FF5500;
+  --cn:'Songti SC','Noto Serif SC','Source Han Serif SC',serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#888}
+body{font-family:var(--cn);color:var(--text);-webkit-font-smoothing:antialiased;font-variant-numeric:lining-nums}
+/* Read on phones at ~390pt wide (×0.36): body copy ≥ 28px so it lands ≥ 10pt. */
+.poster{position:relative;width:1080px;margin:0 auto;padding:44px 48px 0;display:flex;flex-direction:column;
+  background:var(--paper) radial-gradient(rgba(11,26,74,.16) 1.1px,transparent 1.4px) 12px 12px/24px 24px}
+.lat{font-family:'Newsreader',Georgia,serif}
+.card{background:var(--hi);border-radius:12px}
+.hl{position:relative;z-index:0;white-space:nowrap}
+.hl::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:5px;z-index:-1;background:url(riso-hl.png) 0 0/6px 6px repeat}
+.t-in{display:inline-block;transform:translateY(var(--oy,0px))}
+
+/* co-brand row: Lux + Arena left, LIA right */
+.brands{display:flex;align-items:center;justify-content:flex-start;gap:40px}
+.brands .lux{height:52px}
+.brands .lia{height:78px;margin:-10px 0 -10px auto}  /* LIA spec: co-branded posters put LIA top right */
+.brands .arena{height:58px}
+.rule{margin-top:36px;height:1.5px;background:var(--ink);opacity:.22}
+
+h1{margin-top:32px;font:900 70px/1.15 var(--cn);color:var(--ink);white-space:nowrap}
+h1 .ai{color:var(--ink2);position:relative;z-index:0}
+h1 .ai::after{content:"";position:absolute;left:0;right:0;bottom:.1em;height:.2em;z-index:-1;background:url(riso-hl.png) 0 0/7px 7px repeat}
+h1 .lat{font-weight:500;letter-spacing:-.02em}
+
+/* speakers: one row each — portrait + name on the left, role + bio on the right; heads break above the card edge */
+.speakers{display:flex;flex-direction:column;--D:150px}
+.sp{display:grid;grid-template-columns:var(--D) minmax(0,1fr);column-gap:75px;padding:0 36px 34px 52px}
+.who{display:flex;flex-direction:column;align-items:center;justify-content:space-between}
+.ph{flex:none;position:relative;width:var(--D)}
+.ph .disc{position:absolute;left:0;width:var(--D);height:var(--D);border-radius:50%;background:var(--beige)}
+.ph .fig{position:absolute;left:0;top:0;width:var(--D);overflow:hidden}
+.ph .fig img{position:absolute;display:block}
+.nm{margin-top:14px;text-align:center;transform:translateY(var(--ny,0px))}
+.nm b{display:block;font:900 44px/1.1 var(--cn);color:var(--ink);letter-spacing:.04em;white-space:nowrap}
+.nm b.lat{font-weight:600;letter-spacing:.02em}
+.nm .en{display:block;margin-top:4px;font:italic 400 28px/1.15 'Newsreader',serif;color:var(--ink2);white-space:nowrap}
+.bio{padding-top:34px}
+.role{display:inline-block;font:900 36px/1.2 var(--cn);color:var(--ink);letter-spacing:.03em}
+.role .lat{font-weight:600;letter-spacing:0}
+ul.b{list-style:none;margin-top:24px;display:grid;gap:8px}
+ul.b li{position:relative;padding-left:22px;white-space:nowrap;font:400 34px/1.45 var(--cn);color:var(--text)}
+ul.b li::before{content:"";position:absolute;left:1px;top:.62em;width:8px;height:8px;border-radius:50%;background:var(--ink2)}
+/* Latin runs must not grow the line box, or rows with English sit farther apart */
+ul.b li .lat{font-size:1.04em;line-height:1}
+
+/* questions: 2×2, number beside a two-line question */
+.qlab{margin-top:40px}
+.lab{align-self:flex-start;display:inline-block;font:900 28px/1.2 var(--cn);color:var(--ink2);letter-spacing:.1em}
+.qs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;margin-top:24px}
+.q{display:flex;align-items:center;gap:22px;padding:30px 30px}
+.q .n{flex:none;font:italic 400 52px/1 'Newsreader',serif;color:var(--ink2)}
+.q p{font:500 33px/1.35 var(--cn);color:var(--ink);white-space:nowrap}
+/* keyword in each question */
+.q p em{font-style:normal;font-weight:900;color:var(--ink2);position:relative;z-index:0}
+.q p em::after{content:"";position:absolute;left:-4px;right:-4px;bottom:.02em;height:.46em;z-index:-1;background:rgba(47,85,168,.12);border-radius:2px}
+
+/* info */
+.info{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;margin-top:14px;margin-bottom:36px}
+.inf{padding:32px 32px;display:flex;flex-direction:column}
+.loc{padding-bottom:0}
+.big{margin-top:16px;font:900 44px/1.15 var(--cn);color:var(--ink);letter-spacing:.02em;white-space:nowrap}
+.big .lat{font-weight:500}
+.sched{margin-top:18px;flex:1;display:flex;flex-direction:column}
+.sched div{flex:1;display:grid;grid-template-columns:110px 1fr;align-items:center;padding:14px 0;border-top:1px solid var(--line)}
+.sched .t{font:400 33px/1 'Newsreader',serif;color:var(--ink2);font-variant-numeric:tabular-nums}
+.sched .e{font:500 30px/1.3 var(--cn);color:var(--text)}
+.addr{margin-top:18px;font:400 28px/1.55 var(--cn);color:var(--text)}
+.addr span{white-space:nowrap}
+.seats{margin-top:22px;flex:1;padding:22px 0 30px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.seats .stack{display:flex;flex-direction:column;gap:14px;transform:translateY(2px)}
+.seats b{font:700 32px/1 var(--cn);color:var(--ink);display:flex;align-items:baseline}
+.seats .num{font:400 62px/.8 'Newsreader',serif;color:var(--ink2);margin:0 6px 0 8px}
+.seats .s3{font:500 28px/1.3 var(--cn);color:var(--muted)}
+.seats .cta{font:700 28px/1.3 var(--cn);color:var(--ink2);letter-spacing:.04em}
+.seats .qr{flex:none;width:184px;padding:7px;background:#fff;border-radius:10px}
+.seats .qr img{width:100%;display:block}
+
+/* LIA spec: unified bottom band with module name and event info; logo recolored to the band */
+.band{margin:auto -48px 0;padding:34px 48px 38px;background:var(--ink);color:var(--hi)}
+.mod{display:flex;align-items:center;gap:14px}
+.mod img{height:62px}
+.mod .nmod{display:inline-flex;align-items:center;height:62px;font:600 40px/1 'Newsreader',serif;letter-spacing:.06em;color:#fff}
+.band .su{margin-top:20px;font:400 28px/1.65 var(--cn);color:rgba(252,243,237,.92);letter-spacing:.02em}
+.band .su .lat{font-size:1.06em;font-weight:500;line-height:1}
+</style></head>
+<body>
+<div class="poster" id="poster">
+
+  <div class="brands">
+    <img class="lux" src="lux-navy.png" alt="千麓学者 Lux Scholar">
+    <img class="arena" src="arena-wordmark-url-navy-transparent-1600.png" alt="Arena School · www.arenaschool.org">
+    <img class="lia" src="lia-orange.png" alt="LIA · Love Is Around Club">
+  </div>
+
+  <div class="rule"></div>
+  <h1><span class="ai"><span class="lat">AI</span>驾驭力</span>如何助力留学生求职</h1>
+
+  <section class="speakers">
+    <div class="card sp">
+      <div class="who">
+        <div class="ph" data-src="yue.png" data-w="1070" data-face-x="324" data-face-y="198" data-face="574" data-hair="16" data-cx="598"></div>
+        <div class="nm" style="--ny:9.6px"><b>郭阅</b><span class="en">Yue Guo</span></div>
+      </div>
+      <div class="bio">
+        <span class="role hl">千麓学者计划发起人</span>
+        <ul class="b">
+          <li>麦肯锡 <span class="lat">Senior Advisor</span></li>
+          <li>香港大学商学院实践教授</li>
+          <li><span class="lat">20</span>年校园招聘与人才发展经验</li>
+          <li>校招面试时长超<span class="lat">5000</span>小时</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card sp">
+      <div class="who">
+        <div class="ph" data-src="jj.png" data-w="698" data-face-x="247" data-face-y="214" data-face="183" data-hair="156" data-cx="351"></div>
+        <div class="nm" style="--ny:1.6px"><b>羊筱涵</b><span class="en">Jing Jing</span></div>
+      </div>
+      <div class="bio">
+        <span class="role hl"><span class="lat">Arena School</span> 联合创始人</span>
+        <ul class="b">
+          <li>前月之暗面 <span class="lat">Kimi</span> 国际增长</li>
+          <li>毕业于清华大学苏世民书院</li>
+          <li>毕业于布朗大学</li>
+          <li>北京顺义国际学校 <span class="lat">ISB</span> 校友</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card sp">
+      <div class="who">
+        <div class="ph" data-src="kk.png" data-w="1333" data-face-x="507" data-face-y="345" data-face="304" data-hair="233" data-cx="659"></div>
+        <div class="nm" style="--ny:11.9px"><b class="lat">KK</b></div>
+      </div>
+      <div class="bio">
+        <span class="role hl">潜历<span class="lat">DeepTalent</span>联合创始人</span>
+        <ul class="b">
+          <li>毕业于哥伦比亚大学</li>
+          <li>毕业于清华大学苏世民书院</li>
+          <li>微信视频号「<span class="lat">KK</span>的异想天开」主理人</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <span class="lab hl qlab">本期我们将探讨</span>
+  <section class="qs">
+    <div class="card q"><span class="n">01</span><p><span class="lat">AI</span>时代，企业招聘新人<br>有了哪些<em>新要求</em>？</p></div>
+    <div class="card q"><span class="n">02</span><p>面试环节中，企业如何<br>考察你的<em><span class="lat">AI</span>驾驭力</em>？</p></div>
+    <div class="card q"><span class="n">03</span><p>从校园走向职场，<br>留学生的<em>短板</em>在哪里？</p></div>
+    <div class="card q"><span class="n">04</span><p><span class="lat">AI</span>驾驭力，在校期间<br>应该如何<em>系统地练成</em>？</p></div>
+  </section>
+
+  <section class="info">
+    <div class="card inf">
+      <span class="lab hl">活动时间</span>
+      <div class="big"><span class="lat">11</span>月<span class="lat">15</span>日 周日</div>
+      <div class="sched">
+        <div><span class="t">13:30</span><span class="e">签到</span></div>
+        <div><span class="t">14:30</span><span class="e">活动开始</span></div>
+        <div><span class="t">15:30</span><span class="e"><span class="lat">Q&amp;A</span></span></div>
+        <div><span class="t">16:30</span><span class="e">结束</span></div>
+      </div>
+    </div>
+    <div class="card inf loc">
+      <span class="lab hl">活动地点</span>
+      <div class="big">温榆广场 <span class="lat">LIA</span> 空间</div>
+      <p class="addr"><span>北京市顺义区温榆广场天一社区</span><br><span>旋转门里右侧</span></p>
+      <div class="seats"><div class="stack"><b>拟邀<span class="num">30</span>席</b><span class="s3">以家庭为单位</span><span class="cta">扫码预约席位</span></div><div class="qr"><img src="qr-signup.png" alt="千麓学者客服二维码"></div></div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="mod"><img src="lia-white.png" alt="LIA"><span class="nmod"><span class="t-in" style="--oy:4.5px">TALK</span></span></div>
+    <p class="su">活动时间：<span class="lat">11</span>月<span class="lat">15</span>日（周日）<span class="lat">13:30–16:30</span><br>
+       活动地点：北京市顺义区温榆广场 <span class="lat">LIA</span> 空间<br>
+       报名方式：添加千麓学者客服微信 <span class="lat">LuxScholar</span></p>
+  </section>
+</div>
+<script>
+/* Pop-out portraits: circle diameter = 2 face widths, centered on the torso (data-cx).
+   Every head rises the same RISE px above its circle, so hair tops and circles both line up across cards. */
+const RISE=30;
+document.querySelectorAll('.ph').forEach(el=>{
+  const D=parseFloat(getComputedStyle(el).getPropertyValue('--D'))||170, f=+el.dataset.face, d=2.0*f, s=D/d;
+  const hair=+el.dataset.hair, P=RISE, top=hair-12+P/s;   // circle top in source px
+  el.style.height=(D+P)+'px';
+  const disc=document.createElement('div'); disc.className='disc'; disc.style.top=P+'px'; el.appendChild(disc);
+  const fig=document.createElement('div'); fig.className='fig'; fig.style.height=(D+P)+'px';
+  const R=D/2; fig.style.clipPath=`path('M0 0 H${D} V${P+R} A ${R} ${R} 0 0 1 0 ${P+R} Z')`;
+  const img=new Image(); img.src=el.dataset.src; img.alt='';
+  img.style.width=(+el.dataset.w*s)+'px';
+  img.style.left=(-(+el.dataset.cx - d/2)*s)+'px';
+  img.style.top=(P - top*s)+'px';
+  fig.appendChild(img); el.appendChild(fig);
+});
+/* Vertical layout: the whole portrait (head included) sits inside the card, 24px below its top. */
+document.querySelectorAll('.who').forEach(w=>w.style.marginTop='30px');
+/* optical nudge so every hairline sits 34px below the card top (hair detection differs per photo) */
+[3,0,1].forEach((n,i)=>{const e=document.querySelectorAll('.ph')[i]; if(e) e.style.marginTop=n+'px';});
+(()=>{const sp=document.querySelector('.speakers'); if(!sp) return; sp.style.marginTop='40px'; sp.style.rowGap='18px';})();
+</script>
+</body></html>

@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Arena · style options</title>
+<link rel="stylesheet" href="assets/fonts-cjk.css">
+<link rel="stylesheet" href="assets/fonts-cjk-light.css">
+<link rel="stylesheet" href="assets/fonts-site.css">
+<style>
+:root{--paper:#EFE3D4;--paper2:#E6D4C1;--paper3:#F4EBDF;--ink:#0E1729;--ink2:#46506A;--ink3:#8A8FA0;--blue:#22458A;--coral:#E59375;--hair:rgba(14,23,41,.12)}
+*{box-sizing:border-box}html,body{margin:0;background:#222}
+.s{position:relative;width:1080px;height:1440px;overflow:hidden;font-family:"Geist","Noto Sans SC",sans-serif;color:var(--ink);display:flex;flex-direction:column}
+.serif{font-family:"Newsreader","Noto Serif SC",serif}
+h1,h2{margin:0;font-family:"Newsreader","Noto Serif SC",serif;font-weight:400;text-wrap:balance;white-space:pre-line;letter-spacing:.01em}
+p{margin:0;text-wrap:pretty}
+.b{color:var(--blue)}
+.gap{flex:1 1 0}
+.shot img{display:block;width:100%}
+
+/* ───────── A · 网站同款 (site-native: light serif, hairline soft cards, bands) ───────── */
+.A{background:var(--paper);padding:0}
+.A .wm{height:30px}
+.A .head{display:flex;justify-content:space-between;align-items:center;padding:64px 84px 0}
+.A .pg{font-family:"Newsreader",serif;font-style:italic;font-size:30px;color:var(--ink3)}
+.A .eb{font-size:26px;color:var(--ink3);letter-spacing:.06em;display:flex;align-items:center;gap:16px;margin-bottom:26px}
+.A .eb::before{content:"";width:44px;height:1.5px;background:var(--ink3)}
+.A .body{padding:0 84px}
+.A h2{font-size:88px;line-height:1.24;margin-bottom:34px}
+.A .lead{font-size:36px;line-height:1.7;color:var(--ink2)}
+.A .card{background:var(--paper3);border:1.5px solid var(--hair);border-radius:28px;padding:40px 44px}
+.A .band{background:var(--paper2)}
+.A.cover .art{height:880px;background-size:cover;background-position:center}
+.A.cover .band{flex:1;padding:58px 84px 0}
+.A.cover h1{font-size:92px;line-height:1.2;margin:0 0 24px}
+.A.cover .sub{font-size:34px;color:var(--ink2);line-height:1.6}
+.A.cover .foot{display:flex;justify-content:space-between;align-items:center;padding:0 84px 56px;background:var(--paper2)}
+.A.cover .pill{background:var(--blue);color:#fff;border-radius:999px;padding:14px 28px;font-size:26px}
+.A .pts{display:flex;flex-direction:column;gap:22px}
+.A .pts .card b{display:block;font-family:"Noto Serif SC",serif;font-weight:500;font-size:44px;margin-bottom:10px}
+.A .pts .card span{font-size:33px;line-height:1.65;color:var(--ink2)}
+.A .fd{display:grid;grid-template-columns:420px 1fr;gap:48px;align-items:end}
+.A .fd img{width:420px;height:525px;object-fit:cover;border-radius:28px}
+.A .fd .nm{font-family:"Newsreader",serif;font-size:78px;line-height:1}
+.A .fd .rl{font-size:28px;color:var(--ink3);margin:14px 0 26px}
+.A .creds{display:flex;flex-wrap:wrap;gap:12px}
+.A .creds span{border:1.5px solid var(--hair);border-radius:999px;padding:8px 20px;font-size:27px;background:var(--paper3)}
+.A .quote{font-family:"Noto Serif SC",serif;font-weight:400;font-size:44px;line-height:1.55}
+.A .quote em{font-style:normal;color:var(--blue)}
+.A .shot{border-radius:22px;overflow:hidden;box-shadow:0 40px 80px -40px rgba(14,23,41,.55),0 2px 6px rgba(14,23,41,.08)}
+.A .num{font-family:"Newsreader",serif;font-style:italic;font-size:40px;color:var(--blue);margin-bottom:10px}
+
+/* ───────── B · Riso 印刷 (every slide carries riso ink; no cards, hairline rules) ───────── */
+.B{background:var(--paper)}
+.B .strip{height:260px;background-size:cover;background-position:center 30%;display:flex;align-items:flex-end;justify-content:space-between;padding:0 84px 34px;color:#F4EBDF}
+.B .strip .t{font-family:"Newsreader","Noto Serif SC",serif;font-size:30px;letter-spacing:.04em}
+.B .strip img{height:26px;filter:brightness(0) invert(.93)}
+.B .body{padding:70px 84px 0;display:flex;flex-direction:column;flex:1}
+.B h2{font-size:92px;line-height:1.2;margin-bottom:36px}
+.B .lead{font-size:36px;line-height:1.7;color:var(--ink2)}
+.B .rows > div{display:grid;grid-template-columns:120px 1fr;gap:26px;padding:34px 0;border-top:1.5px solid var(--ink)}
+.B .rows > div:last-child{border-bottom:1.5px solid var(--ink)}
+.B .rows i{font-family:"Newsreader",serif;font-style:italic;font-size:64px;color:var(--blue);line-height:1}
+.B .rows b{display:block;font-family:"Noto Serif SC",serif;font-weight:500;font-size:44px;margin-bottom:8px}
+.B .rows span{font-size:32px;line-height:1.6;color:var(--ink2)}
+.B.cover{background-size:cover;background-position:center;justify-content:flex-end;padding:0 84px 90px}
+.B.cover::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,23,41,0) 35%,rgba(14,23,41,.78) 100%)}
+.B.cover > *{position:relative}
+.B.cover .eb{color:#F4EBDF;font-size:28px;letter-spacing:.08em;margin-bottom:28px;opacity:.9}
+.B.cover h1{color:#F7EFE4;font-size:104px;line-height:1.16;margin-bottom:30px}
+.B.cover .sub{color:#EFE3D4;font-size:34px;line-height:1.6;border-top:1.5px solid rgba(244,235,223,.6);padding-top:26px}
+.B.cover .top{position:absolute;top:70px;left:84px;right:84px;display:flex;justify-content:space-between;align-items:center}
+.B.cover .top img{height:30px}
+.B .fd img{width:100%;height:560px;object-fit:cover;object-position:center 8%}
+.B .fd{margin:0 -84px 44px}
+.B .nm{font-family:"Newsreader",serif;font-size:84px;line-height:1}
+.B .rl{font-size:28px;color:var(--ink3);margin:12px 0 22px}
+.B .creds{font-size:30px;line-height:1.7;color:var(--ink2)}
+.B .creds span+span::before{content:" · ";color:var(--coral)}
+.B .field{margin:0 -84px;padding:60px 84px;background-size:cover;background-position:center}
+.B .shot{border-radius:16px;overflow:hidden;box-shadow:0 40px 90px -30px rgba(0,0,0,.6)}
+
+/* ───────── C · 杂志内页 (magazine: huge numerals, bleed images, no chrome) ───────── */
+.C{background:#F3EADF;padding:78px 84px 0}
+.C .kick{font-size:26px;letter-spacing:.1em;color:var(--blue);margin-bottom:18px}
+.C h2{font-size:96px;line-height:1.16;margin-bottom:34px;font-weight:500}
+.C .lead{font-size:37px;line-height:1.72;color:var(--ink2)}
+.C .big{font-family:"Newsreader",serif;font-style:italic;font-size:260px;line-height:.8;color:var(--coral);margin:-10px 0 20px -8px}
+.C .folio{display:flex;justify-content:space-between;align-items:baseline;padding:34px 0 50px;font-size:24px;color:var(--ink3)}
+.C .folio img{height:24px;opacity:.75}
+.C .cols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:34px;border-top:3px solid var(--ink);padding-top:30px}
+.C .cols b{display:block;font-family:"Noto Serif SC",serif;font-weight:500;font-size:44px;margin-bottom:14px}
+.C .cols span{font-size:30px;line-height:1.65;color:var(--ink2)}
+.C.cover{padding:0;background-size:cover;background-position:center}
+.C.cover .box{position:absolute;left:84px;right:84px;bottom:96px}
+.C.cover h1{font-size:112px;line-height:1.12;color:var(--ink);background:none;font-weight:500}
+.C.cover h1 span{background:#F3EADF;box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:2px 18px}
+.C.cover .sub{display:inline-block;margin-top:26px;background:var(--ink);color:#F3EADF;font-size:32px;padding:14px 22px}
+.C.cover .top{position:absolute;top:70px;left:84px;right:84px;display:flex;justify-content:space-between}
+.C.cover .top img{height:30px}
+.C .fdimg{margin:-78px -84px 50px;height:700px;background-size:cover;background-position:center 6%;position:relative}
+.C .fdimg .nm{position:absolute;left:84px;bottom:-40px;font-family:"Newsreader",serif;font-size:110px;line-height:1;color:var(--ink);background:#F3EADF;padding:10px 24px 0 0}
+.C .creds{font-size:30px;color:var(--ink2);line-height:1.7;margin-top:58px}
+.C .creds span+span::before{content:" / ";color:var(--ink3)}
+.C .bleed{margin-right:-84px;border-radius:18px 0 0 18px;overflow:hidden;box-shadow:0 30px 70px -35px rgba(14,23,41,.6)}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="data.js"></script>
+<script>
+const q=new URLSearchParams(location.search), O=q.get("o")||"A", K=q.get("s")||"cover";
+const P2=POSTS[1], P1=POSTS[0], F=FOUNDERS.jingjing, SC=P2.slides[4], PT=P1.slides[0];
+const e=t=>String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;");
+const wm='assets/wordmark-navy-1600.png', wmI='assets/wordmark-ivory-1600.png';
+const hl=(t,w)=>e(t).replace(w,`<span class="b">${w}</span>`);
+let h="";
+if(O==="A"){
+  const head=pg=>`<div class="head"><img class="wm" src="${wm}"><span class="pg">${pg}</span></div>`;
+  if(K==="cover") h=`<div class="s A cover"><div class="art" style="background-image:url(${P2.cover})"></div><div class="band"><div class="eb">案例 · 学习助手</div><h1>给自己做一个\n<span class="b">AI 学习助手</span></h1><p class="sub">${e(P2.sub)}</p></div><div class="foot"><img class="wm" src="${wm}"><span class="pill">左滑看完整流程 →</span></div></div>`;
+  if(K==="points") h=`<div class="s A">${head("2 / 7")}<div class="gap"></div><div class="body"><div class="eb">我们是谁</div><h2>我们<span class="b">相信</span></h2><p class="lead" style="margin-bottom:40px">${e(PT.lead)}</p><div class="pts">${PT.items.map(i=>`<div class="card"><b>${e(i.k)}</b><span>${e(i.v)}</span></div>`).join("")}</div></div><div class="gap"></div><div style="height:40px"></div></div>`;
+  if(K==="founder") h=`<div class="s A">${head("5 / 7")}<div class="gap"></div><div class="body"><div class="eb">创始团队</div><div class="fd"><img src="${F.photo}"><div><div class="nm">${e(F.name)}</div><div class="rl">联合创始人</div><div class="creds">${F.creds.map(c=>`<span>${e(c)}</span>`).join("")}</div></div></div><p class="lead" style="margin:48px 0 44px">${e(F.line)}</p><div class="card quote">很多事情的关键，在于<em>早早知道</em>什么是可能的。</div></div><div class="gap"></div><div style="height:40px"></div></div>`;
+  if(K==="screen") h=`<div class="s A">${head("6 / 9")}<div class="gap"></div><div class="body"><div class="num">04</div><h2>答案<span class="b">带出处</span></h2><p class="lead">${e(SC.body)}</p></div><div class="gap"></div><div class="body"><div class="shot"><img src="assets/screens-trim/${SC.img}.png"></div></div><div class="gap"></div><div style="height:40px"></div></div>`;
+}
+if(O==="B"){
+  const strip=(t,bg)=>`<div class="strip" style="background-image:url(${bg})"><span class="t">${t}</span><img src="${wmI}"></div>`;
+  const tex="assets/covers/cover-6.jpg";
+  if(K==="cover") h=`<div class="s B cover" style="background-image:url(${P2.cover})"><div class="top"><img src="${wmI}"><span class="t serif" style="color:#F4EBDF;font-size:28px">No. 02</span></div><div class="eb">案例 · 学习助手</div><h1>给自己做一个\nAI 学习助手</h1><p class="sub">${e(P2.sub)}</p></div>`;
+  if(K==="points") h=`<div class="s B">${strip("我们是谁 · 2 / 7",tex)}<div class="body"><h2>我们相信</h2><p class="lead" style="margin-bottom:44px">${e(PT.lead)}</p><div class="rows">${PT.items.map((i,k)=>`<div><i>0${k+1}</i><div><b>${e(i.k)}</b><span>${e(i.v)}</span></div></div>`).join("")}</div><div class="gap"></div></div></div>`;
+  if(K==="founder") h=`<div class="s B">${strip("创始团队 · 5 / 7",tex)}<div class="body" style="padding-top:0"><div class="fd"><img src="${F.photo}"></div><div class="nm">${e(F.name)}</div><div class="rl">联合创始人</div><div class="creds">${F.creds.map(c=>`<span>${e(c)}</span>`).join("")}</div><p class="lead" style="margin-top:34px">${e(F.line)}</p><div class="gap"></div></div></div>`;
+  if(K==="screen") h=`<div class="s B">${strip("学习助手 · 6 / 9",tex)}<div class="body"><div class="serif b" style="font-style:italic;font-size:44px;margin-bottom:12px">Step 04</div><h2>答案带出处</h2><p class="lead">${e(SC.body)}</p><div class="gap"></div><div class="field" style="background-image:url(assets/covers/cover-3.jpg)"><div class="shot"><img src="assets/screens-trim/${SC.img}.png"></div></div></div></div>`;
+}
+if(O==="C"){
+  const folio=t=>`<div class="folio"><img src="${wm}"><span>${t}</span></div>`;
+  if(K==="cover") h=`<div class="s C cover" style="background-image:url(${P2.cover})"><div class="top"><img src="${wm}"></div><div class="box"><h1><span>给自己做一个</span><br><span>AI 学习助手</span></h1><p class="sub">问课件，它带出处回答 · 不用会写代码</p></div></div>`;
+  if(K==="points") h=`<div class="s C"><div class="kick">我们是谁</div><h2>我们相信，AI 做不到的\n是这三件事</h2><p class="lead" style="margin-bottom:60px">AI 已经接手了学校里传递知识的那一部分。</p><div class="gap"></div><div class="cols">${PT.items.map(i=>`<div><b>${e(i.k)}</b><span>${e(i.v)}</span></div>`).join("")}</div><div class="gap"></div>${folio("02 — 07")}</div>`;
+  if(K==="founder") h=`<div class="s C"><div class="fdimg" style="background-image:url(${F.photo})"><div class="nm">${e(F.name)}</div></div><div class="creds">${F.creds.map(c=>`<span>${e(c)}</span>`).join("")}</div><p class="lead" style="margin-top:30px">${e(F.line)}</p><div class="gap"></div><p class="serif" style="font-size:46px;line-height:1.5;border-top:3px solid var(--ink);padding-top:28px">很多事情的关键，在于早早知道什么是可能的。</p>${folio("05 — 07")}</div>`;
+  if(K==="screen") h=`<div class="s C"><div class="big">4</div><h2>答案带出处</h2><p class="lead">${e(SC.body)}</p><div class="gap"></div><div class="bleed"><img src="assets/screens-trim/${SC.img}.png" style="width:115%;display:block"></div><div class="gap"></div>${folio("06 — 09")}</div>`;
+}
+document.getElementById("root").innerHTML=h;
+document.fonts.ready.then(()=>{window.__ready=true});
+</script>
+</body>
+</html>

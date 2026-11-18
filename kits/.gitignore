@@ -1,0 +1,10 @@
+__pycache__/
+.DS_Store
+.cache/
+node_modules/
+# generated during builds (finals that matter are committed by name; see README "Final exports")
+review/
+xhs/out/
+xhs/out-v2/
+# client proposals contain fees: build them here, file the PDFs in the private Drive Proposals folder
+print/docs/

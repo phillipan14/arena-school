@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>Arena School · 课程概要</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"><style>
+@page { size: A4; margin: 0; }
+:root { --ink:#0B1A4A; --ink2:#2F55A8; --paper:#EFE3D4; --hi:#FCF3ED; --brown:#B8895C; }
+* { box-sizing: border-box; }
+html,body { margin:0; padding:0; }
+body { background:#888; -webkit-print-color-adjust:exact; print-color-adjust:exact; color:var(--ink);
+  font-family: -apple-system, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", Arial, sans-serif; }
+.serif { font-family: "Newsreader", "Iowan Old Style", "Palatino", Georgia, "Songti SC", "STSong", serif; }
+.mono { font-family: "SF Mono", Menlo, "Courier New", monospace; }
+.page { width:210mm; height:297mm; margin:0 auto; background:var(--paper); position:relative; overflow:hidden;
+  display:flex; flex-direction:column; }
+.band { background-color:var(--ink); color:var(--hi); padding:13mm 14mm 9mm; position:relative;
+  background-image: radial-gradient(circle, rgba(239,227,212,.55) 0.45px, transparent 0.8px), radial-gradient(circle, rgba(184,137,92,.5) 0.45px, transparent 0.8px);
+  background-size: 2.2mm 2.2mm, 2.2mm 2.2mm; background-position: 0 0, 1.1mm 1.1mm; }
+.band::after { content:""; position:absolute; inset:0; background: linear-gradient(90deg, var(--ink) 0%, var(--ink) 52%, rgba(11,26,74,.55) 78%, rgba(11,26,74,.1) 100%); }
+.band > * { position:relative; z-index:1; }
+.top { display:flex; justify-content:space-between; align-items:center; margin-bottom:7mm; }
+.wordmark { letter-spacing:.42em; font-size:10.5pt; }
+.chip { display:inline-block; background:var(--hi); color:var(--ink); font-size:7pt; letter-spacing:.16em; text-transform:uppercase;
+  padding:1.2mm 2.4mm; box-shadow:1.2px 1.2px 0 var(--brown); font-weight:600; }
+h1 { font-weight:500; font-size:34pt; line-height:1; margin:0 0 4mm; letter-spacing:-.02em; }
+h1 em { color:#E9C9A0; }
+.idea { font-size:13pt; line-height:1.4; margin:0 0 2.5mm; max-width:150mm; }
+.idea2 { font-size:9pt; line-height:1.5; margin:0; max-width:150mm; color:rgba(252,243,237,.82); }
+.body { padding:7mm 14mm 0; flex:1; display:flex; flex-direction:column; gap:6mm; }
+.label { display:inline-block; background:var(--ink); color:var(--hi); font-size:6.8pt; letter-spacing:.16em; text-transform:uppercase;
+  padding:1mm 2.2mm; box-shadow:1.2px 1.2px 0 var(--ink2); font-weight:600; margin-bottom:3mm; }
+.pillars { display:grid; grid-template-columns:repeat(3,1fr); gap:4mm; }
+.pillar { background:var(--hi); border:1.2px solid var(--ink); box-shadow:2px 2px 0 var(--ink2); padding:4mm 4mm 3.5mm; display:flex; flex-direction:column; }
+.pillar h3 { font-size:17pt; font-weight:500; margin:0; line-height:1.1; }
+.pillar .tag { font-style:italic; color:var(--ink2); font-size:10pt; margin:.8mm 0 2.5mm; }
+.pr { border-top:1px dashed rgba(11,26,74,.3); padding:2mm 0; }
+.pr .n { color:var(--ink2); font-size:7pt; font-weight:700; margin-right:1.2mm; }
+.pr b { font-size:8.4pt; }
+.pr p { margin:.6mm 0 0; font-size:7.8pt; line-height:1.42; color:#26304F; }
+.leave { margin-top:auto; border-top:1.2px solid var(--ink); padding-top:2mm; font-size:7.6pt; font-weight:600; color:var(--ink); }
+.track { display:grid; grid-template-columns:repeat(7,1fr); position:relative; }
+.track::before { content:""; position:absolute; left:calc(100%/14); right:calc(100%/14); top:5.2mm; height:1.5px; background:var(--ink); }
+.step { text-align:center; padding:0 1.2mm; position:relative; }
+.step .when { font-size:6.2pt; letter-spacing:.1em; text-transform:uppercase; color:#5A6280; height:3.6mm; white-space:nowrap; }
+.step .dot { width:3mm; height:3mm; border-radius:50%; background:var(--ink2); border:1.5px solid var(--hi); box-shadow:0 0 0 1px var(--ink); margin:.5mm auto 1.8mm; position:relative; }
+.step .t { font-size:10.5pt; font-weight:500; line-height:1.1; margin-bottom:1mm; }
+.step p { font-size:7.2pt; line-height:1.38; margin:0; color:#26304F; }
+.formats { display:grid; grid-template-columns:repeat(3,1fr); gap:4mm; }
+.fmt { border-left:2.5px solid var(--ink2); padding:.5mm 0 .5mm 3mm; }
+.fmt b { display:block; font-size:10.5pt; font-weight:500; margin-bottom:.6mm; }
+.fmt span { font-size:7.8pt; line-height:1.42; color:#26304F; }
+.foot { margin-top:auto; background:var(--ink); color:var(--hi); padding:5mm 14mm; display:flex; justify-content:space-between; align-items:center; gap:6mm; }
+.foot .proof { font-size:8pt; color:rgba(252,243,237,.78); }
+.foot .cta { text-align:right; }
+.foot .cta .c1 { font-size:8pt; color:rgba(252,243,237,.78); }
+.foot .cta .c2 { font-size:12.5pt; color:#E9C9A0; }
+html[lang=zh-CN] .pr p { font-size:8.8pt; } html[lang=zh-CN] .pr b { font-size:9.2pt; } html[lang=zh-CN] .step p { font-size:8.2pt; } html[lang=zh-CN] .fmt span { font-size:9pt; } html[lang=zh-CN] .idea2 { font-size:9.8pt; } html[lang=zh-CN] .body { gap:8mm; }
+@media screen { body { padding:10mm 0; } .page { box-shadow:0 4px 30px rgba(0,0,0,.3); } }
+@media print { body { background:none; } }
+</style></head>
+<body><div class="page">
+<header class="band">
+  <div class="top"><span class="wordmark serif">ARENA SCHOOL</span><span class="chip mono">课程概要</span></div>
+  <h1 class="serif">主动性。审美。<em>匠心。</em></h1>
+  <p class="idea serif">当 AI 几乎什么都能做出来，学生需要知道什么值得做，判断做得好不好，并把事情认真做完。</p>
+  <p class="idea2">学生在从业者的陪伴下做出自己的 AI 产品，并且每天把作品拿给真实的人看。八条原则决定了每个项目如何运行，它们归入三大支柱。</p>
+</header>
+<main class="body">
+  <section><span class="label mono">三大支柱与八条原则</span><div class="pillars"><div class="pillar"><h3 class="serif">主动性</h3><div class="tag serif">决定什么值得解决。</div><div class="pr"><span class="n mono">I</span><b>从第一天起自己做主</b><p>第一天就由学生自己选项目。导师提供支持，方向由学生决定。</p></div><div class="pr"><span class="n mono">V</span><b>尽早开始反思</b><p>每天三十分钟离开屏幕，只回答一个问题：哪些目标是我自己真正想要的？</p></div><div class="pr"><span class="n mono">VI</span><b>趁代价小，早点冒险</b><p>不用幻灯片路演、给陌生专家写信、展示未完成的作品。小的尝试让大的挑战变得容易。</p></div><div class="leave">带走：一份签了名的九十天“自我承诺”。</div></div><div class="pillar"><h3 class="serif">审美</h3><div class="tag serif">分辨哪个版本真正好用。</div><div class="pr"><span class="n mono">II</span><b>当着别人的面做东西</b><p>开发、展示、听取反馈、修改。每天以演示收尾；营期过半时上线公开网址。</p></div><div class="pr"><span class="n mono">III</span><b>从业者就在现场</b><p>真正做出过产品的创始人、工程师和设计师审阅代码与设计。</p></div><div class="pr"><span class="n mono">VIII</span><b>第一性原理思考</b><p>五个问题：怎么做、为什么、依据什么原理、何时失效、如何调整。评估看的是有没有追问。</p></div><div class="leave">带走：几位叫得出他们名字的业内人士。</div></div><div class="pillar"><h3 class="serif">匠心</h3><div class="tag serif">把事情做好、做完。</div><div class="pr"><span class="n mono">IV</span><b>AI 是杠杆，不是拐杖</b><p>写提示词、用 AI 编程助手，每天审视输出，识别错误和幻觉。</p></div><div class="pr"><span class="n mono">VII</span><b>日常习惯，个人系统</b><p>每天三行站会（完成、收获、下一步）；每项任务只有一个负责人。</p></div><div class="pr"><span class="n mono">•</span><b>封版</b><p>固定时刻开发停止。各队演示能跑通的部分，学会取舍范围。</p></div><div class="leave">带走：一个能用的产品，和一页自己的日常作息。</div></div></div></section>
+  <section><span class="label mono">典型的一天</span><div class="track"><div class="step"><div class="when mono">开始</div><div class="dot"></div><div class="t serif">方法课</div><p>用之前才教：访谈前讲访谈，开卖当天讲定价。</p></div><div class="step"><div class="when mono">一天的大部分</div><div class="dot"></div><div class="t serif">开发</div><p>团队为自选的问题开发 AI 产品。</p></div><div class="step"><div class="when mono">开发期间</div><div class="dot"></div><div class="t serif">导师一对一</div><p>卡住时有人帮，审阅代码和设计。</p></div><div class="step"><div class="when mono">固定时刻</div><div class="dot"></div><div class="t serif">封版</div><p>不延期，演示能跑通的部分。</p></div><div class="step"><div class="when mono">每天</div><div class="dot"></div><div class="t serif">反思</div><p>三十分钟，一本笔记本，不看屏幕。</p></div><div class="step"><div class="when mono">一天结束</div><div class="dot"></div><div class="t serif">站会</div><p>完成、收获、下一步。</p></div><div class="step"><div class="when mono">最后一天</div><div class="dot"></div><div class="t serif">演示日</div><p>向从业者、投资人和家长现场路演。</p></div></div></section>
+  <section><span class="label mono">项目形式</span><div class="formats"><div class="fmt"><b class="serif">假期集训</b><span>学校假期中的五天集训。</span></div><div class="fmt"><b class="serif">学年项目</b><span>周末与课后进行，团队整个学年持续开发。</span></div><div class="fmt"><b class="serif">合作营期</b><span>与合作学校共同开设，配合学校的场地与校历。</span></div></div></section>
+</main>
+<footer class="foot"><div class="proof">项目已于 2025 年在香港、2026 年在北京开展。</div>
+  <div class="cta"><div class="c1">欢迎与我们聊聊贵校的需求</div><div class="c2 serif">contact@arenaschool.org · arenaschool.org</div></div></footer>
+</div></body></html>
