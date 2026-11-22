@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>Arena School · Curriculum summary</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"><style>
+@page { size: A4; margin: 0; }
+:root { --ink:#0B1A4A; --ink2:#2F55A8; --paper:#EFE3D4; --hi:#FCF3ED; --brown:#B8895C; }
+* { box-sizing: border-box; }
+html,body { margin:0; padding:0; }
+body { background:#888; -webkit-print-color-adjust:exact; print-color-adjust:exact; color:var(--ink);
+  font-family: -apple-system, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", Arial, sans-serif; }
+.serif { font-family: "Newsreader", "Iowan Old Style", "Palatino", Georgia, "Songti SC", "STSong", serif; }
+.mono { font-family: "SF Mono", Menlo, "Courier New", monospace; }
+.page { width:210mm; height:297mm; margin:0 auto; background:var(--paper); position:relative; overflow:hidden;
+  display:flex; flex-direction:column; }
+.band { background-color:var(--ink); color:var(--hi); padding:13mm 14mm 9mm; position:relative;
+  background-image: radial-gradient(circle, rgba(239,227,212,.55) 0.45px, transparent 0.8px), radial-gradient(circle, rgba(184,137,92,.5) 0.45px, transparent 0.8px);
+  background-size: 2.2mm 2.2mm, 2.2mm 2.2mm; background-position: 0 0, 1.1mm 1.1mm; }
+.band::after { content:""; position:absolute; inset:0; background: linear-gradient(90deg, var(--ink) 0%, var(--ink) 52%, rgba(11,26,74,.55) 78%, rgba(11,26,74,.1) 100%); }
+.band > * { position:relative; z-index:1; }
+.top { display:flex; justify-content:space-between; align-items:center; margin-bottom:7mm; }
+.wordmark { letter-spacing:.42em; font-size:10.5pt; }
+.chip { display:inline-block; background:var(--hi); color:var(--ink); font-size:7pt; letter-spacing:.16em; text-transform:uppercase;
+  padding:1.2mm 2.4mm; box-shadow:1.2px 1.2px 0 var(--brown); font-weight:600; }
+h1 { font-weight:500; font-size:34pt; line-height:1; margin:0 0 4mm; letter-spacing:-.02em; }
+h1 em { color:#E9C9A0; }
+.idea { font-size:13pt; line-height:1.4; margin:0 0 2.5mm; max-width:150mm; }
+.idea2 { font-size:9pt; line-height:1.5; margin:0; max-width:150mm; color:rgba(252,243,237,.82); }
+.body { padding:7mm 14mm 0; flex:1; display:flex; flex-direction:column; gap:6mm; }
+.label { display:inline-block; background:var(--ink); color:var(--hi); font-size:6.8pt; letter-spacing:.16em; text-transform:uppercase;
+  padding:1mm 2.2mm; box-shadow:1.2px 1.2px 0 var(--ink2); font-weight:600; margin-bottom:3mm; }
+.pillars { display:grid; grid-template-columns:repeat(3,1fr); gap:4mm; }
+.pillar { background:var(--hi); border:1.2px solid var(--ink); box-shadow:2px 2px 0 var(--ink2); padding:4mm 4mm 3.5mm; display:flex; flex-direction:column; }
+.pillar h3 { font-size:17pt; font-weight:500; margin:0; line-height:1.1; }
+.pillar .tag { font-style:italic; color:var(--ink2); font-size:10pt; margin:.8mm 0 2.5mm; }
+.pr { border-top:1px dashed rgba(11,26,74,.3); padding:2mm 0; }
+.pr .n { color:var(--ink2); font-size:7pt; font-weight:700; margin-right:1.2mm; }
+.pr b { font-size:8.4pt; }
+.pr p { margin:.6mm 0 0; font-size:7.8pt; line-height:1.42; color:#26304F; }
+.leave { margin-top:auto; border-top:1.2px solid var(--ink); padding-top:2mm; font-size:7.6pt; font-weight:600; color:var(--ink); }
+.track { display:grid; grid-template-columns:repeat(7,1fr); position:relative; }
+.track::before { content:""; position:absolute; left:calc(100%/14); right:calc(100%/14); top:5.2mm; height:1.5px; background:var(--ink); }
+.step { text-align:center; padding:0 1.2mm; position:relative; }
+.step .when { font-size:6.2pt; letter-spacing:.1em; text-transform:uppercase; color:#5A6280; height:3.6mm; white-space:nowrap; }
+.step .dot { width:3mm; height:3mm; border-radius:50%; background:var(--ink2); border:1.5px solid var(--hi); box-shadow:0 0 0 1px var(--ink); margin:.5mm auto 1.8mm; position:relative; }
+.step .t { font-size:10.5pt; font-weight:500; line-height:1.1; margin-bottom:1mm; }
+.step p { font-size:7.2pt; line-height:1.38; margin:0; color:#26304F; }
+.formats { display:grid; grid-template-columns:repeat(3,1fr); gap:4mm; }
+.fmt { border-left:2.5px solid var(--ink2); padding:.5mm 0 .5mm 3mm; }
+.fmt b { display:block; font-size:10.5pt; font-weight:500; margin-bottom:.6mm; }
+.fmt span { font-size:7.8pt; line-height:1.42; color:#26304F; }
+.foot { margin-top:auto; background:var(--ink); color:var(--hi); padding:5mm 14mm; display:flex; justify-content:space-between; align-items:center; gap:6mm; }
+.foot .proof { font-size:8pt; color:rgba(252,243,237,.78); }
+.foot .cta { text-align:right; }
+.foot .cta .c1 { font-size:8pt; color:rgba(252,243,237,.78); }
+.foot .cta .c2 { font-size:12.5pt; color:#E9C9A0; }
+html[lang=zh-CN] .pr p { font-size:8.8pt; } html[lang=zh-CN] .pr b { font-size:9.2pt; } html[lang=zh-CN] .step p { font-size:8.2pt; } html[lang=zh-CN] .fmt span { font-size:9pt; } html[lang=zh-CN] .idea2 { font-size:9.8pt; } html[lang=zh-CN] .body { gap:8mm; }
+@media screen { body { padding:10mm 0; } .page { box-shadow:0 4px 30px rgba(0,0,0,.3); } }
+@media print { body { background:none; } }
+</style></head>
+<body><div class="page">
+<header class="band">
+  <div class="top"><span class="wordmark serif">ARENA SCHOOL</span><span class="chip mono">Curriculum summary</span></div>
+  <h1 class="serif">Agency. Taste. <em>Craft.</em></h1>
+  <p class="idea serif">When AI can make almost anything, students need to know what&#x27;s worth making, whether it&#x27;s good, and how to finish it.</p>
+  <p class="idea2">Students build their own AI products with practitioners in the room, and show the work to real people every day. Eight principles shape how each program runs; they group under three pillars.</p>
+</header>
+<main class="body">
+  <section><span class="label mono">The three pillars and eight principles</span><div class="pillars"><div class="pillar"><h3 class="serif">Agency</h3><div class="tag serif">Choosing what&#x27;s worth solving.</div><div class="pr"><span class="n mono">I</span><b>Agency from day one</b><p>Students choose their own project on day one. Mentors support; students decide.</p></div><div class="pr"><span class="n mono">V</span><b>Reflection, started early</b><p>Thirty screen-free minutes a day on one question: which of my goals are my own?</p></div><div class="pr"><span class="n mono">VI</span><b>Risk early, while it&#x27;s cheap</b><p>Pitch without slides, cold-email an expert, show unfinished work. Small risks make larger ones easier.</p></div><div class="leave">Leave with: a signed 90-day promise to self.</div></div><div class="pillar"><h3 class="serif">Taste</h3><div class="tag serif">Telling which version works.</div><div class="pr"><span class="n mono">II</span><b>Make things in front of people</b><p>Build, present, take feedback, revise. Every day ends with a demo; a public URL by midway.</p></div><div class="pr"><span class="n mono">III</span><b>Practitioners in the room</b><p>Founders, engineers and designers who have shipped products review code and designs.</p></div><div class="pr"><span class="n mono">VIII</span><b>First-principles thinking</b><p>Five questions: how, why, what principle, when does it fail, how do I adapt. Assessed on asking them.</p></div><div class="leave">Leave with: professionals who know them by name.</div></div><div class="pillar"><h3 class="serif">Craft</h3><div class="tag serif">Finishing it well.</div><div class="pr"><span class="n mono">IV</span><b>AI is leverage, not a crutch</b><p>Prompting, AI coding agents, and critiquing output daily: catching errors and hallucinations.</p></div><div class="pr"><span class="n mono">VII</span><b>Daily habits, personal systems</b><p>A three-line standup every day (shipped, learned, next); every task has one owner.</p></div><div class="pr"><span class="n mono">•</span><b>The freeze</b><p>At a fixed hour the build stops. Teams demo what works and learn to cut scope.</p></div><div class="leave">Leave with: a working product and a one-page personal routine.</div></div></div></section>
+  <section><span class="label mono">A typical day</span><div class="track"><div class="step"><div class="when mono">Start</div><div class="dot"></div><div class="t serif">Lesson</div><p>Taught right before it&#x27;s needed, like pricing on launch day.</p></div><div class="step"><div class="when mono">Most of the day</div><div class="dot"></div><div class="t serif">Build</div><p>Teams build an AI product for a problem they chose.</p></div><div class="step"><div class="when mono">During the build</div><div class="dot"></div><div class="t serif">Mentor 1:1s</div><p>Help while stuck; code and design reviews.</p></div><div class="step"><div class="when mono">Fixed hour</div><div class="dot"></div><div class="t serif">The freeze</div><p>No extensions. Demo what works.</p></div><div class="step"><div class="when mono">Daily</div><div class="dot"></div><div class="t serif">Reflection</div><p>30 minutes, notebook, no screens.</p></div><div class="step"><div class="when mono">End of day</div><div class="dot"></div><div class="t serif">Standup</div><p>Shipped, learned, next.</p></div><div class="step"><div class="when mono">Last day</div><div class="dot"></div><div class="t serif">Demo day</div><p>Live pitch to practitioners, investors and parents.</p></div></div></section>
+  <section><span class="label mono">Formats</span><div class="formats"><div class="fmt"><b class="serif">Intensives</b><span>Five days during school breaks.</span></div><div class="fmt"><b class="serif">School year</b><span>Weekends and after school, so teams keep building through the year.</span></div><div class="fmt"><b class="serif">Partner cohorts</b><span>Co-run with a host school, on its campus and calendar.</span></div></div></section>
+</main>
+<footer class="foot"><div class="proof">Programs have run in Hong Kong (2025) and Beijing (2026).</div>
+  <div class="cta"><div class="c1">Talk to us about your school</div><div class="c2 serif">contact@arenaschool.org · arenaschool.org</div></div></footer>
+</div></body></html>
