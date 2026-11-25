@@ -1,0 +1,33 @@
+name: Lux questionnaire summary
+on:
+  schedule:
+    # Daily trigger; the script sends only every third day from 25 Nov 2026.
+    - cron: '0 9 * * *'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Send a summary now, outside the three-day cadence
+        type: boolean
+        default: false
+permissions:
+  contents: read
+concurrency:
+  group: lux-questionnaire-digest
+  cancel-in-progress: false
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: node tools/lux-digest.js
+        env:
+          LUX_BLOB_READ_WRITE_TOKEN: ${{ secrets.LUX_BLOB_READ_WRITE_TOKEN }}
+          JJOPS_SLACK_BOT_TOKEN: ${{ secrets.JJOPS_SLACK_BOT_TOKEN }}
+          JJOPS_USER_ID: ${{ secrets.JJOPS_USER_ID }}
+          FORCE_DIGEST: ${{ inputs.force }}

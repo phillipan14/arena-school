@@ -1,0 +1,8 @@
+{
+  "name": "arena-lux-private-service",
+  "private": true,
+  "version": "1.0.0",
+  "dependencies": {
+    "@vercel/blob": "2.3.0"
+  }
+}

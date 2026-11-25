@@ -236,5 +236,15 @@
         }
       ]
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/lux-questionnaire",
+      "destination": "https://arena-lux-private-service.vercel.app/api/lux-questionnaire"
+    },
+    {
+      "source": "/api/lux-results",
+      "destination": "https://arena-lux-private-service.vercel.app/api/lux-results"
+    }
   ]
 }

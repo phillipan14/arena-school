@@ -1,0 +1,14 @@
+{
+  "name": "arena-school",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "test:lux": "node --test tests/lux*.test.js"
+  },
+  "dependencies": {
+    "@vercel/blob": "2.3.0"
+  },
+  "devDependencies": {
+    "jsdom": "^29.1.1"
+  }
+}
